@@ -348,7 +348,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     // Append each of the user-specified key-value pair to the connection username
     if (userMetaData != [ NSNull null ]) {
         for (id key in userMetaData) {
-            [userMetadata appendFormat:@"&%@=%@", key, [userMetaData objectForKey:key]];
+            if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
+                [userMetadata appendFormat:@"&%@=%@", key, [userMetaData objectForKey:key]];
+            } else {
+                AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
+            }
         }
     }
 
