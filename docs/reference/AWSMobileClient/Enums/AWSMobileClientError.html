@@ -14,7 +14,7 @@
     <a title="AWSMobileClientError Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient Docs</a> (46% documented)</p>
+        <p><a href="../index.html">AWSMobileClient Docs</a> (49% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Faws%2Damplify%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -34,6 +34,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/AWSMobileClient.html">AWSMobileClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceOperations.html">DeviceOperations</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SignInUIOptions.html">SignInUIOptions</a>
@@ -70,10 +73,19 @@
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/Device.html">Device</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HostedUIOptions.html">HostedUIOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ListDevicesResult.html">ListDevicesResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SessionToken.html">SessionToken</a>
@@ -82,10 +94,16 @@
                 <a href="../Structs/SignInResult.html">SignInResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SignOutOptions.html">SignOutOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SignUpResult.html">SignUpResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Tokens.html">Tokens</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -1063,12 +1081,228 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO10badRequestyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/badRequest(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO10badRequestyACSS_tcACmF">badRequest(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">badRequest</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO19expiredRefreshTokenyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/expiredRefreshToken(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO19expiredRefreshTokenyACSS_tcACmF">expiredRefreshToken(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">expiredRefreshToken</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO16errorLoadingPageyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/errorLoadingPage(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO16errorLoadingPageyACSS_tcACmF">errorLoadingPage(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">errorLoadingPage</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO14securityFailedyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/securityFailed(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO14securityFailedyACSS_tcACmF">securityFailed(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">securityFailed</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO16idTokenNotIssuedyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/idTokenNotIssued(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO16idTokenNotIssuedyACSS_tcACmF">idTokenNotIssued(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">idTokenNotIssued</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO017idTokenAndAcceessE9NotIssuedyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/idTokenAndAcceessTokenNotIssued(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO017idTokenAndAcceessE9NotIssuedyACSS_tcACmF">idTokenAndAcceessTokenNotIssued(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">idTokenAndAcceessTokenNotIssued</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO20invalidConfigurationyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/invalidConfiguration(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO20invalidConfigurationyACSS_tcACmF">invalidConfiguration(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">invalidConfiguration</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient0aB5ErrorO19deviceNotRememberedyACSS_tcACmF"></a>
+                    <a name="//apple_ref/swift/Element/deviceNotRemembered(message:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient0aB5ErrorO19deviceNotRememberedyACSS_tcACmF">deviceNotRemembered(message:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">deviceNotRemembered</span><span class="p">(</span><span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/aws-amplify/aws-sdk-ios" target="_blank" rel="external">AWS</a>. All rights reserved. (Last updated: 2019-03-08)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/aws-amplify/aws-sdk-ios" target="_blank" rel="external">AWS</a>. All rights reserved. (Last updated: 2019-03-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

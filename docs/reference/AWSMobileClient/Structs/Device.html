@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FederatedSignInOptions Structure Reference</title>
+    <title>Device Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/FederatedSignInOptions" class="dashAnchor"></a>
-    <a title="FederatedSignInOptions Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/Device" class="dashAnchor"></a>
+    <a title="Device Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSMobileClient Docs</a> (49% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FederatedSignInOptions Structure Reference
+        Device Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -123,14 +123,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FederatedSignInOptions</h1>
+            <h1>Device</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FederatedSignInOptions</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Device</span></code></pre>
 
                 </div>
               </div>
-            <p>The options object for <code>federatedSignIn</code> API.</p>
+            <p>The structure that holds information about a device.</p>
 
           </section>
           <section class="section task-group-section">
@@ -139,9 +139,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient22FederatedSignInOptionsV17cognitoIdentityId13customRoleARNACSSSg_AFtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(cognitoIdentityId:customRoleARN:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient22FederatedSignInOptionsV17cognitoIdentityId13customRoleARNACSSSg_AFtcfc">init(cognitoIdentityId:customRoleARN:)</a>
+                    <a name="/s:15AWSMobileClient6DeviceV10attributesSDyS2SGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/attributes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient6DeviceV10attributesSDyS2SGSgvp">attributes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -149,35 +149,124 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializer for federatedSignIn options.</p>
+                        <p>Device attributes</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">cognitoIdentityId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">customRoleARN</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">attributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span></code></pre>
 
                         </div>
                       </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>cognitoIdentityId</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>Cognito IdentityId</code> to be used for federation. This should be set when using <code>Developer Authenticated Identities</code>.</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient6DeviceV10createDate10Foundation0E0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/createDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient6DeviceV10createDate10Foundation0E0VSgvp">createDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The date this device was created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">createDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient6DeviceV9deviceKeySSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/deviceKey" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient6DeviceV9deviceKeySSSgvp">deviceKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The service generated unique identifier for device.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">deviceKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient6DeviceV21lastAuthenticatedDate10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lastAuthenticatedDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient6DeviceV21lastAuthenticatedDate10Foundation0F0VSgvp">lastAuthenticatedDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The date this device was last authenticated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastAuthenticatedDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient6DeviceV16lastModifiedDate10Foundation0F0VSgvp"></a>
+                    <a name="//apple_ref/swift/Property/lastModifiedDate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient6DeviceV16lastModifiedDate10Foundation0F0VSgvp">lastModifiedDate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The date this device was last updated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">lastModifiedDate</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

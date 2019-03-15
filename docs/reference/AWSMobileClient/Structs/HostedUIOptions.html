@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SignInUIOptions Class Reference</title>
+    <title>HostedUIOptions Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/SignInUIOptions" class="dashAnchor"></a>
-    <a title="SignInUIOptions Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/HostedUIOptions" class="dashAnchor"></a>
+    <a title="HostedUIOptions Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSMobileClient Docs</a> (49% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SignInUIOptions Class Reference
+        HostedUIOptions Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -123,15 +123,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SignInUIOptions</h1>
+            <h1>HostedUIOptions</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="kt">SignInUIOptions</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HostedUIOptions</span></code></pre>
 
                 </div>
               </div>
-            <p>The options object for drop-in UI which allows changing properties like logo image and background color.</p>
+            <p>The options object for <code>showSignIn</code> API when using Hosted Auth solution like Amazon Cognito UserPools or AUth0.</p>
 
           </section>
           <section class="section task-group-section">
@@ -140,9 +139,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)canCancel"></a>
-                    <a name="//apple_ref/swift/Property/canCancel" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)canCancel">canCancel</a>
+                    <a name="/s:15AWSMobileClient15HostedUIOptionsV17disableFederation6scopes16identityProvider13idpIdentifier010federationI4Name24signInURIQueryParameters05tokenpQ00n3OutpQ0ACSb_SaySSGSgSSSgA2NSDyS2SGSgA2Ptcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(disableFederation:scopes:identityProvider:idpIdentifier:federationProviderName:signInURIQueryParameters:tokenURIQueryParameters:signOutURIQueryParameters:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient15HostedUIOptionsV17disableFederation6scopes16identityProvider13idpIdentifier010federationI4Name24signInURIQueryParameters05tokenpQ00n3OutpQ0ACSb_SaySSGSgSSSgA2NSDyS2SGSgA2Ptcfc">init(disableFederation:scopes:identityProvider:idpIdentifier:federationProviderName:signInURIQueryParameters:tokenURIQueryParameters:signOutURIQueryParameters:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -150,99 +149,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If true, the end user can cancel the sign-in operation and go back to previous view controller.</p>
+                        <p>Initializer for hosted UI options.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">canCancel</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)logoImage"></a>
-                    <a name="//apple_ref/swift/Property/logoImage" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)logoImage">logoImage</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The logo image to be displayed on the sign-in screen.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">logoImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)backgroundColor"></a>
-                    <a name="//apple_ref/swift/Property/backgroundColor" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(py)backgroundColor">backgroundColor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The background color of the sign-in screen.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="k">let</span> <span class="nv">backgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(im)initWithCanCancel:logoImage:backgroundColor:"></a>
-                    <a name="//apple_ref/swift/Method/init(canCancel:logoImage:backgroundColor:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)SignInUIOptions(im)initWithCanCancel:logoImage:backgroundColor:">init(canCancel:logoImage:backgroundColor:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initializer for the drop-in UI configuration.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">canCancel</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">logoImage</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">backgroundColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">disableFederation</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nv">scopes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">identityProvider</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">idpIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">federationProviderName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">signInURIQueryParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">tokenURIQueryParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+            <span class="nv">signOutURIQueryParameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -253,36 +174,96 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>canCancel</em>
+                                <em>disableFederation</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>If set to true, the end user can cancel the sign-in operation and go back to previous view controller.</p>
+                                  <p>If set to true, will not federate with Cognito Identity service to fetch AWSCredentials. <code>true</code> by default.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>logoImage</em>
+                                <em>scopes</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The logo image to be displayed on the sign-in screen.</p>
+                                  <p>The scopes for the current login session. If specified here, the scopes specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>backgroundColor</em>
+                                <em>identityProvider</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The background color of the sign-in screen.</p>
+                                  <p>The IdentityProvider to be used for hosted UI. If using Cognito UserPools it could be <code>Google</code>, <code>Facebook</code>, etc.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>idpIdentifier</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The IdentityProvider identifier if using multiple instances of same identity provider.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>federationProviderName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If federating with Cognito Identity and using a provider like Auth0 specify the provider name, e.g. <your_domain>.auth0.com.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>signInURIQueryParameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The additional query parameters apart from standard OAuth w/ open id connect parameters for signInURI. If specified here, the signInURIQueryParameters specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tokenURIQueryParameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The additional query parameters apart from standard OAuth w/ open id connect parameters for tokenURI. If specified here, the tokenURIQueryParameters specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>signOutURIQueryParameters</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The additional query parameters apart from standard OAuth w/ open id connect parameters for signOutURI. If specified here, the signOutURIQueryParameters specified in <code>awsconfiguration.json</code> would be over-ridden.</p>
                                 </div>
                               </td>
                             </tr>

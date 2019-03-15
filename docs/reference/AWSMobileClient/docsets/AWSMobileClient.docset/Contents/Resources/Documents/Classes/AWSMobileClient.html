@@ -14,7 +14,7 @@
     <a title="AWSMobileClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient Docs</a> (46% documented)</p>
+        <p><a href="../index.html">AWSMobileClient Docs</a> (49% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Faws%2Damplify%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -34,6 +34,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/AWSMobileClient.html">AWSMobileClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceOperations.html">DeviceOperations</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SignInUIOptions.html">SignInUIOptions</a>
@@ -70,10 +73,19 @@
             <a href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Structs/Device.html">Device</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HostedUIOptions.html">HostedUIOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ListDevicesResult.html">ListDevicesResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SessionToken.html">SessionToken</a>
@@ -82,10 +94,16 @@
                 <a href="../Structs/SignInResult.html">SignInResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Structs/SignOutOptions.html">SignOutOptions</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Structs/SignUpResult.html">SignUpResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Tokens.html">Tokens</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
@@ -146,6 +164,33 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">currentUserState</span><span class="p">:</span> <span class="kt"><a href="../Enums/UserState.html">UserState</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC16deviceOperationsAA06DeviceD0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/deviceOperations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC16deviceOperationsAA06DeviceD0Cvp">deviceOperations</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">deviceOperations</span><span class="p">:</span> <span class="kt"><a href="../Classes/DeviceOperations.html">DeviceOperations</a></span></code></pre>
 
                         </div>
                       </div>
@@ -290,6 +335,33 @@
                       <div>
                         <h4>Return Value</h4>
                         <p>The singleton <code>AWSMobileClient</code> instance.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC18handleAuthResponse_4open17sourceApplication10annotationySo13UIApplicationC_10Foundation3URLVSSSgyptF"></a>
+                    <a name="//apple_ref/swift/Method/handleAuthResponse(_:open:sourceApplication:annotation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC18handleAuthResponse_4open17sourceApplication10annotationySo13UIApplicationC_10Foundation3URLVSSSgyptF">handleAuthResponse(_:open:sourceApplication:annotation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">handleAuthResponse</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="kd">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">annotation</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -447,9 +519,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC10showSignIn20navigationController04signE9UIOptions_ySo012UINavigationG0C_AA0deI0CyAA9UserStateOSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/showSignIn(navigationController:signInUIOptions:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC10showSignIn20navigationController04signE9UIOptions_ySo012UINavigationG0C_AA0deI0CyAA9UserStateOSg_s5Error_pSgtctF">showSignIn(navigationController:signInUIOptions:_:)</a>
+                    <a name="/s:15AWSMobileClientAAC10showSignIn20navigationController04signE9UIOptions06hostedI0_ySo012UINavigationG0C_AA0deI0CAA06HostedI0VSgyAA9UserStateOSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/showSignIn(navigationController:signInUIOptions:hostedUIOptions:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC10showSignIn20navigationController04signE9UIOptions06hostedI0_ySo012UINavigationG0C_AA0deI0CAA06HostedI0VSgyAA9UserStateOSg_s5Error_pSgtctF">showSignIn(navigationController:signInUIOptions:hostedUIOptions:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -464,7 +536,10 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span> <span class="nv">signInUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span><span class="p">(),</span> <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(UserState?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span>
+                       <span class="nv">signInUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span><span class="p">(),</span>
+                       <span class="nv">hostedUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/HostedUIOptions.html">HostedUIOptions</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                       <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(UserState?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -492,7 +567,19 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The options object which allows changing logo, background color and if the user can cancel the sign in operation.</p>
+                                  <p>The options object which allows changing logo, background color and if the user can cancel the sign in operation if using native auth UI. This options object will be ignored if <code>hostedUIOptions</code> is passed in.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostedUIOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The options object which allows showSignIn to present a hosted web UI. If passed, <code>signInUIOptions</code> are ignored since they are applicable only to native UI.</p>
                                 </div>
                               </td>
                             </tr>
@@ -865,7 +952,9 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">federatedSignIn</span><span class="p">(</span><span class="nv">providerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">federatedSignInOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span><span class="p">(),</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">federatedSignIn</span><span class="p">(</span><span class="nv">providerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                            <span class="nv">federatedSignInOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span><span class="p">(),</span>
+                            <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1366,6 +1455,64 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:15AWSMobileClientAAC7signOut7options17completionHandleryAA04SignD7OptionsV_ys5Error_pSgctF"></a>
+                    <a name="//apple_ref/swift/Method/signOut(options:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC7signOut7options17completionHandleryAA04SignD7OptionsV_ys5Error_pSgctF">signOut(options:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Asynchronous signout method which requires network activity. Based on the options specified in <code><a href="../Structs/SignOutOptions.html">SignOutOptions</a></code>, appropriate tasks will be performed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signOut</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SignOutOptions.html">SignOutOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/SignOutOptions.html">SignOutOptions</a></span><span class="p">(),</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SignOutOptions which specify actions.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion handler for success or error callback.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:15AWSMobileClientAAC7signOutyyF"></a>
                     <a name="//apple_ref/swift/Method/signOut()" class="dashAnchor"></a>
                     <a class="token" href="#/s:15AWSMobileClientAAC7signOutyyF">signOut()</a>
@@ -1376,7 +1523,8 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Signs out the current logged in user and clears the local keychain store.</p>
+                        <p>Signs out the current logged in user and clears the local keychain store.
+Note: This does not invalidate the tokens from the service or sign out the user from other devices.</p>
 
                       </div>
                       <div class="declaration">
@@ -1945,10 +2093,75 @@ The call to wait will be synchronized so that if multiple threads call this meth
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UserPool%20and%20Federated%20sign%20in%20methods2"></a>
+                <a name="//apple_ref/swift/Section/UserPool and Federated sign in methods" class="dashAnchor"></a>
+                <a href="#/UserPool%20and%20Federated%20sign%20in%20methods2">
+                  <h3 class="section-name">UserPool and Federated sign in methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getViewController"></a>
+                    <a name="//apple_ref/swift/Method/getViewController()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getViewController">getViewController()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getViewController</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)shouldLaunchSignInVCIfRefreshTokenIsExpired"></a>
+                    <a name="//apple_ref/swift/Method/shouldLaunchSignInVCIfRefreshTokenIsExpired()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)shouldLaunchSignInVCIfRefreshTokenIsExpired">shouldLaunchSignInVCIfRefreshTokenIsExpired()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">shouldLaunchSignInVCIfRefreshTokenIsExpired</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/aws-amplify/aws-sdk-ios" target="_blank" rel="external">AWS</a>. All rights reserved. (Last updated: 2019-03-08)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/aws-amplify/aws-sdk-ios" target="_blank" rel="external">AWS</a>. All rights reserved. (Last updated: 2019-03-14)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FederatedSignInOptions Structure Reference</title>
+    <title>SignOutOptions Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Struct/FederatedSignInOptions" class="dashAnchor"></a>
-    <a title="FederatedSignInOptions Structure Reference"></a>
+    <a name="//apple_ref/swift/Struct/SignOutOptions" class="dashAnchor"></a>
+    <a title="SignOutOptions Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSMobileClient Docs</a> (49% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FederatedSignInOptions Structure Reference
+        SignOutOptions Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -123,14 +123,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FederatedSignInOptions</h1>
+            <h1>SignOutOptions</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">FederatedSignInOptions</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SignOutOptions</span></code></pre>
 
                 </div>
               </div>
-            <p>The options object for <code>federatedSignIn</code> API.</p>
+            <p>Signout options to change the default behavior.</p>
 
           </section>
           <section class="section task-group-section">
@@ -139,9 +139,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient22FederatedSignInOptionsV17cognitoIdentityId13customRoleARNACSSSg_AFtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(cognitoIdentityId:customRoleARN:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient22FederatedSignInOptionsV17cognitoIdentityId13customRoleARNACSSSg_AFtcfc">init(cognitoIdentityId:customRoleARN:)</a>
+                    <a name="/s:15AWSMobileClient14SignOutOptionsV04signD8Globally16invalidateTokensACSb_Sbtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(signOutGlobally:invalidateTokens:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient14SignOutOptionsV04signD8Globally16invalidateTokensACSb_Sbtcfc">init(signOutGlobally:invalidateTokens:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -149,14 +149,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializer for federatedSignIn options.</p>
+                        <p>Initializer: Signout options to change the default behavior.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">cognitoIdentityId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">customRoleARN</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">signOutGlobally</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">invalidateTokens</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -167,12 +167,24 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>cognitoIdentityId</em>
+                                <em>signOutGlobally</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>Cognito IdentityId</code> to be used for federation. This should be set when using <code>Developer Authenticated Identities</code>.</p>
+                                  <p>Invalidate all active sessions with the service. The user will be logged out of all devices.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>invalidateTokens</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If functionality available, the access token, refresh token and id token will be invalidated and won&rsquo;t be usable.</p>
                                 </div>
                               </td>
                             </tr>
