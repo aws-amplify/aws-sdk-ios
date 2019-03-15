@@ -178,7 +178,7 @@ commands:
           name: checkiftestcanoverrided 
           command: |
               if [ "${OVERRIDE_TEST}" == "TRUE" ]; then
-                echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all integration tests"
+                echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all tests"
                 circleci step halt
               fi    
   skip_job_if_required:
@@ -188,19 +188,19 @@ commands:
       - run:
           name: checkifjobcanskip 
           command: |
-              # echo ""
-              # # we can add script here to halt a job for circleci script test
-              # declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
-              # for i in "${jobs[@]}"
-              # do
-              #   echo "$i":"${CIRCLE_JOB}"
-              #   if [ "$i" == "${CIRCLE_JOB}" ]
-              #   then 
-              #     echo "not skip job $i"
-              #     exit 0
-              #   fi
-              # done
-              # circleci step halt
+              echo ""
+              # we can add script here to halt a job for circleci script test
+              declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
+              for i in "${jobs[@]}"
+              do
+                echo "$i":"${CIRCLE_JOB}"
+                if [ "$i" == "${CIRCLE_JOB}" ]
+                then 
+                  echo "not skip job $i"
+                  exit 0
+                fi
+              done
+              circleci step halt
 
 
 jobs:
@@ -710,7 +710,7 @@ jobs:
       - run:
           name: set_bumpversion_enviroment
           command: |
-            git config --local user.name "${GITHUB_USER}"
+            git config --local user.name AWS
 
             commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
             echo "commitmessage=$commitmessage"
@@ -720,14 +720,18 @@ jobs:
                circleci step halt
             fi
 
-            release_version=$(cat version)
-            release_version=$(echo "$release_version" | xargs echo -n)
+            release_version=$(head version | grep -E "^[0-9]+.[0-9]+.[0-9]+" | sed "s/^\([0-9]*.[0-9]*.[0-9]*\).*/\1/")
+            if [ -z "release_version" ]
+            then 
+              echo "version file does not have a correct version number"
+              exit 1
+            fi 
             echo "release_version=[$release_version]"          
             bumpversion_repo_user=aws-amplify
             bumpversion_repo_name=aws-sdk-ios
-            bump_version_message="bump iOS sdk version to ${release_version}"
-            bump_version_pr_title="[bump version $release_version]"
-            target_branch=test_bump_sdk_version
+            bump_version_message="[bump version $release_version]"
+            bump_version_pr_title="bump iOS sdk version to ${release_version}"
+            target_branch=test_develop
             echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
             echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
             echo "export release_version=$release_version" >> $BASH_ENV
@@ -742,6 +746,65 @@ jobs:
             cp -R ${bumpversion_repo_name}/CircleciScripts/ CircleciScripts/
             python3 CircleciScripts/bump_sdk_version.py "$(pwd)/${bumpversion_repo_name}" $release_version 
       - bump_version_post
+  merge_to_master:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_if_required
+      - checkout
+      - set_enviroment_variables
+      - run:
+          name: merge change to master
+          command: |
+            git config --local user.name AWS
+            git checkout test_master
+            git pull --rebase
+            commitlog=$(git log)
+            currentcommit="${CIRCLE_SHA1}"
+            echo "currentcommit=$currentcommit"
+            echo "$commitlog"
+            if [[ "$commitlog" =~ .*"commit $currentcommit".* ]] 
+            then
+               echo "The change is already merged"
+            else
+              echo "merge change from devlop to master"
+              currentcommit="${CIRCLE_SHA1}"
+              lastcommitmessage=$(git log --format=%B -n 1 ${currentcommit})
+
+              git merge  test_develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"  
+              echo "push change"
+              git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            fi
+  prepare_release_sdk:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_if_required
+      - checkout
+      - set_enviroment_variables
+      - run:
+          name: trigger release_sdk if curremt commit is a bump version
+          command: |
+            git config --local user.name AWS
+            currentcommit="${CIRCLE_SHA1}"
+            echo $currentcommit
+            commitmessage=$(git log --format=%B -n 1 ${currentcommit})
+            echo "commitmessage=$commitmessage"
+            set +e
+            release_version=$(echo "$commitmessage" | grep -E "\[bump version [0-9]+.[0-9]+.[0-9]+\]" | sed 's/.*\[bump version \([0-9]*.[0-9]*.[0-9]*\)\].*/\1/')
+            echo "rellease_version=$release_version"
+            if [ -z "$release_version" ]
+            then 
+              echo "this is not a bump version commit"
+            else
+              echo "tag branch, start release"
+              git tag -a "release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
+              git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            fi
 
 workflows:
   version: 2
@@ -1072,6 +1135,25 @@ workflows:
               only:
                 - master
                 - develop
+      - merge_to_master:
+          requires:
+            - build       
+            - unittest
+            # - post_integrationtest
+          filters:
+            branches:
+              only:
+                - test_develop        
+      - prepare_release_sdk:
+          requires:
+            - build       
+            - unittest
+            # - post_integrationtest
+          filters:
+            branches:
+              only:
+                - test_master    
+
   release_sdk:
     jobs: 
       - build:
