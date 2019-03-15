@@ -802,7 +802,7 @@ jobs:
               echo "this is not a bump version commit"
             else
               echo "tag branch, start release"
-              git tag -a "release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
+              git tag -a "$release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
               git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
             fi
 
