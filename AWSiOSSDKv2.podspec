@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSiOSSDKv2'
-  s.version      = '9.9.8'
+  s.version      = '9.9.9'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -15,115 +15,115 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.subspec 'AWSCore' do |aws|
-    aws.dependency 'AWSCore', '9.9.8'
+    aws.dependency 'AWSCore', '9.9.9'
   end
 
   s.subspec 'AWSAPIGateway' do |apigateway|
-    apigateway.dependency 'AWSAPIGateway', '9.9.8'
+    apigateway.dependency 'AWSAPIGateway', '9.9.9'
   end
 
   s.subspec 'AutoScaling' do |autoscaling|
-  	autoscaling.dependency 'AWSAutoScaling', '9.9.8'
+  	autoscaling.dependency 'AWSAutoScaling', '9.9.9'
   end
 
   s.subspec 'CloudWatch' do |cloudwatch|
-  	cloudwatch.dependency 'AWSCloudWatch', '9.9.8'
+  	cloudwatch.dependency 'AWSCloudWatch', '9.9.9'
   end
 
   s.subspec 'Pinpoint' do |pp|
-        pp.dependency 'AWSPinpoint', '9.9.8'
+        pp.dependency 'AWSPinpoint', '9.9.9'
   end
 
   s.subspec 'AWSCognito' do |cognito|
-    cognito.dependency 'AWSCognito', '9.9.8'
+    cognito.dependency 'AWSCognito', '9.9.9'
   end
 
   s.subspec 'AWSCognitoIdentityProvider' do |cognitoidentityprovider|
-    cognitoidentityprovider.dependency 'AWSCognitoIdentityProvider', '9.9.8'
+    cognitoidentityprovider.dependency 'AWSCognitoIdentityProvider', '9.9.9'
   end
 
   s.subspec 'AWSComprehend' do |comprehend|
-    comprehend.dependency 'AWSComprehend', '9.9.8'
+    comprehend.dependency 'AWSComprehend', '9.9.9'
   end
 
   s.subspec 'DynamoDB' do |ddb|
-  	ddb.dependency 'AWSDynamoDB', '9.9.8'
+  	ddb.dependency 'AWSDynamoDB', '9.9.9'
   end
 
   s.subspec 'EC2' do |ec2|
-  	ec2.dependency 'AWSEC2', '9.9.8'
+  	ec2.dependency 'AWSEC2', '9.9.9'
   end
 
   s.subspec 'ElasticLoadBalancing' do |elasticloadbalancing|
-  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '9.9.8'
+  	elasticloadbalancing.dependency 'AWSElasticLoadBalancing', '9.9.9'
   end
 
   s.subspec 'AWSIoT' do |iot|
-        iot.dependency 'AWSIoT', '9.9.8'
+        iot.dependency 'AWSIoT', '9.9.9'
   end
 
   s.subspec 'Kinesis' do |kinesis|
-    kinesis.dependency 'AWSKinesis', '9.9.8'
+    kinesis.dependency 'AWSKinesis', '9.9.9'
   end
 
   s.subspec 'AWSKMS' do |kms|
-    kms.dependency 'AWSKMS', '9.9.8'
+    kms.dependency 'AWSKMS', '9.9.9'
   end
 
   s.subspec 'AWSLambda' do |lambda|
-        lambda.dependency 'AWSLambda', '9.9.8'
+        lambda.dependency 'AWSLambda', '9.9.9'
   end
 
   s.subspec 'AWSLex' do |lex|
-        lex.dependency 'AWSLex', '9.9.8'
+        lex.dependency 'AWSLex', '9.9.9'
   end
 
    s.subspec 'AWSLogs' do |log|
-        log.dependency 'AWSLogs', '9.9.8'
+        log.dependency 'AWSLogs', '9.9.9'
   end
 
   s.subspec 'AWSMachineLearning' do |machinelearning|
-        machinelearning.dependency 'AWSMachineLearning', '9.9.8'
+        machinelearning.dependency 'AWSMachineLearning', '9.9.9'
   end
 
   s.subspec 'AWSPolly' do |polly|
-        polly.dependency 'AWSPolly', '9.9.8'
+        polly.dependency 'AWSPolly', '9.9.9'
   end
 
   s.subspec 'MobileAnalytics' do |mobileanalytics|
-  	mobileanalytics.dependency 'AWSMobileAnalytics', '9.9.8'
+  	mobileanalytics.dependency 'AWSMobileAnalytics', '9.9.9'
   end
 
   s.subspec 'AWSRekognition' do |rekognition|
-  	rekognition.dependency 'AWSRekognition', '9.9.8'
+  	rekognition.dependency 'AWSRekognition', '9.9.9'
   end
 
   s.subspec 'AWSS3' do |s3|
-  	s3.dependency 'AWSS3', '9.9.8'
+  	s3.dependency 'AWSS3', '9.9.9'
   end
 
   s.subspec 'AWSSES' do |ses|
-  	ses.dependency 'AWSSES', '9.9.8'
+  	ses.dependency 'AWSSES', '9.9.9'
   end
 
   s.subspec 'AWSSimpleDB' do |simpledb|
-  	simpledb.dependency 'AWSSimpleDB', '9.9.8'
+  	simpledb.dependency 'AWSSimpleDB', '9.9.9'
   end
 
   s.subspec 'AWSSNS' do |sns|
-  	sns.dependency 'AWSSNS', '9.9.8'
+  	sns.dependency 'AWSSNS', '9.9.9'
   end
 
   s.subspec 'AWSSQS' do |sqs|
-  	sqs.dependency 'AWSSQS', '9.9.8'
+  	sqs.dependency 'AWSSQS', '9.9.9'
   end
 
   s.subspec 'AWSTranscribe' do |transcribe|
-    transcribe.dependency 'AWSTranscribe', '9.9.8'
+    transcribe.dependency 'AWSTranscribe', '9.9.9'
   end
 
   s.subspec 'AWSTranslate' do |translate|
-    translate.dependency 'AWSTranslate', '9.9.8'
+    translate.dependency 'AWSTranslate', '9.9.9'
   end
   
 end
