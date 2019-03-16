@@ -188,7 +188,7 @@ commands:
       - run:
           name: checkifjobcanskip 
           command: |
-              echo ""
+              echo "check if the job can be skipped"
               # we can add script here to halt a job for circleci script test
               declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
               for i in "${jobs[@]}"
@@ -472,6 +472,7 @@ jobs:
     macos:
       xcode: "9.2.0"
     steps:
+      - skip_job_if_required
       - checkout   
       - run:
           name: Install appledoc 
