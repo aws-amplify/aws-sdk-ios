@@ -54,6 +54,10 @@ commands:
             sdkNameWithVersion="$sdkName-$release_version"
             echo "export sdkNameWithVersion=$sdkNameWithVersion" >> $BASH_ENV
 
+            pre_name=$(echo "${CIRCLE_SHA1}" | cut -c1-7)
+            override_test_varaible_name=OVERRIDE_TEST_${pre_name}
+            echo "export override_test_varaible_name=$override_test_varaible_name" >> $BASH_ENV   
+
   quit_for_nominorversion:
     description: >-
       If current release is not a minor version bump, stop executing the current job and return success.
@@ -177,38 +181,40 @@ commands:
       - run:
           name: checkiftestcanoverrided 
           command: |
-              if [ "${OVERRIDE_TEST}" == "TRUE" ]; then
+              echo "override_test_varaible_name=$override_test_varaible_name"
+              override_test_value=$(eval "echo $"${override_test_varaible_name}"")
+              if [ "${override_test_value}" == "TRUE" ]; then
                 echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all tests"
                 circleci step halt
-              fi    
-  skip_job_if_required:
+              fi  
+               
+  skip_job_unless_required:
     description: >-
-      skip the test job for ciecleci script test
+      skip job unless required
     steps:
       - run:
           name: checkifjobcanskip 
           command: |
-              echo ""
-              # we can add script here to halt a job for circleci script test
-              declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
-              for i in "${jobs[@]}"
-              do
-                echo "$i":"${CIRCLE_JOB}"
-                if [ "$i" == "${CIRCLE_JOB}" ]
-                then 
-                  echo "not skip job $i"
-                  exit 0
-                fi
-              done
-              circleci step halt
-
+            echo "check if job can be skipped"
+            # # we can add script here to halt a job for circleci script test
+            # declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
+            # for i in "${jobs[@]}"
+            # do
+            #   echo "$i":"${CIRCLE_JOB}"
+            #   if [ "$i" == "${CIRCLE_JOB}" ]
+            #   then 
+            #     echo "not skip job $i"
+            #     exit 0
+            #   fi
+            # done
+            # circleci step halt
 
 jobs:
   build:
     macos: 
       xcode: "10.1.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - set_enviroment_variables
       - run:
@@ -229,7 +235,7 @@ jobs:
       xcode: "10.1.0"
     steps:
       - override_test_job
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - skip_job_if_triggered_by_circleci
       - run:
@@ -252,23 +258,26 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
+      - set_enviroment_variables
+      - run:
+          name: get ovrride test variabe name 
+          command: |
+            echo "override_test_varaible_name=$override_test_varaible_name"
       - run:
           name: reset OVERRIDE_TEST environment variabe 
           command: |
-            parameters='{"name":"OVERRIDE_TEST","value":"FALSE"}'
-            curl -X POST \
-              -H "Content-type: application/json" \
-              -H "Accept: application/json" \
-              -d "$parameters" \
-              "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
-      - run:
-          name: check environment variabe 
-          command: |
-              if [ "${SKIP_INTEGRATIONTEST}" == "TRUE" ]; then
-                echo "project enviroment variabe SKIP_INTEGRATIONTEST should not be TRUE at the moment, this will skip all integration tests"
-                exit 1
-              fi    
+            override_test_value=$(eval "echo $"${override_test_varaible_name}"")
+            if ! [ -z "$override_test_value" ]
+            then
+               echo "reset  ${override_test_varaible_name} value"
+              parameters='{"name":"'${override_test_varaible_name}'","value":"FALSE"}'
+              curl -X POST \
+                -H "Content-type: application/json" \
+                -H "Accept: application/json" \
+                -d "$parameters" \
+                "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+            fi 
       - checkout
       - set_enviroment_variables
       - configure_aws
@@ -294,7 +303,7 @@ jobs:
       xcode: "10.1.0"
     steps:
       #TODO need check why multiple key does not work here
-      - skip_job_if_required
+      - skip_job_unless_required
       - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
@@ -360,7 +369,7 @@ jobs:
       xcode: "10.1.0"   
     steps:
       - override_test_job
-      - skip_job_if_required
+      - skip_job_unless_required
       - early_return_for_forked_prs
       - set_enviroment_variables
       - checkout 
@@ -405,7 +414,7 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps: 
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - update_brew
       - run:
@@ -423,7 +432,7 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps: 
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - update_brew
       - run:
@@ -461,7 +470,7 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout  
       - run:
           name: Release cocoapods
@@ -472,6 +481,7 @@ jobs:
     macos:
       xcode: "9.2.0"
     steps:
+      - skip_job_unless_required
       - checkout   
       - run:
           name: Install appledoc 
@@ -504,7 +514,7 @@ jobs:
     macos:
       xcode: "10.2.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout  
       - run:
           name: Install jazzy
@@ -535,7 +545,7 @@ jobs:
       xcode: "10.1.0"
     steps:
       - override_test_job
-      - skip_job_if_required
+      - skip_job_unless_required
       - early_return_for_forked_prs
       - checkout
       - skip_job_if_triggered_by_circleci
@@ -557,7 +567,7 @@ jobs:
     macos:
       xcode: "10.1.0"  
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout   
       - run:
           name: Add documentation tags to gh-pages
@@ -571,7 +581,7 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - set_enviroment_variables
       - quit_for_nominorversion
       - checkout  
@@ -615,7 +625,7 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - set_enviroment_variables
       - quit_for_nominorversion
       - checkout  
@@ -645,7 +655,7 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - update_brew
       - configure_aws
@@ -692,7 +702,7 @@ jobs:
     environment:
       JVM_OPTS: -Xmx1024m
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - set_enviroment_variables
       - checkout  
       - run: 
@@ -752,7 +762,7 @@ jobs:
     environment:
       JVM_OPTS: -Xmx1024m
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - set_enviroment_variables
       - run:
@@ -783,7 +793,7 @@ jobs:
     environment:
       JVM_OPTS: -Xmx1024m
     steps:
-      - skip_job_if_required
+      - skip_job_unless_required
       - checkout
       - set_enviroment_variables
       - run:
@@ -802,7 +812,7 @@ jobs:
               echo "this is not a bump version commit"
             else
               echo "tag branch, start release"
-              git tag -a "release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
+              git tag -a "$release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
               git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
             fi
 
