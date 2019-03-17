@@ -361,7 +361,7 @@
         AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
         [self.streamsThread cancel];
     }
-    self.streamsThread = [[NSThread alloc] initWithTarget:self selector:@selector(openStreams:) object:nil];
+    self.streamsThread = [[NSThread alloc] initWithTarget:self selector:@selector(openStreams:) object:self];
     [self.streamsThread start];
     return YES;
 }
@@ -499,7 +499,7 @@
             //If an error occured when trying to get credentials, setup a timer to retry the connection after self.currentReconnectTime seconds and schedule it on the reconnect Thread.
             if (task.error) {
                 @synchronized(self) {
-                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
                     [self.reconnectThread start];
                 }
                 
@@ -1013,7 +1013,7 @@
 
                 //Retry
                 @synchronized(self) {
-                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
                     [self.reconnectThread start];
                 }
             }
@@ -1041,7 +1041,7 @@
 
                 //Retry
                 @synchronized(self) {
-                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
                     [self.reconnectThread start];
                 }
             }
@@ -1163,7 +1163,7 @@ newAckForMessageId:(UInt16)msgId {
         [self.streamsThread cancel];
     }
     
-    self.streamsThread = [[NSThread alloc] initWithTarget:self selector:@selector(openStreams:) object:nil];
+    self.streamsThread = [[NSThread alloc] initWithTarget:self selector:@selector(openStreams:) object:self];
     [self.streamsThread start];
 }
 
@@ -1186,7 +1186,7 @@ newAckForMessageId:(UInt16)msgId {
         [self notifyConnectionStatus];
 
         @synchronized(self) {
-            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
             [self.reconnectThread start];
         }
     }
@@ -1226,7 +1226,7 @@ newAckForMessageId:(UInt16)msgId {
         [self notifyConnectionStatus];
 
         @synchronized(self) {
-            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:self];
             [self.reconnectThread start];
         }
     }
