@@ -1,6 +1,13 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.4
+
+### Bug Fixes
+ 
+* **AWSMobileClient**
+  * Fixed issue where error was not correctly cast to `AWSMobileClientError` when using `changePassword` API. [issue #1246](https://github.com/aws-amplify/aws-sdk-ios/issues/1246)
+
 ## 2.9.3
 
 ### New Features
