@@ -224,6 +224,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         }
         
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
+        let userMetaData: [String: String] = ["Key1": "value1", "key2": "value2", "key3":"value3"]
+        iotDataManager.addUserMetaData(userMetaData)
+        
         let uuid = UUID().uuidString
         print("Calling Connect")
         let defaults = UserDefaults.standard

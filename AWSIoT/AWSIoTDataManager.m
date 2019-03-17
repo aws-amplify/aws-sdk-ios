@@ -328,6 +328,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if(_mqttClient == nil){
             AWSDDLogError(@"**** mqttClient is nil. **** ");
         }
+        _mqttClient.userMetaData = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
         _mqttClient.associatedObject = self;
         _userDidIssueDisconnect = NO;
         _userDidIssueConnect = NO;
@@ -346,7 +347,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     NSUInteger baseLength = [userMetadata length];
 
     // Append each of the user-specified key-value pair to the connection username
-    if (userMetaData != [ NSNull null ]) {
+    if (userMetaData ) {
         for (id key in userMetaData) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
                 [userMetadata appendFormat:@"&%@=%@", key, [userMetaData objectForKey:key]];
@@ -357,10 +358,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }
 
     if ([userMetadata length] > 255) {
-        AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%lu)", (255 - baseLength));
+        AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%u)", (255 - baseLength));
         self.mqttClient.userMetaData = [userMetadata substringToIndex:255];
     } else {
-        self.mqttClient.userMetaData = userMetadata;
+        self.mqttClient.userMetaData = [NSString stringWithString:userMetadata];
     }
 }
 
