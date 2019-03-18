@@ -54,6 +54,10 @@ commands:
             sdkNameWithVersion="$sdkName-$release_version"
             echo "export sdkNameWithVersion=$sdkNameWithVersion" >> $BASH_ENV
 
+            pre_name=$(echo "${CIRCLE_SHA1}" | cut -c1-7)
+            override_test_varaible_name=OVERRIDE_TEST_${pre_name}
+            echo "export override_test_varaible_name=$override_test_varaible_name" >> $BASH_ENV   
+
   quit_for_nominorversion:
     description: >-
       If current release is not a minor version bump, stop executing the current job and return success.
@@ -76,6 +80,11 @@ commands:
       - run:
           name: checkout repository for bump version
           command: |
+            if [ -z "$target_branch" ]
+            then 
+              target_branch="master"
+            fi
+
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
             git clone "https://github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git"
             cd ${bumpversion_repo_name}
@@ -88,10 +97,10 @@ commands:
               echo "create new branch bump_version"
               git checkout -b bump_version                 
             fi  
-            git remote add upstream https://github.com/${bumpversion_repo_account}/${bumpversion_repo_name}
+            git remote add upstream https://github.com/${bumpversion_repo_user}/${bumpversion_repo_name}
             git remote -v
             git fetch upstream
-            git reset --hard upstream/master  
+            git reset --hard upstream/$target_branch  
             echo "push update the branch"
             git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
 
@@ -115,6 +124,10 @@ commands:
       - run:
           name: check in changes
           command: |
+            if [ -z "$target_branch" ]
+            then 
+              target_branch="master"
+            fi          
             cd ${bumpversion_repo_name}
             git status
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
@@ -124,7 +137,7 @@ commands:
             content="${bump_version_message}" 
             echo "title:$title"
             echo "content:$content"
-            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "master" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_account} ${bumpversion_repo_name}
+            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "$target_branch" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
   configure_aws:
     description: >-
       install aws cli and configure android aws release profile
@@ -145,11 +158,85 @@ commands:
       - run:   
           name: pre-start simulator
           command: xcrun instruments -w "iPhone X (12.1) [" -t "Blank" || true    
+  skip_test_job:
+    description: >-
+      check if the test job can be skipped
+    steps:
+      - run:
+          name: skip the test job if commit message require skipping tests
+          command: |
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            if [[ "$commitmessage" =~ .*"[skip test]".* ]] 
+            then 
+               echo "skip the test job required from commit message"
+               circleci step halt
+            fi        
+      - run:
+          name: skip the test job if the release process is triggered by circleci
+          command: |
+            skipflag=$(echo "${SKIPTEST_FOR_RELEASE}") |  tr '[:upper:]' '[:lower:]' 
+            if ! [ -z "${CIRCLE_TAG}" ]  && [ "$skipflag" == "true" ]
+            then 
+              tagmessage="git show ${CIRCLE_TAG}"
+              echo $tagmessage
+              if [[ "$tagmessage" =~ .*"Trigger release from circleci".* ]] 
+              then
+                 echo "The release is triggered by circleci. skip the job"
+                 circleci step halt
+              fi
+            fi
+      - run:
+          name: skip the test job if this is merged from develop by circleci
+          command: |
+            skipflag=$(echo "${SKIPTEST_FOR_MASTER}") |  tr '[:upper:]' '[:lower:]' 
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            if [ "$skipflag" == "true" ] && [[ "$commitmessage" =~ .*"[Merge develop to master by circleci]".* ]] 
+            then 
+               echo "This is merged from develop by circleci. skip the test job"
+               circleci step halt
+            fi
+
+  override_test_job:
+    description: >-
+      skip the test job is project variabe OVERRIDE_TEST is set with TRUE
+    steps:
+      - run:
+          name: checkiftestcanoverrided 
+          command: |
+              echo "override_test_varaible_name=$override_test_varaible_name"
+              override_test_value=$(eval "echo $"${override_test_varaible_name}"")
+              override_test_value=$(echo "${override_test_value}" |  tr '[:upper:]' '[:lower:]')
+              if [ "${override_test_value}" == "true" ]; then
+                echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all tests"
+                circleci step halt
+              fi    
+  skip_job_unless_required:
+    description: >-
+      skip job unless required
+    steps:
+      - run:
+          name: checkifjobcanskip 
+          command: |
+            echo "check if job can be skipped"
+            # # we can add script here to halt a job for circleci script test
+            # declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
+            # for i in "${jobs[@]}"
+            # do
+            #   echo "$i":"${CIRCLE_JOB}"
+            #   if [ "$i" == "${CIRCLE_JOB}" ]
+            #   then 
+            #     echo "not skip job $i"
+            #     exit 0
+            #   fi
+            # done
+            # circleci step halt
+
 jobs:
   build:
     macos: 
       xcode: "10.1.0"
     steps:
+      - skip_job_unless_required
       - checkout
       - set_enviroment_variables
       - run:
@@ -169,7 +256,11 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps:
+      - set_enviroment_variables
+      - override_test_job
+      - skip_job_unless_required
       - checkout
+      - skip_test_job
       - run:
           name: create credentials
           command: |
@@ -190,13 +281,26 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
+      - skip_job_unless_required
+      - set_enviroment_variables
       - run:
-          name: check environment variabe 
+          name: get ovrride test variabe name 
           command: |
-              if [ "${SKIP_INTEGRATIONTEST}" == "TRUE" ]; then
-                echo "project enviroment variabe SKIP_INTEGRATIONTEST should not be TRUE at the moment, this will skip all integration tests"
-                exit 1
-              fi    
+            echo "override_test_varaible_name=$override_test_varaible_name"
+      - run:
+          name: reset OVERRIDE_TEST environment variabe 
+          command: |
+            override_test_value=$(eval "echo $"${override_test_varaible_name}"")
+            if ! [ -z "$override_test_value" ]
+            then
+               echo "reset  ${override_test_varaible_name} value"
+              parameters='{"name":"'${override_test_varaible_name}'","value":"FALSE"}'
+              curl -X POST \
+                -H "Content-type: application/json" \
+                -H "Accept: application/json" \
+                -d "$parameters" \
+                "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+            fi 
       - checkout
       - set_enviroment_variables
       - configure_aws
@@ -222,6 +326,7 @@ jobs:
       xcode: "10.1.0"
     steps:
       #TODO need check why multiple key does not work here
+      - skip_job_unless_required
       - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
@@ -286,9 +391,12 @@ jobs:
     macos:
       xcode: "10.1.0"   
     steps:
-      - early_return_for_forked_prs
       - set_enviroment_variables
+      - override_test_job
+      - skip_job_unless_required
+      - early_return_for_forked_prs
       - checkout 
+      - skip_test_job
       - restore_cache:
           key: build_result-{{ .Revision }}  
       - run: 
@@ -329,6 +437,7 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps: 
+      - skip_job_unless_required
       - checkout
       - update_brew
       - run:
@@ -346,6 +455,7 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps: 
+      - skip_job_unless_required
       - checkout
       - update_brew
       - run:
@@ -383,6 +493,7 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps:
+      - skip_job_unless_required
       - checkout  
       - run:
           name: Release cocoapods
@@ -393,6 +504,7 @@ jobs:
     macos:
       xcode: "9.2.0"
     steps:
+      - skip_job_unless_required
       - checkout   
       - run:
           name: Install appledoc 
@@ -425,6 +537,7 @@ jobs:
     macos:
       xcode: "10.2.0"
     steps:
+      - skip_job_unless_required
       - checkout  
       - run:
           name: Install jazzy
@@ -454,8 +567,12 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps:
+      - set_enviroment_variables
+      - override_test_job
+      - skip_job_unless_required
       - early_return_for_forked_prs
       - checkout
+      - skip_test_job
       - run:
           name: Run Sample UI Test
           command: |
@@ -474,6 +591,7 @@ jobs:
     macos:
       xcode: "10.1.0"  
     steps:
+      - skip_job_unless_required
       - checkout   
       - run:
           name: Add documentation tags to gh-pages
@@ -487,6 +605,7 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
+      - skip_job_unless_required
       - set_enviroment_variables
       - quit_for_nominorversion
       - checkout  
@@ -530,6 +649,7 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
+      - skip_job_unless_required
       - set_enviroment_variables
       - quit_for_nominorversion
       - checkout  
@@ -559,10 +679,11 @@ jobs:
     macos: 
       xcode: "10.1.0"
     steps:
+      - skip_job_unless_required
       - checkout
       - update_brew
-      - configure_aws
       - set_enviroment_variables
+      - configure_aws
       - run:
           name: build libarary
           command: |
@@ -598,22 +719,152 @@ jobs:
           name: invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+ 
+  bump_sdk_version:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - set_enviroment_variables
+      - checkout  
+      - run: 
+          name: install python3-pip
+          command: |
+            echo "${newsdkversion}"
+            sudo apt-get update
+            sudo apt-get -y install python3-pip     
+      - run: 
+          name: Install json parser
+          command: sudo pip3 install demjson
+      - run: 
+          name: Install lxml
+          command: sudo pip3 install lxml             
+      - run:
+          name: set_bumpversion_enviroment
+          command: |
+            git config --local user.name AWS
+
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            echo "commitmessage=$commitmessage"
+            if [[ "$commitmessage" != *"bump version"* ]] 
+            then
+               echo "To bump sdk version, the commit message should contain the words 'bump version'"
+               circleci step halt
+            fi
+
+            release_version=$(head version | grep -E "^[0-9]+.[0-9]+.[0-9]+" | sed "s/^\([0-9]*.[0-9]*.[0-9]*\).*/\1/")
+            if [ -z "release_version" ]
+            then 
+              echo "version file does not have a correct version number"
+              exit 1
+            fi 
+            echo "release_version=[$release_version]"          
+            bumpversion_repo_user=${CIRCLE_PROJECT_USERNAME}
+            bumpversion_repo_name=${CIRCLE_PROJECT_REPONAME}
+            echo "bumpversion_repo_user:$bumpversion_repo_user"
+            echo "bumpversion_repo_name:$bumpversion_repo_name"
+
+            bump_version_message="[bump version $release_version]"
+            bump_version_pr_title="bump iOS sdk version to ${release_version}"
+            target_branch=test_develop
+            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
+            echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
+            echo "export release_version=$release_version" >> $BASH_ENV
+            echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
+            echo "export bump_version_pr_title='${bump_version_pr_title}'" >> $BASH_ENV
+            echo "export target_branch='${target_branch}'" >> $BASH_ENV
+            echo "bump_version_pr_title:$bump_version_pr_title"
+      - bump_version_pre
+      - run:
+          name: bump version
+          command: |
+            cp -R ${bumpversion_repo_name}/CircleciScripts/ CircleciScripts/
+            python3 CircleciScripts/bump_sdk_version.py "$(pwd)/${bumpversion_repo_name}" $release_version 
+      - bump_version_post
+  merge_to_master:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - set_enviroment_variables
+      - run:
+          name: merge change to master
+          command: |
+            git config --local user.name AWS
+            git checkout test_master
+            git pull --rebase
+            commitlog=$(git log)
+            currentcommit="${CIRCLE_SHA1}"
+            echo "currentcommit=$currentcommit"
+            echo "$commitlog"
+            if [[ "$commitlog" =~ .*"commit $currentcommit".* ]] 
+            then
+               echo "The change is already merged"
+            else
+              echo "merge change from devlop to master"
+              currentcommit="${CIRCLE_SHA1}"
+              lastcommitmessage=$(git log --format=%B -n 1 ${currentcommit})
+
+              git merge  test_develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"  
+              echo "push change"
+              git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            fi
+  prepare_release_sdk:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - set_enviroment_variables
+      - run:
+          name: trigger release_sdk if curremt commit is a bump version
+          command: |
+            git config --local user.name AWS
+            currentcommit="${CIRCLE_SHA1}"
+            echo $currentcommit
+            commitmessage=$(git log --format=%B -n 1 ${currentcommit})
+            echo "commitmessage=$commitmessage"
+            set +e
+            release_version=$(echo "$commitmessage" | grep -E "\[bump version [0-9]+.[0-9]+.[0-9]+\]" | sed 's/.*\[bump version \([0-9]*.[0-9]*.[0-9]*\)\].*/\1/')
+            echo "rellease_version=$release_version"
+            if [ -z "$release_version" ]
+            then 
+              echo "this is not a bump version commit"
+            else
+              echo "tag branch, start release"
+              git tag -a "$release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
+              git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            fi
 
 workflows:
   version: 2
+  bump_sdk_version:
+    jobs:
+      - bump_sdk_version:
+          filters:
+            branches:
+              only:
+                - bump_sdk_version    
 
   build_and_test:
     jobs: 
       - build:
           filters:
             branches:
-              ignore: /gh-.*/
+              ignore: bump_sdk_version
       - unittest:
           requires:
             - build
           filters:
             branches:
-              ignore: /gh-.*/
+              ignore: bump_sdk_version
       - pre_integrationtest:
           filters:
             branches:
@@ -921,6 +1172,25 @@ workflows:
               only:
                 - master
                 - develop
+      - merge_to_master:
+          requires:
+            - build       
+            - unittest
+            # - post_integrationtest
+          filters:
+            branches:
+              only:
+                - test_develop        
+      - prepare_release_sdk:
+          requires:
+            - build       
+            - unittest
+            # - post_integrationtest
+          filters:
+            branches:
+              only:
+                - test_master    
+
   release_sdk:
     jobs: 
       - build:
