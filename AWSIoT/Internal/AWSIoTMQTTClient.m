@@ -754,7 +754,13 @@
             self.connectionAgeTimer = nil;
         }
         [self.session close];
-    
+        
+        if ( self.webSocket) {
+            [self.toDecoderStream close];
+            [self.webSocket close];
+            self.webSocket = nil;
+        }
+
         //Set status
         self.mqttStatus = AWSIoTMQTTStatusDisconnected;
         
