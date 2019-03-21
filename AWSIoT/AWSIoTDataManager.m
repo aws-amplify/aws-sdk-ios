@@ -209,12 +209,6 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
 
 @implementation AWSIoTDataManager
 
-/*
- This version is for metrics collection for AWS IoT purpose only. It may be different
- than the version of AWS SDK for iOS. Update this version when there's a change in AWSIoT.
- */
-static const NSString *SDK_VERSION = @"2.6.19";
-
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultIoTDataManager {
@@ -328,7 +322,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if(_mqttClient == nil){
             AWSDDLogError(@"**** mqttClient is nil. **** ");
         }
-        _mqttClient.userMetaData = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+        _mqttClient.userMetaData = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", AWSIoTSDKVersion];
         _mqttClient.associatedObject = self;
         _userDidIssueDisconnect = NO;
         _userDidIssueConnect = NO;
@@ -343,7 +337,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData {
 
     // validate the length of username field
-    NSMutableString *userMetadata = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+    NSMutableString *userMetadata = [NSMutableString stringWithString:self.mqttClient.userMetaData];
     NSUInteger baseLength = [userMetadata length];
 
     // Append each of the user-specified key-value pair to the connection username
