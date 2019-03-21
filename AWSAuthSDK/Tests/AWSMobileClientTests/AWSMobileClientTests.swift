@@ -670,6 +670,11 @@ class AWSMobileClientTests: XCTestCase {
         let changePasswordExpectation = expectation(description: "Change password should fail")
         AWSMobileClient.sharedInstance().changePassword(currentPassword: "WronPassword", proposedPassword: "NewPassword123!@") { (error) in
             XCTAssertNotNil(error)
+            guard let _ = error as? AWSMobileClientError else {
+                XCTFail("Error should be of type AWSMobileClientError")
+                changePasswordExpectation.fulfill()
+                return
+            }
             changePasswordExpectation.fulfill()
         }
         wait(for: [changePasswordExpectation], timeout: 5)
