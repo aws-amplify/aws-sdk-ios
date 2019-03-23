@@ -1282,7 +1282,6 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     return [[self.s3 createMultipartUpload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
         //Initiation of multi part failed.
         if (task.error) {
-            AWSDDLogDebug(@"createMutltipartUpload request failed %@", task.error);
             if (transferUtilityMultiPartUploadTask.temporaryFileCreated) {
                 [self removeFile:transferUtilityMultiPartUploadTask.file];
             }
