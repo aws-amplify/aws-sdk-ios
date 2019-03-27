@@ -14,6 +14,8 @@ import Foundation
     @objc public let logoImage: UIImage?
     /// The background color of the sign-in screen.
     @objc public let backgroundColor: UIColor?
+    /// If set to true the sign up button is hidden from the UI.
+    @objc public let disableSignUpButton: Bool
     
     
     /// Initializer for the drop-in UI configuration.
@@ -22,10 +24,12 @@ import Foundation
     ///   - canCancel: If set to true, the end user can cancel the sign-in operation and go back to previous view controller.
     ///   - logoImage: The logo image to be displayed on the sign-in screen.
     ///   - backgroundColor: The background color of the sign-in screen.
-    @objc public init(canCancel: Bool = false,logoImage: UIImage? = nil, backgroundColor: UIColor? = nil) {
+    ///   - disableSignUpButton: If set to true the sign up button is hidden from the UI.
+    @objc public init(canCancel: Bool = false,logoImage: UIImage? = nil, backgroundColor: UIColor? = nil, disableSignUpButton: Bool = false) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
+        self.disableSignUpButton = disableSignUpButton;
     }
 }
 

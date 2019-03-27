@@ -60,6 +60,14 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
     if(configDictionary[@"backgroundColor"]) {
         [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
     }
+    if(configDictionary[@"disableSignUpButton"]) {
+        NSString *disableSignUpButtonValue = (NSString *)configDictionary[@"disableSignUpButton"];
+        if ([disableSignUpButtonValue isEqual: @"YES"]) {
+            [config setDisableSignUpButton:true];
+        } else {
+            [config setDisableSignUpButton:false];
+        }
+    }
     
     [[AWSSignInManager sharedInstance] setDontFederate];
     
