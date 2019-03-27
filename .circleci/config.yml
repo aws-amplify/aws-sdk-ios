@@ -598,6 +598,22 @@ jobs:
           name: invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+  
+  create_pullrequest_for_modelupdate:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - checkout
+      - set_enviroment_variables
+      - run:
+          name: create pull request
+          command: |
+            target_branch="develop"
+            title=${CIRCLE_BRANCH}       
+            content="${CIRCLE_BRANCH}" 
+            python3 ./CircleciScripts/create_pullrequest.py  "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
 
 workflows:
   version: 2
@@ -614,6 +630,11 @@ workflows:
           filters:
             branches:
               ignore: /gh-.*/
+      - create_pullrequest_for_modelupdate:
+          filters:
+            branches:
+              only:
+                - /^models-update-.+$/                 
       - pre_integrationtest:
           filters:
             branches:
