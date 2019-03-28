@@ -1,6 +1,14 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.4
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Fixed bug in userMetaData logic
+  * Fixed a `objc_retain` crash in thread initiation. See [issue #1257](https://github.com/aws-amplify/aws-sdk-ios/issues/1257), and [issue #1190](https://github.com/aws-amplify/aws-sdk-ios/issues/1190)
+
 ## 2.9.3
 
 ### New Features
