@@ -158,19 +158,41 @@ commands:
       - run:   
           name: pre-start simulator
           command: xcrun instruments -w "iPhone X (12.1) [" -t "Blank" || true    
-  skip_job_if_triggered_by_circleci:
+  skip_test_job:
     description: >-
-      skip the job if release process is triggered by circleci
+      check if the test job can be skipped
     steps:
       - run:
-          name: check commit messange and halt job
+          name: skip the test job if commit message require skipping tests
           command: |
-            currentcommit="${CIRCLE_SHA1}"
-            commitmessage=$(git log --pretty=oneline ${currentcommit} | grep ${currentcommit})
-            echo $commitmessage
-            if [[ "$commitlog" =~ .*"Trigger release from circleci".* ]] 
-            then
-               echo "The release is triggered by circleci. skip the job"
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            if [[ "$commitmessage" =~ .*"[skip test]".* ]] 
+            then 
+               echo "skip the test job required from commit message"
+               circleci step halt
+            fi        
+      - run:
+          name: skip the test job if the release process is triggered by circleci
+          command: |
+            skipflag=$(echo "${SKIPTEST_FOR_RELEASE}") |  tr '[:upper:]' '[:lower:]' 
+            if ! [ -z "${CIRCLE_TAG}" ]  && [ "$skipflag" == "true" ]
+            then 
+              tagmessage="git show ${CIRCLE_TAG}"
+              echo $tagmessage
+              if [[ "$tagmessage" =~ .*"Trigger release from circleci".* ]] 
+              then
+                 echo "The release is triggered by circleci. skip the job"
+                 circleci step halt
+              fi
+            fi
+      - run:
+          name: skip the test job if this is merged from develop by circleci
+          command: |
+            skipflag=$(echo "${SKIPTEST_FOR_MASTER}") |  tr '[:upper:]' '[:lower:]' 
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            if [ "$skipflag" == "true" ] && [[ "$commitmessage" =~ .*"[Merge develop to master by circleci]".* ]] 
+            then 
+               echo "This is merged from develop by circleci. skip the test job"
                circleci step halt
             fi
 
@@ -179,15 +201,15 @@ commands:
       skip the test job is project variabe OVERRIDE_TEST is set with TRUE
     steps:
       - run:
-          name: checkiftestcanoverrided 
+          name: check_for_test_override 
           command: |
               echo "override_test_varaible_name=$override_test_varaible_name"
               override_test_value=$(eval "echo $"${override_test_varaible_name}"")
-              if [ "${override_test_value}" == "TRUE" ]; then
+              override_test_value=$(echo "${override_test_value}" |  tr '[:upper:]' '[:lower:]')
+              if [ "${override_test_value}" == "true" ]; then
                 echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all tests"
                 circleci step halt
-              fi  
-               
+              fi    
   skip_job_unless_required:
     description: >-
       skip job unless required
@@ -234,10 +256,11 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps:
+      - set_enviroment_variables
       - override_test_job
       - skip_job_unless_required
       - checkout
-      - skip_job_if_triggered_by_circleci
+      - skip_test_job
       - run:
           name: create credentials
           command: |
@@ -368,12 +391,12 @@ jobs:
     macos:
       xcode: "10.1.0"   
     steps:
+      - set_enviroment_variables
       - override_test_job
       - skip_job_unless_required
       - early_return_for_forked_prs
-      - set_enviroment_variables
       - checkout 
-      - skip_job_if_triggered_by_circleci
+      - skip_test_job
       - restore_cache:
           key: build_result-{{ .Revision }}  
       - run: 
@@ -544,11 +567,12 @@ jobs:
     macos:
       xcode: "10.1.0"
     steps:
+      - set_enviroment_variables
       - override_test_job
       - skip_job_unless_required
       - early_return_for_forked_prs
       - checkout
-      - skip_job_if_triggered_by_circleci
+      - skip_test_job
       - run:
           name: Run Sample UI Test
           command: |
@@ -658,8 +682,8 @@ jobs:
       - skip_job_unless_required
       - checkout
       - update_brew
-      - configure_aws
       - set_enviroment_variables
+      - configure_aws
       - run:
           name: build libarary
           command: |
@@ -695,7 +719,6 @@ jobs:
           name: invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
- 
   bump_sdk_version:
     docker:
       - image: circleci/android:api-27-alpha
@@ -737,8 +760,11 @@ jobs:
               exit 1
             fi 
             echo "release_version=[$release_version]"          
-            bumpversion_repo_user=aws-amplify
-            bumpversion_repo_name=aws-sdk-ios
+            bumpversion_repo_user=${CIRCLE_PROJECT_USERNAME}
+            bumpversion_repo_name=${CIRCLE_PROJECT_REPONAME}
+            echo "bumpversion_repo_user:$bumpversion_repo_user"
+            echo "bumpversion_repo_name:$bumpversion_repo_name"
+
             bump_version_message="[bump version $release_version]"
             bump_version_pr_title="bump iOS sdk version to ${release_version}"
             target_branch=test_develop
@@ -799,22 +825,24 @@ jobs:
       - run:
           name: trigger release_sdk if curremt commit is a bump version
           command: |
-            git config --local user.name AWS
-            currentcommit="${CIRCLE_SHA1}"
-            echo $currentcommit
-            commitmessage=$(git log --format=%B -n 1 ${currentcommit})
-            echo "commitmessage=$commitmessage"
-            set +e
-            release_version=$(echo "$commitmessage" | grep -E "\[bump version [0-9]+.[0-9]+.[0-9]+\]" | sed 's/.*\[bump version \([0-9]*.[0-9]*.[0-9]*\)\].*/\1/')
-            echo "rellease_version=$release_version"
-            if [ -z "$release_version" ]
-            then 
-              echo "this is not a bump version commit"
-            else
-              echo "tag branch, start release"
-              git tag -a "$release_version"  -m "Release AWS SDK for iOS $release_version. Trigger release from circleci"
-              git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
-            fi
+            bash prepare_release_sdk.sh
+  create_pullrequest_for_modelupdate:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m  
+    steps:  
+      - skip_job_unless_required
+      - set_enviroment_variables
+      - checkout  
+      - run:
+          name: create pull request
+          command: |
+            target_branch="develop"
+            title=${CIRCLE_BRANCH}       
+            content="${CIRCLE_BRANCH}" 
+            python3 ./CircleciScripts/create_pullrequest.py  "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
+
 
 workflows:
   version: 2
@@ -825,7 +853,6 @@ workflows:
             branches:
               only:
                 - bump_sdk_version    
-
   build_and_test:
     jobs: 
       - build:
@@ -838,6 +865,11 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
+      - create_pullrequest_for_modelupdate:
+          filters:
+            branches:
+              only:
+                - /^models-update-.+$/     
       - pre_integrationtest:
           filters:
             branches:
@@ -1149,7 +1181,7 @@ workflows:
           requires:
             - build       
             - unittest
-            # - post_integrationtest
+            - post_integrationtest
           filters:
             branches:
               only:
@@ -1158,7 +1190,7 @@ workflows:
           requires:
             - build       
             - unittest
-            # - post_integrationtest
+            - post_integrationtest
           filters:
             branches:
               only:
