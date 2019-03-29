@@ -59,7 +59,8 @@ modulelist = [
     'AWSAuthSDK/Sources/AWSFacebookSignIn',
     'AWSAuthSDK/Sources/AWSGoogleSignIn',
     'AWSAuthSDK/Sources/AWSMobileClient',
-    'AWSAuthSDK/Sources/AWSUserPoolsSignIn'
+    'AWSAuthSDK/Sources/AWSUserPoolsSignIn',
+    'AWSAuthUI'
 ]
 
 for module in modulelist:
@@ -114,10 +115,6 @@ service_pattern["files"].append("AWSAPIGateway/AWSAPIGatewayClient.m")
 service_pattern["files"].append("AWSCognitoAuth/AWSCognitoAuth.m")
 service_pattern["files"].append("AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.m")
 service_pattern["files"].append("AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingService.m")
-
-# service_pattern["files"].append("")
-# service_pattern["files"].append("")
-
 
 replaces = [
     {
