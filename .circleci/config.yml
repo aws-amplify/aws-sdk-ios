@@ -1185,7 +1185,7 @@ workflows:
           filters:
             branches:
               only:
-                - test_develop        
+                - develop        
       - prepare_release_sdk:
           requires:
             - build       
@@ -1194,7 +1194,7 @@ workflows:
           filters:
             branches:
               only:
-                - test_master    
+                - master    
 
   release_sdk:
     jobs: 
