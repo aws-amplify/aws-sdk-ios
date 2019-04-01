@@ -40,6 +40,7 @@ NSString *const AWSCloudWatchSDKVersion = @"2.9.3";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"ConcurrentModificationException" : @(AWSCloudWatchErrorConcurrentModification),
                             @"InvalidParameterInput" : @(AWSCloudWatchErrorDashboardInvalidInput),
                             @"ResourceNotFound" : @(AWSCloudWatchErrorDashboardNotFound),
                             @"InternalServiceError" : @(AWSCloudWatchErrorInternalService),
@@ -49,7 +50,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidParameterValue" : @(AWSCloudWatchErrorInvalidParameterValue),
                             @"LimitExceeded" : @(AWSCloudWatchErrorLimitExceeded),
                             @"MissingParameter" : @(AWSCloudWatchErrorMissingRequiredParameter),
-                            @"ResourceNotFound" : @(AWSCloudWatchErrorResourceNotFound),
+                            @"ResourceNotFoundException" : @(AWSCloudWatchErrorResourceNotFound),
                             };
 }
 
@@ -578,6 +579,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCloudWatchListTagsForResourceOutput *> *)listTagsForResource:(AWSCloudWatchListTagsForResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSCloudWatchListTagsForResourceOutput class]];
+}
+
+- (void)listTagsForResource:(AWSCloudWatchListTagsForResourceInput *)request
+     completionHandler:(void (^)(AWSCloudWatchListTagsForResourceOutput *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchListTagsForResourceOutput *> * _Nonnull task) {
+        AWSCloudWatchListTagsForResourceOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCloudWatchPutDashboardOutput *> *)putDashboard:(AWSCloudWatchPutDashboardInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -661,6 +685,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCloudWatchTagResourceOutput *> *)tagResource:(AWSCloudWatchTagResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"TagResource"
+                   outputClass:[AWSCloudWatchTagResourceOutput class]];
+}
+
+- (void)tagResource:(AWSCloudWatchTagResourceInput *)request
+     completionHandler:(void (^)(AWSCloudWatchTagResourceOutput *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchTagResourceOutput *> * _Nonnull task) {
+        AWSCloudWatchTagResourceOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCloudWatchUntagResourceOutput *> *)untagResource:(AWSCloudWatchUntagResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"UntagResource"
+                   outputClass:[AWSCloudWatchUntagResourceOutput class]];
+}
+
+- (void)untagResource:(AWSCloudWatchUntagResourceInput *)request
+     completionHandler:(void (^)(AWSCloudWatchUntagResourceOutput *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchUntagResourceOutput *> * _Nonnull task) {
+        AWSCloudWatchUntagResourceOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
