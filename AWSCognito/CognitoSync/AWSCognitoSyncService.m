@@ -40,19 +40,19 @@ NSString *const AWSCognitoSyncSDKVersion = @"2.9.3";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"AlreadyStreamedException" : @(AWSCognitoSyncErrorAlreadyStreamed),
-                            @"ConcurrentModificationException" : @(AWSCognitoSyncErrorConcurrentModification),
-                            @"DuplicateRequestException" : @(AWSCognitoSyncErrorDuplicateRequest),
-                            @"InternalErrorException" : @(AWSCognitoSyncErrorInternalError),
-                            @"InvalidConfigurationException" : @(AWSCognitoSyncErrorInvalidConfiguration),
-                            @"InvalidLambdaFunctionOutputException" : @(AWSCognitoSyncErrorInvalidLambdaFunctionOutput),
-                            @"InvalidParameterException" : @(AWSCognitoSyncErrorInvalidParameter),
-                            @"LambdaThrottledException" : @(AWSCognitoSyncErrorLambdaThrottled),
-                            @"LimitExceededException" : @(AWSCognitoSyncErrorLimitExceeded),
-                            @"NotAuthorizedException" : @(AWSCognitoSyncErrorNotAuthorized),
-                            @"ResourceConflictException" : @(AWSCognitoSyncErrorResourceConflict),
-                            @"ResourceNotFoundException" : @(AWSCognitoSyncErrorResourceNotFound),
-                            @"TooManyRequestsException" : @(AWSCognitoSyncErrorTooManyRequests),
+                            @"AlreadyStreamed" : @(AWSCognitoSyncErrorAlreadyStreamed),
+                            @"ConcurrentModification" : @(AWSCognitoSyncErrorConcurrentModification),
+                            @"DuplicateRequest" : @(AWSCognitoSyncErrorDuplicateRequest),
+                            @"InternalError" : @(AWSCognitoSyncErrorInternalError),
+                            @"InvalidConfiguration" : @(AWSCognitoSyncErrorInvalidConfiguration),
+                            @"InvalidLambdaFunctionOutput" : @(AWSCognitoSyncErrorInvalidLambdaFunctionOutput),
+                            @"InvalidParameter" : @(AWSCognitoSyncErrorInvalidParameter),
+                            @"LambdaThrottled" : @(AWSCognitoSyncErrorLambdaThrottled),
+                            @"LimitExceeded" : @(AWSCognitoSyncErrorLimitExceeded),
+                            @"NotAuthorizedError" : @(AWSCognitoSyncErrorNotAuthorized),
+                            @"ResourceConflict" : @(AWSCognitoSyncErrorResourceConflict),
+                            @"ResourceNotFound" : @(AWSCognitoSyncErrorResourceNotFound),
+                            @"TooManyRequests" : @(AWSCognitoSyncErrorTooManyRequests),
                             };
 }
 
