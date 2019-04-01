@@ -157,7 +157,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -244,7 +244,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -904,7 +904,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
 /**
- <p>The filter pattern to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p><p>If not provided, all the events are matched.</p>
+ <p>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p><p>If not provided, all the events are matched.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterPattern;
 
@@ -1818,7 +1818,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The end of the time range to query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+ <p>The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
@@ -1833,12 +1833,12 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The query string to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+ <p>The query string to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queryString;
 
 /**
- <p>The beginning of the time range to query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+ <p>The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTime;
 
