@@ -6,7 +6,7 @@ version: 2.1
 
 commands:
   early_return_for_forked_prs:
-    description: >-
+    description: >- 
       If this build is from a fork, stop executing the current job and return success.
       This is useful to avoid steps that will fail due to missing credentials.
     steps:
@@ -795,7 +795,7 @@ jobs:
           name: merge change to master
           command: |
             git config --local user.name AWS
-            git checkout test_master
+            git checkout master
             git pull --rebase
             commitlog=$(git log)
             currentcommit="${CIRCLE_SHA1}"
@@ -809,7 +809,7 @@ jobs:
               currentcommit="${CIRCLE_SHA1}"
               lastcommitmessage=$(git log --format=%B -n 1 ${currentcommit})
 
-              git merge  test_develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"  
+              git merge  develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"  
               echo "push change"
               git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
             fi
@@ -1185,7 +1185,7 @@ workflows:
           filters:
             branches:
               only:
-                - test_develop        
+                - develop        
       - prepare_release_sdk:
           requires:
             - build       
@@ -1194,7 +1194,7 @@ workflows:
           filters:
             branches:
               only:
-                - test_master    
+                - master    
 
   release_sdk:
     jobs: 

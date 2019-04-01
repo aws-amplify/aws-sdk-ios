@@ -8,6 +8,9 @@
 * **AWS IoT**
   * Fixed bug in userMetaData logic
   * Fixed a `objc_retain` crash in thread initiation. See [issue #1257](https://github.com/aws-amplify/aws-sdk-ios/issues/1257), and [issue #1190](https://github.com/aws-amplify/aws-sdk-ios/issues/1190)
+ 
+* **AWSMobileClient**
+  * Fixed issue where error was not correctly cast to `AWSMobileClientError` when using `changePassword` API. [issue #1246](https://github.com/aws-amplify/aws-sdk-ios/issues/1246)
 
 ## 2.9.3
 
