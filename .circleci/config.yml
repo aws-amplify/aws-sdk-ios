@@ -6,7 +6,7 @@ version: 2.1
 
 commands:
   early_return_for_forked_prs:
-    description: >-
+    description: >- 
       If this build is from a fork, stop executing the current job and return success.
       This is useful to avoid steps that will fail due to missing credentials.
     steps:
