@@ -1925,6 +1925,22 @@
       } ],\
       \"documentation\" : \"Get a Voice Channel\"\
     },\
+    \"ListTagsForResource\" : {\
+      \"name\" : \"ListTagsForResource\",\
+      \"http\" : {\
+        \"method\" : \"GET\",\
+        \"requestUri\" : \"/v1/tags/{resource-arn}\",\
+        \"responseCode\" : 200\
+      },\
+      \"input\" : {\
+        \"shape\" : \"ListTagsForResourceRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"ListTagsForResourceResponse\",\
+        \"documentation\" : \"200 response\"\
+      },\
+      \"errors\" : [ ]\
+    },\
     \"PhoneNumberValidate\" : {\
       \"name\" : \"PhoneNumberValidate\",\
       \"http\" : {\
@@ -2134,6 +2150,30 @@
         \"documentation\" : \"429 response\"\
       } ],\
       \"documentation\" : \"Used to send a message to a list of users.\"\
+    },\
+    \"TagResource\" : {\
+      \"name\" : \"TagResource\",\
+      \"http\" : {\
+        \"method\" : \"POST\",\
+        \"requestUri\" : \"/v1/tags/{resource-arn}\",\
+        \"responseCode\" : 204\
+      },\
+      \"input\" : {\
+        \"shape\" : \"TagResourceRequest\"\
+      },\
+      \"errors\" : [ ]\
+    },\
+    \"UntagResource\" : {\
+      \"name\" : \"UntagResource\",\
+      \"http\" : {\
+        \"method\" : \"DELETE\",\
+        \"requestUri\" : \"/v1/tags/{resource-arn}\",\
+        \"responseCode\" : 204\
+      },\
+      \"input\" : {\
+        \"shape\" : \"UntagResourceRequest\"\
+      },\
+      \"errors\" : [ ]\
     },\
     \"UpdateAdmChannel\" : {\
       \"name\" : \"UpdateAdmChannel\",\
@@ -3359,6 +3399,10 @@
     \"ApplicationResponse\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
+        \"Arn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The arn for the application.\"\
+        },\
         \"Id\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The unique application ID.\"\
@@ -3366,6 +3410,11 @@
         \"Name\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The display name of the application.\"\
+        },\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\",\
+          \"documentation\" : \"The Tags for the application.\"\
         }\
       },\
       \"documentation\" : \"Application Response.\",\
@@ -3689,6 +3738,10 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The ID of the application to which the campaign applies.\"\
         },\
+        \"Arn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The arn for the campaign.\"\
+        },\
         \"CreationDate\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The date the campaign was created in ISO 8601 format.\"\
@@ -3748,6 +3801,11 @@
         \"State\" : {\
           \"shape\" : \"CampaignState\",\
           \"documentation\" : \"The campaign status.\\n\\nAn A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED.\"\
+        },\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\",\
+          \"documentation\" : \"The Tags for the campaign.\"\
         },\
         \"TreatmentDescription\" : {\
           \"shape\" : \"__string\",\
@@ -3895,6 +3953,11 @@
         \"Name\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The display name of the application. Used in the Amazon Pinpoint console.\"\
+        },\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\",\
+          \"documentation\" : \"The Tags for the app.\"\
         }\
       },\
       \"documentation\" : \"Application Request.\",\
@@ -6521,6 +6584,27 @@
       \"type\" : \"string\",\
       \"enum\" : [ \"CREATED\", \"INITIALIZING\", \"PROCESSING\", \"COMPLETING\", \"COMPLETED\", \"FAILING\", \"FAILED\" ]\
     },\
+    \"ListTagsForResourceRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ResourceArn\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"resource-arn\"\
+        }\
+      },\
+      \"required\" : [ \"ResourceArn\" ]\
+    },\
+    \"ListTagsForResourceResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"TagsModel\" : {\
+          \"shape\" : \"TagsModel\"\
+        }\
+      },\
+      \"required\" : [ \"TagsModel\" ],\
+      \"payload\" : \"TagsModel\"\
+    },\
     \"Message\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -7358,6 +7442,10 @@
           \"shape\" : \"__string\",\
           \"documentation\" : \"The ID of the application that the segment applies to.\"\
         },\
+        \"Arn\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The arn for the segment.\"\
+        },\
         \"CreationDate\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"The date and time when the segment was created.\"\
@@ -7389,6 +7477,11 @@
         \"SegmentType\" : {\
           \"shape\" : \"SegmentType\",\
           \"documentation\" : \"The segment type:\\nDIMENSIONAL - A dynamic segment built from selection criteria based on endpoint data reported by your app. You create this type of segment by using the segment builder in the Amazon Pinpoint console or by making a POST request to the segments resource.\\nIMPORT - A static segment built from an imported set of endpoint definitions. You create this type of segment by importing a segment in the Amazon Pinpoint console or by making a POST request to the jobs/import resource.\"\
+        },\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\",\
+          \"documentation\" : \"The Tags for the segment.\"\
         },\
         \"Version\" : {\
           \"shape\" : \"__integer\",\
@@ -7585,6 +7678,31 @@
       \"type\" : \"string\",\
       \"enum\" : [ \"ALL\", \"ANY\", \"NONE\" ]\
     },\
+    \"TagResourceRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ResourceArn\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"resource-arn\"\
+        },\
+        \"TagsModel\" : {\
+          \"shape\" : \"TagsModel\"\
+        }\
+      },\
+      \"required\" : [ \"ResourceArn\", \"TagsModel\" ],\
+      \"payload\" : \"TagsModel\"\
+    },\
+    \"TagsModel\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\"\
+        }\
+      },\
+      \"required\" : [ \"tags\" ]\
+    },\
     \"TooManyRequestsException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -7641,6 +7759,23 @@
     \"Type\" : {\
       \"type\" : \"string\",\
       \"enum\" : [ \"ALL\", \"ANY\", \"NONE\" ]\
+    },\
+    \"UntagResourceRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ResourceArn\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"resource-arn\"\
+        },\
+        \"TagKeys\" : {\
+          \"shape\" : \"ListOf__string\",\
+          \"location\" : \"querystring\",\
+          \"locationName\" : \"tagKeys\",\
+          \"documentation\" : \"The key(s) of tag to be deleted\"\
+        }\
+      },\
+      \"required\" : [ \"TagKeys\", \"ResourceArn\" ]\
     },\
     \"UpdateAdmChannelRequest\" : {\
       \"type\" : \"structure\",\
@@ -8212,6 +8347,11 @@
           \"shape\" : \"__integer\",\
           \"documentation\" : \"The version of the segment to which the campaign sends messages.\"\
         },\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\",\
+          \"documentation\" : \"The Tags for the campaign.\"\
+        },\
         \"TreatmentDescription\" : {\
           \"shape\" : \"__string\",\
           \"documentation\" : \"A custom description for the treatment.\"\
@@ -8252,6 +8392,11 @@
         \"SegmentGroups\" : {\
           \"shape\" : \"SegmentGroupList\",\
           \"documentation\" : \"A segment group, which consists of zero or more source segments, plus dimensions that are applied to those source segments. Your request can only include one segment group. Your request can include either a SegmentGroups object or a Dimensions object, but not both.\"\
+        },\
+        \"tags\": {\
+          \"shape\" : \"MapOf__string\",\
+          \"locationName\" : \"tags\",\
+          \"documentation\" : \"The Tags for the segments.\"\
         }\
       },\
       \"documentation\" : \"Segment definition.\",\

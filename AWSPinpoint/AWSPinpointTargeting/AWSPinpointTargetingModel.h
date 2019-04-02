@@ -350,6 +350,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingImportJobResponse;
 @class AWSPinpointTargetingImportJobsResponse;
 @class AWSPinpointTargetingItemResponse;
+@class AWSPinpointTargetingListTagsForResourceRequest;
+@class AWSPinpointTargetingListTagsForResourceResponse;
 @class AWSPinpointTargetingMessage;
 @class AWSPinpointTargetingMessageBody;
 @class AWSPinpointTargetingMessageConfiguration;
@@ -395,7 +397,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingSetDimension;
 @class AWSPinpointTargetingSimpleEmail;
 @class AWSPinpointTargetingSimpleEmailPart;
+@class AWSPinpointTargetingTagResourceRequest;
+@class AWSPinpointTargetingTagsModel;
 @class AWSPinpointTargetingTreatmentResource;
+@class AWSPinpointTargetingUntagResourceRequest;
 @class AWSPinpointTargetingUpdateAdmChannelRequest;
 @class AWSPinpointTargetingUpdateAdmChannelResponse;
 @class AWSPinpointTargetingUpdateApnsChannelRequest;
@@ -1298,6 +1303,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
+ The arn for the application.
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
  The unique application ID.
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
@@ -1306,6 +1316,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  The display name of the application.
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ The Tags for the application.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -1679,6 +1694,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
+ The arn for the campaign.
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
  The date the campaign was created in ISO 8601 format.
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
@@ -1767,6 +1787,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  The campaign version number.
  */
 @property (nonatomic, strong) NSNumber * _Nullable version;
+
+/**
+ The Tags for the campaign.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -1926,6 +1951,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  The display name of the application. Used in the Amazon Pinpoint console.
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ The Tags for the app.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -4941,6 +4971,32 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ 
+ */
+@interface AWSPinpointTargetingListTagsForResourceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingListTagsForResourceResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSPinpointTargetingTagsModel * _Nullable tagsModel;
+
+@end
+
+/**
  Message to send
  */
 @interface AWSPinpointTargetingMessage : AWSModel
@@ -5916,6 +5972,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
+ The arn for the segment.
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
  The date and time when the segment was created.
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
@@ -5959,6 +6020,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  The segment version number.
  */
 @property (nonatomic, strong) NSNumber * _Nullable version;
+
+/**
+ The Tags for the segment.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -6181,6 +6247,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ 
+ */
+@interface AWSPinpointTargetingTagResourceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSPinpointTargetingTagsModel * _Nullable tagsModel;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingTagsModel : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  Treatment resource
  */
 @interface AWSPinpointTargetingTreatmentResource : AWSModel
@@ -6220,6 +6317,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  The custom name of a variation of the campaign used for A/B testing.
  */
 @property (nonatomic, strong) NSString * _Nullable treatmentName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUntagResourceRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ The key(s) of tag to be deleted
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
 @end
 
@@ -6919,6 +7034,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable treatmentName;
 
+/**
+ The Tags for the campaign.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
 @end
 
 /**
@@ -6959,6 +7079,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  A segment group, which consists of zero or more source segments, plus dimensions that are applied to those source segments. Your request can only include one segment group. Your request can include either a SegmentGroups object or a Dimensions object, but not both.
  */
 @property (nonatomic, strong) AWSPinpointTargetingSegmentGroupList * _Nullable segmentGroups;
+
+/**
+ The Tags for the segments.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
