@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -61,6 +61,8 @@
 		<option value="//api/name/botName">botName</option>
 		
 		<option value="//api/name/inputText">inputText</option>
+		
+		<option value="//api/name/requestAttributes">requestAttributes</option>
 		
 		<option value="//api/name/sessionAttributes">sessionAttributes</option>
 		
@@ -240,6 +242,54 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/requestAttributes" title="requestAttributes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/requestAttributes">&nbsp;&nbsp;requestAttributes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request-specific information passed between Amazon Lex and a client application.</p>
+
+
+<p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create any request attributes with the prefix <code>x-amz-lex:</code>.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request Attributes</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *requestAttributes</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/sessionAttributes" title="sessionAttributes"></a>
 	<h3 class="method-title"><code><a href="#//api/name/sessionAttributes">&nbsp;&nbsp;sessionAttributes</a></code>
 </h3>
@@ -251,22 +301,11 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> By using session attributes, a client application can pass contextual information in the request to Amazon Lex For example, </p>
+				<p>Application-specific information passed between Amazon Lex and a client application.</p>
 
 
-<ul><li><p>In Getting Started Exercise 1, the example bot uses the <code>price</code> session attribute to maintain the price of the flowers ordered (for example, "Price":25). The code hook (the Lambda function) sets this attribute based on the type of flowers ordered. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html">Review the Details of Information Flow</a>. </p></li><li><p>In the BookTrip bot exercise, the bot uses the <code>currentReservation</code> session attribute to maintain slot data during the in-progress conversation to book a hotel or book a car. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html">Details of Information Flow</a>. </p></li><li><p>You might use the session attributes (key, value pairs) to track the requestID of user requests.</p></li></ul>
+<p>For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session Attributes</a>.</p>
 
-
-<p> Amazon Lex simply passes these session attributes to the Lambda functions configured for the intent.</p>
-
-
-<p>In your Lambda function, you can also use the session attributes for initialization and customization (prompts and response cards). Some examples are:</p>
-
-
-<ul><li><p> Initialization - In a pizza ordering bot, if you can pass the user location as a session attribute (for example, <code>"Location" : "111 Maple street"</code>), then your Lambda function might use this information to determine the closest pizzeria to place the order (perhaps to set the storeAddress slot value). </p></li><li><p> Personalize prompts - For example, you can configure prompts to refer to the user name. (For example, "Hey [FirstName], what toppings would you like?"). You can pass the user name as a session attribute (<code>"FirstName" : "Joe"</code>) so that Amazon Lex can substitute the placeholder to provide a personalize prompt to the user ("Hey Joe, what toppings would you like?"). </p></li></ul>
-
-
-<p><note><p> Amazon Lex does not persist session attributes. </p><p> If you configure a code hook for the intent, Amazon Lex passes the incoming session attributes to the Lambda function. If you want Amazon Lex to return these session attributes back to the client, the Lambda function must return them. </p><p> If there is no code hook configured for the intent, Amazon Lex simply returns the session attributes back to the client application. </p></note></p>
 			</div>
 			
 		    
@@ -307,10 +346,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the client application user. The application developer decides the user IDs. At runtime, each request must include the user ID. Typically, each of your application users should have a unique ID. Note the following considerations: </p>
+				<p>The ID of the client application user. Amazon Lex uses this to identify a user's conversation with your bot. At runtime, each request must contain the <code>userID</code> field.</p>
 
 
-<ul><li><p> If you want a user to start a conversation on one device and continue the conversation on another device, you might choose a user-specific identifier, such as a login or Amazon Cognito user ID (assuming your application is using Amazon Cognito). </p></li><li><p> If you want the same user to be able to have two independent conversations on two different devices, you might choose a device-specific identifier, such as device ID, or some globally unique identifier. </p></li></ul>
+<p>To decide the user ID to use for your application, consider the following factors.</p>
+
+
+<ul><li><p>The <code>userID</code> field must not contain any personally identifiable information of the user, for example, name, personal identification numbers, or other end user personal information.</p></li><li><p>If you want a user to start a conversation on one device and continue on another device, use a user-specific identifier.</p></li><li><p>If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier.</p></li><li><p>A user can't have two independent conversations with two different versions of the same bot. For example, a user can't have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations.</p></li></ul>
 
 			</div>
 			
@@ -355,7 +397,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

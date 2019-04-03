@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -290,6 +290,10 @@
 		
 		<option value="//api/name/getVoiceChannel:completionHandler:">- getVoiceChannel:completionHandler:</option>
 		
+		<option value="//api/name/listTagsForResource:">- listTagsForResource:</option>
+		
+		<option value="//api/name/listTagsForResource:completionHandler:">- listTagsForResource:completionHandler:</option>
+		
 		<option value="//api/name/phoneNumberValidate:">- phoneNumberValidate:</option>
 		
 		<option value="//api/name/phoneNumberValidate:completionHandler:">- phoneNumberValidate:completionHandler:</option>
@@ -313,6 +317,14 @@
 		<option value="//api/name/sendUsersMessages:">- sendUsersMessages:</option>
 		
 		<option value="//api/name/sendUsersMessages:completionHandler:">- sendUsersMessages:completionHandler:</option>
+		
+		<option value="//api/name/tagResource:">- tagResource:</option>
+		
+		<option value="//api/name/tagResource:completionHandler:">- tagResource:completionHandler:</option>
+		
+		<option value="//api/name/untagResource:">- untagResource:</option>
+		
+		<option value="//api/name/untagResource:completionHandler:">- untagResource:completionHandler:</option>
 		
 		<option value="//api/name/updateAdmChannel:">- updateAdmChannel:</option>
 		
@@ -8237,6 +8249,146 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/listTagsForResource:" title="listTagsForResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:">&ndash;&nbsp;listTagsForResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ListTagsForResource</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSPinpointTargetingListTagsForResourceResponse*&gt; *)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPinpointTargetingListTagsForResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingListTagsForResourceRequest.html">AWSPinpointTargetingListTagsForResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingListTagsForResourceResponse.html">AWSPinpointTargetingListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTagsForResource:completionHandler:" title="listTagsForResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:completionHandler:">&ndash;&nbsp;listTagsForResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ListTagsForResource</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingListTagsForResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: .</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingListTagsForResourceRequest.html">AWSPinpointTargetingListTagsForResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingListTagsForResourceResponse.html">AWSPinpointTargetingListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/phoneNumberValidate:" title="phoneNumberValidate:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/phoneNumberValidate:">&ndash;&nbsp;phoneNumberValidate:</a></code>
 </h3>
@@ -9062,6 +9214,276 @@
 					<li><code><p><a href="../Classes/AWSPinpointTargetingSendUsersMessagesRequest.html">AWSPinpointTargetingSendUsersMessagesRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSPinpointTargetingSendUsersMessagesResponse.html">AWSPinpointTargetingSendUsersMessagesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:" title="tagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:">&ndash;&nbsp;tagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>TagResource</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)tagResource:(AWSPinpointTargetingTagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingTagResourceRequest.html">AWSPinpointTargetingTagResourceRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:completionHandler:" title="tagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:completionHandler:">&ndash;&nbsp;tagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>TagResource</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSPinpointTargetingTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: .</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingTagResourceRequest.html">AWSPinpointTargetingTagResourceRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:" title="untagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:">&ndash;&nbsp;untagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>UntagResource</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)untagResource:(AWSPinpointTargetingUntagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: .</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingUntagResourceRequest.html">AWSPinpointTargetingUntagResourceRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:completionHandler:" title="untagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:completionHandler:">&ndash;&nbsp;untagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>UntagResource</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSPinpointTargetingUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: .</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingUntagResourceRequest.html">AWSPinpointTargetingUntagResourceRequest</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -11191,7 +11613,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

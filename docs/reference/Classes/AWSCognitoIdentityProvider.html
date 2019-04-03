@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -358,6 +358,10 @@
 		
 		<option value="//api/name/listResourceServers:completionHandler:">- listResourceServers:completionHandler:</option>
 		
+		<option value="//api/name/listTagsForResource:">- listTagsForResource:</option>
+		
+		<option value="//api/name/listTagsForResource:completionHandler:">- listTagsForResource:completionHandler:</option>
+		
 		<option value="//api/name/listUserImportJobs:">- listUserImportJobs:</option>
 		
 		<option value="//api/name/listUserImportJobs:completionHandler:">- listUserImportJobs:completionHandler:</option>
@@ -417,6 +421,14 @@
 		<option value="//api/name/stopUserImportJob:">- stopUserImportJob:</option>
 		
 		<option value="//api/name/stopUserImportJob:completionHandler:">- stopUserImportJob:completionHandler:</option>
+		
+		<option value="//api/name/tagResource:">- tagResource:</option>
+		
+		<option value="//api/name/tagResource:completionHandler:">- tagResource:completionHandler:</option>
+		
+		<option value="//api/name/untagResource:">- untagResource:</option>
+		
+		<option value="//api/name/untagResource:completionHandler:">- untagResource:completionHandler:</option>
 		
 		<option value="//api/name/updateAuthEventFeedback:">- updateAuthEventFeedback:</option>
 		
@@ -11001,6 +11013,160 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/listTagsForResource:" title="listTagsForResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:">&ndash;&nbsp;listTagsForResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
+
+
+<p>A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>You can use this action up to 10 times per second, per account.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityProviderListTagsForResourceResponse*&gt; *)listTagsForResource:(AWSCognitoIdentityProviderListTagsForResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityProviderListTagsForResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceRequest.html">AWSCognitoIdentityProviderListTagsForResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceResponse.html">AWSCognitoIdentityProviderListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTagsForResource:completionHandler:" title="listTagsForResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:completionHandler:">&ndash;&nbsp;listTagsForResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
+
+
+<p>A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>You can use this action up to 10 times per second, per account.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSCognitoIdentityProviderListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListTagsForResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceRequest.html">AWSCognitoIdentityProviderListTagsForResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceResponse.html">AWSCognitoIdentityProviderListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/listUserImportJobs:" title="listUserImportJobs:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/listUserImportJobs:">&ndash;&nbsp;listUserImportJobs:</a></code>
 </h3>
@@ -13159,6 +13325,308 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/tagResource:" title="tagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:">&ndash;&nbsp;tagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of a user pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both user pools. The value of this key might be <code>Test</code> for one user pool and <code>Production</code> for the other.</p>
+
+
+<p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your user pools. In an IAM policy, you can constrain permissions for user pools based on specific tags or tag values.</p>
+
+
+<p>You can use this action up to 5 times per second, per account. A user pool can have as many as 50 tags.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityProviderTagResourceResponse*&gt; *)tagResource:(AWSCognitoIdentityProviderTagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityProviderTagResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderTagResourceRequest.html">AWSCognitoIdentityProviderTagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderTagResourceResponse.html">AWSCognitoIdentityProviderTagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:completionHandler:" title="tagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:completionHandler:">&ndash;&nbsp;tagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of a user pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both user pools. The value of this key might be <code>Test</code> for one user pool and <code>Production</code> for the other.</p>
+
+
+<p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your user pools. In an IAM policy, you can constrain permissions for user pools based on specific tags or tag values.</p>
+
+
+<p>You can use this action up to 5 times per second, per account. A user pool can have as many as 50 tags.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSCognitoIdentityProviderTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderTagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderTagResourceRequest.html">AWSCognitoIdentityProviderTagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderTagResourceResponse.html">AWSCognitoIdentityProviderTagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:" title="untagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:">&ndash;&nbsp;untagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified tags from an Amazon Cognito user pool. You can use this action up to 5 times per second, per account</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityProviderUntagResourceResponse*&gt; *)untagResource:(AWSCognitoIdentityProviderUntagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityProviderUntagResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderUntagResourceRequest.html">AWSCognitoIdentityProviderUntagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderUntagResourceResponse.html">AWSCognitoIdentityProviderUntagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:completionHandler:" title="untagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:completionHandler:">&ndash;&nbsp;untagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified tags from an Amazon Cognito user pool. You can use this action up to 5 times per second, per account</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSCognitoIdentityProviderUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUntagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderUntagResourceRequest.html">AWSCognitoIdentityProviderUntagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderUntagResourceResponse.html">AWSCognitoIdentityProviderUntagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/updateAuthEventFeedback:" title="updateAuthEventFeedback:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/updateAuthEventFeedback:">&ndash;&nbsp;updateAuthEventFeedback:</a></code>
 </h3>
@@ -14333,7 +14801,7 @@
 <p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p>
 
 
-<p>For more information about adding a custom domain to your user pool, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
+<p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
 
 			</div>
 			
@@ -14424,7 +14892,7 @@
 <p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p>
 
 
-<p>For more information about adding a custom domain to your user pool, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
+<p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
 
 			</div>
 			
@@ -14783,7 +15251,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

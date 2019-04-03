@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,9 +56,17 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/additionalMetricsToRetain">additionalMetricsToRetain</option>
+		
 		<option value="//api/name/alertTargets">alertTargets</option>
 		
 		<option value="//api/name/behaviors">behaviors</option>
+		
+		<option value="//api/name/deleteAdditionalMetricsToRetain">deleteAdditionalMetricsToRetain</option>
+		
+		<option value="//api/name/deleteAlertTargets">deleteAlertTargets</option>
+		
+		<option value="//api/name/deleteBehaviors">deleteBehaviors</option>
 		
 		<option value="//api/name/expectedVersion">expectedVersion</option>
 		
@@ -114,6 +122,48 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/additionalMetricsToRetain" title="additionalMetricsToRetain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/additionalMetricsToRetain">&nbsp;&nbsp;additionalMetricsToRetain</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code> but it is also retained for any metric specified here.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *additionalMetricsToRetain</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/alertTargets" title="alertTargets"></a>
 	<h3 class="method-title"><code><a href="#//api/name/alertTargets">&nbsp;&nbsp;alertTargets</a></code>
 </h3>
@@ -174,6 +224,132 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSIoTBehavior*&gt; *behaviors</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteAdditionalMetricsToRetain" title="deleteAdditionalMetricsToRetain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteAdditionalMetricsToRetain">&nbsp;&nbsp;deleteAdditionalMetricsToRetain</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>If true, delete all <code>additionalMetricsToRetain</code> defined for this security profile. If any <code>additionalMetricsToRetain</code> are defined in the current invocation an exception occurs.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *deleteAdditionalMetricsToRetain</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteAlertTargets" title="deleteAlertTargets"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteAlertTargets">&nbsp;&nbsp;deleteAlertTargets</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>If true, delete all <code>alertTargets</code> defined for this security profile. If any <code>alertTargets</code> are defined in the current invocation an exception occurs.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *deleteAlertTargets</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteBehaviors" title="deleteBehaviors"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteBehaviors">&nbsp;&nbsp;deleteBehaviors</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>If true, delete all <code>behaviors</code> defined for this security profile. If any <code>behaviors</code> are defined in the current invocation an exception occurs.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *deleteBehaviors</code></div>
 
 		    
 			
@@ -338,7 +514,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

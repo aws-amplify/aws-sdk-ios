@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -421,6 +421,10 @@
 		<option value="//api/name/getRegistrationCode:">- getRegistrationCode:</option>
 		
 		<option value="//api/name/getRegistrationCode:completionHandler:">- getRegistrationCode:completionHandler:</option>
+		
+		<option value="//api/name/getStatistics:">- getStatistics:</option>
+		
+		<option value="//api/name/getStatistics:completionHandler:">- getStatistics:completionHandler:</option>
 		
 		<option value="//api/name/getTopicRule:">- getTopicRule:</option>
 		
@@ -2191,7 +2195,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Attaches the specified principal to the specified thing.</p>
+				<p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
 
 			</div>
 			
@@ -2261,7 +2265,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Attaches the specified principal to the specified thing.</p>
+				<p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
 
 			</div>
 			
@@ -4987,7 +4991,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a thing record in the registry.</p>
+				<p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p>
 
 
 <p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note></p>
@@ -5059,7 +5063,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a thing record in the registry.</p>
+				<p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p>
 
 
 <p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note></p>
@@ -11945,7 +11949,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Detaches the specified principal from the specified thing.</p>
+				<p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
 
 
 <p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note></p>
@@ -12017,7 +12021,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Detaches the specified principal from the specified thing.</p>
+				<p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
 
 
 <p><note><p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p></note></p>
@@ -13481,6 +13485,148 @@
 					<li><code><p><a href="../Classes/AWSIoTGetRegistrationCodeRequest.html">AWSIoTGetRegistrationCodeRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSIoTGetRegistrationCodeResponse.html">AWSIoTGetRegistrationCodeResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getStatistics:" title="getStatistics:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getStatistics:">&ndash;&nbsp;getStatistics:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets statistics about things that match the specified query.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSIoTGetStatisticsResponse*&gt; *)getStatistics:(AWSIoTGetStatisticsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetStatistics service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSIoTGetStatisticsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSIoTErrorDomain</code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorUnauthorized</code>, <code>AWSIoTErrorServiceUnavailable</code>, <code>AWSIoTErrorInternalFailure</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorInvalidQuery</code>, <code>AWSIoTErrorInvalidAggregation</code>, <code>AWSIoTErrorIndexNotReady</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTGetStatisticsRequest.html">AWSIoTGetStatisticsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTGetStatisticsResponse.html">AWSIoTGetStatisticsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getStatistics:completionHandler:" title="getStatistics:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getStatistics:completionHandler:">&ndash;&nbsp;getStatistics:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets statistics about things that match the specified query.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getStatistics:(AWSIoTGetStatisticsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSIoTGetStatisticsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetStatistics service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSIoTErrorDomain</code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorUnauthorized</code>, <code>AWSIoTErrorServiceUnavailable</code>, <code>AWSIoTErrorInternalFailure</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorInvalidQuery</code>, <code>AWSIoTErrorInvalidAggregation</code>, <code>AWSIoTErrorIndexNotReady</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTGetStatisticsRequest.html">AWSIoTGetStatisticsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTGetStatisticsResponse.html">AWSIoTGetStatisticsResponse</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -16513,7 +16659,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Lists the things associated with the specified principal.</p>
+				<p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>
 
 			</div>
 			
@@ -16583,7 +16729,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Lists the things associated with the specified principal.</p>
+				<p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>
 
 			</div>
 			
@@ -18075,7 +18221,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Lists the principals associated with the specified thing.</p>
+				<p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
 
 			</div>
 			
@@ -18145,7 +18291,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Lists the principals associated with the specified thing.</p>
+				<p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>
 
 			</div>
 			
@@ -24903,7 +25049,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

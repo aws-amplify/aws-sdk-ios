@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -699,7 +699,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href="http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+				<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
 
 			</div>
 			
@@ -769,7 +769,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href="http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+				<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
 
 			</div>
 			
@@ -1435,7 +1435,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateDocumentClassifierResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateDocumentClassifierResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -1502,7 +1502,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1577,7 +1577,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateEntityRecognizerResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateEntityRecognizerResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -1644,7 +1644,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3137,7 +3137,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href="http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+				<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
 
 			</div>
 			
@@ -3207,7 +3207,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href="http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
+				<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>. </p>
 
 			</div>
 			
@@ -5015,7 +5015,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartDocumentClassificationJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartDocumentClassificationJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5082,7 +5082,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -5157,7 +5157,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartDominantLanguageDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartDominantLanguageDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5224,7 +5224,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -5302,7 +5302,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartEntitiesDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartEntitiesDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5372,7 +5372,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -5447,7 +5447,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartKeyPhrasesDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartKeyPhrasesDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5514,7 +5514,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -5589,7 +5589,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartSentimentDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartSentimentDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5656,7 +5656,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -5731,7 +5731,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartTopicsDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStartTopicsDetectionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5798,7 +5798,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -6786,7 +6786,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
