@@ -825,7 +825,7 @@ jobs:
       - run:
           name: trigger release_sdk if curremt commit is a bump version
           command: |
-            bash prepare_release_sdk.sh
+            bash CircleciScripts/prepare_release_sdk.sh
   create_pullrequest_for_modelupdate:
     docker:
       - image: circleci/android:api-27-alpha
