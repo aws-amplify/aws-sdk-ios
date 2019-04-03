@@ -60,7 +60,7 @@ modulelist = [
     'AWSAuthSDK/Sources/AWSGoogleSignIn',
     'AWSAuthSDK/Sources/AWSMobileClient',
     'AWSAuthSDK/Sources/AWSUserPoolsSignIn',
-    'AWSAuthUI'
+    'AWSAuthSDK/Sources/AWSAuthUI'
 ]
 
 for module in modulelist:
