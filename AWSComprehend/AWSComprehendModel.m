@@ -489,6 +489,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"documentClassifierName" : @"DocumentClassifierName",
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -558,6 +559,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"recognizerName" : @"RecognizerName",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -1242,6 +1244,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -1411,6 +1414,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
              @"trainingStartTime" : @"TrainingStartTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -1637,6 +1641,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -1792,6 +1797,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -2164,6 +2170,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
              @"trainingStartTime" : @"TrainingStartTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -2435,6 +2442,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -2798,6 +2806,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"kmsKeyId" : @"KmsKeyId",
              @"s3Uri" : @"S3Uri",
              };
 }
@@ -3000,6 +3009,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -3134,6 +3144,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -3208,6 +3219,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -3284,6 +3296,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -3400,6 +3413,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -3516,6 +3530,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -3632,6 +3647,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"numberOfTopics" : @"NumberOfTopics",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 
@@ -4065,6 +4081,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
              @"jobId" : @"JobId",
@@ -4074,6 +4091,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"numberOfTopics" : @"NumberOfTopics",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              };
 }
 

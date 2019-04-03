@@ -45,6 +45,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidFilterException" : @(AWSComprehendErrorInvalidFilter),
                             @"InvalidRequestException" : @(AWSComprehendErrorInvalidRequest),
                             @"JobNotFoundException" : @(AWSComprehendErrorJobNotFound),
+                            @"KmsKeyValidationException" : @(AWSComprehendErrorKmsKeyValidation),
                             @"ResourceInUseException" : @(AWSComprehendErrorResourceInUse),
                             @"ResourceLimitExceededException" : @(AWSComprehendErrorResourceLimitExceeded),
                             @"ResourceNotFoundException" : @(AWSComprehendErrorResourceNotFound),
