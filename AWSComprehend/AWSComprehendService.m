@@ -26,7 +26,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.9.1";
+NSString *const AWSComprehendSDKVersion = @"2.9.4";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -45,6 +45,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidFilterException" : @(AWSComprehendErrorInvalidFilter),
                             @"InvalidRequestException" : @(AWSComprehendErrorInvalidRequest),
                             @"JobNotFoundException" : @(AWSComprehendErrorJobNotFound),
+                            @"KmsKeyValidationException" : @(AWSComprehendErrorKmsKeyValidation),
                             @"ResourceInUseException" : @(AWSComprehendErrorResourceInUse),
                             @"ResourceLimitExceededException" : @(AWSComprehendErrorResourceLimitExceeded),
                             @"ResourceNotFoundException" : @(AWSComprehendErrorResourceNotFound),

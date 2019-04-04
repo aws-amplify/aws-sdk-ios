@@ -138,12 +138,7 @@
 }
 
 -(void)disconnect {
-    if (timer != nil) {
-        [timer invalidate];
-        timer = nil;
-    }
     [self send:AWSMQTTMessage.disconnectMessage];
-
 }
 
 - (void)close {

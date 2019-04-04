@@ -26,7 +26,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.9.1";
+NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.9.4";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -1910,6 +1910,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderListTagsForResourceResponse *> *)listTagsForResource:(AWSCognitoIdentityProviderListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSCognitoIdentityProviderListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSCognitoIdentityProviderListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderListTagsForResourceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderListUserImportJobsResponse *> *)listUserImportJobs:(AWSCognitoIdentityProviderListUserImportJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2245,6 +2268,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderStopUserImportJobResponse *response, NSError *error))completionHandler {
     [[self stopUserImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderStopUserImportJobResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderStopUserImportJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderTagResourceResponse *> *)tagResource:(AWSCognitoIdentityProviderTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"TagResource"
+                   outputClass:[AWSCognitoIdentityProviderTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSCognitoIdentityProviderTagResourceRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderTagResourceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderUntagResourceResponse *> *)untagResource:(AWSCognitoIdentityProviderUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSCognitoIdentityProviderUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSCognitoIdentityProviderUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUntagResourceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderUntagResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

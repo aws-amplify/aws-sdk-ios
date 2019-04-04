@@ -113,18 +113,84 @@ extension AWSMobileClient: AWSIdentityProviderManager {
             return userPoolsTokenTask.task
         } else if federationProvider == .oidcFederation {
             dict.addEntries(from: self.cachedLoginsMap)
+        } else if federationProvider == .hostedUI {
+            if !federationDisabled {
+                let hostedUITokenTask: AWSTaskCompletionSource<NSDictionary> = AWSTaskCompletionSource.init()
+                self.getTokens { (tokens, error) in
+                    if let tokens = tokens {
+                        dict[self.userPoolClient!.identityProviderName] = tokens.idToken!.tokenString!
+                        hostedUITokenTask.set(result: dict as NSDictionary)
+                    } else if let error = error {
+                        hostedUITokenTask.set(error: error)
+                    }
+                }
+                return hostedUITokenTask.task
+            }
+            
         }
         let task = AWSTask.init(result: dict as NSDictionary)
         return task
     }
     
+    internal func setLoginProviderMetadataAndSaveInKeychain(provider: FederationProvider) {
+        self.federationProvider = provider
+        self.keychain.setString(provider.rawValue, forKey: FederationProviderKey)
+        if let customRoleArn = self.customRoleArnInternal {
+            self.keychain.setString(customRoleArn, forKey: CustomRoleArnKey)
+        } else {
+            self.keychain.removeItem(forKey: CustomRoleArnKey)
+        }
+        if federationDisabled {
+            self.keychain.setString("true", forKey: FederationDisabledKey)
+        }
+    }
+    
+    internal func saveOAuthURIQueryParametersInKeychain() {
+        self.keychain.setData(dataFromDictionary(self.signInURIQueryParameters), forKey: SignInURIQueryParametersKey)
+        self.keychain.setData(dataFromDictionary(self.tokenURIQueryParameters), forKey: TokenURIQueryParametersKey)
+        self.keychain.setData(dataFromDictionary(self.signOutURIQueryParameters), forKey: SignOutURIQueryParametersKey)
+    }
+    
+    internal func loadOAuthURIQueryParametersFromKeychain() {
+        self.signInURIQueryParameters = dictionaryFromData(self.keychain.data(forKey: SignInURIQueryParametersKey))
+        self.tokenURIQueryParameters = dictionaryFromData(self.keychain.data(forKey: TokenURIQueryParametersKey))
+        self.signOutURIQueryParameters = dictionaryFromData(self.keychain.data(forKey: SignOutURIQueryParametersKey))
+    }
+    
+    internal func dictionaryFromData(_ dictionaryAsData: Data?) -> [String: String]? {
+        guard let dictionaryAsData = dictionaryAsData else {
+            return nil
+        }
+        do {
+            let dict = try JSONDecoder().decode([String: String].self, from: dictionaryAsData)
+            return dict
+        } catch {
+            print("Could not read map from data")
+        }
+        return nil
+    }
+    
+    internal func dataFromDictionary(_ dictionary: [String: String]?) -> Data? {
+        guard let dictionary = dictionary else {
+            return nil
+        }
+        do {
+            let data = try Data.init(base64Encoded: JSONEncoder().encode(dictionary).base64EncodedData())
+            return data
+        } catch {
+            print("Could not create data from map")
+        }
+        return nil
+    }
+    
     internal func saveLoginsMapInKeychain() {
         if self.cachedLoginsMap.count == 0 {
-           self.keychain.removeItem(forKey: "loginsMap")
+           self.keychain.removeItem(forKey: LoginsMapKey)
+            self.keychain.removeItem(forKey: FederationDisabledKey)
         } else {
             do {
                 let data = try Data.init(base64Encoded: JSONEncoder().encode(self.cachedLoginsMap).base64EncodedData())
-                self.keychain.setData(data, forKey: "loginsMap")
+                self.keychain.setData(data, forKey: LoginsMapKey)
             } catch {
                 print("could not save login map in cache")
             }
@@ -132,7 +198,7 @@ extension AWSMobileClient: AWSIdentityProviderManager {
     }
     
     internal func loadLoginsMapFromKeychain() {
-        let data = self.keychain.data(forKey: "loginsMap")
+        let data = self.keychain.data(forKey: LoginsMapKey)
         if data != nil {
             do {
                 let dict = try JSONDecoder().decode([String: String].self, from: data!)
@@ -142,6 +208,19 @@ extension AWSMobileClient: AWSIdentityProviderManager {
             }
         } else {
             self.cachedLoginsMap = [:]
+        }
+    }
+    
+    internal func loadFederationProviderMetadataFromKeychain() {
+        if let federationProviderString = self.keychain.string(forKey: FederationProviderKey),
+            let federationProvider = FederationProvider(rawValue: federationProviderString) {
+            self.federationProvider = federationProvider
+        }
+        if let customRoleArnString = self.keychain.string(forKey: CustomRoleArnKey) {
+            self.customRoleArnInternal = customRoleArnString
+        }
+        if let _ = self.keychain.string(forKey: FederationDisabledKey) {
+            self.federationDisabled = true
         }
     }
 }
@@ -176,7 +255,9 @@ extension AWSMobileClient {
     ///   - providerName: Provider name for federation provider, e.g. graph.facebook.com, accounts.google.com
     ///   - token: The `idToken`
     ///   - completionHandler: completion handler on successful credentials fetch.
-    public func federatedSignIn(providerName: String, token: String, federatedSignInOptions: FederatedSignInOptions = FederatedSignInOptions(), completionHandler: @escaping ((UserState?, Error?) -> Void)) {
+    public func federatedSignIn(providerName: String, token: String,
+                                federatedSignInOptions: FederatedSignInOptions = FederatedSignInOptions(),
+                                completionHandler: @escaping ((UserState?, Error?) -> Void)) {
         
         self.tokenFetchOperationQueue.addOperation {
             var error: Error?
@@ -201,6 +282,11 @@ extension AWSMobileClient {
                 // Update the identityId if required
                 if let devAuthenticatedIdentityId = federatedSignInOptions.cognitoIdentityId {
                     self.internalCredentialsProvider?.identityProvider.identityId = devAuthenticatedIdentityId
+                }
+                // Update the Custom Role ARN if specified
+                if let customRoleArn = federatedSignInOptions.customRoleARN {
+                    self.customRoleArnInternal = customRoleArn
+                    _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
                 }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
                 // If any credentials operation is pending, we invoke the waiting block to resume with new credentials
@@ -227,6 +313,10 @@ extension AWSMobileClient {
                         return
                     }
                 }
+                if let customRoleArn = federatedSignInOptions.customRoleARN {
+                    self.customRoleArnInternal = customRoleArn
+                    _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
+                }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
             }
         }
@@ -236,12 +326,19 @@ extension AWSMobileClient {
     /// Utility class which maps a service error to `AWSMobileClientError`. If no mapping is available, returns the original error.
     internal func getMobileError(for error: Error) -> Error {
         if error._domain == AWSCognitoIdentityProviderErrorDomain {
-            let message = (error as NSError).userInfo["message"] as! String
-            let type = (error as NSError).userInfo["__type"] as! String
+            if error._code == -3000 {
+                return AWSMobileClientError.deviceNotRemembered(message: "This device does not have an id, either it was never tracked or previously forgotten.")
+            }
+            let message = (error as NSError).userInfo["message"] as? String ?? "Error information not available."
+            let type = (error as NSError).userInfo["__type"] as? String ?? "Error type not available."
             let mobileError = AWSMobileClient.ErrorMappingHelper(errorCode: type, message: message, error: error as NSError)
             return mobileError
         }
         return error
+    }
+    
+    internal func getMobileError(cognitoAuthError: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
+        return AWSMobileClient.CognitoAuthErrorMappingHelper(error: cognitoAuthError)
     }
     
     
@@ -443,23 +540,87 @@ extension AWSMobileClient {
         }
     }
     
+    
+    /// Asynchronous signout method which requires network activity. Based on the options specified in `SignOutOptions`, appropriate tasks will be performed.
+    ///
+    /// - Parameters:
+    ///   - options: SignOutOptions which specify actions.
+    ///   - completionHandler: completion handler for success or error callback.
+    public func signOut(options: SignOutOptions = SignOutOptions(), completionHandler: @escaping ((Error?) -> Void)) {
+        // If using hosted UI, we need to launch SFSafariVC or SFAuthSession to invalidate token
+        if federationProvider == .hostedUI {
+            if options.invalidateTokens {
+                AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
+                    // If there is an error invalidating tokens, we return error to the developer.
+                    if (error != nil) {
+                        completionHandler(self.getMobileError(for: error!))
+                    } else {
+                        // If the token is successfully invalidated, we clear tokens locally and perform signout flow.
+                        self.signOut()
+                        completionHandler(nil)
+                    }
+                }
+            }
+            return
+        }
+        // If using userpools sign in and global sign out is specified, we try logging out the user from all devices.
+        if federationProvider == .userPools && options.signOutGlobally == true {
+            let _ = self.userpoolOpsHelper.currentActiveUser!.globalSignOut().continueWith { (task) -> Any? in
+                if task.result != nil {
+                    completionHandler(nil)
+                    // If global signout is successful, we clear tokens locally and perform signout flow.
+                    self.signOut()
+                } else if let error = task.error {
+                    // If there is an error signing out globally, we notify the developer.
+                    completionHandler(self.getMobileError(for: error))
+                }
+                return nil
+            }
+            return
+        }
+        signOut()
+        
+    }
+    
     /// Signs out the current logged in user and clears the local keychain store.
+    /// Note: This does not invalidate the tokens from the service or sign out the user from other devices. 
     public func signOut() {
+        if federationProvider == .hostedUI {
+            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOutLocallyAndClearLastKnownUser()
+        }
         self.cachedLoginsMap = [:]
+        self.customRoleArnInternal = nil
+        _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(nil, for: self)
         self.saveLoginsMapInKeychain()
+        self.setLoginProviderMetadataAndSaveInKeychain(provider: .none)
         self.internalCredentialsProvider?.clearKeychain()
         self.performUserPoolSignOut()
-        self.federationProvider = .none
         self.internalCredentialsProvider?.identityProvider.identityId = nil
+        self.internalCredentialsProvider?.clearKeychain()
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
     }
     
     internal func performUserPoolSuccessfulSignInTasks(session: AWSCognitoIdentityUserSession) {
         let tokenString = session.idToken!.tokenString
+        self.developerNavigationController = nil
         self.cachedLoginsMap = [self.userPoolClient!.identityProviderName: tokenString]
         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [ProviderKey:self.userPoolClient!.identityProviderName, TokenKey:tokenString])
-        self.federationProvider = .userPools
         self.saveLoginsMapInKeychain()
+        self.setLoginProviderMetadataAndSaveInKeychain(provider: .userPools)
+        self.internalCredentialsProvider?.clearCredentials()
+        self.internalCredentialsProvider?.credentials()
+    }
+    
+    internal func performHostedUISuccessfulSignInTasks(disableFederation: Bool = false, session: AWSCognitoAuthUserSession, federationToken: String, federationProviderIdentifier: String? = nil, signInInfo: inout [String: String]) {
+        federationDisabled = disableFederation
+        if federationProviderIdentifier == nil {
+            self.cachedLoginsMap = [self.userPoolClient!.identityProviderName: federationToken]
+        } else {
+            self.cachedLoginsMap = [federationProviderIdentifier!: federationToken]
+        }
+        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
+        self.saveLoginsMapInKeychain()
+        self.setLoginProviderMetadataAndSaveInKeychain(provider: .hostedUI)
         self.internalCredentialsProvider?.clearCredentials()
         self.internalCredentialsProvider?.credentials()
     }
@@ -469,6 +630,7 @@ extension AWSMobileClient {
         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [ProviderKey:provider, TokenKey: token])
         self.federationProvider = .oidcFederation
         self.saveLoginsMapInKeychain()
+        self.setLoginProviderMetadataAndSaveInKeychain(provider: .oidcFederation)
         self.internalCredentialsProvider?.clearCredentials()
         self.internalCredentialsProvider?.credentials()
     }
@@ -501,7 +663,7 @@ extension AWSMobileClient {
     public func changePassword(currentPassword: String, proposedPassword: String, completionHandler: @escaping ((Error?) -> Void)) {
         self.userpoolOpsHelper.currentActiveUser!.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(error)
+                completionHandler(self.getMobileError(for: error))
             } else if let _ = task.result {
                 completionHandler(nil)
             }
@@ -678,8 +840,12 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
             self.tokenFetchLock.leave()
+        } else if self.federationProvider == .hostedUI {
+            self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
+            self.pendingGetTokensCompletion = nil
+            self.tokenFetchLock.leave()
         } else if self.federationProvider == .oidcFederation {
-            self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from."))
+            self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil
             self.credentialsFetchLock.leave()
         }
@@ -693,32 +859,63 @@ extension AWSMobileClient {
     ///
     /// - Parameter completionHandler: Tokens if available, else error.
     public func getTokens(_ completionHandler: @escaping (Tokens?, Error?) -> Void) {
-        if (self.federationProvider !=  .userPools) {
+        switch self.federationProvider {
+        case .userPools, .hostedUI:
+            break
+        default:
             completionHandler(nil, AWSMobileClientError.notSignedIn(message: "User is not signed in, please sign in to use this API."))
             return
         }
-        self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
-        self.userpoolOpsHelper.authHelperDelegate = self
-        self.tokenFetchOperationQueue.addOperation {
-            self.tokenFetchLock.enter()
-            self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
-                if let error = task.error {
-                    completionHandler(nil, error)
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, error)
-                    self.userpoolOpsHelper.currentSignInHandlerCallback = nil
-                } else if let session = task.result {
-                    completionHandler(self.userSessionToTokens(userSession: session), nil)
-                    self.federationProvider = .userPools
-                    if (self.currentUserState != .signedIn) {
-                        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
+        
+        if self.federationProvider == .hostedUI {
+            self.tokenFetchOperationQueue.addOperation {
+                self.tokenFetchLock.enter()
+                AWSCognitoAuth.init(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
+                    if let error = error as? AWSCognitoAuthClientErrorType {
+                        if error == AWSCognitoAuthClientErrorType.errorExpiredRefreshToken {
+                            self.pendingGetTokensCompletion = completionHandler
+                            self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid, additionalInfo: [self.ProviderKey:"OAuth"])
+                            // return early without releasing the tokenFetch lock.
+                            return
+                        } else {
+                            completionHandler(nil, self.getMobileError(cognitoAuthError: error))
+                        }
+                    } else if let session = session {
+                        completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
+                    } else {
+                        completionHandler(nil, error)
                     }
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(SignInResult(signInState: .signedIn), nil)
-                    self.userpoolOpsHelper.currentSignInHandlerCallback = nil
-                }
-                self.tokenFetchLock.leave()
-                return nil
-            })
-            self.tokenFetchLock.wait()
+                    self.tokenFetchLock.leave()
+                })
+                self.tokenFetchLock.wait()
+            }
+            return
+        }
+        if self.federationProvider == .userPools {
+            self.userpoolOpsHelper.userpoolClient?.delegate = self.userpoolOpsHelper
+            self.userpoolOpsHelper.authHelperDelegate = self
+            self.tokenFetchOperationQueue.addOperation {
+                self.tokenFetchLock.enter()
+                self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
+                    if let error = task.error {
+                        completionHandler(nil, error)
+                        self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, error)
+                        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+                    } else if let session = task.result {
+                        completionHandler(self.userSessionToTokens(userSession: session), nil)
+                        self.federationProvider = .userPools
+                        if (self.currentUserState != .signedIn) {
+                            self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
+                        }
+                        self.userpoolOpsHelper.currentSignInHandlerCallback?(SignInResult(signInState: .signedIn), nil)
+                        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+                    }
+                    self.tokenFetchLock.leave()
+                    return nil
+                })
+                self.tokenFetchLock.wait()
+            }
+            return
         }
     }
     
@@ -800,4 +997,19 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks{
         }
     }
     
+}
+
+extension AWSMobileClient: AWSCognitoAuthDelegate {
+    
+    public func getViewController() -> UIViewController {
+        // This should never get called based on the design
+        if (developerNavigationController?.visibleViewController != nil) {
+            return developerNavigationController!.visibleViewController!
+        }
+        return UIApplication.shared.keyWindow!.rootViewController!
+    }
+    
+    public func shouldLaunchSignInVCIfRefreshTokenIsExpired() -> Bool {
+        return false
+    }
 }

@@ -17,6 +17,7 @@
 #import <UIKit/UIKit.h>
 #import <AWSAuthCore/AWSAuthCore.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class SignInUIOptions;
@@ -161,6 +162,9 @@ didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions;
 - (void)updateCognitoCredentialsProvider:(AWSCognitoCredentialsProvider *)cognitoCreds;
 
 - (void)registerConfigSignInProviders;
+
+- (void)setCustomRoleArnInternal:(NSString * _Nullable)customRoleArnInternal
+                             for:(AWSCognitoCredentialsProvider *)credsProvider;
 
 @end
 

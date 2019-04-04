@@ -417,6 +417,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enableMetricsCollection:(BOOL)enabled;
 
 /**
+ Set user-specified dictionary of the additional values to be passed as components of
+ connection username.
+ *Swift*
+ let userMetaData: [String: String] = ["AFRSDK": "ios", "AFRSDKVersion": "1.0.0", "AFRLibVersion":"1.4.1"]
+ iotDataManager.addUserMetaData(userMetaData)
+ @param userMetaData A dictionary of key-value metadata pairs to be appended to the connection username
+ */
+- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
+
+/**
  Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication
 
  @return true if initialise finished with success
@@ -434,6 +444,27 @@ NS_ASSUME_NONNULL_BEGIN
                cleanSession:(BOOL)cleanSession
               certificateId:(NSString *)certificateId
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+
+/**
+ Initialises the MQTT session and connects to AWS IoT on port 443 using certificate-based mutual authentication
+ and ALPN (Application Layer Protocol Negotiation)
+ 
+ @return true if initialise finished with success
+ 
+ @param clientId The Client Identifier identifies the Client to the Server.
+ 
+ @param cleanSession specifies if the server should discard previous session information.
+ 
+ @param certificateId contains the ID of the certificate to use in the connection; must be in the keychain
+ 
+ @param callback When new mqtt session status is received callback will be called with new connection status.
+ 
+ */
+- (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
+               cleanSession:(BOOL)cleanSession
+              certificateId:(NSString *)certificateId
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
+             API_AVAILABLE(ios(11), macosx(10.13));
 
 /**
  Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication. IAM
