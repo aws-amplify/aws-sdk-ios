@@ -8,6 +8,25 @@
 * **AWS IoT**
   * Fixed bug in userMetaData logic
   * Fixed a `objc_retain` crash in thread initiation. See [issue #1257](https://github.com/aws-amplify/aws-sdk-ios/issues/1257), and [issue #1190](https://github.com/aws-amplify/aws-sdk-ios/issues/1190)
+ 
+* **AWSMobileClient**
+  * Fixed issue where error was not correctly cast to `AWSMobileClientError` when using `changePassword` API. [issue #1246](https://github.com/aws-amplify/aws-sdk-ios/issues/1246)
+  
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Comprehend
+  * AWS AutoScaling
+  * Amazon Rekognition
+  * Amazon EC2
+  * AWS IoT
+  * Amazon CloudWatch Logs
+  * Amazon Kinesis Video Streams
+  * Amazon Lex
+  * Amazon Transcribe
+  * Amazon Pinpoint
+  * Amazon Cognito Identity
+  * Amazon Cognito Userpools
 
 ## 2.9.3
 

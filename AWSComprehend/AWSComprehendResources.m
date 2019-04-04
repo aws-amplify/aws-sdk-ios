@@ -85,7 +85,7 @@
         {\"shape\":\"BatchSizeLimitExceededException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href=\\\"http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\\\">Amazon Comprehend Supported Languages</a>. </p>\"\
+      \"documentation\":\"<p>Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\\\">Amazon Comprehend Supported Languages</a>. </p>\"\
     },\
     \"BatchDetectEntities\":{\
       \"name\":\"BatchDetectEntities\",\
@@ -169,6 +169,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceLimitExceededException\"},\
         {\"shape\":\"UnsupportedLanguageException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>\"\
@@ -187,6 +188,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceLimitExceededException\"},\
         {\"shape\":\"UnsupportedLanguageException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Creates an entity recognizer using submitted files. After your <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the API. </p>\"\
@@ -368,7 +370,7 @@
         {\"shape\":\"TextSizeLimitExceededException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href=\\\"http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\\\">Amazon Comprehend Supported Languages</a>. </p>\"\
+      \"documentation\":\"<p>Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see <a href=\\\"https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html\\\">Amazon Comprehend Supported Languages</a>. </p>\"\
     },\
     \"DetectEntities\":{\
       \"name\":\"DetectEntities\",\
@@ -575,6 +577,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceUnavailableException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous document classification job. Use the operation to track the progress of the job.</p>\"\
@@ -590,6 +593,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous dominant language detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
@@ -607,6 +611,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceUnavailableException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.</p> <p>This API can be used for either standard entity detection or custom entity recognition. In order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used in order to provide access to the recognizer being used to detect the custom entity.</p>\"\
@@ -622,6 +627,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
@@ -637,6 +643,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>\"\
@@ -652,6 +659,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous topic detection job. Use the <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>\"\
@@ -1102,6 +1110,10 @@
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
           \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1143,6 +1155,10 @@
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
           \"documentation\":\"<p> The language of the input documents. All documents must be in the same language. Only English (\\\"en\\\") is currently supported. </p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1528,6 +1544,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a document classification job.</p>\"\
@@ -1539,7 +1559,7 @@
     \"DocumentClassifierArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"DocumentClassifierFilter\":{\
       \"type\":\"structure\",\
@@ -1616,6 +1636,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a document classifier.</p>\"\
@@ -1698,6 +1722,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a dominant language detection job.</p>\"\
@@ -1775,6 +1803,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about an entities detection job.</p>\"\
@@ -1823,7 +1855,7 @@
     \"EntityRecognizerArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"EntityRecognizerDocuments\":{\
       \"type\":\"structure\",\
@@ -1991,6 +2023,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Describes information about an entity recognizer.</p>\"\
@@ -2205,6 +2241,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a key phrases detection job.</p>\"\
@@ -2212,6 +2252,18 @@
     \"KeyPhrasesDetectionJobPropertiesList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"KeyPhrasesDetectionJobProperties\"}\
+    },\
+    \"KmsKeyId\":{\
+      \"type\":\"string\",\
+      \"max\":2048\
+    },\
+    \"KmsKeyValidationException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>\",\
+      \"exception\":true\
     },\
     \"LanguageCode\":{\
       \"type\":\"string\",\
@@ -2529,6 +2581,10 @@
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
           \"documentation\":\"<p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.</p> <p>When the topic detection job is finished, the service creates an output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the ouput of the operation.</p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>KMS Key Alias: <code>\\\"alias/ExampleAlias\\\"</code> </p> </li> <li> <p>ARN of a KMS Key Alias: <code>\\\"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides configuration parameters for the output of topic detection jobs.</p> <p/>\"\
@@ -2671,6 +2727,10 @@
         \"DataAccessRoleArn\":{\
           \"shape\":\"IamRoleArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a sentiment detection job.</p>\"\
@@ -2743,6 +2803,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2787,6 +2851,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2840,6 +2908,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2889,6 +2961,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2938,6 +3014,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -2986,6 +3066,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       }\
     },\
@@ -3246,6 +3330,14 @@
         \"NumberOfTopics\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of topics to detect supplied when you created the topic detection job. The default is 10. </p>\"\
+        },\
+        \"DataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"VolumeKmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p> <ul> <li> <p>KMS Key ID: <code>\\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> <li> <p>Amazon Resource Name (ARN) of a KMS Key: <code>\\\"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</code> </p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information about a topic detection job.</p>\"\

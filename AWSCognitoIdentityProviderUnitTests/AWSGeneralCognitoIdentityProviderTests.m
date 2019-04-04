@@ -3406,6 +3406,54 @@ static id mockNetworking = nil;
     [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
 }
 
+- (void)testListTagsForResource {
+    NSString *key = @"testListTagsForResource";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:key];
+
+    AWSCognitoIdentityProvider *awsClient = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] listTagsForResource:[AWSCognitoIdentityProviderListTagsForResourceRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
+}
+
+- (void)testListTagsForResourceCompletionHandler {
+    NSString *key = @"testListTagsForResource";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:key];
+
+    AWSCognitoIdentityProvider *awsClient = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] listTagsForResource:[AWSCognitoIdentityProviderListTagsForResourceRequest new] completionHandler:^(AWSCognitoIdentityProviderListTagsForResourceResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
+}
+
 - (void)testListUserImportJobs {
     NSString *key = @"testListUserImportJobs";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -4113,6 +4161,102 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] stopUserImportJob:[AWSCognitoIdentityProviderStopUserImportJobRequest new] completionHandler:^(AWSCognitoIdentityProviderStopUserImportJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
+}
+
+- (void)testTagResource {
+    NSString *key = @"testTagResource";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:key];
+
+    AWSCognitoIdentityProvider *awsClient = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] tagResource:[AWSCognitoIdentityProviderTagResourceRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
+}
+
+- (void)testTagResourceCompletionHandler {
+    NSString *key = @"testTagResource";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:key];
+
+    AWSCognitoIdentityProvider *awsClient = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] tagResource:[AWSCognitoIdentityProviderTagResourceRequest new] completionHandler:^(AWSCognitoIdentityProviderTagResourceResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
+}
+
+- (void)testUntagResource {
+    NSString *key = @"testUntagResource";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:key];
+
+    AWSCognitoIdentityProvider *awsClient = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] untagResource:[AWSCognitoIdentityProviderUntagResourceRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCognitoIdentityProvider removeCognitoIdentityProviderForKey:key];
+}
+
+- (void)testUntagResourceCompletionHandler {
+    NSString *key = @"testUntagResource";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:key];
+
+    AWSCognitoIdentityProvider *awsClient = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSCognitoIdentityProvider CognitoIdentityProviderForKey:key] untagResource:[AWSCognitoIdentityProviderUntagResourceRequest new] completionHandler:^(AWSCognitoIdentityProviderUntagResourceResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
