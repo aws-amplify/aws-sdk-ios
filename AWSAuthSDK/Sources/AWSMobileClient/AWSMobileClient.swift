@@ -41,7 +41,7 @@ enum FederationProvider: String {
 
 
 /// `AWSMobileClient` is used for all auth related operations when your app is accessing AWS backend.
-public class AWSMobileClient: _AWSMobileClient {
+final public class AWSMobileClient: _AWSMobileClient {
     
     static var _sharedInstance: AWSMobileClient = AWSMobileClient(setDelegate: true)
     
