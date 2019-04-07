@@ -41,6 +41,7 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"BatchSizeLimitExceededException" : @(AWSComprehendErrorBatchSizeLimitExceeded),
+                            @"ConcurrentModificationException" : @(AWSComprehendErrorConcurrentModification),
                             @"InternalServerException" : @(AWSComprehendErrorInternalServer),
                             @"InvalidFilterException" : @(AWSComprehendErrorInvalidFilter),
                             @"InvalidRequestException" : @(AWSComprehendErrorInvalidRequest),
@@ -52,6 +53,8 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceUnavailableException" : @(AWSComprehendErrorResourceUnavailable),
                             @"TextSizeLimitExceededException" : @(AWSComprehendErrorTextSizeLimitExceeded),
                             @"TooManyRequestsException" : @(AWSComprehendErrorTooManyRequests),
+                            @"TooManyTagKeysException" : @(AWSComprehendErrorTooManyTagKeys),
+                            @"TooManyTagsException" : @(AWSComprehendErrorTooManyTags),
                             @"UnsupportedLanguageException" : @(AWSComprehendErrorUnsupportedLanguage),
                             };
 }
@@ -954,6 +957,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendListTagsForResourceResponse *> *)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSComprehendListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSComprehendListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListTagsForResourceResponse *> * _Nonnull task) {
+        AWSComprehendListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListTopicsDetectionJobsResponse *> *)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1243,6 +1269,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStopTrainingEntityRecognizerResponse *response, NSError *error))completionHandler {
     [[self stopTrainingEntityRecognizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopTrainingEntityRecognizerResponse *> * _Nonnull task) {
         AWSComprehendStopTrainingEntityRecognizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendTagResourceResponse *> *)tagResource:(AWSComprehendTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"TagResource"
+                   outputClass:[AWSComprehendTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSComprehendTagResourceRequest *)request
+     completionHandler:(void (^)(AWSComprehendTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendTagResourceResponse *> * _Nonnull task) {
+        AWSComprehendTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendUntagResourceResponse *> *)untagResource:(AWSComprehendUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSComprehendUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSComprehendUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSComprehendUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendUntagResourceResponse *> * _Nonnull task) {
+        AWSComprehendUntagResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
