@@ -761,9 +761,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"messages" : @"Messages",
              @"metricDataResults" : @"MetricDataResults",
              @"nextToken" : @"NextToken",
              };
+}
+
++ (NSValueTransformer *)messagesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMessageData class]];
 }
 
 + (NSValueTransformer *)metricDataResultsJSONTransformer {
@@ -1046,6 +1051,30 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)metricsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetric class]];
+}
+
+@end
+
+@implementation AWSCloudWatchListTagsForResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             };
+}
+
+@end
+
+@implementation AWSCloudWatchListTagsForResourceOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchTag class]];
 }
 
 @end
@@ -1827,6 +1856,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"OKActions" : @"OKActions",
              @"period" : @"Period",
              @"statistic" : @"Statistic",
+             @"tags" : @"Tags",
              @"threshold" : @"Threshold",
              @"treatMissingData" : @"TreatMissingData",
              @"unit" : @"Unit",
@@ -1906,6 +1936,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchTag class]];
 }
 
 + (NSValueTransformer *)unitJSONTransformer {
@@ -2120,5 +2154,50 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"sum" : @"Sum",
              };
 }
+
+@end
+
+@implementation AWSCloudWatchTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSCloudWatchTagResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchTag class]];
+}
+
+@end
+
+@implementation AWSCloudWatchTagResourceOutput
+
+@end
+
+@implementation AWSCloudWatchUntagResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceARN" : @"ResourceARN",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSCloudWatchUntagResourceOutput
 
 @end
