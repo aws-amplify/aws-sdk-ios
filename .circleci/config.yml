@@ -201,6 +201,15 @@ commands:
       skip the test job is project variabe OVERRIDE_TEST is set with TRUE
     steps:
       - run:
+          name: skip test in master
+          command: |
+              notskipflag=$(echo "${NOT_SKIPTESTINMASTER}" |  tr '[:upper:]' '[:lower:]')
+              if [ "${notskipflag}" != "true" ]  &&  [ "${CIRCLE_BRANCH}" == "master" ]
+              then 
+                echo "bypass test job in master"
+                circleci step halt
+              fi          
+      - run:
           name: check_for_test_override 
           command: |
               echo "override_test_varaible_name=$override_test_varaible_name"
@@ -214,6 +223,18 @@ commands:
     description: >-
       skip job unless required
     steps:
+      - run:
+          name: skip_job_from_enviroment_variable
+          command: |
+              varaible_name=SKIP_JOB_${CIRCLE_JOB}
+              
+              skipjob_flag=$(eval "echo $"${varaible_name}"")
+              skipjob_flag=$(echo "${skipjob_flag}" |  tr '[:upper:]' '[:lower:]')
+              if [ "${skipjob_flag}" == "true" ]
+              then
+                echo "skip current job as ${varaible_name} is set in project environment variabes"
+                circleci step halt
+              fi         
       - run:
           name: checkifjobcanskip 
           command: |
@@ -283,6 +304,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_enviroment_variables
+      - override_test_job
       - run:
           name: get ovrride test variabe name 
           command: |
@@ -327,6 +349,7 @@ jobs:
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
+      - override_test_job
       - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
