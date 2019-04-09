@@ -102,7 +102,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 2. Add the following to your `Cartfile`:
 
-        github "aws/aws-sdk-ios"
+        github "aws-amplify/aws-sdk-ios"
 
 3. Then run the following command:
     
