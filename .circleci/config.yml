@@ -799,6 +799,7 @@ jobs:
             git fetch origin
             git reset origin/master
             git checkout .
+            git clean -fd .
             commitlog=$(git log master -20)
             currentcommit="${CIRCLE_SHA1}"
             echo "currentcommit=$currentcommit"
