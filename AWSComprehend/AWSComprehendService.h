@@ -304,7 +304,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendCreateDocumentClassifierResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendCreateDocumentClassifierResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendCreateDocumentClassifierRequest
  @see AWSComprehendCreateDocumentClassifierResponse
@@ -317,7 +317,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendCreateDocumentClassifierRequest
  @see AWSComprehendCreateDocumentClassifierResponse
@@ -329,7 +329,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateEntityRecognizer service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendCreateEntityRecognizerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendCreateEntityRecognizerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendCreateEntityRecognizerRequest
  @see AWSComprehendCreateEntityRecognizerResponse
@@ -342,7 +342,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the CreateEntityRecognizer service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceInUse`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendCreateEntityRecognizerRequest
  @see AWSComprehendCreateEntityRecognizerResponse
@@ -900,6 +900,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)listSentimentDetectionJobs:(AWSComprehendListSentimentDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListSentimentDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists all tags associated with a given Amazon Comprehend resource. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListTagsForResourceRequest
+ @see AWSComprehendListTagsForResourceResponse
+ */
+- (AWSTask<AWSComprehendListTagsForResourceResponse *> *)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists all tags associated with a given Amazon Comprehend resource. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListTagsForResourceRequest
+ @see AWSComprehendListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets a list of the topic detection jobs that you have submitted.</p>
  
  @param request A container for the necessary parameters to execute the ListTopicsDetectionJobs service method.
@@ -1223,6 +1248,56 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendStopTrainingEntityRecognizerResponse
  */
 - (void)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopTrainingEntityRecognizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendTagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorConcurrentModification`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendTagResourceRequest
+ @see AWSComprehendTagResourceResponse
+ */
+- (AWSTask<AWSComprehendTagResourceResponse *> *)tagResource:(AWSComprehendTagResourceRequest *)request;
+
+/**
+ <p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorConcurrentModification`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorTooManyTags`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendTagResourceRequest
+ @see AWSComprehendTagResourceResponse
+ */
+- (void)tagResource:(AWSComprehendTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendUntagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorTooManyTagKeys`, `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorConcurrentModification`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendUntagResourceRequest
+ @see AWSComprehendUntagResourceResponse
+ */
+- (AWSTask<AWSComprehendUntagResourceResponse *> *)untagResource:(AWSComprehendUntagResourceRequest *)request;
+
+/**
+ <p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorTooManyTagKeys`, `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorConcurrentModification`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendUntagResourceRequest
+ @see AWSComprehendUntagResourceResponse
+ */
+- (void)untagResource:(AWSComprehendUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
