@@ -23,6 +23,8 @@
   * Amazon Translate
   * Amazon Transcribe
   * Amazon Cognito Identity
+  * Amazon CloudWatch Logs
+  * Amazon Kinesis Video
   * Amazon SimpleDB
   * AWS Key Management Service (KMS)
   * Amazon Simple Queue Service (SQS)
