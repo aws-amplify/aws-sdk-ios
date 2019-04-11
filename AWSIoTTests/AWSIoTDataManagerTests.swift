@@ -45,7 +45,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         lwt.qos = AWSIoTMQTTQoS.messageDeliveryAttemptedAtLeastOnce
 
         let mqttConfig = AWSIoTMQTTConfiguration.init(keepAliveTimeInterval: 30.0,
-                                                      baseReconnectTimeInterval: 1.0, minimumConnectionTimeInterval: 20, maximumReconnectTimeInterval: 8, runLoop: RunLoop.current , runLoopMode: RunLoopMode.defaultRunLoopMode.rawValue, autoResubscribe: true, lastWillAndTestament: lwt)
+                                                      baseReconnectTimeInterval: 1.0, minimumConnectionTimeInterval: 20, maximumReconnectTimeInterval: 8, runLoop: RunLoop.current , runLoopMode: RunLoop.Mode.default.rawValue, autoResubscribe: true, lastWillAndTestament: lwt)
 
         //Setup iOT Manager for Broker 1
         let iotConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1 ,
@@ -1284,16 +1284,18 @@ class AWSIoTDataManagerTests: XCTestCase {
         }
         
         // Use the MQTT broker from the `endpoint1`
-        let iotDataManager: AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-custom-auth")
+        let iotDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-custom-auth")
         let uuid = UUID().uuidString
         
-        let connectedWS: Bool = iotDataManager.connectUsingWebSocket(withClientId: uuid,
-                                                                     cleanSession: true,
-                                                                     customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
-                                                                     tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
-                                                                     tokenValue: "Deny",
-                                                                     tokenSignature: "Deny",
-                                                                     statusCallback: mqttEventCallback)
+        let connectedWS = iotDataManager.connectUsingWebSocket(withClientId: uuid,
+                                                               cleanSession: true,
+                                                               customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
+                                                               tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
+                                                               tokenValue: "Deny",
+                                                               tokenSignature: "Deny",
+                                                               statusCallback: mqttEventCallback)
+
+        XCTAssert(connectedWS)
         print("Calling connect completed. Waiting for 30 seconds to see if the connection errors out.")
         
         wait(for:[hasConnectionError], timeout: 30)
@@ -1460,9 +1462,6 @@ class AWSIoTDataManagerTests: XCTestCase {
             connected = false
             let uuid = UUID().uuidString
             print("Calling Connect using Custom Auth.")
-            
-            let tokenValue: String? = "allow"
-            let tokenSignature: String? = tokenValue?.data(using: .utf8)?.base64EncodedString()
             
             connected = iotDataManager.connectUsingWebSocket(withClientId: uuid,
                                                              cleanSession: true,
