@@ -1500,6 +1500,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getVoiceChannel:(AWSPinpointTargetingGetVoiceChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetVoiceChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ ListTagsForResource
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: .
+ 
+ @see AWSPinpointTargetingListTagsForResourceRequest
+ @see AWSPinpointTargetingListTagsForResourceResponse
+ */
+- (AWSTask<AWSPinpointTargetingListTagsForResourceResponse *> *)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request;
+
+/**
+ ListTagsForResource
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: .
+ 
+ @see AWSPinpointTargetingListTagsForResourceRequest
+ @see AWSPinpointTargetingListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  Returns information about the specified phone number.
  
  @param request A container for the necessary parameters to execute the PhoneNumberValidate service method.
@@ -1648,6 +1673,50 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
  @see AWSPinpointTargetingSendUsersMessagesResponse
  */
 - (void)sendUsersMessages:(AWSPinpointTargetingSendUsersMessagesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingSendUsersMessagesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ TagResource
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: .
+ 
+ @see AWSPinpointTargetingTagResourceRequest
+ */
+- (AWSTask *)tagResource:(AWSPinpointTargetingTagResourceRequest *)request;
+
+/**
+ TagResource
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: .
+ 
+ @see AWSPinpointTargetingTagResourceRequest
+ */
+- (void)tagResource:(AWSPinpointTargetingTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ UntagResource
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: .
+ 
+ @see AWSPinpointTargetingUntagResourceRequest
+ */
+- (AWSTask *)untagResource:(AWSPinpointTargetingUntagResourceRequest *)request;
+
+/**
+ UntagResource
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: .
+ 
+ @see AWSPinpointTargetingUntagResourceRequest
+ */
+- (void)untagResource:(AWSPinpointTargetingUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  Update an ADM channel.

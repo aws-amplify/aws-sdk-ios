@@ -426,8 +426,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"arn" : @"Arn",
              @"identifier" : @"Id",
              @"name" : @"Name",
+             @"tags" : @"tags",
              };
 }
 
@@ -700,6 +702,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"additionalTreatments" : @"AdditionalTreatments",
              @"applicationId" : @"ApplicationId",
+             @"arn" : @"Arn",
              @"creationDate" : @"CreationDate",
              @"defaultState" : @"DefaultState",
              @"detail" : @"Description",
@@ -718,6 +721,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"treatmentDescription" : @"TreatmentDescription",
              @"treatmentName" : @"TreatmentName",
              @"version" : @"Version",
+             @"tags" : @"tags",
              };
 }
 
@@ -919,6 +923,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
+             @"tags" : @"tags",
              };
 }
 
@@ -3403,6 +3408,30 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingListTagsForResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tagsModel" : @"TagsModel",
+             };
+}
+
++ (NSValueTransformer *)tagsModelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTagsModel class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingMessage
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4396,6 +4425,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
+             @"arn" : @"Arn",
              @"creationDate" : @"CreationDate",
              @"dimensions" : @"Dimensions",
              @"identifier" : @"Id",
@@ -4405,6 +4435,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"segmentGroups" : @"SegmentGroups",
              @"segmentType" : @"SegmentType",
              @"version" : @"Version",
+             @"tags" : @"tags",
              };
 }
 
@@ -4633,6 +4664,31 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingTagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagsModel" : @"TagsModel",
+             };
+}
+
++ (NSValueTransformer *)tagsModelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTagsModel class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingTagsModel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingTreatmentResource
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4657,6 +4713,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)stateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignState class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUntagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagKeys" : @"TagKeys",
+             };
 }
 
 @end
@@ -5194,6 +5261,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"segmentVersion" : @"SegmentVersion",
              @"treatmentDescription" : @"TreatmentDescription",
              @"treatmentName" : @"TreatmentName",
+             @"tags" : @"tags",
              };
 }
 
@@ -5237,6 +5305,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"dimensions" : @"Dimensions",
              @"name" : @"Name",
              @"segmentGroups" : @"SegmentGroups",
+             @"tags" : @"tags",
              };
 }
 

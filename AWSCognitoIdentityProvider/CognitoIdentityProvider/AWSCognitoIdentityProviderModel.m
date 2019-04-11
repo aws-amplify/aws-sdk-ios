@@ -2992,6 +2992,26 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderListTagsForResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderListUserImportJobsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4023,6 +4043,21 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderTagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderTagResourceResponse
+
+@end
+
 @implementation AWSCognitoIdentityProviderUICustomizationType
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4052,6 +4087,21 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
+
+@end
+
+@implementation AWSCognitoIdentityProviderUntagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUntagResourceResponse
 
 @end
 

@@ -663,7 +663,7 @@ extension AWSMobileClient {
     public func changePassword(currentPassword: String, proposedPassword: String, completionHandler: @escaping ((Error?) -> Void)) {
         self.userpoolOpsHelper.currentActiveUser!.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(error)
+                completionHandler(self.getMobileError(for: error))
             } else if let _ = task.result {
                 completionHandler(nil)
             }
