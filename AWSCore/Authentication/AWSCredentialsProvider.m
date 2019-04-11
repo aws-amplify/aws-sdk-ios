@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -272,6 +272,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
 @property (atomic, assign, getter=isRefreshingCredentials) BOOL refreshingCredentials;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *cachedLogins;
+// This is a temporary solution to bypass the requirement of protocol check for `AWSIdentityProviderManager`.
+@property (nonatomic, strong) NSString *customRoleArnOverride;
 
 @end
 
@@ -396,6 +398,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                                          credentialsProvider:credentialsProvider];
 
     _cognitoIdentity = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
+    
+    _customRoleArnOverride = nil;
 
     if (!_useEnhancedFlow) {
         _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
@@ -593,6 +597,9 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                 NSString * customRoleArn = nil;
                 if([providerRef.identityProviderManager respondsToSelector:@selector(customRoleArn)]){
                     customRoleArn = providerRef.identityProviderManager.customRoleArn;
+                }
+                if(self.customRoleArnOverride){
+                    customRoleArn = self.customRoleArnOverride;
                 }
                 return [self getCredentialsWithCognito:logins
                                          authenticated:[providerRef isAuthenticated]

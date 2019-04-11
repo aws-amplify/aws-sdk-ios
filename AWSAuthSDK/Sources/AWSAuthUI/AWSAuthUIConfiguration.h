@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -65,6 +65,12 @@ NS_ASSUME_NONNULL_BEGIN
  @brief Gets the backgorund color of the sign in screen configured by the user for the whole screen.
  **/
 @property (nonatomic) BOOL isBackgroundColorFullScreen;
+
+/**
+ @property disableSignUpButton
+ @brief If set to `YES` the sign up button is hidden from the UI.
+ **/
+@property (atomic) BOOL disableSignUpButton;
 
 /**
  @property font

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -179,7 +179,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the BatchGetItem service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBBatchGetItemInput
  @see AWSDynamoDBBatchGetItemOutput
@@ -192,7 +192,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the BatchGetItem service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBBatchGetItemInput
  @see AWSDynamoDBBatchGetItemOutput
@@ -204,7 +204,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the BatchWriteItem service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchWriteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchWriteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBBatchWriteItemInput
  @see AWSDynamoDBBatchWriteItemOutput
@@ -217,7 +217,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the BatchWriteItem service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBBatchWriteItemInput
  @see AWSDynamoDBBatchWriteItemOutput
@@ -329,7 +329,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteItem service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDeleteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDeleteItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBDeleteItemInput
  @see AWSDynamoDBDeleteItemOutput
@@ -342,7 +342,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the DeleteItem service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBDeleteItemInput
  @see AWSDynamoDBDeleteItemOutput
@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeContinuousBackups:(AWSDynamoDBDescribeContinuousBackupsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeContinuousBackupsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- DescribeEndpoints
+ <p>Returns the regional endpoint information.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoints service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBDescribeEndpointsResponse *> *)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request;
 
 /**
- DescribeEndpoints
+ <p>Returns the regional endpoint information.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoints service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -579,7 +579,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetItem service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBGetItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBGetItemInput
  @see AWSDynamoDBGetItemOutput
@@ -592,7 +592,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the GetItem service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBGetItemInput
  @see AWSDynamoDBGetItemOutput
@@ -704,7 +704,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the PutItem service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBPutItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBPutItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBPutItemInput
  @see AWSDynamoDBPutItemOutput
@@ -717,7 +717,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the PutItem service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBPutItemInput
  @see AWSDynamoDBPutItemOutput
@@ -729,7 +729,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the Query service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBQueryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBQueryOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBQueryInput
  @see AWSDynamoDBQueryOutput
@@ -742,7 +742,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the Query service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBQueryInput
  @see AWSDynamoDBQueryOutput
@@ -804,7 +804,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the Scan service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBScanOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBScanOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBScanInput
  @see AWSDynamoDBScanOutput
@@ -817,7 +817,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the Scan service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBScanInput
  @see AWSDynamoDBScanOutput
@@ -845,6 +845,56 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBTagResourceInput
  */
 - (void)tagResource:(AWSDynamoDBTagResourceInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and region. A <code>TransactGetItems</code> call can contain up to 10 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or region.</p><p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p><ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the TransactGetItems service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBTransactGetItemsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBTransactGetItemsInput
+ @see AWSDynamoDBTransactGetItemsOutput
+ */
+- (AWSTask<AWSDynamoDBTransactGetItemsOutput *> *)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)request;
+
+/**
+ <p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and region. A <code>TransactGetItems</code> call can contain up to 10 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or region.</p><p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p><ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the TransactGetItems service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBTransactGetItemsInput
+ @see AWSDynamoDBTransactGetItemsOutput
+ */
+- (void)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBTransactGetItemsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 10 action requests. These actions can target items in different tables, but not in different AWS accounts or regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item.</p><p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p><ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li></ul><p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p><ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>A conflicting operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a Local Secondary Index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the TransactWriteItems service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBTransactWriteItemsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBTransactWriteItemsInput
+ @see AWSDynamoDBTransactWriteItemsOutput
+ */
+- (AWSTask<AWSDynamoDBTransactWriteItemsOutput *> *)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)request;
+
+/**
+ <p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 10 action requests. These actions can target items in different tables, but not in different AWS accounts or regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item.</p><p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p><ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li></ul><p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p><ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>A conflicting operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a Local Secondary Index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the TransactWriteItems service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBTransactWriteItemsInput
+ @see AWSDynamoDBTransactWriteItemsOutput
+ */
+- (void)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBTransactWriteItemsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes the association of tags from an Amazon DynamoDB resource. You can call UntagResource up to 5 times per second, per account. </p><p>For an overview on tagging DynamoDB resources, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -948,7 +998,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdateItem service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateItemOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBUpdateItemInput
  @see AWSDynamoDBUpdateItemOutput
@@ -961,7 +1011,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @param request A container for the necessary parameters to execute the UpdateItem service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBUpdateItemInput
  @see AWSDynamoDBUpdateItemOutput

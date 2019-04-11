@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSTranslateResources.h"
 
 static NSString *const AWSInfoTranslate = @"Translate";
-NSString *const AWSTranslateSDKVersion = @"2.7.1";
+NSString *const AWSTranslateSDKVersion = @"2.9.4";
 
 
 @interface AWSTranslateResponseSerializer : AWSJSONResponseSerializer
@@ -42,7 +42,10 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"DetectedLanguageLowConfidenceException" : @(AWSTranslateErrorDetectedLanguageLowConfidence),
                             @"InternalServerException" : @(AWSTranslateErrorInternalServer),
+                            @"InvalidParameterValueException" : @(AWSTranslateErrorInvalidParameterValue),
                             @"InvalidRequestException" : @(AWSTranslateErrorInvalidRequest),
+                            @"LimitExceededException" : @(AWSTranslateErrorLimitExceeded),
+                            @"ResourceNotFoundException" : @(AWSTranslateErrorResourceNotFound),
                             @"ServiceUnavailableException" : @(AWSTranslateErrorServiceUnavailable),
                             @"TextSizeLimitExceededException" : @(AWSTranslateErrorTextSizeLimitExceeded),
                             @"TooManyRequestsException" : @(AWSTranslateErrorTooManyRequests),
@@ -280,6 +283,97 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 #pragma mark - Service method
+
+- (AWSTask *)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"DeleteTerminology"
+                   outputClass:nil];
+}
+
+- (void)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteTerminology:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateGetTerminologyResponse *> *)getTerminology:(AWSTranslateGetTerminologyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"GetTerminology"
+                   outputClass:[AWSTranslateGetTerminologyResponse class]];
+}
+
+- (void)getTerminology:(AWSTranslateGetTerminologyRequest *)request
+     completionHandler:(void (^)(AWSTranslateGetTerminologyResponse *response, NSError *error))completionHandler {
+    [[self getTerminology:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateGetTerminologyResponse *> * _Nonnull task) {
+        AWSTranslateGetTerminologyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateImportTerminologyResponse *> *)importTerminology:(AWSTranslateImportTerminologyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"ImportTerminology"
+                   outputClass:[AWSTranslateImportTerminologyResponse class]];
+}
+
+- (void)importTerminology:(AWSTranslateImportTerminologyRequest *)request
+     completionHandler:(void (^)(AWSTranslateImportTerminologyResponse *response, NSError *error))completionHandler {
+    [[self importTerminology:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateImportTerminologyResponse *> * _Nonnull task) {
+        AWSTranslateImportTerminologyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateListTerminologiesResponse *> *)listTerminologies:(AWSTranslateListTerminologiesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"ListTerminologies"
+                   outputClass:[AWSTranslateListTerminologiesResponse class]];
+}
+
+- (void)listTerminologies:(AWSTranslateListTerminologiesRequest *)request
+     completionHandler:(void (^)(AWSTranslateListTerminologiesResponse *response, NSError *error))completionHandler {
+    [[self listTerminologies:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListTerminologiesResponse *> * _Nonnull task) {
+        AWSTranslateListTerminologiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
 
 - (AWSTask<AWSTranslateTranslateTextResponse *> *)translateText:(AWSTranslateTranslateTextRequest *)request {
     return [self invokeRequest:request

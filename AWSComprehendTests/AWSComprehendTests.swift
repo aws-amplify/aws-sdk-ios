@@ -102,7 +102,7 @@ class AWSComprehendTests: XCTestCase {
         let comprehendClient = AWSComprehend.default()
         let detectSentimentRequest = AWSComprehendDetectSentimentRequest()
         detectSentimentRequest!.languageCode = AWSComprehendLanguageCode.en
-        detectSentimentRequest!.text = "The sun shines in Seattle"
+        detectSentimentRequest!.text = "The sun shines in Seattle!!"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
             guard let result = task.result else {
@@ -153,7 +153,7 @@ class AWSComprehendTests: XCTestCase {
         let comprehendClient = AWSComprehend.default()
         let inputStrings:[String] = ["I love AWS Mobile SDK", "Today is Sunday", "Tomorrow is Monday","I love AWS Amplify"]
         let batchEntityRequest = AWSComprehendBatchDetectEntitiesRequest()
-        batchEntityRequest!.languageCode = "en"
+        batchEntityRequest!.languageCode = AWSComprehendLanguageCode.en
         batchEntityRequest!.textList = inputStrings
         
         comprehendClient.batchDetectEntities(batchEntityRequest!).continueWith{ (task)-> Any? in

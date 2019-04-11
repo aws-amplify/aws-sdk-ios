@@ -56,9 +56,40 @@ public enum AWSMobileClientError: Error {
     case invalidState(message: String)
     case userPoolNotConfigured(message: String)
     case userCancelledSignIn(message: String)
+    case badRequest(message: String)
+    case expiredRefreshToken(message: String)
+    case errorLoadingPage(message: String)
+    case securityFailed(message: String)
+    case idTokenNotIssued(message: String)
+    case idTokenAndAcceessTokenNotIssued(message: String)
+    case invalidConfiguration(message: String)
+    case deviceNotRemembered(message: String)
 }
 
 extension AWSMobileClient {
+    
+    static func CognitoAuthErrorMappingHelper(error: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
+        switch error {
+        case .errorBadRequest:
+            return .badRequest(message: "Incorrect host URL or query parameters.")
+        case .errorExpiredRefreshToken:
+            return .expiredRefreshToken(message: "The refresh token is expired, user needs to sign-in again.")
+        case .errorLoadingPageFailed:
+            return .errorLoadingPage(message: "Could not load the page from the specified URL.")
+        case .errorSecurityFailed:
+            return .securityFailed(message: "State code did not match request.")
+        case .errorUserCanceledOperation:
+            return .userCancelledSignIn(message: "The user cancelled sign-in.")
+        case .noIdTokenIssued:
+            return .idTokenNotIssued(message: "The ID Token was not issued by the server.")
+        case .invalidAuthenticationDelegate, .errorUnknown:
+            return .unknown(message: "Unknown error occurred.")
+        default:
+            break
+        }
+        return .unknown(message: "Unknown error occurred.")
+    }
+    
     /// Mapping helper to map error code and messages to `AWSMobileClientError`
     static func ErrorMappingHelper(errorCode: String, message: String, error: NSError?) -> AWSMobileClientError {
         switch (errorCode) {
@@ -200,16 +231,3 @@ public struct UserCodeDeliveryDetails {
     }
 }
 
-
-/// Represents
-///
-/// - facebook: The provider key for Facebook.
-/// - google: The provider key for Google.
-/// - twitter: The provider key for Twitter.
-/// - amazon: The provider key for Amazon.
-public enum IdentityProvider: String {
-    case facebook = "graph.facebook.com"
-    case google = "accounts.google.com"
-    case twitter = "api.twitter.com"
-    case amazon = "www.amazon.com"
-}

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -56,6 +56,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"botName" : @"botName",
              @"contentType" : @"contentType",
              @"inputStream" : @"inputStream",
+             @"requestAttributes" : @"requestAttributes",
              @"sessionAttributes" : @"sessionAttributes",
              @"userId" : @"userId",
              };
@@ -73,6 +74,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"inputTranscript" : @"inputTranscript",
              @"intentName" : @"intentName",
              @"message" : @"message",
+             @"messageFormat" : @"messageFormat",
              @"sessionAttributes" : @"sessionAttributes",
              @"slotToElicit" : @"slotToElicit",
              @"slots" : @"slots",
@@ -120,6 +122,37 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)messageFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PlainText"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypePlainText);
+        }
+        if ([value caseInsensitiveCompare:@"CustomPayload"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypeCustomPayload);
+        }
+        if ([value caseInsensitiveCompare:@"SSML"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypeSsml);
+        }
+        if ([value caseInsensitiveCompare:@"Composite"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypeComposite);
+        }
+        return @(AWSLexMessageFormatTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLexMessageFormatTypePlainText:
+                return @"PlainText";
+            case AWSLexMessageFormatTypeCustomPayload:
+                return @"CustomPayload";
+            case AWSLexMessageFormatTypeSsml:
+                return @"SSML";
+            case AWSLexMessageFormatTypeComposite:
+                return @"Composite";
+            default:
+                return nil;
+        }
+    }];
+}
+
 @end
 
 @implementation AWSLexPostTextRequest
@@ -129,6 +162,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"botAlias" : @"botAlias",
              @"botName" : @"botName",
              @"inputText" : @"inputText",
+             @"requestAttributes" : @"requestAttributes",
              @"sessionAttributes" : @"sessionAttributes",
              @"userId" : @"userId",
              };
@@ -143,6 +177,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"dialogState" : @"dialogState",
              @"intentName" : @"intentName",
              @"message" : @"message",
+             @"messageFormat" : @"messageFormat",
              @"responseCard" : @"responseCard",
              @"sessionAttributes" : @"sessionAttributes",
              @"slotToElicit" : @"slotToElicit",
@@ -185,6 +220,37 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
                 return @"ReadyForFulfillment";
             case AWSLexDialogStateFailed:
                 return @"Failed";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)messageFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PlainText"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypePlainText);
+        }
+        if ([value caseInsensitiveCompare:@"CustomPayload"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypeCustomPayload);
+        }
+        if ([value caseInsensitiveCompare:@"SSML"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypeSsml);
+        }
+        if ([value caseInsensitiveCompare:@"Composite"] == NSOrderedSame) {
+            return @(AWSLexMessageFormatTypeComposite);
+        }
+        return @(AWSLexMessageFormatTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLexMessageFormatTypePlainText:
+                return @"PlainText";
+            case AWSLexMessageFormatTypeCustomPayload:
+                return @"CustomPayload";
+            case AWSLexMessageFormatTypeSsml:
+                return @"SSML";
+            case AWSLexMessageFormatTypeComposite:
+                return @"Composite";
             default:
                 return nil;
         }

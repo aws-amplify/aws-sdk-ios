@@ -13,7 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSFMDB.h"
+#import <AWSCore/AWSFMDB.h>
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtility.h"
 #import "AWSS3TransferUtilityTasks.h"
@@ -34,6 +34,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
 @property (strong, nonatomic) AWSS3TransferUtilityUploadExpression *expression;
 @property BOOL temporaryFileCreated;
 @property NSString *transferType;
+@property NSUInteger taskIdentifier;
 @end
 
 @interface AWSS3TransferUtilityMultiPartUploadTask()
@@ -49,16 +50,16 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
 
 @interface AWSS3TransferUtilityDownloadTask()
 @property (strong, nonatomic) AWSS3TransferUtilityDownloadExpression *expression;
+@property NSUInteger taskIdentifier;
 @end
 
 @interface AWSS3TransferUtilityUploadSubTask()
-@property (readwrite) NSUInteger taskIdentifier;
+@property NSUInteger taskIdentifier;
 @property (strong, nonatomic) NSNumber *partNumber;
 @property NSString *file;
 @property int64_t totalBytesExpectedToSend;
 @property AWSS3TransferUtilityTransferStatusType status;
 @property NSString *transferType;
-
 @end
 
 #pragma mark - AWSS3 Transfer Utility Database Functions
@@ -193,7 +194,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
-                                                   taskIdentifier:@0
+                                                   taskIdentifier:@(task.taskIdentifier)
                                                      transferType:task.transferType
                                                            bucket:task.bucket
                                                               key:task.key
@@ -218,7 +219,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     }
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
-                                                   taskIdentifier:@0
+                                                   taskIdentifier:@(task.taskIdentifier)
                                                      transferType:task.transferType
                                                            bucket:task.bucket
                                                               key:task.key
@@ -261,7 +262,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
                                    databaseQueue: (AWSFMDatabaseQueue *) databaseQueue {
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
-                                                   taskIdentifier:@0
+                                                   taskIdentifier:@(subTask.taskIdentifier)
                                                      transferType:subTask.transferType
                                                            bucket:task.bucket
                                                               key:task.key

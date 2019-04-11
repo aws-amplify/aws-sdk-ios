@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -263,7 +263,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
             [self.forgotPasswordButton removeFromSuperview];
         }
         
-        if (self.config.enableUserPoolsUI) {
+        if (self.config.enableUserPoolsUI && !self.config.disableSignUpButton) {
             
             [self.signUpButton addTarget:self
                                   action:@selector(handleUserPoolSignUp)
@@ -420,39 +420,44 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 + (UIImage *)getImageFromBundle:(NSString *)imageName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    // Check if the logo image is available in the framework directly; if available fetch and return it.
+    // This is applicable when dependency is consumed via Carthage/ Frameworks.
+    UIImage *imageFromCurrentBundle = [UIImage imageNamed:imageName inBundle:currentBundle compatibleWithTraitCollection:nil];
+    if (imageFromCurrentBundle) {
+        return imageFromCurrentBundle;
+    }
+    
+    // If the image is not available in the framework, it is part of the resources bundle.
+    // This is applicable when dependency is consumed via Cocoapods.
     NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *assetsBundle = [NSBundle bundleWithURL:url];
     AWSDDLogDebug(@"assetsBundle: %@", assetsBundle);
     
-    [assetsBundle load];
-    UIImage *imageFromBundle = [UIImage imageNamed:imageName inBundle:assetsBundle compatibleWithTraitCollection:nil];
-    if (imageFromBundle) {
-        return  imageFromBundle;
-    } else {
-        return [UIImage imageNamed:imageName inBundle:currentBundle compatibleWithTraitCollection:nil];
-    }
+    return [UIImage imageNamed:imageName inBundle:assetsBundle compatibleWithTraitCollection:nil];
 }
 
 + (UIStoryboard *)getUIStoryboardFromBundle:(NSString *)storyboardName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    
+    // Check if the storyboard is available in the framework directly; if available fetch and return it.
+    // This is applicable when dependency is consumed via Carthage/ Frameworks.
+    if ([currentBundle pathForResource:storyboardName ofType:@"storyboardc"] != nil) {
+        return [UIStoryboard storyboardWithName:storyboardName
+                                         bundle:currentBundle];
+    }
+    
+    // If the storyboard is not available in the framework, it is part of the resources bundle.
+    // This is applicable when dependency is consumed via Cocoapods.
     NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *resourcesBundle = [NSBundle bundleWithURL:url];
     AWSDDLogDebug(@"assetsBundle: %@", resourcesBundle);
     
-    [resourcesBundle load];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName
-                                                         bundle:resourcesBundle];
-    
-    if (storyboard) {
-        return storyboard;
-    } else {
-        return [UIStoryboard storyboardWithName:storyboardName
-                                         bundle:currentBundle];
-    }
+    return [UIStoryboard storyboardWithName:storyboardName
+                                     bundle:resourcesBundle];
 }
 
 + (UIViewController *)getViewControllerWithName:(NSString *)viewControllerIdentitifer
@@ -541,4 +546,3 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 @end
-

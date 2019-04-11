@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -439,6 +439,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderListIdentityProvidersResponse;
 @class AWSCognitoIdentityProviderListResourceServersRequest;
 @class AWSCognitoIdentityProviderListResourceServersResponse;
+@class AWSCognitoIdentityProviderListTagsForResourceRequest;
+@class AWSCognitoIdentityProviderListTagsForResourceResponse;
 @class AWSCognitoIdentityProviderListUserImportJobsRequest;
 @class AWSCognitoIdentityProviderListUserImportJobsResponse;
 @class AWSCognitoIdentityProviderListUserPoolClientsRequest;
@@ -489,7 +491,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderStopUserImportJobRequest;
 @class AWSCognitoIdentityProviderStopUserImportJobResponse;
 @class AWSCognitoIdentityProviderStringAttributeConstraintsType;
+@class AWSCognitoIdentityProviderTagResourceRequest;
+@class AWSCognitoIdentityProviderTagResourceResponse;
 @class AWSCognitoIdentityProviderUICustomizationType;
+@class AWSCognitoIdentityProviderUntagResourceRequest;
+@class AWSCognitoIdentityProviderUntagResourceResponse;
 @class AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest;
 @class AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse;
 @class AWSCognitoIdentityProviderUpdateDeviceStatusRequest;
@@ -504,6 +510,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderUpdateUserAttributesResponse;
 @class AWSCognitoIdentityProviderUpdateUserPoolClientRequest;
 @class AWSCognitoIdentityProviderUpdateUserPoolClientResponse;
+@class AWSCognitoIdentityProviderUpdateUserPoolDomainRequest;
+@class AWSCognitoIdentityProviderUpdateUserPoolDomainResponse;
 @class AWSCognitoIdentityProviderUpdateUserPoolRequest;
 @class AWSCognitoIdentityProviderUpdateUserPoolResponse;
 @class AWSCognitoIdentityProviderUserContextDataType;
@@ -2296,7 +2304,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The write attributes.</p>
+ <p>The user pool attributes that the app client can write to.</p><p>If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable writeAttributes;
 
@@ -2322,7 +2330,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p><p>Provide this parameter only if you want to use own custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.</p><p>For more information about the hosted domain and custom domains, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">Configuring a User Pool Domain</a>.</p>
+ <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p><p>Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.</p><p>For more information about the hosted domain and custom domains, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">Configuring a User Pool Domain</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCustomDomainConfigType * _Nullable customDomainConfig;
 
@@ -2439,7 +2447,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
 /**
- <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
 
@@ -3845,6 +3853,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>The tags that are assigned to the user pool.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  <p>Represents the request to list the user import jobs.</p>
  Required parameters: [UserPoolId, MaxResults]
  */
@@ -4539,7 +4573,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable developerOnlyAttribute;
 
 /**
- <p>Specifies whether the value of the attribute can be changed.</p>
+ <p>Specifies whether the value of the attribute can be changed.</p><p>For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable varying;
 
@@ -4985,6 +5019,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The tags to assign to the user pool.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>A container for the UI customization information for a user pool's built-in app UI.</p>
  */
 @interface AWSCognitoIdentityProviderUICustomizationType : AWSModel
@@ -5024,6 +5084,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The user pool ID for the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUntagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The keys of the tags to remove from the user pool.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUntagResourceResponse : AWSModel
+
 
 @end
 
@@ -5363,6 +5449,43 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ <p>The UpdateUserPoolDomain request input.</p>
+ Required parameters: [Domain, UserPoolId, CustomDomainConfig]
+ */
+@interface AWSCognitoIdentityProviderUpdateUserPoolDomainRequest : AWSRequest
+
+
+/**
+ <p>The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderCustomDomainConfigType * _Nullable customDomainConfig;
+
+/**
+ <p>The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: <code>auth.example.com</code>. </p><p>This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
+
+/**
+ <p>The ID of the user pool that is associated with the custom domain that you are updating the certificate for.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ <p>The UpdateUserPoolDomain response output.</p>
+ */
+@interface AWSCognitoIdentityProviderUpdateUserPoolDomainResponse : AWSModel
+
+
+/**
+ <p>The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom domain to your user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cloudFrontDomain;
+
+@end
+
+/**
  <p>Represents the request to update the user pool.</p>
  Required parameters: [UserPoolId]
  */
@@ -5440,7 +5563,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
 
@@ -5763,7 +5886,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- 
+ <p>A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: <code>auth.example.com</code>.</p><p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customDomain;
 
@@ -5868,7 +5991,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
 /**
- <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ <p>The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
 

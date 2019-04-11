@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -365,6 +365,70 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsDescribeQueriesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupName" : @"logGroupName",
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Scheduled"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusScheduled);
+        }
+        if ([value caseInsensitiveCompare:@"Running"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"Complete"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusComplete);
+        }
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusCancelled);
+        }
+        return @(AWSLogsQueryStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsQueryStatusScheduled:
+                return @"Scheduled";
+            case AWSLogsQueryStatusRunning:
+                return @"Running";
+            case AWSLogsQueryStatusComplete:
+                return @"Complete";
+            case AWSLogsQueryStatusFailed:
+                return @"Failed";
+            case AWSLogsQueryStatusCancelled:
+                return @"Cancelled";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsDescribeQueriesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"queries" : @"queries",
+             };
+}
+
++ (NSValueTransformer *)queriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsQueryInfo class]];
+}
+
+@end
+
 @implementation AWSLogsDescribeResourcePoliciesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -617,6 +681,113 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsGetLogGroupFieldsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupName" : @"logGroupName",
+             @"time" : @"time",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetLogGroupFieldsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupFields" : @"logGroupFields",
+             };
+}
+
++ (NSValueTransformer *)logGroupFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsLogGroupField class]];
+}
+
+@end
+
+@implementation AWSLogsGetLogRecordRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logRecordPointer" : @"logRecordPointer",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetLogRecordResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logRecord" : @"logRecord",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetQueryResultsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryId" : @"queryId",
+             };
+}
+
+@end
+
+@implementation AWSLogsGetQueryResultsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"results" : @"results",
+             @"statistics" : @"statistics",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)statisticsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsQueryStatistics class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Scheduled"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusScheduled);
+        }
+        if ([value caseInsensitiveCompare:@"Running"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"Complete"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusComplete);
+        }
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusCancelled);
+        }
+        return @(AWSLogsQueryStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsQueryStatusScheduled:
+                return @"Scheduled";
+            case AWSLogsQueryStatusRunning:
+                return @"Running";
+            case AWSLogsQueryStatusComplete:
+                return @"Complete";
+            case AWSLogsQueryStatusFailed:
+                return @"Failed";
+            case AWSLogsQueryStatusCancelled:
+                return @"Cancelled";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLogsInputLogEvent
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -659,6 +830,17 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"metricFilterCount" : @"metricFilterCount",
              @"retentionInDays" : @"retentionInDays",
              @"storedBytes" : @"storedBytes",
+             };
+}
+
+@end
+
+@implementation AWSLogsLogGroupField
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"percent" : @"percent",
              };
 }
 
@@ -894,6 +1076,94 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsQueryCompileError
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"location" : @"location",
+             @"message" : @"message",
+             };
+}
+
++ (NSValueTransformer *)locationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsQueryCompileErrorLocation class]];
+}
+
+@end
+
+@implementation AWSLogsQueryCompileErrorLocation
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endCharOffset" : @"endCharOffset",
+             @"startCharOffset" : @"startCharOffset",
+             };
+}
+
+@end
+
+@implementation AWSLogsQueryInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTime" : @"createTime",
+             @"logGroupName" : @"logGroupName",
+             @"queryId" : @"queryId",
+             @"queryString" : @"queryString",
+             @"status" : @"status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Scheduled"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusScheduled);
+        }
+        if ([value caseInsensitiveCompare:@"Running"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"Complete"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusComplete);
+        }
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusCancelled);
+        }
+        return @(AWSLogsQueryStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsQueryStatusScheduled:
+                return @"Scheduled";
+            case AWSLogsQueryStatusRunning:
+                return @"Running";
+            case AWSLogsQueryStatusComplete:
+                return @"Complete";
+            case AWSLogsQueryStatusFailed:
+                return @"Failed";
+            case AWSLogsQueryStatusCancelled:
+                return @"Cancelled";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLogsQueryStatistics
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bytesScanned" : @"bytesScanned",
+             @"recordsMatched" : @"recordsMatched",
+             @"recordsScanned" : @"recordsScanned",
+             };
+}
+
+@end
+
 @implementation AWSLogsRejectedLogEventsInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -918,12 +1188,67 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsResultField
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"field" : @"field",
+             @"value" : @"value",
+             };
+}
+
+@end
+
 @implementation AWSLogsSearchedLogStream
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logStreamName" : @"logStreamName",
              @"searchedCompletely" : @"searchedCompletely",
+             };
+}
+
+@end
+
+@implementation AWSLogsStartQueryRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endTime" : @"endTime",
+             @"limit" : @"limit",
+             @"logGroupName" : @"logGroupName",
+             @"queryString" : @"queryString",
+             @"startTime" : @"startTime",
+             };
+}
+
+@end
+
+@implementation AWSLogsStartQueryResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryId" : @"queryId",
+             };
+}
+
+@end
+
+@implementation AWSLogsStopQueryRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryId" : @"queryId",
+             };
+}
+
+@end
+
+@implementation AWSLogsStopQueryResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"success" : @"success",
              };
 }
 

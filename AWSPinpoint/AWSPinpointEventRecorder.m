@@ -107,7 +107,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         
         // Creates a database for the identifier if it doesn't exist.
         AWSDDLogDebug(@"Database path: [%@]", _databasePath);
-        _databaseQueue = [AWSFMDatabaseQueue databaseQueueWithPath:_databasePath];
+        _databaseQueue = [AWSFMDatabaseQueue serialDatabaseQueueWithPath:_databasePath];
         [_databaseQueue inDatabase:^(AWSFMDatabase *db) {
             db.shouldCacheStatements = YES;
             if (![db executeStatements:@"PRAGMA auto_vacuum = FULL"]) {
@@ -548,7 +548,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
             } else {
                 for (NSDictionary* object in [t.result allValues]) {
                     if ([[object objectForKey:@"statusCode"] intValue] == 202) {
-                        [result addObject:[object objectForKey:@"event"]];//Aggregate results
+                        //Aggregate results
+                        [result addObject:[object objectForKey:@"event"]];
                     }
                 }
 
@@ -567,7 +568,6 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
             return nextTask;
         }];
     }
-    
     
     return returnTask;
 }
@@ -769,38 +769,53 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     return YES;
 }
 
-- (void)processEndpointResponse:(NSString *)endpointId resultResponse:(AWSPinpointTargetingEventsResponse *) response {
-    if([[response.results objectForKey:endpointId].endpointItemResponse.statusCode intValue] == 202) {
-        AWSDDLogVerbose(@"EndpointProfile updated successfully.");
-    } else {
-        AWSDDLogError(@"AmazonServiceException occurred during endpoint update. Error: [%@]", [response.results objectForKey:endpointId].endpointItemResponse.message);
+- (void) processEndpointResponse:(NSString *) endpointId
+                  resultResponse:(AWSPinpointTargetingPutEventsResponse *) response {
+    @try {
+        if([[response.eventsResponse.results objectForKey:endpointId].endpointItemResponse.statusCode intValue] == 202) {
+            AWSDDLogVerbose(@"EndpointProfile updated successfully.");
+        } else {
+            AWSDDLogError(@"AmazonServiceException occurred during endpoint update. Error: [%@]", [response.eventsResponse.results objectForKey:endpointId].endpointItemResponse.message);
+        }
+    } @catch(NSException *exception) {
+        AWSDDLogError(@"Error in parsing the endpoint response for endpoint: [%@]. Error: [%@]", endpointId, exception);
     }
 }
 
-- (NSDictionary *)processEventsResponse:(NSDictionary *)_temporaryEvents endpointId:(NSString *)endpointId resultResponse:(AWSPinpointTargetingEventsResponse *) response returnedEvents:(NSMutableDictionary*) events{
+- (NSDictionary *)processEventsResponse:(NSDictionary *) _temporaryEvents
+                             endpointId:(NSString *) endpointId
+                         resultResponse:(AWSPinpointTargetingPutEventsResponse *) response
+                         returnedEvents:(NSMutableDictionary*) events {
     NSMutableDictionary *acceptedEvents = [NSMutableDictionary new];
     NSMutableDictionary *retryableEvents = [NSMutableDictionary new];
     NSMutableDictionary *dirtyEvents = [NSMutableDictionary new];
     NSMutableDictionary *processedEvents = [NSMutableDictionary new];
     for(NSString *eventId in _temporaryEvents) {
-        AWSPinpointTargetingEventItemResponse *responseMessage = [[response.results objectForKey:endpointId].eventsItemResponse objectForKey:eventId];
-        //here is to attach response to each event so that developers know whether a event submitted is succeeded or not and they can debug.
-        AWSPinpointEvent *event = [events objectForKey:eventId];
-        NSDictionary *eventResponse = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                       event, @"event", responseMessage.statusCode, @"statusCode", responseMessage.message, @"message", nil];
-        [events setObject:eventResponse forKey:eventId];
-        
-        if ([responseMessage.message isEqualToString:@"Accepted"]) {
-            [acceptedEvents setObject:_temporaryEvents[eventId] forKey:eventId];
-            AWSDDLogVerbose(@"Successful submit event with event id %@", eventId);
-        } else if ([self isRetryable:[NSError errorWithDomain:AWSPinpointTargetingErrorDomain code:[responseMessage.statusCode intValue]
-                                                     userInfo:[[NSDictionary alloc]initWithObjectsAndKeys:
-                                                               responseMessage.message, @"NSLocalizedFailureReason", nil]]]) {
-                                                         [retryableEvents setObject:_temporaryEvents[eventId] forKey:eventId];
-                                                         AWSDDLogWarn(@"Unable to successfully deliver event to server. Event will be saved with retry count += 1. Event id %@", eventId);
-        } else {
-            [dirtyEvents setObject:_temporaryEvents[eventId] forKey:eventId];
-            AWSDDLogError(@"Server rejected submission of event. (Event will be marked dirty.) %@", eventId);
+        @try {
+            AWSPinpointTargetingEventItemResponse *responseMessage = [[response.eventsResponse.results objectForKey:endpointId].eventsItemResponse objectForKey:eventId];
+            //here is to attach response to each event so that developers know whether
+            //an event submitted is succeeded or not and they can debug.
+            AWSPinpointEvent *event = [events objectForKey:eventId];
+            NSDictionary *eventResponse = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                           event, @"event", responseMessage.statusCode, @"statusCode", responseMessage.message, @"message", nil];
+            [events setObject:eventResponse forKey:eventId];
+            
+            if ([responseMessage.message isEqualToString:@"Accepted"]) {
+                [acceptedEvents setObject:_temporaryEvents[eventId] forKey:eventId];
+                AWSDDLogVerbose(@"Successful submit event with event id %@", eventId);
+            } else if ([self isRetryable:[NSError errorWithDomain:AWSPinpointTargetingErrorDomain
+                                                             code:[responseMessage.statusCode intValue]
+                                                         userInfo:[[NSDictionary alloc]initWithObjectsAndKeys:
+                                                                   responseMessage.message, @"NSLocalizedFailureReason", nil]]]) {
+                                                             [retryableEvents setObject:_temporaryEvents[eventId] forKey:eventId];
+                                                             AWSDDLogWarn(@"Unable to successfully deliver event to server. Event will be saved with retry count += 1. Event id %@", eventId);
+            } else {
+                [dirtyEvents setObject:_temporaryEvents[eventId]
+                                forKey:eventId];
+                AWSDDLogError(@"Server rejected submission of event. (Event will be marked dirty.) %@", eventId);
+            }
+        } @catch (NSException *exception) {
+            AWSDDLogError(@"Error in parsing the event response for event: [%@]. Error: [%@]", eventId, exception);
         }
     }
     [processedEvents setObject:acceptedEvents forKey:@"acceptedEvents"];
@@ -809,12 +824,12 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     return (NSDictionary *)processedEvents;
 }
 
-- (AWSTask *)putEvents:(NSDictionary *)temporaryEvents
-                 error:(NSError* __autoreleasing *) error{
+- (AWSTask *) putEvents:(NSDictionary *) temporaryEvents
+                 error:(NSError* __autoreleasing *) error {
     return [self putEvents:temporaryEvents error:error endpointProfile:self.profile];
 }
 
-- (NSError *)processError: (NSError *)PinpointError {
+- (NSError *) processError:(NSError *) PinpointError {
     if (PinpointError.domain == AWSPinpointTargetingErrorDomain) {
         if (PinpointError.code == AWSPinpointTargetingErrorBadRequest) {
             return [NSError errorWithDomain:AWSPinpointAnalyticsErrorDomain
@@ -830,13 +845,13 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     }
 }
 
-- (AWSTask *)putEvents:(NSDictionary *)temporaryEvents
+- (AWSTask *)putEvents:(NSDictionary *) temporaryEvents
                  error:(NSError* __autoreleasing *) error
-       endpointProfile:(AWSPinpointEndpointProfile *) profile{
+       endpointProfile:(AWSPinpointEndpointProfile *) profile {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     
     __block NSMutableDictionary *events = [NSMutableDictionary new]; //events to be submitted, and returned back to caller for debugging
-    __block NSDictionary *_temporaryEvents = [temporaryEvents copy]; // aggregate attributes, metrics...
+    __block NSDictionary *_temporaryEvents = [temporaryEvents copy]; //aggregate attributes, metrics...
     for (NSString *eventId in _temporaryEvents) {
         NSMutableDictionary *attributes;
 
@@ -869,14 +884,15 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         
     }
     
-    AWSPinpointTargetingEventsRequest *putEventsRequest = [self putEventsRequestForEvents:events endpointProfile:profile];
+    AWSPinpointTargetingPutEventsRequest *putEventsRequest = [self putEventsRequestForEvents:events
+                                                                             endpointProfile:profile];
     
-    AWSDDLogVerbose(@"putEventsRequest: [%@]", putEventsRequest);
+    AWSDDLogVerbose(@"PutEventsRequest: [%@]", putEventsRequest);
     
     return [[self.context.targetingService putEvents:putEventsRequest] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        //service level exception
+        //PutEvents encountered an exception
         if (task.error) {
-            AWSDDLogError(@"Error: [%@]", task.error);
+            AWSDDLogError(@"PutEvents Error: [%@]", task.error);
             if (![self isRetryable:task.error]) {
                 NSInteger responseCode = [task.error.userInfo[@"responseStatusCode"] integerValue];
                 AWSDDLogError(@"Server rejected submission of %lu events. (Events will be marked dirty.) Response code:%ld, Error Message:%@", (unsigned long)[events count], (long)responseCode, task.error);
@@ -915,10 +931,18 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                 }]]];
             }
         }
-        //no service level error, let's parse item response
+        
+        //PutEventsRequest succeeded, parse the PutEventsResponse
         if (task.result) {
-            [self processEndpointResponse:self.profile.endpointId resultResponse:task.result];
-            NSDictionary *_processedEvents = [self processEventsResponse:_temporaryEvents endpointId:self.profile.endpointId resultResponse:task.result returnedEvents:events];
+            AWSDDLogVerbose(@"PutEventsResponse received: [%@]", task.result);
+            
+            [self processEndpointResponse:self.profile.endpointId
+                           resultResponse:task.result];
+            
+            NSDictionary *_processedEvents = [self processEventsResponse:_temporaryEvents
+                                                              endpointId:self.profile.endpointId
+                                                          resultResponse:task.result
+                                                          returnedEvents:events];
 
             AWSDDLogInfo(@"Successfully put events to server--response code: 202. accepted: %u; retryable: %u; dirty: %u",
                          (unsigned int)[[_processedEvents objectForKey:@"acceptedEvents"] count],
@@ -977,9 +1001,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     }];
 }
 
-- (AWSPinpointTargetingEndpointRequest*) buildEndpointRequestPayload:(AWSPinpointEndpointProfile *) profile {
-    AWSPinpointTargetingEndpointRequest *endpoint = [AWSPinpointTargetingEndpointRequest new];
-    
+- (AWSPinpointTargetingPublicEndpoint*) buildEndpointRequestPayload:(AWSPinpointEndpointProfile *) profile {
+    //Build the demographic information
     AWSPinpointTargetingEndpointDemographic *demographic = [AWSPinpointTargetingEndpointDemographic new];
     demographic.appVersion = profile.demographic.appVersion;
     demographic.locale = profile.demographic.locale;;
@@ -989,6 +1012,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     demographic.platform = profile.demographic.platform;
     demographic.platformVersion = profile.demographic.platformVersion;
 
+    //Build the endpoint location information
     AWSPinpointTargetingEndpointLocation *location = [AWSPinpointTargetingEndpointLocation new];
     location.latitude = profile.location.latitude;
     location.longitude = profile.location.longitude;
@@ -997,6 +1021,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     location.region = profile.location.region;
     location.country = profile.location.country;
     
+    //Set the endpoint userId
     AWSPinpointTargetingEndpointUser *user;
     if (profile.user.userId == NULL) {
         user = NULL;
@@ -1004,6 +1029,9 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         user = [AWSPinpointTargetingEndpointUser new];
         user.userId = profile.user.userId;
     }
+    
+    //Create the PublicEndpoint object and set the endpoint specific information
+    AWSPinpointTargetingPublicEndpoint *endpoint = [AWSPinpointTargetingPublicEndpoint new];
     endpoint.channelType = [profile.channelType isEqualToString:@"APNS"] ? AWSPinpointTargetingChannelTypeApns : AWSPinpointTargetingChannelTypeApnsSandbox;
     endpoint.address = profile.address;
     endpoint.location = location;
@@ -1018,33 +1046,52 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 }
 
 - (AWSPinpointTargetingEvent*) buildEventPayload:(AWSPinpointEvent*) event {
-    
-    AWSPinpointTargetingEvent *serviceEvent = [AWSPinpointTargetingEvent new];
-    AWSPinpointTargetingSession *serviceSession = [AWSPinpointTargetingSession new];
-    
     //Build attributes and metrics
     NSMutableDictionary *mutableAttributesDic = [NSMutableDictionary dictionaryWithDictionary:event.allAttributes];
     NSMutableDictionary *mutableMetricsDic = [NSMutableDictionary dictionaryWithDictionary:event.allMetrics];
-    serviceEvent.attributes = mutableAttributesDic;
-    serviceEvent.metrics = mutableMetricsDic;
     
     //Build session
+    AWSPinpointTargetingSession *serviceSession = [AWSPinpointTargetingSession new];
     serviceSession.identifier = event.session.sessionId;
     serviceSession.startTimestamp = [event.session.startTime aws_stringValue:AWSDateISO8601DateFormat3];
     serviceSession.stopTimestamp = [event.session.stopTime aws_stringValue:AWSDateISO8601DateFormat3];
     serviceSession.duration = [NSNumber numberWithUnsignedLongLong:[event.session timeDurationInMillis]];
+    
+    //Create the event and set the event specific information
+    AWSPinpointTargetingEvent *serviceEvent = [AWSPinpointTargetingEvent new];
+    serviceEvent.appPackageName = _context.configuration.environment.appPackageName;
+    serviceEvent.appTitle = _context.configuration.environment.appName;
+    serviceEvent.appVersionCode = _context.configuration.environment.appVersion;
+    serviceEvent.attributes = mutableAttributesDic;
+    serviceEvent.clientSdkVersion = [AWSPinpointTargetingSDKVersion copy];
+    serviceEvent.eventType = event.eventType;
+    serviceEvent.metrics = mutableMetricsDic;
     serviceEvent.session = serviceSession;
     
-    //Event type and timestamp
-    serviceEvent.eventType = event.eventType;
+    //This value is decided by the Amazon Pinpoint service
+    serviceEvent.sdkName = @"aws-sdk-iOS";
     serviceEvent.timestamp = [AWSPinpointDateUtils isoDateTimeWithTimestamp:event.eventTimestamp];
-    serviceEvent.clientSdkVersion = [AWSPinpointTargetingSDKVersion copy];
+    
     return serviceEvent;
 }
 
-- (AWSPinpointTargetingEventsRequest*) buildRequestPayload:(NSString*) applicationId endpointPayload:(AWSPinpointTargetingEndpointRequest*) endpoint endpointId:(NSString*) endpointId eventsPayload:(NSDictionary*) events {
-    AWSPinpointTargetingEventsRequest *putRequest = [AWSPinpointTargetingEventsRequest new];
-    putRequest.applicationId = applicationId;
+/**
+ * Build the request payload by aggregating the endpoint payload and
+ * the events payload in the following format:
+ *
+ * "PutEventsRequest": {
+ *   "ApplicationId:: "String",
+ *   "EventsRequest": {
+ *     "BatchItem": "[String, EventsBatch]"
+ *   }
+ * }
+ */
+- (AWSPinpointTargetingPutEventsRequest*) buildRequestPayload:(NSString*) applicationId
+                                              endpointPayload:(AWSPinpointTargetingPublicEndpoint*) endpoint
+                                                   endpointId:(NSString*) endpointId
+                                                eventsPayload:(NSDictionary*) events {
+    //Construct the map of [String, EventsBatch]. An EventsBatch contains the endpoint information
+    //and a map of [String, Event]
     AWSPinpointTargetingEventsBatch *eventsBatch = [AWSPinpointTargetingEventsBatch new];
     eventsBatch.endpoint = endpoint;
     eventsBatch.events = events;
@@ -1052,16 +1099,21 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     NSMutableDictionary *eventsBatchMap = [NSMutableDictionary new];
     [eventsBatchMap setObject:eventsBatch forKey:endpointId];
     
-    putRequest.batchItem = eventsBatchMap;
-    return putRequest;
+    //Build the EventsRequest object that encapsulates the events batch map
+    AWSPinpointTargetingEventsRequest *eventsRequest = [AWSPinpointTargetingEventsRequest new];
+    eventsRequest.batchItem = eventsBatchMap;
+    
+    //Build the PutEvents object that encapsulates the EventsRequest and the Application Id
+    AWSPinpointTargetingPutEventsRequest *putEventsRequest = [AWSPinpointTargetingPutEventsRequest new];
+    putEventsRequest.applicationId = applicationId;
+    putEventsRequest.eventsRequest = eventsRequest;
+    return putEventsRequest;
 }
 
-- (AWSPinpointTargetingEventsRequest*) putEventsRequestForEvents:(NSDictionary*) events
+- (AWSPinpointTargetingPutEventsRequest*) putEventsRequestForEvents:(NSDictionary*) events
                                                     endpointProfile:(AWSPinpointEndpointProfile*) profile {
-    AWSPinpointTargetingEventsRequest *putEventRequest = [AWSPinpointTargetingEventsRequest new];
-    
     //build endpoint payload
-    AWSPinpointTargetingEndpointRequest *endpoint = [self buildEndpointRequestPayload:profile];
+    AWSPinpointTargetingPublicEndpoint *endpoint = [self buildEndpointRequestPayload:profile];
     
     //build events payload
     NSMutableDictionary *parsedEventsDictionary = [NSMutableDictionary new];
@@ -1070,11 +1122,14 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         [parsedEventsDictionary setObject:serviceEvent forKey:eventId];
     }
     
-    //build request payload
-    putEventRequest = [self buildRequestPayload:profile.applicationId endpointPayload:endpoint endpointId:profile.endpointId eventsPayload:parsedEventsDictionary];
+    //build the PutEventsRequest that contains the endpoint and the events
+    AWSPinpointTargetingPutEventsRequest *putEventRequest = [self
+                            buildRequestPayload:profile.applicationId
+                                endpointPayload:endpoint
+                                     endpointId:profile.endpointId
+                                  eventsPayload:parsedEventsDictionary];
     
     return putEventRequest;
 }
 
 @end
-

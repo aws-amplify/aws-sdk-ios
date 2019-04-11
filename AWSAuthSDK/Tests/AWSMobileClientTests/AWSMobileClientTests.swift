@@ -14,6 +14,8 @@ class AWSMobileClientTests: XCTestCase {
     static var UserPoolsAdminClient: AWSCognitoIdentityProvider?
     static var UserPoolId: String?
     static var Email: String?
+    static var CognitoIdentity: AWSCognitoIdentity?
+    static var IdentityPoolId: String?
     
     let sharedPassword: String = "Abc123@@!!"
     
@@ -35,9 +37,12 @@ class AWSMobileClientTests: XCTestCase {
         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialsProvider)
         UserPoolId = credentialsJson?["mc-userpool_id"] as? String
         AWSCognitoIdentityProvider.register(with: configuration!, forKey: "TEST")
+        AWSCognitoIdentity.register(with: configuration!, forKey: "TEST")
+        CognitoIdentity = AWSCognitoIdentity(forKey: "TEST")
         UserPoolsAdminClient = AWSCognitoIdentityProvider(forKey: "TEST")
         
         Email = credentialsJson?["mc-email"] as? String
+        IdentityPoolId = credentialsJson?["mc-pool_id_dev_auth"] as? String
     }
     
     override func setUp() {
@@ -62,11 +67,16 @@ class AWSMobileClientTests: XCTestCase {
         AWSMobileClient.sharedInstance().signOut()
     }
     
-    func signUpUser(username: String) {
+    func signUpUser(username: String, customUserAttributes: [String: String]? = nil) {
+        var userAttributes = ["email": sharedEmail!]
+        if let customUserAttributes = customUserAttributes {
+            userAttributes.merge(customUserAttributes) { current, _ in current }
+        }
+
         let signUpExpectation = expectation(description: "successful sign up expectation.")
         AWSMobileClient.sharedInstance().signUp(username: username,
                                                 password: self.sharedPassword,
-                                                userAttributes: ["email":sharedEmail!]) { (signUpResult, error) in
+                                                userAttributes: userAttributes) { (signUpResult, error) in
             if let signUpResult = signUpResult {
                 switch(signUpResult.signUpConfirmationState) {
                 case .confirmed:
@@ -122,11 +132,11 @@ class AWSMobileClientTests: XCTestCase {
             }
             signInExpectation.fulfill()
         }
-        wait(for: [signInExpectation], timeout: 5000)
+        wait(for: [signInExpectation], timeout: 5)
     }
     
-    func signUpAndVerifyUser(username: String) {
-        signUpUser(username: username)
+    func signUpAndVerifyUser(username: String, customUserAttributes: [String: String]? = nil) {
+        signUpUser(username: username, customUserAttributes: customUserAttributes)
         adminVerifyUser(username: username)
     }
     
@@ -192,6 +202,312 @@ class AWSMobileClientTests: XCTestCase {
         wait(for: [verifyAttrExpectation], timeout: 5)
     }
     
+    // Note: This test relies on the configuration of the test UserPools to have at least one mutable custom attribute:
+    // custom:mutableStringAttr1
+    func testGetAttributes() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username, customUserAttributes: ["custom:mutableStringAttr1": "Value for mutableStringAttr1"])
+        signIn(username: username)
+        let getAttrExpectation = expectation(description: "get attributes expectation.")
+
+        AWSMobileClient.sharedInstance().getUserAttributes { (attributes, error) in
+            if let attributes = attributes {
+                XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
+                XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
+            }else if let error = error {
+                XCTFail("Received un-expected error: \(error.localizedDescription)")
+            }
+            getAttrExpectation.fulfill()
+        }
+
+        wait(for: [getAttrExpectation], timeout: 5)
+    }
+
+    // Note: This test relies on the configuration of the test UserPools to have two mutable custom attributes:
+    // custom:mutableStringAttr1; custom:mutableStringAttr2
+    func testUpdateAttributes() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+
+        let updateUserAttributesResultHandlerInvoked = expectation(description: "updateUserAttributes result handler should be invoked")
+
+        // Update attributes: one previously existing attribute and one new attribute
+        let newUserAttributes = [
+            "custom:mutableStringAttr1": "new value for previously set attribute",
+            "custom:mutableStringAttr2": "value for never-before-set attribute"
+        ]
+
+        AWSMobileClient.sharedInstance().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
+            defer {
+                updateUserAttributesResultHandlerInvoked.fulfill()
+            }
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error.debugDescription)")
+                return
+            }
+
+            // Result is expected to be an empty delivery details list
+            guard let result = result else {
+                XCTFail("updateUserAttributes result unexpectedtly nil")
+                return
+            }
+            XCTAssertEqual(result.count, 0)
+        }
+
+        wait(for: [updateUserAttributesResultHandlerInvoked], timeout: 5)
+
+        let getUserAttributesResultHandlerInvoked = expectation(description: "getUserAttributes result handler should be invoked")
+        AWSMobileClient.sharedInstance().getUserAttributes { attributes, error in
+            defer {
+                getUserAttributesResultHandlerInvoked.fulfill()
+            }
+
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error.debugDescription)")
+                return
+            }
+
+            guard let attributes = attributes else {
+                XCTFail("Attributes are nil")
+                return
+            }
+
+            XCTAssertEqual(attributes["custom:mutableStringAttr1"], "new value for previously set attribute")
+            XCTAssertEqual(attributes["custom:mutableStringAttr2"], "value for never-before-set attribute")
+        }
+
+        wait(for: [getUserAttributesResultHandlerInvoked], timeout: 5)
+    }
+
+    
+    func testRememberDevice() {
+        let username = "testRememberDeviceUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        let initialRememberDeviceExpectation = expectation(description: "initial remember device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+            if error != nil {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+            }
+            initialRememberDeviceExpectation.fulfill()
+        }
+        
+        wait(for: [initialRememberDeviceExpectation], timeout: 5)
+        
+        let listDevicesExpectation = expectation(description: "list devices expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+            
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                listDevicesExpectation.fulfill()
+                return
+            }
+
+            XCTAssertTrue(result?.devices?.count == 1, "Expecting current device to be remembered, get count 1. Service Response: \(result!.devices!.count)")
+            listDevicesExpectation.fulfill()
+        }
+        
+        wait(for: [listDevicesExpectation], timeout: 5)
+    }
+    
+    func testDeviceOperations() {
+        let username = "testRememberDeviceUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        
+        let initialRememberDeviceExpectation = expectation(description: "initial remember device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+            if error != nil {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+            }
+            initialRememberDeviceExpectation.fulfill()
+        }
+        
+        wait(for: [initialRememberDeviceExpectation], timeout: 5)
+        
+        let listDevicesExpectation = expectation(description: "list devices expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+            
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                listDevicesExpectation.fulfill()
+                return
+            }
+            XCTAssertTrue(result?.devices?.count == 1, "Expecting current device to be remembered, get count 1. Service Response: \(result!.devices!.count)")
+            listDevicesExpectation.fulfill()
+        }
+        
+        wait(for: [listDevicesExpectation], timeout: 5)
+        
+        let getDeviceExpectation = expectation(description: "get device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.get { (device, error) in
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                getDeviceExpectation.fulfill()
+                return
+            }
+            
+            XCTAssertTrue(device!.createDate! < Date(), "Device create date should be before now.")
+            print("Device create date: \(device!.createDate!)")
+            getDeviceExpectation.fulfill()
+        }
+        
+        wait(for: [getDeviceExpectation], timeout: 5)
+        
+        let notRememberDeviceExpectation = expectation(description: "forget device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: false) { (result, error) in
+            if error != nil {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+            }
+            notRememberDeviceExpectation.fulfill()
+        }
+        
+        wait(for: [notRememberDeviceExpectation], timeout: 5)
+        
+        let listDevicesExpectation2 = expectation(description: "list devices expectation2.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+            
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                listDevicesExpectation2.fulfill()
+                return
+            }
+            XCTAssertTrue(result?.devices?.count == 0, "Expecting current device to be NOT remembered, get count 0. Service Response: \(result!.devices!.count)")
+            listDevicesExpectation2.fulfill()
+        }
+        
+        wait(for: [listDevicesExpectation2], timeout: 5)
+        
+        let rememberDeviceExpectation = expectation(description: "remember device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+            if error != nil {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+            }
+            rememberDeviceExpectation.fulfill()
+            
+        }
+        
+        wait(for: [rememberDeviceExpectation], timeout: 5)
+        
+        let listDevicesExpectation3 = expectation(description: "list devices expectation3.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+            
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                listDevicesExpectation3.fulfill()
+                return
+            }
+            XCTAssertTrue(result?.devices?.count == 1, "Expecting current device to be remembered, get count 1. Service Response: \(result!.devices!.count)")
+            listDevicesExpectation3.fulfill()
+        }
+        
+        wait(for: [listDevicesExpectation3], timeout: 5)
+    }
+    
+    func testDeviceOperationsFailCase() {
+        let username = "testRememberDeviceUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        
+        let initialRememberDeviceExpectation = expectation(description: "initial remember device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+            if error != nil {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+            }
+            initialRememberDeviceExpectation.fulfill()
+        }
+        
+        wait(for: [initialRememberDeviceExpectation], timeout: 5)
+        
+        let listDevicesExpectation = expectation(description: "list devices expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+            
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                listDevicesExpectation.fulfill()
+                return
+            }
+            XCTAssertTrue(result?.devices?.count == 1, "Expecting current device to be remembered, get count 1. Service Response: \(result!.devices!.count)")
+            listDevicesExpectation.fulfill()
+        }
+        
+        wait(for: [listDevicesExpectation], timeout: 5)
+        
+        let getDeviceExpectation = expectation(description: "get device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.get { (device, error) in
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                getDeviceExpectation.fulfill()
+                return
+            }
+            
+            XCTAssertTrue(device!.createDate! < Date(), "Device create date should be before now.")
+            print("Device create date: \(device!.createDate!)")
+            getDeviceExpectation.fulfill()
+        }
+        
+        wait(for: [getDeviceExpectation], timeout: 5)
+        
+        let notRememberDeviceExpectation = expectation(description: "forget device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.forget({ (error) in
+            if error != nil {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+            }
+            notRememberDeviceExpectation.fulfill()
+        })
+        
+        wait(for: [notRememberDeviceExpectation], timeout: 5)
+        
+        let listDevicesExpectation2 = expectation(description: "list devices expectation2.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+            
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error!.localizedDescription)")
+                listDevicesExpectation2.fulfill()
+                return
+            }
+            XCTAssertTrue(result?.devices?.count == 0, "Expecting current device to be NOT remembered, get count 0. Service Response: \(result!.devices!.count)")
+            listDevicesExpectation2.fulfill()
+        }
+        
+        wait(for: [listDevicesExpectation2], timeout: 5)
+        
+        let rememberDeviceExpectation = expectation(description: "remember device expectation.")
+        
+        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+            XCTAssertNotNil(error, "Expecting error but didn't get one.")
+            if let mobileError = error as? AWSMobileClientError {
+                
+                switch(mobileError) {
+                case .deviceNotRemembered(message: _):
+                    break
+                default:
+                    XCTFail("Error should be of type device not remembered.")
+                }
+            }
+            rememberDeviceExpectation.fulfill()
+        }
+        wait(for: [rememberDeviceExpectation], timeout: 5)
+    }
+    
     func testGetAWSCredentials() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
@@ -230,15 +546,77 @@ class AWSMobileClientTests: XCTestCase {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         signIn(username: username)
-        XCTAssertTrue(AWSMobileClient.sharedInstance().isLoggedIn == true, "Expected to return true for isSignedIn")
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == true, "Expected to return true for isSignedIn")
         sleep(1)
         AWSMobileClient.sharedInstance().signOut()
-        XCTAssertTrue(AWSMobileClient.sharedInstance().isLoggedIn == false, "Expected to return false for isSignedIn")
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
+    }
+    
+    func testFederatedSignInDeveloperAuthenticatedIdentities() {
+        let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
+        getOpendIdRequest?.identityPoolId = AWSMobileClientTests.IdentityPoolId
+        getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_users"]
+        var identityId: String?
+        var token: String?
+        AWSMobileClientTests.CognitoIdentity!.getOpenIdToken(forDeveloperIdentity: getOpendIdRequest!).continueWith { (task) -> Any? in
+            if let result = task.result {
+                identityId = result.identityId
+                token = result.token
+            } else if let _ = task.error {
+                XCTAssertNil(task.error, "Unexpected Error. Expected IdentityId and Token.")
+            }
+            return nil
+        }.waitUntilFinished()
+        
+        guard  identityId != nil, token != nil else {
+            XCTFail("Could not retrieve identityId and token. Abandoning rest of the test.")
+            return
+        }
+        
+        AWSMobileClient.sharedInstance().federatedSignIn(providerName: IdentityProvider.developer.rawValue, token: token!, federatedSignInOptions: FederatedSignInOptions(cognitoIdentityId: identityId!)) { (userState, error) in
+            XCTAssertNil(error, "Expected successful federation.")
+        }
+        
+        let credentialsExpectation = expectation(description: "Successfully fetch AWS Credentials")
+        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation.fulfill()
+        }
+        wait(for: [credentialsExpectation], timeout: 5)
+        
+        AWSMobileClient.sharedInstance().signOut()
+        
+        XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "User should be signed out.")
+        XCTAssertNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should be nil after signing out.")
+        
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        let credentialsExpectation2 = expectation(description: "Successfully fetch AWS Credentials")
+        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation2.fulfill()
+        }
+        wait(for: [credentialsExpectation2], timeout: 5)
+        
+        AWSMobileClient.sharedInstance().signOut()
     }
     
     func testUserStateNotifications() {
         var signInExpectation = false
         var signOutExpectation = false
+        XCTAssertTrue(AWSMobileClient.sharedInstance().listeners.count == 1, "Expecting only 1 listener.")
         AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
                 switch(userState) {
                 case .signedIn:
@@ -257,9 +635,9 @@ class AWSMobileClientTests: XCTestCase {
         sleep(1)
         XCTAssertTrue(signInExpectation, "Expected Sign In to be true")
         XCTAssertTrue(signOutExpectation, "Expected Sign Out to be true")
-        XCTAssertTrue(AWSMobileClient.sharedInstance().listeners.count == 1, "Expecting only 1 listener.")
+        XCTAssertTrue(AWSMobileClient.sharedInstance().listeners.count == 2, "Expecting 2 listeners.")
         AWSMobileClient.sharedInstance().removeUserStateListener(self)
-        XCTAssertTrue(AWSMobileClient.sharedInstance().listeners.count == 0, "Expecting no listeners.")
+        XCTAssertTrue(AWSMobileClient.sharedInstance().listeners.count == 1, "Expecting only 1 listener.")
     }
     
     func testForgotPassword() {
@@ -292,6 +670,11 @@ class AWSMobileClientTests: XCTestCase {
         let changePasswordExpectation = expectation(description: "Change password should fail")
         AWSMobileClient.sharedInstance().changePassword(currentPassword: "WronPassword", proposedPassword: "NewPassword123!@") { (error) in
             XCTAssertNotNil(error)
+            guard let _ = error as? AWSMobileClientError else {
+                XCTFail("Error should be of type AWSMobileClientError")
+                changePasswordExpectation.fulfill()
+                return
+            }
             changePasswordExpectation.fulfill()
         }
         wait(for: [changePasswordExpectation], timeout: 5)

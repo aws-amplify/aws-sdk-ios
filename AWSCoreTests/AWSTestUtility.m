@@ -171,8 +171,15 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
         return nil;
     }
 }
-
-
+    
++ (NSDictionary<NSString *, NSString *> *) getCredentialsJsonAsDictionary {
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary<NSString *, NSString*> *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                                           options:NSJSONReadingMutableContainers
+                                                                                             error:nil];
+    return credentialsJson;
+}
 
 + (void)setupCognitoIdentityService {
     if (![AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey]) {
@@ -243,7 +250,7 @@ static char mockDateKey;
     return objc_getAssociatedObject([NSDate class], &mockDateKey);
 }
 
-// Convenience method so tests can set want they want [NSDate date] to return
+// Convenience method so tests can set what they want [NSDate date] to return
 + (void)setMockDate:(NSDate *)aMockDate {
     objc_setAssociatedObject([NSDate class], &mockDateKey, aMockDate, OBJC_ASSOCIATION_RETAIN);
 }

@@ -88,13 +88,13 @@
         else if ([lKey isEqualToString:@"x-amz-server-side-encryption-aws-kms-key-id" ]) {
             uploadRequest.SSEKMSKeyId = expression.requestHeaders[key];
         }
-        else if ([lKey isEqualToString:@"x-amz-server-side​-encryption​-customer-algorithm" ]) {
+        else if ([lKey isEqualToString:@"x-amz-server-side-encryption-customer-algorithm" ]) {
             uploadRequest.SSECustomerAlgorithm = expression.requestHeaders[key];
         }
-        else if ([lKey isEqualToString:@"x-amz-server-side​-encryption​-customer-key" ]) {
+        else if ([lKey isEqualToString:@"x-amz-server-side-encryption-customer-key" ]) {
             uploadRequest.SSECustomerKey = expression.requestHeaders[key];
         }
-        else if ([lKey isEqualToString:@"x-amz-server-side​-encryption​-customer-key-MD5" ]) {
+        else if ([lKey isEqualToString:@"x-amz-server-side-encryption-customer-key-md5" ]) {
             uploadRequest.SSECustomerKeyMD5 = expression.requestHeaders[key];
         }
         else if ([lKey isEqualToString:@"content-encoding" ]) {
@@ -102,6 +102,9 @@
         }
         else if ([lKey isEqualToString:@"content-type" ]) {
             uploadRequest.contentType = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"content-disposition" ]) {
+            uploadRequest.contentDisposition = expression.requestHeaders[key];
         }
         else if([lKey isEqualToString:@"cache-control"]) {
             uploadRequest.cacheControl = expression.requestHeaders[key];

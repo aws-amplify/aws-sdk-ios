@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -50,12 +50,49 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 @end
 
+@implementation AWSKMSConnectCustomKeyStoreRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customKeyStoreId" : @"CustomKeyStoreId",
+             };
+}
+
+@end
+
+@implementation AWSKMSConnectCustomKeyStoreResponse
+
+@end
+
 @implementation AWSKMSCreateAliasRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"aliasName" : @"AliasName",
              @"targetKeyId" : @"TargetKeyId",
+             };
+}
+
+@end
+
+@implementation AWSKMSCreateCustomKeyStoreRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudHsmClusterId" : @"CloudHsmClusterId",
+             @"customKeyStoreName" : @"CustomKeyStoreName",
+             @"keyStorePassword" : @"KeyStorePassword",
+             @"trustAnchorCertificate" : @"TrustAnchorCertificate",
+             };
+}
+
+@end
+
+@implementation AWSKMSCreateCustomKeyStoreResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customKeyStoreId" : @"CustomKeyStoreId",
              };
 }
 
@@ -97,6 +134,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bypassPolicyLockoutSafetyCheck" : @"BypassPolicyLockoutSafetyCheck",
+             @"customKeyStoreId" : @"CustomKeyStoreId",
              @"detail" : @"Description",
              @"keyUsage" : @"KeyUsage",
              @"origin" : @"Origin",
@@ -129,6 +167,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"EXTERNAL"] == NSOrderedSame) {
             return @(AWSKMSOriginTypeExternal);
         }
+        if ([value caseInsensitiveCompare:@"AWS_CLOUDHSM"] == NSOrderedSame) {
+            return @(AWSKMSOriginTypeAwsCloudhsm);
+        }
         return @(AWSKMSOriginTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -136,6 +177,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"AWS_KMS";
             case AWSKMSOriginTypeExternal:
                 return @"EXTERNAL";
+            case AWSKMSOriginTypeAwsCloudhsm:
+                return @"AWS_CLOUDHSM";
             default:
                 return nil;
         }
@@ -158,6 +201,102 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSValueTransformer *)keyMetadataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSKMSKeyMetadata class]];
+}
+
+@end
+
+@implementation AWSKMSCustomKeyStoresListEntry
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudHsmClusterId" : @"CloudHsmClusterId",
+             @"connectionErrorCode" : @"ConnectionErrorCode",
+             @"connectionState" : @"ConnectionState",
+             @"creationDate" : @"CreationDate",
+             @"customKeyStoreId" : @"CustomKeyStoreId",
+             @"customKeyStoreName" : @"CustomKeyStoreName",
+             @"trustAnchorCertificate" : @"TrustAnchorCertificate",
+             };
+}
+
++ (NSValueTransformer *)connectionErrorCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"INVALID_CREDENTIALS"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeInvalidCredentials);
+        }
+        if ([value caseInsensitiveCompare:@"CLUSTER_NOT_FOUND"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeClusterNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"NETWORK_ERRORS"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeNetworkErrors);
+        }
+        if ([value caseInsensitiveCompare:@"INSUFFICIENT_CLOUDHSM_HSMS"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeInsufficientCloudhsmHsms);
+        }
+        if ([value caseInsensitiveCompare:@"USER_LOCKED_OUT"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeUserLockedOut);
+        }
+        return @(AWSKMSConnectionErrorCodeTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSConnectionErrorCodeTypeInvalidCredentials:
+                return @"INVALID_CREDENTIALS";
+            case AWSKMSConnectionErrorCodeTypeClusterNotFound:
+                return @"CLUSTER_NOT_FOUND";
+            case AWSKMSConnectionErrorCodeTypeNetworkErrors:
+                return @"NETWORK_ERRORS";
+            case AWSKMSConnectionErrorCodeTypeInsufficientCloudhsmHsms:
+                return @"INSUFFICIENT_CLOUDHSM_HSMS";
+            case AWSKMSConnectionErrorCodeTypeUserLockedOut:
+                return @"USER_LOCKED_OUT";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)connectionStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CONNECTED"] == NSOrderedSame) {
+            return @(AWSKMSConnectionStateTypeConnected);
+        }
+        if ([value caseInsensitiveCompare:@"CONNECTING"] == NSOrderedSame) {
+            return @(AWSKMSConnectionStateTypeConnecting);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSKMSConnectionStateTypeFailed);
+        }
+        if ([value caseInsensitiveCompare:@"DISCONNECTED"] == NSOrderedSame) {
+            return @(AWSKMSConnectionStateTypeDisconnected);
+        }
+        if ([value caseInsensitiveCompare:@"DISCONNECTING"] == NSOrderedSame) {
+            return @(AWSKMSConnectionStateTypeDisconnecting);
+        }
+        return @(AWSKMSConnectionStateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSConnectionStateTypeConnected:
+                return @"CONNECTED";
+            case AWSKMSConnectionStateTypeConnecting:
+                return @"CONNECTING";
+            case AWSKMSConnectionStateTypeFailed:
+                return @"FAILED";
+            case AWSKMSConnectionStateTypeDisconnected:
+                return @"DISCONNECTED";
+            case AWSKMSConnectionStateTypeDisconnecting:
+                return @"DISCONNECTING";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -195,12 +334,55 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 @end
 
+@implementation AWSKMSDeleteCustomKeyStoreRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customKeyStoreId" : @"CustomKeyStoreId",
+             };
+}
+
+@end
+
+@implementation AWSKMSDeleteCustomKeyStoreResponse
+
+@end
+
 @implementation AWSKMSDeleteImportedKeyMaterialRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"keyId" : @"KeyId",
              };
+}
+
+@end
+
+@implementation AWSKMSDescribeCustomKeyStoresRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customKeyStoreId" : @"CustomKeyStoreId",
+             @"customKeyStoreName" : @"CustomKeyStoreName",
+             @"limit" : @"Limit",
+             @"marker" : @"Marker",
+             };
+}
+
+@end
+
+@implementation AWSKMSDescribeCustomKeyStoresResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customKeyStores" : @"CustomKeyStores",
+             @"nextMarker" : @"NextMarker",
+             @"truncated" : @"Truncated",
+             };
+}
+
++ (NSValueTransformer *)customKeyStoresJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSKMSCustomKeyStoresListEntry class]];
 }
 
 @end
@@ -247,6 +429,20 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"keyId" : @"KeyId",
              };
 }
+
+@end
+
+@implementation AWSKMSDisconnectCustomKeyStoreRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customKeyStoreId" : @"CustomKeyStoreId",
+             };
+}
+
+@end
+
+@implementation AWSKMSDisconnectCustomKeyStoreResponse
 
 @end
 
@@ -391,6 +587,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customKeyStoreId" : @"CustomKeyStoreId",
              @"numberOfBytes" : @"NumberOfBytes",
              };
 }
@@ -628,7 +825,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 	return @{
              @"AWSAccountId" : @"AWSAccountId",
              @"arn" : @"Arn",
+             @"cloudHsmClusterId" : @"CloudHsmClusterId",
              @"creationDate" : @"CreationDate",
+             @"customKeyStoreId" : @"CustomKeyStoreId",
              @"deletionDate" : @"DeletionDate",
              @"detail" : @"Description",
              @"enabled" : @"Enabled",
@@ -714,6 +913,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"PendingImport"] == NSOrderedSame) {
             return @(AWSKMSKeyStatePendingImport);
         }
+        if ([value caseInsensitiveCompare:@"Unavailable"] == NSOrderedSame) {
+            return @(AWSKMSKeyStateUnavailable);
+        }
         return @(AWSKMSKeyStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -725,6 +927,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"PendingDeletion";
             case AWSKMSKeyStatePendingImport:
                 return @"PendingImport";
+            case AWSKMSKeyStateUnavailable:
+                return @"Unavailable";
             default:
                 return nil;
         }
@@ -755,6 +959,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"EXTERNAL"] == NSOrderedSame) {
             return @(AWSKMSOriginTypeExternal);
         }
+        if ([value caseInsensitiveCompare:@"AWS_CLOUDHSM"] == NSOrderedSame) {
+            return @(AWSKMSOriginTypeAwsCloudhsm);
+        }
         return @(AWSKMSOriginTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -762,6 +969,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"AWS_KMS";
             case AWSKMSOriginTypeExternal:
                 return @"EXTERNAL";
+            case AWSKMSOriginTypeAwsCloudhsm:
+                return @"AWS_CLOUDHSM";
             default:
                 return nil;
         }
@@ -1062,6 +1271,23 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"targetKeyId" : @"TargetKeyId",
              };
 }
+
+@end
+
+@implementation AWSKMSUpdateCustomKeyStoreRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudHsmClusterId" : @"CloudHsmClusterId",
+             @"customKeyStoreId" : @"CustomKeyStoreId",
+             @"keyStorePassword" : @"KeyStorePassword",
+             @"latestCustomKeyStoreName" : @"NewCustomKeyStoreName",
+             };
+}
+
+@end
+
+@implementation AWSKMSUpdateCustomKeyStoreResponse
 
 @end
 
