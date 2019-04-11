@@ -8,6 +8,11 @@
 * **AWSMobileClient**
   * Fixed a bug which caused compilation error with Swift 5. See [PR #1377](https://github.com/aws-amplify/aws-sdk-ios/pull/1377), [issue #1394](https://github.com/aws-amplify/aws-sdk-ios/issues/1394).
 
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Comprehend
+
 ## 2.9.4
 
 ### Bug Fixes
