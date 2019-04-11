@@ -1,6 +1,13 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.6
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed a error propagation bug for downloads using TransferUtility. See [PR #1316](https://github.com/aws-amplify/aws-sdk-ios/pull/1316), [issue #1310](https://github.com/aws-amplify/aws-sdk-ios/issues/1310).
+
 ## 2.9.5
 
 ### Bug Fixes
