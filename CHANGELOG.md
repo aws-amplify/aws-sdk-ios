@@ -8,6 +8,30 @@
 * **AWSMobileClient**
   * Fixed a bug which caused compilation error with Swift 5. See [PR #1377](https://github.com/aws-amplify/aws-sdk-ios/pull/1377), [issue #1394](https://github.com/aws-amplify/aws-sdk-ios/issues/1394).
 
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Comprehend
+  * AWS AutoScaling
+  * Amazon DynamoDB
+  * AWS IoT
+  * AWS Lambda
+  * Amazon Lex
+  * Amazon Pinpoint
+  * Amazon Polly
+  * Amazon Rekognition
+  * Amazon Translate
+  * Amazon Transcribe
+  * Amazon Cognito Identity
+  * Amazon CloudWatch Logs
+  * Amazon Kinesis Video
+  * Amazon SimpleDB
+  * AWS Key Management Service (KMS)
+  * Amazon Simple Queue Service (SQS)
+  * Amazon Simple Email Service (SES)
+  * Amazon Simple Notification Service (SNS)
+  * Amazon Elastic Load Balancing (ELB)
+
 ## 2.9.4
 
 ### Bug Fixes
