@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.5 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -194,6 +194,10 @@
 		
 		<option value="//api/name/listSentimentDetectionJobs:completionHandler:">- listSentimentDetectionJobs:completionHandler:</option>
 		
+		<option value="//api/name/listTagsForResource:">- listTagsForResource:</option>
+		
+		<option value="//api/name/listTagsForResource:completionHandler:">- listTagsForResource:completionHandler:</option>
+		
 		<option value="//api/name/listTopicsDetectionJobs:">- listTopicsDetectionJobs:</option>
 		
 		<option value="//api/name/listTopicsDetectionJobs:completionHandler:">- listTopicsDetectionJobs:completionHandler:</option>
@@ -245,6 +249,14 @@
 		<option value="//api/name/stopTrainingEntityRecognizer:">- stopTrainingEntityRecognizer:</option>
 		
 		<option value="//api/name/stopTrainingEntityRecognizer:completionHandler:">- stopTrainingEntityRecognizer:completionHandler:</option>
+		
+		<option value="//api/name/tagResource:">- tagResource:</option>
+		
+		<option value="//api/name/tagResource:completionHandler:">- tagResource:completionHandler:</option>
+		
+		<option value="//api/name/untagResource:">- untagResource:</option>
+		
+		<option value="//api/name/untagResource:completionHandler:">- untagResource:completionHandler:</option>
 		
 	</optgroup>
 	
@@ -1435,7 +1447,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateDocumentClassifierResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateDocumentClassifierResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -1502,7 +1514,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1577,7 +1589,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateEntityRecognizerResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendCreateEntityRecognizerResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -1644,7 +1656,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceInUse</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -4836,6 +4848,148 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/listTagsForResource:" title="listTagsForResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:">&ndash;&nbsp;listTagsForResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists all tags associated with a given Amazon Comprehend resource. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSComprehendListTagsForResourceResponse*&gt; *)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendListTagsForResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendListTagsForResourceRequest.html">AWSComprehendListTagsForResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendListTagsForResourceResponse.html">AWSComprehendListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTagsForResource:completionHandler:" title="listTagsForResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:completionHandler:">&ndash;&nbsp;listTagsForResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists all tags associated with a given Amazon Comprehend resource. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListTagsForResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendListTagsForResourceRequest.html">AWSComprehendListTagsForResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendListTagsForResourceResponse.html">AWSComprehendListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/listTopicsDetectionJobs:" title="listTopicsDetectionJobs:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/listTopicsDetectionJobs:">&ndash;&nbsp;listTopicsDetectionJobs:</a></code>
 </h3>
@@ -6771,6 +6925,290 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:" title="tagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:">&ndash;&nbsp;tagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSComprehendTagResourceResponse*&gt; *)tagResource:(AWSComprehendTagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendTagResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorConcurrentModification</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendTagResourceRequest.html">AWSComprehendTagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendTagResourceResponse.html">AWSComprehendTagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:completionHandler:" title="tagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:completionHandler:">&ndash;&nbsp;tagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Associates a specific tag with an Amazon Comprehend resource. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSComprehendTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendTagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorConcurrentModification</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorTooManyTags</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendTagResourceRequest.html">AWSComprehendTagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendTagResourceResponse.html">AWSComprehendTagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:" title="untagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:">&ndash;&nbsp;untagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSComprehendUntagResourceResponse*&gt; *)untagResource:(AWSComprehendUntagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendUntagResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorTooManyTagKeys</code>, <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorConcurrentModification</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendUntagResourceRequest.html">AWSComprehendUntagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendUntagResourceResponse.html">AWSComprehendUntagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:completionHandler:" title="untagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:completionHandler:">&ndash;&nbsp;untagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a specific tag associated with an Amazon Comprehend resource. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSComprehendUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendUntagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorTooManyTagKeys</code>, <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorConcurrentModification</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendUntagResourceRequest.html">AWSComprehendUntagResourceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendUntagResourceResponse.html">AWSComprehendUntagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -6786,7 +7224,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-11</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
