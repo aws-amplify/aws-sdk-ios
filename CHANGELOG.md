@@ -1,4 +1,3 @@
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.9.6
@@ -7,6 +6,9 @@
 
 * **Amazon S3**
   * Fixed a error propagation bug for downloads using TransferUtility. See [PR #1316](https://github.com/aws-amplify/aws-sdk-ios/pull/1316), [issue #1310](https://github.com/aws-amplify/aws-sdk-ios/issues/1310).
+
+* **Amazon Kinesis**
+  * Kinesis now opens its SQLite connections in serial mode, which resolves occasional crashes on creating a new database connection. See [PR #1444](https://github.com/aws-amplify/aws-sdk-ios/pull/1444), [issue #1161](https://github.com/aws-amplify/aws-sdk-ios/issues/1161).
 
 ## 2.9.5
 
