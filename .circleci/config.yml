@@ -845,10 +845,119 @@ jobs:
             title=${CIRCLE_BRANCH}       
             content="${CIRCLE_BRANCH}" 
             python3 ./CircleciScripts/create_pullrequest.py  "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
+  
+  run_integrationtest_on_devicefarm:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - run:
+          name: quit if test already run for the last commit
+          command: |
+            echo "${LAST_RUN_COMMITID}:${CIRCLE_SHA1}"
+            if [ "${LAST_RUN_COMMITID}" == "${CIRCLE_SHA1}" ]
+            then
+              echo "integration test alrady run on device farm for last commit ${CIRCLE_SHA1}"
+              circleci step halt              
+            fi
+      - set_enviroment_variables
+      - checkout  
+      - configure_aws  
+      - run: 
+          name: Install json parser
+          command: sudo pip3 install demjson
+      - run: 
+          name: Install lxml
+          command: sudo pip3 install lxml      
+      - run: 
+          name: Install Boto3
+          command: sudo pip3 install Boto3 
+      - run: 
+          name: Install markdown2
+          command: sudo pip3 install markdown2           
+      - run:
+          name: download devicefarm configure file
+          command: |
+            aws s3 cp s3://ios-circleci-payload/devicefarm_configure.json devicefarm_configure.json
+      - run:
+          name: create credentials
+          command: |
+            echo "${destination}" 
+            aws s3 cp s3://ios-circleci-payload/credentials.json  AWSCoreTests/Resources/credentials.json 
+            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json  AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
+            aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json     
+      - run:
+          name: launch integration test on device farm
+          command: |
+            python3 CircleciScripts/runtest_on_devicefarm.py "$(pwd)" "$(pwd)/devicefarm_configure.json" "${CIRCLE_SHA1}"
+      - run:
+          name: set environment variables
+          command: |
+            parameters='{"name":"LAST_RUN_COMMITID","value":"'${CIRCLE_SHA1}'"}'
+            curl -X POST \
+              -H "Content-type: application/json" \
+              -H "Accept: application/json" \
+              -d "$parameters" \
+              "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+
+
+  check_testresult_on_devicefarm:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - set_enviroment_variables
+      - checkout  
+      - configure_aws
+      - run: 
+          name: Install json parser
+          command: sudo pip3 install demjson
+      - run: 
+          name: Install lxml
+          command: sudo pip3 install lxml      
+      - run: 
+          name: Install Boto3
+          command: sudo pip3 install Boto3 
+      - run: 
+          name: Install markdown2
+          command: sudo pip3 install markdown2           
+      - run:
+          name: download devicefarm configure file
+          command: |
+            aws s3 cp s3://ios-circleci-payload/devicefarm_configure.json devicefarm_configure.json
+      - run:
+          name: check integration test result on device farm
+          command: |
+            python3 CircleciScripts/get_testresult_on_devicefarm.py "$(pwd)/devicefarm_configure.json" "${LAST_RUN_COMMITID}"
+
 
 
 workflows:
   version: 2
+  
+  run_integrationtest_on_devicefarm:
+    triggers:
+      - schedule:
+        # run the job on 8pm pacific time every day
+          cron: "0 3 * * *"
+          filters:
+            branches:
+              only:
+                - master      
+    jobs:
+      - run_integrationtest_on_devicefarm  
+
+  check_testresult_on_devicefarm:
+    triggers:
+      - schedule:
+        # run the job on 8am pacific time every day
+          cron: "0 15 * * *"
+          filters:
+            branches:
+              only:
+                - master      
+    jobs:
+      - check_testresult_on_devicefarm    
+
+
   bump_sdk_version:
     jobs:
       - bump_sdk_version:
