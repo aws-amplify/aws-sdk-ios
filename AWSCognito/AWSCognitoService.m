@@ -30,8 +30,8 @@
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import <AWSCore/AWSInfo.h>
 
-#import "FABKitProtocol.h"
-#import "Fabric+FABKits.h"
+#import <AWSCore/FABKitProtocol.h>
+#import <AWSCore/Fabric+FABKits.h>
 
 static NSString *const AWSInfoCognito = @"Cognito";
 NSString *const AWSCognitoSDKVersion = @"2.9.5";
