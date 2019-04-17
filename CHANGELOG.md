@@ -13,6 +13,7 @@
 ### Misc. Updates
 
 * Model updates for the following services
+  * Amazon Cognito Identity
   * Amazon EC2
   * Amazon Polly
 
