@@ -10,6 +10,11 @@
 * **Amazon Kinesis**
   * Kinesis now opens its SQLite connections in serial mode, which resolves occasional crashes on creating a new database connection. See [PR #1444](https://github.com/aws-amplify/aws-sdk-ios/pull/1444), [issue #1161](https://github.com/aws-amplify/aws-sdk-ios/issues/1161).
 
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Polly
+
 ## 2.9.5
 
 ### Bug Fixes
