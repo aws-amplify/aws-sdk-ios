@@ -13,6 +13,7 @@
 ### Misc. Updates
 
 * Model updates for the following services
+  * Amazon EC2
   * Amazon Polly
 
 ## 2.9.5
