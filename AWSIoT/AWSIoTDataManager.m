@@ -118,6 +118,7 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
 @property (nonatomic, strong) AWSIoTMQTTClient *mqttClient;
 @property  BOOL userDidIssueDisconnect;
 @property  BOOL userDidIssueConnect;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSString *> *userMetaDataDict;
 @end
 
 @implementation AWSIoTMQTTLastWillAndTestament
@@ -323,6 +324,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSDDLogError(@"**** mqttClient is nil. **** ");
         }
         _mqttClient.userMetaData = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", AWSIoTSDKVersion];
+        _userMetaDataDict = [[NSMutableDictionary alloc] init];
         _mqttClient.associatedObject = self;
         _userDidIssueDisconnect = NO;
         _userDidIssueConnect = NO;
@@ -335,14 +337,20 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaDataMap {
+
+    // update the user metadata dict
+    for (id key in userMetaDataMap) {
+        [_userMetaDataDict setObject:[userMetaDataMap objectForKey:key] forKey: key];
+    }
+
     // validate the length of username field
-    NSMutableString *userMetaDataString = [NSMutableString stringWithString:self.mqttClient.userMetaData];
+    NSMutableString *userMetaDataString = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", AWSIoTSDKVersion];
 
     // Append each of the user-specified key-value pair to the connection username
-    if (userMetaDataMap) {
-        for (id key in userMetaDataMap) {
+    if (_userMetaDataDict) {
+        for (id key in _userMetaDataDict) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
-                [userMetaDataString appendFormat:@"&%@=%@", key, [userMetaDataMap objectForKey:key]];
+                [userMetaDataString appendFormat:@"&%@=%@", key, [_userMetaDataDict objectForKey:key]];
             } else {
                 AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
             }
