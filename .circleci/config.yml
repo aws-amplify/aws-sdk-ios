@@ -200,15 +200,17 @@ commands:
     description: >-
       skip the test job is project variabe OVERRIDE_TEST is set with TRUE
     steps:
+
       - run:
-          name: skip test in master
+          name: skip test if the commit is already tested
           command: |
-              notskipflag=$(echo "${NOT_SKIPTESTINMASTER}" |  tr '[:upper:]' '[:lower:]')
-              if [ "${notskipflag}" != "true" ]  &&  [ "${CIRCLE_BRANCH}" == "master" ]
-              then 
-                echo "bypass test job in master"
-                circleci step halt
-              fi          
+            echo "${TESTED_COMMITID}:${CIRCLE_SHA1}"
+            skipflag=$(echo "${SKIPTESTEDCHANGE}" |  tr '[:upper:]' '[:lower:]')
+            if [ "${TESTED_COMMITID}" == "${CIRCLE_SHA1}" ] && [ "${skipflag}" != "true" ] 
+            then
+              echo "skip test as the change ${CIRCLE_SHA1} is already tested"
+              circleci step halt              
+            fi      
       - run:
           name: check_for_test_override 
           command: |
@@ -403,7 +405,17 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-DynamoDB
       - store_artifacts:
-          path: integration_test_result          
+          path: integration_test_result      
+      - run:
+          name: set environment variables
+          command: |
+            parameters='{"name":"TESTED_COMMITID","value":"'${CIRCLE_SHA1}'"}'
+            curl -X POST \
+              -H "Content-type: application/json" \
+              -H "Accept: application/json" \
+              -d "$parameters" \
+              "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+
 
   integrationtest:
     description: run integration tests
