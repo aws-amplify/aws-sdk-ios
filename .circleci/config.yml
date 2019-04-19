@@ -198,7 +198,7 @@ commands:
 
   override_test_job:
     description: >-
-      skip the test job is project variabe OVERRIDE_TEST is set with TRUE
+      skip the test job is project variable OVERRIDE_TEST is set with TRUE
     steps:
 
       - run:
@@ -218,7 +218,7 @@ commands:
               override_test_value=$(eval "echo $"${override_test_variable_name}"")
               override_test_value=$(echo "${override_test_value}" |  tr '[:upper:]' '[:lower:]')
               if [ "${override_test_value}" == "true" ]; then
-                echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all tests"
+                echo "project enviroment variable OVERRIDE_TEST is set with TRUE, skip all tests"
                 circleci step halt
               fi    
   skip_job_unless_required:
@@ -234,7 +234,7 @@ commands:
               skipjob_flag=$(echo "${skipjob_flag}" |  tr '[:upper:]' '[:lower:]')
               if [ "${skipjob_flag}" == "true" ]
               then
-                echo "skip current job as ${variable_name} is set in project environment variabes"
+                echo "skip current job as ${variable_name} is set in project environment variables"
                 circleci step halt
               fi         
       - run:
@@ -308,11 +308,11 @@ jobs:
       - set_enviroment_variables
       - override_test_job
       - run:
-          name: get ovrride test variabe name 
+          name: get override test variable name 
           command: |
             echo "override_test_variable_name=$override_test_variable_name"
       - run:
-          name: reset OVERRIDE_TEST environment variabe 
+          name: reset OVERRIDE_TEST environment variable 
           command: |
             override_test_value=$(eval "echo $"${override_test_variable_name}"")
             if ! [ -z "$override_test_value" ]
