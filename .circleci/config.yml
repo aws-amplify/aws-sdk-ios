@@ -55,8 +55,8 @@ commands:
             echo "export sdkNameWithVersion=$sdkNameWithVersion" >> $BASH_ENV
 
             pre_name=$(echo "${CIRCLE_SHA1}" | cut -c1-7)
-            override_test_varaible_name=OVERRIDE_TEST_${pre_name}
-            echo "export override_test_varaible_name=$override_test_varaible_name" >> $BASH_ENV   
+            override_test_variable_name=OVERRIDE_TEST_${pre_name}
+            echo "export override_test_variable_name=$override_test_variable_name" >> $BASH_ENV   
 
   quit_for_nominorversion:
     description: >-
@@ -212,8 +212,8 @@ commands:
       - run:
           name: check_for_test_override 
           command: |
-              echo "override_test_varaible_name=$override_test_varaible_name"
-              override_test_value=$(eval "echo $"${override_test_varaible_name}"")
+              echo "override_test_variable_name=$override_test_variable_name"
+              override_test_value=$(eval "echo $"${override_test_variable_name}"")
               override_test_value=$(echo "${override_test_value}" |  tr '[:upper:]' '[:lower:]')
               if [ "${override_test_value}" == "true" ]; then
                 echo "project enviroment variabe OVERRIDE_TEST is set with TRUE, skip all tests"
@@ -226,13 +226,13 @@ commands:
       - run:
           name: skip_job_from_enviroment_variable
           command: |
-              varaible_name=SKIP_JOB_${CIRCLE_JOB}
+              variable_name=SKIP_JOB_${CIRCLE_JOB}
               
-              skipjob_flag=$(eval "echo $"${varaible_name}"")
+              skipjob_flag=$(eval "echo $"${variable_name}"")
               skipjob_flag=$(echo "${skipjob_flag}" |  tr '[:upper:]' '[:lower:]')
               if [ "${skipjob_flag}" == "true" ]
               then
-                echo "skip current job as ${varaible_name} is set in project environment variabes"
+                echo "skip current job as ${variable_name} is set in project environment variabes"
                 circleci step halt
               fi         
       - run:
@@ -308,15 +308,15 @@ jobs:
       - run:
           name: get ovrride test variabe name 
           command: |
-            echo "override_test_varaible_name=$override_test_varaible_name"
+            echo "override_test_variable_name=$override_test_variable_name"
       - run:
           name: reset OVERRIDE_TEST environment variabe 
           command: |
-            override_test_value=$(eval "echo $"${override_test_varaible_name}"")
+            override_test_value=$(eval "echo $"${override_test_variable_name}"")
             if ! [ -z "$override_test_value" ]
             then
-               echo "reset  ${override_test_varaible_name} value"
-              parameters='{"name":"'${override_test_varaible_name}'","value":"FALSE"}'
+               echo "reset  ${override_test_variable_name} value"
+              parameters='{"name":"'${override_test_variable_name}'","value":"FALSE"}'
               curl -X POST \
                 -H "Content-type: application/json" \
                 -H "Accept: application/json" \
