@@ -336,7 +336,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.mqttClient setIsMetricsEnabled:enabled];
 }
 
-- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaDataMap {
+- (void)updateUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaDataMap {
 
     // update the user metadata dict
     for (id key in userMetaDataMap) {

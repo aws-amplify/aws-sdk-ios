@@ -424,7 +424,7 @@ NS_ASSUME_NONNULL_BEGIN
  iotDataManager.addUserMetaData(userMetaData)
  @param userMetaData A dictionary of key-value metadata pairs to be appended to the connection username
  */
-- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
+- (void)updateUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
 
 /**
  Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication

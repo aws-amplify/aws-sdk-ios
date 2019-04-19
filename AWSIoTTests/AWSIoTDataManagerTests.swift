@@ -225,7 +225,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
         let userMetaData: [String: String] = ["Key1": "value1", "key2": "value2", "key3":"value3"]
-        iotDataManager.addUserMetaData(userMetaData)
+        iotDataManager.updateUserMetaData(userMetaData)
         
         let uuid = UUID().uuidString
         print("Calling Connect")
@@ -675,7 +675,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         print("Calling Connect")
 
         let userMetaData: [String: String] = ["Key1": "value1", "key2": "value2", "key3":"value3"]
-        iotDataManager.addUserMetaData(userMetaData)
+        iotDataManager.updateUserMetaData(userMetaData)
         iotDataManager.connectUsingWebSocket(withClientId: uuid, cleanSession: true, statusCallback: mqttEventCallback)
         print("Connect call completed")
         
