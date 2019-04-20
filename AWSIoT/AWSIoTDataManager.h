@@ -417,6 +417,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enableMetricsCollection:(BOOL)enabled;
 
 /**
+ @deprecated This method is deprecated and will be deleted in the next minor version. Please use `updateUserMetaData` instead.
+ Set user-specified dictionary of the additional values to be passed as components of
+ connection username.
+ *Swift*
+ let userMetaData: [String: String] = ["AFRSDK": "ios", "AFRSDKVersion": "1.0.0", "AFRLibVersion":"1.4.1"]
+ iotDataManager.addUserMetaData(userMetaData)
+ @param userMetaData A dictionary of key-value metadata pairs to be appended to the connection username
+ */
+DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta data")
+- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
+
+/**
  Set user-specified dictionary of the additional values to be passed as components of
  connection username.
  *Swift*
