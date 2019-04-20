@@ -425,7 +425,7 @@ NS_ASSUME_NONNULL_BEGIN
  iotDataManager.addUserMetaData(userMetaData)
  @param userMetaData A dictionary of key-value metadata pairs to be appended to the connection username
  */
-DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta data")
+DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta data");
 - (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
 
 /**
