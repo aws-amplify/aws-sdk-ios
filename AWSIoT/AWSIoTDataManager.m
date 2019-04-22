@@ -344,12 +344,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (userMetaDataMap) {
         for (id key in userMetaDataMap) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
-                NSString *metaDataValue = [userMetaDataMap objectForKey:key];
-                if ([metaDataValue isEqualToString:@""] || metaDataValue == nil){
-                    [userMetaDataString appendFormat:@"&%@", key];
-                } else {
-                    [userMetaDataString appendFormat:@"&%@=%@", key, metaDataValue];
-                }
+                [userMetaDataString appendFormat:@"&%@=%@", key, [userMetaDataMap objectForKey:key]];
             } else {
                 AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
             }
@@ -380,10 +375,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         for (id key in _userMetaDataDict) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
                 NSString *metaDataValue = [_userMetaDataDict objectForKey:key];
-                if ([metaDataValue isEqualToString:@""] || metaDataValue == nil){
-                    [userMetaDataString appendFormat:@"&%@", key];
-                } else {
-                    [userMetaDataString appendFormat:@"&%@=%@", key, metaDataValue];
+                [userMetaDataString appendFormat:@"&%@", key];
+                if (!([metaDataValue isEqualToString:@""] || metaDataValue == nil)){
+                    [userMetaDataString appendFormat:@"=%@", metaDataValue];
                 }
             } else {
                 AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
