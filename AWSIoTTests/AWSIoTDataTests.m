@@ -1005,8 +1005,15 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     [iotDataManager updateUserMetaData: metaData2];
     NSString *expectedUserMetaData2 = [NSString stringWithFormat:@"?SDK=iOS&Version=%@&foo=bar2&foo4&clazz=2&foo3=bar3", AWSIoTSDKVersion];
     NSString *actualUserMetaData2 = [[iotDataManager mqttClient] userMetaData];
-    NSLog(@"actual user name is : %@", actualUserMetaData2);
     XCTAssertTrue([actualUserMetaData2 isEqualToString:expectedUserMetaData2]);
+
+    // Check truncation logic
+    NSDictionary<NSString *,NSString *> * metaData3 = @{@"foo": @"bar2", @"foo3": @"bar3", @"foo4": @"", @"unusuallyLongKeynameExpectedToCauseTruncation":@"unusuallyLongValueExpectedToCauseTruncation",
+                                                        @"unusuallyLongKeynameExpectedToCauseTruncation2":@"unusuallyLongValueExpectedToCauseTruncation2", @"unusuallyLongKeynameExpectedToCauseTruncation3":@"unusuallyLongValueExpectedToCauseTruncation3"};
+    [iotDataManager updateUserMetaData: metaData3];
+    NSString *expectedUserMetaData3 = [NSString stringWithFormat:@"?SDK=iOS&Version=%@&foo3=bar3&unusuallyLongKeynameExpectedToCauseTruncation=unusuallyLongValueExpectedToCauseTruncation&foo4&unusuallyLongKeynameExpectedToCauseTruncation2=unusuallyLongValueExpectedToCauseTruncation2&foo=bar2&unusuallyLongKeynameExpect", AWSIoTSDKVersion];
+    NSString *actualUserMetaData3 = [[iotDataManager mqttClient] userMetaData];
+    XCTAssertTrue([actualUserMetaData3 isEqualToString:expectedUserMetaData3]);
 }
 
 @end
