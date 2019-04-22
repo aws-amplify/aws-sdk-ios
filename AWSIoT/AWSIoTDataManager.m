@@ -379,7 +379,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (_userMetaDataDict) {
         for (id key in _userMetaDataDict) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
-                [userMetaDataString appendFormat:@"&%@=%@", key, [_userMetaDataDict objectForKey:key]];
+                NSString *metaDataValue = [_userMetaDataDict objectForKey:key];
+                if ([metaDataValue isEqualToString:@""] || metaDataValue == nil){
+                    [userMetaDataString appendFormat:@"&%@", key];
+                } else {
+                    [userMetaDataString appendFormat:@"&%@=%@", key, metaDataValue];
+                }
             } else {
                 AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
             }

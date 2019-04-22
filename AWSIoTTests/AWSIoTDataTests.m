@@ -1001,10 +1001,11 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     XCTAssertTrue([actualUserMetaData isEqualToString:expectedUserMetaData]);
     
     // Check state after adding additional fields twice
-    NSDictionary<NSString *,NSString *> * metaData2 = @{@"foo": @"bar2", @"foo3": @"bar3"};
+    NSDictionary<NSString *,NSString *> * metaData2 = @{@"foo": @"bar2", @"foo3": @"bar3", @"foo4": @""};
     [iotDataManager updateUserMetaData: metaData2];
-    NSString *expectedUserMetaData2 = [NSString stringWithFormat:@"?SDK=iOS&Version=%@&foo=bar2&clazz=2&foo3=bar3", AWSIoTSDKVersion];
+    NSString *expectedUserMetaData2 = [NSString stringWithFormat:@"?SDK=iOS&Version=%@&foo=bar2&foo4&clazz=2&foo3=bar3", AWSIoTSDKVersion];
     NSString *actualUserMetaData2 = [[iotDataManager mqttClient] userMetaData];
+    NSLog(@"actual user name is : %@", actualUserMetaData2);
     XCTAssertTrue([actualUserMetaData2 isEqualToString:expectedUserMetaData2]);
 }
 
