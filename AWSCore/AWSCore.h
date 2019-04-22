@@ -58,6 +58,7 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[] DEPRECATED_MSG_ATTR
 #import "AWSURLRequestRetryHandler.h"
 #import "AWSValidation.h"
 #import "AWSInfo.h"
+#import "AWSXMLDictionary.h"
 
 #import "AWSBolts.h"
 #import "AWSGZIP.h"
