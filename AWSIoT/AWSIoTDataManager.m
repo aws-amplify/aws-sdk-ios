@@ -344,7 +344,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (userMetaDataMap) {
         for (id key in userMetaDataMap) {
             if (!([key isEqualToString:@"SDK"] || [key isEqualToString:@"Version"])) {
-                [userMetaDataString appendFormat:@"&%@=%@", key, [userMetaDataMap objectForKey:key]];
+                NSString *metaDataValue = [userMetaDataMap objectForKey:key];
+                if ([metaDataValue isEqualToString:@""] || metaDataValue == nil){
+                    [userMetaDataString appendFormat:@"&%@", key];
+                } else {
+                    [userMetaDataString appendFormat:@"&%@=%@", key, metaDataValue];
+                }
             } else {
                 AWSDDLogWarn(@"Keynames 'SDK' and 'Version' are reserved and will be skipped");
             }
@@ -353,7 +358,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
     NSUInteger baseLength = [userMetaDataString length];
     if (baseLength > 255) {
-        AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%u)", (255 - baseLength));
+        AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%lu)", (255 - baseLength));
         self.mqttClient.userMetaData = [userMetaDataString substringToIndex:255];
     } else {
         self.mqttClient.userMetaData = [NSString stringWithString:userMetaDataString];
