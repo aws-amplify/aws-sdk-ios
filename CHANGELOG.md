@@ -1,5 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.7
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Transcribe
+
 ## 2.9.6
 
 ### Bug Fixes
