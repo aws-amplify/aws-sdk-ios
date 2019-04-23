@@ -995,17 +995,37 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     
     // Check state after adding additional fields
     NSDictionary<NSString *,NSString *> * metaData = @{@"foo": @"bar", @"clazz": @"2"};
-    [iotDataManager addUserMetaData: metaData];
-    NSString *expectedUserMetaData = [NSString stringWithFormat:@"?SDK=iOS&Version=%@&foo=bar&clazz=2", AWSIoTSDKVersion];
+    [iotDataManager updateUserMetaData: metaData];
+    NSString *defaultUserMetaData = [NSString stringWithFormat:@"?SDK=iOS&Version=%@", AWSIoTSDKVersion];
     NSString *actualUserMetaData = [[iotDataManager mqttClient] userMetaData];
-    XCTAssertTrue([actualUserMetaData isEqualToString:expectedUserMetaData]);
-    
+    XCTAssertTrue([actualUserMetaData hasPrefix:defaultUserMetaData]);
+    XCTAssertTrue([actualUserMetaData containsString:@"foo=bar"]);
+    XCTAssertTrue([actualUserMetaData containsString:@"clazz=2"]);
+
     // Check state after adding additional fields twice
-    NSDictionary<NSString *,NSString *> * metaData2 = @{@"foo2": @"bar2"};
-    [iotDataManager addUserMetaData: metaData2];
-    NSString *expectedUserMetaData2 = [NSString stringWithFormat:@"?SDK=iOS&Version=%@&foo=bar&clazz=2&foo2=bar2", AWSIoTSDKVersion];
+    NSDictionary<NSString *,NSString *> * metaData2 = @{@"foo": @"bar2", @"foo3": @"bar3", @"foo4": @""};
+    [iotDataManager updateUserMetaData: metaData2];
     NSString *actualUserMetaData2 = [[iotDataManager mqttClient] userMetaData];
-    XCTAssertTrue([actualUserMetaData2 isEqualToString:expectedUserMetaData2]);
+    XCTAssertTrue([actualUserMetaData2 containsString:@"foo=bar2"]);
+    XCTAssertTrue([actualUserMetaData2 containsString:@"foo3=bar3"]);
+    XCTAssertTrue([actualUserMetaData2 containsString:@"&foo4"]);
+    XCTAssertTrue([actualUserMetaData2 hasPrefix:defaultUserMetaData]);
+}
+
+- (void)testUsernameMetaDataLength {
+    NSString *const key = @"testUsernameMetaData";
+    AWSServiceConfiguration *serviceConfig = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:serviceConfig forKey:key];
+    __block AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
+
+    // Check truncation logic
+    NSDictionary<NSString *,NSString *> * metaData = @{@"foo": @"bar2", @"foo3": @"bar3", @"foo4": @"", @"unusuallyLongKeynameExpectedToCauseTruncation":@"unusuallyLongValueExpectedToCauseTruncation",
+                                                        @"unusuallyLongKeynameExpectedToCauseTruncation2":@"unusuallyLongValueExpectedToCauseTruncation2", @"unusuallyLongKeynameExpectedToCauseTruncation3":@"unusuallyLongValueExpectedToCauseTruncation3"};
+    [iotDataManager updateUserMetaData: metaData];
+    NSString *defaultUserMetaData = [NSString stringWithFormat:@"?SDK=iOS&Version=%@", AWSIoTSDKVersion];
+    NSString *actualUserMetaData = [[iotDataManager mqttClient] userMetaData];
+    XCTAssertTrue([actualUserMetaData hasPrefix: defaultUserMetaData]);
+    XCTAssertTrue([actualUserMetaData length] == 255);
 }
 
 @end
