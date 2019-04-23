@@ -998,13 +998,13 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     [iotDataManager updateUserMetaData: metaData];
     NSString *defaultUserMetaData = [NSString stringWithFormat:@"?SDK=iOS&Version=%@", AWSIoTSDKVersion];
     NSString *actualUserMetaData = [[iotDataManager mqttClient] userMetaData];
-    XCTAssertTrue([actualUserMetaData containsString:defaultUserMetaData] && [actualUserMetaData containsString:@"foo=bar"] && [actualUserMetaData containsString:@"clazz=2"]);
+    XCTAssertTrue([actualUserMetaData hasPrefix:defaultUserMetaData] && [actualUserMetaData containsString:@"foo=bar"] && [actualUserMetaData containsString:@"clazz=2"]);
 
     // Check state after adding additional fields twice
     NSDictionary<NSString *,NSString *> * metaData2 = @{@"foo": @"bar2", @"foo3": @"bar3", @"foo4": @""};
     [iotDataManager updateUserMetaData: metaData2];
     NSString *actualUserMetaData2 = [[iotDataManager mqttClient] userMetaData];
-    XCTAssertTrue([actualUserMetaData2 containsString:@"foo=bar2"] && [actualUserMetaData2 containsString:@"foo3=bar3"] && [actualUserMetaData2 containsString:@"&foo4"] && [actualUserMetaData2 containsString:defaultUserMetaData]);
+    XCTAssertTrue([actualUserMetaData2 containsString:@"foo=bar2"] && [actualUserMetaData2 containsString:@"foo3=bar3"] && [actualUserMetaData2 containsString:@"&foo4"] && [actualUserMetaData2 hasPrefix:defaultUserMetaData]);
 }
 
 - (void)testUsernameMetaDataLength {
@@ -1019,8 +1019,7 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
     [iotDataManager updateUserMetaData: metaData];
     NSString *defaultUserMetaData = [NSString stringWithFormat:@"?SDK=iOS&Version=%@", AWSIoTSDKVersion];
     NSString *actualUserMetaData = [[iotDataManager mqttClient] userMetaData];
-    XCTAssertTrue([actualUserMetaData containsString: defaultUserMetaData]);
-    XCTAssertTrue([actualUserMetaData length] == 255);
+    XCTAssertTrue([actualUserMetaData hasPrefix: defaultUserMetaData] && [actualUserMetaData length] == 255);
 }
 
 @end
