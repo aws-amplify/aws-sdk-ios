@@ -2,7 +2,9 @@ from functions import replacefiles
 import sys
 import os
 import glob
+import re
 from lxml import etree
+
 def bump_plist(filename, newsdkversion):
     tree = etree.parse(filename)
     root = tree.getroot()
@@ -17,7 +19,36 @@ def bump_plist(filename, newsdkversion):
                 print("old version:", child.text)
                 child.text=newsdkversion
                 break
-    tree.write(filename)
+
+    plist_string = format_plist(tree)
+    plist = open(filename, "w")
+    plist.write(plist_string)
+    plist.close()
+
+# Adjusts lxml's pretty-printed XML format to match Xcode's default and avoid
+# semantically uninteresting diffs
+def format_plist(tree):
+    plist_string = tree_to_string(tree)
+
+    flags = re.MULTILINE | re.IGNORECASE
+
+    # Prepend XML prolog. This could be partially done with `lxml.tostring`'s
+    # xml_declaration option, but that returns single-quoted attributes
+    formatted_plist = '<?xml version="1.0" encoding="UTF-8"?>\n' + plist_string
+
+    # Replace self-closing '<string/>' tags with explicitly closed tags
+    formatted_plist = re.sub(r'<string/>', '<string></string>', formatted_plist, flags=flags)
+
+    # Adjust lxml's default space-based indentation to Xcode's tab-based. Use the
+    # multiline flag and match beginning of each line.
+    formatted_plist = re.sub(r'^\s+<', '\t<', formatted_plist, flags=flags)
+
+    return formatted_plist
+
+def tree_to_string(tree):
+    plist_bytes = etree.tostring(tree, pretty_print = True, xml_declaration = False, encoding='UTF-8')
+    plist_string = plist_bytes.decode('utf-8')
+    return plist_string
 
 
 root = sys.argv[1]

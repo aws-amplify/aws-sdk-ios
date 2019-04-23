@@ -1,5 +1,29 @@
-
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.9.7
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Transcribe
+
+## 2.9.6
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed a error propagation bug for downloads using TransferUtility. See [PR #1316](https://github.com/aws-amplify/aws-sdk-ios/pull/1316), [issue #1310](https://github.com/aws-amplify/aws-sdk-ios/issues/1310).
+
+* **Amazon Kinesis**
+  * Kinesis now opens its SQLite connections in serial mode, which resolves occasional crashes on creating a new database connection. See [PR #1444](https://github.com/aws-amplify/aws-sdk-ios/pull/1444), [issue #1161](https://github.com/aws-amplify/aws-sdk-ios/issues/1161).
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity
+  * Amazon EC2
+  * Amazon Polly
 
 ## 2.9.5
 
@@ -7,6 +31,11 @@
 
 * **AWSMobileClient**
   * Fixed a bug which caused compilation error with Swift 5. See [PR #1377](https://github.com/aws-amplify/aws-sdk-ios/pull/1377), [issue #1394](https://github.com/aws-amplify/aws-sdk-ios/issues/1394).
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Comprehend
 
 ## 2.9.4
 
