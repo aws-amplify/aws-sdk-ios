@@ -2,6 +2,11 @@
 
 ## 2.9.7
 
+### New Features
+
+* **AWS Core**
+  * Added support for `ap-east-1` - AP (Hong Kong) region.
+
 ### Misc. Updates
 
 * Model updates for the following services
