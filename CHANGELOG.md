@@ -1,5 +1,15 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.8
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon DynamoDB
+  * Amazon EC2
+  * Amazon Simple Notification Service (SNS)
+  * AWS Lambda
+
 ## 2.9.7
 
 ### New Features
