@@ -124,7 +124,12 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 	return @{
              @"attributes" : @"Attributes",
              @"name" : @"Name",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
 }
 
 @end
@@ -403,6 +408,30 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSListTagsForResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSSNSListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
+}
+
+@end
+
 @implementation AWSSNSListTopicsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -608,6 +637,36 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSSNSTagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSTag class]];
+}
+
+@end
+
+@implementation AWSSNSTagResourceResponse
+
+@end
+
 @implementation AWSSNSTopic
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -625,5 +684,20 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
              @"subscriptionArn" : @"SubscriptionArn",
              };
 }
+
+@end
+
+@implementation AWSSNSUntagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSSNSUntagResourceResponse
 
 @end

@@ -141,6 +141,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetFunctionConfigurationRequest;
 @class AWSLambdaGetFunctionRequest;
 @class AWSLambdaGetFunctionResponse;
+@class AWSLambdaGetLayerVersionByArnRequest;
 @class AWSLambdaGetLayerVersionPolicyRequest;
 @class AWSLambdaGetLayerVersionPolicyResponse;
 @class AWSLambdaGetLayerVersionRequest;
@@ -1050,6 +1051,19 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetLayerVersionByArnRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the layer version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
 
 @end
 
