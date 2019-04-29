@@ -694,6 +694,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetLayerVersionResponse *> *)getLayerVersionByArn:(AWSLambdaGetLayerVersionByArnRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2018-10-31/layers?find=LayerVersion"
+                  targetPrefix:@""
+                 operationName:@"GetLayerVersionByArn"
+                   outputClass:[AWSLambdaGetLayerVersionResponse class]];
+}
+
+- (void)getLayerVersionByArn:(AWSLambdaGetLayerVersionByArnRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetLayerVersionResponse *response, NSError *error))completionHandler {
+    [[self getLayerVersionByArn:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetLayerVersionResponse *> * _Nonnull task) {
+        AWSLambdaGetLayerVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaGetLayerVersionPolicyResponse *> *)getLayerVersionPolicy:(AWSLambdaGetLayerVersionPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET

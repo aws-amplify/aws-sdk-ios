@@ -709,6 +709,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaGetLayerVersionByArnRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             };
+}
+
+@end
+
 @implementation AWSLambdaGetLayerVersionPolicyRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
