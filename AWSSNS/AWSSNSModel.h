@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSErrorDomain;
 typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorUnknown,
     AWSSNSErrorAuthorizationError,
+    AWSSNSErrorConcurrentAccess,
     AWSSNSErrorEndpointDisabled,
     AWSSNSErrorFilterPolicyLimitExceeded,
     AWSSNSErrorInternalError,
@@ -38,7 +39,11 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorKMSThrottling,
     AWSSNSErrorNotFound,
     AWSSNSErrorPlatformApplicationDisabled,
+    AWSSNSErrorResourceNotFound,
+    AWSSNSErrorStaleTag,
     AWSSNSErrorSubscriptionLimitExceeded,
+    AWSSNSErrorTagLimitExceeded,
+    AWSSNSErrorTagPolicy,
     AWSSNSErrorThrottled,
     AWSSNSErrorTopicLimitExceeded,
 };
@@ -78,6 +83,8 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSListSubscriptionsByTopicResponse;
 @class AWSSNSListSubscriptionsInput;
 @class AWSSNSListSubscriptionsResponse;
+@class AWSSNSListTagsForResourceRequest;
+@class AWSSNSListTagsForResourceResponse;
 @class AWSSNSListTopicsInput;
 @class AWSSNSListTopicsResponse;
 @class AWSSNSMessageAttributeValue;
@@ -96,8 +103,13 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSSubscribeInput;
 @class AWSSNSSubscribeResponse;
 @class AWSSNSSubscription;
+@class AWSSNSTag;
+@class AWSSNSTagResourceRequest;
+@class AWSSNSTagResourceResponse;
 @class AWSSNSTopic;
 @class AWSSNSUnsubscribeInput;
+@class AWSSNSUntagResourceRequest;
+@class AWSSNSUntagResourceResponse;
 
 /**
  
@@ -212,7 +224,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>For a list of attributes, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a></p>
+ <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a></p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -249,7 +261,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>For a list of attributes, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
+ <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -278,7 +290,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>. </p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -286,6 +298,11 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
  <p>The name of the topic you want to create.</p><p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The list of tags to add to a new topic.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSNSTag *> * _Nullable tags;
 
 @end
 
@@ -422,7 +439,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p><p>For all attribute names, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p><p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
+ <p>A list of the individual attribute names, such as <code>MonthlySpendLimit</code>, for which you want values.</p><p>For all attribute names, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html">SetSMSAttributes</a>.</p><p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributes;
 
@@ -665,6 +682,32 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 /**
  
  */
+@interface AWSSNSListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the topic for which to list tags.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>The tags associated with the specified topic.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSNSTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSSNSListTopicsInput : AWSRequest
 
 
@@ -694,7 +737,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @end
 
 /**
- <p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p><p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Using Amazon SNS Message Attributes</a>.</p>
+ <p>The user-specified message attribute value. For string data types, the value attribute has the same restrictions on the content as the message body. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>.</p><p>Name, type, and value must not be empty or null. In addition, the message body should not be empty or null. All parts of the message attribute, including name, type, and value, are included in the message size restriction, which is currently 256 KB (262,144 bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Using Amazon SNS Message Attributes</a>.</p>
  Required parameters: [DataType]
  */
 @interface AWSSNSMessageAttributeValue : AWSModel
@@ -706,12 +749,12 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @property (nonatomic, strong) NSData * _Nullable binaryValue;
 
 /**
- <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
+ <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message Attribute Data Types</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataType;
 
 /**
- <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
+ <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stringValue;
 
@@ -775,7 +818,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSSNSMessageAttributeValue *> * _Nullable messageAttributes;
 
 /**
- <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must: </p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p><p>For information about sending different messages for each protocol using the AWS Management Console, go to <a href="http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol">Create Different Messages for Each Protocol</a> in the <i>Amazon Simple Notification Service Getting Started Guide</i>. </p><p>Valid value: <code>json</code></p>
+ <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different message for each protocol. For example, using one publish action, you can send a short message to your SMS subscribers and a longer message to your email subscribers. If you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code> parameter must: </p><ul><li><p>be a syntactically valid JSON object; and</p></li><li><p>contain at least a top-level JSON key of "default" with a value that is a string.</p></li></ul><p>You can define other top-level keys that define the message you want to send to a specific transport protocol (e.g., "http").</p><p>For information about sending different messages for each protocol using the AWS Management Console, go to <a href="https://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol">Create Different Messages for Each Protocol</a> in the <i>Amazon Simple Notification Service Getting Started Guide</i>. </p><p>Valid value: <code>json</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable messageStructure;
 
@@ -790,7 +833,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @property (nonatomic, strong) NSString * _Nullable subject;
 
 /**
- <p>Either TopicArn or EndpointArn, but not both.</p><p>If you don't specify a value for the <code>TargetArn</code> parameter, you must specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code> parameters.</p>
+ <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code> parameters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -879,7 +922,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>The default settings for sending SMS messages from your account. You can set values for the following attribute names:</p><p><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend each month to send SMS messages. When Amazon SNS determines that sending an SMS message would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</p><important><p>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During that interval, if you continue to send SMS messages, you will incur costs that exceed your limit.</p></important><p>By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit an <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns">SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.</p><p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p><p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p><p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p><p><code>DefaultSMSType</code> – The type of SMS message that you will send by default. You can assign the following values:</p><ul><li><p><code>Promotional</code> – (Default) Noncritical messages, such as marketing messages. Amazon SNS optimizes the message delivery to incur the lowest cost.</p></li><li><p><code>Transactional</code> – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p></li></ul><p><code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as a CSV file to the bucket. The report includes the following information for each SMS message that was successfully delivered by your account:</p><ul><li><p>Time that the message was published (in UTC)</p></li><li><p>Message ID</p></li><li><p>Destination phone number</p></li><li><p>Message type</p></li><li><p>Delivery status</p></li><li><p>Message price (in USD)</p></li><li><p>Part number (a message is split into multiple parts if it is too long for a single message)</p></li><li><p>Total number of parts</p></li></ul><p>To receive the report, the bucket must have a policy that allows the Amazon SNS service principle to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code> actions.</p><p>For an example bucket policy and usage report, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>The default settings for sending SMS messages from your account. You can set values for the following attribute names:</p><p><code>MonthlySpendLimit</code> – The maximum amount in USD that you are willing to spend each month to send SMS messages. When Amazon SNS determines that sending an SMS message would incur a cost that exceeds this limit, it stops sending SMS messages within minutes.</p><important><p>Amazon SNS stops sending SMS messages within minutes of the limit being crossed. During that interval, if you continue to send SMS messages, you will incur costs that exceed your limit.</p></important><p>By default, the spend limit is set to the maximum allowed by Amazon SNS. If you want to raise the limit, submit an <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sns">SNS Limit Increase case</a>. For <b>New limit value</b>, enter your desired monthly spend limit. In the <b>Use Case Description</b> field, explain that you are requesting an SMS monthly spend limit increase.</p><p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p><p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p><p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p><p><code>DefaultSMSType</code> – The type of SMS message that you will send by default. You can assign the following values:</p><ul><li><p><code>Promotional</code> – (Default) Noncritical messages, such as marketing messages. Amazon SNS optimizes the message delivery to incur the lowest cost.</p></li><li><p><code>Transactional</code> – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes the message delivery to achieve the highest reliability.</p></li></ul><p><code>UsageReportS3Bucket</code> – The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will deliver a usage report as a CSV file to the bucket. The report includes the following information for each SMS message that was successfully delivered by your account:</p><ul><li><p>Time that the message was published (in UTC)</p></li><li><p>Message ID</p></li><li><p>Destination phone number</p></li><li><p>Message type</p></li><li><p>Delivery status</p></li><li><p>Message price (in USD)</p></li><li><p>Part number (a message is split into multiple parts if it is too long for a single message)</p></li><li><p>Total number of parts</p></li></ul><p>To receive the report, the bucket must have a policy that allows the Amazon SNS service principle to perform the <code>s3:PutObject</code> and <code>s3:GetBucketLocation</code> actions.</p><p>For an example bucket policy and usage report, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html">Monitoring SMS Activity</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -925,7 +968,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>. </p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
@@ -954,7 +997,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>The endpoint that you want to receive notifications. Endpoints vary by protocol:</p><ul><li><p>For the <code>http</code> protocol, the endpoint is an URL beginning with "http://"</p></li><li><p>For the <code>https</code> protocol, the endpoint is a URL beginning with "https://"</p></li><li><p>For the <code>email</code> protocol, the endpoint is an email address</p></li><li><p>For the <code>email-json</code> protocol, the endpoint is an email address</p></li><li><p>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled device</p></li><li><p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue</p></li><li><p>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile app and device.</p></li><li><p>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda function.</p></li></ul>
+ <p>The endpoint that you want to receive notifications. Endpoints vary by protocol:</p><ul><li><p>For the <code>http</code> protocol, the endpoint is an URL beginning with "https://"</p></li><li><p>For the <code>https</code> protocol, the endpoint is a URL beginning with "https://"</p></li><li><p>For the <code>email</code> protocol, the endpoint is an email address</p></li><li><p>For the <code>email-json</code> protocol, the endpoint is an email address</p></li><li><p>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled device</p></li><li><p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue</p></li><li><p>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile app and device.</p></li><li><p>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda function.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable endpoint;
 
@@ -1022,6 +1065,51 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @end
 
 /**
+ <p>The list of tags to be added to the specified topic.</p>
+ Required parameters: [Key, Value]
+ */
+@interface AWSSNSTag : AWSModel
+
+
+/**
+ <p>The required key portion of the tag.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p>The optional value portion of the tag.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the topic to which to add tags.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The tags to be added to the specified topic. A tag consists of a required key and an optional value.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSNSTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use <code>GetTopicAttributes</code>.</p>
  */
 @interface AWSSNSTopic : AWSModel
@@ -1045,6 +1133,32 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
  <p>The ARN of the subscription to be deleted.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subscriptionArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSUntagResourceRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the topic from which to remove tags.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The list of tag keys to remove from the specified topic.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSUntagResourceResponse : AWSModel
+
 
 @end
 
