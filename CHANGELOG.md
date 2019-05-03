@@ -4,6 +4,7 @@
 
 ### Misc. Updates
 
+* Ensured compatibility when building with Xcode 10.2
 * Model updates for the following services
   * Amazon DynamoDB
   * Amazon EC2
