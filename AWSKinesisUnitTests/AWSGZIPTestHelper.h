@@ -18,6 +18,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface AWSGZIPTestHelper : NSObject
 
 @property (nonatomic, strong) id mockSerializer;
@@ -34,5 +36,7 @@
 - (void)stopMocking;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* AWSGZIPTestHelper_h */
