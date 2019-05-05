@@ -766,7 +766,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)authorizeClientVpnIngress:(AWSEC2AuthorizeClientVpnIngressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AuthorizeClientVpnIngressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[EC2-VPC only] Adds the specified egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. For more information about security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>.</p><p>Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes. You can optionally specify a description for the rule.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
+ <p>[VPC only] Adds the specified egress rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
 
@@ -777,7 +777,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request;
 
 /**
- <p>[EC2-VPC only] Adds the specified egress rules to a security group for use with a VPC. Specifically, this action permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC. This action doesn't apply to security groups for use in EC2-Classic. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. For more information about security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>.</p><p>Each rule consists of the protocol (for example, TCP), plus either a CIDR range or a source group. For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes. You can optionally specify a description for the rule.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p>
+ <p>[VPC only] Adds the specified egress rules to a security group for use with a VPC.</p><p>An outbound rule permits instances to send traffic to the specified destination IPv4 or IPv6 CIDR address ranges, or to the specified destination security groups for the same VPC.</p><p>You specify a protocol for each rule (for example, TCP). For the TCP and UDP protocols, you must also specify the destination port or port range. For the ICMP protocol, you must also specify the ICMP type and code. You can use -1 for the type or code to mean all types or all codes.</p><p>Rule changes are propagated to affected instances as quickly as possible. However, a small delay might occur.</p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupEgress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -788,7 +788,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified ingress rules to a security group.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p><p>[EC2-Classic] This action gives the IPv4 CIDR address ranges permission to access a security group in your account, or gives the security groups (called the <i>source groups</i>) permission to access a security group for your account. A source group can be for your own AWS account, or another. You can have up to 100 rules per group.</p><p>[EC2-VPC] This action gives the specified IPv4 or IPv6 CIDR address ranges permission to access a security group in your VPC, or gives the specified security groups (called the <i>source groups</i>) permission to access a security group for your VPC. The security groups must all be for the same VPC or a peer VPC in a VPC peering connection. For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>.</p><p>You can optionally specify a description for the security group rule.</p>
+ <p>Adds the specified ingress rules to a security group.</p><p>An inbound rule permits instances to receive traffic from the specified destination IPv4 or IPv6 CIDR address ranges, or from the specified destination security groups.</p><p>You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify the destination port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.
 
@@ -799,7 +799,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request;
 
 /**
- <p>Adds the specified ingress rules to a security group.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p><p>[EC2-Classic] This action gives the IPv4 CIDR address ranges permission to access a security group in your account, or gives the security groups (called the <i>source groups</i>) permission to access a security group for your account. A source group can be for your own AWS account, or another. You can have up to 100 rules per group.</p><p>[EC2-VPC] This action gives the specified IPv4 or IPv6 CIDR address ranges permission to access a security group in your VPC, or gives the specified security groups (called the <i>source groups</i>) permission to access a security group for your VPC. The security groups must all be for the same VPC or a peer VPC in a VPC peering connection. For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Limits</a>.</p><p>You can optionally specify a description for the security group rule.</p>
+ <p>Adds the specified ingress rules to a security group.</p><p>An inbound rule permits instances to receive traffic from the specified destination IPv4 or IPv6 CIDR address ranges, or from the specified destination security groups.</p><p>You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must also specify the destination port or port range. For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
  
  @param request A container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1379,7 +1379,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createFlowLogs:(AWSEC2CreateFlowLogsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateFlowLogsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on one or more FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFpgaImage service method.
 
@@ -1391,7 +1391,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateFpgaImageResult *> *)createFpgaImage:(AWSEC2CreateFpgaImageRequest *)request;
 
 /**
- <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on one or more FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ <p>Creates an Amazon FPGA Image (AFI) from the specified design checkpoint (DCP).</p><p>The create operation is asynchronous. To verify that the AFI is ready for use, check the output logs.</p><p>An AFI contains the FPGA bitstream that is ready to download to an FPGA. You can securely deploy an AFI on multiple FPGA-accelerated instances. For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFpgaImage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1773,7 +1773,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createRouteTable:(AWSEC2CreateRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a security group.</p><p>A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><important><p>EC2-Classic: You can have up to 500 security groups.</p><p>EC2-VPC: You can create up to 500 security groups per VPC.</p></important><p>When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.</p><p>You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p><p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p>
+ <p>Creates a security group.</p><p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.</p><p>You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p><p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSecurityGroup service method.
 
@@ -1785,7 +1785,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateSecurityGroupResult *> *)createSecurityGroup:(AWSEC2CreateSecurityGroupRequest *)request;
 
 /**
- <p>Creates a security group.</p><p>A security group is for use with instances either in the EC2-Classic platform or in a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><important><p>EC2-Classic: You can have up to 500 security groups.</p><p>EC2-VPC: You can create up to 500 security groups per VPC.</p></important><p>When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.</p><p>You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p><p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p>
+ <p>Creates a security group.</p><p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>When you create a security group, you specify a friendly name of your choice. You can have a security group for use in EC2-Classic with the same name as a security group for use in a VPC. However, you can't have two security groups for use in EC2-Classic with the same name or two security groups for use in a VPC with the same name.</p><p>You have a default security group for use in EC2-Classic and a default security group for use in your VPC. If you don't specify a security group when you launch an instance, the instance is launched into the appropriate default security group. A default security group includes a default rule that grants instances unrestricted network access to each other.</p><p>You can add or remove rules from your security groups using <a>AuthorizeSecurityGroupIngress</a>, <a>AuthorizeSecurityGroupEgress</a>, <a>RevokeSecurityGroupIngress</a>, and <a>RevokeSecurityGroupEgress</a>.</p><p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSecurityGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3479,7 +3479,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeClientVpnTargetNetworks:(AWSEC2DescribeClientVpnTargetNetworksRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeClientVpnTargetNetworksResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p><p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p><p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeConversionTasks service method.
 
@@ -3491,7 +3491,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeConversionTasksResult *> *)describeConversionTasks:(AWSEC2DescribeConversionTasksRequest *)request;
 
 /**
- <p>Describes one or more of your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p><p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p><p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeConversionTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3604,7 +3604,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeElasticGpus:(AWSEC2DescribeElasticGpusRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeElasticGpusResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your export tasks.</p>
+ <p>Describes the specified export tasks or all your export tasks.</p>
  
  @param request A container for the necessary parameters to execute the DescribeExportTasks service method.
 
@@ -3616,7 +3616,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeExportTasksResult *> *)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request;
 
 /**
- <p>Describes one or more of your export tasks.</p>
+ <p>Describes the specified export tasks or all your export tasks.</p>
  
  @param request A container for the necessary parameters to execute the DescribeExportTasks service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3679,7 +3679,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeFleetInstances:(AWSEC2DescribeFleetInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFleetInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your EC2 Fleets.</p>
+ <p>Describes the specified EC2 Fleets or all your EC2 Fleets.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleets service method.
 
@@ -3691,7 +3691,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFleetsResult *> *)describeFleets:(AWSEC2DescribeFleetsRequest *)request;
 
 /**
- <p>Describes one or more of your EC2 Fleets.</p>
+ <p>Describes the specified EC2 Fleets or all your EC2 Fleets.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFleets service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3754,7 +3754,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeFpgaImageAttribute:(AWSEC2DescribeFpgaImageAttributeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeFpgaImageAttributeResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more available Amazon FPGA Images (AFIs). These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.</p>
+ <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFpgaImages service method.
 
@@ -3766,7 +3766,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeFpgaImagesResult *> *)describeFpgaImages:(AWSEC2DescribeFpgaImagesRequest *)request;
 
 /**
- <p>Describes one or more available Amazon FPGA Images (AFIs). These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.</p>
+ <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.</p>
  
  @param request A container for the necessary parameters to execute the DescribeFpgaImages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3829,7 +3829,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeHostReservations:(AWSEC2DescribeHostReservationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeHostReservationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your Dedicated Hosts.</p><p>The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state <code>released</code>.</p>
+ <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p><p>The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state <code>released</code>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeHosts service method.
 
@@ -3841,7 +3841,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeHostsResult *> *)describeHosts:(AWSEC2DescribeHostsRequest *)request;
 
 /**
- <p>Describes one or more of your Dedicated Hosts.</p><p>The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state <code>released</code>.</p>
+ <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p><p>The results describe only the Dedicated Hosts in the Region you're currently using. All listed instances consume capacity on your Dedicated Host. Dedicated Hosts that have recently been released are listed with the state <code>released</code>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeHosts service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3954,7 +3954,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeImageAttribute:(AWSEC2DescribeImageAttributeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ImageAttribute * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p><p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p><note><p>Deregistered images are included in the returned results for an unspecified interval after deregistration.</p></note>
+ <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p><p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p><p>Recently deregistered images might appear in the returned results for a short interval.</p>
  
  @param request A container for the necessary parameters to execute the DescribeImages service method.
 
@@ -3966,7 +3966,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeImagesResult *> *)describeImages:(AWSEC2DescribeImagesRequest *)request;
 
 /**
- <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p><p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p><note><p>Deregistered images are included in the returned results for an unspecified interval after deregistration.</p></note>
+ <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p><p>The images available to you include public images, private images that you own, and private images owned by other AWS accounts for which you have explicit launch permissions.</p><p>Recently deregistered images might appear in the returned results for a short interval.</p>
  
  @param request A container for the necessary parameters to execute the DescribeImages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4654,7 +4654,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeScheduledInstanceAvailability:(AWSEC2DescribeScheduledInstanceAvailabilityRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeScheduledInstanceAvailabilityResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your Scheduled Instances.</p>
+ <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledInstances service method.
 
@@ -4666,7 +4666,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeScheduledInstancesResult *> *)describeScheduledInstances:(AWSEC2DescribeScheduledInstancesRequest *)request;
 
 /**
- <p>Describes one or more of your Scheduled Instances.</p>
+ <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  
  @param request A container for the necessary parameters to execute the DescribeScheduledInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4679,7 +4679,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeScheduledInstances:(AWSEC2DescribeScheduledInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeScheduledInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSecurityGroupReferences service method.
 
@@ -4691,7 +4691,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeSecurityGroupReferencesResult *> *)describeSecurityGroupReferences:(AWSEC2DescribeSecurityGroupReferencesRequest *)request;
 
 /**
- <p>[EC2-VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSecurityGroupReferences service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4929,7 +4929,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSpotPriceHistory:(AWSEC2DescribeSpotPriceHistoryRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSpotPriceHistoryResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[EC2-VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.
 
@@ -4941,7 +4941,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeStaleSecurityGroupsResult *> *)describeStaleSecurityGroups:(AWSEC2DescribeStaleSecurityGroupsRequest *)request;
 
 /**
- <p>[EC2-VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
  
  @param request A container for the necessary parameters to execute the DescribeStaleSecurityGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7178,6 +7178,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpcTenancy:(AWSEC2ModifyVpcTenancyRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpcTenancyResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ ModifyVpnConnection
+ 
+ @param request A container for the necessary parameters to execute the ModifyVpnConnection service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyVpnConnectionResult`.
+ 
+ @see AWSEC2ModifyVpnConnectionRequest
+ @see AWSEC2ModifyVpnConnectionResult
+ */
+- (AWSTask<AWSEC2ModifyVpnConnectionResult *> *)modifyVpnConnection:(AWSEC2ModifyVpnConnectionRequest *)request;
+
+/**
+ ModifyVpnConnection
+ 
+ @param request A container for the necessary parameters to execute the ModifyVpnConnection service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyVpnConnectionRequest
+ @see AWSEC2ModifyVpnConnectionResult
+ */
+- (void)modifyVpnConnection:(AWSEC2ModifyVpnConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpnConnectionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring Your Instances and Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>To disable detailed monitoring, see .</p>
  
  @param request A container for the necessary parameters to execute the MonitorInstances service method.
@@ -7303,7 +7328,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)purchaseReservedInstancesOffering:(AWSEC2PurchaseReservedInstancesOfferingRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2PurchaseReservedInstancesOfferingResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Purchases one or more Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ <p>Purchases the Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
  
  @param request A container for the necessary parameters to execute the PurchaseScheduledInstances service method.
 
@@ -7315,7 +7340,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2PurchaseScheduledInstancesResult *> *)purchaseScheduledInstances:(AWSEC2PurchaseScheduledInstancesRequest *)request;
 
 /**
- <p>Purchases one or more Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ <p>Purchases the Scheduled Instances with the specified schedule.</p><p>Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call <a>DescribeScheduledInstanceAvailability</a> to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call <a>RunScheduledInstances</a> during each scheduled time period.</p><p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
  
  @param request A container for the necessary parameters to execute the PurchaseScheduledInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7876,7 +7901,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)revokeClientVpnIngress:(AWSEC2RevokeClientVpnIngressRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RevokeClientVpnIngressResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[EC2-VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><p>Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ <p>[VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><p>Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  
  @param request A container for the necessary parameters to execute the RevokeSecurityGroupEgress service method.
 
@@ -7887,7 +7912,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request;
 
 /**
- <p>[EC2-VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><p>Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ <p>[VPC only] Removes the specified egress rules from a security group for EC2-VPC. This action doesn't apply to security groups for use in EC2-Classic. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><p>Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  
  @param request A container for the necessary parameters to execute the RevokeSecurityGroupEgress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7898,7 +7923,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><note><p>[EC2-Classic security groups only] If the values you specify do not match the existing rule's values, no error is returned. Use <a>DescribeSecurityGroups</a> to verify that the rule has been removed.</p></note><p>Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ <p>Removes the specified ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><note><p>[EC2-Classic only] If the values you specify do not match the existing rule's values, no error is returned. Use <a>DescribeSecurityGroups</a> to verify that the rule has been removed.</p></note><p>Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  
  @param request A container for the necessary parameters to execute the RevokeSecurityGroupIngress service method.
 
@@ -7909,7 +7934,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request;
 
 /**
- <p>Removes the specified ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><note><p>[EC2-Classic security groups only] If the values you specify do not match the existing rule's values, no error is returned. Use <a>DescribeSecurityGroups</a> to verify that the rule has been removed.</p></note><p>Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
+ <p>Removes the specified ingress rules from a security group. To remove a rule, the values that you specify (for example, ports) must match the existing rule's values exactly.</p><note><p>[EC2-Classic only] If the values you specify do not match the existing rule's values, no error is returned. Use <a>DescribeSecurityGroups</a> to verify that the rule has been removed.</p></note><p>Each rule consists of the protocol and the CIDR range or source security group. For the TCP and UDP protocols, you must also specify the destination port or range of ports. For the ICMP protocol, you must also specify the ICMP type and code. If the security group rule has a description, you do not have to specify the description to revoke the rule.</p><p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  
  @param request A container for the necessary parameters to execute the RevokeSecurityGroupIngress service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8167,7 +8192,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)unmonitorInstances:(AWSEC2UnmonitorInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2UnmonitorInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>[EC2-VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.</p><p>You specify the description as part of the IP permissions structure. You can remove a description for a security group rule by omitting the description parameter in the request.</p>
+ <p>[VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.</p><p>You specify the description as part of the IP permissions structure. You can remove a description for a security group rule by omitting the description parameter in the request.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress service method.
 
@@ -8179,7 +8204,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2UpdateSecurityGroupRuleDescriptionsEgressResult *> *)updateSecurityGroupRuleDescriptionsEgress:(AWSEC2UpdateSecurityGroupRuleDescriptionsEgressRequest *)request;
 
 /**
- <p>[EC2-VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.</p><p>You specify the description as part of the IP permissions structure. You can remove a description for a security group rule by omitting the description parameter in the request.</p>
+ <p>[VPC only] Updates the description of an egress (outbound) security group rule. You can replace an existing description, or add a description to a rule that did not have one previously.</p><p>You specify the description as part of the IP permissions structure. You can remove a description for a security group rule by omitting the description parameter in the request.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress service method.
  @param completionHandler The completion handler to call when the load request is complete.

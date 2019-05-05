@@ -4860,6 +4860,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"groups" : @"Groups",
+             @"interfaceType" : @"InterfaceType",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
              @"privateIpAddress" : @"PrivateIpAddress",
@@ -4867,6 +4868,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
              @"subnetId" : @"SubnetId",
              };
+}
+
++ (NSValueTransformer *)interfaceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"efa"] == NSOrderedSame) {
+            return @(AWSEC2NetworkInterfaceCreationTypeEfa);
+        }
+        return @(AWSEC2NetworkInterfaceCreationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2NetworkInterfaceCreationTypeEfa:
+                return @"efa";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
@@ -20056,6 +20073,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"attachment" : @"Attachment",
              @"detail" : @"Description",
              @"groups" : @"Groups",
+             @"interfaceType" : @"InterfaceType",
              @"ipv6Addresses" : @"Ipv6Addresses",
              @"macAddress" : @"MacAddress",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -20202,6 +20220,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
+             @"interfaceType" : @"InterfaceType",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -22221,6 +22240,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
+             @"interfaceType" : @"InterfaceType",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -22250,6 +22270,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
+             @"interfaceType" : @"InterfaceType",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
              @"networkInterfaceId" : @"NetworkInterfaceId",
@@ -25274,6 +25295,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ModifyVpnConnectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"transitGatewayId" : @"TransitGatewayId",
+             @"vpnConnectionId" : @"VpnConnectionId",
+             @"vpnGatewayId" : @"VpnGatewayId",
+             };
+}
+
+@end
+
+@implementation AWSEC2ModifyVpnConnectionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vpnConnection" : @"VpnConnection",
+             };
+}
+
++ (NSValueTransformer *)vpnConnectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpnConnection class]];
+}
+
+@end
+
 @implementation AWSEC2MonitorInstancesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -25650,6 +25698,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"natGateway"] == NSOrderedSame) {
             return @(AWSEC2NetworkInterfaceTypeNatGateway);
         }
+        if ([value caseInsensitiveCompare:@"efa"] == NSOrderedSame) {
+            return @(AWSEC2NetworkInterfaceTypeEfa);
+        }
         return @(AWSEC2NetworkInterfaceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -25657,6 +25708,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"interface";
             case AWSEC2NetworkInterfaceTypeNatGateway:
                 return @"natGateway";
+            case AWSEC2NetworkInterfaceTypeEfa:
+                return @"efa";
             default:
                 return nil;
         }
