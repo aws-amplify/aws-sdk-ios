@@ -331,6 +331,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse;
 @class AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest;
 @class AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse;
+@class AWSCognitoIdentityProviderAdminSetUserPasswordRequest;
+@class AWSCognitoIdentityProviderAdminSetUserPasswordResponse;
 @class AWSCognitoIdentityProviderAdminSetUserSettingsRequest;
 @class AWSCognitoIdentityProviderAdminSetUserSettingsResponse;
 @class AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest;
@@ -1420,6 +1422,42 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  
  */
 @interface AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminSetUserPasswordRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable password;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable permanent;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminSetUserPasswordResponse : AWSModel
 
 
 @end
@@ -4278,6 +4316,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable requireUppercase;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable temporaryPasswordValidityDays;
 
 @end
 
