@@ -230,6 +230,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"NETWORK_ERRORS"] == NSOrderedSame) {
             return @(AWSKMSConnectionErrorCodeTypeNetworkErrors);
         }
+        if ([value caseInsensitiveCompare:@"INTERNAL_ERROR"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeInternalError);
+        }
         if ([value caseInsensitiveCompare:@"INSUFFICIENT_CLOUDHSM_HSMS"] == NSOrderedSame) {
             return @(AWSKMSConnectionErrorCodeTypeInsufficientCloudhsmHsms);
         }
@@ -245,6 +248,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"CLUSTER_NOT_FOUND";
             case AWSKMSConnectionErrorCodeTypeNetworkErrors:
                 return @"NETWORK_ERRORS";
+            case AWSKMSConnectionErrorCodeTypeInternalError:
+                return @"INTERNAL_ERROR";
             case AWSKMSConnectionErrorCodeTypeInsufficientCloudhsmHsms:
                 return @"INSUFFICIENT_CLOUDHSM_HSMS";
             case AWSKMSConnectionErrorCodeTypeUserLockedOut:
