@@ -10,6 +10,7 @@
   * Amazon EC2
   * Amazon Simple Notification Service (SNS)
   * AWS Lambda
+* The Amazon Cognito Sync and Amazon Cognito Identity Provider subcomponents of the AWS Mobile SDK for iOS are now licensed under the Apache 2.0 License. See LICENSE and LICENSE.APACHE for more details.
 
 ## 2.9.7
 
