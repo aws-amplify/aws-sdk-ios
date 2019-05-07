@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.description  = 'Amazon Cognito offers multi device data synchronization with offline access'
 
   s.homepage     = 'http://aws.amazon.com/cognito'
-  s.license      = 'Amazon Software License'
+  s.license      = 'Apache License, Version 2.0'
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
   s.platform     = :ios, '8.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
