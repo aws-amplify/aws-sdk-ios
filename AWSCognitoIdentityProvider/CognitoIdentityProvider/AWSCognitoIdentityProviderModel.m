@@ -904,6 +904,23 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderAdminSetUserPasswordRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"password" : @"Password",
+             @"permanent" : @"Permanent",
+             @"userPoolId" : @"UserPoolId",
+             @"username" : @"Username",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderAdminSetUserPasswordResponse
+
+@end
+
 @implementation AWSCognitoIdentityProviderAdminSetUserSettingsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3285,6 +3302,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"requireNumbers" : @"RequireNumbers",
              @"requireSymbols" : @"RequireSymbols",
              @"requireUppercase" : @"RequireUppercase",
+             @"temporaryPasswordValidityDays" : @"TemporaryPasswordValidityDays",
              };
 }
 

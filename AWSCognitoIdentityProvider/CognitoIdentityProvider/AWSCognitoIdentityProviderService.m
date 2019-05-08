@@ -790,6 +790,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderAdminSetUserPasswordResponse *> *)adminSetUserPassword:(AWSCognitoIdentityProviderAdminSetUserPasswordRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminSetUserPassword"
+                   outputClass:[AWSCognitoIdentityProviderAdminSetUserPasswordResponse class]];
+}
+
+- (void)adminSetUserPassword:(AWSCognitoIdentityProviderAdminSetUserPasswordRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminSetUserPasswordResponse *response, NSError *error))completionHandler {
+    [[self adminSetUserPassword:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminSetUserPasswordResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminSetUserPasswordResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderAdminSetUserSettingsResponse *> *)adminSetUserSettings:(AWSCognitoIdentityProviderAdminSetUserSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

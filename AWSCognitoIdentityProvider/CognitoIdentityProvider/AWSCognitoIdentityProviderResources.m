@@ -494,6 +494,24 @@
       ],\
       \"documentation\":\"<p>Sets the user's multi-factor authentication (MFA) preference.</p>\"\
     },\
+    \"AdminSetUserPassword\":{\
+      \"name\":\"AdminSetUserPassword\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"AdminSetUserPasswordRequest\"},\
+      \"output\":{\"shape\":\"AdminSetUserPasswordResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"NotAuthorizedException\"},\
+        {\"shape\":\"UserNotFoundException\"},\
+        {\"shape\":\"InternalErrorException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"InvalidPasswordException\"}\
+      ]\
+    },\
     \"AdminSetUserSettings\":{\
       \"name\":\"AdminSetUserSettings\",\
       \"http\":{\
@@ -2801,6 +2819,25 @@
       }\
     },\
     \"AdminSetUserMFAPreferenceResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"AdminSetUserPasswordRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"UserPoolId\",\
+        \"Username\",\
+        \"Password\"\
+      ],\
+      \"members\":{\
+        \"UserPoolId\":{\"shape\":\"UserPoolIdType\"},\
+        \"Username\":{\"shape\":\"UsernameType\"},\
+        \"Password\":{\"shape\":\"PasswordType\"},\
+        \"Permanent\":{\"shape\":\"BooleanType\"}\
+      }\
+    },\
+    \"AdminSetUserPasswordResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
       }\
@@ -5845,7 +5882,8 @@
         \"RequireSymbols\":{\
           \"shape\":\"BooleanType\",\
           \"documentation\":\"<p>In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.</p>\"\
-        }\
+        },\
+        \"TemporaryPasswordValidityDays\":{\"shape\":\"TemporaryPasswordValidityDaysType\"}\
       },\
       \"documentation\":\"<p>The password policy type.</p>\"\
     },\
@@ -6730,6 +6768,11 @@
     \"TagValueType\":{\
       \"type\":\"string\",\
       \"max\":256,\
+      \"min\":0\
+    },\
+    \"TemporaryPasswordValidityDaysType\":{\
+      \"type\":\"integer\",\
+      \"max\":365,\
       \"min\":0\
     },\
     \"TokenModelType\":{\
