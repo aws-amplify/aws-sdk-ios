@@ -178,7 +178,7 @@ public struct ForgotPasswordResult {
     public let forgotPasswordState: ForgotPasswordState
     public let codeDeliveryDetails: UserCodeDeliveryDetails?
     
-    internal init(forgotPasswordState: ForgotPasswordState, codeDeliveryDetails: UserCodeDeliveryDetails?) {
+    public init(forgotPasswordState: ForgotPasswordState, codeDeliveryDetails: UserCodeDeliveryDetails?) {
         self.forgotPasswordState = forgotPasswordState
         self.codeDeliveryDetails = codeDeliveryDetails
     }

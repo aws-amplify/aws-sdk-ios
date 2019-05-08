@@ -239,7 +239,7 @@ extension AWSMobileClient {
         return UserPoolOperationsHandler.sharedInstance
     }
     
-    internal var userPoolClient: AWSCognitoIdentityUserPool? {
+    public var userPoolClient: AWSCognitoIdentityUserPool? {
         return self.userpoolOpsHelper.userpoolClient
     }
     
