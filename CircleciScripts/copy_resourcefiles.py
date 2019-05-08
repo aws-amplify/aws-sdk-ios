@@ -6,7 +6,6 @@ from shutil import copyfile
 root = sys.argv[1]
 dest = sys.argv[2]
 files = {
-"LICENSE.AMAZON":"LICENSE.AMAZON",
 "LICENSE":"LICENSE",
 "LICENSE.APACHE":"LICENSE.APACHE",
 "NOTICE":"NOTICE",
