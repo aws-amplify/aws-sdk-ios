@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.7 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.8 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -141,6 +141,10 @@
 		<option value="//api/name/getLayerVersion:">- getLayerVersion:</option>
 		
 		<option value="//api/name/getLayerVersion:completionHandler:">- getLayerVersion:completionHandler:</option>
+		
+		<option value="//api/name/getLayerVersionByArn:">- getLayerVersionByArn:</option>
+		
+		<option value="//api/name/getLayerVersionByArn:completionHandler:">- getLayerVersionByArn:completionHandler:</option>
 		
 		<option value="//api/name/getLayerVersionPolicy:">- getLayerVersionPolicy:</option>
 		
@@ -2995,6 +2999,148 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getLayerVersionByArn:" title="getLayerVersionByArn:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLayerVersionByArn:">&ndash;&nbsp;getLayerVersionByArn:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLambdaGetLayerVersionResponse*&gt; *)getLayerVersionByArn:(AWSLambdaGetLayerVersionByArnRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetLayerVersionByArn service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaGetLayerVersionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorResourceNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetLayerVersionByArnRequest.html">AWSLambdaGetLayerVersionByArnRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetLayerVersionResponse.html">AWSLambdaGetLayerVersionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getLayerVersionByArn:completionHandler:" title="getLayerVersionByArn:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLayerVersionByArn:completionHandler:">&ndash;&nbsp;getLayerVersionByArn:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getLayerVersionByArn:(AWSLambdaGetLayerVersionByArnRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLambdaGetLayerVersionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetLayerVersionByArn service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorResourceNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetLayerVersionByArnRequest.html">AWSLambdaGetLayerVersionByArnRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetLayerVersionResponse.html">AWSLambdaGetLayerVersionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getLayerVersionPolicy:" title="getLayerVersionPolicy:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getLayerVersionPolicy:">&ndash;&nbsp;getLayerVersionPolicy:</a></code>
 </h3>
@@ -3296,6 +3442,9 @@
 <p>For synchronous invocation, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html">execution log</a> and <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">trace</a>. To record function errors for asynchronous invocations, configure your function with a <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">dead letter queue</a>.</p>
 
 
+<p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html">Retry Behavior</a>.</p>
+
+
 <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limit errors</a>, or issues with your function's code and configuration. For example, Lambda returns <code>TooManyRequestsException</code> if executing the function would cause you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p>
 
 
@@ -3376,6 +3525,9 @@
 
 
 <p>For synchronous invocation, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html">execution log</a> and <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">trace</a>. To record function errors for asynchronous invocations, configure your function with a <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">dead letter queue</a>.</p>
+
+
+<p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html">Retry Behavior</a>.</p>
 
 
 <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limit errors</a>, or issues with your function's code and configuration. For example, Lambda returns <code>TooManyRequestsException</code> if executing the function would cause you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p>
@@ -6032,7 +6184,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Modify the version-specifc settings of a Lambda function.</p>
+				<p>Modify the version-specific settings of a Lambda function.</p>
 
 
 <p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p>
@@ -6108,7 +6260,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Modify the version-specifc settings of a Lambda function.</p>
+				<p>Modify the version-specific settings of a Lambda function.</p>
 
 
 <p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p>
@@ -6189,7 +6341,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-25</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-05-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

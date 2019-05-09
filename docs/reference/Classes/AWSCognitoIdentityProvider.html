@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.7 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.8 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -161,6 +161,10 @@
 		<option value="//api/name/adminSetUserMFAPreference:">- adminSetUserMFAPreference:</option>
 		
 		<option value="//api/name/adminSetUserMFAPreference:completionHandler:">- adminSetUserMFAPreference:completionHandler:</option>
+		
+		<option value="//api/name/adminSetUserPassword:">- adminSetUserPassword:</option>
+		
+		<option value="//api/name/adminSetUserPassword:completionHandler:">- adminSetUserPassword:completionHandler:</option>
 		
 		<option value="//api/name/adminSetUserSettings:">- adminSetUserSettings:</option>
 		
@@ -4015,6 +4019,146 @@
 					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse.html">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/adminSetUserPassword:" title="adminSetUserPassword:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/adminSetUserPassword:">&ndash;&nbsp;adminSetUserPassword:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>AdminSetUserPassword</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityProviderAdminSetUserPasswordResponse*&gt; *)adminSetUserPassword:(AWSCognitoIdentityProviderAdminSetUserPasswordRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the AdminSetUserPassword service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityProviderAdminSetUserPasswordResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInvalidPassword</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminSetUserPasswordRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordResponse.html">AWSCognitoIdentityProviderAdminSetUserPasswordResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/adminSetUserPassword:completionHandler:" title="adminSetUserPassword:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/adminSetUserPassword:completionHandler:">&ndash;&nbsp;adminSetUserPassword:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>AdminSetUserPassword</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)adminSetUserPassword:(AWSCognitoIdentityProviderAdminSetUserPasswordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminSetUserPasswordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the AdminSetUserPassword service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityProviderErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorInvalidPassword</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminSetUserPasswordRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordResponse.html">AWSCognitoIdentityProviderAdminSetUserPasswordResponse</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -15251,7 +15395,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-04-25</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-05-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
