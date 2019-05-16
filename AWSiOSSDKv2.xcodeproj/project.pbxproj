@@ -507,7 +507,7 @@
 		CE0D42A61C6A673E006B91B5 /* AWSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D42181C6A673E006B91B5 /* AWSModel.m */; };
 		CE0D42A71C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D42191C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D42A81C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D421A1C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.m */; };
-		CE0D42A91C6A673E006B91B5 /* AWSXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D421C1C6A673E006B91B5 /* AWSXMLDictionary.h */; };
+		CE0D42A91C6A673E006B91B5 /* AWSXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D421C1C6A673E006B91B5 /* AWSXMLDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D42AA1C6A673E006B91B5 /* AWSXMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D421D1C6A673E006B91B5 /* AWSXMLDictionary.m */; };
 		CE0D42AD1C6A673E006B91B5 /* AWSXMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D42211C6A673E006B91B5 /* AWSXMLWriter.h */; };
 		CE0D42AE1C6A673E006B91B5 /* AWSXMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D42221C6A673E006B91B5 /* AWSXMLWriter.m */; };
