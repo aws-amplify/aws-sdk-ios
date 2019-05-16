@@ -12,7 +12,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+AWSCognitoIdentityProvider.h"
 #import "AWSCognitoIdentityProviderModel.h"
-#import <AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF>
+#import <AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.h>
 
 static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 
