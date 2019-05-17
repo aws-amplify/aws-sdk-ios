@@ -83,6 +83,10 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
     return self;
 }
 
+- (void)dealloc {
+    [self.networkManager finishTasksAndInvalidate];
+}
+
 - (AWSTask *)sendRequest:(AWSNetworkingRequest *)request {
     return [self.networkManager dataTaskWithRequest:request];
 }

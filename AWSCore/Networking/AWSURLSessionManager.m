@@ -135,6 +135,10 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     return delegate.taskCompletionSource.task;
 }
 
+- (void)finishTasksAndInvalidate {
+    [self.session finishTasksAndInvalidate];
+};
+
 - (void)taskWithDelegate:(AWSURLSessionManagerDelegate *)delegate {
     if (delegate.downloadingFileURL) delegate.shouldWriteToFile = YES;
     delegate.responseData = nil;

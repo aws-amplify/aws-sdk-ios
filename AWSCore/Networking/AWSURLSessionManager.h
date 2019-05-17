@@ -24,4 +24,6 @@
 
 - (AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request;
 
+- (void)finishTasksAndInvalidate;
+
 @end
