@@ -7118,6 +7118,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dhcpOptionsIds" : @"DhcpOptionsIds",
              @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -7132,6 +7134,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dhcpOptions" : @"DhcpOptions",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -11525,6 +11528,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              @"subnetIds" : @"SubnetIds",
              };
 }
@@ -11539,6 +11544,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"NextToken",
              @"subnets" : @"Subnets",
              };
 }
@@ -36306,6 +36312,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"serviceName" : @"ServiceName",
              @"serviceState" : @"ServiceState",
              @"serviceType" : @"ServiceType",
+             @"tags" : @"Tags",
              };
 }
 
@@ -36349,6 +36356,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ServiceTypeDetail class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
 @end
 
 @implementation AWSEC2ServiceDetail
@@ -36361,14 +36372,20 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"managesVpcEndpoints" : @"ManagesVpcEndpoints",
              @"owner" : @"Owner",
              @"privateDnsName" : @"PrivateDnsName",
+             @"serviceId" : @"ServiceId",
              @"serviceName" : @"ServiceName",
              @"serviceType" : @"ServiceType",
+             @"tags" : @"Tags",
              @"vpcEndpointPolicySupported" : @"VpcEndpointPolicySupported",
              };
 }
 
 + (NSValueTransformer *)serviceTypeJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ServiceTypeDetail class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -42558,6 +42575,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"serviceName" : @"ServiceName",
              @"state" : @"State",
              @"subnetIds" : @"SubnetIds",
+             @"tags" : @"Tags",
              @"vpcEndpointId" : @"VpcEndpointId",
              @"vpcEndpointType" : @"VpcEndpointType",
              @"vpcId" : @"VpcId",
@@ -42629,6 +42647,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 + (NSValueTransformer *)vpcEndpointTypeJSONTransformer {
