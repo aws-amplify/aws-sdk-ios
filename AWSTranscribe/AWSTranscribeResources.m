@@ -382,7 +382,9 @@
         \"fr-FR\",\
         \"it-IT\",\
         \"ko-KR\",\
-        \"es-ES\"\
+        \"es-ES\",\
+        \"en-IN\",\
+        \"hi-IN\"\
       ]\
     },\
     \"LimitExceededException\":{\
