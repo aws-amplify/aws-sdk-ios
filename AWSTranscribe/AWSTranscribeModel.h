@@ -43,6 +43,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
     AWSTranscribeLanguageCodeItIT,
     AWSTranscribeLanguageCodeKoKR,
     AWSTranscribeLanguageCodeEsES,
+    AWSTranscribeLanguageCodeEnIN,
+    AWSTranscribeLanguageCodeHiIN,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
