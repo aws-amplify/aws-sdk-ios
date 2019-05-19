@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = 'Amazon Cognito Identity Provider enables sign up and authentication of your end users'
 
   s.homepage     = 'http://aws.amazon.com/mobile/sdk'
-  s.license      = 'Apache License, Version 2.0'
+  s.license      = 'Amazon Software License'
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
   s.platform     = :ios, '8.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
