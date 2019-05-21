@@ -5,7 +5,12 @@
 ### Misc. Updates
 
 * Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Comprehend
+  * Amazon EC2
   * Amazon Security Token Service (STS)
+  * Amazon Transcribe
+  * AWS Lambda
 
 ## 2.9.8
 
