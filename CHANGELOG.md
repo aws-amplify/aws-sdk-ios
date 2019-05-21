@@ -1,5 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.9
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Security Token Service (STS)
+
 ## 2.9.8
 
 ### Misc. Updates
