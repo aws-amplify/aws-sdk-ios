@@ -39,3 +39,6 @@ Scripts/build.sh
 Scripts/gcovr
 Scripts/jenkins.py
 Scripts/ocunit2junit
+__pycache__/
+awsconfiguration.json
+credentials-mc.json

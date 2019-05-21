@@ -784,7 +784,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comparisonOperator" : @"comparisonOperator",
+             @"consecutiveDatapointsToAlarm" : @"consecutiveDatapointsToAlarm",
+             @"consecutiveDatapointsToClear" : @"consecutiveDatapointsToClear",
              @"durationSeconds" : @"durationSeconds",
+             @"statisticalThreshold" : @"statisticalThreshold",
              @"value" : @"value",
              };
 }
@@ -838,6 +841,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)statisticalThresholdJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTStatisticalThreshold class]];
 }
 
 + (NSValueTransformer *)valueJSONTransformer {
@@ -1573,6 +1580,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"files" : @"files",
              @"otaUpdateId" : @"otaUpdateId",
              @"roleArn" : @"roleArn",
+             @"tags" : @"tags",
              @"targetSelection" : @"targetSelection",
              @"targets" : @"targets",
              };
@@ -1584,6 +1592,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)filesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTOTAUpdateFile class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
 }
 
 + (NSValueTransformer *)targetSelectionJSONTransformer {
@@ -1734,6 +1746,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"dayOfWeek" : @"dayOfWeek",
              @"frequency" : @"frequency",
              @"scheduledAuditName" : @"scheduledAuditName",
+             @"tags" : @"tags",
              @"targetCheckNames" : @"targetCheckNames",
              };
 }
@@ -1815,6 +1828,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
+}
+
 @end
 
 @implementation AWSIoTCreateScheduledAuditResponse
@@ -1831,6 +1848,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"securityProfileDescription" : @"securityProfileDescription",
@@ -1876,11 +1894,16 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"files" : @"files",
              @"roleArn" : @"roleArn",
              @"streamId" : @"streamId",
+             @"tags" : @"tags",
              };
 }
 
 + (NSValueTransformer *)filesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTStreamFile class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTTag class]];
 }
 
 @end
@@ -2914,6 +2937,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"creationDate" : @"creationDate",
@@ -3684,6 +3708,33 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"registrationCode" : @"registrationCode",
              };
+}
+
+@end
+
+@implementation AWSIoTGetStatisticsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"indexName" : @"indexName",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetStatisticsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"statistics" : @"statistics",
+             };
+}
+
++ (NSValueTransformer *)statisticsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTStatistics class]];
 }
 
 @end
@@ -7075,6 +7126,26 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTStatisticalThreshold
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"statistic" : @"statistic",
+             };
+}
+
+@end
+
+@implementation AWSIoTStatistics
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"count" : @"count",
+             };
+}
+
+@end
+
 @implementation AWSIoTStepFunctionsAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -8141,8 +8212,12 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
+             @"deleteAdditionalMetricsToRetain" : @"deleteAdditionalMetricsToRetain",
+             @"deleteAlertTargets" : @"deleteAlertTargets",
+             @"deleteBehaviors" : @"deleteBehaviors",
              @"expectedVersion" : @"expectedVersion",
              @"securityProfileDescription" : @"securityProfileDescription",
              @"securityProfileName" : @"securityProfileName",
@@ -8167,6 +8242,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalMetricsToRetain" : @"additionalMetricsToRetain",
              @"alertTargets" : @"alertTargets",
              @"behaviors" : @"behaviors",
              @"creationDate" : @"creationDate",

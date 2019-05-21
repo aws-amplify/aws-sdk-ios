@@ -45,7 +45,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         lwt.qos = AWSIoTMQTTQoS.messageDeliveryAttemptedAtLeastOnce
 
         let mqttConfig = AWSIoTMQTTConfiguration.init(keepAliveTimeInterval: 30.0,
-                                                      baseReconnectTimeInterval: 1.0, minimumConnectionTimeInterval: 20, maximumReconnectTimeInterval: 8, runLoop: RunLoop.current , runLoopMode: RunLoopMode.defaultRunLoopMode.rawValue, autoResubscribe: true, lastWillAndTestament: lwt)
+                                                      baseReconnectTimeInterval: 1.0, minimumConnectionTimeInterval: 20, maximumReconnectTimeInterval: 8, runLoop: RunLoop.current , runLoopMode: RunLoop.Mode.default.rawValue, autoResubscribe: true, lastWillAndTestament: lwt)
 
         //Setup iOT Manager for Broker 1
         let iotConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1 ,
@@ -65,7 +65,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         //Setup iOT Data Manager for Broker 1
         let endpoint1 = AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint")
         XCTAssert(endpoint1 != nil, "Could not fetch the iot endpoint from the config file.")
-        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1,
+        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USWest2,
                 endpoint: AWSEndpoint(urlString: endpoint1!),
                 credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
         AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker1")
@@ -174,6 +174,16 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
     
     func testConnectAndDisconnectWithCert() {
+        connectAndDisconnectWithCert(useALPN: false)
+    }
+    
+    func testConnectAndDisconnectWithCertUsingALPN() {
+        if #available(iOS 11, *) {
+            connectAndDisconnectWithCert(useALPN: true)
+        }
+    }
+    
+    func connectAndDisconnectWithCert(useALPN: Bool) {
         var connected = false
         let hasConnected = self.expectation(description: "MQTT connection has been established")
         var disconnectIssued = false
@@ -214,15 +224,29 @@ class AWSIoTDataManagerTests: XCTestCase {
         }
         
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
+        let userMetaData: [String: String] = ["Key1": "value1", "key2": "value2", "key3":"value3"]
+        iotDataManager.updateUserMetaData(userMetaData)
+        
         let uuid = UUID().uuidString
         print("Calling Connect")
         let defaults = UserDefaults.standard
         let certificateID:String? = defaults.string(forKey: "TestCertBroker1")
         
-        iotDataManager.connect(withClientId: uuid,
+        if (useALPN ) {
+            if #available(iOS 11, *) {
+                iotDataManager.connectUsingALPN(withClientId: uuid,
+                                                cleanSession: true,
+                                                certificateId: certificateID!,
+                                                statusCallback: mqttEventCallback)
+            }
+        }
+        else {
+            iotDataManager.connect(withClientId: uuid,
                                cleanSession: true,
                               certificateId: certificateID!,
                              statusCallback: mqttEventCallback)
+        }
+        
         print("Connect call completed")
         
         wait(for:[hasConnected], timeout: 30)
@@ -288,6 +312,16 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
     
     func testDoubleConnectAndDisconnectWithCert() {
+        doubleConnectAndDisconnectWithCert(useALPN: false)
+    }
+   
+    func testDoubleConnectAndDisconnectWithCertUsingAPLN() {
+        if #available(iOS 11, *) {
+            doubleConnectAndDisconnectWithCert(useALPN: true)
+        }
+    }
+    
+    func doubleConnectAndDisconnectWithCert(useALPN:Bool) {
         var connected = false
         let hasConnected = self.expectation(description: "MQTT connection has been established")
         let hasDisconnected = self.expectation(description: "Disconnected")
@@ -331,6 +365,22 @@ class AWSIoTDataManagerTests: XCTestCase {
         print("Calling Connect")
         let defaults = UserDefaults.standard
         let certificateID:String? = defaults.string(forKey: "TestCertBroker1")
+        
+        
+        if (useALPN ) {
+            if #available(iOS 11, *) {
+                iotDataManager.connectUsingALPN(withClientId: uuid,
+                                                cleanSession: true,
+                                                certificateId: certificateID!,
+                                                statusCallback: mqttEventCallback)
+            }
+        }
+        else {
+            iotDataManager.connect(withClientId: uuid,
+                                   cleanSession: true,
+                                   certificateId: certificateID!,
+                                   statusCallback: mqttEventCallback)
+        }
         
         iotDataManager.connect( withClientId: uuid, cleanSession:true, certificateId:certificateID!, statusCallback: mqttEventCallback)
         print("Connect call completed")
@@ -623,7 +673,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
         let uuid = UUID().uuidString
         print("Calling Connect")
-        
+
+        let userMetaData: [String: String] = ["Key1": "value1", "key2": "value2", "key3":"value3"]
+        iotDataManager.updateUserMetaData(userMetaData)
         iotDataManager.connectUsingWebSocket(withClientId: uuid, cleanSession: true, statusCallback: mqttEventCallback)
         print("Connect call completed")
         
@@ -639,6 +691,16 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
     
     func testPublishSubscribeWithCert() {
+        publishSubscribeWithCert(useALPN: false)
+    }
+    
+    func testPublishSubscribeWithCertUsingALPN() {
+        if #available(iOS 11, *) {
+            publishSubscribeWithCert(useALPN: true)
+        }
+    }
+    
+    func publishSubscribeWithCert(useALPN:Bool) {
         var messageCount = 0
         var connected = false
         let hasConnected = self.expectation(description: "MQTT connection has been established")
@@ -686,7 +748,20 @@ class AWSIoTDataManagerTests: XCTestCase {
         let defaults = UserDefaults.standard
         let certificateID:String? = defaults.string(forKey: "TestCertBroker1")
         
-        iotDataManager.connect( withClientId: uuid, cleanSession:true, certificateId:certificateID!, statusCallback: mqttEventCallback)
+        if (useALPN ) {
+            if #available(iOS 11, *) {
+                iotDataManager.connectUsingALPN(withClientId: uuid,
+                                                cleanSession: true,
+                                                certificateId: certificateID!,
+                                                statusCallback: mqttEventCallback)
+            }
+        }
+        else {
+            iotDataManager.connect(withClientId: uuid,
+                                   cleanSession: true,
+                                   certificateId: certificateID!,
+                                   statusCallback: mqttEventCallback)
+        }
         print("Connect call completed")
         
         wait(for:[hasConnected], timeout: 30)
@@ -1209,16 +1284,18 @@ class AWSIoTDataManagerTests: XCTestCase {
         }
         
         // Use the MQTT broker from the `endpoint1`
-        let iotDataManager: AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-custom-auth")
+        let iotDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-custom-auth")
         let uuid = UUID().uuidString
         
-        let connectedWS: Bool = iotDataManager.connectUsingWebSocket(withClientId: uuid,
-                                                                     cleanSession: true,
-                                                                     customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
-                                                                     tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
-                                                                     tokenValue: "Deny",
-                                                                     tokenSignature: "Deny",
-                                                                     statusCallback: mqttEventCallback)
+        let connectedWS = iotDataManager.connectUsingWebSocket(withClientId: uuid,
+                                                               cleanSession: true,
+                                                               customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
+                                                               tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
+                                                               tokenValue: "Deny",
+                                                               tokenSignature: "Deny",
+                                                               statusCallback: mqttEventCallback)
+
+        XCTAssert(connectedWS)
         print("Calling connect completed. Waiting for 30 seconds to see if the connection errors out.")
         
         wait(for:[hasConnectionError], timeout: 30)
@@ -1385,9 +1462,6 @@ class AWSIoTDataManagerTests: XCTestCase {
             connected = false
             let uuid = UUID().uuidString
             print("Calling Connect using Custom Auth.")
-            
-            let tokenValue: String? = "allow"
-            let tokenSignature: String? = tokenValue?.data(using: .utf8)?.base64EncodedString()
             
             connected = iotDataManager.connectUsingWebSocket(withClientId: uuid,
                                                              cleanSession: true,

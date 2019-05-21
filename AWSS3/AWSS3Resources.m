@@ -1297,7 +1297,8 @@
         \"eu-central-1\",\
         \"ca-central-1\",\
         \"us-gov-east-1\",\
-        \"eu-north-1\"\
+        \"eu-north-1\",\
+        \"ap-east-1\"\
       ]\
     },\
     \"BucketLoggingStatus\":{\

@@ -207,7 +207,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Attaches the specified principal to the specified thing.</p>\"\
+      \"documentation\":\"<p>Attaches the specified principal to the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>\"\
     },\
     \"CancelAuditTask\":{\
       \"name\":\"CancelAuditTask\",\
@@ -547,7 +547,7 @@
         {\"shape\":\"ResourceAlreadyExistsException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Creates a thing record in the registry.</p> <note> <p>This is a control plane operation. See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\\\">Authorization</a> for information about authorizing control plane actions.</p> </note>\"\
+      \"documentation\":\"<p>Creates a thing record in the registry. If this call is made multiple times using the same thing name and configuration, the call will succeed. If this call is made with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.</p> <note> <p>This is a control plane operation. See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\\\">Authorization</a> for information about authorizing control plane actions.</p> </note>\"\
     },\
     \"CreateThingGroup\":{\
       \"name\":\"CreateThingGroup\",\
@@ -563,7 +563,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\\\">Authorization</a> for information about authorizing control plane actions.</p> </note>\"\
+      \"documentation\":\"<p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html\\\">Authorization</a> for information about authorizing control plane actions.</p> </note>\"\
     },\
     \"CreateThingType\":{\
       \"name\":\"CreateThingType\",\
@@ -1383,7 +1383,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Detaches the specified principal from the specified thing.</p> <note> <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p> </note>\"\
+      \"documentation\":\"<p>Detaches the specified principal from the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p> <note> <p>This call is asynchronous. It might take several seconds for the detachment to propagate.</p> </note>\"\
     },\
     \"DisableTopicRule\":{\
       \"name\":\"DisableTopicRule\",\
@@ -1554,6 +1554,27 @@
         {\"shape\":\"InvalidRequestException\"}\
       ],\
       \"documentation\":\"<p>Gets a registration code used to register a CA certificate with AWS IoT.</p>\"\
+    },\
+    \"GetStatistics\":{\
+      \"name\":\"GetStatistics\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/indices/statistics\"\
+      },\
+      \"input\":{\"shape\":\"GetStatisticsRequest\"},\
+      \"output\":{\"shape\":\"GetStatisticsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidQueryException\"},\
+        {\"shape\":\"InvalidAggregationException\"},\
+        {\"shape\":\"IndexNotReadyException\"}\
+      ],\
+      \"documentation\":\"<p>Gets statistics about things that match the specified query.</p>\"\
     },\
     \"GetTopicRule\":{\
       \"name\":\"GetTopicRule\",\
@@ -1904,7 +1925,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\\\"http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\\\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>\",\
+      \"documentation\":\"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\\\"https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\\\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>\",\
       \"deprecated\":true\
     },\
     \"ListPrincipalThings\":{\
@@ -1923,7 +1944,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Lists the things associated with the specified principal.</p>\"\
+      \"documentation\":\"<p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>\"\
     },\
     \"ListRoleAliases\":{\
       \"name\":\"ListRoleAliases\",\
@@ -2102,7 +2123,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Lists the principals associated with the specified thing.</p>\"\
+      \"documentation\":\"<p>Lists the principals associated with the specified thing. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities.</p>\"\
     },\
     \"ListThingRegistrationTaskReports\":{\
       \"name\":\"ListThingRegistrationTaskReports\",\
@@ -3153,10 +3174,18 @@
       \"members\":{\
       }\
     },\
+    \"AdditionalMetricsToRetainList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"BehaviorMetric\"}\
+    },\
     \"AdditionalParameterMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"AttributeKey\"},\
       \"value\":{\"shape\":\"Value\"}\
+    },\
+    \"AggregationField\":{\
+      \"type\":\"string\",\
+      \"min\":1\
     },\
     \"AlarmName\":{\"type\":\"string\"},\
     \"AlertTarget\":{\
@@ -3751,7 +3780,7 @@
       \"members\":{\
         \"comparisonOperator\":{\
           \"shape\":\"ComparisonOperator\",\
-          \"documentation\":\"<p>The operator that relates the thing measured (<code>metric</code>) to the criteria (<code>value</code>).</p>\"\
+          \"documentation\":\"<p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>\"\
         },\
         \"value\":{\
           \"shape\":\"MetricValue\",\
@@ -3759,7 +3788,19 @@
         },\
         \"durationSeconds\":{\
           \"shape\":\"DurationSeconds\",\
-          \"documentation\":\"<p>Use this to specify the period of time over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).</p>\"\
+          \"documentation\":\"<p>Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.</p>\"\
+        },\
+        \"consecutiveDatapointsToAlarm\":{\
+          \"shape\":\"ConsecutiveDatapointsToAlarm\",\
+          \"documentation\":\"<p>If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.</p>\"\
+        },\
+        \"consecutiveDatapointsToClear\":{\
+          \"shape\":\"ConsecutiveDatapointsToClear\",\
+          \"documentation\":\"<p>If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.</p>\"\
+        },\
+        \"statisticalThreshold\":{\
+          \"shape\":\"StatisticalThreshold\",\
+          \"documentation\":\"<p>A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The criteria by which the behavior is determined to be normal.</p>\"\
@@ -4269,11 +4310,11 @@
         },\
         \"metricUnit\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The <a href=\\\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\\\">metric unit</a> supported by CloudWatch.</p>\"\
+          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit\\\">metric unit</a> supported by CloudWatch.</p>\"\
         },\
         \"metricTimestamp\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>An optional <a href=\\\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\\\">Unix timestamp</a>.</p>\"\
+          \"documentation\":\"<p>An optional <a href=\\\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp\\\">Unix timestamp</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action that captures a CloudWatch metric.</p>\"\
@@ -4364,6 +4405,16 @@
       \"exception\":true\
     },\
     \"ConnectivityTimestamp\":{\"type\":\"long\"},\
+    \"ConsecutiveDatapointsToAlarm\":{\
+      \"type\":\"integer\",\
+      \"max\":10,\
+      \"min\":1\
+    },\
+    \"ConsecutiveDatapointsToClear\":{\
+      \"type\":\"integer\",\
+      \"max\":10,\
+      \"min\":1\
+    },\
     \"Count\":{\"type\":\"integer\"},\
     \"CreateAuthorizerRequest\":{\
       \"type\":\"structure\",\
@@ -4506,7 +4557,7 @@
         },\
         \"queryString\":{\
           \"shape\":\"QueryString\",\
-          \"documentation\":\"<p>The dynamic thing group search query string.</p> <p>See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\\\">Query Syntax</a> for information about query string syntax.</p>\"\
+          \"documentation\":\"<p>The dynamic thing group search query string.</p> <p>See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html\\\">Query Syntax</a> for information about query string syntax.</p>\"\
         },\
         \"queryVersion\":{\
           \"shape\":\"QueryVersion\",\
@@ -4695,6 +4746,10 @@
         \"additionalParameters\":{\
           \"shape\":\"AdditionalParameterMap\",\
           \"documentation\":\"<p>A list of additional OTA update parameters which are name-value pairs.</p>\"\
+        },\
+        \"tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Metadata which can be used to manage updates.</p>\"\
         }\
       }\
     },\
@@ -4873,6 +4928,10 @@
           \"shape\":\"TargetAuditCheckNames\",\
           \"documentation\":\"<p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>\"\
         },\
+        \"tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Metadata which can be used to manage the scheduled audit.</p>\"\
+        },\
         \"scheduledAuditName\":{\
           \"shape\":\"ScheduledAuditName\",\
           \"documentation\":\"<p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>\",\
@@ -4892,10 +4951,7 @@
     },\
     \"CreateSecurityProfileRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"securityProfileName\",\
-        \"behaviors\"\
-      ],\
+      \"required\":[\"securityProfileName\"],\
       \"members\":{\
         \"securityProfileName\":{\
           \"shape\":\"SecurityProfileName\",\
@@ -4914,6 +4970,10 @@
         \"alertTargets\":{\
           \"shape\":\"AlertTargets\",\
           \"documentation\":\"<p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the console.) Alerts are generated when a device (thing) violates a behavior.</p>\"\
+        },\
+        \"additionalMetricsToRetain\":{\
+          \"shape\":\"AdditionalMetricsToRetainList\",\
+          \"documentation\":\"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code> but it is also retained for any metric specified here.</p>\"\
         },\
         \"tags\":{\
           \"shape\":\"TagList\",\
@@ -4959,6 +5019,10 @@
         \"roleArn\":{\
           \"shape\":\"RoleArn\",\
           \"documentation\":\"<p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>\"\
+        },\
+        \"tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Metadata which can be used to manage streams.</p>\"\
         }\
       }\
     },\
@@ -5199,6 +5263,8 @@
       \"members\":{\
       }\
     },\
+    \"DeleteAdditionalMetricsToRetain\":{\"type\":\"boolean\"},\
+    \"DeleteAlertTargets\":{\"type\":\"boolean\"},\
     \"DeleteAuthorizerRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"authorizerName\"],\
@@ -5216,6 +5282,7 @@
       \"members\":{\
       }\
     },\
+    \"DeleteBehaviors\":{\"type\":\"boolean\"},\
     \"DeleteBillingGroupRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"billingGroupName\"],\
@@ -5914,7 +5981,7 @@
         },\
         \"schema\":{\
           \"shape\":\"IndexSchema\",\
-          \"documentation\":\"<p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ul> <li> <p>REGISTRY â Your thing index will contain only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index will contain registry data and shadow data.</p> </li> <li> <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index will contain registry data and thing connectivity status data.</p> </li> <li> <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index will contain registry data, shadow data, and thing connectivity status data.</p> </li> </ul>\"\
+          \"documentation\":\"<p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ul> <li> <p>REGISTRY â Your thing index contains only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry data and shadow data.</p> </li> <li> <p>REGISTRY_AND_CONNECTIVITY_STATUS - Your thing index contains registry data and thing connectivity status data.</p> </li> <li> <p>REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index contains registry data, shadow data, and thing connectivity status data.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -6075,6 +6142,10 @@
         \"alertTargets\":{\
           \"shape\":\"AlertTargets\",\
           \"documentation\":\"<p>Where the alerts are sent. (Alerts are always sent to the console.)</p>\"\
+        },\
+        \"additionalMetricsToRetain\":{\
+          \"shape\":\"AdditionalMetricsToRetainList\",\
+          \"documentation\":\"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code> but it is also retained for any metric specified here.</p>\"\
         },\
         \"version\":{\
           \"shape\":\"Version\",\
@@ -6644,6 +6715,10 @@
       \"type\":\"string\",\
       \"max\":2048\
     },\
+    \"EvaluationStatistic\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"(p0|p0\\\\.1|p0\\\\.01|p1|p10|p50|p90|p99|p99\\\\.9|p99\\\\.99|p100)\"\
+    },\
     \"EventConfigurations\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"EventType\"},\
@@ -6997,6 +7072,37 @@
       },\
       \"documentation\":\"<p>The output from the GetRegistrationCode operation.</p>\"\
     },\
+    \"GetStatisticsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"queryString\"],\
+      \"members\":{\
+        \"indexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>\"\
+        },\
+        \"queryString\":{\
+          \"shape\":\"QueryString\",\
+          \"documentation\":\"<p>The query used to search. You can specify \\\"*\\\" for the query string to get the count of all indexed things in your AWS account.</p>\"\
+        },\
+        \"aggregationField\":{\
+          \"shape\":\"AggregationField\",\
+          \"documentation\":\"<p>The aggregation field name. Currently not supported.</p>\"\
+        },\
+        \"queryVersion\":{\
+          \"shape\":\"QueryVersion\",\
+          \"documentation\":\"<p>The version of the query used to search.</p>\"\
+        }\
+      }\
+    },\
+    \"GetStatisticsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"statistics\":{\
+          \"shape\":\"Statistics\",\
+          \"documentation\":\"<p>The statistics returned by the Fleet Indexing service based on the query and aggregation field.</p>\"\
+        }\
+      }\
+    },\
     \"GetTopicRuleRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ruleName\"],\
@@ -7144,6 +7250,15 @@
       \"exception\":true,\
       \"fault\":true\
     },\
+    \"InvalidAggregationException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>The aggregation is invalid.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
     \"InvalidQueryException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -7288,15 +7403,15 @@
         },\
         \"createdAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was created.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job was created.</p>\"\
         },\
         \"lastUpdatedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was last updated.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job was last updated.</p>\"\
         },\
         \"completedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was completed.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job was completed.</p>\"\
         },\
         \"jobProcessDetails\":{\
           \"shape\":\"JobProcessDetails\",\
@@ -7349,15 +7464,15 @@
         },\
         \"queuedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was queued.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job execution was queued.</p>\"\
         },\
         \"startedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution started.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job execution started.</p>\"\
         },\
         \"lastUpdatedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job execution was last updated.</p>\"\
         },\
         \"executionNumber\":{\
           \"shape\":\"ExecutionNumber\",\
@@ -7415,15 +7530,15 @@
         },\
         \"queuedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was queued.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job execution was queued.</p>\"\
         },\
         \"startedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution started.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job execution started.</p>\"\
         },\
         \"lastUpdatedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job execution was last updated.</p>\"\
         },\
         \"executionNumber\":{\
           \"shape\":\"ExecutionNumber\",\
@@ -7564,15 +7679,15 @@
         },\
         \"createdAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was created.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job was created.</p>\"\
         },\
         \"lastUpdatedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was last updated.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job was last updated.</p>\"\
         },\
         \"completedAt\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job completed.</p>\"\
+          \"documentation\":\"<p>The time, in seconds since the epoch, when the job completed.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The job summary.</p>\"\
@@ -8056,7 +8171,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -8077,7 +8192,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -9878,7 +9993,7 @@
         },\
         \"setAsActive\":{\
           \"shape\":\"SetAsActiveFlag\",\
-          \"documentation\":\"<p>A boolean value that specifies if the CA certificate is set to active.</p>\",\
+          \"documentation\":\"<p>A boolean value that specifies if the certificate is set to active.</p>\",\
           \"deprecated\":true,\
           \"location\":\"querystring\",\
           \"locationName\":\"setAsActive\"\
@@ -9910,11 +10025,11 @@
       \"members\":{\
         \"templateBody\":{\
           \"shape\":\"TemplateBody\",\
-          \"documentation\":\"<p>The provisioning template. See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\\\">Programmatic Provisioning</a> for more information.</p>\"\
+          \"documentation\":\"<p>The provisioning template. See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\\\">Programmatic Provisioning</a> for more information.</p>\"\
         },\
         \"parameters\":{\
           \"shape\":\"Parameters\",\
-          \"documentation\":\"<p>The parameters for provisioning a thing. See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\\\">Programmatic Provisioning</a> for more information.</p>\"\
+          \"documentation\":\"<p>The parameters for provisioning a thing. See <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\\\">Programmatic Provisioning</a> for more information.</p>\"\
         }\
       }\
     },\
@@ -10302,7 +10417,7 @@
         },\
         \"cannedAcl\":{\
           \"shape\":\"CannedAccessControlList\",\
-          \"documentation\":\"<p>The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\\\">S3 canned ACLs</a>.</p>\"\
+          \"documentation\":\"<p>The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href=\\\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl\\\">S3 canned ACLs</a>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action to write data to an Amazon S3 bucket.</p>\"\
@@ -10435,7 +10550,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\"\
         },\
         \"maxResults\":{\
           \"shape\":\"QueryMaxResults\",\
@@ -10452,7 +10567,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\"\
         },\
         \"things\":{\
           \"shape\":\"ThingDocumentList\",\
@@ -10688,7 +10803,7 @@
         },\
         \"messageFormat\":{\
           \"shape\":\"MessageFormat\",\
-          \"documentation\":\"<p>(Optional) The message format of the message to publish. Accepted values are \\\"JSON\\\" and \\\"RAW\\\". The default value of the attribute is \\\"RAW\\\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\\\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\\\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>\"\
+          \"documentation\":\"<p>(Optional) The message format of the message to publish. Accepted values are \\\"JSON\\\" and \\\"RAW\\\". The default value of the attribute is \\\"RAW\\\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\\\"https://docs.aws.amazon.com/sns/latest/dg/json-formats.html\\\">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action to publish to an Amazon SNS topic.</p>\"\
@@ -10803,6 +10918,26 @@
     \"StateMachineName\":{\"type\":\"string\"},\
     \"StateReason\":{\"type\":\"string\"},\
     \"StateValue\":{\"type\":\"string\"},\
+    \"StatisticalThreshold\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"statistic\":{\
+          \"shape\":\"EvaluationStatistic\",\
+          \"documentation\":\"<p>The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>\"\
+    },\
+    \"Statistics\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"count\":{\
+          \"shape\":\"Count\",\
+          \"documentation\":\"<p>The count of things that match the query.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A map of key-value pairs for all supported statistics. Currently, only count is supported.</p>\"\
+    },\
     \"Status\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -11209,11 +11344,11 @@
       \"members\":{\
         \"connected\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>True if the thing is connected to the AWS IoT service, false if it is not connected.</p>\"\
+          \"documentation\":\"<p>True if the thing is connected to the AWS IoT service; false if it is not connected.</p>\"\
         },\
         \"timestamp\":{\
           \"shape\":\"ConnectivityTimestamp\",\
-          \"documentation\":\"<p>The epoch time (in milliseconds) when the thing last connected or disconnected. Note that if the thing has been disconnected for more than a few weeks, the time value can be missing.</p>\"\
+          \"documentation\":\"<p>The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The connectivity status of the thing.</p>\"\
@@ -11254,7 +11389,7 @@
         },\
         \"connectivity\":{\
           \"shape\":\"ThingConnectivity\",\
-          \"documentation\":\"<p>Indicates whether or not the thing is connected to the AWS IoT service.</p>\"\
+          \"documentation\":\"<p>Indicates whether the thing is connected to the AWS IoT service.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The thing search index document.</p>\"\
@@ -11380,11 +11515,11 @@
       \"members\":{\
         \"thingIndexingMode\":{\
           \"shape\":\"ThingIndexingMode\",\
-          \"documentation\":\"<p>Thing indexing mode. Valid values are:</p> <ul> <li> <p>REGISTRY â Your thing index will contain only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</p> </li> <li> <p>OFF - Thing indexing is disabled.</p> </li> </ul>\"\
+          \"documentation\":\"<p>Thing indexing mode. Valid values are:</p> <ul> <li> <p>REGISTRY â Your thing index contains registry data only.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p> </li> <li> <p>OFF - Thing indexing is disabled.</p> </li> </ul>\"\
         },\
         \"thingConnectivityIndexingMode\":{\
           \"shape\":\"ThingConnectivityIndexingMode\",\
-          \"documentation\":\"<p>Thing connectivity indexing mode. Valid values are: </p> <ul> <li> <p>STATUS â Your thing index will contain connectivity status. In order to enable thing connectivity indexing, thingIndexMode must not be set to OFF.</p> </li> <li> <p>OFF - Thing connectivity status indexing is disabled.</p> </li> </ul>\"\
+          \"documentation\":\"<p>Thing connectivity indexing mode. Valid values are: </p> <ul> <li> <p>STATUS â Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.</p> </li> <li> <p>OFF - Thing connectivity status indexing is disabled.</p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>The thing indexing configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html\\\">Managing Thing Indexing</a>.</p>\"\
@@ -11598,7 +11733,7 @@
       \"members\":{\
         \"sql\":{\
           \"shape\":\"SQL\",\
-          \"documentation\":\"<p>The SQL statement used to query the topic. For more information, see <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference\\\">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>\"\
+          \"documentation\":\"<p>The SQL statement used to query the topic. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference\\\">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>\"\
         },\
         \"description\":{\
           \"shape\":\"Description\",\
@@ -12100,6 +12235,22 @@
           \"shape\":\"AlertTargets\",\
           \"documentation\":\"<p>Where the alerts are sent. (Alerts are always sent to the console.)</p>\"\
         },\
+        \"additionalMetricsToRetain\":{\
+          \"shape\":\"AdditionalMetricsToRetainList\",\
+          \"documentation\":\"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code> but it is also retained for any metric specified here.</p>\"\
+        },\
+        \"deleteBehaviors\":{\
+          \"shape\":\"DeleteBehaviors\",\
+          \"documentation\":\"<p>If true, delete all <code>behaviors</code> defined for this security profile. If any <code>behaviors</code> are defined in the current invocation an exception occurs.</p>\"\
+        },\
+        \"deleteAlertTargets\":{\
+          \"shape\":\"DeleteAlertTargets\",\
+          \"documentation\":\"<p>If true, delete all <code>alertTargets</code> defined for this security profile. If any <code>alertTargets</code> are defined in the current invocation an exception occurs.</p>\"\
+        },\
+        \"deleteAdditionalMetricsToRetain\":{\
+          \"shape\":\"DeleteAdditionalMetricsToRetain\",\
+          \"documentation\":\"<p>If true, delete all <code>additionalMetricsToRetain</code> defined for this security profile. If any <code>additionalMetricsToRetain</code> are defined in the current invocation an exception occurs.</p>\"\
+        },\
         \"expectedVersion\":{\
           \"shape\":\"OptionalVersion\",\
           \"documentation\":\"<p>The expected version of the security profile. A new version is generated whenever the security profile is updated. If you specify a value that is different than the actual version, a <code>VersionConflictException</code> is thrown.</p>\",\
@@ -12130,6 +12281,10 @@
         \"alertTargets\":{\
           \"shape\":\"AlertTargets\",\
           \"documentation\":\"<p>Where the alerts are sent. (Alerts are always sent to the console.)</p>\"\
+        },\
+        \"additionalMetricsToRetain\":{\
+          \"shape\":\"AdditionalMetricsToRetainList\",\
+          \"documentation\":\"<p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the security profile's <code>behaviors</code> but it is also retained for any metric specified here.</p>\"\
         },\
         \"version\":{\
           \"shape\":\"Version\",\
@@ -12406,7 +12561,7 @@
     \"resourceArn\":{\"type\":\"string\"},\
     \"resourceId\":{\"type\":\"string\"}\
   },\
-  \"documentation\":\"<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\\\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for AWS IoT, see <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\\\">Authorizing Direct Calls to AWS Services</a>.</p>\"\
+  \"documentation\":\"<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\\\">Developer Guide</a>.</p> <p>For information about how to use the credentials provider for AWS IoT, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html\\\">Authorizing Direct Calls to AWS Services</a>.</p>\"\
 }\
 ";
 }

@@ -26,7 +26,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.9.1";
+NSString *const AWSIoTSDKVersion = @"2.9.8";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -48,6 +48,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IndexNotReadyException" : @(AWSIoTErrorIndexNotReady),
                             @"InternalException" : @(AWSIoTErrorInternal),
                             @"InternalFailureException" : @(AWSIoTErrorInternalFailure),
+                            @"InvalidAggregationException" : @(AWSIoTErrorInvalidAggregation),
                             @"InvalidQueryException" : @(AWSIoTErrorInvalidQuery),
                             @"InvalidRequestException" : @(AWSIoTErrorInvalidRequest),
                             @"InvalidResponseException" : @(AWSIoTErrorInvalidResponse),
@@ -2254,6 +2255,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTGetRegistrationCodeResponse *response, NSError *error))completionHandler {
     [[self getRegistrationCode:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetRegistrationCodeResponse *> * _Nonnull task) {
         AWSIoTGetRegistrationCodeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetStatisticsResponse *> *)getStatistics:(AWSIoTGetStatisticsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/indices/statistics"
+                  targetPrefix:@""
+                 operationName:@"GetStatistics"
+                   outputClass:[AWSIoTGetStatisticsResponse class]];
+}
+
+- (void)getStatistics:(AWSIoTGetStatisticsRequest *)request
+     completionHandler:(void (^)(AWSIoTGetStatisticsResponse *response, NSError *error))completionHandler {
+    [[self getStatistics:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetStatisticsResponse *> * _Nonnull task) {
+        AWSIoTGetStatisticsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

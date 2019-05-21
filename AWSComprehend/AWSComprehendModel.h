@@ -24,16 +24,20 @@ FOUNDATION_EXPORT NSString *const AWSComprehendErrorDomain;
 typedef NS_ENUM(NSInteger, AWSComprehendErrorType) {
     AWSComprehendErrorUnknown,
     AWSComprehendErrorBatchSizeLimitExceeded,
+    AWSComprehendErrorConcurrentModification,
     AWSComprehendErrorInternalServer,
     AWSComprehendErrorInvalidFilter,
     AWSComprehendErrorInvalidRequest,
     AWSComprehendErrorJobNotFound,
+    AWSComprehendErrorKmsKeyValidation,
     AWSComprehendErrorResourceInUse,
     AWSComprehendErrorResourceLimitExceeded,
     AWSComprehendErrorResourceNotFound,
     AWSComprehendErrorResourceUnavailable,
     AWSComprehendErrorTextSizeLimitExceeded,
     AWSComprehendErrorTooManyRequests,
+    AWSComprehendErrorTooManyTagKeys,
+    AWSComprehendErrorTooManyTags,
     AWSComprehendErrorUnsupportedLanguage,
 };
 
@@ -183,6 +187,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDocumentClassificationJobProperties;
 @class AWSComprehendDocumentClassifierFilter;
 @class AWSComprehendDocumentClassifierInputDataConfig;
+@class AWSComprehendDocumentClassifierOutputDataConfig;
 @class AWSComprehendDocumentClassifierProperties;
 @class AWSComprehendDominantLanguage;
 @class AWSComprehendDominantLanguageDetectionJobFilter;
@@ -218,6 +223,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListKeyPhrasesDetectionJobsResponse;
 @class AWSComprehendListSentimentDetectionJobsRequest;
 @class AWSComprehendListSentimentDetectionJobsResponse;
+@class AWSComprehendListTagsForResourceRequest;
+@class AWSComprehendListTagsForResourceResponse;
 @class AWSComprehendListTopicsDetectionJobsRequest;
 @class AWSComprehendListTopicsDetectionJobsResponse;
 @class AWSComprehendOutputDataConfig;
@@ -250,8 +257,13 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStopTrainingEntityRecognizerRequest;
 @class AWSComprehendStopTrainingEntityRecognizerResponse;
 @class AWSComprehendSyntaxToken;
+@class AWSComprehendTag;
+@class AWSComprehendTagResourceRequest;
+@class AWSComprehendTagResourceResponse;
 @class AWSComprehendTopicsDetectionJobFilter;
 @class AWSComprehendTopicsDetectionJobProperties;
+@class AWSComprehendUntagResourceRequest;
+@class AWSComprehendUntagResourceResponse;
 
 /**
  <p>The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.</p>
@@ -633,6 +645,21 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
+/**
+ <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>Tags to be associated with the document classifier being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -678,6 +705,16 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable recognizerName;
+
+/**
+ <p>Tags to be associated with the entity recognizer being created. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -1183,6 +1220,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) NSDate * _Nullable submitTime;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -1217,6 +1259,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p><p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
+
+/**
+ <p>Provides output results configuration parameters for custom classifier jobs. </p>
+ */
+@interface AWSComprehendDocumentClassifierOutputDataConfig : AWSModel
+
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>KMS Key Alias: <code>"alias/ExampleAlias"</code></p></li><li><p>ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>When you use the <code>OutputDataConfig</code> object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.</p><p>When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the confusion matrix.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
@@ -1264,6 +1324,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
+ <p> Provides output results configuration parameters for custom classifier jobs.</p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
+
+/**
  <p>The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
  */
 @property (nonatomic, assign) AWSComprehendModelStatus status;
@@ -1282,6 +1347,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Indicates the time when the training starts on documentation classifiers. You are billed for the time interval between this time and the value of TrainingEndTime. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable trainingStartTime;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -1382,6 +1452,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) NSDate * _Nullable submitTime;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -1472,6 +1547,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The time that the entities detection job was submitted for processing.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable submitTime;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -1727,6 +1807,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) NSDate * _Nullable trainingStartTime;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -1873,6 +1958,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The time that the key phrases detection job was submitted for processing.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable submitTime;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -2166,6 +2256,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendListTopicsDetectionJobsRequest : AWSRequest
 
 
@@ -2210,6 +2331,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendOutputDataConfig : AWSModel
 
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job. The KmsKeyId can be one of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>KMS Key Alias: <code>"alias/ExampleAlias"</code></p></li><li><p>ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
  <p>When you use the <code>OutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. The URI must be in the same region as the API endpoint that you are calling. The location is used as the prefix for the actual location of the output file.</p><p>When the topic detection job is finished, the service creates an output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the ouput of the operation.</p>
@@ -2320,6 +2446,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) NSDate * _Nullable submitTime;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -2386,6 +2517,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -2436,6 +2572,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Specifies where to send the output files.</p>
  */
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -2498,6 +2639,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -2553,6 +2699,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Specifies where to send the output files.</p>
  */
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -2610,6 +2761,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
 @end
 
 /**
@@ -2665,6 +2821,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Specifies where to send the output files. The output is a compressed archive with two files, <code>topic-terms.csv</code> that lists the terms associated with each topic, and <code>doc-topics.csv</code> that lists the documents associated with each topic</p>
  */
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
 
 @end
 
@@ -2886,6 +3047,51 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
+ <p>A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department. </p>
+ Required parameters: [Key]
+ */
+@interface AWSComprehendTag : AWSModel
+
+
+/**
+ <p>The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.” </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p> The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the given Amazon Comprehend resource to which you want to associate the tags. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>Tags being associated with a specific Amazon Comprehend resource. There can be a maximum of 50 tags (both existing and pending) associated with a specific resource. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>Provides information for filtering topic detection jobs. For more information, see .</p>
  */
 @interface AWSComprehendTopicsDetectionJobFilter : AWSModel
@@ -2918,6 +3124,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendTopicsDetectionJobProperties : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that grants Amazon Comprehend read access to your job data. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
  <p>The time that the topic detection job was completed.</p>
@@ -2963,6 +3174,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The time that the topic detection job was submitted for processing.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable submitTime;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendUntagResourceRequest : AWSRequest
+
+
+/**
+ <p> The Amazon Resource Name (ARN) of the given Amazon Comprehend resource from which you want to remove the tags. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The initial part of a key-value pair that forms a tag being removed from a given resource. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. Keys must be unique and cannot be duplicated for a particular resource. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendUntagResourceResponse : AWSModel
+
 
 @end
 

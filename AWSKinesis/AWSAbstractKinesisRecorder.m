@@ -86,7 +86,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
         // Creates a database for the identifier if it doesn't exist.
         AWSDDLogDebug(@"Database path: [%@]", _databasePath);
-        _databaseQueue = [AWSFMDatabaseQueue databaseQueueWithPath:_databasePath];
+        _databaseQueue = [AWSFMDatabaseQueue serialDatabaseQueueWithPath:_databasePath];
         [_databaseQueue inDatabase:^(AWSFMDatabase *db) {
             if (![db executeStatements:@"PRAGMA auto_vacuum = FULL"]) {
                 AWSDDLogError(@"Failed to enable 'auto_vacuum' to 'FULL'. %@", db.lastError);

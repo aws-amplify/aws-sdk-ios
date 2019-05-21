@@ -14,8 +14,8 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
-        <key>CFBundleShortVersionString</key>
-        <string>2.9.1</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.9.8</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSPrincipalClass</key>

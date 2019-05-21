@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -36,6 +37,16 @@
                BlueprintIdentifier = "17CD4AA3218241AD00953483"
                BuildableName = "AWSMobileClientTests.xctest"
                BlueprintName = "AWSMobileClientTests"
+               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "177B8AE521E81B7D0051068F"
+               BuildableName = "AWSAuthSDKTestAppUITests.xctest"
+               BlueprintName = "AWSAuthSDKTestAppUITests"
                ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
