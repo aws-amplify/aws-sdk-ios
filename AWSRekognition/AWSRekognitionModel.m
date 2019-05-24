@@ -1147,6 +1147,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"jobStatus" : @"JobStatus",
              @"moderationLabels" : @"ModerationLabels",
+             @"moderationModelVersion" : @"ModerationModelVersion",
              @"nextToken" : @"NextToken",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",

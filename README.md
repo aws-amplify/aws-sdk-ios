@@ -102,7 +102,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 2. Add the following to your `Cartfile`:
 
-        github "aws/aws-sdk-ios"
+        github "aws-amplify/aws-sdk-ios"
 
 3. Then run the following command:
     
@@ -172,7 +172,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
     * `AWSSNS.framework`
     * `AWSSQS.framework`
 
-4. Under the **Buid Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
+4. Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
 
         Shell /bin/sh
         
