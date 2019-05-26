@@ -2145,7 +2145,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcPeeringConnectionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The only supported connection type is <code>ipsec.1</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types are <code>ipsec.1</code> and <code>ipsec.2</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpnConnection service method.
 
@@ -2157,7 +2157,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpnConnectionResult *> *)createVpnConnection:(AWSEC2CreateVpnConnectionRequest *)request;
 
 /**
- <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The only supported connection type is <code>ipsec.1</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types are <code>ipsec.1</code> and <code>ipsec.2</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpnConnection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5645,6 +5645,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)detachVpnGateway:(AWSEC2DetachVpnGatewayRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disables default encryption for EBS volumes that are created in your account in the current region.</p><p>Call this API if you have enabled default encryption using <a>EnableEbsEncryptionByDefault</a> and want to disable default EBS encryption. Once default EBS encryption is disabled, you can still create an encrypted volume by setting <i>encrypted</i> to <i>true</i> in the API call that creates the volume. </p><p>Disabling default EBS encryption will not change the encryption status of any of your existing volumes.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisableEbsEncryptionByDefaultResult`.
+ 
+ @see AWSEC2DisableEbsEncryptionByDefaultRequest
+ @see AWSEC2DisableEbsEncryptionByDefaultResult
+ */
+- (AWSTask<AWSEC2DisableEbsEncryptionByDefaultResult *> *)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request;
+
+/**
+ <p>Disables default encryption for EBS volumes that are created in your account in the current region.</p><p>Call this API if you have enabled default encryption using <a>EnableEbsEncryptionByDefault</a> and want to disable default EBS encryption. Once default EBS encryption is disabled, you can still create an encrypted volume by setting <i>encrypted</i> to <i>true</i> in the API call that creates the volume. </p><p>Disabling default EBS encryption will not change the encryption status of any of your existing volumes.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableEbsEncryptionByDefault service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisableEbsEncryptionByDefaultRequest
+ @see AWSEC2DisableEbsEncryptionByDefaultResult
+ */
+- (void)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisableEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disables the specified resource attachment from propagating routes to the specified propagation route table.</p>
  
  @param request A container for the necessary parameters to execute the DisableTransitGatewayRouteTablePropagation service method.
@@ -5911,6 +5936,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateVpcCidrBlock:(AWSEC2DisassociateVpcCidrBlockRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateVpcCidrBlockResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Enables default encryption for EBS volumes that are created in your account in the current region.</p><p>Once encryption is enabled with this action, EBS volumes that are created in your account will always be encrypted even if encryption is not specified at launch. This setting overrides the <i>encrypted</i> setting to <i>true</i> in all API calls that create EBS volumes in your account. A volume will be encrypted even if you specify <i>encryption</i> to be <i>false</i> in the API call that creates the volume.</p><p>If you do not specify a customer master key (CMK) in the API call that creates the EBS volume, then the volume is encrypted to your AWS account's default CMK.</p><p>You can specify a default CMK of your choice using <a>ModifyEbsDefaultKmsKeyId</a>.</p><p>Enabling default encryption for EBS volumes has no effect on existing unencrypted volumes in your account. Encrypting the data in these requires manual action. You can either create an encrypted snapshot of an unencrypted volume, or encrypt a copy of an unencrypted snapshot. Any volume restored from an encrypted snapshot is also encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS Snapshots</a>.</p><p>Once EBS encryption by default is enabled, you can no longer launch older-generation instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableEbsEncryptionByDefault service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2EnableEbsEncryptionByDefaultResult`.
+ 
+ @see AWSEC2EnableEbsEncryptionByDefaultRequest
+ @see AWSEC2EnableEbsEncryptionByDefaultResult
+ */
+- (AWSTask<AWSEC2EnableEbsEncryptionByDefaultResult *> *)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request;
+
+/**
+ <p>Enables default encryption for EBS volumes that are created in your account in the current region.</p><p>Once encryption is enabled with this action, EBS volumes that are created in your account will always be encrypted even if encryption is not specified at launch. This setting overrides the <i>encrypted</i> setting to <i>true</i> in all API calls that create EBS volumes in your account. A volume will be encrypted even if you specify <i>encryption</i> to be <i>false</i> in the API call that creates the volume.</p><p>If you do not specify a customer master key (CMK) in the API call that creates the EBS volume, then the volume is encrypted to your AWS account's default CMK.</p><p>You can specify a default CMK of your choice using <a>ModifyEbsDefaultKmsKeyId</a>.</p><p>Enabling default encryption for EBS volumes has no effect on existing unencrypted volumes in your account. Encrypting the data in these requires manual action. You can either create an encrypted snapshot of an unencrypted volume, or encrypt a copy of an unencrypted snapshot. Any volume restored from an encrypted snapshot is also encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon EBS Snapshots</a>.</p><p>Once EBS encryption by default is enabled, you can no longer launch older-generation instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableEbsEncryptionByDefault service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2EnableEbsEncryptionByDefaultRequest
+ @see AWSEC2EnableEbsEncryptionByDefaultResult
+ */
+- (void)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2EnableEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Enables the specified attachment to propagate routes to the specified propagation route table.</p>
  
  @param request A container for the necessary parameters to execute the EnableTransitGatewayRouteTablePropagation service method.
@@ -6153,6 +6203,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2GetConsoleScreenshotResult
  */
 - (void)getConsoleScreenshot:(AWSEC2GetConsoleScreenshotRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetConsoleScreenshotResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the default customer master key (CMK) that your account uses to encrypt EBS volumes if you don’t specify a CMK in the API call. You can change this default using <a>ModifyEbsDefaultKmsKeyId</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetEbsDefaultKmsKeyId service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetEbsDefaultKmsKeyIdResult`.
+ 
+ @see AWSEC2GetEbsDefaultKmsKeyIdRequest
+ @see AWSEC2GetEbsDefaultKmsKeyIdResult
+ */
+- (AWSTask<AWSEC2GetEbsDefaultKmsKeyIdResult *> *)getEbsDefaultKmsKeyId:(AWSEC2GetEbsDefaultKmsKeyIdRequest *)request;
+
+/**
+ <p>Describes the default customer master key (CMK) that your account uses to encrypt EBS volumes if you don’t specify a CMK in the API call. You can change this default using <a>ModifyEbsDefaultKmsKeyId</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetEbsDefaultKmsKeyId service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetEbsDefaultKmsKeyIdRequest
+ @see AWSEC2GetEbsDefaultKmsKeyIdResult
+ */
+- (void)getEbsDefaultKmsKeyId:(AWSEC2GetEbsDefaultKmsKeyIdRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetEbsDefaultKmsKeyIdResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes whether default EBS encryption is enabled for your account in the current region.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetEbsEncryptionByDefault service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetEbsEncryptionByDefaultResult`.
+ 
+ @see AWSEC2GetEbsEncryptionByDefaultRequest
+ @see AWSEC2GetEbsEncryptionByDefaultResult
+ */
+- (AWSTask<AWSEC2GetEbsEncryptionByDefaultResult *> *)getEbsEncryptionByDefault:(AWSEC2GetEbsEncryptionByDefaultRequest *)request;
+
+/**
+ <p>Describes whether default EBS encryption is enabled for your account in the current region.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetEbsEncryptionByDefault service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetEbsEncryptionByDefaultRequest
+ @see AWSEC2GetEbsEncryptionByDefaultResult
+ */
+- (void)getEbsEncryptionByDefault:(AWSEC2GetEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Preview a reservation purchase with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation.</p><p>This is a preview of the <a>PurchaseHostReservation</a> action and does not result in the offering being purchased.</p>
@@ -6530,6 +6630,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyClientVpnEndpoint:(AWSEC2ModifyClientVpnEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyClientVpnEndpointResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Changes the default customer master key (CMK) that your account uses to encrypt EBS volumes if you don’t specify a CMK in the API call.</p><p>Your account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume. By calling this API, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.</p><p>Note: Deleting or disabling the custom CMK that you have specified to act as your default CMK will result in instance-launch failures.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyEbsDefaultKmsKeyIdResult`.
+ 
+ @see AWSEC2ModifyEbsDefaultKmsKeyIdRequest
+ @see AWSEC2ModifyEbsDefaultKmsKeyIdResult
+ */
+- (AWSTask<AWSEC2ModifyEbsDefaultKmsKeyIdResult *> *)modifyEbsDefaultKmsKeyId:(AWSEC2ModifyEbsDefaultKmsKeyIdRequest *)request;
+
+/**
+ <p>Changes the default customer master key (CMK) that your account uses to encrypt EBS volumes if you don’t specify a CMK in the API call.</p><p>Your account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume. By calling this API, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.</p><p>Note: Deleting or disabling the custom CMK that you have specified to act as your default CMK will result in instance-launch failures.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyEbsDefaultKmsKeyId service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyEbsDefaultKmsKeyIdRequest
+ @see AWSEC2ModifyEbsDefaultKmsKeyIdResult
+ */
+- (void)modifyEbsDefaultKmsKeyId:(AWSEC2ModifyEbsDefaultKmsKeyIdRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyEbsDefaultKmsKeyIdResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modifies the specified EC2 Fleet.</p><p>While the EC2 Fleet is being modified, it is in the <code>modifying</code> state.</p>
  
  @param request A container for the necessary parameters to execute the ModifyFleet service method.
@@ -6887,7 +7012,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifySnapshotAttribute:(AWSEC2ModifySnapshotAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the specified Spot Fleet request.</p><p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p><p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot pools.</p><p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p><p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>
+ <p>Modifies the specified Spot Fleet request.</p><p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p><p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p><p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot pools.</p><p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p><p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>
  
  @param request A container for the necessary parameters to execute the ModifySpotFleetRequest service method.
 
@@ -6899,7 +7024,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifySpotFleetRequestResponse *> *)modifySpotFleetRequest:(AWSEC2ModifySpotFleetRequestRequest *)request;
 
 /**
- <p>Modifies the specified Spot Fleet request.</p><p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p><p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot pools.</p><p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p><p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>
+ <p>Modifies the specified Spot Fleet request.</p><p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p><p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p><p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot pools.</p><p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p><p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>
  
  @param request A container for the necessary parameters to execute the ModifySpotFleetRequest service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7736,6 +7861,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2RequestSpotInstancesResult
  */
 - (void)requestSpotInstances:(AWSEC2RequestSpotInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RequestSpotInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Resets the account's default customer master key (CMK) to the account's AWS-managed default CMK. This default CMK is used to encrypt EBS volumes when you have enabled EBS encryption by default without specifying a CMK in the API call. If you have not enabled encryption by default, then this CMK is used when you set the <code>Encrypted</code> parameter to true without specifying a custom CMK in the API call.</p><p>Call this API if you have modified the default CMK that is used for encrypting your EBS volume using <a>ModifyEbsDefaultKmsKeyId</a> and you want to reset it to the AWS-managed default CMK. After resetting, you can continue to provide a CMK of your choice in the API call that creates the volume. However, if no CMK is specified, your account will encrypt the volume to the AWS-managed default CMK.</p>
+ 
+ @param request A container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ResetEbsDefaultKmsKeyIdResult`.
+ 
+ @see AWSEC2ResetEbsDefaultKmsKeyIdRequest
+ @see AWSEC2ResetEbsDefaultKmsKeyIdResult
+ */
+- (AWSTask<AWSEC2ResetEbsDefaultKmsKeyIdResult *> *)resetEbsDefaultKmsKeyId:(AWSEC2ResetEbsDefaultKmsKeyIdRequest *)request;
+
+/**
+ <p>Resets the account's default customer master key (CMK) to the account's AWS-managed default CMK. This default CMK is used to encrypt EBS volumes when you have enabled EBS encryption by default without specifying a CMK in the API call. If you have not enabled encryption by default, then this CMK is used when you set the <code>Encrypted</code> parameter to true without specifying a custom CMK in the API call.</p><p>Call this API if you have modified the default CMK that is used for encrypting your EBS volume using <a>ModifyEbsDefaultKmsKeyId</a> and you want to reset it to the AWS-managed default CMK. After resetting, you can continue to provide a CMK of your choice in the API call that creates the volume. However, if no CMK is specified, your account will encrypt the volume to the AWS-managed default CMK.</p>
+ 
+ @param request A container for the necessary parameters to execute the ResetEbsDefaultKmsKeyId service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ResetEbsDefaultKmsKeyIdRequest
+ @see AWSEC2ResetEbsDefaultKmsKeyIdResult
+ */
+- (void)resetEbsDefaultKmsKeyId:(AWSEC2ResetEbsDefaultKmsKeyIdRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ResetEbsDefaultKmsKeyIdResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default value. You can only reset the load permission attribute.</p>
