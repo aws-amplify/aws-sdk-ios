@@ -507,6 +507,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientToken" : @"ClientToken",
              @"clientVpnEndpointId" : @"ClientVpnEndpointId",
              @"dryRun" : @"DryRun",
              @"subnetId" : @"SubnetId",
@@ -893,6 +894,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"accessGroupId" : @"AccessGroupId",
              @"authorizeAllGroups" : @"AuthorizeAllGroups",
+             @"clientToken" : @"ClientToken",
              @"clientVpnEndpointId" : @"ClientVpnEndpointId",
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
@@ -2975,6 +2977,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientToken" : @"ClientToken",
              @"clientVpnEndpointId" : @"ClientVpnEndpointId",
              @"detail" : @"Description",
              @"destinationCidrBlock" : @"DestinationCidrBlock",
@@ -12433,6 +12436,26 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DisableEbsEncryptionByDefaultRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2DisableEbsEncryptionByDefaultResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ebsEncryptionByDefault" : @"EbsEncryptionByDefault",
+             };
+}
+
+@end
+
 @implementation AWSEC2DisableTransitGatewayRouteTablePropagationRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -13052,6 +13075,26 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     } reverseBlock:^id(NSDate *date) {
 return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
+}
+
+@end
+
+@implementation AWSEC2EnableEbsEncryptionByDefaultRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2EnableEbsEncryptionByDefaultResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ebsEncryptionByDefault" : @"EbsEncryptionByDefault",
+             };
 }
 
 @end
@@ -15980,6 +16023,46 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"imageData" : @"ImageData",
              @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetEbsDefaultKmsKeyIdRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetEbsDefaultKmsKeyIdResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"kmsKeyId" : @"KmsKeyId",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetEbsEncryptionByDefaultRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetEbsEncryptionByDefaultResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ebsEncryptionByDefault" : @"EbsEncryptionByDefault",
              };
 }
 
@@ -24159,6 +24242,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"returned" : @"Return",
+             };
+}
+
+@end
+
+@implementation AWSEC2ModifyEbsDefaultKmsKeyIdRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"kmsKeyId" : @"KmsKeyId",
+             };
+}
+
+@end
+
+@implementation AWSEC2ModifyEbsDefaultKmsKeyIdResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"kmsKeyId" : @"KmsKeyId",
              };
 }
 
@@ -33118,6 +33222,26 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSEC2ResetEbsDefaultKmsKeyIdRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2ResetEbsDefaultKmsKeyIdResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"kmsKeyId" : @"KmsKeyId",
+             };
 }
 
 @end
