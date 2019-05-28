@@ -39,8 +39,15 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
+            # The destination will be used for all builds and tests. Make sure
+            # the created simulator has the same device and OS type as those
+            # specified in "destination"
+            TEST_DEVICE_NAME="circleci-test-device"
+            echo "export TEST_DEVICE_NAME='$TEST_DEVICE_NAME'" >> $BASH_ENV
+            xcrun simctl create "${TEST_DEVICE_NAME}" "com.apple.CoreSimulator.SimDeviceType.iPhone-8" "com.apple.CoreSimulator.SimRuntime.iOS-12-1"
+
             destination="platform=iOS Simulator,name=iPhone 8,OS=12.1"
-            echo "export destination='platform=iOS Simulator,name=iPhone 8,OS=12.1'" >> $BASH_ENV
+            echo "export destination='$destination'" >> $BASH_ENV
 
             release_bucket=${S3_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
@@ -157,7 +164,7 @@ commands:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone X (12.1) [" -t "Blank" || true
+          command: xcrun simctl boot ${TEST_DEVICE_NAME}
   skip_test_job:
     description: >-
       check if the test job can be skipped
@@ -291,10 +298,10 @@ jobs:
       - pre_start_simulator
       - run:
           name: build sdk
-          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
+          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
       - run :
           name: run unit tests
-          command: bash CircleciScripts/run_unittests.sh "test_result"
+          command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
       - run:
           name : check unit test result
           command : bash CircleciScripts/check_test_result.sh  "test_result"
@@ -331,7 +338,6 @@ jobs:
       - run:
           name: create credentials
           command: |
-            echo "${destination}"
             aws s3 cp s3://ios-circleci-payload/credentials.json  AWSCoreTests/Resources/credentials.json
             aws s3 cp s3://ios-circleci-payload/awsconfiguration.json  AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
             aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
@@ -339,8 +345,8 @@ jobs:
       - run:
           name: build sdk
           command: |
-            xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination  "${destination}"   -derivedDataPath  ./build_result/AWSiOSSDKv2
-            xcodebuild  build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}"   -derivedDataPath  ./build_result/AWSAuthSDK
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
+            xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
       - save_cache:
           key: build_result-{{ .Revision }}
           paths:
@@ -443,7 +449,7 @@ jobs:
             echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
       - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone 8 (10.2) [" || true
+          command: xcrun simctl boot ${TEST_DEVICE_NAME}
       - run :
           name: run integration tests
           command: |
@@ -510,7 +516,7 @@ jobs:
       - run:
           name: build
           command: |
-            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.2' build
+            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination "${destination}" build
       - run:
           name: Build Carthage
           command: |
@@ -617,7 +623,7 @@ jobs:
             echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
             echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_PODFILE} | base64 --decode > Podfile
             pod install
-            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' test | tee $rootDirectory/raw_ui_test.log
+            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination "${destination}" test | tee $rootDirectory/raw_ui_test.log
             cd $rootDirectory
             rm -rf aws-sdk-ios-samples
       - store_artifacts:
