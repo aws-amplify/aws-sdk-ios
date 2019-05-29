@@ -39,14 +39,11 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
-            # The destination will be used for all builds and tests. Make sure
-            # the created simulator has the same device and OS type as those
-            # specified in "destination"
-            TEST_DEVICE_NAME="circleci-test-device"
-            echo "export TEST_DEVICE_NAME='$TEST_DEVICE_NAME'" >> $BASH_ENV
-            xcrun simctl create "${TEST_DEVICE_NAME}" "com.apple.CoreSimulator.SimDeviceType.iPhone-8" "com.apple.CoreSimulator.SimRuntime.iOS-12-1"
+            test_device_id=$(xcrun simctl create "circleci-test-device" "com.apple.CoreSimulator.SimDeviceType.iPhone-8" "com.apple.CoreSimulator.SimRuntime.iOS-12-1")
+            echo "export test_device_id='$test_device_id'" >> $BASH_ENV
 
-            destination="platform=iOS Simulator,name=iPhone 8,OS=12.1"
+            # destinationspecifier for xcodebuild commands
+            destination="platform=iOS Simulator,id=$test_device_id"
             echo "export destination='$destination'" >> $BASH_ENV
 
             release_bucket=${S3_RELEASE_BUCKET}
@@ -164,7 +161,7 @@ commands:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun simctl boot ${TEST_DEVICE_NAME}
+          command: xcrun simctl boot ${test_device_id}
   skip_test_job:
     description: >-
       check if the test job can be skipped
@@ -279,9 +276,8 @@ jobs:
       - run:
           name: build sdk
           command: |
-            echo "${destination}"
-            xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
-            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
+            xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
+            xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
   unittest:
     macos:
       xcode: "10.1.0"
@@ -298,13 +294,13 @@ jobs:
       - pre_start_simulator
       - run:
           name: build sdk
-          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
+          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
       - run :
           name: run unit tests
           command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
       - run:
           name : check unit test result
-          command : bash CircleciScripts/check_test_result.sh  "test_result"
+          command : bash CircleciScripts/check_test_result.sh "test_result"
       - store_artifacts:
           path: test_result
   pre_integrationtest:
@@ -449,7 +445,7 @@ jobs:
             echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
       - run:
           name: pre-start simulator
-          command: xcrun simctl boot ${TEST_DEVICE_NAME}
+          command: xcrun simctl boot ${test_device_id}
       - run :
           name: run integration tests
           command: |
