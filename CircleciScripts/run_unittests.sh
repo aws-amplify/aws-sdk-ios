@@ -2,8 +2,10 @@ export test_result="$1"
 export destination="$2"
 
 echo "test result folder: $test_result"
-echo "test device: $destination"
 mkdir -p "$test_result"
+
+echo "destination: $destination"
+
 bash CircleciScripts/run_unittest_bundle.sh AWSAPIGatewayUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSAutoScalingUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCloudWatchUnitTests
