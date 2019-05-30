@@ -334,7 +334,7 @@ jobs:
       - run:
           name: create credentials
           command: |
-            aws s3 cp s3://ios-circleci-payload/credentials.json  AWSCoreTests/Resources/credentials.json
+            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
             aws s3 cp s3://ios-circleci-payload/awsconfiguration.json  AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
             aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - pre_start_simulator
