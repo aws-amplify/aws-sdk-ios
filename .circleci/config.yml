@@ -602,7 +602,7 @@ jobs:
   run_ui_test:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "10.2.1"
     steps:
       - set_environment_variables
       - override_test_job
