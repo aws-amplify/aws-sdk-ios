@@ -39,13 +39,6 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
-            test_device_id=$(xcrun simctl create "circleci-test-device" "com.apple.CoreSimulator.SimDeviceType.iPhone-8" "com.apple.CoreSimulator.SimRuntime.iOS-12-1")
-            echo "export test_device_id='$test_device_id'" >> $BASH_ENV
-
-            # destinationspecifier for xcodebuild commands
-            destination="platform=iOS Simulator,id=$test_device_id"
-            echo "export destination='$destination'" >> $BASH_ENV
-
             release_bucket=${S3_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
 
@@ -149,7 +142,7 @@ commands:
       - run:
           name: install aws cli
           command: |
-            brew install awscli
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
           name: configure aws profile
           command: |
@@ -161,7 +154,8 @@ commands:
     steps:
       - run:
           name: pre-start simulator
-          command: xcrun simctl boot ${test_device_id}
+          command: |
+            bash CircleciScripts/pre_start_simulator.sh
   skip_test_job:
     description: >-
       check if the test job can be skipped
@@ -434,6 +428,7 @@ jobs:
       - early_return_for_forked_prs
       - checkout
       - skip_test_job
+      - pre_start_simulator
       - restore_cache:
           key: build_result-{{ .Revision }}
       - run:
@@ -443,9 +438,6 @@ jobs:
           name: create credentials
           command: |
             echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
-      - run:
-          name: pre-start simulator
-          command: xcrun simctl boot ${test_device_id}
       - run :
           name: run integration tests
           command: |
@@ -479,7 +471,7 @@ jobs:
       - update_brew
       - run:
           name: install github-release
-          command: brew install github-release
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
           name: release the tag
           command: |
@@ -497,11 +489,11 @@ jobs:
       - update_brew
       - run:
           name: install github-release
-          command: brew install github-release
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
           name: install aws cli
           command: |
-            brew install awscli
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
           name: download custom carthage
           command: |
@@ -610,6 +602,7 @@ jobs:
       - early_return_for_forked_prs
       - checkout
       - skip_test_job
+      - pre_start_simulator
       - run:
           name: Run Sample UI Test
           command: |
