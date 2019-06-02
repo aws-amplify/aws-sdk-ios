@@ -5078,6 +5078,58 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2CreateSnapshotsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"replicateTagsFromSource" : @"CopyTagsFromSource",
+             @"detail" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"instanceSpecification" : @"InstanceSpecification",
+             @"tagSpecifications" : @"TagSpecifications",
+             };
+}
+
++ (NSValueTransformer *)replicateTagsFromSourceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"volume"] == NSOrderedSame) {
+            return @(AWSEC2ReplicateTagsFromSourceVolume);
+        }
+        return @(AWSEC2ReplicateTagsFromSourceUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ReplicateTagsFromSourceVolume:
+                return @"volume";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instanceSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceSpecification class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2CreateSnapshotsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"snapshots" : @"Snapshots",
+             };
+}
+
++ (NSValueTransformer *)snapshotsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SnapshotInfo class]];
+}
+
+@end
+
 @implementation AWSEC2CreateSpotDatafeedSubscriptionRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -20343,6 +20395,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)associationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceNetworkInterfaceAssociation class]];
+}
+
+@end
+
+@implementation AWSEC2InstanceSpecification
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"excludeBootVolume" : @"ExcludeBootVolume",
+             @"instanceId" : @"InstanceId",
+             };
 }
 
 @end
@@ -36696,6 +36759,63 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)userBucketJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2UserBucket class]];
+}
+
+@end
+
+@implementation AWSEC2SnapshotInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"encrypted" : @"Encrypted",
+             @"ownerId" : @"OwnerId",
+             @"progress" : @"Progress",
+             @"snapshotId" : @"SnapshotId",
+             @"startTime" : @"StartTime",
+             @"state" : @"State",
+             @"tags" : @"Tags",
+             @"volumeId" : @"VolumeId",
+             @"volumeSize" : @"VolumeSize",
+             };
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"pending"] == NSOrderedSame) {
+            return @(AWSEC2SnapshotStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"completed"] == NSOrderedSame) {
+            return @(AWSEC2SnapshotStateCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"error"] == NSOrderedSame) {
+            return @(AWSEC2SnapshotStateError);
+        }
+        return @(AWSEC2SnapshotStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2SnapshotStatePending:
+                return @"pending";
+            case AWSEC2SnapshotStateCompleted:
+                return @"completed";
+            case AWSEC2SnapshotStateError:
+                return @"error";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
