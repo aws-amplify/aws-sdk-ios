@@ -384,7 +384,8 @@
         \"ko-KR\",\
         \"es-ES\",\
         \"en-IN\",\
-        \"hi-IN\"\
+        \"hi-IN\",\
+        \"ar-SA\"\
       ]\
     },\
     \"LimitExceededException\":{\
