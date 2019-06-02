@@ -263,6 +263,11 @@ typedef NS_ENUM(NSInteger, AWSEC2ConversionTaskState) {
     AWSEC2ConversionTaskStateCompleted,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ReplicateTagsFromSource) {
+    AWSEC2ReplicateTagsFromSourceUnknown,
+    AWSEC2ReplicateTagsFromSourceVolume,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2CurrencyCodeValues) {
     AWSEC2CurrencyCodeValuesUnknown,
     AWSEC2CurrencyCodeValuesUSD,
@@ -1594,6 +1599,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateSecurityGroupRequest;
 @class AWSEC2CreateSecurityGroupResult;
 @class AWSEC2CreateSnapshotRequest;
+@class AWSEC2CreateSnapshotsRequest;
+@class AWSEC2CreateSnapshotsResult;
 @class AWSEC2CreateSpotDatafeedSubscriptionRequest;
 @class AWSEC2CreateSpotDatafeedSubscriptionResult;
 @class AWSEC2CreateSubnetRequest;
@@ -2039,6 +2046,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2InstanceNetworkInterfaceAttachment;
 @class AWSEC2InstanceNetworkInterfaceSpecification;
 @class AWSEC2InstancePrivateIpAddress;
+@class AWSEC2InstanceSpecification;
 @class AWSEC2InstanceState;
 @class AWSEC2InstanceStateChange;
 @class AWSEC2InstanceStatus;
@@ -2293,6 +2301,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2Snapshot;
 @class AWSEC2SnapshotDetail;
 @class AWSEC2SnapshotDiskContainer;
+@class AWSEC2SnapshotInfo;
 @class AWSEC2SnapshotTaskDetail;
 @class AWSEC2SpotDatafeedSubscription;
 @class AWSEC2SpotFleetLaunchSpecification;
@@ -5124,7 +5133,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
 /**
- <p>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>The CMK identifier may be provided in any of the following formats: </p><ul><li><p>Key ID</p></li><li><p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>. </p></li><li><p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p></li></ul><p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified CMK must exist in the Region that the snapshot is being copied to. </p>
+ <p>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with "alias/". For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p><p>The specified CMK must exist in the Region that the snapshot is being copied to. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -6670,6 +6679,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2CreateSnapshotsRequest : AWSRequest
+
+
+/**
+ <p>Copies the tags from the specified instance to all snapshots.</p>
+ */
+@property (nonatomic, assign) AWSEC2ReplicateTagsFromSource replicateTagsFromSource;
+
+/**
+ <p> A description propagated to every snapshot specified by the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action without actually making the request. Provides an error response. If you have the required permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The instance to specify which volumes should be included in the snapshots.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceSpecification * _Nullable instanceSpecification;
+
+/**
+ <p>Tags to apply to every snapshot specified by the instance.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateSnapshotsResult : AWSModel
+
+
+/**
+ <p>List of snapshots.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2SnapshotInfo *> * _Nullable snapshots;
+
+@end
+
+/**
  <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
  Required parameters: [Bucket]
  */
@@ -7026,7 +7081,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Specifies the encryption state of the volume. The default effect of setting the <code>Encrypted</code> parameter to <code>true</code> through the console, API, or CLI depends on the volume's origin (new or from a snapshot), starting encryption state, ownership, and whether <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/account-level-encryption.html">account-level encryption</a> is enabled. Each default case can be overridden by specifying a customer master key (CMK) with the <code>KmsKeyId</code> parameter in addition to setting <code>Encrypted</code> to <code>true</code>. For a complete list of possible encryption cases, see <a href="AWSEC2/latest/UserGuide/EBSEncryption.htm">Amazon EBS Encryption</a>. </p><p>Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
+ <p>Specifies the encryption state of the volume. The default effect of setting the <code>Encrypted</code> parameter to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/account-level-encryption.html">account-level encryption</a> is enabled. Each default case can be overridden by specifying a customer master key (CMK) using the <code>KmsKeyId</code> parameter, in addition to setting <code>Encrypted</code> to <code>true</code>. For a complete list of possible encryption cases, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a>.</p><p>Encrypted Amazon EBS volumes may only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -7758,7 +7813,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more flow log IDs.</p>
+ <p>One or more flow log IDs.</p><p>Constraint: Maximum of 1000 flow log IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable flowLogIds;
 
@@ -9748,7 +9803,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filter;
 
 /**
- <p>One or more flow log IDs.</p>
+ <p>One or more flow log IDs.</p><p>Constraint: Maximum of 1000 flow log IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable flowLogIds;
 
@@ -17561,7 +17616,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p><p>Valide values: <code>interface</code> | <code>efa</code></p>
+ <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable interfaceType;
 
@@ -17627,6 +17682,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The private IPv4 address of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateIpAddress;
+
+@end
+
+/**
+ <p>The instance details to specify which volumes should be snapshotted.</p>
+ */
+@interface AWSEC2InstanceSpecification : AWSModel
+
+
+/**
+ <p>Excludes the root volume from being snapshotted.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable excludeBootVolume;
+
+/**
+ <p>The instance to specify which volumes should be snapshotted.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -18609,7 +18682,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>The type of networking interface.</p>
+ <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable interfaceType;
 
@@ -21899,7 +21972,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable enaSupport;
 
 /**
- <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+ <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageLocation;
 
@@ -25104,6 +25177,64 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The S3 bucket for the disk image.</p>
  */
 @property (nonatomic, strong) AWSEC2UserBucket * _Nullable userBucket;
+
+@end
+
+/**
+ <p>Object that contains information about a snapshot.</p>
+ */
+@interface AWSEC2SnapshotInfo : AWSModel
+
+
+/**
+ <p>Description specified by the CreateSnapshotRequest that has been applied to all snapshots.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Boolean that specifies whether or not this snapshot is encrypted.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable encrypted;
+
+/**
+ <p>Account id used when creating this snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>Progress this snapshot has made towards completing.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable progress;
+
+/**
+ <p>Snapshot id that can be used to describe this snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable snapshotId;
+
+/**
+ <p>Time this snapshot was started. This is the same for all snapshots initiated by the same request.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>Current state of the snapshot.</p>
+ */
+@property (nonatomic, assign) AWSEC2SnapshotState state;
+
+/**
+ <p>Tags associated with this snapshot.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>Source volume from which this snapshot was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable volumeId;
+
+/**
+ <p>Size of the volume from which this snapshot was created.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable volumeSize;
 
 @end
 

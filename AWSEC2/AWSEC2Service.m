@@ -1804,6 +1804,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateSnapshotsResult *> *)createSnapshots:(AWSEC2CreateSnapshotsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateSnapshots"
+                   outputClass:[AWSEC2CreateSnapshotsResult class]];
+}
+
+- (void)createSnapshots:(AWSEC2CreateSnapshotsRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateSnapshotsResult *response, NSError *error))completionHandler {
+    [[self createSnapshots:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateSnapshotsResult *> * _Nonnull task) {
+        AWSEC2CreateSnapshotsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateSpotDatafeedSubscriptionResult *> *)createSpotDatafeedSubscription:(AWSEC2CreateSpotDatafeedSubscriptionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
