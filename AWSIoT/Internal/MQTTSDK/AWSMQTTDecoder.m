@@ -29,6 +29,8 @@
 
 @implementation AWSMQTTDecoder
 
+int maxLengthMultiplier = 128 * 128 * 128;
+
 - (id)initWithStream:(NSInputStream*)aStream
 {
     _status = AWSMQTTDecoderStatusInitializing;
@@ -53,7 +55,7 @@
 
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
     AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, stream: %@, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, sender, [NSThread currentThread]);
-    int maxLengthMultiplier = 128 * 128 * 128;
+
     if(stream == nil)
         return;
     switch (eventCode) {
