@@ -91,6 +91,12 @@
                 }
                 else {
                     lengthMultiplier *= 128;
+                    if (lengthMultiplier > 128 * 128 * 128){
+                        AWSDDLogWarn(@"Malformed Remaining Length");
+                        lengthMultiplier = 1;
+                        length = 0;
+                        break;
+                    }
                 }
             }
             if (_status == AWSMQTTDecoderStatusDecodingData) {
