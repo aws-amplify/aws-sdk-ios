@@ -53,7 +53,7 @@
 
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
     AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, stream: %@, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, sender, [NSThread currentThread]);
-
+    int maxLengthMultiplier = 128 * 128 * 128;
     if(stream == nil)
         return;
     switch (eventCode) {
@@ -91,7 +91,7 @@
                 }
                 else {
                     lengthMultiplier *= 128;
-                    if (lengthMultiplier > 128 * 128 * 128){
+                    if (lengthMultiplier > maxLengthMultiplier){
                         AWSDDLogWarn(@"Malformed Remaining Length");
                         lengthMultiplier = 1;
                         length = 0;
