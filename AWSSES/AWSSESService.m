@@ -54,6 +54,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"FromEmailAddressNotVerified" : @(AWSSESErrorFromEmailAddressNotVerified),
                             @"InvalidCloudWatchDestination" : @(AWSSESErrorInvalidCloudWatchDestination),
                             @"InvalidConfigurationSet" : @(AWSSESErrorInvalidConfigurationSet),
+                            @"InvalidDeliveryOptions" : @(AWSSESErrorInvalidDeliveryOptions),
                             @"InvalidFirehoseDestination" : @(AWSSESErrorInvalidFirehoseDestination),
                             @"InvalidLambdaFunction" : @(AWSSESErrorInvalidLambdaFunction),
                             @"InvalidPolicy" : @(AWSSESErrorInvalidPolicy),
@@ -1258,6 +1259,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSESListVerifiedEmailAddressesResponse *response, NSError *error))completionHandler {
     [[self listVerifiedEmailAddresses:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESListVerifiedEmailAddressesResponse *> * _Nonnull task) {
         AWSSESListVerifiedEmailAddressesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESPutConfigurationSetDeliveryOptionsResponse *> *)putConfigurationSetDeliveryOptions:(AWSSESPutConfigurationSetDeliveryOptionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PutConfigurationSetDeliveryOptions"
+                   outputClass:[AWSSESPutConfigurationSetDeliveryOptionsResponse class]];
+}
+
+- (void)putConfigurationSetDeliveryOptions:(AWSSESPutConfigurationSetDeliveryOptionsRequest *)request
+     completionHandler:(void (^)(AWSSESPutConfigurationSetDeliveryOptionsResponse *response, NSError *error))completionHandler {
+    [[self putConfigurationSetDeliveryOptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESPutConfigurationSetDeliveryOptionsResponse *> * _Nonnull task) {
+        AWSSESPutConfigurationSetDeliveryOptionsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
