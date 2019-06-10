@@ -892,13 +892,20 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: bump_sdk_version
+              ignore: 
+                - desokroshan-patch-1
+                - bump_sdk_version
       - unittest:
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
+      - release_carthage:
+          filters:
+            branches:
+              only:
+                - desokroshan-patch-1
       - create_pullrequest_for_modelupdate:
           filters:
             branches:
