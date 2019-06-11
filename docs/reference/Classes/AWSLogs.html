@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.8 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -287,56 +287,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultLogs" title="defaultLogs"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultLogs">+&nbsp;defaultLogs</a></code>
 </h3>
@@ -785,7 +739,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -928,7 +882,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1079,7 +1033,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createExportTask:(AWSLogsCreateExportTaskRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsCreateExportTaskResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createExportTask:(AWSLogsCreateExportTaskRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsCreateExportTaskResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1249,7 +1203,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createLogGroup:(AWSLogsCreateLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createLogGroup:(AWSLogsCreateLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1404,7 +1358,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createLogStream:(AWSLogsCreateLogStreamRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createLogStream:(AWSLogsCreateLogStreamRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1541,7 +1495,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteDestination:(AWSLogsDeleteDestinationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteDestination:(AWSLogsDeleteDestinationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1678,7 +1632,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteLogGroup:(AWSLogsDeleteLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteLogGroup:(AWSLogsDeleteLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1815,7 +1769,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteLogStream:(AWSLogsDeleteLogStreamRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteLogStream:(AWSLogsDeleteLogStreamRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1952,7 +1906,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteMetricFilter:(AWSLogsDeleteMetricFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteMetricFilter:(AWSLogsDeleteMetricFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2089,7 +2043,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2232,7 +2186,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteRetentionPolicy:(AWSLogsDeleteRetentionPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteRetentionPolicy:(AWSLogsDeleteRetentionPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2369,7 +2323,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteSubscriptionFilter:(AWSLogsDeleteSubscriptionFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteSubscriptionFilter:(AWSLogsDeleteSubscriptionFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2508,7 +2462,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeDestinations:(AWSLogsDescribeDestinationsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeDestinationsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeDestinations:(AWSLogsDescribeDestinationsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeDestinationsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2650,7 +2604,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeExportTasks:(AWSLogsDescribeExportTasksRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeExportTasksResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeExportTasks:(AWSLogsDescribeExportTasksRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeExportTasksResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2792,7 +2746,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLogGroups:(AWSLogsDescribeLogGroupsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeLogGroupsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLogGroups:(AWSLogsDescribeLogGroupsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeLogGroupsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2940,7 +2894,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLogStreams:(AWSLogsDescribeLogStreamsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeLogStreamsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLogStreams:(AWSLogsDescribeLogStreamsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeLogStreamsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3082,7 +3036,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeMetricFilters:(AWSLogsDescribeMetricFiltersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeMetricFiltersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeMetricFilters:(AWSLogsDescribeMetricFiltersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeMetricFiltersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3224,7 +3178,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeQueries:(AWSLogsDescribeQueriesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeQueriesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeQueries:(AWSLogsDescribeQueriesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeQueriesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3366,7 +3320,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeResourcePoliciesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeResourcePoliciesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3508,7 +3462,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeSubscriptionFilters:(AWSLogsDescribeSubscriptionFiltersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeSubscriptionFiltersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeSubscriptionFilters:(AWSLogsDescribeSubscriptionFiltersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsDescribeSubscriptionFiltersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3660,7 +3614,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3805,7 +3759,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)filterLogEvents:(AWSLogsFilterLogEventsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsFilterLogEventsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)filterLogEvents:(AWSLogsFilterLogEventsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsFilterLogEventsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3953,7 +3907,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getLogEvents:(AWSLogsGetLogEventsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetLogEventsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getLogEvents:(AWSLogsGetLogEventsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsGetLogEventsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4107,7 +4061,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetLogGroupFieldsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsGetLogGroupFieldsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4255,7 +4209,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getLogRecord:(AWSLogsGetLogRecordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetLogRecordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getLogRecord:(AWSLogsGetLogRecordRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsGetLogRecordResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4403,7 +4357,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getQueryResults:(AWSLogsGetQueryResultsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetQueryResultsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getQueryResults:(AWSLogsGetQueryResultsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsGetQueryResultsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4545,7 +4499,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsListTagsLogGroupResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsListTagsLogGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4693,7 +4647,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putDestination:(AWSLogsPutDestinationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsPutDestinationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putDestination:(AWSLogsPutDestinationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsPutDestinationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4833,7 +4787,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4996,7 +4950,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putLogEvents:(AWSLogsPutLogEventsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsPutLogEventsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putLogEvents:(AWSLogsPutLogEventsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsPutLogEventsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5142,7 +5096,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putMetricFilter:(AWSLogsPutMetricFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putMetricFilter:(AWSLogsPutMetricFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5281,7 +5235,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsPutResourcePolicyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsPutResourcePolicyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5421,7 +5375,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5570,7 +5524,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5715,7 +5669,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startQuery:(AWSLogsStartQueryRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsStartQueryResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startQuery:(AWSLogsStartQueryRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsStartQueryResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5857,7 +5811,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopQuery:(AWSLogsStopQueryRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsStopQueryResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopQuery:(AWSLogsStopQueryRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsStopQueryResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6009,7 +5963,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagLogGroup:(AWSLogsTagLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagLogGroup:(AWSLogsTagLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6148,7 +6102,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)testMetricFilter:(AWSLogsTestMetricFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsTestMetricFilterResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)testMetricFilter:(AWSLogsTestMetricFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSLogsTestMetricFilterResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6294,7 +6248,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagLogGroup:(AWSLogsUntagLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagLogGroup:(AWSLogsUntagLogGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6348,6 +6302,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -6360,7 +6368,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-05-09</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

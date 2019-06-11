@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.8 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -261,56 +261,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSRekognitionService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultRekognition" title="defaultRekognition"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultRekognition">+&nbsp;defaultRekognition</a></code>
 </h3>
@@ -747,7 +701,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)compareFaces:(AWSRekognitionCompareFacesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionCompareFacesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)compareFaces:(AWSRekognitionCompareFacesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionCompareFacesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -905,7 +859,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createCollection:(AWSRekognitionCreateCollectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionCreateCollectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createCollection:(AWSRekognitionCreateCollectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionCreateCollectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1065,7 +1019,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createStreamProcessor:(AWSRekognitionCreateStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionCreateStreamProcessorResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createStreamProcessor:(AWSRekognitionCreateStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionCreateStreamProcessorResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1213,7 +1167,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteCollection:(AWSRekognitionDeleteCollectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDeleteCollectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteCollection:(AWSRekognitionDeleteCollectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDeleteCollectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1361,7 +1315,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteFaces:(AWSRekognitionDeleteFacesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDeleteFacesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteFaces:(AWSRekognitionDeleteFacesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDeleteFacesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1503,7 +1457,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteStreamProcessor:(AWSRekognitionDeleteStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDeleteStreamProcessorResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteStreamProcessor:(AWSRekognitionDeleteStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDeleteStreamProcessorResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1651,7 +1605,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeCollection:(AWSRekognitionDescribeCollectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDescribeCollectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeCollection:(AWSRekognitionDescribeCollectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDescribeCollectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1793,7 +1747,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeStreamProcessor:(AWSRekognitionDescribeStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDescribeStreamProcessorResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeStreamProcessor:(AWSRekognitionDescribeStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDescribeStreamProcessorResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1957,7 +1911,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectFaces:(AWSRekognitionDetectFacesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDetectFacesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectFaces:(AWSRekognitionDetectFacesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDetectFacesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2109,7 +2063,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectLabels:(AWSRekognitionDetectLabelsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDetectLabelsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectLabels:(AWSRekognitionDetectLabelsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDetectLabelsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2269,7 +2223,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectModerationLabels:(AWSRekognitionDetectModerationLabelsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDetectModerationLabelsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectModerationLabels:(AWSRekognitionDetectModerationLabelsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDetectModerationLabelsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2453,7 +2407,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectText:(AWSRekognitionDetectTextRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDetectTextResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectText:(AWSRekognitionDetectTextRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionDetectTextResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2607,7 +2561,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getCelebrityInfo:(AWSRekognitionGetCelebrityInfoRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetCelebrityInfoResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getCelebrityInfo:(AWSRekognitionGetCelebrityInfoRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetCelebrityInfoResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2771,7 +2725,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getCelebrityRecognition:(AWSRekognitionGetCelebrityRecognitionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetCelebrityRecognitionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getCelebrityRecognition:(AWSRekognitionGetCelebrityRecognitionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetCelebrityRecognitionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2949,7 +2903,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentModeration:(AWSRekognitionGetContentModerationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetContentModerationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getContentModeration:(AWSRekognitionGetContentModerationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetContentModerationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3109,7 +3063,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getFaceDetection:(AWSRekognitionGetFaceDetectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetFaceDetectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getFaceDetection:(AWSRekognitionGetFaceDetectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetFaceDetectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3273,7 +3227,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getFaceSearch:(AWSRekognitionGetFaceSearchRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetFaceSearchResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getFaceSearch:(AWSRekognitionGetFaceSearchRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetFaceSearchResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3445,7 +3399,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getLabelDetection:(AWSRekognitionGetLabelDetectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetLabelDetectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getLabelDetection:(AWSRekognitionGetLabelDetectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetLabelDetectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3609,7 +3563,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getPersonTracking:(AWSRekognitionGetPersonTrackingRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionGetPersonTrackingResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getPersonTracking:(AWSRekognitionGetPersonTrackingRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionGetPersonTrackingResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3815,7 +3769,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)indexFaces:(AWSRekognitionIndexFacesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionIndexFacesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)indexFaces:(AWSRekognitionIndexFacesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionIndexFacesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3969,7 +3923,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listCollections:(AWSRekognitionListCollectionsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionListCollectionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listCollections:(AWSRekognitionListCollectionsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionListCollectionsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4117,7 +4071,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listFaces:(AWSRekognitionListFacesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionListFacesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listFaces:(AWSRekognitionListFacesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionListFacesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4259,7 +4213,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listStreamProcessors:(AWSRekognitionListStreamProcessorsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionListStreamProcessorsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listStreamProcessors:(AWSRekognitionListStreamProcessorsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionListStreamProcessorsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4437,7 +4391,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)recognizeCelebrities:(AWSRekognitionRecognizeCelebritiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionRecognizeCelebritiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)recognizeCelebrities:(AWSRekognitionRecognizeCelebritiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionRecognizeCelebritiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4583,7 +4537,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)searchFaces:(AWSRekognitionSearchFacesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionSearchFacesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)searchFaces:(AWSRekognitionSearchFacesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionSearchFacesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4729,7 +4683,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)searchFacesByImage:(AWSRekognitionSearchFacesByImageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionSearchFacesByImageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)searchFacesByImage:(AWSRekognitionSearchFacesByImageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionSearchFacesByImageResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4883,7 +4837,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startCelebrityRecognition:(AWSRekognitionStartCelebrityRecognitionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartCelebrityRecognitionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startCelebrityRecognition:(AWSRekognitionStartCelebrityRecognitionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartCelebrityRecognitionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5043,7 +4997,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startContentModeration:(AWSRekognitionStartContentModerationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartContentModerationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startContentModeration:(AWSRekognitionStartContentModerationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartContentModerationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5197,7 +5151,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startFaceDetection:(AWSRekognitionStartFaceDetectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartFaceDetectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startFaceDetection:(AWSRekognitionStartFaceDetectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartFaceDetectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5345,7 +5299,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startFaceSearch:(AWSRekognitionStartFaceSearchRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartFaceSearchResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startFaceSearch:(AWSRekognitionStartFaceSearchRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartFaceSearchResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5509,7 +5463,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startLabelDetection:(AWSRekognitionStartLabelDetectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartLabelDetectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startLabelDetection:(AWSRekognitionStartLabelDetectionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartLabelDetectionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5663,7 +5617,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startPersonTracking:(AWSRekognitionStartPersonTrackingRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartPersonTrackingResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startPersonTracking:(AWSRekognitionStartPersonTrackingRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartPersonTrackingResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5805,7 +5759,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startStreamProcessor:(AWSRekognitionStartStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStartStreamProcessorResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startStreamProcessor:(AWSRekognitionStartStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStartStreamProcessorResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5947,7 +5901,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopStreamProcessor:(AWSRekognitionStopStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionStopStreamProcessorResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopStreamProcessor:(AWSRekognitionStopStreamProcessorRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSRekognitionStopStreamProcessorResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6004,6 +5958,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSRekognitionService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -6016,7 +6024,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-05-09</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
