@@ -486,6 +486,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - checkout
+      - pre_start_simulator
       - update_brew
       - run:
           name: install github-release
