@@ -272,6 +272,7 @@ static NSString *const AWSServiceNameTranslate = @"translate";
 static NSString *const AWSServiceNameComprehend = @"comprehend";
 static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
 static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
+static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 
 @interface AWSEndpoint()
 
@@ -490,6 +491,8 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             return AWSServiceNameKinesisVideo;
         case AWSServiceKinesisVideoArchivedMedia:
             return AWSServiceNameKinesisVideoArchivedMedia;
+        case AWSServiceSageMakerRuntime:
+            return AWSServiceNameSageMakerRuntime;
         default:
             return nil;
     }
@@ -542,6 +545,8 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://data%@iot%@%@.amazonaws.com", HTTPType, separator, separator, regionName]];
     } else if (serviceType == AWSServiceMobileTargeting) {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pinpoint%@%@.amazonaws.com", HTTPType, separator, regionName]];
+    } else if (serviceType == AWSServiceSageMakerRuntime) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://runtime.%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
     } else {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
     }

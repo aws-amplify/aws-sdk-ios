@@ -256,6 +256,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Kinesis Video Archived Media
      */
     AWSServiceKinesisVideoArchivedMedia NS_SWIFT_NAME(KinesisVideoArchivedMedia),
+    /**
+     * Amazon SageMaker Runtime
+     */
+    AWSServiceSageMakerRuntime NS_SWIFT_NAME(SageMakerRuntime),
     
 };
 
