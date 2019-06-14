@@ -246,6 +246,17 @@ extension AWSMobileClient {
     internal var currentUser: AWSCognitoIdentityUser? {
         return self.userPoolClient?.currentUser()
     }
+
+
+    /// Set the current cognito user pool. This assumes you have registerd
+    /// a pool with `AWSCognitoIdentityUserPool`.
+    ///
+    /// - Parameter key: The key used to register the user pool
+    public func setUserPool(forKey key: String) {
+        let client = AWSCognitoIdentityUserPool(forKey: key)
+        self.userpoolOpsHelper.userpoolClient = client
+        client.delegate = self.userpoolOpsHelper
+    }
     
     /// Federates a social provider like Google, Facebook, Amazon or Twitter.
     /// If user is already signed in through the `signIn` method, it will return `AWSMobileClientError.federationProviderExists` error.
