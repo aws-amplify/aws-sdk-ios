@@ -50,6 +50,7 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[] DEPRECATED_MSG_ATTR
 #import "AWSLogging.h"
 #import "AWSClientContext.h"
 #import "AWSSynchronizedMutableDictionary.h"
+#import "AWSXMLDictionary.h"
 #import "AWSSerialization.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
