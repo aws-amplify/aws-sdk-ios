@@ -154,7 +154,7 @@
     },
     'SageMakerRuntime' : {
         'test_list' : {
-            'AWSSageMaker':{}
+            'AWSSageMakerRuntimeTests':{}
         }
     },
     // 'Pinpoint' : { 
