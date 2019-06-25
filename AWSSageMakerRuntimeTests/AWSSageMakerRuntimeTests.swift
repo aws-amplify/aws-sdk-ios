@@ -26,7 +26,7 @@ class AWSSageMakerRuntimeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCrdentialsViaFile()
+        AWSTestUtility.setupCredentialsViaFile()
         let credentialsJson: [String : String]? = AWSTestUtility.getCredentialsJsonAsDictionary()
         if credentialsJson?["sageMaker-endpoint"] != nil {
             sageMakerEndpoint = credentialsJson?["sageMaker-endpoint"]
