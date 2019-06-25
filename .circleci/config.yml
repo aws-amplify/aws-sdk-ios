@@ -912,7 +912,6 @@ workflows:
               only:
                 - master
                 - develop
-                - SageMakerCircleCI
       - integrationtest:
           name: AWSMobileClient
           groupname: AWSMobileClient
@@ -1183,7 +1182,6 @@ workflows:
               only:
                 - master
                 - develop
-                - SageMakerCircleCI
       - post_integrationtest:
           requires:
             - AWSMobileClient
