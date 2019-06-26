@@ -128,11 +128,32 @@
 		177855DC20F9B3D100D083BB /* AWSKinesisVideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177855DB20F9B3D100D083BB /* AWSKinesisVideoTests.swift */; };
 		177855DE20F9B3D100D083BB /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
 		177855E420F9B3EB00D083BB /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		178A801022AF7DA600B167D6 /* AWSTranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 178A800E22AF7DA600B167D6 /* AWSTranscribeStreaming.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		178A801322AF7DA600B167D6 /* AWSTranscribeStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */; };
+		178A801422AF7DA600B167D6 /* AWSTranscribeStreaming.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		178A801E22AF7DE600B167D6 /* AWSTranscribeStreamingService.h in Headers */ = {isa = PBXBuildFile; fileRef = 178A801822AF7DE500B167D6 /* AWSTranscribeStreamingService.h */; };
+		178A801F22AF7DE600B167D6 /* AWSTranscribeStreamingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 178A801922AF7DE500B167D6 /* AWSTranscribeStreamingService.m */; };
+		178A802022AF7DE600B167D6 /* AWSTranscribeStreamingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 178A801A22AF7DE500B167D6 /* AWSTranscribeStreamingModel.m */; };
+		178A802122AF7DE600B167D6 /* AWSTranscribeStreamingModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 178A801B22AF7DE500B167D6 /* AWSTranscribeStreamingModel.h */; };
+		178A802222AF7DE600B167D6 /* AWSTranscribeStreamingResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 178A801C22AF7DE600B167D6 /* AWSTranscribeStreamingResources.h */; };
+		178A802322AF7DE600B167D6 /* AWSTranscribeStreamingResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 178A801D22AF7DE600B167D6 /* AWSTranscribeStreamingResources.m */; };
+		178A802622AF7E2100B167D6 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		178A805022B097B900B167D6 /* AWSTranscribeStreamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 178A804F22B097B900B167D6 /* AWSTranscribeStreamingTests.m */; };
+		178A805222B097B900B167D6 /* AWSTranscribeStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */; };
+		178A806022B09F4F00B167D6 /* AWSTranscribeStreamingSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 178A805E22B09F4F00B167D6 /* AWSTranscribeStreamingSignature.h */; };
+		178A806122B09F4F00B167D6 /* AWSTranscribeStreamingSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 178A805F22B09F4F00B167D6 /* AWSTranscribeStreamingSignature.m */; };
+		178A806422B0CE7400B167D6 /* AWSTSNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 178A806222B0CE7400B167D6 /* AWSTSNetworking.h */; };
+		178A806522B0CE7400B167D6 /* AWSTSNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 178A806322B0CE7400B167D6 /* AWSTSNetworking.m */; };
+		17A0773622C4319900C9F5B1 /* hello3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 17A0773522C4319900C9F5B1 /* hello3.wav */; };
 		17ADAE98209BD11F00FF7598 /* AWSTranscribeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ADAE97209BD11F00FF7598 /* AWSTranscribeTests.swift */; };
 		17ADAEA2209BD23100FF7598 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		17ADAEA3209BD24500FF7598 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		17ADAEA5209BD3B400FF7598 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		17C4BC081D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C4BC071D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift */; };
+		17D0A6FE22B844A900A83073 /* AWSSRWebSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DE64A1C6A78D70060793F /* AWSSRWebSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17D0A6FF22B844AF00A83073 /* AWSSRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9DE64B1C6A78D70060793F /* AWSSRWebSocket.m */; };
+		17D0A70222B9EC2A00A83073 /* AWSTranscribeEventHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 17D0A70022B9EC2A00A83073 /* AWSTranscribeEventHandler.h */; };
+		17D0A70322B9EC2A00A83073 /* AWSTranscribeEventHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D0A70122B9EC2A00A83073 /* AWSTranscribeEventHandler.m */; };
 		17DDDD2E1EA02E3F003BB3C2 /* AWSPollyEnumTranslatorUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 17DDDD2C1EA02E3F003BB3C2 /* AWSPollyEnumTranslatorUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17DDDD2F1EA02E3F003BB3C2 /* AWSPollyEnumTranslatorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DDDD2D1EA02E3F003BB3C2 /* AWSPollyEnumTranslatorUtility.m */; };
 		17E6B448209BB7A90079B286 /* AWSTranscribe.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E6B438209BB7A80079B286 /* AWSTranscribe.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1275,6 +1296,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1778554220F9A72800D083BB;
 			remoteInfo = AWSKinesisVideo;
+		};
+		178A801122AF7DA600B167D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178A800B22AF7DA600B167D6;
+			remoteInfo = AWSTranscribeStreaming;
+		};
+		178A802422AF7E1800B167D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
+			remoteInfo = AWSCore;
+		};
+		178A805322B097B900B167D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178A800B22AF7DA600B167D6;
+			remoteInfo = AWSTranscribeStreaming;
+		};
+		178A805822B097C500B167D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
+			remoteInfo = AWSCore;
+		};
+		178A805A22B097C500B167D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D41751C6A66E5006B91B5;
+			remoteInfo = AWSCoreTests;
+		};
+		178A805C22B097D500B167D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
 		};
 		17ADAE9B209BD11F00FF7598 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2830,6 +2893,13 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B5C01B0A22EB7F01000F2877 /* AWSTextract.framework in Embed Frameworks */,
+				1778555920F9A72800D083BB /* AWSKinesisVideo.framework in Embed Frameworks */,
+				1778557E20F9A7CE00D083BB /* AWSKinesisVideoArchivedMedia.framework in Embed Frameworks */,
+				178A801422AF7DA600B167D6 /* AWSTranscribeStreaming.framework in Embed Frameworks */,
+				17E6B44C209BB7A90079B286 /* AWSTranscribe.framework in Embed Frameworks */,
+				9A7ACC3620B0E85100DDBEC1 /* AWSTranslate.framework in Embed Frameworks */,
+				9A7ACC8120B110DF00DDBEC1 /* AWSComprehend.framework in Embed Frameworks */,
+				B4A4E00B22B4201400379396 /* AWSSageMakerRuntime.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3203,12 +3273,31 @@
 		177855D920F9B3D000D083BB /* AWSKinesisVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		177855DB20F9B3D100D083BB /* AWSKinesisVideoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoTests.swift; sourceTree = "<group>"; };
 		177855DD20F9B3D100D083BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSTranscribeStreaming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		178A800E22AF7DA600B167D6 /* AWSTranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreaming.h; sourceTree = "<group>"; };
+		178A800F22AF7DA600B167D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178A801822AF7DE500B167D6 /* AWSTranscribeStreamingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingService.h; sourceTree = "<group>"; };
+		178A801922AF7DE500B167D6 /* AWSTranscribeStreamingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingService.m; sourceTree = "<group>"; };
+		178A801A22AF7DE500B167D6 /* AWSTranscribeStreamingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingModel.m; sourceTree = "<group>"; };
+		178A801B22AF7DE500B167D6 /* AWSTranscribeStreamingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingModel.h; sourceTree = "<group>"; };
+		178A801C22AF7DE600B167D6 /* AWSTranscribeStreamingResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingResources.h; sourceTree = "<group>"; };
+		178A801D22AF7DE600B167D6 /* AWSTranscribeStreamingResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingResources.m; sourceTree = "<group>"; };
+		178A804D22B097B900B167D6 /* AWSTranscribeStreamingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSTranscribeStreamingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		178A804F22B097B900B167D6 /* AWSTranscribeStreamingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingTests.m; sourceTree = "<group>"; };
+		178A805122B097B900B167D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178A805E22B09F4F00B167D6 /* AWSTranscribeStreamingSignature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingSignature.h; sourceTree = "<group>"; };
+		178A805F22B09F4F00B167D6 /* AWSTranscribeStreamingSignature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingSignature.m; sourceTree = "<group>"; };
+		178A806222B0CE7400B167D6 /* AWSTSNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTSNetworking.h; sourceTree = "<group>"; };
+		178A806322B0CE7400B167D6 /* AWSTSNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTSNetworking.m; sourceTree = "<group>"; };
+		17A0773522C4319900C9F5B1 /* hello3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hello3.wav; sourceTree = "<group>"; };
 		17ADAE95209BD11E00FF7598 /* AWSTranscribeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSTranscribeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17ADAE97209BD11F00FF7598 /* AWSTranscribeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeTests.swift; sourceTree = "<group>"; };
 		17ADAE99209BD11F00FF7598 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17ADAEA4209BD28B00FF7598 /* AWSTranscribeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSTranscribeTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		17C4BC061D88F45100A5E757 /* AWSAPIGatewayTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSAPIGatewayTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		17C4BC071D88F45200A5E757 /* AWSAPIGatewayInvokeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSAPIGatewayInvokeTest.swift; sourceTree = "<group>"; };
+		17D0A70022B9EC2A00A83073 /* AWSTranscribeEventHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeEventHandler.h; sourceTree = "<group>"; };
+		17D0A70122B9EC2A00A83073 /* AWSTranscribeEventHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeEventHandler.m; sourceTree = "<group>"; };
 		17DDDD2C1EA02E3F003BB3C2 /* AWSPollyEnumTranslatorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSPollyEnumTranslatorUtility.h; sourceTree = "<group>"; };
 		17DDDD2D1EA02E3F003BB3C2 /* AWSPollyEnumTranslatorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPollyEnumTranslatorUtility.m; sourceTree = "<group>"; };
 		17E6B436209BB7A80079B286 /* AWSTranscribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSTranscribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -4358,6 +4447,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		178A800922AF7DA600B167D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178A802622AF7E2100B167D6 /* AWSCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178A804A22B097B900B167D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178A805222B097B900B167D6 /* AWSTranscribeStreaming.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17ADAE92209BD11E00FF7598 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -4387,6 +4492,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5C01B0922EB7F01000F2877 /* AWSTextract.framework in Frameworks */,
+				1778555820F9A72800D083BB /* AWSKinesisVideo.framework in Frameworks */,
+				1778557D20F9A7CE00D083BB /* AWSKinesisVideoArchivedMedia.framework in Frameworks */,
+				178A801322AF7DA600B167D6 /* AWSTranscribeStreaming.framework in Frameworks */,
+				17E6B44B209BB7A90079B286 /* AWSTranscribe.framework in Frameworks */,
+				9A7ACC3520B0E85100DDBEC1 /* AWSTranslate.framework in Frameworks */,
+				9A7ACC8020B110DF00DDBEC1 /* AWSComprehend.framework in Frameworks */,
+				B4A4E00A22B4201400379396 /* AWSSageMakerRuntime.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5221,6 +5333,37 @@
 			path = AWSKinesisVideoTests;
 			sourceTree = "<group>";
 		};
+		178A800D22AF7DA600B167D6 /* AWSTranscribeStreaming */ = {
+			isa = PBXGroup;
+			children = (
+				17A0773522C4319900C9F5B1 /* hello3.wav */,
+				178A801B22AF7DE500B167D6 /* AWSTranscribeStreamingModel.h */,
+				178A801A22AF7DE500B167D6 /* AWSTranscribeStreamingModel.m */,
+				178A801C22AF7DE600B167D6 /* AWSTranscribeStreamingResources.h */,
+				178A801D22AF7DE600B167D6 /* AWSTranscribeStreamingResources.m */,
+				178A801822AF7DE500B167D6 /* AWSTranscribeStreamingService.h */,
+				178A801922AF7DE500B167D6 /* AWSTranscribeStreamingService.m */,
+				178A800E22AF7DA600B167D6 /* AWSTranscribeStreaming.h */,
+				178A800F22AF7DA600B167D6 /* Info.plist */,
+				178A805E22B09F4F00B167D6 /* AWSTranscribeStreamingSignature.h */,
+				178A805F22B09F4F00B167D6 /* AWSTranscribeStreamingSignature.m */,
+				178A806222B0CE7400B167D6 /* AWSTSNetworking.h */,
+				178A806322B0CE7400B167D6 /* AWSTSNetworking.m */,
+				17D0A70022B9EC2A00A83073 /* AWSTranscribeEventHandler.h */,
+				17D0A70122B9EC2A00A83073 /* AWSTranscribeEventHandler.m */,
+			);
+			path = AWSTranscribeStreaming;
+			sourceTree = "<group>";
+		};
+		178A804E22B097B900B167D6 /* AWSTranscribeStreamingTests */ = {
+			isa = PBXGroup;
+			children = (
+				178A804F22B097B900B167D6 /* AWSTranscribeStreamingTests.m */,
+				178A805122B097B900B167D6 /* Info.plist */,
+			);
+			path = AWSTranscribeStreamingTests;
+			sourceTree = "<group>";
+		};
 		17ADAE96209BD11F00FF7598 /* AWSTranscribeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -5857,6 +6000,14 @@
 				9A7ACC2120B0E85000DDBEC1 /* AWSTranslate */,
 				9A7ACCF620B11CDD00DDBEC1 /* AWSTranslateTests */,
 				9A7ACC4F20B0FF1000DDBEC1 /* AWSTranslateUnitTests */,
+				178A800D22AF7DA600B167D6 /* AWSTranscribeStreaming */,
+				178A804E22B097B900B167D6 /* AWSTranscribeStreamingTests */,
+				B4A4DFF622B4201400379396 /* AWSSageMakerRuntime */,
+				B4A4E00322B4201400379396 /* AWSSageMakerRuntimeTests */,
+				B4A4E02822B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
+				B5DD450522C9B17C003871AE /* AWSConnect */,
+				B5DD451222C9B17C003871AE /* AWSConnectTests */,
+				B5DD454F22CA6475003871AE /* AWSConnectUnitTests */,
 				17E6B467209BB99A0079B286 /* Frameworks */,
 				CE0D415E1C6A66AA006B91B5 /* Products */,
 			);
@@ -5969,6 +6120,8 @@
 				B5C01AF422EB7EFD000F2877 /* AWSTextract.framework */,
 				B5C01AFC22EB7F00000F2877 /* AWSTextractTests.xctest */,
 				B5A0262522F01B33001C75CE /* AWSTextractUnitTests.xctest */,
+				178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */,
+				178A804D22B097B900B167D6 /* AWSTranscribeStreamingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -7538,6 +7691,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		178A800722AF7DA600B167D6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178A806022B09F4F00B167D6 /* AWSTranscribeStreamingSignature.h in Headers */,
+				17D0A70222B9EC2A00A83073 /* AWSTranscribeEventHandler.h in Headers */,
+				17D0A6FE22B844A900A83073 /* AWSSRWebSocket.h in Headers */,
+				178A802222AF7DE600B167D6 /* AWSTranscribeStreamingResources.h in Headers */,
+				178A801E22AF7DE600B167D6 /* AWSTranscribeStreamingService.h in Headers */,
+				178A806422B0CE7400B167D6 /* AWSTSNetworking.h in Headers */,
+				178A802122AF7DE600B167D6 /* AWSTranscribeStreamingModel.h in Headers */,
+				178A801022AF7DA600B167D6 /* AWSTranscribeStreaming.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17E6B433209BB7A80079B286 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -8264,6 +8432,46 @@
 			productReference = 177855D920F9B3D000D083BB /* AWSKinesisVideoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		178A800B22AF7DA600B167D6 /* AWSTranscribeStreaming */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 178A801722AF7DA600B167D6 /* Build configuration list for PBXNativeTarget "AWSTranscribeStreaming" */;
+			buildPhases = (
+				178A800722AF7DA600B167D6 /* Headers */,
+				178A800822AF7DA600B167D6 /* Sources */,
+				178A800922AF7DA600B167D6 /* Frameworks */,
+				178A800A22AF7DA600B167D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				178A802522AF7E1800B167D6 /* PBXTargetDependency */,
+			);
+			name = AWSTranscribeStreaming;
+			productName = AWSTranscribeStreaming;
+			productReference = 178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		178A804C22B097B900B167D6 /* AWSTranscribeStreamingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 178A805522B097B900B167D6 /* Build configuration list for PBXNativeTarget "AWSTranscribeStreamingTests" */;
+			buildPhases = (
+				178A804922B097B900B167D6 /* Sources */,
+				178A804A22B097B900B167D6 /* Frameworks */,
+				178A804B22B097B900B167D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				178A805D22B097D500B167D6 /* PBXTargetDependency */,
+				178A805922B097C500B167D6 /* PBXTargetDependency */,
+				178A805B22B097C500B167D6 /* PBXTargetDependency */,
+				178A805422B097B900B167D6 /* PBXTargetDependency */,
+			);
+			name = AWSTranscribeStreamingTests;
+			productName = AWSTranscribeStreamingTests;
+			productReference = 178A804D22B097B900B167D6 /* AWSTranscribeStreamingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		17ADAE94209BD11E00FF7598 /* AWSTranscribeTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17ADAE9D209BD11F00FF7598 /* Build configuration list for PBXNativeTarget "AWSTranscribeTests" */;
@@ -8334,7 +8542,18 @@
 			buildRules = (
 			);
 			dependencies = (
+<<<<<<< HEAD
 				B5C01B0822EB7F01000F2877 /* PBXTargetDependency */,
+||||||| merged common ancestors
+=======
+				1778555720F9A72800D083BB /* PBXTargetDependency */,
+				1778557C20F9A7CE00D083BB /* PBXTargetDependency */,
+				178A801222AF7DA600B167D6 /* PBXTargetDependency */,
+				17E6B44A209BB7A90079B286 /* PBXTargetDependency */,
+				9A7ACC3420B0E85100DDBEC1 /* PBXTargetDependency */,
+				9A7ACC7F20B110DF00DDBEC1 /* PBXTargetDependency */,
+				B4A4E00922B4201400379396 /* PBXTargetDependency */,
+>>>>>>> Add a prototype for transcribe streaming service using wss://
 			);
 			name = AWSAllTestsHost;
 			productName = AWSAllTestsHost;
@@ -10186,6 +10405,14 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					178A800B22AF7DA600B167D6 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					178A804C22B097B900B167D6 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					17ADAE94209BD11E00FF7598 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -10654,6 +10881,38 @@
 				9A7ACC1F20B0E85000DDBEC1 /* AWSTranslate */,
 				9A7ACC4D20B0FF1000DDBEC1 /* AWSTranslateUnitTests */,
 				9A7ACCF420B11CDD00DDBEC1 /* AWSTranslateTests */,
+<<<<<<< HEAD
+||||||| merged common ancestors
+				1778554220F9A72800D083BB /* AWSKinesisVideo */,
+				1778558B20F9A8C500D083BB /* AWSKinesisVideoUnitTests */,
+				1778556720F9A7CD00D083BB /* AWSKinesisVideoArchivedMedia */,
+				1778559A20F9A8DA00D083BB /* AWSKinesisVideoArchivedMediaUnitTests */,
+				1778556F20F9A7CE00D083BB /* AWSKinesisVideoArchivedMediaTests */,
+				177855D820F9B3D000D083BB /* AWSKinesisVideoTests */,
+				9AC4C4DE20F4803900B1ECF4 /* AWSRekognitionTests */,
+				B4A4DFF422B4201300379396 /* AWSSageMakerRuntime */,
+				B4A4DFFC22B4201400379396 /* AWSSageMakerRuntimeTests */,
+				B4A4E02622B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
+				B5DD450322C9B17C003871AE /* AWSConnect */,
+				B5DD450B22C9B17C003871AE /* AWSConnectTests */,
+				B5DD454D22CA6474003871AE /* AWSConnectUnitTests */,
+=======
+				1778554220F9A72800D083BB /* AWSKinesisVideo */,
+				1778558B20F9A8C500D083BB /* AWSKinesisVideoUnitTests */,
+				1778556720F9A7CD00D083BB /* AWSKinesisVideoArchivedMedia */,
+				1778559A20F9A8DA00D083BB /* AWSKinesisVideoArchivedMediaUnitTests */,
+				1778556F20F9A7CE00D083BB /* AWSKinesisVideoArchivedMediaTests */,
+				177855D820F9B3D000D083BB /* AWSKinesisVideoTests */,
+				9AC4C4DE20F4803900B1ECF4 /* AWSRekognitionTests */,
+				B4A4DFF422B4201300379396 /* AWSSageMakerRuntime */,
+				B4A4DFFC22B4201400379396 /* AWSSageMakerRuntimeTests */,
+				B4A4E02622B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
+				B5DD450322C9B17C003871AE /* AWSConnect */,
+				B5DD450B22C9B17C003871AE /* AWSConnectTests */,
+				B5DD454D22CA6474003871AE /* AWSConnectUnitTests */,
+				178A800B22AF7DA600B167D6 /* AWSTranscribeStreaming */,
+				178A804C22B097B900B167D6 /* AWSTranscribeStreamingTests */,
+>>>>>>> Add a prototype for transcribe streaming service using wss://
 			);
 		};
 /* End PBXProject section */
@@ -10702,6 +10961,21 @@
 				FA41B39422C652E700142F8D /* credentials.json in Resources */,
 				17F389C520F9B51400DADF5B /* AWSCore.framework in Resources */,
 				17F389C420F9B50E00DADF5B /* AWSKinesisVideo.framework in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178A800A22AF7DA600B167D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A0773622C4319900C9F5B1 /* hello3.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178A804B22B097B900B167D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11518,6 +11792,28 @@
 			files = (
 				177855E420F9B3EB00D083BB /* AWSTestUtility.m in Sources */,
 				177855DC20F9B3D100D083BB /* AWSKinesisVideoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178A800822AF7DA600B167D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178A806522B0CE7400B167D6 /* AWSTSNetworking.m in Sources */,
+				17D0A70322B9EC2A00A83073 /* AWSTranscribeEventHandler.m in Sources */,
+				178A806122B09F4F00B167D6 /* AWSTranscribeStreamingSignature.m in Sources */,
+				17D0A6FF22B844AF00A83073 /* AWSSRWebSocket.m in Sources */,
+				178A802322AF7DE600B167D6 /* AWSTranscribeStreamingResources.m in Sources */,
+				178A801F22AF7DE600B167D6 /* AWSTranscribeStreamingService.m in Sources */,
+				178A802022AF7DE600B167D6 /* AWSTranscribeStreamingModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		178A804922B097B900B167D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178A805022B097B900B167D6 /* AWSTranscribeStreamingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12735,6 +13031,36 @@
 			isa = PBXTargetDependency;
 			target = 1778554220F9A72800D083BB /* AWSKinesisVideo */;
 			targetProxy = 177855DF20F9B3D100D083BB /* PBXContainerItemProxy */;
+		};
+		178A801222AF7DA600B167D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178A800B22AF7DA600B167D6 /* AWSTranscribeStreaming */;
+			targetProxy = 178A801122AF7DA600B167D6 /* PBXContainerItemProxy */;
+		};
+		178A802522AF7E1800B167D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
+			targetProxy = 178A802422AF7E1800B167D6 /* PBXContainerItemProxy */;
+		};
+		178A805422B097B900B167D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178A800B22AF7DA600B167D6 /* AWSTranscribeStreaming */;
+			targetProxy = 178A805322B097B900B167D6 /* PBXContainerItemProxy */;
+		};
+		178A805922B097C500B167D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
+			targetProxy = 178A805822B097C500B167D6 /* PBXContainerItemProxy */;
+		};
+		178A805B22B097C500B167D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D41751C6A66E5006B91B5 /* AWSCoreTests */;
+			targetProxy = 178A805A22B097C500B167D6 /* PBXContainerItemProxy */;
+		};
+		178A805D22B097D500B167D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = 178A805C22B097D500B167D6 /* PBXContainerItemProxy */;
 		};
 		17ADAE9C209BD11F00FF7598 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -14152,6 +14478,110 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3Tests/AWSS3Tests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		178A801522AF7DA600B167D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSTranscribeStreaming/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreaming;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		178A801622AF7DA600B167D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSTranscribeStreaming/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreaming;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		178A805622B097B900B167D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSTranscribeStreamingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreamingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		178A805722B097B900B167D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSTranscribeStreamingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreamingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -18270,6 +18700,24 @@
 			buildConfigurations = (
 				177855E220F9B3D100D083BB /* Debug */,
 				177855E320F9B3D100D083BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		178A801722AF7DA600B167D6 /* Build configuration list for PBXNativeTarget "AWSTranscribeStreaming" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				178A801522AF7DA600B167D6 /* Debug */,
+				178A801622AF7DA600B167D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		178A805522B097B900B167D6 /* Build configuration list for PBXNativeTarget "AWSTranscribeStreamingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				178A805622B097B900B167D6 /* Debug */,
+				178A805722B097B900B167D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

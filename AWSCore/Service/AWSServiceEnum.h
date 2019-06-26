@@ -269,9 +269,14 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceTranscribe NS_SWIFT_NAME(Transcribe),
     /**
+     *  Amazon Transcribe Streaming
+     */
+    AWSServiceTranscribeStreaming NS_SWIFT_NAME(TranscribeStreaming),
+    /**
      *  Amazon Translate
      */
     AWSServiceTranslate NS_SWIFT_NAME(Translate),
+    
 };
 
 #endif
