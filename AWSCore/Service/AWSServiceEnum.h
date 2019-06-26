@@ -260,6 +260,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      * Amazon SageMaker Runtime
      */
     AWSServiceSageMakerRuntime NS_SWIFT_NAME(SageMakerRuntime),
+    /**
+     *  Amazon Transcribe
+     */
+    AWSServiceTranscribeStreaming NS_SWIFT_NAME(TranscribeStreaming),
     
 };
 
