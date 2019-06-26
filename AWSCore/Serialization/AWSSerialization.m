@@ -1544,7 +1544,10 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
         // be applied and the data will be returned as-is in the response.
         // The 'JsonDocument' shape is used by the AWSIoT service.
         //
-        if ((rules[@"members"][isPayloadData][@"streaming"]) || ([shapeName isEqual:@"JsonDocument"]) || ([shapeName isEqual:@"BlobStream"])) {
+        if ((rules[@"members"][isPayloadData][@"streaming"]) ||
+                ([shapeName isEqual:@"JsonDocument"]) ||
+                ([shapeName isEqual:@"BlobStream"]) ||
+                ([shapeName isEqual:@"BodyBlob"])) {
             parsedData[isPayloadData] = data;
             if (error) *error = nil;
             return parsedData;
