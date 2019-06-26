@@ -1,5 +1,15 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.10
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon CloudWatch Logs
+  * Amazon DynamoDB
+  * Amazon EC2
+  * Amazon Simple Email Service
+
 ## 2.9.9
 
 ### Bug Fixes
