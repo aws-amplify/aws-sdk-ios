@@ -152,6 +152,11 @@
             'AWSMachineLearningTests':{ }           
         }
     },
+    'SageMakerRuntime' : {
+        'test_list' : {
+            'AWSSageMakerRuntimeTests':{}
+        }
+    },
     // 'Pinpoint' : { 
     //     'test_list' : {
     //         'AWSPinpointTests':{ 

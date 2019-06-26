@@ -400,6 +400,8 @@ jobs:
           key: test_result-{{ .Revision }}-S3
       - restore_cache:
           key: test_result-{{ .Revision }}-DynamoDB
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SageMakerRuntime    
       - store_artifacts:
           path: integration_test_result
       - run:
@@ -1170,6 +1172,16 @@ workflows:
               only:
                 - master
                 - develop
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
       - post_integrationtest:
           requires:
             - AWSMobileClient
@@ -1198,6 +1210,7 @@ workflows:
             - Pinpoint
             - S3
             - DynamoDB
+            - SageMakerRuntime
           filters:
             branches:
               only:
@@ -1512,6 +1525,16 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
             - AWSMobileClient
@@ -1540,6 +1563,7 @@ workflows:
             - Pinpoint
             - S3
             - DynamoDB
+            - SageMakerRuntime
           filters:
             branches:
               ignore: /.*/
