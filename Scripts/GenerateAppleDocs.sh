@@ -47,6 +47,7 @@ else
     cp -r AWSPinpoint ./docs_tmp/AWSPinpoint
     cp -r AWSPolly ./docs_tmp/AWSPolly
     cp -r AWSRekognition ./docs_tmp/AWSRekognition
+    cp -r AWSSageMakerRuntime ./docs_tmp/AWSSageMakerRuntime
     cp -r AWSS3 ./docs_tmp/AWSS3
     cp -r AWSSES ./docs_tmp/AWSSES
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
