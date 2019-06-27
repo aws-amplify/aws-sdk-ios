@@ -2,6 +2,11 @@
 
 ## 2.9.10
 
+### Bug Fixes
+
+- **AWSCore**
+  - Fixed a bug where multiple values would be added to the 'host' header when using the V4 signer on a request that already included a 'host' header.
+
 ### Misc. Updates
 
 * Model updates for the following services

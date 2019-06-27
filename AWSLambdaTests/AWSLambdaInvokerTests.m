@@ -43,7 +43,7 @@
     XCTAssertNotNil(lambdaInvoker);
     
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.logType = AWSLambdaLogTypeTail;
     invocationRequest.payload = @{@"key1" : @"value1",
@@ -73,7 +73,7 @@
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
 
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.logType = AWSLambdaLogTypeTail;
     invocationRequest.payload = @{@"key1" : @"value1",
@@ -101,7 +101,7 @@
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
 
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.logType = AWSLambdaLogTypeTail;
     invocationRequest.payload = @{@"key1" : @"value1",
@@ -134,7 +134,7 @@
 - (void)testInvokeError {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.payload = @{@"key1" : @"value1",
                                   @"key2" : @"value2",
@@ -147,6 +147,7 @@
         XCTAssertNil(task.result);
         XCTAssertEqualObjects(task.error.domain, AWSLambdaInvokerErrorDomain);
         XCTAssertEqual(task.error.code, AWSLambdaInvokerErrorTypeFunctionError);
+        // This does not get set on Node 10 runtimes
         XCTAssertEqualObjects(task.error.userInfo[AWSLambdaInvokerFunctionErrorKey], @"Handled");
         XCTAssertEqualObjects(task.error.userInfo[AWSLambdaInvokerErrorMessageKey], @"Invalid Request");
         return nil;
@@ -155,7 +156,7 @@
 
 - (void)testInvokeFunction {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
-    [[[lambdaInvoker invokeFunction:@"helloWorldExample"
+    [[[lambdaInvoker invokeFunction:@"echo"
                          JSONObject:@{@"key1" : @"value1",
                                       @"key2" : @"value2",
                                       @"key3" : @"value3",
@@ -175,7 +176,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"Completion handler called."];
 
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
-    [lambdaInvoker invokeFunction:@"helloWorldExample"
+    [lambdaInvoker invokeFunction:@"echo"
                        JSONObject:@{@"key1" : @"value1",
                                     @"key2" : @"value2",
                                     @"key3" : @"value3",
@@ -200,14 +201,13 @@
 - (void)testInvokeFunction2 {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
     
-    NSDictionary *jsonObject = @{@"firstName" : NSStringFromSelector(_cmd)};
-    [[[lambdaInvoker invokeFunction:@"lambdaDebugging" JSONObject:jsonObject] continueWithBlock:^id(AWSTask *task) {
+    NSDictionary *jsonObject = @{@"firstName" : @"testInvokeFunction2"};
+    [[[lambdaInvoker invokeFunction:@"echo-2" JSONObject:jsonObject] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         XCTAssertTrue([task.result isKindOfClass:[NSDictionary class]]);
         NSDictionary *result = task.result;
-        NSString *expectedString = [NSString stringWithFormat:@"Hello %@",NSStringFromSelector(_cmd)];
-        XCTAssertEqualObjects(expectedString,result[@"message"]);
+        XCTAssertEqualObjects(@"testInvokeFunction2", result[@"firstName"]);
         return nil;
     }] waitUntilFinished];
      
@@ -215,7 +215,7 @@
      
 - (void)testInvokeFunctionError {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
-    [[[lambdaInvoker invokeFunction:@"helloWorldExample"
+    [[[lambdaInvoker invokeFunction:@"echo"
                          JSONObject:@{@"key1" : @"value1",
                                       @"key2" : @"value2",
                                       @"key3" : @"value3",
@@ -233,7 +233,7 @@
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
 
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.logType = AWSLambdaLogTypeTail;
     invocationRequest.payload = @{@"key1" : @"value1",
@@ -248,8 +248,7 @@
         XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        NSDictionary *result = invocationResponse.payload;
-        XCTAssertEqualObjects(result[@"version"], @"1");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
         XCTAssertNotNil(invocationResponse.logResult);
         XCTAssertTrue([invocationResponse.logResult isKindOfClass:[NSString class]]);
         return nil;
@@ -260,14 +259,14 @@
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
 
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     invocationRequest.logType = AWSLambdaLogTypeTail;
     invocationRequest.payload = @{@"key1" : @"value1",
                                   @"key2" : @"value2",
                                   @"key3" : @"value3",
                                   @"isError" : @NO};
-    invocationRequest.qualifier = @"version2";
+    invocationRequest.qualifier = @"Version2Alias";
 
     [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
@@ -275,8 +274,7 @@
         XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        NSDictionary *result = invocationResponse.payload;
-        XCTAssertEqualObjects(result[@"version"], @"1");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
         XCTAssertNotNil(invocationResponse.logResult);
         XCTAssertTrue([invocationResponse.logResult isKindOfClass:[NSString class]]);
         return nil;
