@@ -2530,7 +2530,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 1...3 {
             transferUtility?.uploadData(
                 testData.data(using: String.Encoding.utf8)!,
-                bucket: "ios-v2-s3.periods-royji",
+                bucket: "ios-v2-s3.periods",
                 key: "testFileForGetTasks\(i).txt",
                 contentType: "text/plain",
                 expression: uploadExpression,
@@ -2552,7 +2552,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 4...6 {
             transferUtility?.uploadUsingMultiPart(
                 data: testData.data(using: String.Encoding.utf8)!,
-                bucket: "ios-v2-s3.periods-royji",
+                bucket: "ios-v2-s3.periods",
                 key: "testFileForGetTasks\(i).txt",
                 contentType: "text/plain",
                 expression: multiPartUploadExpression,
@@ -2573,7 +2573,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 1...6 {
             let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("file\(i)")
             transferUtility?.download(to: url!,
-                                 bucket: "ios-v2-s3.periods-royji",
+                                 bucket: "ios-v2-s3.periods",
                                     key: "testFileForGetTasks\(i).txt",
                 expression: downloadExpression,
                 completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
