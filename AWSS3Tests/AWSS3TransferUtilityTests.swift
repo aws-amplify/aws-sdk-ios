@@ -2545,7 +2545,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         XCTAssertEqual(transferUtility?.getDownloadTasks().result!.count, 0)
         XCTAssertEqual(transferUtility?.getMultiPartUploadTasks().result!.count, 0)
         XCTAssertEqual(transferUtility?.getAllTasks().result!.count, 3)
-
+        
         wait(for:[uploadsCompleted],  timeout: 60)
         
         //upload 3 more files using multipart
