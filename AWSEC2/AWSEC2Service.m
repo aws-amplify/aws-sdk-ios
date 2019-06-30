@@ -1895,6 +1895,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateTrafficMirrorFilterResult *> *)createTrafficMirrorFilter:(AWSEC2CreateTrafficMirrorFilterRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTrafficMirrorFilter"
+                   outputClass:[AWSEC2CreateTrafficMirrorFilterResult class]];
+}
+
+- (void)createTrafficMirrorFilter:(AWSEC2CreateTrafficMirrorFilterRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateTrafficMirrorFilterResult *response, NSError *error))completionHandler {
+    [[self createTrafficMirrorFilter:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTrafficMirrorFilterResult *> * _Nonnull task) {
+        AWSEC2CreateTrafficMirrorFilterResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateTrafficMirrorFilterRuleResult *> *)createTrafficMirrorFilterRule:(AWSEC2CreateTrafficMirrorFilterRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTrafficMirrorFilterRule"
+                   outputClass:[AWSEC2CreateTrafficMirrorFilterRuleResult class]];
+}
+
+- (void)createTrafficMirrorFilterRule:(AWSEC2CreateTrafficMirrorFilterRuleRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateTrafficMirrorFilterRuleResult *response, NSError *error))completionHandler {
+    [[self createTrafficMirrorFilterRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTrafficMirrorFilterRuleResult *> * _Nonnull task) {
+        AWSEC2CreateTrafficMirrorFilterRuleResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateTrafficMirrorSessionResult *> *)createTrafficMirrorSession:(AWSEC2CreateTrafficMirrorSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTrafficMirrorSession"
+                   outputClass:[AWSEC2CreateTrafficMirrorSessionResult class]];
+}
+
+- (void)createTrafficMirrorSession:(AWSEC2CreateTrafficMirrorSessionRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateTrafficMirrorSessionResult *response, NSError *error))completionHandler {
+    [[self createTrafficMirrorSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTrafficMirrorSessionResult *> * _Nonnull task) {
+        AWSEC2CreateTrafficMirrorSessionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateTrafficMirrorTargetResult *> *)createTrafficMirrorTarget:(AWSEC2CreateTrafficMirrorTargetRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateTrafficMirrorTarget"
+                   outputClass:[AWSEC2CreateTrafficMirrorTargetResult class]];
+}
+
+- (void)createTrafficMirrorTarget:(AWSEC2CreateTrafficMirrorTargetRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateTrafficMirrorTargetResult *response, NSError *error))completionHandler {
+    [[self createTrafficMirrorTarget:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateTrafficMirrorTargetResult *> * _Nonnull task) {
+        AWSEC2CreateTrafficMirrorTargetResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateTransitGatewayResult *> *)createTransitGateway:(AWSEC2CreateTransitGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2747,6 +2839,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteTrafficMirrorFilterResult *> *)deleteTrafficMirrorFilter:(AWSEC2DeleteTrafficMirrorFilterRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTrafficMirrorFilter"
+                   outputClass:[AWSEC2DeleteTrafficMirrorFilterResult class]];
+}
+
+- (void)deleteTrafficMirrorFilter:(AWSEC2DeleteTrafficMirrorFilterRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteTrafficMirrorFilterResult *response, NSError *error))completionHandler {
+    [[self deleteTrafficMirrorFilter:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTrafficMirrorFilterResult *> * _Nonnull task) {
+        AWSEC2DeleteTrafficMirrorFilterResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteTrafficMirrorFilterRuleResult *> *)deleteTrafficMirrorFilterRule:(AWSEC2DeleteTrafficMirrorFilterRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTrafficMirrorFilterRule"
+                   outputClass:[AWSEC2DeleteTrafficMirrorFilterRuleResult class]];
+}
+
+- (void)deleteTrafficMirrorFilterRule:(AWSEC2DeleteTrafficMirrorFilterRuleRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteTrafficMirrorFilterRuleResult *response, NSError *error))completionHandler {
+    [[self deleteTrafficMirrorFilterRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTrafficMirrorFilterRuleResult *> * _Nonnull task) {
+        AWSEC2DeleteTrafficMirrorFilterRuleResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteTrafficMirrorSessionResult *> *)deleteTrafficMirrorSession:(AWSEC2DeleteTrafficMirrorSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTrafficMirrorSession"
+                   outputClass:[AWSEC2DeleteTrafficMirrorSessionResult class]];
+}
+
+- (void)deleteTrafficMirrorSession:(AWSEC2DeleteTrafficMirrorSessionRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteTrafficMirrorSessionResult *response, NSError *error))completionHandler {
+    [[self deleteTrafficMirrorSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTrafficMirrorSessionResult *> * _Nonnull task) {
+        AWSEC2DeleteTrafficMirrorSessionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteTrafficMirrorTargetResult *> *)deleteTrafficMirrorTarget:(AWSEC2DeleteTrafficMirrorTargetRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteTrafficMirrorTarget"
+                   outputClass:[AWSEC2DeleteTrafficMirrorTargetResult class]];
+}
+
+- (void)deleteTrafficMirrorTarget:(AWSEC2DeleteTrafficMirrorTargetRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteTrafficMirrorTargetResult *response, NSError *error))completionHandler {
+    [[self deleteTrafficMirrorTarget:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteTrafficMirrorTargetResult *> * _Nonnull task) {
+        AWSEC2DeleteTrafficMirrorTargetResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -4794,6 +4978,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeTrafficMirrorFiltersResult *> *)describeTrafficMirrorFilters:(AWSEC2DescribeTrafficMirrorFiltersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrafficMirrorFilters"
+                   outputClass:[AWSEC2DescribeTrafficMirrorFiltersResult class]];
+}
+
+- (void)describeTrafficMirrorFilters:(AWSEC2DescribeTrafficMirrorFiltersRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTrafficMirrorFiltersResult *response, NSError *error))completionHandler {
+    [[self describeTrafficMirrorFilters:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTrafficMirrorFiltersResult *> * _Nonnull task) {
+        AWSEC2DescribeTrafficMirrorFiltersResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeTrafficMirrorSessionsResult *> *)describeTrafficMirrorSessions:(AWSEC2DescribeTrafficMirrorSessionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrafficMirrorSessions"
+                   outputClass:[AWSEC2DescribeTrafficMirrorSessionsResult class]];
+}
+
+- (void)describeTrafficMirrorSessions:(AWSEC2DescribeTrafficMirrorSessionsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTrafficMirrorSessionsResult *response, NSError *error))completionHandler {
+    [[self describeTrafficMirrorSessions:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTrafficMirrorSessionsResult *> * _Nonnull task) {
+        AWSEC2DescribeTrafficMirrorSessionsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeTrafficMirrorTargetsResult *> *)describeTrafficMirrorTargets:(AWSEC2DescribeTrafficMirrorTargetsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrafficMirrorTargets"
+                   outputClass:[AWSEC2DescribeTrafficMirrorTargetsResult class]];
+}
+
+- (void)describeTrafficMirrorTargets:(AWSEC2DescribeTrafficMirrorTargetsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTrafficMirrorTargetsResult *response, NSError *error))completionHandler {
+    [[self describeTrafficMirrorTargets:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTrafficMirrorTargetsResult *> * _Nonnull task) {
+        AWSEC2DescribeTrafficMirrorTargetsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeTransitGatewayAttachmentsResult *> *)describeTransitGatewayAttachments:(AWSEC2DescribeTransitGatewayAttachmentsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6705,6 +6958,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult *> *)modifyTrafficMirrorFilterNetworkServices:(AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyTrafficMirrorFilterNetworkServices"
+                   outputClass:[AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult class]];
+}
+
+- (void)modifyTrafficMirrorFilterNetworkServices:(AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult *response, NSError *error))completionHandler {
+    [[self modifyTrafficMirrorFilterNetworkServices:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult *> * _Nonnull task) {
+        AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyTrafficMirrorFilterRuleResult *> *)modifyTrafficMirrorFilterRule:(AWSEC2ModifyTrafficMirrorFilterRuleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyTrafficMirrorFilterRule"
+                   outputClass:[AWSEC2ModifyTrafficMirrorFilterRuleResult class]];
+}
+
+- (void)modifyTrafficMirrorFilterRule:(AWSEC2ModifyTrafficMirrorFilterRuleRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyTrafficMirrorFilterRuleResult *response, NSError *error))completionHandler {
+    [[self modifyTrafficMirrorFilterRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyTrafficMirrorFilterRuleResult *> * _Nonnull task) {
+        AWSEC2ModifyTrafficMirrorFilterRuleResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyTrafficMirrorSessionResult *> *)modifyTrafficMirrorSession:(AWSEC2ModifyTrafficMirrorSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyTrafficMirrorSession"
+                   outputClass:[AWSEC2ModifyTrafficMirrorSessionResult class]];
+}
+
+- (void)modifyTrafficMirrorSession:(AWSEC2ModifyTrafficMirrorSessionRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyTrafficMirrorSessionResult *response, NSError *error))completionHandler {
+    [[self modifyTrafficMirrorSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyTrafficMirrorSessionResult *> * _Nonnull task) {
+        AWSEC2ModifyTrafficMirrorSessionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

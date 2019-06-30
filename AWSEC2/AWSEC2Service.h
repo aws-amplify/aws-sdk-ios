@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 
 /**
- <fullname>Amazon Elastic Compute Cloud</fullname><p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster.</p><p>To learn more about Amazon EC2, Amazon EBS, and Amazon VPC, see the following resources:</p><ul><li><p><a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a></p></li><li><p><a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a></p></li><li><p><a href="http://aws.amazon.com/ebs">Amazon EBS product page</a></p></li><li><p><a href="http://aws.amazon.com/vpc">Amazon VPC product page</a></p></li><li><p><a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a></p></li></ul>
+ <fullname>Amazon Elastic Compute Cloud</fullname><p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster.</p><p>To learn more, see the following resources:</p><ul><li><p>Amazon EC2: <a href="http://aws.amazon.com/ec2">Amazon EC2 product page</a>, <a href="http://aws.amazon.com/documentation/ec2">Amazon EC2 documentation</a></p></li><li><p>Amazon EBS: <a href="http://aws.amazon.com/ebs">Amazon EBS product page</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon EBS documentation</a></p></li><li><p>Amazon VPC: <a href="http://aws.amazon.com/vpc">Amazon VPC product page</a>, <a href="http://aws.amazon.com/documentation/vpc">Amazon VPC documentation</a></p></li><li><p>AWS VPN: <a href="http://aws.amazon.com/vpn">AWS VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">AWS VPN documentation</a></p></li></ul>
  */
 @interface AWSEC2 : AWSService
 
@@ -472,7 +472,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateClientVpnTargetNetwork:(AWSEC2AssociateClientVpnTargetNetworkRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateClientVpnTargetNetworkResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p><p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p><p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateDhcpOptions service method.
 
@@ -483,7 +483,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)associateDhcpOptions:(AWSEC2AssociateDhcpOptionsRequest *)request;
 
 /**
- <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p><p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Associates a set of DHCP options (that you've previously created) with the specified VPC, or associates no DHCP options with the VPC.</p><p>After you associate the options with the VPC, any existing instances and all new instances that you launch in that VPC use the options. You don't need to restart or relaunch the instances. They automatically pick up the changes within a few hours, depending on how frequently the instance renews its DHCP lease. You can explicitly renew the lease using the operating system on the instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateDhcpOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -519,7 +519,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateIamInstanceProfile:(AWSEC2AssociateIamInstanceProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateIamInstanceProfileResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateRouteTable service method.
 
@@ -531,7 +531,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AssociateRouteTableResult *> *)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request;
 
 /**
- <p>Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table from the subnet later. A route table can be associated with multiple subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateRouteTable service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -594,7 +594,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateTransitGatewayRouteTable:(AWSEC2AssociateTransitGatewayRouteTableRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateTransitGatewayRouteTableResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size is fixed at /56.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing">VPC and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size is fixed at /56.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateVpcCidrBlock service method.
 
@@ -606,7 +606,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2AssociateVpcCidrBlockResult *> *)associateVpcCidrBlock:(AWSEC2AssociateVpcCidrBlockRequest *)request;
 
 /**
- <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size is fixed at /56.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing">VPC and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size is fixed at /56.</p><p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateVpcCidrBlock service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -644,7 +644,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)attachClassicLinkVpc:(AWSEC2AttachClassicLinkVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AttachClassicLinkVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches an internet gateway to a VPC, enabling connectivity between the internet and the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ <p>Attaches an internet gateway to a VPC, enabling connectivity between the internet and the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the AttachInternetGateway service method.
 
@@ -655,7 +655,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)attachInternetGateway:(AWSEC2AttachInternetGatewayRequest *)request;
 
 /**
- <p>Attaches an internet gateway to a VPC, enabling connectivity between the internet and the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ <p>Attaches an internet gateway to a VPC, enabling connectivity between the internet and the VPC. For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the AttachInternetGateway service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1229,7 +1229,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createCustomerGateway:(AWSEC2CreateCustomerGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateCustomerGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#create-default-subnet">Creating a Default Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a Default Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDefaultSubnet service method.
 
@@ -1241,7 +1241,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateDefaultSubnetResult *> *)createDefaultSubnet:(AWSEC2CreateDefaultSubnetRequest *)request;
 
 /**
- <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#create-default-subnet">Creating a Default Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified Availability Zone in your default VPC. You can have only one default subnet per Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#create-default-subnet">Creating a Default Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDefaultSubnet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1254,7 +1254,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createDefaultSubnet:(AWSEC2CreateDefaultSubnetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateDefaultSubnetResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">Default VPC and Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot specify the components of the default VPC yourself.</p><p>If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.</p><p>If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs FAQ</a>.</p>
+ <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot specify the components of the default VPC yourself.</p><p>If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.</p><p>If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs FAQ</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDefaultVpc service method.
 
@@ -1266,7 +1266,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateDefaultVpcResult *> *)createDefaultVpc:(AWSEC2CreateDefaultVpcRequest *)request;
 
 /**
- <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">Default VPC and Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot specify the components of the default VPC yourself.</p><p>If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.</p><p>If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs FAQ</a>.</p>
+ <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet in each Availability Zone. For more information about the components of a default VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html">Default VPC and Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot specify the components of the default VPC yourself.</p><p>If you deleted your previous default VPC, you can create a default VPC. You cannot have more than one default VPC per Region.</p><p>If your account supports EC2-Classic, you cannot use this action to create a default VPC in a Region that supports EC2-Classic. If you want a default VPC in a Region that supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs FAQ</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDefaultVpc service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1279,7 +1279,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createDefaultVpc:(AWSEC2CreateDefaultVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateDefaultVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a set of DHCP options for your VPC. After creating the set, you must associate it with the VPC, causing all existing and new instances that you launch in the VPC to use this set of DHCP options. The following are the individual DHCP options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p><ul><li><p><code>domain-name-servers</code> - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. ITo have your instance to receive a custom DNS hostname as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code> to a custom DNS server.</p></li><li><p><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region, specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name.</p></li><li><p><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP) servers.</p></li><li><p><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</p></li><li><p><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). For more information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p></li></ul><p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code> option either to <code>AmazonProvidedDNS</code> or to a domain name server of your choice. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a set of DHCP options for your VPC. After creating the set, you must associate it with the VPC, causing all existing and new instances that you launch in the VPC to use this set of DHCP options. The following are the individual DHCP options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p><ul><li><p><code>domain-name-servers</code> - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. ITo have your instance to receive a custom DNS hostname as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code> to a custom DNS server.</p></li><li><p><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region, specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name.</p></li><li><p><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP) servers.</p></li><li><p><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</p></li><li><p><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). For more information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p></li></ul><p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code> option either to <code>AmazonProvidedDNS</code> or to a domain name server of your choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDhcpOptions service method.
 
@@ -1291,7 +1291,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateDhcpOptionsResult *> *)createDhcpOptions:(AWSEC2CreateDhcpOptionsRequest *)request;
 
 /**
- <p>Creates a set of DHCP options for your VPC. After creating the set, you must associate it with the VPC, causing all existing and new instances that you launch in the VPC to use this set of DHCP options. The following are the individual DHCP options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p><ul><li><p><code>domain-name-servers</code> - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. ITo have your instance to receive a custom DNS hostname as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code> to a custom DNS server.</p></li><li><p><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region, specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name.</p></li><li><p><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP) servers.</p></li><li><p><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</p></li><li><p><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). For more information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p></li></ul><p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code> option either to <code>AmazonProvidedDNS</code> or to a domain name server of your choice. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a set of DHCP options for your VPC. After creating the set, you must associate it with the VPC, causing all existing and new instances that you launch in the VPC to use this set of DHCP options. The following are the individual DHCP options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p><ul><li><p><code>domain-name-servers</code> - The IP addresses of up to four domain name servers, or AmazonProvidedDNS. The default DHCP option set specifies AmazonProvidedDNS. If specifying more than one domain name server, specify the IP addresses in a single parameter, separated by commas. ITo have your instance to receive a custom DNS hostname as specified in <code>domain-name</code>, you must set <code>domain-name-servers</code> to a custom DNS server.</p></li><li><p><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region, specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating systems accept multiple domain names separated by spaces. However, Windows and other Linux operating systems treat the value as a single domain, which results in unexpected behavior. If your DHCP options set is associated with a VPC that has instances with multiple operating systems, specify only one domain name.</p></li><li><p><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP) servers.</p></li><li><p><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.</p></li><li><p><code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that you specify 2 (broadcast and multicast are not currently supported). For more information about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p></li></ul><p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code> option either to <code>AmazonProvidedDNS</code> or to a domain name server of your choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDhcpOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1354,7 +1354,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createFleet:(AWSEC2CreateFleetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateFleetResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p><p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records">Flow Log Records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p><p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFlowLogs service method.
 
@@ -1366,7 +1366,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateFlowLogsResult *> *)createFlowLogs:(AWSEC2CreateFlowLogsRequest *)request;
 
 /**
- <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p><p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html#flow-log-records">Flow Log Records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface, subnet, or VPC. </p><p>Flow log data for a monitored network interface is recorded as flow log records, which are log events consisting of fields that describe the traffic flow. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>When publishing to CloudWatch Logs, flow log records are published to a log group, and each network interface has a unique log stream in the log group. When publishing to Amazon S3, flow log records for all of the monitored network interfaces are published to a single log file object that is stored in the specified bucket.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFlowLogs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1454,7 +1454,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createInstanceExportTask:(AWSEC2CreateInstanceExportTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateInstanceExportTaskResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using <a>AttachInternetGateway</a>.</p><p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ <p>Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using <a>AttachInternetGateway</a>.</p><p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateInternetGateway service method.
 
@@ -1466,7 +1466,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateInternetGatewayResult *> *)createInternetGateway:(AWSEC2CreateInternetGatewayRequest *)request;
 
 /**
- <p>Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using <a>AttachInternetGateway</a>.</p><p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/">Amazon Virtual Private Cloud User Guide</a>.</p>
+ <p>Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using <a>AttachInternetGateway</a>.</p><p>For more information about your VPC and internet gateway, see the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/">Amazon Virtual Private Cloud User Guide</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateInternetGateway service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1554,7 +1554,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createLaunchTemplateVersion:(AWSEC2CreateLaunchTemplateVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateLaunchTemplateVersionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a NAT gateway in the specified public subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT gateway, therefore enabling instances in the private subnet to connect to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">NAT Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a NAT gateway in the specified public subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT gateway, therefore enabling instances in the private subnet to connect to the internet. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNatGateway service method.
 
@@ -1566,7 +1566,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateNatGatewayResult *> *)createNatGateway:(AWSEC2CreateNatGatewayRequest *)request;
 
 /**
- <p>Creates a NAT gateway in the specified public subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT gateway, therefore enabling instances in the private subnet to connect to the internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">NAT Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a NAT gateway in the specified public subnet. This action creates a network interface in the specified subnet with a private IP address from the IP address range of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT gateway, therefore enabling instances in the private subnet to connect to the internet. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNatGateway service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1579,7 +1579,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createNatGateway:(AWSEC2CreateNatGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateNatGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNetworkAcl service method.
 
@@ -1591,7 +1591,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateNetworkAclResult *> *)createNetworkAcl:(AWSEC2CreateNetworkAclRequest *)request;
 
 /**
- <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNetworkAcl service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1604,7 +1604,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createNetworkAcl:(AWSEC2CreateNetworkAclRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateNetworkAclResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.</p><p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p><p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p><p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.</p><p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p><p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p><p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNetworkAclEntry service method.
 
@@ -1615,7 +1615,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)createNetworkAclEntry:(AWSEC2CreateNetworkAclEntryRequest *)request;
 
 /**
- <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.</p><p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p><p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p><p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates an entry (a rule) in a network ACL with the specified rule number. Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the ACL, we process the entries in the ACL according to the rule numbers, in ascending order. Each network ACL has a set of ingress rules and a separate set of egress rules.</p><p>We recommend that you leave room between the rule numbers (for example, 100, 110, 120, ...), and not number them one right after the other (for example, 101, 102, 103, ...). This makes it easier to add a rule between existing ones without having to renumber the rules.</p><p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p><p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNetworkAclEntry service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1723,7 +1723,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createReservedInstancesListing:(AWSEC2CreateReservedInstancesListingRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateReservedInstancesListingResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a route in a route table within a VPC.</p><p>You must specify one of the following targets: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the route table includes the following two IPv4 routes:</p><ul><li><p><code>192.0.2.0/24</code> (goes to some target A)</p></li><li><p><code>192.0.2.0/28</code> (goes to some target B)</p></li></ul><p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.</p><p>For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a route in a route table within a VPC.</p><p>You must specify one of the following targets: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the route table includes the following two IPv4 routes:</p><ul><li><p><code>192.0.2.0/24</code> (goes to some target A)</p></li><li><p><code>192.0.2.0/28</code> (goes to some target B)</p></li></ul><p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.</p><p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateRoute service method.
 
@@ -1735,7 +1735,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateRouteResult *> *)createRoute:(AWSEC2CreateRouteRequest *)request;
 
 /**
- <p>Creates a route in a route table within a VPC.</p><p>You must specify one of the following targets: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the route table includes the following two IPv4 routes:</p><ul><li><p><code>192.0.2.0/24</code> (goes to some target A)</p></li><li><p><code>192.0.2.0/28</code> (goes to some target B)</p></li></ul><p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.</p><p>For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a route in a route table within a VPC.</p><p>You must specify one of the following targets: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>When determining how to route traffic, we use the route with the most specific match. For example, traffic is destined for the IPv4 address <code>192.0.2.3</code>, and the route table includes the following two IPv4 routes:</p><ul><li><p><code>192.0.2.0/24</code> (goes to some target A)</p></li><li><p><code>192.0.2.0/28</code> (goes to some target B)</p></li></ul><p>Both routes apply to the traffic destined for <code>192.0.2.3</code>. However, the second route in the list covers a smaller number of IP addresses and is therefore more specific, so we use that route to determine where to target the traffic.</p><p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1748,7 +1748,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createRoute:(AWSEC2CreateRouteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateRouteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateRouteTable service method.
 
@@ -1760,7 +1760,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateRouteTableResult *> *)createRouteTable:(AWSEC2CreateRouteTableRequest *)request;
 
 /**
- <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateRouteTable service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1873,7 +1873,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createSpotDatafeedSubscription:(AWSEC2CreateSpotDatafeedSubscriptionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateSpotDatafeedSubscriptionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a subnet in an existing VPC.</p><p>When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).</p><p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. </p><important><p>AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.</p></important><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information about subnets, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a subnet in an existing VPC.</p><p>When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).</p><p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. </p><important><p>AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.</p></important><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSubnet service method.
 
@@ -1885,7 +1885,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateSubnetResult *> *)createSubnet:(AWSEC2CreateSubnetRequest *)request;
 
 /**
- <p>Creates a subnet in an existing VPC.</p><p>When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).</p><p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. </p><important><p>AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.</p></important><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information about subnets, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Creates a subnet in an existing VPC.</p><p>When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet. After you create a subnet, you can't change its CIDR block. The size of the subnet's IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).</p><p>If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with an IPv6 CIDR block that uses a /64 prefix length. </p><important><p>AWS reserves both the first four and the last IPv4 address in each subnet's CIDR block. They're not available for use.</p></important><p>If you add more than one subnet to a VPC, they're set up in a star topology with a logical router in the middle.</p><p>If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address doesn't change if you stop and restart the instance (unlike a similar instance launched outside a VPC, which gets a new IP address when restarted). It's therefore possible to have a subnet with no running instances (they're all stopped), but no remaining IP addresses available.</p><p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSubnet service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1918,6 +1918,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateTagsRequest
  */
 - (void)createTags:(AWSEC2CreateTagsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a Traffic Mirror filter.</p><p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p><p>By default, no traffic is mirrored. To mirror traffic, use <a>CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored. You can also use <a>ModifyTrafficMirrorFilterNetworkServices</a> to mirror supported network services.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorFilter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTrafficMirrorFilterResult`.
+ 
+ @see AWSEC2CreateTrafficMirrorFilterRequest
+ @see AWSEC2CreateTrafficMirrorFilterResult
+ */
+- (AWSTask<AWSEC2CreateTrafficMirrorFilterResult *> *)createTrafficMirrorFilter:(AWSEC2CreateTrafficMirrorFilterRequest *)request;
+
+/**
+ <p>Creates a Traffic Mirror filter.</p><p>A Traffic Mirror filter is a set of rules that defines the traffic to mirror.</p><p>By default, no traffic is mirrored. To mirror traffic, use <a>CreateTrafficMirrorFilterRule</a> to add Traffic Mirror rules to the filter. The rules you add define what traffic gets mirrored. You can also use <a>ModifyTrafficMirrorFilterNetworkServices</a> to mirror supported network services.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorFilter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTrafficMirrorFilterRequest
+ @see AWSEC2CreateTrafficMirrorFilterResult
+ */
+- (void)createTrafficMirrorFilter:(AWSEC2CreateTrafficMirrorFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTrafficMirrorFilterResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a Traffic Mirror rule. </p><p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p><p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorFilterRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTrafficMirrorFilterRuleResult`.
+ 
+ @see AWSEC2CreateTrafficMirrorFilterRuleRequest
+ @see AWSEC2CreateTrafficMirrorFilterRuleResult
+ */
+- (AWSTask<AWSEC2CreateTrafficMirrorFilterRuleResult *> *)createTrafficMirrorFilterRule:(AWSEC2CreateTrafficMirrorFilterRuleRequest *)request;
+
+/**
+ <p>Creates a Traffic Mirror rule. </p><p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p><p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorFilterRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTrafficMirrorFilterRuleRequest
+ @see AWSEC2CreateTrafficMirrorFilterRuleResult
+ */
+- (void)createTrafficMirrorFilterRule:(AWSEC2CreateTrafficMirrorFilterRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTrafficMirrorFilterRuleResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a Traffic Mirror session.</p><p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it to the session to define a subset of the traffic to mirror, for example all TCP traffic.</p><p>The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway. </p><p>By default, no traffic is mirrored. Use <a>CreateTrafficMirrorFilter</a> to create filter rules that specify the traffic to mirror.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorSession service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTrafficMirrorSessionResult`.
+ 
+ @see AWSEC2CreateTrafficMirrorSessionRequest
+ @see AWSEC2CreateTrafficMirrorSessionResult
+ */
+- (AWSTask<AWSEC2CreateTrafficMirrorSessionResult *> *)createTrafficMirrorSession:(AWSEC2CreateTrafficMirrorSessionRequest *)request;
+
+/**
+ <p>Creates a Traffic Mirror session.</p><p>A Traffic Mirror session actively copies packets from a Traffic Mirror source to a Traffic Mirror target. Create a filter, and then assign it to the session to define a subset of the traffic to mirror, for example all TCP traffic.</p><p>The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in a different VPC connected via VPC peering or a transit gateway. </p><p>By default, no traffic is mirrored. Use <a>CreateTrafficMirrorFilter</a> to create filter rules that specify the traffic to mirror.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorSession service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTrafficMirrorSessionRequest
+ @see AWSEC2CreateTrafficMirrorSessionResult
+ */
+- (void)createTrafficMirrorSession:(AWSEC2CreateTrafficMirrorSessionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTrafficMirrorSessionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a target for your Traffic Mirror session.</p><p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p><p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p><p>To use the target in a Traffic Mirror session, use <a>CreateTrafficMirrorSession</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorTarget service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTrafficMirrorTargetResult`.
+ 
+ @see AWSEC2CreateTrafficMirrorTargetRequest
+ @see AWSEC2CreateTrafficMirrorTargetResult
+ */
+- (AWSTask<AWSEC2CreateTrafficMirrorTargetResult *> *)createTrafficMirrorTarget:(AWSEC2CreateTrafficMirrorTargetRequest *)request;
+
+/**
+ <p>Creates a target for your Traffic Mirror session.</p><p>A Traffic Mirror target is the destination for mirrored traffic. The Traffic Mirror source and the Traffic Mirror target (monitoring appliances) can be in the same VPC, or in different VPCs connected via VPC peering or a transit gateway.</p><p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p><p>To use the target in a Traffic Mirror session, use <a>CreateTrafficMirrorSession</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTrafficMirrorTarget service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTrafficMirrorTargetRequest
+ @see AWSEC2CreateTrafficMirrorTargetResult
+ */
+- (void)createTrafficMirrorTarget:(AWSEC2CreateTrafficMirrorTargetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTrafficMirrorTargetResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a transit gateway.</p><p>You can use a transit gateway to interconnect your virtual private clouds (VPC) and on-premises networks. After the transit gateway enters the <code>available</code> state, you can attach your VPCs and VPN connections to the transit gateway.</p><p>To attach your VPCs, use <a>CreateTransitGatewayVpcAttachment</a>.</p><p>To attach a VPN connection, use <a>CreateCustomerGateway</a> to create a customer gateway and specify the ID of the customer gateway and the ID of the transit gateway in a call to <a>CreateVpnConnection</a>.</p><p>When you create a transit gateway, we create a default transit gateway route table and use it as the default association route table and the default propagation route table. You can use <a>CreateTransitGatewayRouteTable</a> to create additional transit gateway route tables. If you disable automatic route propagation, we do not create a default transit gateway route table. You can use <a>EnableTransitGatewayRouteTablePropagation</a> to propagate routes from a resource attachment to a transit gateway route table. If you disable automatic associations, you can use <a>AssociateTransitGatewayRouteTable</a> to associate a resource attachment with a transit gateway route table.</p>
@@ -2045,7 +2145,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVolume:(AWSEC2CreateVolumeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2Volume * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.</p><p>By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.</p><p>By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpc service method.
 
@@ -2057,7 +2157,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcResult *> *)createVpc:(AWSEC2CreateVpcRequest *)request;
 
 /**
- <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.</p><p>By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6 CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses. You cannot choose the IPv6 range for your VPC.</p><p>By default, each instance you launch in the VPC has the default DHCP options, which include only a default DNS server that we provide (AmazonProvidedDNS). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can specify the instance tenancy value for the VPC when you create it. You can't change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpc service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2070,7 +2170,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpc:(AWSEC2CreateVpcRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
+ <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpoint service method.
 
@@ -2082,7 +2182,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcEndpointResult *> *)createVpcEndpoint:(AWSEC2CreateVpcEndpointRequest *)request;
 
 /**
- <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
+ <p>Creates a VPC endpoint for a specified service. An endpoint enables you to create a private connection between your VPC and the service. The service may be provided by AWS, an AWS Marketplace partner, or another AWS account. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>A <code>gateway</code> endpoint serves as a target for a route in your route table for traffic destined for the AWS service. You can specify an endpoint policy to attach to the endpoint that will control access to the service from your VPC. You can also specify the VPC route tables that use the endpoint.</p><p>An <code>interface</code> endpoint is a network interface in your subnet that serves as an endpoint for communicating with the specified service. You can specify the subnets in which to create an endpoint, and the security groups to associate with the endpoint network interface.</p><p>Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2120,7 +2220,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpcEndpointConnectionNotification:(AWSEC2CreateVpcEndpointConnectionNotificationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcEndpointConnectionNotificationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect. Service consumers can create an interface VPC endpoint to connect to your service.</p><p>To create an endpoint service configuration, you must first create a Network Load Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
+ <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect. Service consumers can create an interface VPC endpoint to connect to your service.</p><p>To create an endpoint service configuration, you must first create a Network Load Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.
 
@@ -2132,7 +2232,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcEndpointServiceConfigurationResult *> *)createVpcEndpointServiceConfiguration:(AWSEC2CreateVpcEndpointServiceConfigurationRequest *)request;
 
 /**
- <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect. Service consumers can create an interface VPC endpoint to connect to your service.</p><p>To create an endpoint service configuration, you must first create a Network Load Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
+ <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts, IAM users, and IAM roles) can connect. Service consumers can create an interface VPC endpoint to connect to your service.</p><p>To create an endpoint service configuration, you must first create a Network Load Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2145,7 +2245,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpcEndpointServiceConfiguration:(AWSEC2CreateVpcEndpointServiceConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcEndpointServiceConfigurationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p><note><p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p></note><p>The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p><p>If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of <code>failed</code>.</p>
+ <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p><note><p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p></note><p>The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p><p>If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of <code>failed</code>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcPeeringConnection service method.
 
@@ -2157,7 +2257,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpcPeeringConnectionResult *> *)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request;
 
 /**
- <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p><note><p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p></note><p>The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p><p>If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of <code>failed</code>.</p>
+ <p>Requests a VPC peering connection between two VPCs: a requester VPC that you own and an accepter VPC with which to create the connection. The accepter VPC can belong to another AWS account and can be in a different Region to the requester VPC. The requester VPC and accepter VPC cannot have overlapping CIDR blocks.</p><note><p>Limitations and rules apply to a VPC peering connection. For more information, see the <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-basics.html#vpc-peering-limitations">limitations</a> section in the <i>VPC Peering Guide</i>.</p></note><p>The owner of the accepter VPC must accept the peering request to activate the peering connection. The VPC peering connection request expires after 7 days, after which it cannot be accepted or rejected.</p><p>If you create a VPC peering connection request between VPCs with overlapping CIDR blocks, the VPC peering connection has a status of <code>failed</code>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpcPeeringConnection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2170,7 +2270,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createVpcPeeringConnection:(AWSEC2CreateVpcPeeringConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateVpcPeeringConnectionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types are <code>ipsec.1</code> and <code>ipsec.2</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types is <code>ipsec.1</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpnConnection service method.
 
@@ -2182,7 +2282,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2CreateVpnConnectionResult *> *)createVpnConnection:(AWSEC2CreateVpnConnectionRequest *)request;
 
 /**
- <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types are <code>ipsec.1</code> and <code>ipsec.2</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ <p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types is <code>ipsec.1</code>.</p><p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p><important><p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p></important><p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p><p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateVpnConnection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2820,6 +2920,106 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteTagsRequest
  */
 - (void)deleteTags:(AWSEC2DeleteTagsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Traffic Mirror filter.</p><p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorFilter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTrafficMirrorFilterResult`.
+ 
+ @see AWSEC2DeleteTrafficMirrorFilterRequest
+ @see AWSEC2DeleteTrafficMirrorFilterResult
+ */
+- (AWSTask<AWSEC2DeleteTrafficMirrorFilterResult *> *)deleteTrafficMirrorFilter:(AWSEC2DeleteTrafficMirrorFilterRequest *)request;
+
+/**
+ <p>Deletes the specified Traffic Mirror filter.</p><p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorFilter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTrafficMirrorFilterRequest
+ @see AWSEC2DeleteTrafficMirrorFilterResult
+ */
+- (void)deleteTrafficMirrorFilter:(AWSEC2DeleteTrafficMirrorFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTrafficMirrorFilterResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Traffic Mirror rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorFilterRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTrafficMirrorFilterRuleResult`.
+ 
+ @see AWSEC2DeleteTrafficMirrorFilterRuleRequest
+ @see AWSEC2DeleteTrafficMirrorFilterRuleResult
+ */
+- (AWSTask<AWSEC2DeleteTrafficMirrorFilterRuleResult *> *)deleteTrafficMirrorFilterRule:(AWSEC2DeleteTrafficMirrorFilterRuleRequest *)request;
+
+/**
+ <p>Deletes the specified Traffic Mirror rule.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorFilterRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTrafficMirrorFilterRuleRequest
+ @see AWSEC2DeleteTrafficMirrorFilterRuleResult
+ */
+- (void)deleteTrafficMirrorFilterRule:(AWSEC2DeleteTrafficMirrorFilterRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTrafficMirrorFilterRuleResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorSession service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTrafficMirrorSessionResult`.
+ 
+ @see AWSEC2DeleteTrafficMirrorSessionRequest
+ @see AWSEC2DeleteTrafficMirrorSessionResult
+ */
+- (AWSTask<AWSEC2DeleteTrafficMirrorSessionResult *> *)deleteTrafficMirrorSession:(AWSEC2DeleteTrafficMirrorSessionRequest *)request;
+
+/**
+ <p>Deletes the specified Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorSession service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTrafficMirrorSessionRequest
+ @see AWSEC2DeleteTrafficMirrorSessionResult
+ */
+- (void)deleteTrafficMirrorSession:(AWSEC2DeleteTrafficMirrorSessionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTrafficMirrorSessionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Traffic Mirror target.</p><p>You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorTarget service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTrafficMirrorTargetResult`.
+ 
+ @see AWSEC2DeleteTrafficMirrorTargetRequest
+ @see AWSEC2DeleteTrafficMirrorTargetResult
+ */
+- (AWSTask<AWSEC2DeleteTrafficMirrorTargetResult *> *)deleteTrafficMirrorTarget:(AWSEC2DeleteTrafficMirrorTargetRequest *)request;
+
+/**
+ <p>Deletes the specified Traffic Mirror target.</p><p>You cannot delete a Traffic Mirror target that is in use by a Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTrafficMirrorTarget service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTrafficMirrorTargetRequest
+ @see AWSEC2DeleteTrafficMirrorTargetResult
+ */
+- (void)deleteTrafficMirrorTarget:(AWSEC2DeleteTrafficMirrorTargetRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTrafficMirrorTargetResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified transit gateway.</p>
@@ -3554,7 +3754,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeCustomerGateways:(AWSEC2DescribeCustomerGatewaysRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeCustomerGatewaysResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your DHCP options sets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your DHCP options sets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDhcpOptions service method.
 
@@ -3566,7 +3766,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeDhcpOptionsResult *> *)describeDhcpOptions:(AWSEC2DescribeDhcpOptionsRequest *)request;
 
 /**
- <p>Describes one or more of your DHCP options sets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your DHCP options sets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDhcpOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4304,7 +4504,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeNatGateways:(AWSEC2DescribeNatGatewaysRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNatGatewaysResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your network ACLs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your network ACLs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNetworkAcls service method.
 
@@ -4316,7 +4516,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeNetworkAclsResult *> *)describeNetworkAcls:(AWSEC2DescribeNetworkAclsRequest *)request;
 
 /**
- <p>Describes one or more of your network ACLs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your network ACLs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNetworkAcls service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4629,7 +4829,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeReservedInstancesOfferings:(AWSEC2DescribeReservedInstancesOfferingsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeReservedInstancesOfferingsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your route tables.</p><p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your route tables.</p><p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRouteTables service method.
 
@@ -4641,7 +4841,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeRouteTablesResult *> *)describeRouteTables:(AWSEC2DescribeRouteTablesRequest *)request;
 
 /**
- <p>Describes one or more of your route tables.</p><p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your route tables.</p><p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRouteTables service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -4979,7 +5179,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeStaleSecurityGroups:(AWSEC2DescribeStaleSecurityGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeStaleSecurityGroupsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes one or more of your subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSubnets service method.
 
@@ -4991,7 +5191,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeSubnetsResult *> *)describeSubnets:(AWSEC2DescribeSubnetsRequest *)request;
 
 /**
- <p>Describes one or more of your subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Describes one or more of your subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSubnets service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5027,6 +5227,81 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeTagsResult
  */
 - (void)describeTags:(AWSEC2DescribeTagsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTagsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more Traffic Mirror filters.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficMirrorFilters service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTrafficMirrorFiltersResult`.
+ 
+ @see AWSEC2DescribeTrafficMirrorFiltersRequest
+ @see AWSEC2DescribeTrafficMirrorFiltersResult
+ */
+- (AWSTask<AWSEC2DescribeTrafficMirrorFiltersResult *> *)describeTrafficMirrorFilters:(AWSEC2DescribeTrafficMirrorFiltersRequest *)request;
+
+/**
+ <p>Describes one or more Traffic Mirror filters.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficMirrorFilters service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTrafficMirrorFiltersRequest
+ @see AWSEC2DescribeTrafficMirrorFiltersResult
+ */
+- (void)describeTrafficMirrorFilters:(AWSEC2DescribeTrafficMirrorFiltersRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTrafficMirrorFiltersResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficMirrorSessions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTrafficMirrorSessionsResult`.
+ 
+ @see AWSEC2DescribeTrafficMirrorSessionsRequest
+ @see AWSEC2DescribeTrafficMirrorSessionsResult
+ */
+- (AWSTask<AWSEC2DescribeTrafficMirrorSessionsResult *> *)describeTrafficMirrorSessions:(AWSEC2DescribeTrafficMirrorSessionsRequest *)request;
+
+/**
+ <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficMirrorSessions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTrafficMirrorSessionsRequest
+ @see AWSEC2DescribeTrafficMirrorSessionsResult
+ */
+- (void)describeTrafficMirrorSessions:(AWSEC2DescribeTrafficMirrorSessionsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTrafficMirrorSessionsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Information about one or more Traffic Mirror targets.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficMirrorTargets service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTrafficMirrorTargetsResult`.
+ 
+ @see AWSEC2DescribeTrafficMirrorTargetsRequest
+ @see AWSEC2DescribeTrafficMirrorTargetsResult
+ */
+- (AWSTask<AWSEC2DescribeTrafficMirrorTargetsResult *> *)describeTrafficMirrorTargets:(AWSEC2DescribeTrafficMirrorTargetsRequest *)request;
+
+/**
+ <p>Information about one or more Traffic Mirror targets.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTrafficMirrorTargets service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTrafficMirrorTargetsRequest
+ @see AWSEC2DescribeTrafficMirrorTargetsResult
+ */
+- (void)describeTrafficMirrorTargets:(AWSEC2DescribeTrafficMirrorTargetsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTrafficMirrorTargetsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described. Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
@@ -5864,7 +6139,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateIamInstanceProfile:(AWSEC2DisassociateIamInstanceProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateIamInstanceProfileResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disassociates a subnet from a route table.</p><p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Disassociates a subnet from a route table.</p><p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateRouteTable service method.
 
@@ -5875,7 +6150,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)disassociateRouteTable:(AWSEC2DisassociateRouteTableRequest *)request;
 
 /**
- <p>Disassociates a subnet from a route table.</p><p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Disassociates a subnet from a route table.</p><p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateRouteTable service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7084,6 +7359,81 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifySubnetAttribute:(AWSEC2ModifySubnetAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Allows or restricts mirroring network services.</p><p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter. </p><p>FFor information about filter rule properties, see <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html#traffic-mirroring-network-services">Network Services</a> in the <i>Traffic Mirroring User Guide </i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrafficMirrorFilterNetworkServices service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult`.
+ 
+ @see AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest
+ @see AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult
+ */
+- (AWSTask<AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult *> *)modifyTrafficMirrorFilterNetworkServices:(AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest *)request;
+
+/**
+ <p>Allows or restricts mirroring network services.</p><p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored. When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter. </p><p>FFor information about filter rule properties, see <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html#traffic-mirroring-network-services">Network Services</a> in the <i>Traffic Mirroring User Guide </i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrafficMirrorFilterNetworkServices service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest
+ @see AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult
+ */
+- (void)modifyTrafficMirrorFilterNetworkServices:(AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified Traffic Mirror rule.</p><p><code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4 range or an IPv6 range.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrafficMirrorFilterRule service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyTrafficMirrorFilterRuleResult`.
+ 
+ @see AWSEC2ModifyTrafficMirrorFilterRuleRequest
+ @see AWSEC2ModifyTrafficMirrorFilterRuleResult
+ */
+- (AWSTask<AWSEC2ModifyTrafficMirrorFilterRuleResult *> *)modifyTrafficMirrorFilterRule:(AWSEC2ModifyTrafficMirrorFilterRuleRequest *)request;
+
+/**
+ <p>Modifies the specified Traffic Mirror rule.</p><p><code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4 range or an IPv6 range.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrafficMirrorFilterRule service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyTrafficMirrorFilterRuleRequest
+ @see AWSEC2ModifyTrafficMirrorFilterRuleResult
+ */
+- (void)modifyTrafficMirrorFilterRule:(AWSEC2ModifyTrafficMirrorFilterRuleRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyTrafficMirrorFilterRuleResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies a Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrafficMirrorSession service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyTrafficMirrorSessionResult`.
+ 
+ @see AWSEC2ModifyTrafficMirrorSessionRequest
+ @see AWSEC2ModifyTrafficMirrorSessionResult
+ */
+- (AWSTask<AWSEC2ModifyTrafficMirrorSessionResult *> *)modifyTrafficMirrorSession:(AWSEC2ModifyTrafficMirrorSessionRequest *)request;
+
+/**
+ <p>Modifies a Traffic Mirror session.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyTrafficMirrorSession service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyTrafficMirrorSessionRequest
+ @see AWSEC2ModifyTrafficMirrorSessionResult
+ */
+- (void)modifyTrafficMirrorSession:(AWSEC2ModifyTrafficMirrorSessionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyTrafficMirrorSessionResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Modifies the specified VPC attachment.</p>
  
  @param request A container for the necessary parameters to execute the ModifyTransitGatewayVpcAttachment service method.
@@ -7178,7 +7528,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpcAttribute:(AWSEC2ModifyVpcAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpoint service method.
 
@@ -7190,7 +7540,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyVpcEndpointResult *> *)modifyVpcEndpoint:(AWSEC2ModifyVpcEndpointRequest *)request;
 
 /**
- <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify depend on the type of VPC endpoint (interface or gateway). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7253,7 +7603,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpcEndpointServiceConfiguration:(AWSEC2ModifyVpcEndpointServiceConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpcEndpointServiceConfigurationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and AWS accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
+ <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and AWS accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.
 
@@ -7265,7 +7615,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyVpcEndpointServicePermissionsResult *> *)modifyVpcEndpointServicePermissions:(AWSEC2ModifyVpcEndpointServicePermissionsRequest *)request;
 
 /**
- <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and AWS accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
+ <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users, IAM roles, and AWS accounts) to connect to your endpoint service.</p><p>If you grant permissions to all principals, the service is public. Any users who know the name of a public service can send a request to attach an endpoint. If the service does not require manual approval, attachments are automatically approved.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7697,7 +8047,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)replaceIamInstanceProfileAssociation:(AWSEC2ReplaceIamInstanceProfileAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReplaceIamInstanceProfileAssociationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>This is an idempotent operation.</p>
+ <p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>This is an idempotent operation.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceNetworkAclAssociation service method.
 
@@ -7709,7 +8059,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ReplaceNetworkAclAssociationResult *> *)replaceNetworkAclAssociation:(AWSEC2ReplaceNetworkAclAssociationRequest *)request;
 
 /**
- <p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>This is an idempotent operation.</p>
+ <p>Changes which network ACL a subnet is associated with. By default when you create a subnet, it's automatically associated with the default network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>This is an idempotent operation.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceNetworkAclAssociation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7722,7 +8072,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)replaceNetworkAclAssociation:(AWSEC2ReplaceNetworkAclAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ReplaceNetworkAclAssociationResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceNetworkAclEntry service method.
 
@@ -7733,7 +8083,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)replaceNetworkAclEntry:(AWSEC2ReplaceNetworkAclEntryRequest *)request;
 
 /**
- <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceNetworkAclEntry service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7744,7 +8094,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)replaceNetworkAclEntry:(AWSEC2ReplaceNetworkAclEntryRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Replaces an existing route within a route table in a VPC. You must provide only one of the following: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Replaces an existing route within a route table in a VPC. You must provide only one of the following: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceRoute service method.
 
@@ -7755,7 +8105,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask *)replaceRoute:(AWSEC2ReplaceRouteRequest *)request;
 
 /**
- <p>Replaces an existing route within a route table in a VPC. You must provide only one of the following: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ <p>Replaces an existing route within a route table in a VPC. You must provide only one of the following: internet gateway or virtual private gateway, NAT instance, NAT gateway, VPC peering connection, network interface, or egress-only internet gateway.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceRoute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -7766,7 +8116,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)replaceRoute:(AWSEC2ReplaceRouteRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Changes the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.</p>
+ <p>Changes the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceRouteTableAssociation service method.
 
@@ -7778,7 +8128,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ReplaceRouteTableAssociationResult *> *)replaceRouteTableAssociation:(AWSEC2ReplaceRouteTableAssociationRequest *)request;
 
 /**
- <p>Changes the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.</p>
+ <p>Changes the route table associated with a given subnet in a VPC. After the operation completes, the subnet uses the routes in the new route table it's associated with. For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p><p>You can also use ReplaceRouteTableAssociation to change which table is the main route table in the VPC. You just specify the main route table's association ID and the route table to be the new main route table.</p>
  
  @param request A container for the necessary parameters to execute the ReplaceRouteTableAssociation service method.
  @param completionHandler The completion handler to call when the load request is complete.
