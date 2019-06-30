@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 
 /**
- Amazon Pinpoint
+ <p>Doc Engage API - Amazon Pinpoint API</p>
  */
 @interface AWSPinpointTargeting : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 + (void)removePinpointTargetingForKey:(NSString *)key;
 
 /**
- Creates or updates an app.
+  <p>Creates an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateApp service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateAppResponse *> *)createApp:(AWSPinpointTargetingCreateAppRequest *)request;
 
 /**
- Creates or updates an app.
+  <p>Creates an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateApp service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createApp:(AWSPinpointTargetingCreateAppRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateAppResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Creates or updates a campaign.
+ <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateCampaign service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateCampaignResponse *> *)createCampaign:(AWSPinpointTargetingCreateCampaignRequest *)request;
 
 /**
- Creates or updates a campaign.
+ <p>Creates a new campaign for an application or updates the settings of an existing campaign for an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateCampaign service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createCampaign:(AWSPinpointTargetingCreateCampaignRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateCampaignResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Creates an export job.
+ <p>Creates a new export job for an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateExportJob service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateExportJobResponse *> *)createExportJob:(AWSPinpointTargetingCreateExportJobRequest *)request;
 
 /**
- Creates an export job.
+ <p>Creates a new export job for an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateExportJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -250,7 +250,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createExportJob:(AWSPinpointTargetingCreateExportJobRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateExportJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Creates or updates an import job.
+ <p>Creates a new import job for an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateImportJob service method.
 
@@ -262,7 +262,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateImportJobResponse *> *)createImportJob:(AWSPinpointTargetingCreateImportJobRequest *)request;
 
 /**
- Creates or updates an import job.
+ <p>Creates a new import job for an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateImportJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createImportJob:(AWSPinpointTargetingCreateImportJobRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateImportJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to create or update a segment.
+ <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateSegment service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateSegmentResponse *> *)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request;
 
 /**
- Used to create or update a segment.
+ <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the CreateSegment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateSegmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an ADM channel.
+ <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAdmChannel service method.
 
@@ -312,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteAdmChannelResponse *> *)deleteAdmChannel:(AWSPinpointTargetingDeleteAdmChannelRequest *)request;
 
 /**
- Delete an ADM channel.
+ <p>Disables the ADM channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAdmChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteAdmChannel:(AWSPinpointTargetingDeleteAdmChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteAdmChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the APNs channel for an app.
+ <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsChannel service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteApnsChannelResponse *> *)deleteApnsChannel:(AWSPinpointTargetingDeleteApnsChannelRequest *)request;
 
 /**
- Deletes the APNs channel for an app.
+ <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -350,7 +350,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteApnsChannel:(AWSPinpointTargetingDeleteApnsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteApnsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an APNS sandbox channel.
+ <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsSandboxChannel service method.
 
@@ -362,7 +362,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteApnsSandboxChannelResponse *> *)deleteApnsSandboxChannel:(AWSPinpointTargetingDeleteApnsSandboxChannelRequest *)request;
 
 /**
- Delete an APNS sandbox channel.
+ <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsSandboxChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -375,7 +375,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteApnsSandboxChannel:(AWSPinpointTargetingDeleteApnsSandboxChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteApnsSandboxChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an APNS VoIP channel
+ <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsVoipChannel service method.
 
@@ -387,7 +387,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteApnsVoipChannelResponse *> *)deleteApnsVoipChannel:(AWSPinpointTargetingDeleteApnsVoipChannelRequest *)request;
 
 /**
- Delete an APNS VoIP channel
+ <p>Disables the APNs VoIP channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsVoipChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -400,7 +400,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteApnsVoipChannel:(AWSPinpointTargetingDeleteApnsVoipChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteApnsVoipChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an APNS VoIP sandbox channel
+ <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsVoipSandboxChannel service method.
 
@@ -412,7 +412,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteApnsVoipSandboxChannelResponse *> *)deleteApnsVoipSandboxChannel:(AWSPinpointTargetingDeleteApnsVoipSandboxChannelRequest *)request;
 
 /**
- Delete an APNS VoIP sandbox channel
+ <p>Disables the APNs VoIP sandbox channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApnsVoipSandboxChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -425,7 +425,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteApnsVoipSandboxChannel:(AWSPinpointTargetingDeleteApnsVoipSandboxChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteApnsVoipSandboxChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes an app.
+ <p>Deletes an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApp service method.
 
@@ -437,7 +437,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteAppResponse *> *)deleteApp:(AWSPinpointTargetingDeleteAppRequest *)request;
 
 /**
- Deletes an app.
+ <p>Deletes an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteApp service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -450,7 +450,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteApp:(AWSPinpointTargetingDeleteAppRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteAppResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete a BAIDU GCM channel
+ <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBaiduChannel service method.
 
@@ -462,7 +462,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteBaiduChannelResponse *> *)deleteBaiduChannel:(AWSPinpointTargetingDeleteBaiduChannelRequest *)request;
 
 /**
- Delete a BAIDU GCM channel
+ <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBaiduChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -475,7 +475,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteBaiduChannel:(AWSPinpointTargetingDeleteBaiduChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteBaiduChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes a campaign.
+ <p>Deletes a campaign from an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCampaign service method.
 
@@ -487,7 +487,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteCampaignResponse *> *)deleteCampaign:(AWSPinpointTargetingDeleteCampaignRequest *)request;
 
 /**
- Deletes a campaign.
+ <p>Deletes a campaign from an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCampaign service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -500,7 +500,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteCampaign:(AWSPinpointTargetingDeleteCampaignRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteCampaignResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an email channel.
+ <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEmailChannel service method.
 
@@ -512,7 +512,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteEmailChannelResponse *> *)deleteEmailChannel:(AWSPinpointTargetingDeleteEmailChannelRequest *)request;
 
 /**
- Delete an email channel.
+ <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEmailChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -525,7 +525,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteEmailChannel:(AWSPinpointTargetingDeleteEmailChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteEmailChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes an endpoint.
+ <p>Deletes an endpoint from an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
 
@@ -537,7 +537,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteEndpointResponse *> *)deleteEndpoint:(AWSPinpointTargetingDeleteEndpointRequest *)request;
 
 /**
- Deletes an endpoint.
+ <p>Deletes an endpoint from an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -550,7 +550,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteEndpoint:(AWSPinpointTargetingDeleteEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the event stream for an app.
+ <p>Deletes the event stream for an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEventStream service method.
 
@@ -562,7 +562,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteEventStreamResponse *> *)deleteEventStream:(AWSPinpointTargetingDeleteEventStreamRequest *)request;
 
 /**
- Deletes the event stream for an app.
+ <p>Deletes the event stream for an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEventStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -575,7 +575,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteEventStream:(AWSPinpointTargetingDeleteEventStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteEventStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the GCM channel for an app.
+ <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteGcmChannel service method.
 
@@ -587,7 +587,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteGcmChannelResponse *> *)deleteGcmChannel:(AWSPinpointTargetingDeleteGcmChannelRequest *)request;
 
 /**
- Deletes the GCM channel for an app.
+ <p>Disables the GCM channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteGcmChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -600,7 +600,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteGcmChannel:(AWSPinpointTargetingDeleteGcmChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteGcmChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes a segment.
+ <p>Deletes a segment from an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSegment service method.
 
@@ -612,7 +612,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteSegmentResponse *> *)deleteSegment:(AWSPinpointTargetingDeleteSegmentRequest *)request;
 
 /**
- Deletes a segment.
+ <p>Deletes a segment from an application.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSegment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -625,7 +625,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteSegment:(AWSPinpointTargetingDeleteSegmentRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteSegmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an SMS channel.
+ <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSmsChannel service method.
 
@@ -637,7 +637,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteSmsChannelResponse *> *)deleteSmsChannel:(AWSPinpointTargetingDeleteSmsChannelRequest *)request;
 
 /**
- Delete an SMS channel.
+ <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSmsChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -650,7 +650,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteSmsChannel:(AWSPinpointTargetingDeleteSmsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteSmsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes endpoints that are associated with a User ID.
+ <p>Deletes all the endpoints that are associated with a specific user ID.</p>
  
  @param request A container for the necessary parameters to execute the DeleteUserEndpoints service method.
 
@@ -662,7 +662,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteUserEndpointsResponse *> *)deleteUserEndpoints:(AWSPinpointTargetingDeleteUserEndpointsRequest *)request;
 
 /**
- Deletes endpoints that are associated with a User ID.
+ <p>Deletes all the endpoints that are associated with a specific user ID.</p>
  
  @param request A container for the necessary parameters to execute the DeleteUserEndpoints service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -675,7 +675,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteUserEndpoints:(AWSPinpointTargetingDeleteUserEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteUserEndpointsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Delete an Voice channel
+ <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVoiceChannel service method.
 
@@ -687,7 +687,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteVoiceChannelResponse *> *)deleteVoiceChannel:(AWSPinpointTargetingDeleteVoiceChannelRequest *)request;
 
 /**
- Delete an Voice channel
+ <p>Disables the voice channel for an application and deletes any existing settings for the channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVoiceChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -700,7 +700,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteVoiceChannel:(AWSPinpointTargetingDeleteVoiceChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteVoiceChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get an ADM channel.
+ <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetAdmChannel service method.
 
@@ -712,7 +712,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetAdmChannelResponse *> *)getAdmChannel:(AWSPinpointTargetingGetAdmChannelRequest *)request;
 
 /**
- Get an ADM channel.
+ <p>Retrieves information about the status and settings of the ADM channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetAdmChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -725,7 +725,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getAdmChannel:(AWSPinpointTargetingGetAdmChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetAdmChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about the APNs channel for an app.
+ <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsChannel service method.
 
@@ -737,7 +737,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetApnsChannelResponse *> *)getApnsChannel:(AWSPinpointTargetingGetApnsChannelRequest *)request;
 
 /**
- Returns information about the APNs channel for an app.
+ <p>Retrieves information about the status and settings of the APNs channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -750,7 +750,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApnsChannel:(AWSPinpointTargetingGetApnsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApnsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get an APNS sandbox channel.
+ <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsSandboxChannel service method.
 
@@ -762,7 +762,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetApnsSandboxChannelResponse *> *)getApnsSandboxChannel:(AWSPinpointTargetingGetApnsSandboxChannelRequest *)request;
 
 /**
- Get an APNS sandbox channel.
+ <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsSandboxChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -775,7 +775,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApnsSandboxChannel:(AWSPinpointTargetingGetApnsSandboxChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApnsSandboxChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get an APNS VoIP channel
+ <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsVoipChannel service method.
 
@@ -787,7 +787,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetApnsVoipChannelResponse *> *)getApnsVoipChannel:(AWSPinpointTargetingGetApnsVoipChannelRequest *)request;
 
 /**
- Get an APNS VoIP channel
+ <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsVoipChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -800,7 +800,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApnsVoipChannel:(AWSPinpointTargetingGetApnsVoipChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApnsVoipChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get an APNS VoIPSandbox channel
+ <p>Retrieves information about the status and settings of the APNs VoIP sandbox channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsVoipSandboxChannel service method.
 
@@ -812,7 +812,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetApnsVoipSandboxChannelResponse *> *)getApnsVoipSandboxChannel:(AWSPinpointTargetingGetApnsVoipSandboxChannelRequest *)request;
 
 /**
- Get an APNS VoIPSandbox channel
+ <p>Retrieves information about the status and settings of the APNs VoIP sandbox channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApnsVoipSandboxChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -825,7 +825,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApnsVoipSandboxChannel:(AWSPinpointTargetingGetApnsVoipSandboxChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApnsVoipSandboxChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about an app.
+ <p>Retrieves information about an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApp service method.
 
@@ -837,7 +837,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetAppResponse *> *)getApp:(AWSPinpointTargetingGetAppRequest *)request;
 
 /**
- Returns information about an app.
+ <p>Retrieves information about an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApp service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -850,7 +850,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApp:(AWSPinpointTargetingGetAppRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetAppResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to request the settings for an app.
+ <p>Retrieves information about the settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApplicationSettings service method.
 
@@ -862,7 +862,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetApplicationSettingsResponse *> *)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request;
 
 /**
- Used to request the settings for an app.
+ <p>Retrieves information about the settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApplicationSettings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -875,7 +875,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApplicationSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about your apps.
+ <p>Retrieves information about all of your applications.</p>
  
  @param request A container for the necessary parameters to execute the GetApps service method.
 
@@ -887,7 +887,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetAppsResponse *> *)getApps:(AWSPinpointTargetingGetAppsRequest *)request;
 
 /**
- Returns information about your apps.
+ <p>Retrieves information about all of your applications.</p>
  
  @param request A container for the necessary parameters to execute the GetApps service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -900,7 +900,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApps:(AWSPinpointTargetingGetAppsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetAppsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get a BAIDU GCM channel
+ <p>Retrieves information about the status and settings of the Baidu Cloud Push channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetBaiduChannel service method.
 
@@ -912,7 +912,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetBaiduChannelResponse *> *)getBaiduChannel:(AWSPinpointTargetingGetBaiduChannelRequest *)request;
 
 /**
- Get a BAIDU GCM channel
+ <p>Retrieves information about the status and settings of the Baidu Cloud Push channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetBaiduChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -925,7 +925,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getBaiduChannel:(AWSPinpointTargetingGetBaiduChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetBaiduChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about a campaign.
+ <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaign service method.
 
@@ -937,7 +937,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetCampaignResponse *> *)getCampaign:(AWSPinpointTargetingGetCampaignRequest *)request;
 
 /**
- Returns information about a campaign.
+ <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaign service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -950,7 +950,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getCampaign:(AWSPinpointTargetingGetCampaignRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about the activity performed by a campaign.
+ <p>Retrieves information about the activity performed by a campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaignActivities service method.
 
@@ -962,7 +962,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetCampaignActivitiesResponse *> *)getCampaignActivities:(AWSPinpointTargetingGetCampaignActivitiesRequest *)request;
 
 /**
- Returns information about the activity performed by a campaign.
+ <p>Retrieves information about the activity performed by a campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaignActivities service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -975,7 +975,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getCampaignActivities:(AWSPinpointTargetingGetCampaignActivitiesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignActivitiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about a specific version of a campaign.
+ <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaignVersion service method.
 
@@ -987,7 +987,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetCampaignVersionResponse *> *)getCampaignVersion:(AWSPinpointTargetingGetCampaignVersionRequest *)request;
 
 /**
- Returns information about a specific version of a campaign.
+ <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaignVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1000,7 +1000,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getCampaignVersion:(AWSPinpointTargetingGetCampaignVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about your campaign versions.
+ <p>Retrieves information about the status, configuration, and other settings for all versions of a specific campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaignVersions service method.
 
@@ -1012,7 +1012,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetCampaignVersionsResponse *> *)getCampaignVersions:(AWSPinpointTargetingGetCampaignVersionsRequest *)request;
 
 /**
- Returns information about your campaign versions.
+ <p>Retrieves information about the status, configuration, and other settings for all versions of a specific campaign.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaignVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1025,7 +1025,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getCampaignVersions:(AWSPinpointTargetingGetCampaignVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about your campaigns.
+ <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaigns service method.
 
@@ -1037,7 +1037,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetCampaignsResponse *> *)getCampaigns:(AWSPinpointTargetingGetCampaignsRequest *)request;
 
 /**
- Returns information about your campaigns.
+ <p>Retrieves information about the status, configuration, and other settings for all the campaigns that are associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetCampaigns service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1050,7 +1050,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getCampaigns:(AWSPinpointTargetingGetCampaignsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get all channels.
+ <p>Retrieves information about the history and status of each channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetChannels service method.
 
@@ -1062,7 +1062,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetChannelsResponse *> *)getChannels:(AWSPinpointTargetingGetChannelsRequest *)request;
 
 /**
- Get all channels.
+ <p>Retrieves information about the history and status of each channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetChannels service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1075,7 +1075,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getChannels:(AWSPinpointTargetingGetChannelsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetChannelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get an email channel.
+ <p>Retrieves information about the status and settings of the email channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetEmailChannel service method.
 
@@ -1087,7 +1087,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetEmailChannelResponse *> *)getEmailChannel:(AWSPinpointTargetingGetEmailChannelRequest *)request;
 
 /**
- Get an email channel.
+ <p>Retrieves information about the status and settings of the email channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetEmailChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1100,7 +1100,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getEmailChannel:(AWSPinpointTargetingGetEmailChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetEmailChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about an endpoint.
+ <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetEndpoint service method.
 
@@ -1112,7 +1112,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetEndpointResponse *> *)getEndpoint:(AWSPinpointTargetingGetEndpointRequest *)request;
 
 /**
- Returns information about an endpoint.
+ <p>Retrieves information about the settings and attributes of a specific endpoint for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1125,7 +1125,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getEndpoint:(AWSPinpointTargetingGetEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the event stream for an app.
+ <p>Retrieves information about the event stream settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetEventStream service method.
 
@@ -1137,7 +1137,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetEventStreamResponse *> *)getEventStream:(AWSPinpointTargetingGetEventStreamRequest *)request;
 
 /**
- Returns the event stream for an app.
+ <p>Retrieves information about the event stream settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetEventStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1150,7 +1150,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getEventStream:(AWSPinpointTargetingGetEventStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetEventStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about an export job.
+ <p>Retrieves information about the status and settings of a specific export job for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetExportJob service method.
 
@@ -1162,7 +1162,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetExportJobResponse *> *)getExportJob:(AWSPinpointTargetingGetExportJobRequest *)request;
 
 /**
- Returns information about an export job.
+ <p>Retrieves information about the status and settings of a specific export job for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetExportJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1175,7 +1175,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getExportJob:(AWSPinpointTargetingGetExportJobRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetExportJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about your export jobs.
+ <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetExportJobs service method.
 
@@ -1187,7 +1187,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetExportJobsResponse *> *)getExportJobs:(AWSPinpointTargetingGetExportJobsRequest *)request;
 
 /**
- Returns information about your export jobs.
+ <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetExportJobs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1200,7 +1200,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getExportJobs:(AWSPinpointTargetingGetExportJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetExportJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about the GCM channel for an app.
+ <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetGcmChannel service method.
 
@@ -1212,7 +1212,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetGcmChannelResponse *> *)getGcmChannel:(AWSPinpointTargetingGetGcmChannelRequest *)request;
 
 /**
- Returns information about the GCM channel for an app.
+ <p>Retrieves information about the status and settings of the GCM channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetGcmChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1225,7 +1225,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getGcmChannel:(AWSPinpointTargetingGetGcmChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetGcmChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about an import job.
+ <p>Retrieves information about the status and settings of a specific import job for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetImportJob service method.
 
@@ -1237,7 +1237,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetImportJobResponse *> *)getImportJob:(AWSPinpointTargetingGetImportJobRequest *)request;
 
 /**
- Returns information about an import job.
+ <p>Retrieves information about the status and settings of a specific import job for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetImportJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1250,7 +1250,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getImportJob:(AWSPinpointTargetingGetImportJobRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetImportJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about your import jobs.
+ <p>Retrieves information about the status and settings of all the import jobs for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetImportJobs service method.
 
@@ -1262,7 +1262,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetImportJobsResponse *> *)getImportJobs:(AWSPinpointTargetingGetImportJobsRequest *)request;
 
 /**
- Returns information about your import jobs.
+ <p>Retrieves information about the status and settings of all the import jobs for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetImportJobs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1275,7 +1275,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getImportJobs:(AWSPinpointTargetingGetImportJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetImportJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about a segment.
+ <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegment service method.
 
@@ -1287,7 +1287,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentResponse *> *)getSegment:(AWSPinpointTargetingGetSegmentRequest *)request;
 
 /**
- Returns information about a segment.
+ <p>Retrieves information about the configuration, dimension, and other settings for a specific segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1300,7 +1300,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegment:(AWSPinpointTargetingGetSegmentRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns a list of export jobs for a specific segment.
+ <p>Retrieves information about the status and settings of the export jobs for a segment.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentExportJobs service method.
 
@@ -1312,7 +1312,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentExportJobsResponse *> *)getSegmentExportJobs:(AWSPinpointTargetingGetSegmentExportJobsRequest *)request;
 
 /**
- Returns a list of export jobs for a specific segment.
+ <p>Retrieves information about the status and settings of the export jobs for a segment.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentExportJobs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1325,7 +1325,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegmentExportJobs:(AWSPinpointTargetingGetSegmentExportJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentExportJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns a list of import jobs for a specific segment.
+ <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentImportJobs service method.
 
@@ -1337,7 +1337,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentImportJobsResponse *> *)getSegmentImportJobs:(AWSPinpointTargetingGetSegmentImportJobsRequest *)request;
 
 /**
- Returns a list of import jobs for a specific segment.
+ <p>Retrieves information about the status and settings of the import jobs for a segment.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentImportJobs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1350,7 +1350,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegmentImportJobs:(AWSPinpointTargetingGetSegmentImportJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentImportJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about a segment version.
+ <p>Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentVersion service method.
 
@@ -1362,7 +1362,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentVersionResponse *> *)getSegmentVersion:(AWSPinpointTargetingGetSegmentVersionRequest *)request;
 
 /**
- Returns information about a segment version.
+ <p>Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1375,7 +1375,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegmentVersion:(AWSPinpointTargetingGetSegmentVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about your segment versions.
+ <p>Retrieves information about the configuration, dimension, and other settings for all versions of a specific segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentVersions service method.
 
@@ -1387,7 +1387,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentVersionsResponse *> *)getSegmentVersions:(AWSPinpointTargetingGetSegmentVersionsRequest *)request;
 
 /**
- Returns information about your segment versions.
+ <p>Retrieves information about the configuration, dimension, and other settings for all versions of a specific segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1400,7 +1400,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegmentVersions:(AWSPinpointTargetingGetSegmentVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to get information about your segments.
+ <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegments service method.
 
@@ -1412,7 +1412,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentsResponse *> *)getSegments:(AWSPinpointTargetingGetSegmentsRequest *)request;
 
 /**
- Used to get information about your segments.
+ <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegments service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1425,7 +1425,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegments:(AWSPinpointTargetingGetSegmentsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get an SMS channel.
+ <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSmsChannel service method.
 
@@ -1437,7 +1437,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSmsChannelResponse *> *)getSmsChannel:(AWSPinpointTargetingGetSmsChannelRequest *)request;
 
 /**
- Get an SMS channel.
+ <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSmsChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1450,7 +1450,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSmsChannel:(AWSPinpointTargetingGetSmsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSmsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about the endpoints that are associated with a User ID.
+ <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  
  @param request A container for the necessary parameters to execute the GetUserEndpoints service method.
 
@@ -1462,7 +1462,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetUserEndpointsResponse *> *)getUserEndpoints:(AWSPinpointTargetingGetUserEndpointsRequest *)request;
 
 /**
- Returns information about the endpoints that are associated with a User ID.
+ <p>Retrieves information about all the endpoints that are associated with a specific user ID.</p>
  
  @param request A container for the necessary parameters to execute the GetUserEndpoints service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1475,7 +1475,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getUserEndpoints:(AWSPinpointTargetingGetUserEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetUserEndpointsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Get a Voice Channel
+ <p>Retrieves information about the status and settings of the voice channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetVoiceChannel service method.
 
@@ -1487,7 +1487,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetVoiceChannelResponse *> *)getVoiceChannel:(AWSPinpointTargetingGetVoiceChannelRequest *)request;
 
 /**
- Get a Voice Channel
+ <p>Retrieves information about the status and settings of the voice channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetVoiceChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1500,7 +1500,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getVoiceChannel:(AWSPinpointTargetingGetVoiceChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetVoiceChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- ListTagsForResource
+ <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, or segment.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsForResource service method.
 
@@ -1512,7 +1512,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingListTagsForResourceResponse *> *)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request;
 
 /**
- ListTagsForResource
+ <p>Retrieves all the tags (keys and values) that are associated with an application, campaign, or segment.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsForResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1525,7 +1525,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns information about the specified phone number.
+ <p>Retrieves information about a phone number.</p>
  
  @param request A container for the necessary parameters to execute the PhoneNumberValidate service method.
 
@@ -1537,7 +1537,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingPhoneNumberValidateResponse *> *)phoneNumberValidate:(AWSPinpointTargetingPhoneNumberValidateRequest *)request;
 
 /**
- Returns information about the specified phone number.
+ <p>Retrieves information about a phone number.</p>
  
  @param request A container for the necessary parameters to execute the PhoneNumberValidate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1550,7 +1550,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)phoneNumberValidate:(AWSPinpointTargetingPhoneNumberValidateRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingPhoneNumberValidateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Use to create or update the event stream for an app.
+ <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
  
  @param request A container for the necessary parameters to execute the PutEventStream service method.
 
@@ -1562,7 +1562,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingPutEventStreamResponse *> *)putEventStream:(AWSPinpointTargetingPutEventStreamRequest *)request;
 
 /**
- Use to create or update the event stream for an app.
+ <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
  
  @param request A container for the necessary parameters to execute the PutEventStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1575,7 +1575,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)putEventStream:(AWSPinpointTargetingPutEventStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingPutEventStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Use to record events for endpoints. This method creates events and creates or updates the endpoints that those events are associated with.
+ <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
  
  @param request A container for the necessary parameters to execute the PutEvents service method.
 
@@ -1587,7 +1587,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingPutEventsResponse *> *)putEvents:(AWSPinpointTargetingPutEventsRequest *)request;
 
 /**
- Use to record events for endpoints. This method creates events and creates or updates the endpoints that those events are associated with.
+ <p>Creates a new event to record for endpoints, or creates or updates endpoint data that existing events are associated with.</p>
  
  @param request A container for the necessary parameters to execute the PutEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1600,7 +1600,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)putEvents:(AWSPinpointTargetingPutEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingPutEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to remove the attributes for an app
+ <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the RemoveAttributes service method.
 
@@ -1612,7 +1612,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingRemoveAttributesResponse *> *)removeAttributes:(AWSPinpointTargetingRemoveAttributesRequest *)request;
 
 /**
- Used to remove the attributes for an app
+ <p>Removes one or more attributes, of the same attribute type, from all the endpoints that are associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the RemoveAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1625,7 +1625,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)removeAttributes:(AWSPinpointTargetingRemoveAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingRemoveAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to send a direct message.
+ <p>Creates and sends a direct message.</p>
  
  @param request A container for the necessary parameters to execute the SendMessages service method.
 
@@ -1637,7 +1637,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingSendMessagesResponse *> *)sendMessages:(AWSPinpointTargetingSendMessagesRequest *)request;
 
 /**
- Used to send a direct message.
+ <p>Creates and sends a direct message.</p>
  
  @param request A container for the necessary parameters to execute the SendMessages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1650,7 +1650,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)sendMessages:(AWSPinpointTargetingSendMessagesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingSendMessagesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to send a message to a list of users.
+ <p>Creates and sends a message to a list of users.</p>
  
  @param request A container for the necessary parameters to execute the SendUsersMessages service method.
 
@@ -1662,7 +1662,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingSendUsersMessagesResponse *> *)sendUsersMessages:(AWSPinpointTargetingSendUsersMessagesRequest *)request;
 
 /**
- Used to send a message to a list of users.
+ <p>Creates and sends a message to a list of users.</p>
  
  @param request A container for the necessary parameters to execute the SendUsersMessages service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1675,7 +1675,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)sendUsersMessages:(AWSPinpointTargetingSendUsersMessagesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingSendUsersMessagesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- TagResource
+ <p>Adds one or more tags (keys and values) to an application, campaign, or segment.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -1686,7 +1686,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask *)tagResource:(AWSPinpointTargetingTagResourceRequest *)request;
 
 /**
- TagResource
+ <p>Adds one or more tags (keys and values) to an application, campaign, or segment.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1697,7 +1697,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)tagResource:(AWSPinpointTargetingTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- UntagResource
+ <p>Removes one or more tags (keys and values) from an application, campaign, or segment.</p>
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
 
@@ -1708,7 +1708,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask *)untagResource:(AWSPinpointTargetingUntagResourceRequest *)request;
 
 /**
- UntagResource
+ <p>Removes one or more tags (keys and values) from an application, campaign, or segment.</p>
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1719,7 +1719,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)untagResource:(AWSPinpointTargetingUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Update an ADM channel.
+ <p>Updates the ADM channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAdmChannel service method.
 
@@ -1731,7 +1731,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateAdmChannelResponse *> *)updateAdmChannel:(AWSPinpointTargetingUpdateAdmChannelRequest *)request;
 
 /**
- Update an ADM channel.
+ <p>Updates the ADM channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAdmChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1744,7 +1744,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateAdmChannel:(AWSPinpointTargetingUpdateAdmChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateAdmChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Use to update the APNs channel for an app.
+ <p>Updates the APNs channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsChannel service method.
 
@@ -1756,7 +1756,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateApnsChannelResponse *> *)updateApnsChannel:(AWSPinpointTargetingUpdateApnsChannelRequest *)request;
 
 /**
- Use to update the APNs channel for an app.
+ <p>Updates the APNs channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1769,7 +1769,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateApnsChannel:(AWSPinpointTargetingUpdateApnsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateApnsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update an APNS sandbox channel.
+ <p>Updates the APNs sandbox channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsSandboxChannel service method.
 
@@ -1781,7 +1781,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateApnsSandboxChannelResponse *> *)updateApnsSandboxChannel:(AWSPinpointTargetingUpdateApnsSandboxChannelRequest *)request;
 
 /**
- Update an APNS sandbox channel.
+ <p>Updates the APNs sandbox channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsSandboxChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1794,7 +1794,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateApnsSandboxChannel:(AWSPinpointTargetingUpdateApnsSandboxChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateApnsSandboxChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update an APNS VoIP channel
+ <p>Updates the APNs VoIP channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsVoipChannel service method.
 
@@ -1806,7 +1806,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateApnsVoipChannelResponse *> *)updateApnsVoipChannel:(AWSPinpointTargetingUpdateApnsVoipChannelRequest *)request;
 
 /**
- Update an APNS VoIP channel
+ <p>Updates the APNs VoIP channel settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsVoipChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1819,7 +1819,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateApnsVoipChannel:(AWSPinpointTargetingUpdateApnsVoipChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateApnsVoipChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update an APNS VoIP sandbox channel
+ <p>Updates the settings for the APNs VoIP sandbox channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsVoipSandboxChannel service method.
 
@@ -1831,7 +1831,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateApnsVoipSandboxChannelResponse *> *)updateApnsVoipSandboxChannel:(AWSPinpointTargetingUpdateApnsVoipSandboxChannelRequest *)request;
 
 /**
- Update an APNS VoIP sandbox channel
+ <p>Updates the settings for the APNs VoIP sandbox channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApnsVoipSandboxChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1844,7 +1844,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateApnsVoipSandboxChannel:(AWSPinpointTargetingUpdateApnsVoipSandboxChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateApnsVoipSandboxChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to update the settings for an app.
+ <p>Updates the settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApplicationSettings service method.
 
@@ -1856,7 +1856,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateApplicationSettingsResponse *> *)updateApplicationSettings:(AWSPinpointTargetingUpdateApplicationSettingsRequest *)request;
 
 /**
- Used to update the settings for an app.
+ <p>Updates the settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateApplicationSettings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1869,7 +1869,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateApplicationSettings:(AWSPinpointTargetingUpdateApplicationSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateApplicationSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update a BAIDU GCM channel
+ <p>Updates the settings of the Baidu channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateBaiduChannel service method.
 
@@ -1881,7 +1881,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateBaiduChannelResponse *> *)updateBaiduChannel:(AWSPinpointTargetingUpdateBaiduChannelRequest *)request;
 
 /**
- Update a BAIDU GCM channel
+ <p>Updates the settings of the Baidu channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateBaiduChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1894,7 +1894,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateBaiduChannel:(AWSPinpointTargetingUpdateBaiduChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateBaiduChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Use to update a campaign.
+ <p>Updates the settings for a campaign.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCampaign service method.
 
@@ -1906,7 +1906,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateCampaignResponse *> *)updateCampaign:(AWSPinpointTargetingUpdateCampaignRequest *)request;
 
 /**
- Use to update a campaign.
+ <p>Updates the settings for a campaign.</p>
  
  @param request A container for the necessary parameters to execute the UpdateCampaign service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1919,7 +1919,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateCampaign:(AWSPinpointTargetingUpdateCampaignRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateCampaignResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update an email channel.
+ <p>Updates the status and settings of the email channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEmailChannel service method.
 
@@ -1931,7 +1931,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateEmailChannelResponse *> *)updateEmailChannel:(AWSPinpointTargetingUpdateEmailChannelRequest *)request;
 
 /**
- Update an email channel.
+ <p>Updates the status and settings of the email channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEmailChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1944,7 +1944,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateEmailChannel:(AWSPinpointTargetingUpdateEmailChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateEmailChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Creates or updates an endpoint.
+ <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for an endpoint.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEndpoint service method.
 
@@ -1956,7 +1956,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateEndpointResponse *> *)updateEndpoint:(AWSPinpointTargetingUpdateEndpointRequest *)request;
 
 /**
- Creates or updates an endpoint.
+ <p>Creates a new endpoint for an application or updates the settings and attributes of an existing endpoint for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for an endpoint.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEndpoint service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1969,7 +1969,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateEndpoint:(AWSPinpointTargetingUpdateEndpointRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Use to update a batch of endpoints.
+  <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEndpointsBatch service method.
 
@@ -1981,7 +1981,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateEndpointsBatchResponse *> *)updateEndpointsBatch:(AWSPinpointTargetingUpdateEndpointsBatchRequest *)request;
 
 /**
- Use to update a batch of endpoints.
+  <p>Creates a new batch of endpoints for an application or updates the settings and attributes of a batch of existing endpoints for an application. You can also use this operation to define custom attributes (Attributes, Metrics, and UserAttributes properties) for a batch of endpoints.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEndpointsBatch service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1994,7 +1994,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateEndpointsBatch:(AWSPinpointTargetingUpdateEndpointsBatchRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateEndpointsBatchResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Use to update the GCM channel for an app.
+ <p>Updates the status and settings of the GCM channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateGcmChannel service method.
 
@@ -2006,7 +2006,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateGcmChannelResponse *> *)updateGcmChannel:(AWSPinpointTargetingUpdateGcmChannelRequest *)request;
 
 /**
- Use to update the GCM channel for an app.
+ <p>Updates the status and settings of the GCM channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateGcmChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2019,7 +2019,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateGcmChannel:(AWSPinpointTargetingUpdateGcmChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateGcmChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Used to update a segment.
+ <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSegment service method.
 
@@ -2031,7 +2031,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateSegmentResponse *> *)updateSegment:(AWSPinpointTargetingUpdateSegmentRequest *)request;
 
 /**
- Used to update a segment.
+ <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSegment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2044,7 +2044,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateSegment:(AWSPinpointTargetingUpdateSegmentRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateSegmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update an SMS channel.
+ <p>Updates the status and settings of the SMS channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSmsChannel service method.
 
@@ -2056,7 +2056,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateSmsChannelResponse *> *)updateSmsChannel:(AWSPinpointTargetingUpdateSmsChannelRequest *)request;
 
 /**
- Update an SMS channel.
+ <p>Updates the status and settings of the SMS channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSmsChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2069,7 +2069,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateSmsChannel:(AWSPinpointTargetingUpdateSmsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateSmsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Update an Voice channel
+ <p>Updates the status and settings of the voice channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateVoiceChannel service method.
 
@@ -2081,7 +2081,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateVoiceChannelResponse *> *)updateVoiceChannel:(AWSPinpointTargetingUpdateVoiceChannelRequest *)request;
 
 /**
- Update an Voice channel
+ <p>Updates the status and settings of the voice channel for an application.</p>
  
  @param request A container for the necessary parameters to execute the UpdateVoiceChannel service method.
  @param completionHandler The completion handler to call when the load request is complete.
