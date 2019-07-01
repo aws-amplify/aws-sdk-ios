@@ -27,7 +27,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.9.8";
+NSString *const AWSEC2SDKVersion = @"2.9.9";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -1794,6 +1794,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2Snapshot *response, NSError *error))completionHandler {
     [[self createSnapshot:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2Snapshot *> * _Nonnull task) {
         AWSEC2Snapshot *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateSnapshotsResult *> *)createSnapshots:(AWSEC2CreateSnapshotsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateSnapshots"
+                   outputClass:[AWSEC2CreateSnapshotsResult class]];
+}
+
+- (void)createSnapshots:(AWSEC2CreateSnapshotsRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateSnapshotsResult *response, NSError *error))completionHandler {
+    [[self createSnapshots:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateSnapshotsResult *> * _Nonnull task) {
+        AWSEC2CreateSnapshotsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5366,6 +5389,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisableEbsEncryptionByDefaultResult *> *)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisableEbsEncryptionByDefault"
+                   outputClass:[AWSEC2DisableEbsEncryptionByDefaultResult class]];
+}
+
+- (void)disableEbsEncryptionByDefault:(AWSEC2DisableEbsEncryptionByDefaultRequest *)request
+     completionHandler:(void (^)(AWSEC2DisableEbsEncryptionByDefaultResult *response, NSError *error))completionHandler {
+    [[self disableEbsEncryptionByDefault:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisableEbsEncryptionByDefaultResult *> * _Nonnull task) {
+        AWSEC2DisableEbsEncryptionByDefaultResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisableTransitGatewayRouteTablePropagationResult *> *)disableTransitGatewayRouteTablePropagation:(AWSEC2DisableTransitGatewayRouteTablePropagationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -5616,6 +5662,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2EnableEbsEncryptionByDefaultResult *> *)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"EnableEbsEncryptionByDefault"
+                   outputClass:[AWSEC2EnableEbsEncryptionByDefaultResult class]];
+}
+
+- (void)enableEbsEncryptionByDefault:(AWSEC2EnableEbsEncryptionByDefaultRequest *)request
+     completionHandler:(void (^)(AWSEC2EnableEbsEncryptionByDefaultResult *response, NSError *error))completionHandler {
+    [[self enableEbsEncryptionByDefault:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2EnableEbsEncryptionByDefaultResult *> * _Nonnull task) {
+        AWSEC2EnableEbsEncryptionByDefaultResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2EnableTransitGatewayRouteTablePropagationResult *> *)enableTransitGatewayRouteTablePropagation:(AWSEC2EnableTransitGatewayRouteTablePropagationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -5834,6 +5903,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetConsoleScreenshotResult *response, NSError *error))completionHandler {
     [[self getConsoleScreenshot:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetConsoleScreenshotResult *> * _Nonnull task) {
         AWSEC2GetConsoleScreenshotResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetEbsDefaultKmsKeyIdResult *> *)getEbsDefaultKmsKeyId:(AWSEC2GetEbsDefaultKmsKeyIdRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetEbsDefaultKmsKeyId"
+                   outputClass:[AWSEC2GetEbsDefaultKmsKeyIdResult class]];
+}
+
+- (void)getEbsDefaultKmsKeyId:(AWSEC2GetEbsDefaultKmsKeyIdRequest *)request
+     completionHandler:(void (^)(AWSEC2GetEbsDefaultKmsKeyIdResult *response, NSError *error))completionHandler {
+    [[self getEbsDefaultKmsKeyId:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetEbsDefaultKmsKeyIdResult *> * _Nonnull task) {
+        AWSEC2GetEbsDefaultKmsKeyIdResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetEbsEncryptionByDefaultResult *> *)getEbsEncryptionByDefault:(AWSEC2GetEbsEncryptionByDefaultRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetEbsEncryptionByDefault"
+                   outputClass:[AWSEC2GetEbsEncryptionByDefaultResult class]];
+}
+
+- (void)getEbsEncryptionByDefault:(AWSEC2GetEbsEncryptionByDefaultRequest *)request
+     completionHandler:(void (^)(AWSEC2GetEbsEncryptionByDefaultResult *response, NSError *error))completionHandler {
+    [[self getEbsEncryptionByDefault:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetEbsEncryptionByDefaultResult *> * _Nonnull task) {
+        AWSEC2GetEbsEncryptionByDefaultResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -6179,6 +6294,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyClientVpnEndpointResult *response, NSError *error))completionHandler {
     [[self modifyClientVpnEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyClientVpnEndpointResult *> * _Nonnull task) {
         AWSEC2ModifyClientVpnEndpointResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyEbsDefaultKmsKeyIdResult *> *)modifyEbsDefaultKmsKeyId:(AWSEC2ModifyEbsDefaultKmsKeyIdRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyEbsDefaultKmsKeyId"
+                   outputClass:[AWSEC2ModifyEbsDefaultKmsKeyIdResult class]];
+}
+
+- (void)modifyEbsDefaultKmsKeyId:(AWSEC2ModifyEbsDefaultKmsKeyIdRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyEbsDefaultKmsKeyIdResult *response, NSError *error))completionHandler {
+    [[self modifyEbsDefaultKmsKeyId:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyEbsDefaultKmsKeyIdResult *> * _Nonnull task) {
+        AWSEC2ModifyEbsDefaultKmsKeyIdResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -7315,6 +7453,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2RequestSpotInstancesResult *response, NSError *error))completionHandler {
     [[self requestSpotInstances:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RequestSpotInstancesResult *> * _Nonnull task) {
         AWSEC2RequestSpotInstancesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ResetEbsDefaultKmsKeyIdResult *> *)resetEbsDefaultKmsKeyId:(AWSEC2ResetEbsDefaultKmsKeyIdRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ResetEbsDefaultKmsKeyId"
+                   outputClass:[AWSEC2ResetEbsDefaultKmsKeyIdResult class]];
+}
+
+- (void)resetEbsDefaultKmsKeyId:(AWSEC2ResetEbsDefaultKmsKeyIdRequest *)request
+     completionHandler:(void (^)(AWSEC2ResetEbsDefaultKmsKeyIdResult *response, NSError *error))completionHandler {
+    [[self resetEbsDefaultKmsKeyId:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ResetEbsDefaultKmsKeyIdResult *> * _Nonnull task) {
+        AWSEC2ResetEbsDefaultKmsKeyIdResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

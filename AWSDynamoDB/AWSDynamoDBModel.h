@@ -2993,17 +2993,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The KMS master key ARN used for the KMS encryption.</p>
+ <p>The KMS customer master key (CMK) ARN used for the KMS encryption.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyArn;
 
 /**
- <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not applicable).</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
+ <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
 /**
- <p>The current state of server-side encryption:</p><ul><li><p><code>ENABLING</code> - Server-side encryption is being enabled.</p></li><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>DISABLING</code> - Server-side encryption is being disabled.</p></li><li><p><code>DISABLED</code> - Server-side encryption is disabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
+ <p>Represents the current state of server-side encryption. The only supported values are:</p><ul><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEStatus status;
 
@@ -3016,17 +3016,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Indicates whether server-side encryption is enabled (true) or disabled (false) on the table. If enabled (true), server-side encryption type is set to <code>KMS</code>. If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</p>
+ <p>Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true), server-side encryption type is set to <code>KMS</code> and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS Master Key alias/aws/dynamodb.</p>
+ <p>The KMS Customer Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB Customer Master Key alias/aws/dynamodb.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
- <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not applicable).</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
+ <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 

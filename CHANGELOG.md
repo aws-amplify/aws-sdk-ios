@@ -2,10 +2,20 @@
 
 ## 2.9.9
 
+### Bug Fixes
+
+* **AWS IoT**
+  * Added a check for the upper limit of `lengthMultiplier` used for calculation of remaning length of MQTT packets. See [PR #1595](https://github.com/aws-amplify/aws-sdk-ios/pull/1595), [issue #1398](https://github.com/aws-amplify/aws-sdk-ios/issues/1398).
+
 ### Misc. Updates
 
 * Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Comprehend
+  * Amazon EC2
   * Amazon Security Token Service (STS)
+  * Amazon Transcribe
+  * AWS Lambda
 
 ## 2.9.8
 

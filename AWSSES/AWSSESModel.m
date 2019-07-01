@@ -625,6 +625,37 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESDeliveryOptions
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tlsPolicy" : @"TlsPolicy",
+             };
+}
+
++ (NSValueTransformer *)tlsPolicyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Require"] == NSOrderedSame) {
+            return @(AWSSESTlsPolicyRequire);
+        }
+        if ([value caseInsensitiveCompare:@"Optional"] == NSOrderedSame) {
+            return @(AWSSESTlsPolicyOptional);
+        }
+        return @(AWSSESTlsPolicyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESTlsPolicyRequire:
+                return @"Require";
+            case AWSSESTlsPolicyOptional:
+                return @"Optional";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSSESDescribeActiveReceiptRuleSetRequest
 
 @end
@@ -664,6 +695,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"configurationSet" : @"ConfigurationSet",
+             @"deliveryOptions" : @"DeliveryOptions",
              @"eventDestinations" : @"EventDestinations",
              @"reputationOptions" : @"ReputationOptions",
              @"trackingOptions" : @"TrackingOptions",
@@ -672,6 +704,10 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)configurationSetJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESConfigurationSet class]];
+}
+
++ (NSValueTransformer *)deliveryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliveryOptions class]];
 }
 
 + (NSValueTransformer *)eventDestinationsJSONTransformer {
@@ -1475,6 +1511,25 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"value" : @"Value",
              };
 }
+
+@end
+
+@implementation AWSSESPutConfigurationSetDeliveryOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"deliveryOptions" : @"DeliveryOptions",
+             };
+}
+
++ (NSValueTransformer *)deliveryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliveryOptions class]];
+}
+
+@end
+
+@implementation AWSSESPutConfigurationSetDeliveryOptionsResponse
 
 @end
 
