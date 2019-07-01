@@ -1,5 +1,64 @@
-
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.9.9
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Added a check for the upper limit of `lengthMultiplier` used for calculation of remaning length of MQTT packets. See [PR #1595](https://github.com/aws-amplify/aws-sdk-ios/pull/1595), [issue #1398](https://github.com/aws-amplify/aws-sdk-ios/issues/1398).
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Comprehend
+  * Amazon EC2
+  * Amazon Security Token Service (STS)
+  * Amazon Transcribe
+  * AWS Lambda
+
+## 2.9.8
+
+### Misc. Updates
+
+* Ensured compatibility when building with Xcode 10.2
+* Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon DynamoDB
+  * Amazon EC2
+  * Amazon Simple Notification Service (SNS)
+  * AWS Lambda
+* The Amazon Cognito Sync and Amazon Cognito Identity Provider subcomponents of the AWS Mobile SDK for iOS are now licensed under the Apache 2.0 License. See LICENSE and LICENSE.APACHE for more details.
+
+## 2.9.7
+
+### New Features
+
+* **AWS Core**
+  * Added support for `ap-east-1` - AP (Hong Kong) region.
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Transcribe
+
+## 2.9.6
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed a error propagation bug for downloads using TransferUtility. See [PR #1316](https://github.com/aws-amplify/aws-sdk-ios/pull/1316), [issue #1310](https://github.com/aws-amplify/aws-sdk-ios/issues/1310).
+
+* **Amazon Kinesis**
+  * Kinesis now opens its SQLite connections in serial mode, which resolves occasional crashes on creating a new database connection. See [PR #1444](https://github.com/aws-amplify/aws-sdk-ios/pull/1444), [issue #1161](https://github.com/aws-amplify/aws-sdk-ios/issues/1161).
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity
+  * Amazon EC2
+  * Amazon Polly
 
 ## 2.9.5
 
@@ -7,6 +66,11 @@
 
 * **AWSMobileClient**
   * Fixed a bug which caused compilation error with Swift 5. See [PR #1377](https://github.com/aws-amplify/aws-sdk-ios/pull/1377), [issue #1394](https://github.com/aws-amplify/aws-sdk-ios/issues/1394).
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Comprehend
 
 ## 2.9.4
 

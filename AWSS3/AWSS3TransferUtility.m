@@ -2276,15 +2276,19 @@ didCompleteWithError:(NSError *)error {
             return;
         }
         
-        downloadTask.error = error;
-        if(!error ) {
+        //Make sure to not overwrite if an error has already been set on the downloadTask
+        if (!downloadTask.error)  {
+            downloadTask.error = error;
+        }
+        
+        if(!downloadTask.error ) {
             downloadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
         }
         else {
             downloadTask.status = AWSS3TransferUtilityTransferStatusError;
         }
         
-        if (error && HTTPResponse) {
+        if (downloadTask.error && HTTPResponse) {
             if ([self isErrorRetriable:HTTPResponse.statusCode responseFromServer:downloadTask.responseData])  {
                 if (downloadTask.retryCount < self.transferUtilityConfiguration.retryLimit) {
                     AWSDDLogDebug(@"Retry count is below limit and error is retriable. ");
@@ -2300,7 +2304,7 @@ didCompleteWithError:(NSError *)error {
                 [self extractErrorInformation: [downloadTask responseData]
                             userInfo: userInfo];
             }
-            NSError *updatedError = [[NSError alloc] initWithDomain:error.domain code:error.code userInfo:userInfo];
+            NSError *updatedError = [[NSError alloc] initWithDomain:downloadTask.error.domain code:downloadTask.error.code userInfo:userInfo];
             downloadTask.error = updatedError;
         }
         

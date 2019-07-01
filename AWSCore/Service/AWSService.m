@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.9.4";
+NSString *const AWSiOSSDKVersion = @"2.9.9";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -226,6 +226,7 @@ static NSString *const AWSRegionNameEUWest2 = @"eu-west-2";
 static NSString *const AWSRegionNameEUWest3 = @"eu-west-3";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
 static NSString *const AWSRegionNameEUNorth1 = @"eu-north-1";
+static NSString *const AWSRegionNameAPEast1 = @"ap-east-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
 static NSString *const AWSRegionNameAPNortheast2 = @"ap-northeast-2";
@@ -414,6 +415,8 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             return AWSRegionNameUSGovEast1;
         case AWSRegionEUNorth1:
             return AWSRegionNameEUNorth1;
+        case AWSRegionAPEast1:
+            return AWSRegionNameAPEast1;
         default:
             return nil;
     }
@@ -505,6 +508,7 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             || regionType == AWSRegionUSWest1
             || regionType == AWSRegionUSWest2
             || regionType == AWSRegionEUWest1
+            || regionType == AWSRegionAPEast1
             || regionType == AWSRegionAPSoutheast1
             || regionType == AWSRegionAPNortheast1
             || regionType == AWSRegionAPNortheast2

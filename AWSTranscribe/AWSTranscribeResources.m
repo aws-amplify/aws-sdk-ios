@@ -381,7 +381,11 @@
         \"pt-BR\",\
         \"fr-FR\",\
         \"it-IT\",\
-        \"ko-KR\"\
+        \"ko-KR\",\
+        \"es-ES\",\
+        \"en-IN\",\
+        \"hi-IN\",\
+        \"ar-SA\"\
       ]\
     },\
     \"LimitExceededException\":{\
