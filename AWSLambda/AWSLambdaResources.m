@@ -2779,6 +2779,7 @@
         \"nodejs4.3\",\
         \"nodejs6.10\",\
         \"nodejs8.10\",\
+        \"nodejs10.x\",\
         \"java8\",\
         \"python2.7\",\
         \"python3.6\",\

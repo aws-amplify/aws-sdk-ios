@@ -81,6 +81,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs43,
     AWSLambdaRuntimeNodejs610,
     AWSLambdaRuntimeNodejs810,
+    AWSLambdaRuntimeNodejs10X,
     AWSLambdaRuntimeJava8,
     AWSLambdaRuntimePython27,
     AWSLambdaRuntimePython36,
