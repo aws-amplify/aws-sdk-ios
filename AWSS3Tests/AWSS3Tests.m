@@ -952,7 +952,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     
 }
 - (void)testPutGetAndDeleteObjectByFilePathWithProgressFeedback {
-    NSString *keyName = @"ios-test-put-get-and-delete-obj";
+    NSString *keyName = @"ios-v2-do-not-delete-s3test-put-get-delete-obj";
     NSString *getObjectFilePath = tempSmallURL.path;
     XCTAssertNotNil(getObjectFilePath);
     XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:getObjectFilePath]);
@@ -966,7 +966,6 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     putObjectRequest.body = [NSURL fileURLWithPath:getObjectFilePath];
     putObjectRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
    
-
     __block int64_t totalUploadedBytes = 0;
     __block int64_t totalExpectedUploadBytes = 0;
     putObjectRequest.uploadProgress = ^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
@@ -1568,9 +1567,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testInventorySetupOnBucket {
-    NSString *sourceBucketName = @"ios-v2-test-508881905";
+    NSString *sourceBucketName = @"ios-v2-do-not-delete-s3test-inventory-source";
 
-    NSString *destinationBucketName = @"ios-v2-test-508883511";
+    NSString *destinationBucketName = @"ios-v2-do-not-delete-s3test-inventory";
 
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -1578,7 +1577,6 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     AWSS3PutBucketInventoryConfigurationRequest *putBucketInventoryRequest = [AWSS3PutBucketInventoryConfigurationRequest new];
     putBucketInventoryRequest.bucket = sourceBucketName;
     putBucketInventoryRequest.identifier=@"123";
-
 
     putBucketInventoryRequest.inventoryConfiguration=[AWSS3InventoryConfiguration new];
     putBucketInventoryRequest.inventoryConfiguration.isEnabled=@(YES);

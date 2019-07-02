@@ -41,9 +41,7 @@
     //App details
     assertThat(clientContext.serviceDetails[@"mobile_analytics"][@"app_id"], is(equalTo(@"appId")));
 
-    assertThat(clientContext.appPackageName, is(equalTo(@"Unknown")));
     assertThat(clientContext.appVersion, is(equalTo(@"Unknown")));
-    assertThat(clientContext.appPackageName, is(equalTo(@"Unknown")));
     assertThat(clientContext.appName, is(equalTo(@"Unknown")));
 
     //Device details
@@ -76,9 +74,7 @@
     //App details
     assertThat(clientContext.serviceDetails[@"mobile_analytics"][@"app_id"], is(equalTo(@"appId")));
 
-    assertThat(clientContext.appPackageName, is(equalTo(@"Unknown")));
     assertThat(clientContext.appVersion, is(equalTo(@"Unknown")));
-    assertThat(clientContext.appPackageName, is(equalTo(@"Unknown")));
     assertThat(clientContext.appName, is(equalTo(@"Unknown")));
 
     //Device details

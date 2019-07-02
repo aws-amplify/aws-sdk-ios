@@ -49,23 +49,24 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(stringBodyRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                XCTAssertEqual(404, apiResponse.statusCode)
+            
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
+            
+            let apiResponse = result
+            XCTAssertEqual(404, apiResponse.statusCode)
+
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
     }
     
     func testInvokeStringBody() {
         let bodyString = "{\"key3\": \"value3\",\"key2\": \"value2\",\"key1\": \"value1\"}"
-        
-        
         
         let stringBodyRequest = AWSAPIGatewayRequest(httpMethod: "POST",
                                                      urlString: "/TestFunction",
@@ -75,19 +76,34 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(stringBodyRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertEqual("\"value1\"", datastring)
+
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
+
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Unable to convert response data to JSON Object")
+                return nil
+            }
+
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Expected JSON to be a dictionary")
+                return nil
+            }
+
+            XCTAssertEqual(json["key1"] as? String, "value1")
+            XCTAssertEqual(json["key2"] as? String, "value2")
+            XCTAssertEqual(json["key3"] as? String, "value3")
+
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
         
     }
     
@@ -103,19 +119,33 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(rawDataBodyRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertEqual("\"value1\"", datastring)
+            
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
+    
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Unable to convert response data to JSON Object")
+                return nil
+            }
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Expected JSON to be a dictionary")
+                return nil
+            }
+
+            XCTAssertEqual(json["key1"] as? String, "value1")
+            XCTAssertEqual(json["key2"] as? String, "value2")
+            XCTAssertEqual(json["key3"] as? String, "value3")
+
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
     }
     
     func testInvokeInputStreamBody() {
@@ -136,19 +166,34 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(rawDataBodyRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertEqual("\"value1\"", datastring)
+
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
+            
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Unable to convert response data to JSON Object")
+                return nil
+            }
+
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Expected JSON to be a dictionary")
+                return nil
+            }
+
+            XCTAssertEqual(json["key1"] as? String, "value1")
+            XCTAssertEqual(json["key2"] as? String, "value2")
+            XCTAssertEqual(json["key3"] as? String, "value3")
+
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
     }
     
     func testInvokeDictionaryBody() {
@@ -166,17 +211,32 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(dictionaryBodyRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertEqual("\"value1\"", datastring)
+
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
+            
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Unable to convert response data to JSON Object")
+                return nil
+            }
+
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Expected JSON to be a dictionary")
+                return nil
+            }
+
+            XCTAssertEqual(json["key1"] as? String, "value1")
+            XCTAssertEqual(json["key2"] as? String, "value2")
+            XCTAssertEqual(json["key3"] as? String, "value3")
+            
             return nil
             }).waitUntilFinished()
     }
@@ -191,95 +251,141 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(proxyPathRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertEqual(datastring!, "\"myuser%7B%7D\"")
+            
+            if let error = task.error {
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
+
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
+                return nil
+            }
+            
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Unable to convert response data to JSON Object")
+                return nil
+            }
+            
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Expected JSON to be a dictionary")
+                return nil
+            }
+
+            guard let value = json["value"] as? String else {
+                XCTFail("Can't get String 'value' from JSON object")
+                return nil
+            }
+            
+            XCTAssertEqual(value, "myuser%7B%7D")
+
             return nil
             }).waitUntilFinished()
       
     }
     
     func testInvokePathWithQueryString() {
-        
         let proxyPathRequest = AWSAPIGatewayRequest(httpMethod: "GET",
                                                     urlString: "/TestFunction",
-                                                    queryParameters: ["key1":"myuser{}"],
+                                                    queryParameters: ["key1": "myuser{}"],
                                                     headerParameters: headerParameters,
                                                     httpBody: nil)
         
         client!.invoke(proxyPathRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertEqual(datastring!, "\"myuser{}\"")
+            
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
+        
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Can't create JSON object from apiResponse.responseData")
+                return nil
+            }
+            
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Can't cast jsonObject as [String:Any]")
+                return nil
+            }
+            
+            guard let value = json["value"] as? String else {
+                XCTFail("Can't get String 'value' from JSON object")
+                return nil
+            }
+
+            XCTAssertEqual(value, "myuser{}")
+            
             return nil
-            }).waitUntilFinished()
+
+        }).waitUntilFinished()
         
     }
     
     func testGet() {
-        
         client!.helloWorldGet().continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                
-                XCTAssertEqual("Hello World", result as? String);
+            
+            guard let result = task.result as? String else {
+                XCTFail("Result unexpectedly nil or not convertible to String")
                 return nil
             }
+
+            XCTAssertEqual("Hello World", result);
+
             return nil
         }).waitUntilFinished()
     }
     
     func testPathParametersWithGet() {
-
         client!.userUsernameGet("myuser{}").continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                XCTAssertEqual("myuser%7B%7D", result as? String);
+            
+            guard let result = task.result as? AWSStringValue else {
+                XCTFail("Result unexpectedly nil or does not cast to AWSStringValue")
                 return nil
             }
+            
+            XCTAssertEqual("myuser%7B%7D", result.value);
+
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
     }
     
     func testQueryStringParametersWithGet() {
-        
         client!.testFunctionGet("myuser{}").continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                XCTAssertEqual("myuser{}", result as? String);
+            
+            guard let result = task.result as? AWSStringValue else {
+                XCTFail("Result unexpectedly nil or does not cast to AWSStringValue")
                 return nil
             }
+            
+            XCTAssertEqual("myuser{}", result.value);
+
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
     }
     
     func testPathParametersWithInvoke() {
@@ -292,19 +398,41 @@ class TestAPIGatewayInvoke: XCTestCase {
         
         client!.invoke(parameterPathRequest).continueWith(block: { (task:AWSTask) -> AnyObject? in
             if let error = task.error {
-                print("\(error)")
-                XCTFail("Encountered unexpected error")
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
-            if let result = task.result {
-                let apiResponse = result
-                let datastring = NSString(data: apiResponse.responseData!, encoding: String.Encoding.utf8.rawValue)
-                XCTAssertEqual(200, apiResponse.statusCode)
-                XCTAssertNotNil(datastring)
-                XCTAssertEqual(datastring, "\"myuser2\"")
+            
+            if let error = task.error {
+                XCTFail("Encountered unexpected error: \(error)")
                 return nil
             }
+
+            guard let result = task.result else {
+                XCTFail("Result unexpectedly nil")
+                return nil
+            }
+            
+            let apiResponse = result
+            XCTAssertEqual(200, apiResponse.statusCode)
+
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: apiResponse.responseData!) else {
+                XCTFail("Unable to convert response data to JSON Object")
+                return nil
+            }
+            
+            guard let json = jsonObject as? [String: Any] else {
+                XCTFail("Expected JSON to be a dictionary")
+                return nil
+            }
+            
+            guard let value = json["value"] as? String else {
+                XCTFail("Can't get String 'value' from JSON object")
+                return nil
+            }
+            
+            XCTAssertEqual(value, "myuser2")
+            
             return nil
-            }).waitUntilFinished()
+        }).waitUntilFinished()
     }
 }

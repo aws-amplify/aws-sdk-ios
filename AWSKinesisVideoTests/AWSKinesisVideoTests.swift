@@ -16,7 +16,6 @@
 import XCTest
 import AWSKinesisVideo
 
-
 class AWSKinesisVideoTests: XCTestCase {
     
     let streamPrefix = "kinesisvideo-integration-test-"

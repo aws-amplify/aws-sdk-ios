@@ -26,11 +26,9 @@ class AWSSageMakerRuntimeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCredentialsViaFile()
-        let credentialsJson: [String : String]? = AWSTestUtility.getCredentialsJsonAsDictionary()
-        if credentialsJson?["sageMaker-endpoint"] != nil {
-            sageMakerEndpoint = credentialsJson?["sageMaker-endpoint"]
-        }
+        AWSTestUtility.setupCognitoCredentialsProvider()
+        let credentialsJson = AWSTestUtility.getCredentialsJsonAsDictionary()
+        sageMakerEndpoint = credentialsJson?["sageMaker-endpoint"]
     }
     
     func testInvokeAPIWithSucess() {
@@ -79,8 +77,8 @@ class AWSSageMakerRuntimeTests: XCTestCase {
 
     func testInvokeApiWithUnAuthorizedUser() {
         let credentialProvider = AWSStaticCredentialsProvider(
-            accessKey: "XXXXXXXNAAHXQ",
-            secretKey: "xxxxxoQvW")
+            accessKey: "BAD_KEY_ID",
+            secretKey: "BAD_SECRET_KEY")
         let config = AWSServiceConfiguration(
             region: .USEast1,
             credentialsProvider: credentialProvider)

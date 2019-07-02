@@ -92,13 +92,8 @@ Method _mockMethod;
 
 @implementation AWSCognitoClientTest
 + (void)setUp {
-    [CognitoTestUtils createFBAccount];
-    [CognitoTestUtils createIdentityPool];
-
-
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
                                                                                          identityPoolId:[CognitoTestUtils identityPoolId]];
-
 
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:provider];
 
@@ -107,8 +102,6 @@ Method _mockMethod;
 
 + (void)tearDown {
     [[AWSCognito defaultCognito] wipe];
-    [CognitoTestUtils deleteFBAccount];
-    [CognitoTestUtils deleteIdentityPool];
 }
 
 - (void)forceUpdate:(NSString *)datasetName withKey:(NSString *)key {

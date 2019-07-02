@@ -323,7 +323,8 @@ static NSString *_testDomainName = nil;
 
     [[[sdb domainMetadata:metaDataRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidParameterValue error but got nil");
-        XCTAssertEqual(task.error.code, 6);
+        XCTAssertEqualObjects(task.error.domain, AWSSimpleDBErrorDomain);
+        XCTAssertEqual(task.error.code, AWSSimpleDBErrorInvalidParameterValue);
         XCTAssertTrue([@"InvalidParameterValue" isEqualToString:task.error.userInfo[@"Code"]]);
         XCTAssertTrue([@"Value () for parameter DomainName is invalid. " isEqualToString: (NSString *)task.error.userInfo[@"Message"]]);
         return nil;

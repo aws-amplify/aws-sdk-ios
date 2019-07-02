@@ -620,6 +620,7 @@ static NSString *table2Name = nil;
 
     if (![[self class] createTable:table2Name]) {
         XCTFail(@"failed to createTable: %@",table2Name);
+        return;
     }
 
     NSNumber *newCapacity = @2;

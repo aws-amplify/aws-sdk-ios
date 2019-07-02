@@ -28,8 +28,6 @@ NSString *_identityId;
 @implementation AWSCognitoSyncTests
 
 + (void)setUp {
-    [CognitoTestUtils createIdentityPool];
-
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
                                                                                          identityPoolId:[CognitoTestUtils identityPoolId]
                                                                                           unauthRoleArn:[CognitoTestUtils unauthRoleArn]
@@ -46,11 +44,7 @@ NSString *_identityId;
                                                   forKey:@"AWSCognitoSyncTests"];
 }
 
-+ (void)tearDown {
-    [CognitoTestUtils deleteIdentityPool];
-}
-
-- (void)testExample {
+- (void)testListRecords {
     AWSCognitoSyncListRecordsRequest *request = [AWSCognitoSyncListRecordsRequest new];
     request.datasetName = @"mydataset";
     request.identityPoolId = [CognitoTestUtils identityPoolId];
@@ -63,7 +57,7 @@ NSString *_identityId;
     }] waitUntilFinished];
 }
 
-- (void)testExampleFailed {
+- (void)testInvalidDatasetNameFails {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
     NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                     options:NSJSONReadingMutableContainers

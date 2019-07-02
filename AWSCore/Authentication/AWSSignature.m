@@ -149,7 +149,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
-    [request addValue:request.URL.host forHTTPHeaderField:@"Host"];
+    [request setValue:request.URL.host forHTTPHeaderField:@"Host"];
     return [[self.credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         AWSCredentials *credentials = task.result;
         // clear authorization header if set
