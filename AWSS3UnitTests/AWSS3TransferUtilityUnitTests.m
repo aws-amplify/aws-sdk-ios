@@ -64,6 +64,9 @@ static id urlSession = nil;
     OCMStub([mockNetworking sendRequest:[OCMArg isKindOfClass:[AWSNetworkingRequest class]]]).andReturn(errorTask);
 }
 
+/**
+ Test the successfull execution of multipart data upload.
+ **/
 - (void)testMultiPartDataUpload {
     NSString *key = @"testMultiPartDataUpload";
     NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
@@ -105,6 +108,11 @@ static id urlSession = nil;
     [AWSS3TransferUtility removeS3TransferUtilityForKey:key];
 }
 
+/**
+ Test the situation where NSURLSession throws an exception in multipart upload.
+ This should return an error back to the caller. One possible scenario of this
+ usecase is when temporary file used for upload got deleted by OS.
+ **/
 - (void)testMultiPartDataUploadWithURLSessionException {
     NSString *key = @"testMultiPartDataUploadException";
     NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];

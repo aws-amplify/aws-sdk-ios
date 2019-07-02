@@ -1495,18 +1495,20 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
               getPresignedURLRequest:nil URLRequest: urlRequest];
         [ urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
         NSURLSessionUploadTask *nsURLUploadTask = nil;
+        NSString *exceptionReason = @"";
         @try {
             nsURLUploadTask  = [self->_session uploadTaskWithRequest:urlRequest
                                                             fromFile:[NSURL fileURLWithPath:subTask.file]];
         }
         @catch (NSException *exception) {
             AWSDDLogDebug(@"Exception in upload task %@", exception.debugDescription);
+            exceptionReason = [exception.reason copy];
             nsURLUploadTask = nil;
         }
         if (nsURLUploadTask == nil) {
             NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
-                                                                 forKey:@"Message"];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      errorMessage, @"Message", exceptionReason, @"Reason", nil];
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                         code:AWSS3TransferUtilityErrorUnknown
                                     userInfo:userInfo];
