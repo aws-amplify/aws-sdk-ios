@@ -29,6 +29,7 @@ podpackages = [
                'AWSMobileAnalytics.podspec',
                'AWSPinpoint.podspec',
                'AWSS3.podspec',
+               'AWSSageMakerRuntime.podspec',
                'AWSSES.podspec',
                'AWSSimpleDB.podspec',
                'AWSSNS.podspec',
