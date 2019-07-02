@@ -20,6 +20,7 @@
 #import "AWSTestUtility.h"
 
 NSString * AWSCognitoCredentialsProviderTestsIdentityPoolId = nil;
+NSString * AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId = nil;
 NSString * AWSCognitoCredentialsProviderTestsAccountID = nil;
 NSString * AWSCognitoCredentialsProviderTestsFacebookAppID = nil;
 NSString * AWSCognitoCredentialsProviderTestsFacebookAppSecret = nil;
@@ -195,6 +196,7 @@ BOOL _identityChanged;
                                                           forKey:@"Static"];
     
     AWSCognitoCredentialsProviderTestsIdentityPoolId = credentialsJson[@"identityPoolId"];
+    AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId = credentialsJson[@"unauthIdentityPoolId"];
     AWSCognitoCredentialsProviderTestsAccountID = credentialsJson[@"accountId"];
     AWSCognitoCredentialsProviderTestsFacebookAppID = credentialsJson[@"facebookAppId"];
     AWSCognitoCredentialsProviderTestsFacebookAppSecret = credentialsJson[@"facebookAppSecret"];
@@ -393,7 +395,7 @@ BOOL _identityChanged;
 - (void)testProviderFailure {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                 identityProviderManager:identityProvider];
@@ -521,7 +523,7 @@ BOOL _identityChanged;
 - (void)testEnhancedProviderFailure {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId
                                                                                 identityProviderManager:identityProvider];
 
     [[[[provider getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
