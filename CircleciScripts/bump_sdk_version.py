@@ -82,6 +82,7 @@ modulelist = [
     "AWSSES",
     "AWSSNS",
     "AWSSQS",
+    "AWSSageMakerRuntime",
     "AWSSimpleDB",
     "AWSTranscribe",
     "AWSTranslate",

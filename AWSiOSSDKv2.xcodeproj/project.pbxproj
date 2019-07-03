@@ -387,6 +387,7 @@
 		9AD5842720F63E6700042041 /* family_thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5842520F63E6700042041 /* family_thumb.jpg */; };
 		9AD5842820F63E6700042041 /* singleface.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5842620F63E6700042041 /* singleface.jpg */; };
 		9AD5842A20F63E9B00042041 /* city_thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5842920F63E9B00042041 /* city_thumb.jpg */; };
+		B47FAF4322C577CE00014548 /* AWSS3TransferUtilityUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */; };
 		B4A4DFFE22B4201400379396 /* AWSSageMakerRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */; };
 		B4A4E00A22B4201400379396 /* AWSSageMakerRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */; };
 		B4A4E00B22B4201400379396 /* AWSSageMakerRuntime.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -405,7 +406,6 @@
 		B4A4E03F22B427F600379396 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		B4A4E04022B4281000379396 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		B4A4E04122B4282000379396 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
-		B47FAF4322C577CE00014548 /* AWSS3TransferUtilityUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */; };
 		B52FBE921F17414A000F0C00 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52FBE911F17414A000F0C00 /* Media.xcassets */; };
 		B5AF36DB20FF1EA5004D194C /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B5AF36DC20FF1EB1004D194C /* AWSKinesisVideo.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -3388,6 +3388,7 @@
 		9AD5842520F63E6700042041 /* family_thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = family_thumb.jpg; sourceTree = "<group>"; };
 		9AD5842620F63E6700042041 /* singleface.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singleface.jpg; sourceTree = "<group>"; };
 		9AD5842920F63E9B00042041 /* city_thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city_thumb.jpg; sourceTree = "<group>"; };
+		B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityUnitTests.m; sourceTree = "<group>"; };
 		B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSSageMakerRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A4DFF822B4201400379396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A4DFFD22B4201400379396 /* AWSSageMakerRuntimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSageMakerRuntimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3404,7 +3405,6 @@
 		B4A4E03222B423C700379396 /* AWSGeneralSageMakerRuntimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSageMakerRuntimeTests.m; sourceTree = "<group>"; };
 		B4A4E03A22B4272A00379396 /* AWSSageMakerRuntimeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSageMakerRuntimeTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B4A4E03C22B4272E00379396 /* AWSSageMakerRuntimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSSageMakerRuntimeTests.swift; sourceTree = "<group>"; };
-		B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityUnitTests.m; sourceTree = "<group>"; };
 		B52FBE911F17414A000F0C00 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0D416F1C6A66E5006B91B5 /* AWSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCore.h; sourceTree = "<group>"; };
@@ -5620,6 +5620,9 @@
 				CE9DE9BE1C6A7C2D0060793F /* AWSS3 */,
 				CE9DE9CA1C6A7C2E0060793F /* AWSS3Tests */,
 				CE5604A01C6BC97600B4E00B /* AWSS3UnitTests */,
+				B4A4DFF622B4201400379396 /* AWSSageMakerRuntime */,
+				B4A4E00322B4201400379396 /* AWSSageMakerRuntimeTests */,
+				B4A4E02822B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
 				CE9DE9FE1C6A7DFF0060793F /* AWSSES */,
 				CE9DEA0A1C6A7E000060793F /* AWSSESTests */,
 				CE5604AF1C6BC98800B4E00B /* AWSSESUnitTests */,
@@ -5638,9 +5641,6 @@
 				9A7ACC2120B0E85000DDBEC1 /* AWSTranslate */,
 				9A7ACCF620B11CDD00DDBEC1 /* AWSTranslateTests */,
 				9A7ACC4F20B0FF1000DDBEC1 /* AWSTranslateUnitTests */,
-				B4A4DFF622B4201400379396 /* AWSSageMakerRuntime */,
-				B4A4E00322B4201400379396 /* AWSSageMakerRuntimeTests */,
-				B4A4E02822B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
 				17E6B467209BB99A0079B286 /* Frameworks */,
 				CE0D415E1C6A66AA006B91B5 /* Products */,
 			);
