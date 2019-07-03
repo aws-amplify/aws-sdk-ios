@@ -14,6 +14,7 @@
   * Amazon DynamoDB
   * Amazon EC2
   * Amazon Simple Email Service
+  * Amazon Pinpoint
 
 ## 2.9.9
 
