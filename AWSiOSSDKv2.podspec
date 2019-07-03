@@ -102,6 +102,10 @@ Pod::Spec.new do |s|
   	s3.dependency 'AWSS3', '2.9.9'
   end
 
+  s.subspec 'AWSSageMakerRuntime' do |sagemaker|
+  	sagemaker.dependency 'AWSSageMakerRuntime', '2.9.9'
+  end
+
   s.subspec 'AWSSES' do |ses|
   	ses.dependency 'AWSSES', '2.9.9'
   end
