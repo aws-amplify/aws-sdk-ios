@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -162,10 +162,332 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The error domain for AWSCognito errors.</p>
+
+<ul>
+<li>AWSCognitoErrorUnknown - Unknow error.</li>
+<li>AWSCognitoErrorRemoteDataStorageFailed - The Amazon Cognito call temporarily failed.</li>
+<li>AWSCognitoErrorInvalidDataValue - The Amazon Cognito call failed. The value for the
+key is invalid and has been deleted from the local database.</li>
+<li>AWSCognitoErrorDataSizeLimitExceeded - The Amazon Cognito call failed. A
+dataset has exceeded the max dataset size.</li>
+<li>AWSCognitoErrorLocalDataStorageFailed - The SQLite call failed.</li>
+<li>AWSCognitoErrorIllegalArgument - The input value is invalid.</li>
+<li>AWSCognitoErrorConflictRetriesExhausted - The number of attempts to resolve a conflict
+has exceeded the max number of retries.</li>
+<li>AWSCognitoErrorWiFiNotAvailable - WiFi is required and not currently available.</li>
+<li>AWSCognitoErrorDeviceNotRegistered - The device has not been registered yet.</li>
+<li>AWSCognitoErrorSyncAlreadyPending - This sync is unecessary, there is already a pending sync.</li>
+<li>AWSCognitoErrorTimedOutWaitingForInFlightSync - There is a in flight sync that took over 5 minutes to complete, so this one was cancelled.</li>
+</ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/conflictHandler" title="conflictHandler"></a>
+	<h3 class="method-title"><code><a href="#//api/name/conflictHandler">&nbsp;&nbsp;conflictHandler</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A conflict resolution handler that will receive calls when there is a
+conflict during a sync operation.  A conflict will occur when both remote and
+local data have been updated since the last sync time.
+When not explicitly set, we will use the default conflict resolution of
+&lsquo;last writer wins&rsquo;, where the data most recently updated will be persisted.
+This handler will be propagated to any AWSCognitoDataset opened by this client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSCognitoRecordConflictHandler conflictHandler</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/datasetDeletedHandler" title="datasetDeletedHandler"></a>
+	<h3 class="method-title"><code><a href="#//api/name/datasetDeletedHandler">&nbsp;&nbsp;datasetDeletedHandler</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A deleted dataset handler. This handler will be called during a synchronization
+when the remote service indicates that a dataset has been deleted.
+Returning YES from the handler will cause the service to recreate the dataset
+on the remote on the next synchronization. Returning NO or leaving this property
+nil will cause the client to delete the dataset locally.
+This handler will be propagated to any AWSCognitoDataset opened by this client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSCognitoDatasetDeletedHandler datasetDeletedHandler</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/datasetMergedHandler" title="datasetMergedHandler"></a>
+	<h3 class="method-title"><code><a href="#//api/name/datasetMergedHandler">&nbsp;&nbsp;datasetMergedHandler</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A merged dataset handler. This handler will be called during a synchronization
+when the remote service indicates that other datasets should be merged with this one.
+Merged datasets should be fetched, their data overlayed locally and then removed.
+Failing to implement this handler will result in merged datasets remaining on the
+service indefinitely.
+This handler will be propagated to any AWSCognitoDataset opened by this client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSCognitoDatasetMergedHandler datasetMergedHandler</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deviceId" title="deviceId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deviceId">&nbsp;&nbsp;deviceId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The identifier used for this client in Amazon Cognito.  If not supplied
+Amazon Cognito will create a random GUID for the device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *deviceId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/synchronizeRetries" title="synchronizeRetries"></a>
+	<h3 class="method-title"><code><a href="#//api/name/synchronizeRetries">&nbsp;&nbsp;synchronizeRetries</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The number of times to attempt a synchronization before failing. This will
+be set on any AWSCognitoDatasets opened with this client. Defaults to 5 if not set.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) uint32_t synchronizeRetries</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/synchronizeOnWiFiOnly" title="synchronizeOnWiFiOnly"></a>
+	<h3 class="method-title"><code><a href="#//api/name/synchronizeOnWiFiOnly">&nbsp;&nbsp;synchronizeOnWiFiOnly</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Only synchronize if device is on a WiFi network. Defaults to NO if not set.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL synchronizeOnWiFiOnly</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/defaultCognito" title="defaultCognito"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultCognito">+&nbsp;defaultCognito</a></code>
 </h3>
@@ -557,8 +879,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/wipe" title="wipe"></a>
-	<h3 class="method-title"><code><a href="#//api/name/wipe">&ndash;&nbsp;wipe</a></code>
+	<a name="//api/name/listDatasets" title="listDatasets"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listDatasets">&ndash;&nbsp;listDatasets</a></code>
 </h3>
 
 	<div class="method-info">
@@ -568,16 +890,22 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Wipe all cached data.</p>
+				<p>List all datasets our client is aware of. Call refreshDatasetMetadata to ensure
+the client has knowledge of all datasets available on the remote store.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)wipe</code></div>
+			<div class="method-subsection method-declaration"><code>- (NSArray&lt;AWSCognitoDatasetMetadata*&gt; *)listDatasets</code></div>
 
 		    
 			
 
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>NSArray of AWSCognitoDatasetMetadata</p>
+			</div>
 			
 
 			
@@ -640,8 +968,8 @@ AWSCognitoDatasetMetadata objects.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/listDatasets" title="listDatasets"></a>
-	<h3 class="method-title"><code><a href="#//api/name/listDatasets">&ndash;&nbsp;listDatasets</a></code>
+	<a name="//api/name/wipe" title="wipe"></a>
+	<h3 class="method-title"><code><a href="#//api/name/wipe">&ndash;&nbsp;wipe</a></code>
 </h3>
 
 	<div class="method-info">
@@ -651,22 +979,16 @@ AWSCognitoDatasetMetadata objects.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>List all datasets our client is aware of. Call refreshDatasetMetadata to ensure
-the client has knowledge of all datasets available on the remote store.</p>
+				<p>Wipe all cached data.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray&lt;AWSCognitoDatasetMetadata*&gt; *)listDatasets</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)wipe</code></div>
 
 		    
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>NSArray of AWSCognitoDatasetMetadata</p>
-			</div>
 			
 
 			
@@ -687,8 +1009,8 @@ the client has knowledge of all datasets available on the remote store.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/cognitoDeviceId" title="cognitoDeviceId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/cognitoDeviceId">+&nbsp;cognitoDeviceId</a></code>
+	<a name="//api/name/defaultConflictHandler" title="defaultConflictHandler"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultConflictHandler">+&nbsp;defaultConflictHandler</a></code>
 </h3>
 
 	<div class="method-info">
@@ -698,12 +1020,12 @@ the client has knowledge of all datasets available on the remote store.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Get the device id Cognito Sync gave this device. nil if device has never been registered</p>
+				<p>Get the default, last writer wins conflict handler</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (NSString *)cognitoDeviceId</code></div>
+			<div class="method-subsection method-declaration"><code>+ (AWSCognitoRecordConflictHandler)defaultConflictHandler</code></div>
 
 		    
 			
@@ -748,6 +1070,47 @@ The result of this task will be a AWSCognitoSyncRegisterDeviceResponse.</p>
 		    
 
 			<div class="method-subsection method-declaration"><code>- (AWSTask *)registerDevice:(NSData *)<em>deviceToken</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cognitoDeviceId" title="cognitoDeviceId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cognitoDeviceId">+&nbsp;cognitoDeviceId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the device id Cognito Sync gave this device. nil if device has never been registered</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSString *)cognitoDeviceId</code></div>
 
 		    
 			
@@ -881,7 +1244,7 @@ AWSCognitoSyncSubscribeToDatasetResponse</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)subscribe:(NSArray *)<em>datasetNames</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)subscribe:(NSArray&lt;NSString*&gt; *)<em>datasetNames</em></code></div>
 
 		    
 			
@@ -966,7 +1329,7 @@ AWSCognitoSyncUnsubscribeToDatasetResponse</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)unsubscribe:(NSArray *)<em>datasetNames</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)unsubscribe:(NSArray&lt;NSString*&gt; *)<em>datasetNames</em></code></div>
 
 		    
 			
@@ -1033,377 +1396,6 @@ AWSCognitoSyncUnsubscribeToDatasetResponse</p>
 			
 		</div>
 	</div>
-</div><div class="section-method">
-	<a name="//api/name/defaultConflictHandler" title="defaultConflictHandler"></a>
-	<h3 class="method-title"><code><a href="#//api/name/defaultConflictHandler">+&nbsp;defaultConflictHandler</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Get the default, last writer wins conflict handler</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (AWSCognitoRecordConflictHandler)defaultConflictHandler</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The error domain for AWSCognito errors.</p>
-
-<ul>
-<li>AWSCognitoErrorUnknown - Unknow error.</li>
-<li>AWSCognitoErrorRemoteDataStorageFailed - The Amazon Cognito call temporarily failed.</li>
-<li>AWSCognitoErrorInvalidDataValue - The Amazon Cognito call failed. The value for the
-key is invalid and has been deleted from the local database.</li>
-<li>AWSCognitoErrorDataSizeLimitExceeded - The Amazon Cognito call failed. A
-dataset has exceeded the max dataset size.</li>
-<li>AWSCognitoErrorLocalDataStorageFailed - The SQLite call failed.</li>
-<li>AWSCognitoErrorIllegalArgument - The input value is invalid.</li>
-<li>AWSCognitoErrorConflictRetriesExhausted - The number of attempts to resolve a conflict
-has exceeded the max number of retries.</li>
-<li>AWSCognitoErrorWiFiNotAvailable - WiFi is required and not currently available.</li>
-<li>AWSCognitoErrorDeviceNotRegistered - The device has not been registered yet.</li>
-<li>AWSCognitoErrorSyncAlreadyPending - This sync is unecessary, there is already a pending sync.</li>
-<li>AWSCognitoErrorTimedOutWaitingForInFlightSync - There is a in flight sync that took over 5 minutes to complete, so this one was cancelled.</li>
-</ul>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/conflictHandler" title="conflictHandler"></a>
-	<h3 class="method-title"><code><a href="#//api/name/conflictHandler">&nbsp;&nbsp;conflictHandler</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>A conflict resolution handler that will receive calls when there is a
-conflict during a sync operation.  A conflict will occur when both remote and
-local data have been updated since the last sync time.
-When not explicitly set, we will use the default conflict resolution of
-&lsquo;last writer wins&rsquo;, where the data most recently updated will be persisted.
-This handler will be propagated to any AWSCognitoDataset opened by this client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSCognitoRecordConflictHandler conflictHandler</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/datasetDeletedHandler" title="datasetDeletedHandler"></a>
-	<h3 class="method-title"><code><a href="#//api/name/datasetDeletedHandler">&nbsp;&nbsp;datasetDeletedHandler</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>A deleted dataset handler. This handler will be called during a synchronization
-when the remote service indicates that a dataset has been deleted.
-Returning YES from the handler will cause the service to recreate the dataset
-on the remote on the next synchronization. Returning NO or leaving this property
-nil will cause the client to delete the dataset locally.
-This handler will be propagated to any AWSCognitoDataset opened by this client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSCognitoDatasetDeletedHandler datasetDeletedHandler</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/datasetMergedHandler" title="datasetMergedHandler"></a>
-	<h3 class="method-title"><code><a href="#//api/name/datasetMergedHandler">&nbsp;&nbsp;datasetMergedHandler</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>A merged dataset handler. This handler will be called during a synchronization
-when the remote service indicates that other datasets should be merged with this one.
-Merged datasets should be fetched, their data overlayed locally and then removed.
-Failing to implement this handler will result in merged datasets remaining on the
-service indefinitely.
-This handler will be propagated to any AWSCognitoDataset opened by this client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSCognitoDatasetMergedHandler datasetMergedHandler</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/deviceId" title="deviceId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deviceId">&nbsp;&nbsp;deviceId</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The identifier used for this client in Amazon Cognito.  If not supplied
-Amazon Cognito will create a random GUID for the device.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *deviceId</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/synchronizeRetries" title="synchronizeRetries"></a>
-	<h3 class="method-title"><code><a href="#//api/name/synchronizeRetries">&nbsp;&nbsp;synchronizeRetries</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The number of times to attempt a synchronization before failing. This will
-be set on any AWSCognitoDatasets opened with this client. Defaults to 5 if not set.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) uint32_t synchronizeRetries</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/synchronizeOnWiFiOnly" title="synchronizeOnWiFiOnly"></a>
-	<h3 class="method-title"><code><a href="#//api/name/synchronizeOnWiFiOnly">&nbsp;&nbsp;synchronizeOnWiFiOnly</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Only synchronize if device is on a WiFi network. Defaults to NO if not set.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL synchronizeOnWiFiOnly</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
 </div>
 						</div>
 						
@@ -1419,7 +1411,7 @@ be set on any AWSCognitoDatasets opened with this client. Defaults to 5 if not s
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

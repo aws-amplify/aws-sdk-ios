@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -246,6 +246,10 @@
 		
 		<option value="//api/name/listVerifiedEmailAddresses:completionHandler:">- listVerifiedEmailAddresses:completionHandler:</option>
 		
+		<option value="//api/name/putConfigurationSetDeliveryOptions:">- putConfigurationSetDeliveryOptions:</option>
+		
+		<option value="//api/name/putConfigurationSetDeliveryOptions:completionHandler:">- putConfigurationSetDeliveryOptions:completionHandler:</option>
+		
 		<option value="//api/name/putIdentityPolicy:">- putIdentityPolicy:</option>
 		
 		<option value="//api/name/putIdentityPolicy:completionHandler:">- putIdentityPolicy:completionHandler:</option>
@@ -392,7 +396,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><fullname>Amazon Simple Email Service</fullname><p> This document contains reference information for the <a href="https://aws.amazon.com/ses/">Amazon Simple Email Service</a> (Amazon SES) API, version 2010-12-01. This document is best used in conjunction with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>. </p><note><p> For a list of Amazon SES endpoints to use in service requests, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions and Amazon SES</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>.</p></note></p>
+						<p><fullname>Amazon Simple Email Service</fullname><p> This document contains reference information for the <a href="https://aws.amazon.com/ses/">Amazon Simple Email Service</a> (Amazon SES) API, version 2010-12-01. This document is best used in conjunction with the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>. </p><note><p> For a list of Amazon SES endpoints to use in service requests, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions and Amazon SES</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon SES Developer Guide</a>.</p></note></p>
 					</div>
 					
 					
@@ -404,10 +408,56 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSESService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/defaultSES" title="defaultSES"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultSES">+&nbsp;defaultSES</a></code>
 </h3>
@@ -767,7 +817,7 @@
 				<p>Creates a receipt rule set by cloning an existing one. All receipt rules and configurations are copied to the new receipt rule set and are completely independent of the source rule set.</p>
 
 
-<p>For information about setting up rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -843,7 +893,7 @@
 				<p>Creates a receipt rule set by cloning an existing one. All receipt rules and configurations are copied to the new receipt rule set and are completely independent of the source rule set.</p>
 
 
-<p>For information about setting up rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -852,7 +902,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)cloneReceiptRuleSet:(AWSSESCloneReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCloneReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)cloneReceiptRuleSet:(AWSSESCloneReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCloneReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -921,7 +971,7 @@
 				<p>Creates a configuration set.</p>
 
 
-<p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+<p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -997,7 +1047,7 @@
 				<p>Creates a configuration set.</p>
 
 
-<p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+<p>Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1006,7 +1056,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createConfigurationSet:(AWSSESCreateConfigurationSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateConfigurationSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createConfigurationSet:(AWSSESCreateConfigurationSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateConfigurationSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1075,7 +1125,7 @@
 				<p>Creates a configuration set event destination.</p>
 
 
-<p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p></note><p>An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p></note><p>An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -1147,12 +1197,12 @@
 				<p>Creates a configuration set event destination.</p>
 
 
-<p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p></note><p>An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p></note><p>An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createConfigurationSetEventDestination:(AWSSESCreateConfigurationSetEventDestinationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateConfigurationSetEventDestinationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createConfigurationSetEventDestination:(AWSSESCreateConfigurationSetEventDestinationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateConfigurationSetEventDestinationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1221,7 +1271,7 @@
 				<p>Creates an association between a configuration set and a custom domain for open and click event tracking. </p>
 
 
-<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -1294,13 +1344,13 @@
 				<p>Creates an association between a configuration set and a custom domain for open and click event tracking. </p>
 
 
-<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createConfigurationSetTrackingOptions:(AWSSESCreateConfigurationSetTrackingOptionsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateConfigurationSetTrackingOptionsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createConfigurationSetTrackingOptions:(AWSSESCreateConfigurationSetTrackingOptionsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateConfigurationSetTrackingOptionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1369,7 +1419,7 @@
 				<p>Creates a new custom verification email template.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1443,7 +1493,7 @@
 				<p>Creates a new custom verification email template.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1452,7 +1502,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createCustomVerificationEmailTemplate:(AWSSESCreateCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createCustomVerificationEmailTemplate:(AWSSESCreateCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1518,7 +1568,7 @@
 				<p>Creates a new IP address filter.</p>
 
 
-<p>For information about setting up IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1594,7 +1644,7 @@
 				<p>Creates a new IP address filter.</p>
 
 
-<p>For information about setting up IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1603,7 +1653,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createReceiptFilter:(AWSSESCreateReceiptFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateReceiptFilterResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createReceiptFilter:(AWSSESCreateReceiptFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateReceiptFilterResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1672,7 +1722,7 @@
 				<p>Creates a receipt rule.</p>
 
 
-<p>For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1748,7 +1798,7 @@
 				<p>Creates a receipt rule.</p>
 
 
-<p>For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1757,7 +1807,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createReceiptRule:(AWSSESCreateReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateReceiptRuleResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createReceiptRule:(AWSSESCreateReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateReceiptRuleResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1826,7 +1876,7 @@
 				<p>Creates an empty receipt rule set.</p>
 
 
-<p>For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1902,7 +1952,7 @@
 				<p>Creates an empty receipt rule set.</p>
 
 
-<p>For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -1911,7 +1961,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createReceiptRuleSet:(AWSSESCreateReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createReceiptRuleSet:(AWSSESCreateReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1977,7 +2027,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+				<p>Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2050,7 +2100,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+				<p>Creates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2059,7 +2109,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createTemplate:(AWSSESCreateTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESCreateTemplateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createTemplate:(AWSSESCreateTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESCreateTemplateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2125,7 +2175,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+				<p>Deletes a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2198,7 +2248,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+				<p>Deletes a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2207,7 +2257,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteConfigurationSet:(AWSSESDeleteConfigurationSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteConfigurationSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteConfigurationSet:(AWSSESDeleteConfigurationSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteConfigurationSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2273,7 +2323,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+				<p>Deletes a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2346,7 +2396,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+				<p>Deletes a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2355,7 +2405,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteConfigurationSetEventDestination:(AWSSESDeleteConfigurationSetEventDestinationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteConfigurationSetEventDestinationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteConfigurationSetEventDestination:(AWSSESDeleteConfigurationSetEventDestinationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteConfigurationSetEventDestinationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2424,7 +2474,7 @@
 				<p>Deletes an association between a configuration set and a custom domain for open and click event tracking.</p>
 
 
-<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p><note><p>Deleting this kind of association will result in emails sent using the specified configuration set to capture open and click events using the standard, Amazon SES-operated domains.</p></note></p>
@@ -2499,7 +2549,7 @@
 				<p>Deletes an association between a configuration set and a custom domain for open and click event tracking.</p>
 
 
-<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p><note><p>Deleting this kind of association will result in emails sent using the specified configuration set to capture open and click events using the standard, Amazon SES-operated domains.</p></note></p>
@@ -2507,7 +2557,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteConfigurationSetTrackingOptions:(AWSSESDeleteConfigurationSetTrackingOptionsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteConfigurationSetTrackingOptionsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteConfigurationSetTrackingOptions:(AWSSESDeleteConfigurationSetTrackingOptionsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteConfigurationSetTrackingOptionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2576,7 +2626,7 @@
 				<p>Deletes an existing custom verification email template. </p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2650,7 +2700,7 @@
 				<p>Deletes an existing custom verification email template. </p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -2659,7 +2709,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteCustomVerificationEmailTemplate:(AWSSESDeleteCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteCustomVerificationEmailTemplate:(AWSSESDeleteCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2804,7 +2854,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteIdentity:(AWSSESDeleteIdentityRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteIdentityResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentity:(AWSSESDeleteIdentityRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2873,7 +2923,7 @@
 				<p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -2945,12 +2995,12 @@
 				<p>Deletes the specified sending authorization policy for the given identity (an email address or a domain). This API returns successfully even if a policy with the specified name does not exist.</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityPolicy:(AWSSESDeleteIdentityPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteIdentityPolicyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityPolicy:(AWSSESDeleteIdentityPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteIdentityPolicyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3019,7 +3069,7 @@
 				<p>Deletes the specified IP address filter.</p>
 
 
-<p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3095,7 +3145,7 @@
 				<p>Deletes the specified IP address filter.</p>
 
 
-<p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3104,7 +3154,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteReceiptFilter:(AWSSESDeleteReceiptFilterRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteReceiptFilterResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteReceiptFilter:(AWSSESDeleteReceiptFilterRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteReceiptFilterResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3173,7 +3223,7 @@
 				<p>Deletes the specified receipt rule.</p>
 
 
-<p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3249,7 +3299,7 @@
 				<p>Deletes the specified receipt rule.</p>
 
 
-<p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3258,7 +3308,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteReceiptRule:(AWSSESDeleteReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteReceiptRuleResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteReceiptRule:(AWSSESDeleteReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteReceiptRuleResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3327,7 +3377,7 @@
 				<p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p>
 
 
-<p><note><p>The currently active rule set cannot be deleted.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>The currently active rule set cannot be deleted.</p></note><p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -3399,12 +3449,12 @@
 				<p>Deletes the specified receipt rule set and all of the receipt rules it contains.</p>
 
 
-<p><note><p>The currently active rule set cannot be deleted.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>The currently active rule set cannot be deleted.</p></note><p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteReceiptRuleSet:(AWSSESDeleteReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteReceiptRuleSet:(AWSSESDeleteReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3552,7 +3602,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteTemplate:(AWSSESDeleteTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDeleteTemplateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteTemplate:(AWSSESDeleteTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDeleteTemplateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3692,7 +3742,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteVerifiedEmailAddress:(AWSSESDeleteVerifiedEmailAddressRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3758,7 +3808,7 @@
 				<p>Returns the metadata and receipt rules for the receipt rule set that is currently active.</p>
 
 
-<p>For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3834,7 +3884,7 @@
 				<p>Returns the metadata and receipt rules for the receipt rule set that is currently active.</p>
 
 
-<p>For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3843,7 +3893,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeActiveReceiptRuleSet:(AWSSESDescribeActiveReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDescribeActiveReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeActiveReceiptRuleSet:(AWSSESDescribeActiveReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDescribeActiveReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3909,7 +3959,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the details of the specified configuration set. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+				<p>Returns the details of the specified configuration set. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3982,7 +4032,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the details of the specified configuration set. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+				<p>Returns the details of the specified configuration set. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -3991,7 +4041,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeConfigurationSet:(AWSSESDescribeConfigurationSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDescribeConfigurationSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeConfigurationSet:(AWSSESDescribeConfigurationSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDescribeConfigurationSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4060,7 +4110,7 @@
 				<p>Returns the details of the specified receipt rule.</p>
 
 
-<p>For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -4136,7 +4186,7 @@
 				<p>Returns the details of the specified receipt rule.</p>
 
 
-<p>For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -4145,7 +4195,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeReceiptRule:(AWSSESDescribeReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDescribeReceiptRuleResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeReceiptRule:(AWSSESDescribeReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDescribeReceiptRuleResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4214,7 +4264,7 @@
 				<p>Returns the details of the specified receipt rule set.</p>
 
 
-<p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -4290,7 +4340,7 @@
 				<p>Returns the details of the specified receipt rule set.</p>
 
 
-<p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -4299,7 +4349,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeReceiptRuleSet:(AWSSESDescribeReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESDescribeReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeReceiptRuleSet:(AWSSESDescribeReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESDescribeReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4445,7 +4495,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getAccountSendingEnabled:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetAccountSendingEnabledResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getAccountSendingEnabled:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetAccountSendingEnabledResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4512,7 +4562,7 @@
 				<p>Returns the custom email verification template for the template name you specify.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -4588,7 +4638,7 @@
 				<p>Returns the custom email verification template for the template name you specify.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -4597,7 +4647,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getCustomVerificationEmailTemplate:(AWSSESGetCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetCustomVerificationEmailTemplateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getCustomVerificationEmailTemplate:(AWSSESGetCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetCustomVerificationEmailTemplateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4675,7 +4725,7 @@
 <p>This operation is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p>
 
 
-<p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about creating DNS records using DKIM tokens, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -4757,13 +4807,13 @@
 <p>This operation is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.</p>
 
 
-<p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about creating DNS records using DKIM tokens, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetIdentityDkimAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityDkimAttributes:(AWSSESGetIdentityDkimAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetIdentityDkimAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4911,7 +4961,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityMailFromDomainAttributes:(AWSSESGetIdentityMailFromDomainAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetIdentityMailFromDomainAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityMailFromDomainAttributes:(AWSSESGetIdentityMailFromDomainAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetIdentityMailFromDomainAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4983,7 +5033,7 @@
 <p>This operation is throttled at one request per second and can only get notification attributes for up to 100 identities at a time.</p>
 
 
-<p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -5059,13 +5109,13 @@
 <p>This operation is throttled at one request per second and can only get notification attributes for up to 100 identities at a time.</p>
 
 
-<p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetIdentityNotificationAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityNotificationAttributes:(AWSSESGetIdentityNotificationAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetIdentityNotificationAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5134,7 +5184,7 @@
 				<p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -5206,12 +5256,12 @@
 				<p>Returns the requested sending authorization policies for the given identity (an email address or a domain). The policies are returned as a map of policy names to policy contents. You can retrieve a maximum of 20 policies at a time.</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityPolicies:(AWSSESGetIdentityPoliciesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetIdentityPoliciesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityPolicies:(AWSSESGetIdentityPoliciesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetIdentityPoliciesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5371,7 +5421,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetIdentityVerificationAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityVerificationAttributes:(AWSSESGetIdentityVerificationAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetIdentityVerificationAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5517,7 +5567,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getSendQuota:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetSendQuotaResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getSendQuota:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetSendQuotaResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5661,7 +5711,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getSendStatistics:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetSendStatisticsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getSendStatistics:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetSendStatisticsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5807,7 +5857,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getTemplate:(AWSSESGetTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESGetTemplateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getTemplate:(AWSSESGetTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESGetTemplateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5873,7 +5923,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Provides a list of the configuration sets associated with your Amazon SES account in the current AWS Region. For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
+				<p>Provides a list of the configuration sets associated with your Amazon SES account in the current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
 
 
 <p>You can execute this operation no more than once per second. This operation will return up to 1,000 configuration sets each time it is run. If your Amazon SES account has more than 1,000 configuration sets, this operation will also return a NextToken element. You can then execute the <code>ListConfigurationSets</code> operation again, passing the <code>NextToken</code> parameter and the value of the NextToken element to retrieve additional results.</p>
@@ -5946,7 +5996,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Provides a list of the configuration sets associated with your Amazon SES account in the current AWS Region. For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
+				<p>Provides a list of the configuration sets associated with your Amazon SES account in the current AWS Region. For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
 
 
 <p>You can execute this operation no more than once per second. This operation will return up to 1,000 configuration sets each time it is run. If your Amazon SES account has more than 1,000 configuration sets, this operation will also return a NextToken element. You can then execute the <code>ListConfigurationSets</code> operation again, passing the <code>NextToken</code> parameter and the value of the NextToken element to retrieve additional results.</p>
@@ -5955,7 +6005,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listConfigurationSets:(AWSSESListConfigurationSetsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListConfigurationSetsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listConfigurationSets:(AWSSESListConfigurationSetsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListConfigurationSetsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6024,7 +6074,7 @@
 				<p>Lists the existing custom verification email templates for your account in the current AWS Region.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -6100,7 +6150,7 @@
 				<p>Lists the existing custom verification email templates for your account in the current AWS Region.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -6109,7 +6159,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listCustomVerificationEmailTemplates:(AWSSESListCustomVerificationEmailTemplatesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListCustomVerificationEmailTemplatesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listCustomVerificationEmailTemplates:(AWSSESListCustomVerificationEmailTemplatesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListCustomVerificationEmailTemplatesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6257,7 +6307,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listIdentities:(AWSSESListIdentitiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListIdentitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listIdentities:(AWSSESListIdentitiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6326,7 +6376,7 @@
 				<p>Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -6398,12 +6448,12 @@
 				<p>Returns a list of sending authorization policies that are attached to the given identity (an email address or a domain). This API returns only a list. If you want the actual policy content, you can use <code>GetIdentityPolicies</code>.</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listIdentityPolicies:(AWSSESListIdentityPoliciesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListIdentityPoliciesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listIdentityPolicies:(AWSSESListIdentityPoliciesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListIdentityPoliciesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6472,7 +6522,7 @@
 				<p>Lists the IP address filters associated with your AWS account in the current AWS Region.</p>
 
 
-<p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -6548,7 +6598,7 @@
 				<p>Lists the IP address filters associated with your AWS account in the current AWS Region.</p>
 
 
-<p>For information about managing IP address filters, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -6557,7 +6607,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listReceiptFilters:(AWSSESListReceiptFiltersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListReceiptFiltersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listReceiptFilters:(AWSSESListReceiptFiltersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListReceiptFiltersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6626,7 +6676,7 @@
 				<p>Lists the receipt rule sets that exist under your AWS account in the current AWS Region. If there are additional receipt rule sets to be retrieved, you will receive a <code>NextToken</code> that you can provide to the next call to <code>ListReceiptRuleSets</code> to retrieve the additional entries.</p>
 
 
-<p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -6702,7 +6752,7 @@
 				<p>Lists the receipt rule sets that exist under your AWS account in the current AWS Region. If there are additional receipt rule sets to be retrieved, you will receive a <code>NextToken</code> that you can provide to the next call to <code>ListReceiptRuleSets</code> to retrieve the additional entries.</p>
 
 
-<p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -6711,7 +6761,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listReceiptRuleSets:(AWSSESListReceiptRuleSetsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListReceiptRuleSetsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listReceiptRuleSets:(AWSSESListReceiptRuleSetsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListReceiptRuleSetsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6859,7 +6909,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTemplates:(AWSSESListTemplatesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListTemplatesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTemplates:(AWSSESListTemplatesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListTemplatesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6999,7 +7049,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listVerifiedEmailAddresses:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESListVerifiedEmailAddressesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listVerifiedEmailAddresses:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESListVerifiedEmailAddressesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7052,6 +7102,148 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/putConfigurationSetDeliveryOptions:" title="putConfigurationSetDeliveryOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putConfigurationSetDeliveryOptions:">&ndash;&nbsp;putConfigurationSetDeliveryOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds or updates the delivery options for a configuration set.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSESPutConfigurationSetDeliveryOptionsResponse*&gt; *)putConfigurationSetDeliveryOptions:(AWSSESPutConfigurationSetDeliveryOptionsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutConfigurationSetDeliveryOptions service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSESPutConfigurationSetDeliveryOptionsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSESErrorDomain</code> domain and the following error code: <code>AWSSESErrorConfigurationSetDoesNotExist</code>, <code>AWSSESErrorInvalidDeliveryOptions</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSESPutConfigurationSetDeliveryOptionsRequest.html">AWSSESPutConfigurationSetDeliveryOptionsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSESPutConfigurationSetDeliveryOptionsResponse.html">AWSSESPutConfigurationSetDeliveryOptionsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSESService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putConfigurationSetDeliveryOptions:completionHandler:" title="putConfigurationSetDeliveryOptions:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putConfigurationSetDeliveryOptions:completionHandler:">&ndash;&nbsp;putConfigurationSetDeliveryOptions:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds or updates the delivery options for a configuration set.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putConfigurationSetDeliveryOptions:(AWSSESPutConfigurationSetDeliveryOptionsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESPutConfigurationSetDeliveryOptionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutConfigurationSetDeliveryOptions service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSESErrorDomain</code> domain and the following error code: <code>AWSSESErrorConfigurationSetDoesNotExist</code>, <code>AWSSESErrorInvalidDeliveryOptions</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSESPutConfigurationSetDeliveryOptionsRequest.html">AWSSESPutConfigurationSetDeliveryOptionsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSESPutConfigurationSetDeliveryOptionsResponse.html">AWSSESPutConfigurationSetDeliveryOptionsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSESService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/putIdentityPolicy:" title="putIdentityPolicy:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/putIdentityPolicy:">&ndash;&nbsp;putIdentityPolicy:</a></code>
 </h3>
@@ -7066,7 +7258,7 @@
 				<p>Adds or updates a sending authorization policy for the specified identity (an email address or a domain).</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -7138,12 +7330,12 @@
 				<p>Adds or updates a sending authorization policy for the specified identity (an email address or a domain).</p>
 
 
-<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>This API is for the identity owner only. If you have not verified the identity, this API will return an error.</p></note><p>Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putIdentityPolicy:(AWSSESPutIdentityPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESPutIdentityPolicyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putIdentityPolicy:(AWSSESPutIdentityPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESPutIdentityPolicyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7212,7 +7404,7 @@
 				<p>Reorders the receipt rules within a receipt rule set.</p>
 
 
-<p><note><p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn&rsquo;t explicitly position all of the rules.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn&rsquo;t explicitly position all of the rules.</p></note><p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -7284,12 +7476,12 @@
 				<p>Reorders the receipt rules within a receipt rule set.</p>
 
 
-<p><note><p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn&rsquo;t explicitly position all of the rules.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>All of the rules in the rule set must be represented in this request. That is, this API will return an error if the reorder request doesn&rsquo;t explicitly position all of the rules.</p></note><p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)reorderReceiptRuleSet:(AWSSESReorderReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESReorderReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)reorderReceiptRuleSet:(AWSSESReorderReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESReorderReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7358,7 +7550,7 @@
 				<p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
 
 
-<p><note><p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p></note><p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p></note><p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -7430,12 +7622,12 @@
 				<p>Generates and sends a bounce message to the sender of an email you received through Amazon SES. You can only use this API on an email up to 24 hours after you receive it.</p>
 
 
-<p><note><p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p></note><p>For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>You cannot use this API to send generic bounces for mail that was not received by Amazon SES.</p></note><p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendBounce:(AWSSESSendBounceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSendBounceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendBounce:(AWSSESSendBounceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSendBounceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7507,7 +7699,7 @@
 <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your call to the API must meet the following requirements:</p>
 
 
-<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Each <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code> operation several times to send the message to each group.</p></li><li><p>The number of destinations you can contact in a single call to the API may be limited by your account's maximum sending rate.</p></li></ul>
+<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Each <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code> operation several times to send the message to each group.</p></li><li><p>The number of destinations you can contact in a single call to the API may be limited by your account's maximum sending rate.</p></li></ul>
 
 			</div>
 			
@@ -7583,13 +7775,13 @@
 <p>In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your call to the API must meet the following requirements:</p>
 
 
-<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Each <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code> operation several times to send the message to each group.</p></li><li><p>The number of destinations you can contact in a single call to the API may be limited by your account's maximum sending rate.</p></li></ul>
+<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Each <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendBulkTemplatedEmail</code> operation several times to send the message to each group.</p></li><li><p>The number of destinations you can contact in a single call to the API may be limited by your account's maximum sending rate.</p></li></ul>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendBulkTemplatedEmail:(AWSSESSendBulkTemplatedEmailRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSendBulkTemplatedEmailResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendBulkTemplatedEmail:(AWSSESSendBulkTemplatedEmailRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSendBulkTemplatedEmailResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7658,7 +7850,7 @@
 				<p>Adds an email address to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.</p>
 
 
-<p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -7734,7 +7926,7 @@
 				<p>Adds an email address to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it. As a result of executing this operation, a customized verification email is sent to the specified address.</p>
 
 
-<p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>To use this operation, you must first create a custom verification email template. For more information about creating and using custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -7743,7 +7935,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendCustomVerificationEmail:(AWSSESSendCustomVerificationEmailRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSendCustomVerificationEmailResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendCustomVerificationEmail:(AWSSESSendCustomVerificationEmailRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSendCustomVerificationEmailResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7812,10 +8004,10 @@
 				<p>Composes an email message and immediately queues it for sending. In order to send email using the <code>SendEmail</code> operation, your message must meet the following requirements:</p>
 
 
-<ul><li><p>The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an "Email address not verified" error. </p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>The message must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendEmail</code> operation several times to send the message to each group.</p></li></ul>
+<ul><li><p>The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an "Email address not verified" error. </p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>The message must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendEmail</code> operation several times to send the message to each group.</p></li></ul>
 
 
-<p><important><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></important></p>
+<p><important><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></important></p>
 			</div>
 			
 		    
@@ -7887,15 +8079,15 @@
 				<p>Composes an email message and immediately queues it for sending. In order to send email using the <code>SendEmail</code> operation, your message must meet the following requirements:</p>
 
 
-<ul><li><p>The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an "Email address not verified" error. </p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>The message must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendEmail</code> operation several times to send the message to each group.</p></li></ul>
+<ul><li><p>The message must be sent from a verified email address or domain. If you attempt to send email using a non-verified address or domain, the operation will result in an "Email address not verified" error. </p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>The message must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li><li><p>The message may not include more than 50 recipients, across the To:, CC: and BCC: fields. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call the <code>SendEmail</code> operation several times to send the message to each group.</p></li></ul>
 
 
-<p><important><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></important></p>
+<p><important><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></important></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendEmail:(AWSSESSendEmailRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSendEmailResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendEmail:(AWSSESSendEmailRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSendEmailResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7970,13 +8162,13 @@
 <p>The <code>SendRawEmail</code> operation has the following requirements:</p>
 
 
-<ul><li><p>You can only send email from <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">verified email addresses or domains</a>. If you try to send email from an address that isn't verified, the operation results in an "Email address not verified" error.</p></li><li><p>If your account is still in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html">Amazon SES sandbox</a>, you can only send email to other verified addresses in your account, or to addresses that are associated with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mailbox-simulator.html">Amazon SES mailbox simulator</a>.</p></li><li><p>The maximum message size, including attachments, is 10 MB.</p></li><li><p>Each message has to include at least one recipient address. A recipient address includes any address on the To:, CC:, or BCC: lines.</p></li><li><p>If you send a single message to more than one recipient address, and one of the recipient addresses isn't in a valid format (that is, it's not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), Amazon SES rejects the entire message, even if the other addresses are valid.</p></li><li><p>Each message can include up to 50 recipient addresses across the To:, CC:, or BCC: lines. If you need to send a single message to more than 50 recipients, you have to split the list of recipient addresses into groups of less than 50 recipients, and send separate messages to each group.</p></li><li><p>Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message parts. However, if Amazon SES has to modify the contents of your message (for example, if you use open and click tracking), 8-bit content isn't preserved. For this reason, we highly recommend that you encode all content that isn't 7-bit ASCII. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding">MIME Encoding</a> in the <i>Amazon SES Developer Guide</i>.</p></li></ul>
+<ul><li><p>You can only send email from <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">verified email addresses or domains</a>. If you try to send email from an address that isn't verified, the operation results in an "Email address not verified" error.</p></li><li><p>If your account is still in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html">Amazon SES sandbox</a>, you can only send email to other verified addresses in your account, or to addresses that are associated with the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mailbox-simulator.html">Amazon SES mailbox simulator</a>.</p></li><li><p>The maximum message size, including attachments, is 10 MB.</p></li><li><p>Each message has to include at least one recipient address. A recipient address includes any address on the To:, CC:, or BCC: lines.</p></li><li><p>If you send a single message to more than one recipient address, and one of the recipient addresses isn't in a valid format (that is, it's not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), Amazon SES rejects the entire message, even if the other addresses are valid.</p></li><li><p>Each message can include up to 50 recipient addresses across the To:, CC:, or BCC: lines. If you need to send a single message to more than 50 recipients, you have to split the list of recipient addresses into groups of less than 50 recipients, and send separate messages to each group.</p></li><li><p>Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message parts. However, if Amazon SES has to modify the contents of your message (for example, if you use open and click tracking), 8-bit content isn't preserved. For this reason, we highly recommend that you encode all content that isn't 7-bit ASCII. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding">MIME Encoding</a> in the <i>Amazon SES Developer Guide</i>.</p></li></ul>
 
 
 <p>Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code> operation:</p>
 
 
-<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.</p></important><p>For most common sending authorization scenarios, we recommend that you specify the <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES will set the From and Return Path addresses to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
+<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.</p></important><p>For most common sending authorization scenarios, we recommend that you specify the <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES will set the From and Return Path addresses to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
 
 			</div>
 			
@@ -8055,19 +8247,19 @@
 <p>The <code>SendRawEmail</code> operation has the following requirements:</p>
 
 
-<ul><li><p>You can only send email from <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">verified email addresses or domains</a>. If you try to send email from an address that isn't verified, the operation results in an "Email address not verified" error.</p></li><li><p>If your account is still in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html">Amazon SES sandbox</a>, you can only send email to other verified addresses in your account, or to addresses that are associated with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mailbox-simulator.html">Amazon SES mailbox simulator</a>.</p></li><li><p>The maximum message size, including attachments, is 10 MB.</p></li><li><p>Each message has to include at least one recipient address. A recipient address includes any address on the To:, CC:, or BCC: lines.</p></li><li><p>If you send a single message to more than one recipient address, and one of the recipient addresses isn't in a valid format (that is, it's not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), Amazon SES rejects the entire message, even if the other addresses are valid.</p></li><li><p>Each message can include up to 50 recipient addresses across the To:, CC:, or BCC: lines. If you need to send a single message to more than 50 recipients, you have to split the list of recipient addresses into groups of less than 50 recipients, and send separate messages to each group.</p></li><li><p>Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message parts. However, if Amazon SES has to modify the contents of your message (for example, if you use open and click tracking), 8-bit content isn't preserved. For this reason, we highly recommend that you encode all content that isn't 7-bit ASCII. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding">MIME Encoding</a> in the <i>Amazon SES Developer Guide</i>.</p></li></ul>
+<ul><li><p>You can only send email from <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">verified email addresses or domains</a>. If you try to send email from an address that isn't verified, the operation results in an "Email address not verified" error.</p></li><li><p>If your account is still in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html">Amazon SES sandbox</a>, you can only send email to other verified addresses in your account, or to addresses that are associated with the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mailbox-simulator.html">Amazon SES mailbox simulator</a>.</p></li><li><p>The maximum message size, including attachments, is 10 MB.</p></li><li><p>Each message has to include at least one recipient address. A recipient address includes any address on the To:, CC:, or BCC: lines.</p></li><li><p>If you send a single message to more than one recipient address, and one of the recipient addresses isn't in a valid format (that is, it's not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), Amazon SES rejects the entire message, even if the other addresses are valid.</p></li><li><p>Each message can include up to 50 recipient addresses across the To:, CC:, or BCC: lines. If you need to send a single message to more than 50 recipients, you have to split the list of recipient addresses into groups of less than 50 recipients, and send separate messages to each group.</p></li><li><p>Amazon SES allows you to specify 8-bit Content-Transfer-Encoding for MIME message parts. However, if Amazon SES has to modify the contents of your message (for example, if you use open and click tracking), 8-bit content isn't preserved. For this reason, we highly recommend that you encode all content that isn't 7-bit ASCII. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html#send-email-mime-encoding">MIME Encoding</a> in the <i>Amazon SES Developer Guide</i>.</p></li></ul>
 
 
 <p>Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code> operation:</p>
 
 
-<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.</p></important><p>For most common sending authorization scenarios, we recommend that you specify the <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES will set the From and Return Path addresses to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
+<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.</p></important><p>For most common sending authorization scenarios, we recommend that you specify the <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES will set the From and Return Path addresses to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendRawEmail:(AWSSESSendRawEmailRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSendRawEmailResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendRawEmail:(AWSSESSendRawEmailRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSendRawEmailResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8139,10 +8331,10 @@
 <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call to the API must meet the following requirements:</p>
 
 
-<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Calls to the <code>SendTemplatedEmail</code> operation may only include one <code>Destination</code> parameter. A destination is a set of recipients who will receive the same version of the email. The <code>Destination</code> parameter can include up to 50 recipients, across the To:, CC: and BCC: fields.</p></li><li><p>The <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li></ul>
+<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Calls to the <code>SendTemplatedEmail</code> operation may only include one <code>Destination</code> parameter. A destination is a set of recipients who will receive the same version of the email. The <code>Destination</code> parameter can include up to 50 recipients, across the To:, CC: and BCC: fields.</p></li><li><p>The <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li></ul>
 
 
-<p><important><p>If your call to the <code>SendTemplatedEmail</code> operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can&rsquo;t render the email because the template contains errors, it doesn&rsquo;t send the email. Additionally, because it already accepted the message, Amazon SES doesn&rsquo;t return a message stating that it was unable to send the email.</p><p>For these reasons, we highly recommend that you set up Amazon SES to send you notifications when Rendering Failure events occur. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Sending Personalized Email Using the Amazon SES API</a> in the <i>Amazon Simple Email Service Developer Guide</i>.</p></important></p>
+<p><important><p>If your call to the <code>SendTemplatedEmail</code> operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can&rsquo;t render the email because the template contains errors, it doesn&rsquo;t send the email. Additionally, because it already accepted the message, Amazon SES doesn&rsquo;t return a message stating that it was unable to send the email.</p><p>For these reasons, we highly recommend that you set up Amazon SES to send you notifications when Rendering Failure events occur. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Sending Personalized Email Using the Amazon SES API</a> in the <i>Amazon Simple Email Service Developer Guide</i>.</p></important></p>
 			</div>
 			
 		    
@@ -8217,15 +8409,15 @@
 <p>In order to send email using the <code>SendTemplatedEmail</code> operation, your call to the API must meet the following requirements:</p>
 
 
-<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Calls to the <code>SendTemplatedEmail</code> operation may only include one <code>Destination</code> parameter. A destination is a set of recipients who will receive the same version of the email. The <code>Destination</code> parameter can include up to 50 recipients, across the To:, CC: and BCC: fields.</p></li><li><p>The <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li></ul>
+<ul><li><p>The call must refer to an existing email template. You can create email templates using the <a>CreateTemplate</a> operation.</p></li><li><p>The message must be sent from a verified email address or domain.</p></li><li><p>If your account is still in the Amazon SES sandbox, you may only send to verified addresses or domains, or to email addresses associated with the Amazon SES Mailbox Simulator. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>The maximum message size is 10 MB.</p></li><li><p>Calls to the <code>SendTemplatedEmail</code> operation may only include one <code>Destination</code> parameter. A destination is a set of recipients who will receive the same version of the email. The <code>Destination</code> parameter can include up to 50 recipients, across the To:, CC: and BCC: fields.</p></li><li><p>The <code>Destination</code> parameter must include at least one recipient email address. The recipient address can be a To: address, a CC: address, or a BCC: address. If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>), the entire message will be rejected, even if the message contains other recipients that are valid.</p></li></ul>
 
 
-<p><important><p>If your call to the <code>SendTemplatedEmail</code> operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can&rsquo;t render the email because the template contains errors, it doesn&rsquo;t send the email. Additionally, because it already accepted the message, Amazon SES doesn&rsquo;t return a message stating that it was unable to send the email.</p><p>For these reasons, we highly recommend that you set up Amazon SES to send you notifications when Rendering Failure events occur. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Sending Personalized Email Using the Amazon SES API</a> in the <i>Amazon Simple Email Service Developer Guide</i>.</p></important></p>
+<p><important><p>If your call to the <code>SendTemplatedEmail</code> operation includes all of the required parameters, Amazon SES accepts it and returns a Message ID. However, if Amazon SES can&rsquo;t render the email because the template contains errors, it doesn&rsquo;t send the email. Additionally, because it already accepted the message, Amazon SES doesn&rsquo;t return a message stating that it was unable to send the email.</p><p>For these reasons, we highly recommend that you set up Amazon SES to send you notifications when Rendering Failure events occur. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Sending Personalized Email Using the Amazon SES API</a> in the <i>Amazon Simple Email Service Developer Guide</i>.</p></important></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendTemplatedEmail:(AWSSESSendTemplatedEmailRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSendTemplatedEmailResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendTemplatedEmail:(AWSSESSendTemplatedEmailRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSendTemplatedEmailResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8294,7 +8486,7 @@
 				<p>Sets the specified receipt rule set as the active receipt rule set.</p>
 
 
-<p><note><p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p></note><p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -8366,12 +8558,12 @@
 				<p>Sets the specified receipt rule set as the active receipt rule set.</p>
 
 
-<p><note><p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p></note><p>For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
+<p><note><p>To disable your email-receiving through Amazon SES completely, you can call this API with RuleSetName set to null.</p></note><p>For information about managing receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon SES Developer Guide</a>.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setActiveReceiptRuleSet:(AWSSESSetActiveReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetActiveReceiptRuleSetResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setActiveReceiptRuleSet:(AWSSESSetActiveReceiptRuleSetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetActiveReceiptRuleSetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8449,7 +8641,7 @@
 <p>You can execute this operation no more than once per second.</p>
 
 
-<p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -8531,13 +8723,13 @@
 <p>You can execute this operation no more than once per second.</p>
 
 
-<p>For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetIdentityDkimEnabledResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityDkimEnabled:(AWSSESSetIdentityDkimEnabledRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetIdentityDkimEnabledResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8606,7 +8798,7 @@
 				<p>Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p>
 
 
-<p><note><p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p></note><p>You can execute this operation no more than once per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p></p>
+<p><note><p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p></note><p>You can execute this operation no more than once per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p></p>
 			</div>
 			
 		    
@@ -8678,12 +8870,12 @@
 				<p>Given an identity (an email address or a domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.</p>
 
 
-<p><note><p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p></note><p>You can execute this operation no more than once per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p></p>
+<p><note><p>Feedback forwarding does not apply to delivery notifications. Delivery notifications are only available through Amazon SNS.</p></note><p>You can execute this operation no more than once per second.</p><p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetIdentityFeedbackForwardingEnabledResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityFeedbackForwardingEnabled:(AWSSESSetIdentityFeedbackForwardingEnabledRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetIdentityFeedbackForwardingEnabledResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8755,7 +8947,7 @@
 <p>You can execute this operation no more than once per second.</p>
 
 
-<p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -8831,13 +9023,13 @@
 <p>You can execute this operation no more than once per second.</p>
 
 
-<p>For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setIdentityHeadersInNotificationsEnabled:(AWSSESSetIdentityHeadersInNotificationsEnabledRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetIdentityHeadersInNotificationsEnabledResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityHeadersInNotificationsEnabled:(AWSSESSetIdentityHeadersInNotificationsEnabledRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetIdentityHeadersInNotificationsEnabledResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8906,7 +9098,7 @@
 				<p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).</p>
 
 
-<p><important><p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain&rsquo;s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p></important><p>You can execute this operation no more than once per second.</p></p>
+<p><important><p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain&rsquo;s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p></important><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -8978,12 +9170,12 @@
 				<p>Enables or disables the custom MAIL FROM domain setup for a verified identity (an email address or a domain).</p>
 
 
-<p><important><p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain&rsquo;s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p></important><p>You can execute this operation no more than once per second.</p></p>
+<p><important><p>To send emails using the specified MAIL FROM domain, you must add an MX record to your MAIL FROM domain&rsquo;s DNS settings. If you want your emails to pass Sender Policy Framework (SPF) checks, you must also add or update an SPF record. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon SES Developer Guide</a>.</p></important><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setIdentityMailFromDomain:(AWSSESSetIdentityMailFromDomainRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetIdentityMailFromDomainResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityMailFromDomain:(AWSSESSetIdentityMailFromDomainRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetIdentityMailFromDomainResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9055,7 +9247,7 @@
 <p>You can execute this operation no more than once per second.</p>
 
 
-<p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -9131,13 +9323,13 @@
 <p>You can execute this operation no more than once per second.</p>
 
 
-<p>For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+<p>For more information about feedback notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetIdentityNotificationTopicResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityNotificationTopic:(AWSSESSetIdentityNotificationTopicRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetIdentityNotificationTopicResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9206,7 +9398,7 @@
 				<p>Sets the position of the specified receipt rule in the receipt rule set.</p>
 
 
-<p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -9282,7 +9474,7 @@
 				<p>Sets the position of the specified receipt rule in the receipt rule set.</p>
 
 
-<p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -9291,7 +9483,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setReceiptRulePosition:(AWSSESSetReceiptRulePositionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESSetReceiptRulePositionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setReceiptRulePosition:(AWSSESSetReceiptRulePositionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESSetReceiptRulePositionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9439,7 +9631,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)testRenderTemplate:(AWSSESTestRenderTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESTestRenderTemplateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)testRenderTemplate:(AWSSESTestRenderTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESTestRenderTemplateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9585,7 +9777,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateAccountSendingEnabled:(AWSSESUpdateAccountSendingEnabledRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateAccountSendingEnabled:(AWSSESUpdateAccountSendingEnabledRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9648,7 +9840,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
+				<p>Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
 
 
 <p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p></note><p>You can execute this operation no more than once per second.</p></p>
@@ -9720,7 +9912,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
+				<p>Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i></p>
 
 
 <p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS).</p></note><p>You can execute this operation no more than once per second.</p></p>
@@ -9728,7 +9920,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetEventDestination:(AWSSESUpdateConfigurationSetEventDestinationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESUpdateConfigurationSetEventDestinationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetEventDestination:(AWSSESUpdateConfigurationSetEventDestinationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESUpdateConfigurationSetEventDestinationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9874,7 +10066,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetReputationMetricsEnabled:(AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetReputationMetricsEnabled:(AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10017,7 +10209,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetSendingEnabled:(AWSSESUpdateConfigurationSetSendingEnabledRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetSendingEnabled:(AWSSESUpdateConfigurationSetSendingEnabledRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10083,7 +10275,7 @@
 				<p>Modifies an association between a configuration set and a custom domain for open and click event tracking. </p>
 
 
-<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
@@ -10156,13 +10348,13 @@
 				<p>Modifies an association between a configuration set and a custom domain for open and click event tracking. </p>
 
 
-<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
+<p>By default, images and links used for tracking open and click events are hosted on domains operated by Amazon SES. You can configure a subdomain of your own to handle these events. For information about using custom domains, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Amazon SES Developer Guide</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetTrackingOptions:(AWSSESUpdateConfigurationSetTrackingOptionsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESUpdateConfigurationSetTrackingOptionsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateConfigurationSetTrackingOptions:(AWSSESUpdateConfigurationSetTrackingOptionsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESUpdateConfigurationSetTrackingOptionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10231,7 +10423,7 @@
 				<p>Updates an existing custom verification email template.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10305,7 +10497,7 @@
 				<p>Updates an existing custom verification email template.</p>
 
 
-<p>For more information about custom verification email templates, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+<p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10314,7 +10506,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateCustomVerificationEmailTemplate:(AWSSESUpdateCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateCustomVerificationEmailTemplate:(AWSSESUpdateCustomVerificationEmailTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10380,7 +10572,7 @@
 				<p>Updates a receipt rule.</p>
 
 
-<p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10456,7 +10648,7 @@
 				<p>Updates a receipt rule.</p>
 
 
-<p>For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+<p>For information about managing receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10465,7 +10657,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateReceiptRule:(AWSSESUpdateReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESUpdateReceiptRuleResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateReceiptRule:(AWSSESUpdateReceiptRuleRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESUpdateReceiptRuleResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10531,7 +10723,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+				<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10604,7 +10796,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+				<p>Updates an email template. Email templates enable you to send personalized email to one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10613,7 +10805,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateTemplate:(AWSSESUpdateTemplateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESUpdateTemplateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateTemplate:(AWSSESUpdateTemplateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESUpdateTemplateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10679,17 +10871,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a set of DKIM tokens for a domain. DKIM <i>tokens</i> are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.</p>
+				<p>Returns a set of DKIM tokens for a domain identity.</p>
 
 
-<p>You can execute this operation no more than once per second.</p>
-
-
-<p>To enable or disable Easy DKIM signing for a domain, use the <code>SetIdentityDkimEnabled</code> operation.</p>
-
-
-<p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
-
+<p><important><p>When you execute the <code>VerifyDomainDkim</code> operation, the domain that you specify is added to the list of identities that are associated with your account. This is true even if you haven&rsquo;t already associated the domain with your account by using the <code>VerifyDomainIdentity</code> operation. However, you can&rsquo;t send email from the domain until you either successfully <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">verify it</a> or you successfully <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">set up DKIM for it</a>.</p></important><p>You use the tokens that are generated by this operation to create CNAME records. When Amazon SES detects that you&rsquo;ve added these records to the DNS configuration for a domain, you can start sending email from that domain. You can start sending email even if you haven&rsquo;t added the TXT record provided by the VerifyDomainIdentity operation to the DNS configuration for your domain. All email that you send from the domain is authenticated using DKIM.</p><p>To create the CNAME records for DKIM authentication, use the following values:</p><ul><li><p><b>Name</b>: <i>token</i>._domainkey.<i>example.com</i></p></li><li><p><b>Type</b>: CNAME</p></li><li><p><b>Value</b>: <i>token</i>.dkim.amazonses.com</p></li></ul><p>In the preceding example, replace <i>token</i> with one of the tokens that are generated when you execute this operation. Replace <i>example.com</i> with your domain. Repeat this process for each token that&rsquo;s generated by this operation.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
@@ -10758,22 +10943,15 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a set of DKIM tokens for a domain. DKIM <i>tokens</i> are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.</p>
+				<p>Returns a set of DKIM tokens for a domain identity.</p>
 
 
-<p>You can execute this operation no more than once per second.</p>
-
-
-<p>To enable or disable Easy DKIM signing for a domain, use the <code>SetIdentityDkimEnabled</code> operation.</p>
-
-
-<p>For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon SES Developer Guide</a>.</p>
-
+<p><important><p>When you execute the <code>VerifyDomainDkim</code> operation, the domain that you specify is added to the list of identities that are associated with your account. This is true even if you haven&rsquo;t already associated the domain with your account by using the <code>VerifyDomainIdentity</code> operation. However, you can&rsquo;t send email from the domain until you either successfully <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">verify it</a> or you successfully <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">set up DKIM for it</a>.</p></important><p>You use the tokens that are generated by this operation to create CNAME records. When Amazon SES detects that you&rsquo;ve added these records to the DNS configuration for a domain, you can start sending email from that domain. You can start sending email even if you haven&rsquo;t added the TXT record provided by the VerifyDomainIdentity operation to the DNS configuration for your domain. All email that you send from the domain is authenticated using DKIM.</p><p>To create the CNAME records for DKIM authentication, use the following values:</p><ul><li><p><b>Name</b>: <i>token</i>._domainkey.<i>example.com</i></p></li><li><p><b>Type</b>: CNAME</p></li><li><p><b>Value</b>: <i>token</i>.dkim.amazonses.com</p></li></ul><p>In the preceding example, replace <i>token</i> with one of the tokens that are generated when you execute this operation. Replace <i>example.com</i> with your domain. Repeat this process for each token that&rsquo;s generated by this operation.</p><p>You can execute this operation no more than once per second.</p></p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESVerifyDomainDkimResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)verifyDomainDkim:(AWSSESVerifyDomainDkimRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESVerifyDomainDkimResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10839,7 +11017,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds a domain to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it. For more information about verifying domains, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p>
+				<p>Adds a domain to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it. For more information about verifying domains, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10912,7 +11090,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds a domain to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it. For more information about verifying domains, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p>
+				<p>Adds a domain to the list of identities for your Amazon SES account in the current AWS Region and attempts to verify it. For more information about verifying domains, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></p>
 
 
 <p>You can execute this operation no more than once per second.</p>
@@ -10921,7 +11099,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESVerifyDomainIdentityResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)verifyDomainIdentity:(AWSSESVerifyDomainIdentityRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESVerifyDomainIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11061,7 +11239,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)verifyEmailAddress:(AWSSESVerifyEmailAddressRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11206,7 +11384,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSESVerifyEmailIdentityResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)verifyEmailIdentity:(AWSSESVerifyEmailIdentityRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSESVerifyEmailIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11263,60 +11441,6 @@
 </div>
 						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSESService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
@@ -11329,7 +11453,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

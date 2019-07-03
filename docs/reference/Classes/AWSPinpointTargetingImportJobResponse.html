@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -120,7 +120,10 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Import job response.</p>
+						<p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
+
+
+<p>Required parameters: [JobStatus, CreationDate, Type, Definition, Id, ApplicationId]</p>
 					</div>
 					
 					
@@ -147,7 +150,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The unique ID of the application to which the import job applies.</p>
+				<p>The unique identifier for the application that's associated with the import job.</p>
+
 			</div>
 			
 		    
@@ -188,7 +192,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The number of pieces that have successfully imported as of the time of the request.</p>
+				<p>The number of pieces that were processed successfully (completed) by the import job, as of the time of the request.</p>
+
 			</div>
 			
 		    
@@ -229,7 +234,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The date the import job completed in ISO 8601 format.</p>
+				<p>The date, in ISO 8601 format, when the import job was completed.</p>
+
 			</div>
 			
 		    
@@ -270,7 +276,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The date the import job was created in ISO 8601 format.</p>
+				<p>The date, in ISO 8601 format, when the import job was created.</p>
+
 			</div>
 			
 		    
@@ -311,7 +318,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The import job settings.</p>
+				<p>The resource settings that apply to the import job.</p>
+
 			</div>
 			
 		    
@@ -352,7 +360,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The number of pieces that have failed to import as of the time of the request.</p>
+				<p>The number of pieces that weren't processed successfully (failed) by the import job, as of the time of the request.</p>
+
 			</div>
 			
 		    
@@ -393,7 +402,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Provides up to 100 of the first failed entries for the job, if any exist.</p>
+				<p>An array of entries, one for each of the first 100 entries that weren't processed successfully (failed) by the import job, if any.</p>
+
 			</div>
 			
 		    
@@ -434,7 +444,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The unique ID of the import job.</p>
+				<p>The unique identifier for the import job.</p>
+
 			</div>
 			
 		    
@@ -475,7 +486,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The status of the import job. Valid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILEDThe job status is FAILED if one or more pieces failed to import.</p>
+				<p>The status of the import job. The job status is FAILED if Amazon Pinpoint wasn't able to process one or more pieces in the job.</p>
+
 			</div>
 			
 		    
@@ -516,7 +528,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The number of endpoints that failed to import; for example, because of syntax errors.</p>
+				<p>The total number of endpoint definitions that weren't processed successfully (failed) by the import job, typically because an error, such as a syntax error, occurred.</p>
+
 			</div>
 			
 		    
@@ -557,7 +570,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The total number of pieces that must be imported to finish the job. Each piece is an approximately equal portion of the endpoints to import.</p>
+				<p>The total number of pieces that must be processed to complete the import job. Each piece consists of an approximately equal portion of the endpoint definitions that are part of the import job.</p>
+
 			</div>
 			
 		    
@@ -598,7 +612,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The number of endpoints that were processed by the import job.</p>
+				<p>The total number of endpoint definitions that were processed by the import job.</p>
+
 			</div>
 			
 		    
@@ -639,7 +654,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The job type. Will be Import.</p>
+				<p>The job type. This value is IMPORT for import jobs.</p>
+
 			</div>
 			
 		    
@@ -683,7 +699,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

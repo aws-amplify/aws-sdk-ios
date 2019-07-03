@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -124,7 +124,10 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Email Channel Response.</p>
+						<p>Provides information about the status and settings of the email channel for an application.</p>
+
+
+<p>Required parameters: [Platform]</p>
 					</div>
 					
 					
@@ -151,7 +154,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The unique ID of the application to which the email channel belongs.</p>
+				<p>The unique identifier for the application that the email channel applies to.</p>
+
 			</div>
 			
 		    
@@ -192,7 +196,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The configuration set that you want to use when you send email using the Pinpoint Email API.</p>
+				<p>The configuration set that's applied to email that's sent through the channel by using the <a href="emailAPIreference.html">Amazon Pinpoint Email API</a>.</p>
+
 			</div>
 			
 		    
@@ -233,7 +238,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The date that the settings were last updated in ISO 8601 format.</p>
+				<p>The date and time, in ISO 8601 format, when the email channel was enabled.</p>
+
 			</div>
 			
 		    
@@ -274,7 +280,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>If the channel is enabled for sending messages.</p>
+				<p>Specifies whether the email channel is enabled for the application.</p>
+
 			</div>
 			
 		    
@@ -315,7 +322,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The email address used to send emails from.</p>
+				<p>The verified email address that you send email from when you send email through the channel.</p>
+
 			</div>
 			
 		    
@@ -356,7 +364,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Not used. Retained for backwards compatibility.</p>
+				<p>(Not used) This property is retained only for backward compatibility.</p>
+
 			</div>
 			
 		    
@@ -397,7 +406,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Channel ID. Not used, only for backwards compatibility.</p>
+				<p>(Deprecated) An identifier for the email channel. This property is retained only for backward compatibility.</p>
+
 			</div>
 			
 		    
@@ -438,7 +448,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ARN of an identity verified with SES.</p>
+				<p>  <p>The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you use when you send email through the channel.</p></p>
 			</div>
 			
 		    
@@ -479,7 +489,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Is this channel archived</p>
+				<p>Specifies whether the email channel is archived.</p>
+
 			</div>
 			
 		    
@@ -520,7 +531,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Who last updated this entry</p>
+				<p>The user who last modified the email channel.</p>
+
 			</div>
 			
 		    
@@ -561,7 +573,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Last date this was updated</p>
+				<p>The date and time, in ISO 8601 format, when the email channel was last modified.</p>
+
 			</div>
 			
 		    
@@ -602,7 +615,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Messages per second that can be sent</p>
+				<p>The maximum number of emails that you can send through the channel each second.</p>
+
 			</div>
 			
 		    
@@ -643,7 +657,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Platform type. Will be &ldquo;EMAIL&rdquo;</p>
+				<p>The type of messaging or notification platform for the channel. For the email channel, this value is EMAIL.</p>
+
 			</div>
 			
 		    
@@ -684,7 +699,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service</p>
+				<p>  <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Pinpoint uses to submit email-related event data for the channel.</p></p>
 			</div>
 			
 		    
@@ -725,7 +740,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Version of channel</p>
+				<p>The current version of the email channel.</p>
+
 			</div>
 			
 		    
@@ -769,7 +785,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

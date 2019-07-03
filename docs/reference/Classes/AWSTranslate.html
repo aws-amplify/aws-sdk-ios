@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -145,10 +145,56 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/defaultTranslate" title="defaultTranslate"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultTranslate">+&nbsp;defaultTranslate</a></code>
 </h3>
@@ -579,7 +625,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -718,7 +764,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getTerminology:(AWSTranslateGetTerminologyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranslateGetTerminologyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getTerminology:(AWSTranslateGetTerminologyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranslateGetTerminologyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -866,7 +912,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)importTerminology:(AWSTranslateImportTerminologyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranslateImportTerminologyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)importTerminology:(AWSTranslateImportTerminologyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranslateImportTerminologyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1008,7 +1054,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTerminologies:(AWSTranslateListTerminologiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranslateListTerminologiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTerminologies:(AWSTranslateListTerminologiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranslateListTerminologiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1162,7 +1208,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)translateText:(AWSTranslateTranslateTextRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranslateTranslateTextResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)translateText:(AWSTranslateTranslateTextRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranslateTranslateTextResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1219,60 +1265,6 @@
 </div>
 						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
@@ -1285,7 +1277,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

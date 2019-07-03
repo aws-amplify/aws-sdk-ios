@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -108,7 +108,10 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Shcedule that defines when a campaign is run.</p>
+						<p>Specifies the schedule settings for a campaign.</p>
+
+
+<p>Required parameters: [StartTime]</p>
 					</div>
 					
 					
@@ -135,7 +138,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The scheduled time that the campaign ends in ISO 8601 format.</p>
+				<p>The scheduled time, in ISO 8601 format, for the campaign to end.</p>
+
 			</div>
 			
 		    
@@ -176,7 +180,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Defines the type of events that can trigger the campaign. Used when the Frequency is set to EVENT.</p>
+				<p>The type of event that causes the campaign to be sent, if the value of the Frequency property is EVENT.</p>
+
 			</div>
 			
 		    
@@ -217,7 +222,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>How often the campaign delivers messages.Valid values:ONCEHOURLYDAILYWEEKLYMONTHLYEVENT</p>
+				<p>Specifies how often the campaign is sent or whether the campaign is sent in response to a specific event.</p>
+
 			</div>
 			
 		    
@@ -258,7 +264,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Indicates whether the campaign schedule takes effect according to each user&rsquo;s local time.</p>
+				<p>Specifies whether the start and end times for the campaign schedule use each recipient's local time. To base the schedule on each recipient's local time, set this value to true.</p>
+
 			</div>
 			
 		    
@@ -299,7 +306,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The default quiet time for the campaign. The campaign doesn&rsquo;t send messages to endpoints during the quiet time.Note: Make sure that your endpoints include the Demographics.Timezone attribute if you plan to enable a quiet time for your campaign. If your endpoints don&rsquo;t include this attribute, they&rsquo;ll receive the messages that you send them, even if quiet time is enabled.When you set up a campaign to use quiet time, the campaign doesn&rsquo;t send messages during the time range you specified, as long as all of the following are true: - The endpoint includes a valid Demographic.Timezone attribute. - The current time in the endpoint&rsquo;s time zone is later than or equal to the time specified in the QuietTime.Start attribute for the campaign. - The current time in the endpoint&rsquo;s time zone is earlier than or equal to the time specified in the QuietTime.End attribute for the campaign.</p>
+				<p>The default quiet time for the campaign. Quiet time is a specific time range when a campaign doesn't send messages to endpoints, if all the following conditions are met:</p>
+
+
+<ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the campaign.</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the campaign.</p></li></ul>
+
+
+<p>If any of the preceding conditions isn't met, the endpoint will receive messages from the campaign, even if quiet time is enabled.</p>
+
 			</div>
 			
 		    
@@ -340,7 +354,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The scheduled time that the campaign begins in ISO 8601 format.</p>
+				<p>The scheduled time, in ISO 8601 format, for the campaign to begin.</p>
+
 			</div>
 			
 		    
@@ -381,7 +396,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The starting UTC offset for the schedule if the value for isLocalTime is trueValid values:UTC UTC+01 UTC+02 UTC+03 UTC+03:30 UTC+04 UTC+04:30 UTC+05 UTC+05:30 UTC+05:45 UTC+06 UTC+06:30 UTC+07 UTC+08 UTC+09 UTC+09:30 UTC+10 UTC+10:30 UTC+11 UTC+12 UTC+13 UTC-02 UTC-03 UTC-04 UTC-05 UTC-06 UTC-07 UTC-08 UTC-09 UTC-10 UTC-11</p>
+				<p>The starting UTC offset for the campaign schedule, if the value of the IsLocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+09, UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+13, UTC-02, UTC-03, UTC-04, UTC-05, UTC-06, UTC-07, UTC-08, UTC-09, UTC-10, and UTC-11.</p>
+
 			</div>
 			
 		    
@@ -425,7 +441,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.9 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -110,7 +110,10 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Import job resource</p>
+						<p>Provides information about the resource settings for a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
+
+
+<p>Required parameters: [Format, S3Url, RoleArn]</p>
 					</div>
 					
 					
@@ -137,7 +140,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets whether the endpoints create a segment when they are imported.</p>
+				<p>Specifies whether the import job creates a segment that contains the endpoints, when the endpoint definitions are imported.</p>
+
 			</div>
 			
 		    
@@ -178,7 +182,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>(Deprecated) Your AWS account ID, which you assigned to the ExternalID key in an IAM trust policy. Used by Amazon Pinpoint to assume an IAM role. This requirement is removed, and external IDs are not recommended for IAM roles assumed by Amazon Pinpoint.</p>
+				<p>(Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.</p>
+
 			</div>
 			
 		    
@@ -219,7 +224,11 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The format of the files that contain the endpoint definitions. Valid values: CSV, JSON</p>
+				<p>The format of the files that contain the endpoint definitions to import. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.</p>
+
+
+<p>If the files are stored in an Amazon S3 location and that location contains multiple files that use different formats, Amazon Pinpoint imports data only from the files that use the specified format.</p>
+
 			</div>
 			
 		    
@@ -260,7 +269,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets whether the endpoints are registered with Amazon Pinpoint when they are imported.</p>
+				<p>Specifies whether the import job registers the endpoints with Amazon Pinpoint, when the endpoint definitions are imported.</p>
+
 			</div>
 			
 		    
@@ -301,7 +311,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import.</p>
+				<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.</p>
+
 			</div>
 			
 		    
@@ -342,7 +353,11 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The URL of the S3 bucket that contains the segment information to import. The location can be a folder or a single file. The URL should use the following format: s3://bucket-name/folder-name/file-nameAmazon Pinpoint imports endpoints from this location and any subfolders it contains.</p>
+				<p>The URL of the Amazon Simple Storage Service (Amazon S3) bucket that contains the endpoint definitions to import. This location can be a folder or a single file. If the location is a folder, Amazon Pinpoint imports endpoint definitions from the files in this location, including any subfolders that the folder contains.</p>
+
+
+<p>The URL should be in the following format: s3://<replaceable>bucket-name</replaceable>/<replaceable>folder-name</replaceable>/<replaceable>file-name</replaceable>. The location can end with the key for an individual object or a prefix that qualifies multiple objects.</p>
+
 			</div>
 			
 		    
@@ -383,7 +398,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the segment to update if the import job is meant to update an existing segment.</p>
+				<p>The identifier for the segment that the import job updates or adds endpoint definitions to, if the import job updates an existing segment.</p>
+
 			</div>
 			
 		    
@@ -424,7 +440,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A custom name for the segment created by the import job. Use if DefineSegment is true.</p>
+				<p>The custom name for the segment that's created by the import job, if the value of the DefineSegment property is true.</p>
+
 			</div>
 			
 		    
@@ -468,7 +485,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-06-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
