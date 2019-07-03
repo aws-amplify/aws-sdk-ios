@@ -515,7 +515,7 @@ jobs:
           no_output_timeout: 100m
       - run:
           name: Create Carthage Archive
-          command: bash CreateCarthageArchive.sh
+          command: bash ./CircleciScripts/CreateCarthageArchive.sh
       - run:
           name: upload file to git release
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
@@ -529,7 +529,7 @@ jobs:
       - checkout
       - run:
           name: Release cocoapods
-          command : python3    cocoapods_release.py
+          command: python3 ./CircleciScripts/cocoapods_release.py
 
   release_appledoc:
     # Specify the Xcode version to use
