@@ -13,6 +13,8 @@
   - Fixed a bug where multiple values would be added to the 'host' header when using the V4 signer on a request that already included a 'host' header.
 - **Amazon S3**
   - Fixed a bug where the multipart data/file upload crashes while upload is in progress. See [issue #1249](https://github.com/aws-amplify/aws-sdk-ios/issues/1249) for details.
+- **Amazon Kinesis**
+  - Fix modular imports when using CocoaPods 1.7. Thanks @igor-makarov! 
 
 ### Misc. Updates
 
