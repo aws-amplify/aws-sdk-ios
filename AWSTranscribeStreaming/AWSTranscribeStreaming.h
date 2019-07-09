@@ -39,5 +39,6 @@ FOUNDATION_EXPORT double AWSTranscribeStreamingVersionNumber DEPRECATED_MSG_ATTR
 FOUNDATION_EXPORT const unsigned char AWSTranscribeStreamingVersionString[] DEPRECATED_MSG_ATTRIBUTE("Use AWSTranscribeStreamingSDKVersion instead.");
 
 #import <AWSCore/AWSCore.h>
+#import "AWSTranscribeStreamingClientDelegate.h"
+#import "AWSTranscribeStreamingModel.h"
 #import "AWSTranscribeStreamingService.h"
-#import "AWSTranscribeEventHandler.h"

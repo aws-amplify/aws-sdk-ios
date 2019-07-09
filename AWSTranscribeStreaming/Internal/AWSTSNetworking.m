@@ -15,6 +15,7 @@
 
 #import "AWSTSNetworking.h"
 #import "AWSTranscribeStreamingSignature.h"
+#import "AWSTranscribeStreamingChunkedEncodingInputStream.h"
 
 @interface AWSTSNetworking()
 
@@ -28,8 +29,7 @@
 - (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = configuration;
-        
-        
+
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         sessionConfiguration.URLCache = nil;
         if (configuration.timeoutIntervalForRequest > 0) {
@@ -44,8 +44,7 @@
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration
                                                  delegate:self
                                             delegateQueue:nil];
-        
-        
+
         _sessionManagerDelegates = [AWSSynchronizedMutableDictionary new];
     }
     
@@ -53,20 +52,17 @@
 }
 
 - (AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request  {
-    
     return [[AWSTask alloc] init];
 }
 
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
-    
     request.HTTPBody = nil;
     // Send a hardcoded input stream for initial development and prototyping
-    request.HTTPBodyStream =  [AWSTranscribeChunkedEncodingInputStream getInputStream];
+    request.HTTPBodyStream =  [AWSTranscribeStreamingChunkedEncodingInputStream getInputStream];
     
     NSURLSessionDataTask *task = [_session dataTaskWithRequest:request];
     [task resume];
-
     
     return [AWSTask taskWithResult:task];
 }
@@ -78,10 +74,10 @@
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task
  needNewBodyStream:(void (^)(NSInputStream * _Nullable bodyStream))completionHandler {
     // Send a hardcoded input stream for initial development
-    completionHandler([AWSTranscribeChunkedEncodingInputStream getInputStream]);
+    completionHandler([AWSTranscribeStreamingChunkedEncodingInputStream getInputStream]);
 }
 
-/* Indiciates that the read side of a connection has been closed.  Any
+/* Indicates that the read side of a connection has been closed.  Any
  * outstanding reads complete, but future reads will immediately fail.
  * This may be sent even when no reads are in progress. However, when
  * this delegate message is received, there may still be bytes
