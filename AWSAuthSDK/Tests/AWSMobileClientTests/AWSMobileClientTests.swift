@@ -65,6 +65,8 @@ class AWSMobileClientTests: XCTestCase {
     
     override func tearDown() {
         AWSMobileClient.sharedInstance().signOut()
+        AWSMobileClient.sharedInstance().clearCredentials()
+        AWSMobileClient.sharedInstance().clearKeychain()
     }
     
     func loadCredentialsFromFile() -> [String: Any] {
@@ -793,6 +795,21 @@ class AWSMobileClientTests: XCTestCase {
         
     }
     
+    func testGetIdentityId() {
+        XCTAssertNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should be nil after initialize.")
+
+        let identityIdExpectation = expectation(description: "Request to GetIdentityID is complete")
+        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+            XCTAssertNil(task.error)
+            XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
+            identityIdExpectation.fulfill()
+            return nil
+        })
+        wait(for: [identityIdExpectation], timeout: 5)
+
+        XCTAssertNotNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should not be nil.")
+    }
+
 }
 
 extension AWSMobileClientError {
