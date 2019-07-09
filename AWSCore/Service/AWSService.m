@@ -490,6 +490,8 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSServiceNameCognitoIdentityProvider;
         case AWSServiceCognitoSync:
             return AWSServiceNameCognitoSync;
+        case AWSServiceComprehend:
+            return AWSServiceNameComprehend;
         case AWSServiceConnect:
             return AWSServiceNameConnect;
         case AWSServiceDynamoDB:
@@ -498,16 +500,20 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSServiceNameEC2;
         case AWSServiceElasticLoadBalancing:
             return AWSServiceNameElasticLoadBalancing;
+        case AWSServiceFirehose:
+            return AWSServiceNameFirehose;
         case AWSServiceIoT:
             return AWSServiceNameIoT;
         case AWSServiceIoTData:
             return AWSServiceNameIoTData;
-        case AWSServiceFirehose:
-            return AWSServiceNameFirehose;
-        case AWSServiceKinesis:
-            return AWSServiceNameKinesis;
         case AWSServiceKMS:
             return AWSServiceNameKMS;
+        case AWSServiceKinesis:
+            return AWSServiceNameKinesis;
+        case AWSServiceKinesisVideo:
+            return AWSServiceNameKinesisVideo;
+        case AWSServiceKinesisVideoArchivedMedia:
+            return AWSServiceNameKinesisVideoArchivedMedia;
         case AWSServiceLambda:
             return AWSServiceNameLambda;
         case AWSServiceLexRuntime:
@@ -518,40 +524,34 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSServiceNameMachineLearning;
         case AWSServiceMobileAnalytics:
             return AWSServiceNameMobileAnalytics;
-        case AWSServicePolly:
-            return AWSServiceNamePolly;
         case AWSServiceMobileTargeting:
             return AWSServiceNameMobileTargeting;
+        case AWSServicePolly:
+            return AWSServiceNamePolly;
         case AWSServiceRekognition:
             return AWSServiceNameRekognition;
         case AWSServiceS3:
             return AWSServiceNameS3;
         case AWSServiceSES:
             return AWSServiceNameSES;
-        case AWSServiceSimpleDB:
-            return AWSServiceNameSimpleDB;
         case AWSServiceSNS:
             return AWSServiceNameSNS;
         case AWSServiceSQS:
             return AWSServiceNameSQS;
         case AWSServiceSTS:
             return AWSServiceNameSTS;
+        case AWSServiceSageMakerRuntime:
+            return AWSServiceNameSageMakerRuntime;
+        case AWSServiceSimpleDB:
+            return AWSServiceNameSimpleDB;
         case AWSServiceTextract:
             return AWSServiceNameTextract;
         case AWSServiceTranscribe:
             return AWSServiceNameTranscribe;
-        case AWSServiceTranslate:
-            return AWSServiceNameTranslate;
-        case AWSServiceComprehend:
-            return AWSServiceNameComprehend;
-        case AWSServiceKinesisVideo:
-            return AWSServiceNameKinesisVideo;
-        case AWSServiceKinesisVideoArchivedMedia:
-            return AWSServiceNameKinesisVideoArchivedMedia;
-        case AWSServiceSageMakerRuntime:
-            return AWSServiceNameSageMakerRuntime;
         case AWSServiceTranscribeStreaming:
             return AWSServiceNameTranscribeStreaming;
+        case AWSServiceTranslate:
+            return AWSServiceNameTranslate;
         default:
             return nil;
     }

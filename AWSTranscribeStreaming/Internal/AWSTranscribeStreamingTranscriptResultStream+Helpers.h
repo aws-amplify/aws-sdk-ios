@@ -13,25 +13,15 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
 #import "AWSTranscribeStreamingModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AWSTranscribeEventEncoder : NSObject
+@interface AWSTranscribeStreamingTranscriptResultStream (Helpers)
 
-+(NSData *)getEndFrameData;
-
-// Encoding is done as per: https://docs.aws.amazon.com/transcribe/latest/dg/streaming-format.html
-+(NSData *)encodeChunk:(NSData *)data
-               headers:(NSDictionary<NSString *, NSString *> *)headers;
-
-@end
-
-@interface AWSTranscribeEventDecoder : NSObject
-
-// Decoding is done as per: https://docs.aws.amazon.com/transcribe/latest/dg/streaming-format.html
-+ (AWSTranscribeStreamingTranscriptResultStream  *)decodeEvent:(NSData *)data;
++ (nullable AWSTranscribeStreamingTranscriptResultStream *)resultStreamForWSSBody:(NSString *)body
+                                                                          headers:(NSDictionary<NSString *, NSString *> *)headers
+                                                                            error:(NSError * __autoreleasing *)errorPointer;
 
 @end
 

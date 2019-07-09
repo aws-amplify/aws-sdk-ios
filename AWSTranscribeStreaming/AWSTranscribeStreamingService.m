@@ -14,6 +14,7 @@
 //
 
 #import "AWSTranscribeStreamingService.h"
+
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
@@ -23,12 +24,17 @@
 #import <AWSCore/AWSURLResponseSerialization.h>
 #import <AWSCore/AWSURLRequestRetryHandler.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
+
+#import "AWSTranscribeEventEncoder.h"
 #import "AWSTranscribeStreamingResources.h"
 #import "AWSTranscribeStreamingSignature.h"
+#import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSTSNetworking.h"
 
+NSString *const AWSTranscribeStreamingClientErrorDomain = @"com.amazonaws.AWSTranscribeStreamingClientErrorDomain";
+
 static NSString *const AWSInfoTranscribeStreaming = @"TranscribeStreaming";
-NSString *const AWSTranscribeStreamingSDKVersion = @"2.9.9";
+NSString *const AWSTranscribeStreamingSDKVersion = @"2.10.0";
 
 
 @interface AWSTranscribeStreamingResponseSerializer : AWSJSONResponseSerializer
@@ -49,7 +55,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             };
 }
 
-#pragma mark -
+#pragma mark - Standard HTTP response handling
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                 originalRequest:(NSURLRequest *)originalRequest
@@ -125,6 +131,7 @@ static NSDictionary *errorCodeDictionary = nil;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 @property (nonatomic, strong) AWSTranscribeStreamingSignature *signer;
 @property (nonatomic, strong) AWSSRWebSocket *webSocket;
+@property (nonatomic, strong) AWSSRWebSocketDelegateAdaptor *webSocketDelegateAdaptor;
 
 @end
 
@@ -228,20 +235,20 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
        	
-        if(!configuration.endpoint){
+        if (!configuration.endpoint) {
             _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServiceTranscribeStreaming
                                                          useUnsafeURL:NO];
-        }else{
+        } else {
             [_configuration.endpoint setRegion:_configuration.regionType
                                       service:AWSServiceTranscribeStreaming];
         }
 
-        self.signer = [[AWSTranscribeStreamingSignature alloc] initWithCredentialsProvider:_configuration.credentialsProvider
-                                                                                                              endpoint:_configuration.endpoint];
+        _signer = [[AWSTranscribeStreamingSignature alloc] initWithCredentialsProvider:_configuration.credentialsProvider
+                                                                              endpoint:_configuration.endpoint];
+
         AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
         
-
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.retryHandler = [[AWSTranscribeStreamingRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
         _configuration.headers = @{@"Content-Type" : @"application/vnd.amazon.eventstream",
@@ -251,9 +258,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                    };
 		
         AWSTSNetworking *networkInterceptor = [[AWSTSNetworking alloc] initWithConfiguration:_configuration];
+
         _configuration.requestInterceptors = @[baseInterceptor, self.signer, networkInterceptor];
-        
-        
+
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
     
@@ -293,6 +300,47 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }
 }
 
+#pragma mark - TranscribeStreaming WSS support
+
+- (void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
+      callbackQueue:(dispatch_queue_t)callbackQueue {
+    AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc] initWithClientDelegate:delegate
+                                                                                             callbackQueue:callbackQueue];
+
+    self.webSocketDelegateAdaptor = adaptor;
+    [self updateWebSocketDelegate];
+}
+
+- (void)updateWebSocketDelegate {
+    if (self.webSocket && self.webSocketDelegateAdaptor) {
+        [self.webSocket setDelegateDispatchQueue:self.webSocketDelegateAdaptor.callbackQueue];
+        [self.webSocket setDelegate:self.webSocketDelegateAdaptor];
+    }
+}
+
+- (void)startTranscriptionWSS:(AWSTranscribeStreamingStartStreamTranscriptionRequest *)request {
+    [self invokeRequestForWSS:request
+                   HTTPMethod:AWSHTTPMethodPOST
+                    URLString:@"/stream-transcription"
+                 targetPrefix:@""
+                operationName:@"StartStreamTranscription"
+                  outputClass:[AWSTranscribeStreamingStartStreamTranscriptionResponse class]];
+}
+
+- (void)sendData:(NSData *)data headers:(NSDictionary *)headers {
+    NSData *encodedChunk = [AWSTranscribeEventEncoder encodeChunk:data headers:headers];
+    [self.webSocket send:encodedChunk];
+}
+
+- (void)sendEndFrame {
+    NSData *endFrame = [AWSTranscribeEventEncoder getEndFrameData];
+    [self.webSocket send:endFrame];
+}
+
+- (void)endTranscription {
+    [self.webSocket close];
+}
+
 - (AWSSRWebSocket *)invokeRequestForWSS:(AWSRequest *)request
                              HTTPMethod:(AWSHTTPMethod)HTTPMethod
                               URLString:(NSString *) URLString
@@ -318,18 +366,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         networkingRequest.responseSerializer = [[AWSTranscribeStreamingResponseSerializer alloc] initWithJSONDefinition:[[AWSTranscribeStreamingResources sharedInstance] JSONObject]
                                                                                                              actionName:operationName
                                                                                                             outputClass:outputClass];
-        
-        
-        
+
         [[[self getWebsocketForRequest:networkingRequest.parameters] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
-            // handler error case here
             return nil;
         }] waitUntilFinished];
         
         return self.webSocket;
-        
-        // Use the below for HTTP2 based flow
-        // return [self.networking sendRequest:networkingRequest];
         
     }
 }
@@ -342,28 +384,27 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [self.signer.credentialsProvider.credentials continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         
         if (task.result != nil) {
-        AWSCredentials *credentials = task.result;
-        NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:[NSString stringWithFormat: @"transcribestreaming.%@.amazonaws.com:8443", self.configuration.endpoint.regionName]
-                                                                   regionName:self.configuration.endpoint.regionName
-                                                                    accessKey:credentials.accessKey
-                                                                    secretKey:credentials.secretKey
-                                                                   sessionKey:credentials.sessionKey
-                                                                     encoding:encoding
-                                                                 languageCode:languageCode
-                                                                   sampleRate:sampleRate];
-        NSLog(@"%@", websocketURL);
-        
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:websocketURL]];
-        
-        //Create the webSocket and setup the MQTTClient object as the delegate
-        self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
-        self.webSocket.delegate = self.signer;
-        
-        //Open the web socket
-        [self.webSocket open];
-        
-        // Now that the WebSocket is created and opened, it will send its delegate, i.e., this MQTTclient object the messages.
-        AWSDDLogVerbose(@"Websocket is created and opened.");
+            AWSCredentials *credentials = task.result;
+            NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:[NSString stringWithFormat: @"transcribestreaming.%@.amazonaws.com:8443", self.configuration.endpoint.regionName]
+                                                                       regionName:self.configuration.endpoint.regionName
+                                                                        accessKey:credentials.accessKey
+                                                                        secretKey:credentials.secretKey
+                                                                       sessionKey:credentials.sessionKey
+                                                                         encoding:encoding
+                                                                     languageCode:languageCode
+                                                                       sampleRate:sampleRate];
+            NSLog(@"%@", websocketURL);
+            
+            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:websocketURL]];
+            
+            self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
+            
+            [self updateWebSocketDelegate];
+
+            //Open the web socket
+            [self.webSocket open];
+            
+            AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocket);
         } else {
             // return task error if we any issue getting wss connection and object
             return [AWSTask taskWithError:[[NSError alloc]init]];
@@ -374,17 +415,5 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     
     
 }
-
-#pragma mark - Service method
-
-- (AWSSRWebSocket *)startTranscriptionWSS:(AWSTranscribeStreamingStartStreamTranscriptionRequest *)request {
-    return [self invokeRequestForWSS:request
-                          HTTPMethod:AWSHTTPMethodPOST
-                           URLString:@"/stream-transcription"
-                        targetPrefix:@""
-                       operationName:@"StartStreamTranscription"
-                         outputClass:[AWSTranscribeStreamingStartStreamTranscriptionResponse class]];
-}
-
 
 @end

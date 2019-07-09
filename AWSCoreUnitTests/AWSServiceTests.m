@@ -321,15 +321,6 @@
                           serviceHostName:@"sqs.us-east-1.amazonaws.com"];
 }
 
-- (void)testEndpointForTranscribe {
-    [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
-                                  service:AWSServiceTranscribe
-                               regionName:@"us-east-1"
-                              serviceName:@"transcribe"
-                               serviceURL:[NSURL URLWithString:@"https://transcribe.us-east-1.amazonaws.com"]
-                          serviceHostName:@"transcribe.us-east-1.amazonaws.com"];
-}
-
 - (void)testEndpointForSTS {
     [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
                                   service:AWSServiceSTS
@@ -407,6 +398,24 @@
                               serviceName:@"mobiletargeting"
                                serviceURL:[NSURL URLWithString:@"https://pinpoint.us-east-1.amazonaws.com"]
                           serviceHostName:@"pinpoint.us-east-1.amazonaws.com"];
+}
+
+- (void)testEndpointForTextract {
+    [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
+                                  service:AWSServiceTextract
+                               regionName:@"us-east-1"
+                              serviceName:@"textract"
+                               serviceURL:[NSURL URLWithString:@"https://textract.us-east-1.amazonaws.com"]
+                          serviceHostName:@"textract.us-east-1.amazonaws.com"];
+}
+
+- (void)testEndpointForTranscribe {
+    [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
+                                  service:AWSServiceTranscribe
+                               regionName:@"us-east-1"
+                              serviceName:@"transcribe"
+                               serviceURL:[NSURL URLWithString:@"https://transcribe.us-east-1.amazonaws.com"]
+                          serviceHostName:@"transcribe.us-east-1.amazonaws.com"];
 }
 
 - (void)testServiceConfiguration {

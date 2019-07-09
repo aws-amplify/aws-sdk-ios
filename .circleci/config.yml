@@ -371,6 +371,8 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Transcribe
       - restore_cache:
+          key: test_result-{{ .Revision }}-TranscribeStreaming
+      - restore_cache:
           key: test_result-{{ .Revision }}-Polly
       - restore_cache:
           key: test_result-{{ .Revision }}-Cognito
@@ -1027,6 +1029,16 @@ workflows:
                 - master
                 - develop
       - integrationtest:
+          name: TranscribeStreaming
+          groupname: TranscribeStreaming
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
           name: Polly
           groupname: Polly
           requires:
@@ -1219,6 +1231,7 @@ workflows:
             - APIGateway
             - Translate
             - Transcribe
+            - TranscribeStreaming
             - Polly
             - Cognito
             - Comprehend
@@ -1394,6 +1407,16 @@ workflows:
       - integrationtest:
           name: Transcribe
           groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: TranscribeStreaming
+          groupname: TranscribeStreaming
           requires:
             - pre_integrationtest
           filters:
@@ -1594,6 +1617,7 @@ workflows:
             - APIGateway
             - Translate
             - Transcribe
+            - TranscribeStreaming
             - Polly
             - Cognito
             - Comprehend

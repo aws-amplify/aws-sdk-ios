@@ -14,31 +14,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
-#import "AWSSRWebSocket.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-// TODO: Split this class from networking
-@interface AWSTranscribeStreamingSignature : NSObject <AWSNetworkingRequestInterceptor, AWSSRWebSocketDelegate>
-
-@property(nonatomic, strong) AWSSRWebSocket *webSocket;
-@property(nonatomic, strong) AWSSRWebSocket *webSocket1;
-@property (nonatomic, strong, readonly) id<AWSCredentialsProvider> credentialsProvider;
-
-- (instancetype)initWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
-                                   endpoint:(AWSEndpoint *)endpoint;
-
-- (NSString *)prepareWebSocketUrlWithHostName:(NSString *)hostName
-                                   regionName:(NSString *)regionName
-                                    accessKey:(NSString *)accessKey
-                                    secretKey:(NSString *)secretKey
-                                   sessionKey:(NSString *)sessionKey
-                                     encoding:(NSString *)encoding
-                                 languageCode:(NSString *)languageCode
-                                   sampleRate:(NSString *)sampleRate;
-
-@end
 
 /**
  * A subclass of NSInputStream that wraps an input stream and adds
@@ -49,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
  * where they can keep writing data. We can then use that input stream to add headers,
  * sign the request and publish the data packet in our outbound http2 stream
  **/
-@interface AWSTranscribeChunkedEncodingInputStream : NSInputStream <NSStreamDelegate>
+@interface AWSTranscribeStreamingChunkedEncodingInputStream : NSInputStream <NSStreamDelegate>
 
 @property (atomic, assign) int64_t totalLengthOfChunkSignatureSent;
 

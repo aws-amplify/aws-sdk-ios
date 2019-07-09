@@ -17,7 +17,7 @@
 #import <AWSCore/AWSCore.h>
 #import "AWSTranscribeStreamingModel.h"
 #import "AWSTranscribeStreamingResources.h"
-#import "AWSSRWebSocket.h"
+#import "AWSTranscribeStreamingClientDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -175,7 +175,48 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeStreamingSDKVersion;
  */
 + (void)removeTranscribeStreamingForKey:(NSString *)key;
 
-- (AWSSRWebSocket *)startTranscriptionWSS:(AWSTranscribeStreamingStartStreamTranscriptionRequest *)request;
+#pragma mark - TranscribeStreaming WSS support
+
+/**
+ Prepares a websocket to receive streaming data according to the specifications contained in `request`, and opens the underlying web socket.
+ 
+ Apps should set a delegate before calling this method so that they may be notified when the web socket is open and ready to begin receiving
+ data.
+
+ @param request the request containing the stream details
+ */
+- (void)startTranscriptionWSS:(AWSTranscribeStreamingStartStreamTranscriptionRequest *)request;
+
+/**
+ Ends the transcription session cleanly by closing the web socket. Failure to invoke this will likely result in a "BadRequest"
+ exception after 15 seconds of inactivity.
+ */
+- (void)endTranscription;
+
+/**
+ Sends a chunk of data to AWSTranscribeStreaming. Internally, this method encodes the data and headers and sends it on the underlying
+ web socket.
+
+ @param data the data to send
+ @param headers headers describing the chunk of data
+ */
+- (void)sendData:(NSData *)data headers:(NSDictionary *)headers;
+
+/**
+ Sends an "end" frame to the TranscribeService, and immediately closes the web socket. After sending the end frame, it is a fatal error to
+ attempt to send any more data.
+ */
+- (void)sendEndFrame;
+
+/**
+ Sets the AWSTranscribeStreamingClient's delegate, which will receive connection state change messages and notifications of events.
+ Callback methods will be invoked on the specified queue, regardless of the queue on which the web socket data is processed.
+
+ @param delegate the delegate to assign. The delegate is weakly retained.
+ @param callbackQueue the queue on which to invoke delegate callback methods. The queue is strongly retained.
+ */
+- (void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
+      callbackQueue:(dispatch_queue_t)callbackQueue;
 
 @end
 
