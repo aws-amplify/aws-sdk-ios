@@ -245,6 +245,7 @@ static NSString *const AWSServiceNameCloudWatch = @"monitoring";
 static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
 static NSString *const AWSServiceNameCognitoIdentityProvider = @"cognito-idp";
 static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
+static NSString *const AWSServiceNameConnect = @"connect";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
@@ -267,6 +268,7 @@ static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameSNS = @"sns";
 static NSString *const AWSServiceNameSQS = @"sqs";
 static NSString *const AWSServiceNameSTS = @"sts";
+static NSString *const AWSServiceNameTextract = @"textract";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
 static NSString *const AWSServiceNameTranslate = @"translate";
 static NSString *const AWSServiceNameComprehend = @"comprehend";
@@ -437,6 +439,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
             return AWSServiceNameCognitoIdentityProvider;
         case AWSServiceCognitoSync:
             return AWSServiceNameCognitoSync;
+        case AWSServiceConnect:
+            return AWSServiceNameConnect;
         case AWSServiceDynamoDB:
             return AWSServiceNameDynamoDB;
         case AWSServiceEC2:
@@ -481,6 +485,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
             return AWSServiceNameSQS;
         case AWSServiceSTS:
             return AWSServiceNameSTS;
+        case AWSServiceTextract:
+            return AWSServiceNameTextract;
         case AWSServiceTranscribe:
             return AWSServiceNameTranscribe;
         case AWSServiceTranslate:
