@@ -32,6 +32,7 @@ else
     cp -r AWSCognito ./docs_tmp/AWSCognito
     cp -r AWSCognitoIdentityProvider ./docs_tmp/AWSCognitoIdentityProvider
     cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
+    cp -r AWSConnect ./docs_tmp/AWSConnect
     cp -r AWSDynamoDB ./docs_tmp/AWSDynamoDB
     cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
     cp -r AWSIoT ./docs_tmp/AWSIoT
