@@ -362,6 +362,7 @@ typedef NS_ENUM(NSInteger, AWSEC2EventType) {
     AWSEC2EventTypeInstanceChange,
     AWSEC2EventTypeFleetRequestChange,
     AWSEC2EventTypeError,
+    AWSEC2EventTypeInformation,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ExcessCapacityTerminationPolicy) {
@@ -629,20 +630,26 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR5_xlarge,
     AWSEC2InstanceTypeR5_2xlarge,
     AWSEC2InstanceTypeR5_4xlarge,
+    AWSEC2InstanceTypeR5_8xlarge,
     AWSEC2InstanceTypeR5_12xlarge,
+    AWSEC2InstanceTypeR5_16xlarge,
     AWSEC2InstanceTypeR5_24xlarge,
     AWSEC2InstanceTypeR5_metal,
     AWSEC2InstanceTypeR5A_large,
     AWSEC2InstanceTypeR5A_xlarge,
     AWSEC2InstanceTypeR5A_2xlarge,
     AWSEC2InstanceTypeR5A_4xlarge,
+    AWSEC2InstanceTypeR5A_8xlarge,
     AWSEC2InstanceTypeR5A_12xlarge,
+    AWSEC2InstanceTypeR5A_16xlarge,
     AWSEC2InstanceTypeR5A_24xlarge,
     AWSEC2InstanceTypeR5D_large,
     AWSEC2InstanceTypeR5D_xlarge,
     AWSEC2InstanceTypeR5D_2xlarge,
     AWSEC2InstanceTypeR5D_4xlarge,
+    AWSEC2InstanceTypeR5D_8xlarge,
     AWSEC2InstanceTypeR5D_12xlarge,
+    AWSEC2InstanceTypeR5D_16xlarge,
     AWSEC2InstanceTypeR5D_24xlarge,
     AWSEC2InstanceTypeR5D_metal,
     AWSEC2InstanceTypeR5Ad_large,
@@ -701,6 +708,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeC5_12xlarge,
     AWSEC2InstanceTypeC5_18xlarge,
     AWSEC2InstanceTypeC5_24xlarge,
+    AWSEC2InstanceTypeC5_metal,
     AWSEC2InstanceTypeC5D_large,
     AWSEC2InstanceTypeC5D_xlarge,
     AWSEC2InstanceTypeC5D_2xlarge,
@@ -740,20 +748,26 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM5_xlarge,
     AWSEC2InstanceTypeM5_2xlarge,
     AWSEC2InstanceTypeM5_4xlarge,
+    AWSEC2InstanceTypeM5_8xlarge,
     AWSEC2InstanceTypeM5_12xlarge,
+    AWSEC2InstanceTypeM5_16xlarge,
     AWSEC2InstanceTypeM5_24xlarge,
     AWSEC2InstanceTypeM5_metal,
     AWSEC2InstanceTypeM5A_large,
     AWSEC2InstanceTypeM5A_xlarge,
     AWSEC2InstanceTypeM5A_2xlarge,
     AWSEC2InstanceTypeM5A_4xlarge,
+    AWSEC2InstanceTypeM5A_8xlarge,
     AWSEC2InstanceTypeM5A_12xlarge,
+    AWSEC2InstanceTypeM5A_16xlarge,
     AWSEC2InstanceTypeM5A_24xlarge,
     AWSEC2InstanceTypeM5D_large,
     AWSEC2InstanceTypeM5D_xlarge,
     AWSEC2InstanceTypeM5D_2xlarge,
     AWSEC2InstanceTypeM5D_4xlarge,
+    AWSEC2InstanceTypeM5D_8xlarge,
     AWSEC2InstanceTypeM5D_12xlarge,
+    AWSEC2InstanceTypeM5D_16xlarge,
     AWSEC2InstanceTypeM5D_24xlarge,
     AWSEC2InstanceTypeM5D_metal,
     AWSEC2InstanceTypeM5Ad_large,
@@ -1051,6 +1065,9 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeSnapshot,
     AWSEC2ResourceTypeSpotInstancesRequest,
     AWSEC2ResourceTypeSubnet,
+    AWSEC2ResourceTypeTrafficMirrorFilter,
+    AWSEC2ResourceTypeTrafficMirrorSession,
+    AWSEC2ResourceTypeTrafficMirrorTarget,
     AWSEC2ResourceTypeTransitGateway,
     AWSEC2ResourceTypeTransitGatewayAttachment,
     AWSEC2ResourceTypeTransitGatewayRouteTable,
@@ -1210,6 +1227,44 @@ typedef NS_ENUM(NSInteger, AWSEC2Tenancy) {
     AWSEC2TenancyDefault,
     AWSEC2TenancyDedicated,
     AWSEC2TenancyHost,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TrafficDirection) {
+    AWSEC2TrafficDirectionUnknown,
+    AWSEC2TrafficDirectionIngress,
+    AWSEC2TrafficDirectionEgress,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorFilterRuleField) {
+    AWSEC2TrafficMirrorFilterRuleFieldUnknown,
+    AWSEC2TrafficMirrorFilterRuleFieldDestinationPortRange,
+    AWSEC2TrafficMirrorFilterRuleFieldSourcePortRange,
+    AWSEC2TrafficMirrorFilterRuleFieldProtocol,
+    AWSEC2TrafficMirrorFilterRuleFieldDescription,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorNetworkService) {
+    AWSEC2TrafficMirrorNetworkServiceUnknown,
+    AWSEC2TrafficMirrorNetworkServiceAmazonDns,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorRuleAction) {
+    AWSEC2TrafficMirrorRuleActionUnknown,
+    AWSEC2TrafficMirrorRuleActionAccept,
+    AWSEC2TrafficMirrorRuleActionReject,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorSessionField) {
+    AWSEC2TrafficMirrorSessionFieldUnknown,
+    AWSEC2TrafficMirrorSessionFieldPacketLength,
+    AWSEC2TrafficMirrorSessionFieldDescription,
+    AWSEC2TrafficMirrorSessionFieldVirtualNetworkId,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2TrafficMirrorTargetType) {
+    AWSEC2TrafficMirrorTargetTypeUnknown,
+    AWSEC2TrafficMirrorTargetTypeNetworkInterface,
+    AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TrafficType) {
@@ -1623,6 +1678,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateSubnetRequest;
 @class AWSEC2CreateSubnetResult;
 @class AWSEC2CreateTagsRequest;
+@class AWSEC2CreateTrafficMirrorFilterRequest;
+@class AWSEC2CreateTrafficMirrorFilterResult;
+@class AWSEC2CreateTrafficMirrorFilterRuleRequest;
+@class AWSEC2CreateTrafficMirrorFilterRuleResult;
+@class AWSEC2CreateTrafficMirrorSessionRequest;
+@class AWSEC2CreateTrafficMirrorSessionResult;
+@class AWSEC2CreateTrafficMirrorTargetRequest;
+@class AWSEC2CreateTrafficMirrorTargetResult;
 @class AWSEC2CreateTransitGatewayRequest;
 @class AWSEC2CreateTransitGatewayResult;
 @class AWSEC2CreateTransitGatewayRouteRequest;
@@ -1693,6 +1756,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteSpotDatafeedSubscriptionRequest;
 @class AWSEC2DeleteSubnetRequest;
 @class AWSEC2DeleteTagsRequest;
+@class AWSEC2DeleteTrafficMirrorFilterRequest;
+@class AWSEC2DeleteTrafficMirrorFilterResult;
+@class AWSEC2DeleteTrafficMirrorFilterRuleRequest;
+@class AWSEC2DeleteTrafficMirrorFilterRuleResult;
+@class AWSEC2DeleteTrafficMirrorSessionRequest;
+@class AWSEC2DeleteTrafficMirrorSessionResult;
+@class AWSEC2DeleteTrafficMirrorTargetRequest;
+@class AWSEC2DeleteTrafficMirrorTargetResult;
 @class AWSEC2DeleteTransitGatewayRequest;
 @class AWSEC2DeleteTransitGatewayResult;
 @class AWSEC2DeleteTransitGatewayRouteRequest;
@@ -1865,6 +1936,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeSubnetsResult;
 @class AWSEC2DescribeTagsRequest;
 @class AWSEC2DescribeTagsResult;
+@class AWSEC2DescribeTrafficMirrorFiltersRequest;
+@class AWSEC2DescribeTrafficMirrorFiltersResult;
+@class AWSEC2DescribeTrafficMirrorSessionsRequest;
+@class AWSEC2DescribeTrafficMirrorSessionsResult;
+@class AWSEC2DescribeTrafficMirrorTargetsRequest;
+@class AWSEC2DescribeTrafficMirrorTargetsResult;
 @class AWSEC2DescribeTransitGatewayAttachmentsRequest;
 @class AWSEC2DescribeTransitGatewayAttachmentsResult;
 @class AWSEC2DescribeTransitGatewayRouteTablesRequest;
@@ -2154,6 +2231,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifySpotFleetRequestRequest;
 @class AWSEC2ModifySpotFleetRequestResponse;
 @class AWSEC2ModifySubnetAttributeRequest;
+@class AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest;
+@class AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult;
+@class AWSEC2ModifyTrafficMirrorFilterRuleRequest;
+@class AWSEC2ModifyTrafficMirrorFilterRuleResult;
+@class AWSEC2ModifyTrafficMirrorSessionRequest;
+@class AWSEC2ModifyTrafficMirrorSessionResult;
 @class AWSEC2ModifyTransitGatewayVpcAttachmentRequest;
 @class AWSEC2ModifyTransitGatewayVpcAttachmentRequestOptions;
 @class AWSEC2ModifyTransitGatewayVpcAttachmentResult;
@@ -2363,6 +2446,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TerminateConnectionStatus;
 @class AWSEC2TerminateInstancesRequest;
 @class AWSEC2TerminateInstancesResult;
+@class AWSEC2TrafficMirrorFilter;
+@class AWSEC2TrafficMirrorFilterRule;
+@class AWSEC2TrafficMirrorPortRange;
+@class AWSEC2TrafficMirrorPortRangeRequest;
+@class AWSEC2TrafficMirrorSession;
+@class AWSEC2TrafficMirrorTarget;
 @class AWSEC2TransitGateway;
 @class AWSEC2TransitGatewayAssociation;
 @class AWSEC2TransitGatewayAttachment;
@@ -3999,8 +4088,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for CancelConversionTask.</p>
- Required parameters: [ConversionTaskId]
+ 
  */
 @interface AWSEC2CancelConversionRequest : AWSRequest
 
@@ -4023,8 +4111,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for CancelExportTask.</p>
- Required parameters: [ExportTaskId]
+ 
  */
 @interface AWSEC2CancelExportTaskRequest : AWSRequest
 
@@ -4037,7 +4124,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for CancelImportTask.</p>
+ 
  */
 @interface AWSEC2CancelImportTaskRequest : AWSRequest
 
@@ -4060,7 +4147,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for CancelImportTask.</p>
+ 
  */
 @interface AWSEC2CancelImportTaskResult : AWSModel
 
@@ -6017,8 +6104,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for CreateInstanceExportTask.</p>
- Required parameters: [InstanceId]
+ 
  */
 @interface AWSEC2CreateInstanceExportTaskRequest : AWSRequest
 
@@ -6046,7 +6132,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for CreateInstanceExportTask.</p>
+ 
  */
 @interface AWSEC2CreateInstanceExportTaskResult : AWSModel
 
@@ -6860,6 +6946,270 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2CreateTrafficMirrorFilterRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The description of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags to assign to a Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorFilterResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Information about the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorFilter * _Nullable trafficMirrorFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorFilterRuleRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The description of the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>The destination port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorPortRangeRequest * _Nullable destinationPortRange;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The protocol, for example UDP, to assign to the Traffic Mirror rule.</p><p>For information about the protocol value, see <a href="https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a> on the Internet Assigned Numbers Authority (IANA) website.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable protocols;
+
+/**
+ <p>The action to take (<code>accept</code> | <code>reject</code>) on the filtered traffic.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficMirrorRuleAction ruleAction;
+
+/**
+ <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ruleNumber;
+
+/**
+ <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceCidrBlock;
+
+/**
+ <p>The source port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorPortRangeRequest * _Nullable sourcePortRange;
+
+/**
+ <p>The type of traffic (<code>ingress</code> | <code>egress</code>).</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficDirection trafficDirection;
+
+/**
+ <p>The ID of the filter that this rule is associated with.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorFilterRuleResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorFilterRule * _Nullable trafficMirrorFilterRule;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorSessionRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The description of the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the source network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 1network0, then the first 100 bytes that meet the filter criteria are copied to the target.</p><p>If you do not want to mirror the entire packet, use the <code>PacketLength</code> parameter to specify the number of bytes in each packet to mirror.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable packetLength;
+
+/**
+ <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p><p>Valid values are 1-32766.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sessionNumber;
+
+/**
+ <p>The tags to assign to a Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+/**
+ <p>The ID of the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
+
+/**
+ <p>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do not specify a <code>VirtualNetworkId</code>, an account-wide unique id is chosen at random.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable virtualNetworkId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorSessionResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Information about the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorSession * _Nullable trafficMirrorSession;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorTargetRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The description of the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The network interface ID that is associated with the target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkLoadBalancerArn;
+
+/**
+ <p>The tags to assign to the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTrafficMirrorTargetResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Information about the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorTarget * _Nullable trafficMirrorTarget;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2CreateTransitGatewayRequest : AWSRequest
 
 
@@ -7433,7 +7783,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
 
 /**
- <p>The type of VPN connection (<code>ipsec.1</code> | <code>ipsec.2</code>).</p>
+ <p>The type of VPN connection (<code>ipsec.1</code>).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
 
@@ -8339,6 +8689,130 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.</p><p>If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code> prefix).</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorFilterRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorFilterResult : AWSModel
+
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorFilterRuleRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterRuleId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorFilterRuleResult : AWSModel
+
+
+/**
+ <p>The ID of the deleted Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterRuleId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorSessionRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorSessionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorSessionResult : AWSModel
+
+
+/**
+ <p>The ID of the deleted Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorSessionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorTargetRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTrafficMirrorTargetResult : AWSModel
+
+
+/**
+ <p>The ID of the deleted Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
 
 @end
 
@@ -9324,7 +9798,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DescribeConversionTasks.</p>
+ 
  */
 @interface AWSEC2DescribeConversionTasksRequest : AWSRequest
 
@@ -9342,7 +9816,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for DescribeConversionTasks.</p>
+ 
  */
 @interface AWSEC2DescribeConversionTasksResult : AWSModel
 
@@ -9544,7 +10018,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DescribeExportTasks.</p>
+ 
  */
 @interface AWSEC2DescribeExportTasksRequest : AWSRequest
 
@@ -9557,7 +10031,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for DescribeExportTasks.</p>
+ 
  */
 @interface AWSEC2DescribeExportTasksResult : AWSModel
 
@@ -10273,7 +10747,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DescribeImportImageTasks.</p>
+ 
  */
 @interface AWSEC2DescribeImportImageTasksRequest : AWSRequest
 
@@ -10306,7 +10780,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for DescribeImportImageTasks.</p>
+ 
  */
 @interface AWSEC2DescribeImportImageTasksResult : AWSModel
 
@@ -10324,7 +10798,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DescribeImportSnapshotTasks.</p>
+ 
  */
 @interface AWSEC2DescribeImportSnapshotTasksRequest : AWSRequest
 
@@ -10357,7 +10831,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for DescribeImportSnapshotTasks.</p>
+ 
  */
 @interface AWSEC2DescribeImportSnapshotTasksResult : AWSModel
 
@@ -12338,6 +12812,159 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeTrafficMirrorFiltersRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>description</code>: The Traffic Mirror filter description.</p></li><li><p><code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable trafficMirrorFilterIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorFiltersResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about one or more Traffic Mirror filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrafficMirrorFilter *> * _Nullable trafficMirrorFilters;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorSessionsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>description</code>: The Traffic Mirror session description.</p></li><li><p><code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p></li><li><p><code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p></li><li><p><code>packet-length</code>: The assigned number of packets to mirror. </p></li><li><p><code>session-number</code>: The assigned session number. </p></li><li><p><code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p></li><li><p><code>traffic-mirror-session-id</code>: The ID of the Traffic Mirror session.</p></li><li><p><code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p></li><li><p><code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable trafficMirrorSessionIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorSessionsResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrafficMirrorSession *> * _Nullable trafficMirrorSessions;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorTargetsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>description</code>: The Traffic Mirror target description.</p></li><li><p><code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p></li><li><p><code>network-load-balancer-arn</code>: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the session.</p></li><li><p><code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p></li><li><p><code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the Traffic Mirror targets.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable trafficMirrorTargetIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrafficMirrorTargetsResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about one or more Traffic Mirror targets.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrafficMirrorTarget *> * _Nullable trafficMirrorTargets;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeTransitGatewayAttachmentsRequest : AWSRequest
 
 
@@ -14045,7 +14672,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
 /**
- <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The default effect of setting the <code>Encrypted</code> parameter to <code>true</code> through the console, API, or CLI depends on the volume's origin (new or from a snapshot), starting encryption state, ownership, and whether <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/account-level-encryption.html">account-level encryption</a> is enabled. Each default case can be overridden by specifying a customer master key (CMK) with the <code>KmsKeyId</code> parameter in addition to setting <code>Encrypted</code> to <code>true</code>. For a complete list of possible encryption cases, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
+ <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -14055,7 +14682,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable iops;
 
 /**
- <p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a user-managed CMK under which the EBS volume is encrypted.</p><p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
+ <p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under which the EBS volume is encrypted.</p><p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
@@ -16160,7 +16787,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
- <p>The value is <code>Windows</code> for Windows AMIs; otherwise blank.</p>
+ <p>This value is set for Windows AMIs; otherwise, it is blank.</p>
  */
 @property (nonatomic, assign) AWSEC2PlatformValues platform;
 
@@ -16339,7 +16966,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for ImportImage.</p>
+ 
  */
 @interface AWSEC2ImportImageRequest : AWSRequest
 
@@ -16390,7 +17017,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p><p><b>Note:</b> You may only use BYOL if you have existing licenses with rights to use these licenses in a third party cloud like AWS. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the VM Import/Export User Guide.</p><p>Valid values include:</p><ul><li><p><code>Auto</code> - Detects the source-system operating system (OS) and applies the appropriate license.</p></li><li><p><code>AWS</code> - Replaces the source-system license with an AWS license, if appropriate.</p></li><li><p><code>BYOL</code> - Retains the source-system license, if appropriate.</p></li></ul><p>Default value: <code>Auto</code></p>
+ <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p><p>By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify <code>AWS</code> to replace the source-system license with an AWS license, if appropriate. Specify <code>BYOL</code> to retain the source-system license, if appropriate.</p><p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party cloud, such as AWS. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the VM Import/Export User Guide.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable licenseType;
 
@@ -16407,7 +17034,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for ImportImage.</p>
+ 
  */
 @interface AWSEC2ImportImageResult : AWSModel
 
@@ -16616,8 +17243,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for ImportInstance.</p>
- Required parameters: [Platform]
+ 
  */
 @interface AWSEC2ImportInstanceRequest : AWSRequest
 
@@ -16650,7 +17276,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for ImportInstance.</p>
+ 
  */
 @interface AWSEC2ImportInstanceResult : AWSModel
 
@@ -16775,7 +17401,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for ImportSnapshot.</p>
+ 
  */
 @interface AWSEC2ImportSnapshotRequest : AWSRequest
 
@@ -16823,7 +17449,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for ImportSnapshot.</p>
+ 
  */
 @interface AWSEC2ImportSnapshotResult : AWSModel
 
@@ -16869,8 +17495,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for ImportVolume.</p>
- Required parameters: [AvailabilityZone, Image, Volume]
+ 
  */
 @interface AWSEC2ImportVolumeRequest : AWSRequest
 
@@ -16903,7 +17528,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output for ImportVolume.</p>
+ 
  */
 @interface AWSEC2ImportVolumeResult : AWSModel
 
@@ -20054,6 +20679,194 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2ModifyTrafficMirrorFilterNetworkServicesRequest : AWSRequest
+
+
+/**
+ <p>The network service, for example Amazon DNS, that you want to mirror.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable addNetworkServices;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable removeNetworkServices;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyTrafficMirrorFilterNetworkServicesResult : AWSModel
+
+
+/**
+ <p>The Traffic Mirror filter that the network service is associated with.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorFilter * _Nullable trafficMirrorFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyTrafficMirrorFilterRuleRequest : AWSRequest
+
+
+/**
+ <p>The description to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>The destination ports that are associated with the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorPortRangeRequest * _Nullable destinationPortRange;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable protocols;
+
+/**
+ <p>The properties that you want to remove from the Traffic Mirror filter rule.</p><p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable removeFields;
+
+/**
+ <p>The action to assign to the rule.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficMirrorRuleAction ruleAction;
+
+/**
+ <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ruleNumber;
+
+/**
+ <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceCidrBlock;
+
+/**
+ <p>The port range to assign to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorPortRangeRequest * _Nullable sourcePortRange;
+
+/**
+ <p>The type of traffic (<code>ingress</code> | <code>egress</code>) to assign to the rule.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficDirection trafficDirection;
+
+/**
+ <p>The ID of the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterRuleId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyTrafficMirrorFilterRuleResult : AWSModel
+
+
+/**
+ <p>Modifies a Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorFilterRule * _Nullable trafficMirrorFilterRule;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyTrafficMirrorSessionRequest : AWSRequest
+
+
+/**
+ <p>The description to assign to the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable packetLength;
+
+/**
+ <p>The properties that you want to remove from the Traffic Mirror session.</p><p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable removeFields;
+
+/**
+ <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p><p>Valid values are 1-32766.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sessionNumber;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+/**
+ <p>The ID of the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorSessionId;
+
+/**
+ <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
+
+/**
+ <p>The virtual network ID of the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable virtualNetworkId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyTrafficMirrorSessionResult : AWSModel
+
+
+/**
+ <p>Information about the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorSession * _Nullable trafficMirrorSession;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2ModifyTransitGatewayVpcAttachmentRequest : AWSRequest
 
 
@@ -20671,7 +21484,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable natGatewayId;
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) AWSEC2ProvisionedBandwidth * _Nullable provisionedBandwidth;
 
@@ -21607,33 +22420,33 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @interface AWSEC2ProvisionedBandwidth : AWSModel
 
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable provisionTime;
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable provisioned;
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable requestTime;
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable requested;
 
 /**
- <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
+ <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable status;
 
@@ -22615,7 +23428,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2LaunchTemplatesMonitoringRequest * _Nullable monitoring;
 
 /**
- <p>One or more network interfaces. If you specify a network interface, you must specify any security groups as part of the network interface.</p>
+ <p>One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest *> * _Nullable networkInterfaces;
 
@@ -24096,7 +24909,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2RunInstancesMonitoringEnabled * _Nullable monitoring;
 
 /**
- <p>The network interfaces to associate with the instance. If you specify a network interface, you must specify any security groups as part of the network interface.</p>
+ <p>The network interfaces to associate with the instance. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceNetworkInterfaceSpecification *> * _Nullable networkInterfaces;
 
@@ -24126,7 +24939,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p><p>You cannot specify this option and the network interfaces option in the same request.</p>
+ <p>[EC2-VPC] The ID of the subnet to launch the instance into.</p><p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
@@ -26622,6 +27435,244 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the terminated instances.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceStateChange *> * _Nullable terminatingInstances;
+
+@end
+
+/**
+ <p>Describes the Traffic Mirror filter.</p>
+ */
+@interface AWSEC2TrafficMirrorFilter : AWSModel
+
+
+/**
+ <p>The description of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Information about the egress rules that are associated with the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrafficMirrorFilterRule *> * _Nullable egressFilterRules;
+
+/**
+ <p>Information about the ingress rules that are associated with the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrafficMirrorFilterRule *> * _Nullable ingressFilterRules;
+
+/**
+ <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable networkServices;
+
+/**
+ <p>The tags assigned to the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+@end
+
+/**
+ <p>Describes the Traffic Mirror rule.</p>
+ */
+@interface AWSEC2TrafficMirrorFilterRule : AWSModel
+
+
+/**
+ <p>The description of the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The destination CIDR block assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
+
+/**
+ <p>The destination port range assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorPortRange * _Nullable destinationPortRange;
+
+/**
+ <p>The protocol assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable protocols;
+
+/**
+ <p>The action assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficMirrorRuleAction ruleAction;
+
+/**
+ <p>The rule number of the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ruleNumber;
+
+/**
+ <p>The source CIDR block assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceCidrBlock;
+
+/**
+ <p>The source port range assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrafficMirrorPortRange * _Nullable sourcePortRange;
+
+/**
+ <p>The traffic direction assigned to the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficDirection trafficDirection;
+
+/**
+ <p>The ID of the Traffic Mirror filter that the rule is associated with.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+/**
+ <p>The ID of the Traffic Mirror rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterRuleId;
+
+@end
+
+/**
+ <p>Describes the Traffic Mirror port range.</p>
+ */
+@interface AWSEC2TrafficMirrorPortRange : AWSModel
+
+
+/**
+ <p>The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fromPort;
+
+/**
+ <p>The end of the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable toPort;
+
+@end
+
+/**
+ <p>Information about the Traffic Mirror filter rule port range.</p>
+ */
+@interface AWSEC2TrafficMirrorPortRangeRequest : AWSModel
+
+
+/**
+ <p>The first port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fromPort;
+
+/**
+ <p>The last port in the Traffic Mirror port range. This applies to the TCP and UDP protocols.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable toPort;
+
+@end
+
+/**
+ <p>Describes a Traffic Mirror session.</p>
+ */
+@interface AWSEC2TrafficMirrorSession : AWSModel
+
+
+/**
+ <p>The description of the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The ID of the Traffic Mirror session's network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The ID of the account that owns the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>The number of bytes in each packet to mirror. These are the bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable packetLength;
+
+/**
+ <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p><p>Valid values are 1-32766.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sessionNumber;
+
+/**
+ <p>The tags assigned to the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Traffic Mirror filter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorFilterId;
+
+/**
+ <p>The ID for the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorSessionId;
+
+/**
+ <p>The ID of the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
+
+/**
+ <p>The virtual network ID associated with the Traffic Mirror session.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable virtualNetworkId;
+
+@end
+
+/**
+ <p>Describes a Traffic Mirror target.</p>
+ */
+@interface AWSEC2TrafficMirrorTarget : AWSModel
+
+
+/**
+ <p>Information about the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The network interface ID that is attached to the target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Network Load Balancer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkLoadBalancerArn;
+
+/**
+ <p>The ID of the account that owns the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>The tags assigned to the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Traffic Mirror target.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
+
+/**
+ <p>The type of Traffic Mirror target.</p>
+ */
+@property (nonatomic, assign) AWSEC2TrafficMirrorTargetType types;
 
 @end
 

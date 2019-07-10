@@ -15,7 +15,6 @@
 
 #import "AWSKinesisRecorder.h"
 #import "AWSKinesis.h"
-#import "AWSSynchronizedMutableDictionary.h"
 
 // Constants
 NSString *const AWSFirehoseRecorderErrorDomain = @"com.amazonaws.AWSFirehoseRecorderErrorDomain";

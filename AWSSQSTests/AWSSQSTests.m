@@ -94,7 +94,8 @@
     
     [[[sqs getQueueAttributes:attributesRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidAddress Error but got nil");
-        XCTAssertEqual(task.error.code, 0);
+        XCTAssertEqualObjects(task.error.domain, AWSSQSErrorDomain);
+        XCTAssertEqual(task.error.code, AWSSQSErrorUnknown);
         XCTAssertTrue([@"InvalidAddress" isEqualToString:task.error.userInfo[@"Code"]]);
         XCTAssertTrue([@"The address  is not valid for this endpoint." isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;

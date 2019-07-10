@@ -45,10 +45,16 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 @end
 
-@implementation AWSS3PreSignedURLBuilderTests
+@implementation AWSS3PreSignedURLBuilderTests {
+    
+    NSArray *bucketNameArray;
+
+}
 
 - (void)setUp {
     [super setUp];
+    bucketNameArray = @[@"ios-v2-s3-tm-testdata", @"ios-v2-s3.periods", @"ios-v2-s3-eu-central", @"ios-v2-s3-eu-c.periods"];
+
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [AWSTestUtility setupCognitoCredentialsProvider];
 
@@ -131,8 +137,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 -(void)testObjectWithGreedyKey {
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata", @"ios-v2-s3.periods", @"ios-v2-s3-eu-central", @"ios-v2-s3-eu-c.periods"];
-
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
 
@@ -385,8 +389,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 - (void)testPutObjectWithSpecialCharacters {
-
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
     NSArray *keyNameArray = @[@"a:b/&$@=;:+ ,?.zip",@"\\^`><{}/[]#  %'~|"]; //characters might require special handling and characters to avoid
     NSString *testContentType = @"application/x-authorware-bin";
 
@@ -562,9 +564,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 - (void)testGetObject {
-
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
-
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
 
@@ -812,7 +811,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 - (void)testPutObject2 {
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
     NSString *testContentType = @"application/x-authorware-bin";
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
@@ -1021,8 +1019,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 }
 - (void)testPutObject {
-
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
     NSString *testContentType = @"application/x-authorware-bin";
     int32_t count = 0;
 
@@ -1147,9 +1143,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 - (void)testHEADObject {
-
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
-
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
 
@@ -1221,9 +1214,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 }
 
-- (void)testDeleteBucket {
-    NSArray *bucketNameArray = @[@"ios-v2-s3-tm-testdata",@"ios-v2-s3.periods",@"ios-v2-s3-eu-central",@"ios-v2-s3-eu-c.periods"];
-
+- (void)testDeleteObjectFromBucket {
     int32_t count = 0;
     for (NSString *myBucketName in bucketNameArray) {
 

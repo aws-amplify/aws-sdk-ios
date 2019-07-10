@@ -38,13 +38,13 @@ class AWSRekognitionTests: XCTestCase {
         let collectionRequest = AWSRekognitionCreateCollectionRequest()
         collectionRequest?.collectionId = "MyCollectionID"
         rekognition.createCollection(collectionRequest!).continueWith { (response) -> Any? in
-            if let error = response.error {
-                XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (com.amazonaws.AWSRekognitionErrorDomain error 11.)")
-            }
-            else {
+            if let error = response.error as NSError? {
+                XCTAssertEqual(error.domain , AWSRekognitionErrorDomain)
+                XCTAssertEqual(error.code, AWSRekognitionErrorType.resourceAlreadyExists.rawValue)
+            } else {
                 XCTAssertNotNil(response.result)
                 if let result = response.result {
-                    print (result)
+                    print(result)
                 }
             }
             return nil
@@ -55,8 +55,6 @@ class AWSRekognitionTests: XCTestCase {
         let fileURL = testBundle.url(forResource: "singleface", withExtension: "jpg")
         var data:Data?
         do {
-            
-            
             data = try Data(contentsOf:fileURL!)
             let image = AWSRekognitionImage()
             image?.bytes = data
@@ -82,18 +80,18 @@ class AWSRekognitionTests: XCTestCase {
         
     }
     
-    func testFaceIndexMultipeFaces() {
+    func testFaceIndexMultipleFacesFromS3Bucket() {
         let rekognition = AWSRekognition.default()
         let collectionRequest = AWSRekognitionCreateCollectionRequest()
         collectionRequest?.collectionId = "MyCollectionID"
         rekognition.createCollection(collectionRequest!).continueWith { (response) -> Any? in
-            if let error = response.error {
-                XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (com.amazonaws.AWSRekognitionErrorDomain error 11.)")
-            }
-            else {
+            if let error = response.error as NSError? {
+                XCTAssertEqual(error.domain , AWSRekognitionErrorDomain)
+                XCTAssertEqual(error.code, AWSRekognitionErrorType.resourceAlreadyExists.rawValue)
+            } else {
                 XCTAssertNotNil(response.result)
                 if let result = response.result {
-                    print (result)
+                    print(result)
                 }
             }
             return nil
@@ -127,13 +125,13 @@ class AWSRekognitionTests: XCTestCase {
         let collectionRequest = AWSRekognitionCreateCollectionRequest()
         collectionRequest?.collectionId = "MyCollectionID"
         rekognition.createCollection(collectionRequest!).continueWith { (response) -> Any? in
-            if let error = response.error {
-                XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (com.amazonaws.AWSRekognitionErrorDomain error 11.)")
-            }
-            else {
+            if let error = response.error as NSError? {
+                XCTAssertEqual(error.domain , AWSRekognitionErrorDomain)
+                XCTAssertEqual(error.code, AWSRekognitionErrorType.resourceAlreadyExists.rawValue)
+            } else {
                 XCTAssertNotNil(response.result)
                 if let result = response.result {
-                    print (result)
+                    print(result)
                 }
             }
             return nil
