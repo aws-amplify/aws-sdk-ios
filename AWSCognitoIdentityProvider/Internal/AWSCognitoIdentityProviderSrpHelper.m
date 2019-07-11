@@ -8,7 +8,7 @@
 #import "AWSCognitoIdentityProviderSrpHelper.h"
 #import "AWSCognitoIdentityProviderHKDF.h"
 #import "AWSJKBigInteger.h"
-#import "AWSCocoaLumberjack.h"
+#import <AWSCore/AWSCocoaLumberjack.h>
 #import <CommonCrypto/CommonCrypto.h>
 #import <CommonCrypto/CommonKeyDerivation.h>
 #import <CommonCrypto/CommonDigest.h>
