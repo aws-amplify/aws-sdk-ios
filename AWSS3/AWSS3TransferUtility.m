@@ -1486,7 +1486,6 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
     
     [transferUtilityMultiPartUploadTask.expression assignRequestParameters:request];
 
-    __block NSError* error = nil;
     [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithBlock:^id(AWSTask *task) {
         error = task.error;
         if ( error ) {
