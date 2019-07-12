@@ -1,5 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.11
+
+### Misc. Updates
+- Fix include files to properly use the framework prefix for cross-framework includes. This fixes breakage when each framework is in a separate project
+  file, as when using the new `generate_multiple_pod_projects` feature in cocoapods 1.7.
+  See [PR #1540](https://github.com/aws-amplify/aws-sdk-ios/pull/1540) and [#1611](https://github.com/aws-amplify/aws-sdk-ios/pull/1611).
+  Thanks @hughescr and @colinhumber!
+
 ## 2.9.10
 
 ### New Features
