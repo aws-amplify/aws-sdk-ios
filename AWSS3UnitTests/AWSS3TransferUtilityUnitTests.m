@@ -155,9 +155,8 @@ static id urlSession = nil;
 }
 
 /**
- Test the situation where NSURLSession throws an exception in multipart upload.
- This should return an error back to the caller. One possible scenario of this
- usecase is when temporary file used for upload got deleted by OS.
+ Test the situation where AWSS3PresignedUrlBuilder throws an error preparing for multipart upload.
+ This should return an error back to the caller.
  **/
 - (void)testMultiPartDataUploadWithPresignedURLBuilderError {
     NSString *key = @"testMultiPartDataUploadWithPresignedURLBuilderError";
