@@ -2,6 +2,13 @@
 
 ## 2.9.11
 
+### Bug Fixes
+
+- **Amazon S3**
+  - Fixed a bug where errors in the presigned URL builder phase were not returned.
+    See [PR #1555](https://github.com/aws-amplify/aws-sdk-ios/pull/1555) for details.
+    Thanks @wfan9!
+
 ### Misc. Updates
 - Fix include files to properly use the framework prefix for cross-framework includes. This fixes breakage when each framework is in a separate project
   file, as when using the new `generate_multiple_pod_projects` feature in cocoapods 1.7.
