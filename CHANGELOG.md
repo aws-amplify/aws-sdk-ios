@@ -7,6 +7,12 @@
 * **Amazon Connect**
   * Amazon Connect is a self-service, cloud-based contact center service that makes it easy for any business to deliver better customer service at lower cost. Amazon Connect is based on the same contact center technology used by Amazon customer service associates around the world to power millions of customer conversations. The self-service graphical interface in Amazon Connect makes it easy for non-technical users to design contact flows, manage agents, and track performance metrics – no specialized skills required. There are no up-front payments or long-term commitments and no infrastructure to manage with Amazon Connect; customers pay by the minute for Amazon Connect usage plus any associated telephony services. See [Amazon Connect Documentation](https://aws.amazon.com/connect/) for more details.
 
+### Misc. Updates
+- Fix include files to properly use the framework prefix for cross-framework includes. This fixes breakage when each framework is in a separate project
+  file, as when using the new `generate_multiple_pod_projects` feature in cocoapods 1.7.
+  See [PR #1540](https://github.com/aws-amplify/aws-sdk-ios/pull/1540) and [#1611](https://github.com/aws-amplify/aws-sdk-ios/pull/1611).
+  Thanks @hughescr and @colinhumber!
+
 ## 2.9.10
 
 ### New Features

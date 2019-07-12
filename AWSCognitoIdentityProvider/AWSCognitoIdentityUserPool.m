@@ -8,11 +8,11 @@
 #import "AWSCognitoIdentityProvider.h"
 #import "AWSCognitoIdentityUser_Internal.h"
 #import "AWSCognitoIdentityUserPool_Internal.h"
-#import "AWSUICKeyChainStore.h"
+#import <AWSCore/AWSUICKeyChainStore.h>
 #import <CommonCrypto/CommonHMAC.h>
 #import "NSData+AWSCognitoIdentityProvider.h"
 #import "AWSCognitoIdentityProviderModel.h"
-#import "AWSCognitoIdentityProviderASF.h"
+#import <AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.h>
 
 static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 
