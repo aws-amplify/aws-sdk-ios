@@ -100,7 +100,7 @@ static id urlSession = nil;
                               completionHandler:nil]
       continueWithBlock:^id (AWSTask *task) {
           XCTAssertNil(task.error);
-          XCTAssertNotNil(task);
+          XCTAssertNotNil(task.result);
           dispatch_semaphore_signal(semaphore);
           return nil;
       }] waitUntilFinished];
@@ -133,8 +133,8 @@ static id urlSession = nil;
     NSURL *preSignedURL = [NSURL URLWithString:@"http://asd.com/"];
     AWSTask *getPreSignedURLResultTask = [AWSTask taskWithResult:preSignedURL];
     OCMStub([awss3PresignedUrlBuilder getPreSignedURL:[OCMArg isKindOfClass:[AWSS3GetPreSignedURLRequest class]]]).andReturn(getPreSignedURLResultTask);
-
-    NSException *exp = [[NSException alloc]initWithName:@"S3exception" reason:NULL userInfo:NULL];
+    
+    NSException *exp = [[NSException alloc] initWithName:@"S3exception" reason:NULL userInfo:NULL];
     OCMStub([urlSession uploadTaskWithRequest:[OCMArg isKindOfClass:[NSURLRequest class]]
                                      fromFile:[OCMArg isKindOfClass:[NSURL class]]]).andThrow(exp);
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
@@ -146,7 +146,52 @@ static id urlSession = nil;
                               completionHandler:nil]
       continueWithBlock:^id (AWSTask *task) {
           XCTAssertNotNil(task.error);
-          XCTAssertNotNil(task);
+          XCTAssertNil(task.result);
+          dispatch_semaphore_signal(semaphore);
+          return nil;
+      }] waitUntilFinished];
+    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    [AWSS3TransferUtility removeS3TransferUtilityForKey:key];
+}
+
+/**
+ Test the situation where AWSS3PresignedUrlBuilder throws an error preparing for multipart upload.
+ This should return an error back to the caller.
+ **/
+- (void)testMultiPartDataUploadWithPresignedURLBuilderError {
+    NSString *key = @"testMultiPartDataUploadWithPresignedURLBuilderError";
+    NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:key];
+    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
+    
+    [awss3client setValue:mockNetworking forKey:@"networking"];
+    [transferUtility setValue:awss3client forKey:@"s3"];
+    [transferUtility setValue:awss3PresignedUrlBuilder forKey:@"preSignedURLBuilder"];
+    [transferUtility setValue:urlSession forKey:@"session"];
+    
+    AWSS3CreateMultipartUploadOutput *output = [AWSS3CreateMultipartUploadOutput new];
+    output.uploadId = @"uploadID";
+    AWSTask *createMultipartUploadResultTask = [AWSTask taskWithResult:output];
+    OCMStub([awss3client createMultipartUpload:[OCMArg isKindOfClass:[AWSS3CreateMultipartUploadRequest class]]]).andReturn(createMultipartUploadResultTask);
+    
+    NSError *presignedURLError = [NSError errorWithDomain:AWSS3PresignedURLErrorDomain code:AWSS3PresignedURLErrorUnknown userInfo:nil];
+    AWSTask *getPreSignedURLErrorTask = [AWSTask taskWithError:presignedURLError];
+    OCMStub([awss3PresignedUrlBuilder getPreSignedURL:[OCMArg isKindOfClass:[AWSS3GetPreSignedURLRequest class]]]).andReturn(getPreSignedURLErrorTask);
+    
+    MockUploadTask *uploadTask = [[MockUploadTask alloc] init];
+    OCMStub([urlSession uploadTaskWithRequest:[OCMArg isKindOfClass:[NSURLRequest class]]
+                                     fromFile:[OCMArg isKindOfClass:[NSURL class]]]).andReturn(uploadTask);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    [[[transferUtility uploadDataUsingMultiPart:uploadData
+                                         bucket:@"unittestBucket"
+                                            key:@"unittestKey.txt"
+                                    contentType:@"text/plain"
+                                     expression:[AWSS3TransferUtilityMultiPartUploadExpression new]
+                              completionHandler:nil]
+      continueWithBlock:^id (AWSTask *task) {
+          XCTAssertNotNil(task.error);
+          XCTAssertNil(task.result);
           dispatch_semaphore_signal(semaphore);
           return nil;
       }] waitUntilFinished];
@@ -155,5 +200,3 @@ static id urlSession = nil;
 }
 
 @end
-
-
