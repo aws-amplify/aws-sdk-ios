@@ -61,6 +61,7 @@ modulelist = [
     "AWSCognitoAuth",
     "AWSCognitoIdentityProvider",
     "AWSComprehend",
+    "AWSConnect",
     "AWSCore",
     "AWSDynamoDB",
     "AWSEC2",

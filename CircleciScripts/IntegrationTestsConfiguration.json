@@ -276,5 +276,10 @@
              }          
         }
     },
+    'Connect' : {
+        'test_list' : {
+            'AWSConnectTests':{}
+        }
+    }
 
 }
