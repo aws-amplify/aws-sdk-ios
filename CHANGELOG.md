@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.9.11
+## 2.10.0
 
 ### New Features
 
@@ -19,6 +19,13 @@
   file, as when using the new `generate_multiple_pod_projects` feature in cocoapods 1.7.
   See [PR #1540](https://github.com/aws-amplify/aws-sdk-ios/pull/1540) and [#1611](https://github.com/aws-amplify/aws-sdk-ios/pull/1611).
   Thanks @hughescr and @colinhumber!
+
+- Model updates for the following services
+  - Amazon EC2
+    - **Breaking API Change**
+      - The AWSEC2 method `-[assignPrivateIpAddresses:]` now returns an `AWSTask<AWSEC2AssignPrivateIpAddressesResult *>` instead of an `AWSTask<nil>`.
+      - The first argument to the completion handler for the AWSEC2 method `-[assignPrivateIpAddresses:completionHandler]` is now a nullable `AWSEC2AssignPrivateIpAddressesResult`, rather than a `nil`.
+  - Amazon Kinesis Video Streams
 
 ## 2.9.10
 
