@@ -479,22 +479,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask *)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request {
+- (AWSTask<AWSEC2AssignPrivateIpAddressesResult *> *)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AssignPrivateIpAddresses"
-                   outputClass:nil];
+                   outputClass:[AWSEC2AssignPrivateIpAddressesResult class]];
 }
 
 - (void)assignPrivateIpAddresses:(AWSEC2AssignPrivateIpAddressesRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self assignPrivateIpAddresses:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2AssignPrivateIpAddressesResult *response, NSError *error))completionHandler {
+    [[self assignPrivateIpAddresses:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssignPrivateIpAddressesResult *> * _Nonnull task) {
+        AWSEC2AssignPrivateIpAddressesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
