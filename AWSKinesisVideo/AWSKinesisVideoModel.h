@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoAPIName) {
     AWSKinesisVideoAPINameListFragments,
     AWSKinesisVideoAPINameGetMediaForFragmentList,
     AWSKinesisVideoAPINameGetHlsStreamingSessionUrl,
+    AWSKinesisVideoAPINameGetDashStreamingSessionUrl,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoComparisonOperator) {
