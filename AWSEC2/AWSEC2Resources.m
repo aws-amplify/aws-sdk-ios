@@ -167,6 +167,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"AssignPrivateIpAddressesRequest\"},\
+      \"output\":{\"shape\":\"AssignPrivateIpAddressesResult\"},\
       \"documentation\":\"<p>Assigns one or more secondary private IP addresses to the specified network interface.</p> <p>You can specify one or more specific secondary IP addresses, or you can specify the number of secondary IP addresses to be automatically assigned within the subnet's CIDR block range. The number of secondary IP addresses that you can assign to an instance varies by instance type. For information about instance types, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about Elastic IP addresses, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When you move a secondary private IP address to another network interface, any Elastic IP address that is associated with the IP address is also moved.</p> <p>Remapping an IP address is an asynchronous operation. When you move an IP address from one network interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance metadata to confirm that the remapping is complete.</p>\"\
     },\
     \"AssociateAddress\":{\
@@ -1746,7 +1747,7 @@
       },\
       \"input\":{\"shape\":\"DescribeInstancesRequest\"},\
       \"output\":{\"shape\":\"DescribeInstancesResult\"},\
-      \"documentation\":\"<p>Describes the specified instances or all of your instances.</p> <p>If you specify one or more instance IDs, Amazon EC2 returns information for those instances. If you do not specify instance IDs, Amazon EC2 returns information for all relevant instances. If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the returned results.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p>\"\
+      \"documentation\":\"<p>Describes the specified instances or all of AWS account's instances.</p> <p>If you specify one or more instance IDs, Amazon EC2 returns information for those instances. If you do not specify instance IDs, Amazon EC2 returns information for all relevant instances. If you specify an instance ID that is not valid, an error is returned. If you specify an instance that you do not own, it is not included in the returned results.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If you describe instances in the rare case where an Availability Zone is experiencing a service disruption and you specify instance IDs that are in the affected zone, or do not specify any instance IDs at all, the call fails. If you describe instances and specify only instance IDs that are in an unaffected zone, the call works normally.</p>\"\
     },\
     \"DescribeInternetGateways\":{\
       \"name\":\"DescribeInternetGateways\",\
@@ -4092,6 +4093,39 @@
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for AssignPrivateIpAddresses.</p>\"\
+    },\
+    \"AssignPrivateIpAddressesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NetworkInterfaceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the network interface.</p>\",\
+          \"locationName\":\"networkInterfaceId\"\
+        },\
+        \"AssignedPrivateIpAddresses\":{\
+          \"shape\":\"AssignedPrivateIpAddressList\",\
+          \"documentation\":\"<p>The private IP addresses assigned to the network interface.</p>\",\
+          \"locationName\":\"assignedPrivateIpAddressesSet\"\
+        }\
+      }\
+    },\
+    \"AssignedPrivateIpAddress\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PrivateIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The private IP address assigned to the network interface.</p>\",\
+          \"locationName\":\"privateIpAddress\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the private IP addresses assigned to a network interface.</p>\"\
+    },\
+    \"AssignedPrivateIpAddressList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"AssignedPrivateIpAddress\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"AssociateAddressRequest\":{\
       \"type\":\"structure\",\
@@ -6540,7 +6574,7 @@
         },\
         \"Encrypted\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Specifies whether the destination snapshot should be encrypted. You can encrypt a copy of an unencrypted snapshot, but you cannot use it to create an unencrypted copy of an encrypted snapshot. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\\\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
+          \"documentation\":\"<p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots are encrypted, even if you omit this parameter and encryption by default is not enabled. You cannot set this parameter to false. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\\\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
           \"locationName\":\"encrypted\"\
         },\
         \"KmsKeyId\":{\
@@ -7040,7 +7074,7 @@
         },\
         \"OnDemandOptions\":{\
           \"shape\":\"OnDemandOptionsRequest\",\
-          \"documentation\":\"<p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>\"\
+          \"documentation\":\"<p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>\"\
         },\
         \"ExcessCapacityTerminationPolicy\":{\
           \"shape\":\"FleetExcessCapacityTerminationPolicy\",\
@@ -7052,7 +7086,7 @@
         },\
         \"TargetCapacitySpecification\":{\
           \"shape\":\"TargetCapacitySpecificationRequest\",\
-          \"documentation\":\"<p>The <code>TotalTargetCapacity</code>, <code>OnDemandTargetCapacity</code>, <code>SpotTargetCapacity</code>, and <code>DefaultCapacityType</code> structure.</p>\"\
+          \"documentation\":\"<p>The number of units to request.</p>\"\
         },\
         \"TerminateInstancesWithExpiration\":{\
           \"shape\":\"Boolean\",\
@@ -7627,7 +7661,7 @@
         },\
         \"InterfaceType\":{\
           \"shape\":\"NetworkInterfaceCreationType\",\
-          \"documentation\":\"<p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html\\\"> Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p>\"\
+          \"documentation\":\"<p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html\\\"> Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
         },\
         \"SubnetId\":{\
           \"shape\":\"String\",\
@@ -21525,6 +21559,10 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The size of the fleet.</p>\",\
           \"locationName\":\"targetCapacity\"\
+        },\
+        \"OnDemandTargetCapacity\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of On-Demand Instances in the fleet.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for ModifySpotFleetRequest.</p>\"\
@@ -22895,9 +22933,14 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.</p>\",\
           \"locationName\":\"minTargetCapacity\"\
+        },\
+        \"MaxTotalPrice\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>\",\
+          \"locationName\":\"maxTotalPrice\"\
         }\
       },\
-      \"documentation\":\"<p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>\"\
+      \"documentation\":\"<p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>\"\
     },\
     \"OnDemandOptionsRequest\":{\
       \"type\":\"structure\",\
@@ -22917,9 +22960,13 @@
         \"MinTargetCapacity\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.</p>\"\
+        },\
+        \"MaxTotalPrice\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The allocation strategy of On-Demand Instances in an EC2 Fleet.</p>\"\
+      \"documentation\":\"<p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>\"\
     },\
     \"OperationType\":{\
       \"type\":\"string\",\
@@ -27608,6 +27655,16 @@
           \"documentation\":\"<p>The number of On-Demand units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p>\",\
           \"locationName\":\"onDemandTargetCapacity\"\
         },\
+        \"OnDemandMaxTotalPrice\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the <code>onDemandMaxTotalPrice</code> parameter, the <code>spotMaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity.</p>\",\
+          \"locationName\":\"onDemandMaxTotalPrice\"\
+        },\
+        \"SpotMaxTotalPrice\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay. You can use the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity.</p>\",\
+          \"locationName\":\"spotMaxTotalPrice\"\
+        },\
         \"TerminateInstancesWithExpiration\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether running Spot Instances are terminated when the Spot Fleet request expires.</p>\",\
@@ -27916,6 +27973,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.</p>\",\
           \"locationName\":\"minTargetCapacity\"\
+        },\
+        \"MaxTotalPrice\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>\",\
+          \"locationName\":\"maxTotalPrice\"\
         }\
       },\
       \"documentation\":\"<p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>\"\
@@ -27946,6 +28008,10 @@
         \"MinTargetCapacity\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The minimum target capacity for Spot Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances.</p>\"\
+        },\
+        \"MaxTotalPrice\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>\"\
@@ -28505,12 +28571,12 @@
         },\
         \"OnDemandTargetCapacity\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of On-Demand units to request.</p>\",\
+          \"documentation\":\"<p>The number of On-Demand units to request. If you specify a target capacity for Spot units, you cannot specify a target capacity for On-Demand units.</p>\",\
           \"locationName\":\"onDemandTargetCapacity\"\
         },\
         \"SpotTargetCapacity\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The maximum number of Spot units to launch.</p>\",\
+          \"documentation\":\"<p>The maximum number of Spot units to launch. If you specify a target capacity for On-Demand units, you cannot specify a target capacity for Spot units.</p>\",\
           \"locationName\":\"spotTargetCapacity\"\
         },\
         \"DefaultTargetCapacityType\":{\
@@ -28519,7 +28585,7 @@
           \"locationName\":\"defaultTargetCapacityType\"\
         }\
       },\
-      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p>\"\
+      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p> <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code>, or both to ensure your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity. The <code>MaxTotalPrice</code> parameters are located in and </p>\"\
     },\
     \"TargetCapacitySpecificationRequest\":{\
       \"type\":\"structure\",\
@@ -28542,7 +28608,7 @@
           \"documentation\":\"<p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or <code>On-Demand</code>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p>\"\
+      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p> <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity. The <code>MaxTotalPrice</code> parameters are located in and .</p>\"\
     },\
     \"TargetConfiguration\":{\
       \"type\":\"structure\",\
