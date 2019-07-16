@@ -110,6 +110,9 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
         if ([value caseInsensitiveCompare:@"GET_HLS_STREAMING_SESSION_URL"] == NSOrderedSame) {
             return @(AWSKinesisVideoAPINameGetHlsStreamingSessionUrl);
         }
+        if ([value caseInsensitiveCompare:@"GET_DASH_STREAMING_SESSION_URL"] == NSOrderedSame) {
+            return @(AWSKinesisVideoAPINameGetDashStreamingSessionUrl);
+        }
         return @(AWSKinesisVideoAPINameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -123,6 +126,8 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
                 return @"GET_MEDIA_FOR_FRAGMENT_LIST";
             case AWSKinesisVideoAPINameGetHlsStreamingSessionUrl:
                 return @"GET_HLS_STREAMING_SESSION_URL";
+            case AWSKinesisVideoAPINameGetDashStreamingSessionUrl:
+                return @"GET_DASH_STREAMING_SESSION_URL";
             default:
                 return nil;
         }
