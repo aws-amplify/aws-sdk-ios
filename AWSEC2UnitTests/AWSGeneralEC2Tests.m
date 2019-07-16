@@ -523,10 +523,11 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSEC2 EC2ForKey:key] assignPrivateIpAddresses:[AWSEC2AssignPrivateIpAddressesRequest new] completionHandler:^(NSError * _Nullable error) {
+	[[AWSEC2 EC2ForKey:key] assignPrivateIpAddresses:[AWSEC2AssignPrivateIpAddressesRequest new] completionHandler:^(AWSEC2AssignPrivateIpAddressesResult* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
