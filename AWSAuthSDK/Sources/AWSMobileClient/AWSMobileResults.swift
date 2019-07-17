@@ -158,41 +158,50 @@ extension AWSMobileClientError {
     /// Underlying error message of `AWSMobileClientError`
     var message: String {
         switch self {
-        case .aliasExists(let message): return message
-        case .codeDeliveryFailure(let message): return message
-        case .codeMismatch(let message): return message
-        case .expiredCode(let message): return message
-        case .groupExists(let message): return message
-        case .internalError(let message): return message
-        case .invalidLambdaResponse(let message): return message
-        case .invalidOAuthFlow(let message): return message
-        case .invalidParameter(let message): return message
-        case .invalidPassword(let message): return message
-        case .invalidUserPoolConfiguration(let message): return message
-        case .limitExceeded(let message): return message
-        case .mfaMethodNotFound(let message): return message
-        case .notAuthorized(let message): return message
-        case .passwordResetRequired(let message): return message
-        case .resourceNotFound(let message): return message
-        case .scopeDoesNotExist(let message): return message
-        case .softwareTokenMFANotFound(let message): return message
-        case .tooManyFailedAttempts(let message): return message
-        case .tooManyRequests(let message): return message
-        case .unexpectedLambda(let message): return message
-        case .userLambdaValidation(let message): return message
-        case .userNotConfirmed(let message): return message
-        case .userNotFound(let message): return message
-        case .usernameExists(let message): return message
-        case .unknown(let message): return message
-        case .notSignedIn(let message): return message
-        case .identityIdUnavailable(let message): return message
-        case .guestAccessNotAllowed(let message): return message
-        case .federationProviderExists(let message): return message
-        case .cognitoIdentityPoolNotConfigured(let message): return message
-        case .unableToSignIn(let message): return message
-        case .invalidState(let message): return message
-        case .userPoolNotConfigured(let message): return message
-        case .userCancelledSignIn(let message): return message
+        case .aliasExists(let message),
+             .badRequest(let message),
+             .codeDeliveryFailure(let message),
+             .codeMismatch(let message),
+             .cognitoIdentityPoolNotConfigured(let message),
+             .deviceNotRemembered(let message),
+             .errorLoadingPage(let message),
+             .expiredCode(let message),
+             .expiredRefreshToken(let message),
+             .federationProviderExists(let message),
+             .groupExists(let message),
+             .guestAccessNotAllowed(let message),
+             .idTokenAndAcceessTokenNotIssued(let message),
+             .idTokenNotIssued(let message),
+             .identityIdUnavailable(let message),
+             .internalError(let message),
+             .invalidConfiguration(let message),
+             .invalidLambdaResponse(let message),
+             .invalidOAuthFlow(let message),
+             .invalidParameter(let message),
+             .invalidPassword(let message),
+             .invalidState(let message),
+             .invalidUserPoolConfiguration(let message),
+             .limitExceeded(let message),
+             .mfaMethodNotFound(let message),
+             .notAuthorized(let message),
+             .notSignedIn(let message),
+             .passwordResetRequired(let message),
+             .resourceNotFound(let message),
+             .scopeDoesNotExist(let message),
+             .securityFailed(let message),
+             .softwareTokenMFANotFound(let message),
+             .tooManyFailedAttempts(let message),
+             .tooManyRequests(let message),
+             .unableToSignIn(let message),
+             .unexpectedLambda(let message),
+             .unknown(let message),
+             .userCancelledSignIn(let message),
+             .userLambdaValidation(let message),
+             .userNotConfirmed(let message),
+             .userNotFound(let message),
+             .userPoolNotConfigured(let message),
+             .usernameExists(let message):
+            return message
         }
     }
 }
@@ -273,4 +282,3 @@ public struct UserCodeDeliveryDetails {
         self.attributeName = attributeName
     }
 }
-
