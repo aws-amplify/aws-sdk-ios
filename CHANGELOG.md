@@ -19,12 +19,16 @@
   file, as when using the new `generate_multiple_pod_projects` feature in cocoapods 1.7.
   See [PR #1540](https://github.com/aws-amplify/aws-sdk-ios/pull/1540) and [#1611](https://github.com/aws-amplify/aws-sdk-ios/pull/1611).
   Thanks @hughescr and @colinhumber!
+- **AWSMobileClient**
+  - Added a `message` convenience property to AWSMobileClientError. See [#1268](https://github.com/aws-amplify/aws-sdk-ios/issues/1268) and
+    [PR #1270](https://github.com/aws-amplify/aws-sdk-ios/pull/1270). Thanks @medvedNick!
 
 - Model updates for the following services
   - Amazon EC2
     - **Breaking API Change**
       - The AWSEC2 method `-[assignPrivateIpAddresses:]` now returns an `AWSTask<AWSEC2AssignPrivateIpAddressesResult *>` instead of an `AWSTask<nil>`.
-      - The first argument to the completion handler for the AWSEC2 method `-[assignPrivateIpAddresses:completionHandler]` is now a nullable `AWSEC2AssignPrivateIpAddressesResult`, rather than a `nil`.
+      - The first argument to the completion handler for the AWSEC2 method `-[assignPrivateIpAddresses:completionHandler]` is now a nullable
+      `AWSEC2AssignPrivateIpAddressesResult`, rather than a `nil`.
   - Amazon Kinesis Video Streams
 
 ## 2.9.10
