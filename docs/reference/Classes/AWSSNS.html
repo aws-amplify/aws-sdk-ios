@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -256,56 +256,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultSNS" title="defaultSNS"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultSNS">+&nbsp;defaultSNS</a></code>
 </h3>
@@ -736,7 +690,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addPermission:(AWSSNSAddPermissionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)addPermission:(AWSSNSAddPermissionInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -881,7 +835,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCheckIfPhoneNumberIsOptedOutResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSCheckIfPhoneNumberIsOptedOutResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1023,7 +977,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSConfirmSubscriptionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSConfirmSubscriptionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1171,7 +1125,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreatePlatformApplicationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSCreatePlatformApplicationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1319,7 +1273,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreateEndpointResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSCreateEndpointResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1461,7 +1415,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createTopic:(AWSSNSCreateTopicInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreateTopicResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createTopic:(AWSSNSCreateTopicInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSCreateTopicResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1607,7 +1561,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteEndpoint:(AWSSNSDeleteEndpointInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteEndpoint:(AWSSNSDeleteEndpointInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1744,7 +1698,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1881,7 +1835,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteTopic:(AWSSNSDeleteTopicInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteTopic:(AWSSNSDeleteTopicInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2020,7 +1974,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetEndpointAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSGetEndpointAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2162,7 +2116,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetPlatformApplicationAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSGetPlatformApplicationAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2310,7 +2264,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetSMSAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSGetSMSAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2452,7 +2406,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetSubscriptionAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSGetSubscriptionAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2594,7 +2548,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetTopicAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSGetTopicAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2742,7 +2696,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListEndpointsByPlatformApplicationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListEndpointsByPlatformApplicationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2890,7 +2844,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListPhoneNumbersOptedOutResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListPhoneNumbersOptedOutResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3038,7 +2992,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListPlatformApplicationsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListPlatformApplicationsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3186,7 +3140,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listSubscriptions:(AWSSNSListSubscriptionsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListSubscriptionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listSubscriptions:(AWSSNSListSubscriptionsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListSubscriptionsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3334,7 +3288,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListSubscriptionsByTopicResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListSubscriptionsByTopicResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3476,7 +3430,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSSNSListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListTagsForResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSSNSListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListTagsForResourceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3624,7 +3578,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTopics:(AWSSNSListTopicsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListTopicsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTopics:(AWSSNSListTopicsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSListTopicsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3772,7 +3726,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSOptInPhoneNumberResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSOptInPhoneNumberResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3938,7 +3892,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)publish:(AWSSNSPublishInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSPublishResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)publish:(AWSSNSPublishInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSPublishResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4078,7 +4032,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)removePermission:(AWSSNSRemovePermissionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)removePermission:(AWSSNSRemovePermissionInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4215,7 +4169,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4352,7 +4306,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4497,7 +4451,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSSetSMSAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSSetSMSAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4637,7 +4591,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4774,7 +4728,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4919,7 +4873,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)subscribe:(AWSSNSSubscribeInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSSubscribeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)subscribe:(AWSSNSSubscribeInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSSubscribeResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5079,7 +5033,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSSNSTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSTagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSSNSTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSTagResourceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5225,7 +5179,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)unsubscribe:(AWSSNSUnsubscribeInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)unsubscribe:(AWSSNSUnsubscribeInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5364,7 +5318,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSSNSUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSUntagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSSNSUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSNSUntagResourceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5421,6 +5375,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -5433,7 +5441,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

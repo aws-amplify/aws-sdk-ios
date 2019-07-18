@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -108,8 +108,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithAuthUIConfiguration:" title="initWithAuthUIConfiguration:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithAuthUIConfiguration:">&ndash;&nbsp;initWithAuthUIConfiguration:</a></code>
+	<a name="//api/name/loginWithUserName:password:navigationController:completionHandler:" title="loginWithUserName:password:navigationController:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginWithUserName:password:navigationController:completionHandler:">&ndash;&nbsp;loginWithUserName:password:navigationController:completionHandler:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -119,12 +119,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initialize UserPools with AuthUIConfiguration</p>
+				<p>Perform UserPools Login with username, password, completionhandler
+and the navigation controller of the application</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (id)initWithAuthUIConfiguration:(AWSAuthUIConfiguration *)<em>configuration</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)loginWithUserName:(NSString *)<em>userName</em> password:(NSString *)<em>password</em> navigationController:(UINavigationController *)<em>navController</em> completionHandler:(nonnull void ( ^ ) ( id _Nullable , NSError *_Nullable ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -133,8 +134,23 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>configuration</code></th>
-						<td><p>AWSUIConfiguration
+						<th scope="row" class="argument-name"><code>userName</code></th>
+						<td><p>Username</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>password</code></th>
+						<td><p>Password</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>navController</code></th>
+						<td><p>NavigationController of the application&rsquo;s ViewController</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>Callback to the application&rsquo;s ViewController
 *</p></td>
 					</tr>
 				
@@ -162,8 +178,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/loginWithUserName:password:navigationController:completionHandler:" title="loginWithUserName:password:navigationController:completionHandler:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/loginWithUserName:password:navigationController:completionHandler:">&ndash;&nbsp;loginWithUserName:password:navigationController:completionHandler:</a></code>
+	<a name="//api/name/initWithAuthUIConfiguration:" title="initWithAuthUIConfiguration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithAuthUIConfiguration:">&ndash;&nbsp;initWithAuthUIConfiguration:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -173,13 +189,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Perform UserPools Login with username, password, completionhandler
-and the navigation controller of the application</p>
+				<p>Initialize UserPools with AuthUIConfiguration</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)loginWithUserName:(NSString *)<em>userName</em> password:(NSString *)<em>password</em> navigationController:(UINavigationController *)<em>navController</em> completionHandler:(void ( ^ ) ( id _Nullable result , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (id)initWithAuthUIConfiguration:(id&lt;AWSUIConfiguration&gt;)<em>configuration</em></code></div>
 
 		    
 			
@@ -188,23 +203,8 @@ and the navigation controller of the application</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>userName</code></th>
-						<td><p>Username</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>password</code></th>
-						<td><p>Password</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>navController</code></th>
-						<td><p>NavigationController of the application&rsquo;s ViewController</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>completionHandler</code></th>
-						<td><p>Callback to the application&rsquo;s ViewController
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>AWSUIConfiguration
 *</p></td>
 					</tr>
 				
@@ -354,7 +354,7 @@ and the navigation controller of the application</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

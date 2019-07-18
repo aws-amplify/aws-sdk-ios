@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -164,56 +164,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSKinesisVideoService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultKinesisVideo" title="defaultKinesisVideo"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultKinesisVideo">+&nbsp;defaultKinesisVideo</a></code>
 </h3>
@@ -670,7 +624,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createStream:(AWSKinesisVideoCreateStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoCreateStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createStream:(AWSKinesisVideoCreateStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoCreateStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -836,7 +790,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteStream:(AWSKinesisVideoDeleteStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoDeleteStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteStream:(AWSKinesisVideoDeleteStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoDeleteStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -978,7 +932,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeStream:(AWSKinesisVideoDescribeStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoDescribeStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeStream:(AWSKinesisVideoDescribeStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoDescribeStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1124,7 +1078,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getDataEndpoint:(AWSKinesisVideoGetDataEndpointInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoGetDataEndpointOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getDataEndpoint:(AWSKinesisVideoGetDataEndpointInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoGetDataEndpointOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1266,7 +1220,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listStreams:(AWSKinesisVideoListStreamsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoListStreamsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listStreams:(AWSKinesisVideoListStreamsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoListStreamsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1414,7 +1368,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsForStream:(AWSKinesisVideoListTagsForStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoListTagsForStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForStream:(AWSKinesisVideoListTagsForStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoListTagsForStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1574,7 +1528,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagStream:(AWSKinesisVideoTagStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoTagStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagStream:(AWSKinesisVideoTagStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoTagStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1722,7 +1676,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagStream:(AWSKinesisVideoUntagStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoUntagStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagStream:(AWSKinesisVideoUntagStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoUntagStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1868,7 +1822,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateDataRetention:(AWSKinesisVideoUpdateDataRetentionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoUpdateDataRetentionOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateDataRetention:(AWSKinesisVideoUpdateDataRetentionInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoUpdateDataRetentionOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2028,7 +1982,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateStream:(AWSKinesisVideoUpdateStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoUpdateStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateStream:(AWSKinesisVideoUpdateStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisVideoUpdateStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2085,6 +2039,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -2097,7 +2105,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

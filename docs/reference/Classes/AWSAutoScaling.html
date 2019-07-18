@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -340,56 +340,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSAutoScalingService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultAutoScaling" title="defaultAutoScaling"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultAutoScaling">+&nbsp;defaultAutoScaling</a></code>
 </h3>
@@ -838,7 +792,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)attachInstances:(AWSAutoScalingAttachInstancesQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)attachInstances:(AWSAutoScalingAttachInstancesQuery *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -989,7 +943,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)attachLoadBalancerTargetGroups:(AWSAutoScalingAttachLoadBalancerTargetGroupsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingAttachLoadBalancerTargetGroupsResultType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)attachLoadBalancerTargetGroups:(AWSAutoScalingAttachLoadBalancerTargetGroupsType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingAttachLoadBalancerTargetGroupsResultType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1149,7 +1103,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)attachLoadBalancers:(AWSAutoScalingAttachLoadBalancersType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingAttachLoadBalancersResultType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)attachLoadBalancers:(AWSAutoScalingAttachLoadBalancersType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingAttachLoadBalancersResultType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1291,7 +1245,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingBatchDeleteScheduledActionAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingBatchDeleteScheduledActionAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1433,7 +1387,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1593,7 +1547,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingCompleteLifecycleActionAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingCompleteLifecycleActionAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1739,7 +1693,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1888,7 +1842,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createLaunchConfiguration:(AWSAutoScalingCreateLaunchConfigurationType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2037,7 +1991,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2198,7 +2152,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteAutoScalingGroup:(AWSAutoScalingDeleteAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteAutoScalingGroup:(AWSAutoScalingDeleteAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2341,7 +2295,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteLaunchConfiguration:(AWSAutoScalingLaunchConfigurationNameType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteLaunchConfiguration:(AWSAutoScalingLaunchConfigurationNameType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2486,7 +2440,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteLifecycleHook:(AWSAutoScalingDeleteLifecycleHookType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDeleteLifecycleHookAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteLifecycleHook:(AWSAutoScalingDeleteLifecycleHookType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDeleteLifecycleHookAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2626,7 +2580,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteNotificationConfiguration:(AWSAutoScalingDeleteNotificationConfigurationType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteNotificationConfiguration:(AWSAutoScalingDeleteNotificationConfigurationType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2769,7 +2723,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deletePolicy:(AWSAutoScalingDeletePolicyType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deletePolicy:(AWSAutoScalingDeletePolicyType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2906,7 +2860,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteScheduledAction:(AWSAutoScalingDeleteScheduledActionType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteScheduledAction:(AWSAutoScalingDeleteScheduledActionType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3043,7 +2997,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteTags:(AWSAutoScalingDeleteTagsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteTags:(AWSAutoScalingDeleteTagsType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3186,7 +3140,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAccountLimits:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeAccountLimitsAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAccountLimits:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeAccountLimitsAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3324,7 +3278,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAdjustmentTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeAdjustmentTypesAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAdjustmentTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeAdjustmentTypesAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3464,7 +3418,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAutoScalingGroups:(AWSAutoScalingAutoScalingGroupNamesType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingAutoScalingGroupsType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAutoScalingGroups:(AWSAutoScalingAutoScalingGroupNamesType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingAutoScalingGroupsType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3606,7 +3560,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAutoScalingInstances:(AWSAutoScalingDescribeAutoScalingInstancesType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingAutoScalingInstancesType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAutoScalingInstances:(AWSAutoScalingDescribeAutoScalingInstancesType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingAutoScalingInstancesType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3746,7 +3700,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAutoScalingNotificationTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAutoScalingNotificationTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3886,7 +3840,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLaunchConfigurations:(AWSAutoScalingLaunchConfigurationNamesType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingLaunchConfigurationsType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLaunchConfigurations:(AWSAutoScalingLaunchConfigurationNamesType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingLaunchConfigurationsType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4038,7 +3992,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLifecycleHookTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeLifecycleHookTypesAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLifecycleHookTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeLifecycleHookTypesAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4178,7 +4132,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeLifecycleHooksAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLifecycleHooks:(AWSAutoScalingDescribeLifecycleHooksType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeLifecycleHooksAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4320,7 +4274,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLoadBalancerTargetGroups:(AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLoadBalancerTargetGroups:(AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4468,7 +4422,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLoadBalancers:(AWSAutoScalingDescribeLoadBalancersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeLoadBalancersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLoadBalancers:(AWSAutoScalingDescribeLoadBalancersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeLoadBalancersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4614,7 +4568,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeMetricCollectionTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeMetricCollectionTypesAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeMetricCollectionTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeMetricCollectionTypesAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4754,7 +4708,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeNotificationConfigurations:(AWSAutoScalingDescribeNotificationConfigurationsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeNotificationConfigurationsAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeNotificationConfigurations:(AWSAutoScalingDescribeNotificationConfigurationsType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeNotificationConfigurationsAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4896,7 +4850,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describePolicies:(AWSAutoScalingDescribePoliciesType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingPoliciesType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describePolicies:(AWSAutoScalingDescribePoliciesType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingPoliciesType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5038,7 +4992,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeScalingActivities:(AWSAutoScalingDescribeScalingActivitiesType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingActivitiesType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeScalingActivities:(AWSAutoScalingDescribeScalingActivitiesType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingActivitiesType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5178,7 +5132,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeScalingProcessTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingProcessesType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeScalingProcessTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingProcessesType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5318,7 +5272,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeScheduledActions:(AWSAutoScalingDescribeScheduledActionsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingScheduledActionsType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeScheduledActions:(AWSAutoScalingDescribeScheduledActionsType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingScheduledActionsType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5472,7 +5426,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeTags:(AWSAutoScalingDescribeTagsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingTagsType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeTags:(AWSAutoScalingDescribeTagsType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingTagsType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5618,7 +5572,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeTerminationPolicyTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDescribeTerminationPolicyTypesAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeTerminationPolicyTypes:(AWSRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDescribeTerminationPolicyTypesAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5782,7 +5736,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detachInstances:(AWSAutoScalingDetachInstancesQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDetachInstancesAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detachInstances:(AWSAutoScalingDetachInstancesQuery *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDetachInstancesAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5924,7 +5878,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detachLoadBalancerTargetGroups:(AWSAutoScalingDetachLoadBalancerTargetGroupsType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDetachLoadBalancerTargetGroupsResultType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detachLoadBalancerTargetGroups:(AWSAutoScalingDetachLoadBalancerTargetGroupsType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDetachLoadBalancerTargetGroupsResultType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6078,7 +6032,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detachLoadBalancers:(AWSAutoScalingDetachLoadBalancersType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingDetachLoadBalancersResultType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detachLoadBalancers:(AWSAutoScalingDetachLoadBalancersType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingDetachLoadBalancersResultType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6218,7 +6172,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disableMetricsCollection:(AWSAutoScalingDisableMetricsCollectionQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disableMetricsCollection:(AWSAutoScalingDisableMetricsCollectionQuery *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6355,7 +6309,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enableMetricsCollection:(AWSAutoScalingEnableMetricsCollectionQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enableMetricsCollection:(AWSAutoScalingEnableMetricsCollectionQuery *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6500,7 +6454,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enterStandby:(AWSAutoScalingEnterStandbyQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingEnterStandbyAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enterStandby:(AWSAutoScalingEnterStandbyQuery *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingEnterStandbyAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6640,7 +6594,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)executePolicy:(AWSAutoScalingExecutePolicyType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)executePolicy:(AWSAutoScalingExecutePolicyType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6785,7 +6739,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)exitStandby:(AWSAutoScalingExitStandbyQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingExitStandbyAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)exitStandby:(AWSAutoScalingExitStandbyQuery *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingExitStandbyAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6963,7 +6917,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingPutLifecycleHookAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingPutLifecycleHookAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7115,7 +7069,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7254,7 +7208,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingPolicyARNType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingPolicyARNType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7400,7 +7354,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7557,7 +7511,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)recordLifecycleActionHeartbeat:(AWSAutoScalingRecordLifecycleActionHeartbeatType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingRecordLifecycleActionHeartbeatAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)recordLifecycleActionHeartbeat:(AWSAutoScalingRecordLifecycleActionHeartbeatType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingRecordLifecycleActionHeartbeatAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7703,7 +7657,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)resumeProcesses:(AWSAutoScalingScalingProcessQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)resumeProcesses:(AWSAutoScalingScalingProcessQuery *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7846,7 +7800,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setDesiredCapacity:(AWSAutoScalingSetDesiredCapacityType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7989,7 +7943,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setInstanceHealth:(AWSAutoScalingSetInstanceHealthQuery *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8134,7 +8088,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingSetInstanceProtectionAnswer *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingSetInstanceProtectionAnswer *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8292,7 +8246,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8437,7 +8391,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSAutoScalingActivityType *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ ) ( AWSAutoScalingActivityType *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8601,7 +8555,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateAutoScalingGroup:(AWSAutoScalingUpdateAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateAutoScalingGroup:(AWSAutoScalingUpdateAutoScalingGroupType *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8655,6 +8609,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSAutoScalingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -8667,7 +8675,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

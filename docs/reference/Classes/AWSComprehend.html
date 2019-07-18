@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -305,56 +305,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultComprehend" title="defaultComprehend"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultComprehend">+&nbsp;defaultComprehend</a></code>
 </h3>
@@ -787,7 +741,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectDominantLanguageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectDominantLanguageResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -929,7 +883,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectEntitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectEntitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1071,7 +1025,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectKeyPhrases:(AWSComprehendBatchDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectKeyPhrasesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectKeyPhrases:(AWSComprehendBatchDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectKeyPhrasesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1213,7 +1167,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectSentimentResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectSentimentResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1355,7 +1309,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectSyntaxResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectSyntaxResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1497,7 +1451,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendCreateDocumentClassifierResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendCreateDocumentClassifierResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1639,7 +1593,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createEntityRecognizer:(AWSComprehendCreateEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendCreateEntityRecognizerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createEntityRecognizer:(AWSComprehendCreateEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendCreateEntityRecognizerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1793,7 +1747,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteDocumentClassifier:(AWSComprehendDeleteDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDeleteDocumentClassifierResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteDocumentClassifier:(AWSComprehendDeleteDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDeleteDocumentClassifierResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1947,7 +1901,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteEntityRecognizer:(AWSComprehendDeleteEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDeleteEntityRecognizerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteEntityRecognizer:(AWSComprehendDeleteEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDeleteEntityRecognizerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2089,7 +2043,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeDocumentClassificationJob:(AWSComprehendDescribeDocumentClassificationJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeDocumentClassificationJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeDocumentClassificationJob:(AWSComprehendDescribeDocumentClassificationJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeDocumentClassificationJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2231,7 +2185,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeDocumentClassifier:(AWSComprehendDescribeDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeDocumentClassifierResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeDocumentClassifier:(AWSComprehendDescribeDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeDocumentClassifierResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2373,7 +2327,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeDominantLanguageDetectionJob:(AWSComprehendDescribeDominantLanguageDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeDominantLanguageDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeDominantLanguageDetectionJob:(AWSComprehendDescribeDominantLanguageDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeDominantLanguageDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2515,7 +2469,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeEntitiesDetectionJob:(AWSComprehendDescribeEntitiesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeEntitiesDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeEntitiesDetectionJob:(AWSComprehendDescribeEntitiesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeEntitiesDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2657,7 +2611,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeEntityRecognizer:(AWSComprehendDescribeEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeEntityRecognizerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeEntityRecognizer:(AWSComprehendDescribeEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeEntityRecognizerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2799,7 +2753,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeKeyPhrasesDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeKeyPhrasesDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2941,7 +2895,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeSentimentDetectionJob:(AWSComprehendDescribeSentimentDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeSentimentDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeSentimentDetectionJob:(AWSComprehendDescribeSentimentDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeSentimentDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3083,7 +3037,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeTopicsDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeTopicsDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3225,7 +3179,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectDominantLanguageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectDominantLanguageResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3367,7 +3321,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectEntities:(AWSComprehendDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectEntitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectEntities:(AWSComprehendDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectEntitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3509,7 +3463,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectKeyPhrasesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectKeyPhrasesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3651,7 +3605,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectSentiment:(AWSComprehendDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectSentimentResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectSentiment:(AWSComprehendDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectSentimentResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3793,7 +3747,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectSyntax:(AWSComprehendDetectSyntaxRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectSyntaxResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectSyntax:(AWSComprehendDetectSyntaxRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectSyntaxResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3935,7 +3889,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDocumentClassificationJobs:(AWSComprehendListDocumentClassificationJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListDocumentClassificationJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDocumentClassificationJobs:(AWSComprehendListDocumentClassificationJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListDocumentClassificationJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4077,7 +4031,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDocumentClassifiers:(AWSComprehendListDocumentClassifiersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListDocumentClassifiersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDocumentClassifiers:(AWSComprehendListDocumentClassifiersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListDocumentClassifiersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4219,7 +4173,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDominantLanguageDetectionJobs:(AWSComprehendListDominantLanguageDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListDominantLanguageDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDominantLanguageDetectionJobs:(AWSComprehendListDominantLanguageDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListDominantLanguageDetectionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4361,7 +4315,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listEntitiesDetectionJobs:(AWSComprehendListEntitiesDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListEntitiesDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listEntitiesDetectionJobs:(AWSComprehendListEntitiesDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListEntitiesDetectionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4509,7 +4463,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listEntityRecognizers:(AWSComprehendListEntityRecognizersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListEntityRecognizersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listEntityRecognizers:(AWSComprehendListEntityRecognizersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListEntityRecognizersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4651,7 +4605,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListKeyPhrasesDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListKeyPhrasesDetectionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4793,7 +4747,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listSentimentDetectionJobs:(AWSComprehendListSentimentDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListSentimentDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listSentimentDetectionJobs:(AWSComprehendListSentimentDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListSentimentDetectionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4935,7 +4889,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListTagsForResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSComprehendListTagsForResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListTagsForResourceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5077,7 +5031,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListTopicsDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListTopicsDetectionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5219,7 +5173,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startDocumentClassificationJob:(AWSComprehendStartDocumentClassificationJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartDocumentClassificationJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startDocumentClassificationJob:(AWSComprehendStartDocumentClassificationJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartDocumentClassificationJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5361,7 +5315,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startDominantLanguageDetectionJob:(AWSComprehendStartDominantLanguageDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartDominantLanguageDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startDominantLanguageDetectionJob:(AWSComprehendStartDominantLanguageDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartDominantLanguageDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5509,7 +5463,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startEntitiesDetectionJob:(AWSComprehendStartEntitiesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartEntitiesDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startEntitiesDetectionJob:(AWSComprehendStartEntitiesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartEntitiesDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5651,7 +5605,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartKeyPhrasesDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartKeyPhrasesDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5793,7 +5747,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startSentimentDetectionJob:(AWSComprehendStartSentimentDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartSentimentDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startSentimentDetectionJob:(AWSComprehendStartSentimentDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartSentimentDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5935,7 +5889,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartTopicsDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartTopicsDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6095,7 +6049,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopDominantLanguageDetectionJob:(AWSComprehendStopDominantLanguageDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopDominantLanguageDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopDominantLanguageDetectionJob:(AWSComprehendStopDominantLanguageDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStopDominantLanguageDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6255,7 +6209,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopEntitiesDetectionJob:(AWSComprehendStopEntitiesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopEntitiesDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopEntitiesDetectionJob:(AWSComprehendStopEntitiesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStopEntitiesDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6415,7 +6369,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopKeyPhrasesDetectionJob:(AWSComprehendStopKeyPhrasesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopKeyPhrasesDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopKeyPhrasesDetectionJob:(AWSComprehendStopKeyPhrasesDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStopKeyPhrasesDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6575,7 +6529,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopSentimentDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStopSentimentDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6723,7 +6677,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopTrainingDocumentClassifierResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStopTrainingDocumentClassifierResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6871,7 +6825,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopTrainingEntityRecognizerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStopTrainingEntityRecognizerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7013,7 +6967,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSComprehendTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendTagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSComprehendTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendTagResourceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7155,7 +7109,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSComprehendUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendUntagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSComprehendUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendUntagResourceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7212,6 +7166,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -7224,7 +7232,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

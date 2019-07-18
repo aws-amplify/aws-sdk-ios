@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -268,56 +268,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSDynamoDBService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultDynamoDB" title="defaultDynamoDB"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultDynamoDB">+&nbsp;defaultDynamoDB</a></code>
 </h3>
@@ -760,7 +714,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchGetItem:(AWSDynamoDBBatchGetItemInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBBatchGetItemOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchGetItem:(AWSDynamoDBBatchGetItemInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBBatchGetItemOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -906,7 +860,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchWriteItem:(AWSDynamoDBBatchWriteItemInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBBatchWriteItemOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchWriteItem:(AWSDynamoDBBatchWriteItemInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBBatchWriteItemOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1090,7 +1044,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createBackup:(AWSDynamoDBCreateBackupInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBCreateBackupOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createBackup:(AWSDynamoDBCreateBackupInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBCreateBackupOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1260,7 +1214,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createGlobalTable:(AWSDynamoDBCreateGlobalTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBCreateGlobalTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createGlobalTable:(AWSDynamoDBCreateGlobalTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBCreateGlobalTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1420,7 +1374,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createTable:(AWSDynamoDBCreateTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBCreateTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createTable:(AWSDynamoDBCreateTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBCreateTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1568,7 +1522,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteBackup:(AWSDynamoDBDeleteBackupInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDeleteBackupOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteBackup:(AWSDynamoDBDeleteBackupInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDeleteBackupOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1728,7 +1682,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteItem:(AWSDynamoDBDeleteItemInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDeleteItemOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteItem:(AWSDynamoDBDeleteItemInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDeleteItemOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1874,7 +1828,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteTable:(AWSDynamoDBDeleteTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDeleteTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteTable:(AWSDynamoDBDeleteTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDeleteTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2022,7 +1976,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeBackup:(AWSDynamoDBDescribeBackupInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeBackupOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeBackup:(AWSDynamoDBDescribeBackupInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeBackupOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2182,7 +2136,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeContinuousBackups:(AWSDynamoDBDescribeContinuousBackupsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeContinuousBackupsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeContinuousBackups:(AWSDynamoDBDescribeContinuousBackupsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeContinuousBackupsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2324,7 +2278,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeEndpointsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeEndpointsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2466,7 +2420,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeGlobalTable:(AWSDynamoDBDescribeGlobalTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeGlobalTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeGlobalTable:(AWSDynamoDBDescribeGlobalTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeGlobalTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2608,7 +2562,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeGlobalTableSettings:(AWSDynamoDBDescribeGlobalTableSettingsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeGlobalTableSettingsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeGlobalTableSettings:(AWSDynamoDBDescribeGlobalTableSettingsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeGlobalTableSettingsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2796,7 +2750,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLimits:(AWSDynamoDBDescribeLimitsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeLimitsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLimits:(AWSDynamoDBDescribeLimitsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeLimitsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2942,7 +2896,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeTable:(AWSDynamoDBDescribeTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeTable:(AWSDynamoDBDescribeTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3084,7 +3038,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeTimeToLive:(AWSDynamoDBDescribeTimeToLiveInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBDescribeTimeToLiveOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeTimeToLive:(AWSDynamoDBDescribeTimeToLiveInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBDescribeTimeToLiveOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3232,7 +3186,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getItem:(AWSDynamoDBGetItemInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBGetItemOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getItem:(AWSDynamoDBGetItemInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBGetItemOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3386,7 +3340,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listBackups:(AWSDynamoDBListBackupsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBListBackupsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listBackups:(AWSDynamoDBListBackupsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBListBackupsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3528,7 +3482,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listGlobalTables:(AWSDynamoDBListGlobalTablesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBListGlobalTablesOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listGlobalTables:(AWSDynamoDBListGlobalTablesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBListGlobalTablesOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3670,7 +3624,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTables:(AWSDynamoDBListTablesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBListTablesOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTables:(AWSDynamoDBListTablesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBListTablesOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3818,7 +3772,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsOfResource:(AWSDynamoDBListTagsOfResourceInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBListTagsOfResourceOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsOfResource:(AWSDynamoDBListTagsOfResourceInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBListTagsOfResourceOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3964,7 +3918,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putItem:(AWSDynamoDBPutItemInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBPutItemOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putItem:(AWSDynamoDBPutItemInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBPutItemOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4122,7 +4076,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)query:(AWSDynamoDBQueryInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBQueryOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)query:(AWSDynamoDBQueryInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBQueryOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4282,7 +4236,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)restoreTableFromBackup:(AWSDynamoDBRestoreTableFromBackupInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBRestoreTableFromBackupOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)restoreTableFromBackup:(AWSDynamoDBRestoreTableFromBackupInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBRestoreTableFromBackupOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4454,7 +4408,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)restoreTableToPointInTime:(AWSDynamoDBRestoreTableToPointInTimeInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBRestoreTableToPointInTimeOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)restoreTableToPointInTime:(AWSDynamoDBRestoreTableToPointInTimeInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBRestoreTableToPointInTimeOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4620,7 +4574,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)scan:(AWSDynamoDBScanInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBScanOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)scan:(AWSDynamoDBScanInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBScanOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4766,7 +4720,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSDynamoDBTagResourceInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSDynamoDBTagResourceInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4909,7 +4863,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBTransactGetItemsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBTransactGetItemsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5055,7 +5009,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBTransactWriteItemsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBTransactWriteItemsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5201,7 +5155,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSDynamoDBUntagResourceInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSDynamoDBUntagResourceInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5352,7 +5306,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateContinuousBackups:(AWSDynamoDBUpdateContinuousBackupsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBUpdateContinuousBackupsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateContinuousBackups:(AWSDynamoDBUpdateContinuousBackupsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBUpdateContinuousBackupsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5498,7 +5452,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateGlobalTable:(AWSDynamoDBUpdateGlobalTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBUpdateGlobalTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateGlobalTable:(AWSDynamoDBUpdateGlobalTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBUpdateGlobalTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5640,7 +5594,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateGlobalTableSettings:(AWSDynamoDBUpdateGlobalTableSettingsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBUpdateGlobalTableSettingsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateGlobalTableSettings:(AWSDynamoDBUpdateGlobalTableSettingsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBUpdateGlobalTableSettingsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5788,7 +5742,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateItem:(AWSDynamoDBUpdateItemInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBUpdateItemOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateItem:(AWSDynamoDBUpdateItemInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBUpdateItemOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5948,7 +5902,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateTable:(AWSDynamoDBUpdateTableInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBUpdateTableOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateTable:(AWSDynamoDBUpdateTableInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBUpdateTableOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6100,7 +6054,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateTimeToLive:(AWSDynamoDBUpdateTimeToLiveInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBUpdateTimeToLiveOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateTimeToLive:(AWSDynamoDBUpdateTimeToLiveInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSDynamoDBUpdateTimeToLiveOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6157,6 +6111,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -6169,7 +6177,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

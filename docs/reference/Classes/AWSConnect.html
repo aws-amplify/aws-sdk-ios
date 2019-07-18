@@ -1,0 +1,3654 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSConnect Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/ConnectForKey:">+ ConnectForKey:</option>
+		
+		<option value="//api/name/defaultConnect">+ defaultConnect</option>
+		
+		<option value="//api/name/registerConnectWithConfiguration:forKey:">+ registerConnectWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeConnectForKey:">+ removeConnectForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createUser:">- createUser:</option>
+		
+		<option value="//api/name/createUser:completionHandler:">- createUser:completionHandler:</option>
+		
+		<option value="//api/name/deleteUser:">- deleteUser:</option>
+		
+		<option value="//api/name/deleteUser:completionHandler:">- deleteUser:completionHandler:</option>
+		
+		<option value="//api/name/describeUser:">- describeUser:</option>
+		
+		<option value="//api/name/describeUser:completionHandler:">- describeUser:completionHandler:</option>
+		
+		<option value="//api/name/describeUserHierarchyGroup:">- describeUserHierarchyGroup:</option>
+		
+		<option value="//api/name/describeUserHierarchyGroup:completionHandler:">- describeUserHierarchyGroup:completionHandler:</option>
+		
+		<option value="//api/name/describeUserHierarchyStructure:">- describeUserHierarchyStructure:</option>
+		
+		<option value="//api/name/describeUserHierarchyStructure:completionHandler:">- describeUserHierarchyStructure:completionHandler:</option>
+		
+		<option value="//api/name/getContactAttributes:">- getContactAttributes:</option>
+		
+		<option value="//api/name/getContactAttributes:completionHandler:">- getContactAttributes:completionHandler:</option>
+		
+		<option value="//api/name/getCurrentMetricData:">- getCurrentMetricData:</option>
+		
+		<option value="//api/name/getCurrentMetricData:completionHandler:">- getCurrentMetricData:completionHandler:</option>
+		
+		<option value="//api/name/getFederationToken:">- getFederationToken:</option>
+		
+		<option value="//api/name/getFederationToken:completionHandler:">- getFederationToken:completionHandler:</option>
+		
+		<option value="//api/name/getMetricData:">- getMetricData:</option>
+		
+		<option value="//api/name/getMetricData:completionHandler:">- getMetricData:completionHandler:</option>
+		
+		<option value="//api/name/listRoutingProfiles:">- listRoutingProfiles:</option>
+		
+		<option value="//api/name/listRoutingProfiles:completionHandler:">- listRoutingProfiles:completionHandler:</option>
+		
+		<option value="//api/name/listSecurityProfiles:">- listSecurityProfiles:</option>
+		
+		<option value="//api/name/listSecurityProfiles:completionHandler:">- listSecurityProfiles:completionHandler:</option>
+		
+		<option value="//api/name/listUserHierarchyGroups:">- listUserHierarchyGroups:</option>
+		
+		<option value="//api/name/listUserHierarchyGroups:completionHandler:">- listUserHierarchyGroups:completionHandler:</option>
+		
+		<option value="//api/name/listUsers:">- listUsers:</option>
+		
+		<option value="//api/name/listUsers:completionHandler:">- listUsers:completionHandler:</option>
+		
+		<option value="//api/name/startOutboundVoiceContact:">- startOutboundVoiceContact:</option>
+		
+		<option value="//api/name/startOutboundVoiceContact:completionHandler:">- startOutboundVoiceContact:completionHandler:</option>
+		
+		<option value="//api/name/stopContact:">- stopContact:</option>
+		
+		<option value="//api/name/stopContact:completionHandler:">- stopContact:completionHandler:</option>
+		
+		<option value="//api/name/updateContactAttributes:">- updateContactAttributes:</option>
+		
+		<option value="//api/name/updateContactAttributes:completionHandler:">- updateContactAttributes:completionHandler:</option>
+		
+		<option value="//api/name/updateUserHierarchy:">- updateUserHierarchy:</option>
+		
+		<option value="//api/name/updateUserHierarchy:completionHandler:">- updateUserHierarchy:completionHandler:</option>
+		
+		<option value="//api/name/updateUserIdentityInfo:">- updateUserIdentityInfo:</option>
+		
+		<option value="//api/name/updateUserIdentityInfo:completionHandler:">- updateUserIdentityInfo:completionHandler:</option>
+		
+		<option value="//api/name/updateUserPhoneConfig:">- updateUserPhoneConfig:</option>
+		
+		<option value="//api/name/updateUserPhoneConfig:completionHandler:">- updateUserPhoneConfig:completionHandler:</option>
+		
+		<option value="//api/name/updateUserRoutingProfile:">- updateUserRoutingProfile:</option>
+		
+		<option value="//api/name/updateUserRoutingProfile:completionHandler:">- updateUserRoutingProfile:completionHandler:</option>
+		
+		<option value="//api/name/updateUserSecurityProfiles:">- updateUserSecurityProfiles:</option>
+		
+		<option value="//api/name/updateUserSecurityProfiles:completionHandler:">- updateUserSecurityProfiles:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSConnect Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSConnectService.h<br />AWSConnectService.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The Amazon Connect API Reference provides descriptions, syntax, and usage examples for each of the Amazon Connect actions, data types, parameters, and errors. Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p>
+
+
+<p>Throttling limits for the Amazon Connect API operations:</p>
+
+
+<p>For the <code>GetMetricData</code> and <code>GetCurrentMetricData</code> operations, a RateLimit of 5 per second, and a BurstLimit of 8 per second.</p>
+
+
+<p>For all other operations, a RateLimit of 2 per second, and a BurstLimit of 5 per second.</p>
+
+
+<p>You can request an increase to the throttling limits by submitting a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">Amazon Connect service limits increase form</a>. You must be signed in to your AWS account to access the form.</p>
+
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/defaultConnect" title="defaultConnect"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultConnect">+&nbsp;defaultConnect</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultConnect</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Connect = AWSConnect.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSConnect *Connect = [AWSConnect defaultConnect];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerConnectWithConfiguration:forKey:" title="registerConnectWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerConnectWithConfiguration:forKey:">+&nbsp;registerConnectWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerConnectWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSConnect.register(with: configuration!, forKey: "USWest2Connect")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSConnect registerConnectWithConfiguration:configuration forKey:@"USWest2Connect"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Connect = AWSConnect(forKey: "USWest2Connect")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSConnect *Connect = [AWSConnect ConnectForKey:@"USWest2Connect"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ConnectForKey:" title="ConnectForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ConnectForKey:">+&nbsp;ConnectForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerConnectWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)ConnectForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSConnect.register(with: configuration!, forKey: "USWest2Connect")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSConnect registerConnectWithConfiguration:configuration forKey:@"USWest2Connect"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Connect = AWSConnect(forKey: "USWest2Connect")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSConnect *Connect = [AWSConnect ConnectForKey:@"USWest2Connect"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeConnectForKey:" title="removeConnectForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeConnectForKey:">+&nbsp;removeConnectForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeConnectForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createUser:" title="createUser:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createUser:">&ndash;&nbsp;createUser:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new user account in your Amazon Connect instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectCreateUserResponse*&gt; *)createUser:(AWSConnectCreateUserRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateUser service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectCreateUserResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorLimitExceeded</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectCreateUserRequest.html">AWSConnectCreateUserRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectCreateUserResponse.html">AWSConnectCreateUserResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createUser:completionHandler:" title="createUser:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createUser:completionHandler:">&ndash;&nbsp;createUser:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new user account in your Amazon Connect instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createUser:(AWSConnectCreateUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectCreateUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateUser service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorLimitExceeded</code>, <code>AWSConnectErrorDuplicateResource</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectCreateUserRequest.html">AWSConnectCreateUserRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectCreateUserResponse.html">AWSConnectCreateUserResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteUser:" title="deleteUser:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteUser:">&ndash;&nbsp;deleteUser:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a user account from Amazon Connect.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteUser:(AWSConnectDeleteUserRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteUser service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDeleteUserRequest.html">AWSConnectDeleteUserRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteUser:completionHandler:" title="deleteUser:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteUser:completionHandler:">&ndash;&nbsp;deleteUser:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a user account from Amazon Connect.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteUser:(AWSConnectDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteUser service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDeleteUserRequest.html">AWSConnectDeleteUserRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeUser:" title="describeUser:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeUser:">&ndash;&nbsp;describeUser:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>User</code> object that contains information about the user account specified by the <code>UserId</code>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectDescribeUserResponse*&gt; *)describeUser:(AWSConnectDescribeUserRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeUser service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectDescribeUserResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserRequest.html">AWSConnectDescribeUserRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserResponse.html">AWSConnectDescribeUserResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeUser:completionHandler:" title="describeUser:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeUser:completionHandler:">&ndash;&nbsp;describeUser:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>User</code> object that contains information about the user account specified by the <code>UserId</code>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeUser:(AWSConnectDescribeUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectDescribeUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeUser service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserRequest.html">AWSConnectDescribeUserRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserResponse.html">AWSConnectDescribeUserResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeUserHierarchyGroup:" title="describeUserHierarchyGroup:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeUserHierarchyGroup:">&ndash;&nbsp;describeUserHierarchyGroup:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>HierarchyGroup</code> object that includes information about a hierarchy group in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectDescribeUserHierarchyGroupResponse*&gt; *)describeUserHierarchyGroup:(AWSConnectDescribeUserHierarchyGroupRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeUserHierarchyGroup service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectDescribeUserHierarchyGroupResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyGroupRequest.html">AWSConnectDescribeUserHierarchyGroupRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyGroupResponse.html">AWSConnectDescribeUserHierarchyGroupResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeUserHierarchyGroup:completionHandler:" title="describeUserHierarchyGroup:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeUserHierarchyGroup:completionHandler:">&ndash;&nbsp;describeUserHierarchyGroup:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>HierarchyGroup</code> object that includes information about a hierarchy group in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeUserHierarchyGroup:(AWSConnectDescribeUserHierarchyGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectDescribeUserHierarchyGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeUserHierarchyGroup service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyGroupRequest.html">AWSConnectDescribeUserHierarchyGroupRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyGroupResponse.html">AWSConnectDescribeUserHierarchyGroupResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeUserHierarchyStructure:" title="describeUserHierarchyStructure:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeUserHierarchyStructure:">&ndash;&nbsp;describeUserHierarchyStructure:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>HiearchyGroupStructure</code> object, which contains data about the levels in the agent hierarchy.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectDescribeUserHierarchyStructureResponse*&gt; *)describeUserHierarchyStructure:(AWSConnectDescribeUserHierarchyStructureRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeUserHierarchyStructure service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectDescribeUserHierarchyStructureResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyStructureRequest.html">AWSConnectDescribeUserHierarchyStructureRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyStructureResponse.html">AWSConnectDescribeUserHierarchyStructureResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeUserHierarchyStructure:completionHandler:" title="describeUserHierarchyStructure:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeUserHierarchyStructure:completionHandler:">&ndash;&nbsp;describeUserHierarchyStructure:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>HiearchyGroupStructure</code> object, which contains data about the levels in the agent hierarchy.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeUserHierarchyStructure:(AWSConnectDescribeUserHierarchyStructureRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectDescribeUserHierarchyStructureResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeUserHierarchyStructure service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyStructureRequest.html">AWSConnectDescribeUserHierarchyStructureRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectDescribeUserHierarchyStructureResponse.html">AWSConnectDescribeUserHierarchyStructureResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getContactAttributes:" title="getContactAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getContactAttributes:">&ndash;&nbsp;getContactAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the contact attributes associated with a contact.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectGetContactAttributesResponse*&gt; *)getContactAttributes:(AWSConnectGetContactAttributesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetContactAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectGetContactAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetContactAttributesRequest.html">AWSConnectGetContactAttributesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetContactAttributesResponse.html">AWSConnectGetContactAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getContactAttributes:completionHandler:" title="getContactAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getContactAttributes:completionHandler:">&ndash;&nbsp;getContactAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the contact attributes associated with a contact.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getContactAttributes:(AWSConnectGetContactAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetContactAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetContactAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetContactAttributesRequest.html">AWSConnectGetContactAttributesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetContactAttributesResponse.html">AWSConnectGetContactAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCurrentMetricData:" title="getCurrentMetricData:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCurrentMetricData:">&ndash;&nbsp;getCurrentMetricData:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>GetCurrentMetricData</code> operation retrieves current metric data from your Amazon Connect instance.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:GetCurrentMetricData</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectGetCurrentMetricDataResponse*&gt; *)getCurrentMetricData:(AWSConnectGetCurrentMetricDataRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCurrentMetricData service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectGetCurrentMetricDataResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorResourceNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetCurrentMetricDataRequest.html">AWSConnectGetCurrentMetricDataRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetCurrentMetricDataResponse.html">AWSConnectGetCurrentMetricDataResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCurrentMetricData:completionHandler:" title="getCurrentMetricData:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCurrentMetricData:completionHandler:">&ndash;&nbsp;getCurrentMetricData:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>GetCurrentMetricData</code> operation retrieves current metric data from your Amazon Connect instance.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:GetCurrentMetricData</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getCurrentMetricData:(AWSConnectGetCurrentMetricDataRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetCurrentMetricDataResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCurrentMetricData service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorResourceNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetCurrentMetricDataRequest.html">AWSConnectGetCurrentMetricDataRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetCurrentMetricDataResponse.html">AWSConnectGetCurrentMetricDataResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getFederationToken:" title="getFederationToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getFederationToken:">&ndash;&nbsp;getFederationToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves a token for federation.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectGetFederationTokenResponse*&gt; *)getFederationToken:(AWSConnectGetFederationTokenRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetFederationToken service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectGetFederationTokenResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorUserNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorDuplicateResource</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetFederationTokenRequest.html">AWSConnectGetFederationTokenRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetFederationTokenResponse.html">AWSConnectGetFederationTokenResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getFederationToken:completionHandler:" title="getFederationToken:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getFederationToken:completionHandler:">&ndash;&nbsp;getFederationToken:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves a token for federation.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getFederationToken:(AWSConnectGetFederationTokenRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetFederationTokenResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetFederationToken service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorUserNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorDuplicateResource</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetFederationTokenRequest.html">AWSConnectGetFederationTokenRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetFederationTokenResponse.html">AWSConnectGetFederationTokenResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMetricData:" title="getMetricData:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMetricData:">&ndash;&nbsp;getMetricData:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>GetMetricData</code> operation retrieves historical metrics data from your Amazon Connect instance.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:GetMetricData</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectGetMetricDataResponse*&gt; *)getMetricData:(AWSConnectGetMetricDataRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetMetricData service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectGetMetricDataResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorResourceNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetMetricDataRequest.html">AWSConnectGetMetricDataRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetMetricDataResponse.html">AWSConnectGetMetricDataResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMetricData:completionHandler:" title="getMetricData:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMetricData:completionHandler:">&ndash;&nbsp;getMetricData:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>GetMetricData</code> operation retrieves historical metrics data from your Amazon Connect instance.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:GetMetricData</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSConnectGetMetricDataRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetMetricDataResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetMetricData service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorResourceNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetMetricDataRequest.html">AWSConnectGetMetricDataRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectGetMetricDataResponse.html">AWSConnectGetMetricDataResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listRoutingProfiles:" title="listRoutingProfiles:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listRoutingProfiles:">&ndash;&nbsp;listRoutingProfiles:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an array of <code>RoutingProfileSummary</code> objects that includes information about the routing profiles in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectListRoutingProfilesResponse*&gt; *)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListRoutingProfiles service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectListRoutingProfilesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListRoutingProfilesRequest.html">AWSConnectListRoutingProfilesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListRoutingProfilesResponse.html">AWSConnectListRoutingProfilesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listRoutingProfiles:completionHandler:" title="listRoutingProfiles:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listRoutingProfiles:completionHandler:">&ndash;&nbsp;listRoutingProfiles:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an array of <code>RoutingProfileSummary</code> objects that includes information about the routing profiles in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListRoutingProfilesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListRoutingProfiles service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListRoutingProfilesRequest.html">AWSConnectListRoutingProfilesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListRoutingProfilesResponse.html">AWSConnectListRoutingProfilesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSecurityProfiles:" title="listSecurityProfiles:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSecurityProfiles:">&ndash;&nbsp;listSecurityProfiles:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an array of SecurityProfileSummary objects that contain information about the security profiles in your instance, including the ARN, Id, and Name of the security profile.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectListSecurityProfilesResponse*&gt; *)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSecurityProfiles service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectListSecurityProfilesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListSecurityProfilesRequest.html">AWSConnectListSecurityProfilesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListSecurityProfilesResponse.html">AWSConnectListSecurityProfilesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSecurityProfiles:completionHandler:" title="listSecurityProfiles:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSecurityProfiles:completionHandler:">&ndash;&nbsp;listSecurityProfiles:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an array of SecurityProfileSummary objects that contain information about the security profiles in your instance, including the ARN, Id, and Name of the security profile.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListSecurityProfilesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSecurityProfiles service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListSecurityProfilesRequest.html">AWSConnectListSecurityProfilesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListSecurityProfilesResponse.html">AWSConnectListSecurityProfilesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listUserHierarchyGroups:" title="listUserHierarchyGroups:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listUserHierarchyGroups:">&ndash;&nbsp;listUserHierarchyGroups:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>UserHierarchyGroupSummaryList</code>, which is an array of <code>HierarchyGroupSummary</code> objects that contain information about the hierarchy groups in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectListUserHierarchyGroupsResponse*&gt; *)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListUserHierarchyGroups service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectListUserHierarchyGroupsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUserHierarchyGroupsRequest.html">AWSConnectListUserHierarchyGroupsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUserHierarchyGroupsResponse.html">AWSConnectListUserHierarchyGroupsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listUserHierarchyGroups:completionHandler:" title="listUserHierarchyGroups:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listUserHierarchyGroups:completionHandler:">&ndash;&nbsp;listUserHierarchyGroups:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>UserHierarchyGroupSummaryList</code>, which is an array of <code>HierarchyGroupSummary</code> objects that contain information about the hierarchy groups in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListUserHierarchyGroupsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListUserHierarchyGroups service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUserHierarchyGroupsRequest.html">AWSConnectListUserHierarchyGroupsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUserHierarchyGroupsResponse.html">AWSConnectListUserHierarchyGroupsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listUsers:" title="listUsers:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listUsers:">&ndash;&nbsp;listUsers:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>UserSummaryList</code>, which is an array of <code>UserSummary</code> objects.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectListUsersResponse*&gt; *)listUsers:(AWSConnectListUsersRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListUsers service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectListUsersResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUsersRequest.html">AWSConnectListUsersRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUsersResponse.html">AWSConnectListUsersResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listUsers:completionHandler:" title="listUsers:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listUsers:completionHandler:">&ndash;&nbsp;listUsers:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a <code>UserSummaryList</code>, which is an array of <code>UserSummary</code> objects.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listUsers:(AWSConnectListUsersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListUsersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListUsers service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUsersRequest.html">AWSConnectListUsersRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectListUsersResponse.html">AWSConnectListUsersResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startOutboundVoiceContact:" title="startOutboundVoiceContact:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startOutboundVoiceContact:">&ndash;&nbsp;startOutboundVoiceContact:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>StartOutboundVoiceContact</code> operation initiates a contact flow to place an outbound call to a customer.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:StartOutboundVoiceContact</code> action.</p>
+
+
+<p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, the call fails.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectStartOutboundVoiceContactResponse*&gt; *)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartOutboundVoiceContact service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectStartOutboundVoiceContactResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorLimitExceeded</code>, <code>AWSConnectErrorDestinationNotAllowed</code>, <code>AWSConnectErrorOutboundContactNotPermitted</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectStartOutboundVoiceContactRequest.html">AWSConnectStartOutboundVoiceContactRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectStartOutboundVoiceContactResponse.html">AWSConnectStartOutboundVoiceContactResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startOutboundVoiceContact:completionHandler:" title="startOutboundVoiceContact:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startOutboundVoiceContact:completionHandler:">&ndash;&nbsp;startOutboundVoiceContact:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>StartOutboundVoiceContact</code> operation initiates a contact flow to place an outbound call to a customer.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:StartOutboundVoiceContact</code> action.</p>
+
+
+<p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, the call fails.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectStartOutboundVoiceContactResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartOutboundVoiceContact service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorLimitExceeded</code>, <code>AWSConnectErrorDestinationNotAllowed</code>, <code>AWSConnectErrorOutboundContactNotPermitted</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectStartOutboundVoiceContactRequest.html">AWSConnectStartOutboundVoiceContactRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectStartOutboundVoiceContactResponse.html">AWSConnectStartOutboundVoiceContactResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopContact:" title="stopContact:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopContact:">&ndash;&nbsp;stopContact:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Ends the contact initiated by the <code>StartOutboundVoiceContact</code> operation.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:StopContact</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectStopContactResponse*&gt; *)stopContact:(AWSConnectStopContactRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopContact service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectStopContactResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorContactNotFound</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectStopContactRequest.html">AWSConnectStopContactRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectStopContactResponse.html">AWSConnectStopContactResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopContact:completionHandler:" title="stopContact:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopContact:completionHandler:">&ndash;&nbsp;stopContact:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Ends the contact initiated by the <code>StartOutboundVoiceContact</code> operation.</p>
+
+
+<p>If you are using an IAM account, it must have permission to the <code>connect:StopContact</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopContact:(AWSConnectStopContactRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectStopContactResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopContact service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorContactNotFound</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectStopContactRequest.html">AWSConnectStopContactRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectStopContactResponse.html">AWSConnectStopContactResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateContactAttributes:" title="updateContactAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateContactAttributes:">&ndash;&nbsp;updateContactAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>UpdateContactAttributes</code> operation lets you programmatically create new, or update existing, contact attributes associated with a contact. You can use the operation to add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also use the <code>UpdateContactAttributes</code> operation to update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p>
+
+
+<p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
+
+
+<p><i>Important:</i></p>
+
+
+<p>You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSConnectUpdateContactAttributesResponse*&gt; *)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateContactAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSConnectUpdateContactAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateContactAttributesRequest.html">AWSConnectUpdateContactAttributesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateContactAttributesResponse.html">AWSConnectUpdateContactAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateContactAttributes:completionHandler:" title="updateContactAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateContactAttributes:completionHandler:">&ndash;&nbsp;updateContactAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The <code>UpdateContactAttributes</code> operation lets you programmatically create new, or update existing, contact attributes associated with a contact. You can use the operation to add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also use the <code>UpdateContactAttributes</code> operation to update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p>
+
+
+<p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p>
+
+
+<p><i>Important:</i></p>
+
+
+<p>You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectUpdateContactAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateContactAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateContactAttributesRequest.html">AWSConnectUpdateContactAttributesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateContactAttributesResponse.html">AWSConnectUpdateContactAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserHierarchy:" title="updateUserHierarchy:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserHierarchy:">&ndash;&nbsp;updateUserHierarchy:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns the specified hierarchy group to the user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserHierarchy service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserHierarchyRequest.html">AWSConnectUpdateUserHierarchyRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserHierarchy:completionHandler:" title="updateUserHierarchy:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserHierarchy:completionHandler:">&ndash;&nbsp;updateUserHierarchy:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns the specified hierarchy group to the user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserHierarchy service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserHierarchyRequest.html">AWSConnectUpdateUserHierarchyRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserIdentityInfo:" title="updateUserIdentityInfo:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserIdentityInfo:">&ndash;&nbsp;updateUserIdentityInfo:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the identity information for the specified user in a <code>UserIdentityInfo</code> object, including email, first name, and last name.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)updateUserIdentityInfo:(AWSConnectUpdateUserIdentityInfoRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserIdentityInfo service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserIdentityInfoRequest.html">AWSConnectUpdateUserIdentityInfoRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserIdentityInfo:completionHandler:" title="updateUserIdentityInfo:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserIdentityInfo:completionHandler:">&ndash;&nbsp;updateUserIdentityInfo:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the identity information for the specified user in a <code>UserIdentityInfo</code> object, including email, first name, and last name.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateUserIdentityInfo:(AWSConnectUpdateUserIdentityInfoRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserIdentityInfo service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserIdentityInfoRequest.html">AWSConnectUpdateUserIdentityInfoRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserPhoneConfig:" title="updateUserPhoneConfig:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserPhoneConfig:">&ndash;&nbsp;updateUserPhoneConfig:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the phone configuration settings in the <code>UserPhoneConfig</code> object for the specified user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)updateUserPhoneConfig:(AWSConnectUpdateUserPhoneConfigRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserPhoneConfig service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserPhoneConfigRequest.html">AWSConnectUpdateUserPhoneConfigRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserPhoneConfig:completionHandler:" title="updateUserPhoneConfig:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserPhoneConfig:completionHandler:">&ndash;&nbsp;updateUserPhoneConfig:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the phone configuration settings in the <code>UserPhoneConfig</code> object for the specified user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateUserPhoneConfig:(AWSConnectUpdateUserPhoneConfigRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserPhoneConfig service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserPhoneConfigRequest.html">AWSConnectUpdateUserPhoneConfigRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserRoutingProfile:" title="updateUserRoutingProfile:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserRoutingProfile:">&ndash;&nbsp;updateUserRoutingProfile:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns the specified routing profile to a user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)updateUserRoutingProfile:(AWSConnectUpdateUserRoutingProfileRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserRoutingProfile service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserRoutingProfileRequest.html">AWSConnectUpdateUserRoutingProfileRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserRoutingProfile:completionHandler:" title="updateUserRoutingProfile:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserRoutingProfile:completionHandler:">&ndash;&nbsp;updateUserRoutingProfile:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns the specified routing profile to a user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateUserRoutingProfile:(AWSConnectUpdateUserRoutingProfileRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserRoutingProfile service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserRoutingProfileRequest.html">AWSConnectUpdateUserRoutingProfileRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserSecurityProfiles:" title="updateUserSecurityProfiles:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserSecurityProfiles:">&ndash;&nbsp;updateUserSecurityProfiles:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the security profiles assigned to the user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)updateUserSecurityProfiles:(AWSConnectUpdateUserSecurityProfilesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserSecurityProfiles service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserSecurityProfilesRequest.html">AWSConnectUpdateUserSecurityProfilesRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUserSecurityProfiles:completionHandler:" title="updateUserSecurityProfiles:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUserSecurityProfiles:completionHandler:">&ndash;&nbsp;updateUserSecurityProfiles:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the security profiles assigned to the user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateUserSecurityProfiles:(AWSConnectUpdateUserSecurityProfilesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateUserSecurityProfiles service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSConnectErrorDomain</code> domain and the following error code: <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorThrottling</code>, <code>AWSConnectErrorInternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSConnectUpdateUserSecurityProfilesRequest.html">AWSConnectUpdateUserSecurityProfilesRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
