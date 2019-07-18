@@ -569,7 +569,7 @@ jobs:
   release_jazzydoc:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.0"
+      xcode: "10.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -638,7 +638,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "10.1.0"
+      xcode: "10.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
