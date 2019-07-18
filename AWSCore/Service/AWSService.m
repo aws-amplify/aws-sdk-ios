@@ -288,6 +288,28 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
                                    reason:@"`- init` is not a valid initializer. Use `- initWithRegion:service:useUnsafeURL:` instead."
                                  userInfo:nil];
 }
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                       service:(AWSServiceType)serviceType
+                  useUnsafeURL:(BOOL)useUnsafeURL
+                  localTestingEnabled:(BOOL)localTestingEnabled {
+    if (localTestingEnabled) {
+        if (self = [super init]) {
+            _regionType = regionType;
+            _serviceType = serviceType;
+            _useUnsafeURL = useUnsafeURL;
+            _regionName = @"local";
+            
+            _URL = [self localTestingURLWithRegion:_regionType
+                                        regionName:_regionName
+                                           service:_serviceType
+                                       serviceName:_serviceName
+                                      useUnsafeURL:useUnsafeURL];
+            _hostName = [_URL host];
+        }
+        return self;
+    }
+    return [self initWithRegion:regionType service:serviceType useUnsafeURL:useUnsafeURL];
+}
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
                        service:(AWSServiceType)serviceType
@@ -499,6 +521,23 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
         default:
             return nil;
     }
+}
+
+
+- (NSURL *)localTestingURLWithRegion:(AWSRegionType)regionType
+                          regionName:(NSString *)regionName
+                             service:(AWSServiceType)serviceType
+                         serviceName:(NSString *)serviceName
+                        useUnsafeURL:(BOOL)useUnsafeURL {
+    NSURL *URL = nil;
+    NSString *HTTPType = @"https";
+    if (useUnsafeURL) {
+        HTTPType = @"http";
+    }
+    if (serviceType == AWSServiceS3) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://localhost:20002/", HTTPType]];
+    }
+    return URL;
 }
 
 - (NSURL *)URLWithRegion:(AWSRegionType)regionType

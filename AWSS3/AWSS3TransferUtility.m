@@ -180,6 +180,11 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property NSNumber *partNumber;
 @end
 
+@interface AWSServiceConfiguration()
+
+@property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
 
 @interface AWSS3TransferUtilityDatabaseHelper()
 
@@ -264,8 +269,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
             NSString *bucketName = [serviceInfo.infoDictionary valueForKey:@"Bucket"];
+            NSNumber *localTestingEnabled = [serviceInfo.infoDictionary valueForKey:@"DangerouslyConnectToHTTPEndpointForTesting"];
             transferUtilityConfiguration.bucket = bucketName;
             transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
+            transferUtilityConfiguration.localTestingEnabled = [localTestingEnabled boolValue];
         }
         
         if (!serviceConfiguration) {
@@ -456,6 +463,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
         else {
             _transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
+        }
+        // Setup local testing endpoint if local testing is enabled.
+        if (_transferUtilityConfiguration.localTestingEnabled) {
+            _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                                  service:AWSServiceS3
+                                                             useUnsafeURL:YES
+                                                      localTestingEnabled:YES];
+            
         }
         
         _preSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:_configuration];
@@ -2573,6 +2588,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
         _retryLimit = 0;
         _multiPartConcurrencyLimit = @(AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit);
         _timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
+        _localTestingEnabled = NO;
     }
     return self;
 }
@@ -2584,6 +2600,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     configuration.retryLimit = self.retryLimit;
     configuration.multiPartConcurrencyLimit = self.multiPartConcurrencyLimit;
     configuration.timeoutIntervalForResource = self.timeoutIntervalForResource;
+    configuration.localTestingEnabled = self.localTestingEnabled;
     return configuration;
 }
 

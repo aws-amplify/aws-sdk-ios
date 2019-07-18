@@ -684,6 +684,8 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 @property NSInteger timeoutIntervalForResource;
 
+@property BOOL localTestingEnabled;
+
 @end
 
 NS_ASSUME_NONNULL_END
