@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,8 +56,6 @@
 		
 		<option value="//api/name/confirmedStatus">confirmedStatus</option>
 		
-		<option value="//api/name/deviceId">deviceId</option>
-		
 		<option value="//api/name/signedIn">signedIn</option>
 		
 		<option value="//api/name/username">username</option>
@@ -95,6 +93,8 @@
 		<option value="//api/name/deleteUser">- deleteUser</option>
 		
 		<option value="//api/name/deviceAuthInternal:">- deviceAuthInternal:</option>
+		
+		<option value="//api/name/deviceId">- deviceId</option>
 		
 		<option value="//api/name/forgetDevice">- forgetDevice</option>
 		
@@ -202,171 +202,6 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/username" title="username"></a>
-	<h3 class="method-title"><code><a href="#//api/name/username">&nbsp;&nbsp;username</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The username of this user</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *username</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/confirmedStatus" title="confirmedStatus"></a>
-	<h3 class="method-title"><code><a href="#//api/name/confirmedStatus">&nbsp;&nbsp;confirmedStatus</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>If this user is a result of a signup, this has the confirmation status</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) AWSCognitoIdentityUserStatus confirmedStatus</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/signedIn" title="signedIn"></a>
-	<h3 class="method-title"><code><a href="#//api/name/signedIn">&nbsp;&nbsp;signedIn</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Determines whether this user has an active session or not. If the refresh token is expired
-the user will be prompted to authenticate when you call getSession.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, getter=isSignedIn) BOOL signedIn</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/deviceId" title="deviceId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deviceId">&nbsp;&nbsp;deviceId</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Get the device id</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *deviceId</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/confirmSignUp:" title="confirmSignUp:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/confirmSignUp:">&ndash;&nbsp;confirmSignUp:</a></code>
 </h3>
@@ -425,170 +260,6 @@ the user will be prompted to authenticate when you call getSession.</p>
 		    
 
 			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserConfirmSignUpResponse*&gt; *)confirmSignUp:(NSString *)<em>confirmationCode</em> forceAliasCreation:(BOOL)<em>forceAliasCreation</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/resendConfirmationCode" title="resendConfirmationCode"></a>
-	<h3 class="method-title"><code><a href="#//api/name/resendConfirmationCode">&ndash;&nbsp;resendConfirmationCode</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Resend the confirmation code sent during sign up</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserResendConfirmationCodeResponse*&gt; *)resendConfirmationCode</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getSession" title="getSession"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getSession">&ndash;&nbsp;getSession</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Get a session with id, access and refresh tokens.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSession*&gt; *)getSession</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getSession:password:validationData:" title="getSession:password:validationData:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getSession:password:validationData:">&ndash;&nbsp;getSession:password:validationData:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Get a session with the following username and password</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSession*&gt; *)getSession:(NSString *)<em>username</em> password:(NSString *)<em>password</em> validationData:(nullable NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *)<em>validationData</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getDetails" title="getDetails"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getDetails">&ndash;&nbsp;getDetails</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Get details about this user, including user attributes</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetDetailsResponse*&gt; *)getDetails</code></div>
 
 		    
 			
@@ -695,6 +366,47 @@ the user will be prompted to authenticate when you call getSession.</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/resendConfirmationCode" title="resendConfirmationCode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resendConfirmationCode">&ndash;&nbsp;resendConfirmationCode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Resend the confirmation code sent during sign up</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserResendConfirmationCodeResponse*&gt; *)resendConfirmationCode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/changePassword:proposedPassword:" title="changePassword:proposedPassword:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/changePassword:proposedPassword:">&ndash;&nbsp;changePassword:proposedPassword:</a></code>
 </h3>
@@ -736,8 +448,8 @@ the user will be prompted to authenticate when you call getSession.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/updateAttributes:" title="updateAttributes:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/updateAttributes:">&ndash;&nbsp;updateAttributes:</a></code>
+	<a name="//api/name/getDetails" title="getDetails"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getDetails">&ndash;&nbsp;getDetails</a></code>
 </h3>
 
 	<div class="method-info">
@@ -747,12 +459,12 @@ the user will be prompted to authenticate when you call getSession.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Update this user&rsquo;s attributes</p>
+				<p>Get details about this user, including user attributes</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserUpdateAttributesResponse*&gt; *)updateAttributes:(NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *)<em>attributes</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetDetailsResponse*&gt; *)getDetails</code></div>
 
 		    
 			
@@ -777,8 +489,8 @@ the user will be prompted to authenticate when you call getSession.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/deleteAttributes:" title="deleteAttributes:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deleteAttributes:">&ndash;&nbsp;deleteAttributes:</a></code>
+	<a name="//api/name/getSession" title="getSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSession">&ndash;&nbsp;getSession</a></code>
 </h3>
 
 	<div class="method-info">
@@ -788,12 +500,12 @@ the user will be prompted to authenticate when you call getSession.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Delete the attributes specified by attributeNames</p>
+				<p>Get a session</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserDeleteAttributesResponse*&gt; *)deleteAttributes:(NSArray&lt;NSString*&gt; *)<em>attributeNames</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSession*&gt; *)getSession</code></div>
 
 		    
 			
@@ -811,15 +523,15 @@ the user will be prompted to authenticate when you call getSession.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/verifyAttribute:code:" title="verifyAttribute:code:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/verifyAttribute:code:">&ndash;&nbsp;verifyAttribute:code:</a></code>
+	<a name="//api/name/getSession:password:validationData:" title="getSession:password:validationData:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSession:password:validationData:">&ndash;&nbsp;getSession:password:validationData:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -829,12 +541,12 @@ the user will be prompted to authenticate when you call getSession.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Verify a user attribute upon receiving the verification code.</p>
+				<p>Explicitly get a session without using any cached tokens/refresh tokens.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserVerifyAttributeResponse*&gt; *)verifyAttribute:(NSString *)<em>attributeName</em> code:(NSString *)<em>code</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSession*&gt; *)getSession:(NSString *)<em>username</em> password:(NSString *)<em>password</em> validationData:(NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *)<em>validationData</em></code></div>
 
 		    
 			
@@ -852,719 +564,13 @@ the user will be prompted to authenticate when you call getSession.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getAttributeVerificationCode:" title="getAttributeVerificationCode:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getAttributeVerificationCode:">&ndash;&nbsp;getAttributeVerificationCode:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Request a verification code to verify an attribute.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetAttributeVerificationCodeResponse*&gt; *)getAttributeVerificationCode:(NSString *)<em>attributeName</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setUserSettings:" title="setUserSettings:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setUserSettings:">&ndash;&nbsp;setUserSettings:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set the user settings for this user such as MFA</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSetUserSettingsResponse*&gt; *)setUserSettings:(AWSCognitoIdentityUserSettings *)<em>settings</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setUserMfaPreference:" title="setUserMfaPreference:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setUserMfaPreference:">&ndash;&nbsp;setUserMfaPreference:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Set the user mfa preference supercedes SetUserSettings</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSetUserMfaPreferenceResponse*&gt; *)setUserMfaPreference:(AWSCognitoIdentityUserMfaPreferences *)<em>preferences</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/associateSoftwareToken" title="associateSoftwareToken"></a>
-	<h3 class="method-title"><code><a href="#//api/name/associateSoftwareToken">&ndash;&nbsp;associateSoftwareToken</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Start the process of associating a software token</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserAssociateSoftwareTokenResponse*&gt; *)associateSoftwareToken</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/verifySoftwareToken:friendlyDeviceName:" title="verifySoftwareToken:friendlyDeviceName:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/verifySoftwareToken:friendlyDeviceName:">&ndash;&nbsp;verifySoftwareToken:friendlyDeviceName:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Complete the process of associating a software token by verifying the code and setting device friendly name</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserVerifySoftwareTokenResponse*&gt; *)verifySoftwareToken:(NSString *)<em>userCode</em> friendlyDeviceName:(NSString *_Nullable)<em>friendlyDeviceName</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/deleteUser" title="deleteUser"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deleteUser">&ndash;&nbsp;deleteUser</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Delete this user</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteUser</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/signOut" title="signOut"></a>
-	<h3 class="method-title"><code><a href="#//api/name/signOut">&ndash;&nbsp;signOut</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Remove all sessions from the keychain for this user.  Last known user remains.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)signOut</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/globalSignOut" title="globalSignOut"></a>
-	<h3 class="method-title"><code><a href="#//api/name/globalSignOut">&ndash;&nbsp;globalSignOut</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Invalidate any active sessions with the service.  Last known user remains.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGlobalSignOutResponse*&gt; *)globalSignOut</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/signOutAndClearLastKnownUser" title="signOutAndClearLastKnownUser"></a>
-	<h3 class="method-title"><code><a href="#//api/name/signOutAndClearLastKnownUser">&ndash;&nbsp;signOutAndClearLastKnownUser</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Remove all sessions from the keychain for this user and clear last known user.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)signOutAndClearLastKnownUser</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/clearSession" title="clearSession"></a>
-	<h3 class="method-title"><code><a href="#//api/name/clearSession">&ndash;&nbsp;clearSession</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Remove the id and access token from the keychain, but keep the refresh token.
-Use this when you have updated user attributes and want to refresh the id and access tokens.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)clearSession</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/listDevices:paginationToken:" title="listDevices:paginationToken:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/listDevices:paginationToken:">&ndash;&nbsp;listDevices:paginationToken:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>List devices for this user</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserListDevicesResponse*&gt; *)listDevices:(int)<em>limit</em> paginationToken:(NSString *_Nullable)<em>paginationToken</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/updateDeviceStatus:remembered:" title="updateDeviceStatus:remembered:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/updateDeviceStatus:remembered:">&ndash;&nbsp;updateDeviceStatus:remembered:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Update device remembered status for a specific device id.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserUpdateDeviceStatusResponse*&gt; *)updateDeviceStatus:(NSString *)<em>deviceId</em> remembered:(BOOL)<em>remembered</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/updateDeviceStatus:" title="updateDeviceStatus:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/updateDeviceStatus:">&ndash;&nbsp;updateDeviceStatus:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Convenience method to update device remembered status for this device.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserUpdateDeviceStatusResponse*&gt; *)updateDeviceStatus:(BOOL)<em>remembered</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getDevice:" title="getDevice:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getDevice:">&ndash;&nbsp;getDevice:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Get device details for a specific deviceId.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetDeviceResponse*&gt; *)getDevice:(NSString *)<em>deviceId</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/getDevice" title="getDevice"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getDevice">&ndash;&nbsp;getDevice</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Convenience method to get device details for this device.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetDeviceResponse*&gt; *)getDevice</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/forgetDevice:" title="forgetDevice:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/forgetDevice:">&ndash;&nbsp;forgetDevice:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Forget (stop tracking) a specific deviceId.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)forgetDevice:(NSString *)<em>deviceId</em></code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/forgetDevice" title="forgetDevice"></a>
-	<h3 class="method-title"><code><a href="#//api/name/forgetDevice">&ndash;&nbsp;forgetDevice</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Forget (stop tracking) this device.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)forgetDevice</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
 	<a name="//api/name/confirmDeviceInternal:" title="confirmDeviceInternal:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/confirmDeviceInternal:">&ndash;&nbsp;confirmDeviceInternal:</a></code>
 </h3>
@@ -2180,6 +1186,827 @@ Use this when you have updated user attributes and want to refresh the id and ac
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/updateAttributes:" title="updateAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateAttributes:">&ndash;&nbsp;updateAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Update this user&rsquo;s attributes</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserUpdateAttributesResponse*&gt; *)updateAttributes:(NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *)<em>attributes</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteAttributes:" title="deleteAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteAttributes:">&ndash;&nbsp;deleteAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delete the attributes specified by attributeNames</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserDeleteAttributesResponse*&gt; *)deleteAttributes:(NSArray&lt;NSString*&gt; *)<em>attributeNames</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/verifyAttribute:code:" title="verifyAttribute:code:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/verifyAttribute:code:">&ndash;&nbsp;verifyAttribute:code:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Verify a user attribute upon receiving the verification code.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserVerifyAttributeResponse*&gt; *)verifyAttribute:(NSString *)<em>attributeName</em> code:(NSString *)<em>code</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAttributeVerificationCode:" title="getAttributeVerificationCode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAttributeVerificationCode:">&ndash;&nbsp;getAttributeVerificationCode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Request a verification code to verify an attribute.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetAttributeVerificationCodeResponse*&gt; *)getAttributeVerificationCode:(NSString *)<em>attributeName</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserSettings:" title="setUserSettings:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserSettings:">&ndash;&nbsp;setUserSettings:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the user settings for this user such as MFA</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSetUserSettingsResponse*&gt; *)setUserSettings:(AWSCognitoIdentityUserSettings *)<em>settings</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUserMfaPreference:" title="setUserMfaPreference:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUserMfaPreference:">&ndash;&nbsp;setUserMfaPreference:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set the user settings for this user such as MFA</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserSetUserSettingsResponse*&gt; *)setUserMfaPreference:(AWSCognitoIdentityUserMfaPreferences *)<em>settings</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/associateSoftwareToken" title="associateSoftwareToken"></a>
+	<h3 class="method-title"><code><a href="#//api/name/associateSoftwareToken">&ndash;&nbsp;associateSoftwareToken</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Start the process of associating a software token</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserAssociateSoftwareTokenResponse*&gt; *)associateSoftwareToken</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/verifySoftwareToken:friendlyDeviceName:" title="verifySoftwareToken:friendlyDeviceName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/verifySoftwareToken:friendlyDeviceName:">&ndash;&nbsp;verifySoftwareToken:friendlyDeviceName:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Complete the process of associating a software token by verifying the code and setting device friendly name</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserVerifySoftwareTokenResponse*&gt; *)verifySoftwareToken:(NSString *)<em>userCode</em> friendlyDeviceName:(NSString *_Nullable)<em>friendlyDeviceName</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteUser" title="deleteUser"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteUser">&ndash;&nbsp;deleteUser</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delete this user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteUser</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOut" title="signOut"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOut">&ndash;&nbsp;signOut</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove all sessions from the keychain for this user.  Last known user remains.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOut</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOutAndClearLastKnownUser" title="signOutAndClearLastKnownUser"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOutAndClearLastKnownUser">&ndash;&nbsp;signOutAndClearLastKnownUser</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove all sessions from the keychain for this user and clear last known user.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOutAndClearLastKnownUser</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearSession" title="clearSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearSession">&ndash;&nbsp;clearSession</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove the id and access token from the keychain, but keep the refresh token.
+Use this when you have updated user attributes and want to refresh the id and access tokens.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearSession</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/globalSignOut" title="globalSignOut"></a>
+	<h3 class="method-title"><code><a href="#//api/name/globalSignOut">&ndash;&nbsp;globalSignOut</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invalidate any active sessions with the service.  Last known user remains.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGlobalSignOutResponse*&gt; *)globalSignOut</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listDevices:paginationToken:" title="listDevices:paginationToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listDevices:paginationToken:">&ndash;&nbsp;listDevices:paginationToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>List devices for this user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserListDevicesResponse*&gt; *)listDevices:(int)<em>limit</em> paginationToken:(NSString *_Nullable)<em>paginationToken</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateDeviceStatus:remembered:" title="updateDeviceStatus:remembered:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateDeviceStatus:remembered:">&ndash;&nbsp;updateDeviceStatus:remembered:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Update device remembered status for a specific device id.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserUpdateDeviceStatusResponse*&gt; *)updateDeviceStatus:(NSString *)<em>deviceId</em> remembered:(BOOL)<em>remembered</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateDeviceStatus:" title="updateDeviceStatus:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateDeviceStatus:">&ndash;&nbsp;updateDeviceStatus:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convenience method to update device remembered status for this device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserUpdateDeviceStatusResponse*&gt; *)updateDeviceStatus:(BOOL)<em>remembered</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getDevice:" title="getDevice:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getDevice:">&ndash;&nbsp;getDevice:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get device details for a specific deviceId.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetDeviceResponse*&gt; *)getDevice:(NSString *)<em>deviceId</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getDevice" title="getDevice"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getDevice">&ndash;&nbsp;getDevice</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convenience method to get device details for this device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUserGetDeviceResponse*&gt; *)getDevice</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/forgetDevice" title="forgetDevice"></a>
+	<h3 class="method-title"><code><a href="#//api/name/forgetDevice">&ndash;&nbsp;forgetDevice</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Forget (stop tracking) this device.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)forgetDevice</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/forgetDevice:" title="forgetDevice:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/forgetDevice:">&ndash;&nbsp;forgetDevice:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Forget (stop tracking) a specific deviceId.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)forgetDevice:(NSString *)<em>deviceId</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/keyChainKey:key:" title="keyChainKey:key:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/keyChainKey:key:">&ndash;&nbsp;keyChainKey:key:</a></code>
 </h3>
@@ -2220,6 +2047,179 @@ Use this when you have updated user attributes and want to refresh the id and ac
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/deviceId" title="deviceId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deviceId">&ndash;&nbsp;deviceId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the device id</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)deviceId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/username" title="username"></a>
+	<h3 class="method-title"><code><a href="#//api/name/username">&nbsp;&nbsp;username</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The username of this user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *username</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/confirmedStatus" title="confirmedStatus"></a>
+	<h3 class="method-title"><code><a href="#//api/name/confirmedStatus">&nbsp;&nbsp;confirmedStatus</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>If this user is a result of a signup, this has the confirmation status</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) AWSCognitoIdentityUserStatus confirmedStatus</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signedIn" title="signedIn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signedIn">&nbsp;&nbsp;signedIn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Determines whether this user has an active session or not. If the refresh token is expired
+the user will be prompted to authenticate when you call getSession.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, getter=isSignedIn) BOOL signedIn</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityUser.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -2235,7 +2235,7 @@ Use this when you have updated user attributes and want to refresh the id and ac
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
