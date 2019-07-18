@@ -720,9 +720,9 @@ jobs:
       - set_environment_variables
       - configure_aws
       - run:
-          name: build libarary
+          name: Build library
           command: |
-            bash Scripts/package.sh
+            bash CircleciScripts/package.sh
       - run:
           name: Copy frameworks
           command: |
@@ -734,24 +734,24 @@ jobs:
             mkdir -p "$sdkNameWithVersion"
             python3 CircleciScripts/copy_resourcefiles.py "$(pwd)"  "$(pwd)/$sdkNameWithVersion"
       - run:
-          name: zip sdk folder
+          name: Zip SDK folder
           command: |
             zip -r "$sdkNameWithVersion.zip" "$sdkNameWithVersion"
 
       - run:
-          name: copy zip file
+          name: Copy zip file
           command: |
             mkdir -p sdkfiles
             cp "$sdkNameWithVersion.zip" "sdkfiles/$sdkNameWithVersion.zip"
       - store_artifacts:
           path: sdkfiles
       - run:
-          name: upload to s3
+          name: Upload to S3
           command: |
             aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
             aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
       - run:
-          name: invalidate cloudfront
+          name: Invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
   bump_sdk_version:
