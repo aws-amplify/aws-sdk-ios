@@ -1,0 +1,3763 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSCognitoIdentity Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/CognitoIdentityForKey:">+ CognitoIdentityForKey:</option>
+		
+		<option value="//api/name/defaultCognitoIdentity">+ defaultCognitoIdentity</option>
+		
+		<option value="//api/name/registerCognitoIdentityWithConfiguration:forKey:">+ registerCognitoIdentityWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeCognitoIdentityForKey:">+ removeCognitoIdentityForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createIdentityPool:">- createIdentityPool:</option>
+		
+		<option value="//api/name/createIdentityPool:completionHandler:">- createIdentityPool:completionHandler:</option>
+		
+		<option value="//api/name/deleteIdentities:">- deleteIdentities:</option>
+		
+		<option value="//api/name/deleteIdentities:completionHandler:">- deleteIdentities:completionHandler:</option>
+		
+		<option value="//api/name/deleteIdentityPool:">- deleteIdentityPool:</option>
+		
+		<option value="//api/name/deleteIdentityPool:completionHandler:">- deleteIdentityPool:completionHandler:</option>
+		
+		<option value="//api/name/describeIdentity:">- describeIdentity:</option>
+		
+		<option value="//api/name/describeIdentity:completionHandler:">- describeIdentity:completionHandler:</option>
+		
+		<option value="//api/name/describeIdentityPool:">- describeIdentityPool:</option>
+		
+		<option value="//api/name/describeIdentityPool:completionHandler:">- describeIdentityPool:completionHandler:</option>
+		
+		<option value="//api/name/getCredentialsForIdentity:">- getCredentialsForIdentity:</option>
+		
+		<option value="//api/name/getCredentialsForIdentity:completionHandler:">- getCredentialsForIdentity:completionHandler:</option>
+		
+		<option value="//api/name/getId:">- getId:</option>
+		
+		<option value="//api/name/getId:completionHandler:">- getId:completionHandler:</option>
+		
+		<option value="//api/name/getIdentityPoolRoles:">- getIdentityPoolRoles:</option>
+		
+		<option value="//api/name/getIdentityPoolRoles:completionHandler:">- getIdentityPoolRoles:completionHandler:</option>
+		
+		<option value="//api/name/getOpenIdToken:">- getOpenIdToken:</option>
+		
+		<option value="//api/name/getOpenIdToken:completionHandler:">- getOpenIdToken:completionHandler:</option>
+		
+		<option value="//api/name/getOpenIdTokenForDeveloperIdentity:">- getOpenIdTokenForDeveloperIdentity:</option>
+		
+		<option value="//api/name/getOpenIdTokenForDeveloperIdentity:completionHandler:">- getOpenIdTokenForDeveloperIdentity:completionHandler:</option>
+		
+		<option value="//api/name/listIdentities:">- listIdentities:</option>
+		
+		<option value="//api/name/listIdentities:completionHandler:">- listIdentities:completionHandler:</option>
+		
+		<option value="//api/name/listIdentityPools:">- listIdentityPools:</option>
+		
+		<option value="//api/name/listIdentityPools:completionHandler:">- listIdentityPools:completionHandler:</option>
+		
+		<option value="//api/name/listTagsForResource:">- listTagsForResource:</option>
+		
+		<option value="//api/name/listTagsForResource:completionHandler:">- listTagsForResource:completionHandler:</option>
+		
+		<option value="//api/name/lookupDeveloperIdentity:">- lookupDeveloperIdentity:</option>
+		
+		<option value="//api/name/lookupDeveloperIdentity:completionHandler:">- lookupDeveloperIdentity:completionHandler:</option>
+		
+		<option value="//api/name/mergeDeveloperIdentities:">- mergeDeveloperIdentities:</option>
+		
+		<option value="//api/name/mergeDeveloperIdentities:completionHandler:">- mergeDeveloperIdentities:completionHandler:</option>
+		
+		<option value="//api/name/setIdentityPoolRoles:">- setIdentityPoolRoles:</option>
+		
+		<option value="//api/name/setIdentityPoolRoles:completionHandler:">- setIdentityPoolRoles:completionHandler:</option>
+		
+		<option value="//api/name/tagResource:">- tagResource:</option>
+		
+		<option value="//api/name/tagResource:completionHandler:">- tagResource:completionHandler:</option>
+		
+		<option value="//api/name/unlinkDeveloperIdentity:">- unlinkDeveloperIdentity:</option>
+		
+		<option value="//api/name/unlinkDeveloperIdentity:completionHandler:">- unlinkDeveloperIdentity:completionHandler:</option>
+		
+		<option value="//api/name/unlinkIdentity:">- unlinkIdentity:</option>
+		
+		<option value="//api/name/unlinkIdentity:completionHandler:">- unlinkIdentity:completionHandler:</option>
+		
+		<option value="//api/name/untagResource:">- untagResource:</option>
+		
+		<option value="//api/name/untagResource:completionHandler:">- untagResource:completionHandler:</option>
+		
+		<option value="//api/name/updateIdentityPool:">- updateIdentityPool:</option>
+		
+		<option value="//api/name/updateIdentityPool:completionHandler:">- updateIdentityPool:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSCognitoIdentity Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSCognitoIdentityService.h<br />AWSCognitoIdentityService.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><fullname>Amazon Cognito Federated Identities</fullname><p>Amazon Cognito Federated Identities is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. It uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.</p><p>Using Amazon Cognito Federated Identities, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon) or an Amazon Cognito user pool, and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.</p><p>For a description of the authentication flow from the Amazon Cognito Developer Guide see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Authentication Flow</a>.</p><p>For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html">Amazon Cognito Federated Identities</a>.</p></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultCognitoIdentity" title="defaultCognitoIdentity"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultCognitoIdentity">+&nbsp;defaultCognitoIdentity</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultCognitoIdentity</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let CognitoIdentity = AWSCognitoIdentity.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSCognitoIdentity *CognitoIdentity = [AWSCognitoIdentity defaultCognitoIdentity];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerCognitoIdentityWithConfiguration:forKey:" title="registerCognitoIdentityWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerCognitoIdentityWithConfiguration:forKey:">+&nbsp;registerCognitoIdentityWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerCognitoIdentityWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSCognitoIdentity.register(with: configuration!, forKey: "USWest2CognitoIdentity")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:@"USWest2CognitoIdentity"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let CognitoIdentity = AWSCognitoIdentity(forKey: "USWest2CognitoIdentity")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSCognitoIdentity *CognitoIdentity = [AWSCognitoIdentity CognitoIdentityForKey:@"USWest2CognitoIdentity"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/CognitoIdentityForKey:" title="CognitoIdentityForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/CognitoIdentityForKey:">+&nbsp;CognitoIdentityForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerCognitoIdentityWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)CognitoIdentityForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSCognitoIdentity.register(with: configuration!, forKey: "USWest2CognitoIdentity")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration forKey:@"USWest2CognitoIdentity"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let CognitoIdentity = AWSCognitoIdentity(forKey: "USWest2CognitoIdentity")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSCognitoIdentity *CognitoIdentity = [AWSCognitoIdentity CognitoIdentityForKey:@"USWest2CognitoIdentity"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeCognitoIdentityForKey:" title="removeCognitoIdentityForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeCognitoIdentityForKey:">+&nbsp;removeCognitoIdentityForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeCognitoIdentityForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createIdentityPool:" title="createIdentityPool:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createIdentityPool:">&ndash;&nbsp;createIdentityPool:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
+
+
+<ul><li><p>Facebook: <code>graph.facebook.com</code></p></li><li><p>Google: <code>accounts.google.com</code></p></li><li><p>Amazon: <code>www.amazon.com</code></p></li><li><p>Twitter: <code>api.twitter.com</code></p></li><li><p>Digits: <code>www.digits.com</code></p></li></ul>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityIdentityPool*&gt; *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateIdentityPool service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityIdentityPool</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorLimitExceeded</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityCreateIdentityPoolInput.html">AWSCognitoIdentityCreateIdentityPoolInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createIdentityPool:completionHandler:" title="createIdentityPool:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createIdentityPool:completionHandler:">&ndash;&nbsp;createIdentityPool:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
+
+
+<ul><li><p>Facebook: <code>graph.facebook.com</code></p></li><li><p>Google: <code>accounts.google.com</code></p></li><li><p>Amazon: <code>www.amazon.com</code></p></li><li><p>Twitter: <code>api.twitter.com</code></p></li><li><p>Digits: <code>www.digits.com</code></p></li></ul>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateIdentityPool service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorLimitExceeded</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityCreateIdentityPoolInput.html">AWSCognitoIdentityCreateIdentityPoolInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteIdentities:" title="deleteIdentities:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteIdentities:">&ndash;&nbsp;deleteIdentities:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityDeleteIdentitiesResponse*&gt; *)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteIdentities service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityDeleteIdentitiesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDeleteIdentitiesInput.html">AWSCognitoIdentityDeleteIdentitiesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDeleteIdentitiesResponse.html">AWSCognitoIdentityDeleteIdentitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteIdentities:completionHandler:" title="deleteIdentities:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteIdentities:completionHandler:">&ndash;&nbsp;deleteIdentities:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityDeleteIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteIdentities service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDeleteIdentitiesInput.html">AWSCognitoIdentityDeleteIdentitiesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDeleteIdentitiesResponse.html">AWSCognitoIdentityDeleteIdentitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteIdentityPool:" title="deleteIdentityPool:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteIdentityPool:">&ndash;&nbsp;deleteIdentityPool:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes an identity pool. Once a pool is deleted, users will not be able to authenticate with the pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteIdentityPool service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDeleteIdentityPoolInput.html">AWSCognitoIdentityDeleteIdentityPoolInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteIdentityPool:completionHandler:" title="deleteIdentityPool:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteIdentityPool:completionHandler:">&ndash;&nbsp;deleteIdentityPool:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes an identity pool. Once a pool is deleted, users will not be able to authenticate with the pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteIdentityPool service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDeleteIdentityPoolInput.html">AWSCognitoIdentityDeleteIdentityPoolInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentity:" title="describeIdentity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentity:">&ndash;&nbsp;describeIdentity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns metadata related to the given identity, including when the identity was created and any associated linked logins.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityIdentityDescription*&gt; *)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentity service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityIdentityDescription</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDescribeIdentityInput.html">AWSCognitoIdentityDescribeIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityDescription.html">AWSCognitoIdentityIdentityDescription</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentity:completionHandler:" title="describeIdentity:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentity:completionHandler:">&ndash;&nbsp;describeIdentity:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns metadata related to the given identity, including when the identity was created and any associated linked logins.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityDescription *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentity service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDescribeIdentityInput.html">AWSCognitoIdentityDescribeIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityDescription.html">AWSCognitoIdentityIdentityDescription</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentityPool:" title="describeIdentityPool:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentityPool:">&ndash;&nbsp;describeIdentityPool:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityIdentityPool*&gt; *)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentityPool service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityIdentityPool</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDescribeIdentityPoolInput.html">AWSCognitoIdentityDescribeIdentityPoolInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentityPool:completionHandler:" title="describeIdentityPool:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentityPool:completionHandler:">&ndash;&nbsp;describeIdentityPool:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentityPool service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityDescribeIdentityPoolInput.html">AWSCognitoIdentityDescribeIdentityPoolInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCredentialsForIdentity:" title="getCredentialsForIdentity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCredentialsForIdentity:">&ndash;&nbsp;getCredentialsForIdentity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityGetCredentialsForIdentityResponse*&gt; *)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCredentialsForIdentity service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityGetCredentialsForIdentityResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityInput.html">AWSCognitoIdentityGetCredentialsForIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityResponse.html">AWSCognitoIdentityGetCredentialsForIdentityResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCredentialsForIdentity:completionHandler:" title="getCredentialsForIdentity:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCredentialsForIdentity:completionHandler:">&ndash;&nbsp;getCredentialsForIdentity:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetCredentialsForIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCredentialsForIdentity service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityInput.html">AWSCognitoIdentityGetCredentialsForIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityResponse.html">AWSCognitoIdentityGetCredentialsForIdentityResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getId:" title="getId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getId:">&ndash;&nbsp;getId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityGetIdResponse*&gt; *)getId:(AWSCognitoIdentityGetIdInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetId service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityGetIdResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorLimitExceeded</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdInput.html">AWSCognitoIdentityGetIdInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdResponse.html">AWSCognitoIdentityGetIdResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getId:completionHandler:" title="getId:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getId:completionHandler:">&ndash;&nbsp;getId:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getId:(AWSCognitoIdentityGetIdInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetIdResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetId service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorLimitExceeded</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdInput.html">AWSCognitoIdentityGetIdInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdResponse.html">AWSCognitoIdentityGetIdResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getIdentityPoolRoles:" title="getIdentityPoolRoles:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getIdentityPoolRoles:">&ndash;&nbsp;getIdentityPoolRoles:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the roles for an identity pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityGetIdentityPoolRolesResponse*&gt; *)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetIdentityPoolRoles service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityGetIdentityPoolRolesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesInput.html">AWSCognitoIdentityGetIdentityPoolRolesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesResponse.html">AWSCognitoIdentityGetIdentityPoolRolesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getIdentityPoolRoles:completionHandler:" title="getIdentityPoolRoles:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getIdentityPoolRoles:completionHandler:">&ndash;&nbsp;getIdentityPoolRoles:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the roles for an identity pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetIdentityPoolRolesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetIdentityPoolRoles service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesInput.html">AWSCognitoIdentityGetIdentityPoolRolesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesResponse.html">AWSCognitoIdentityGetIdentityPoolRolesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getOpenIdToken:" title="getOpenIdToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getOpenIdToken:">&ndash;&nbsp;getOpenIdToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p>
+
+
+<p>The OpenId token is valid for 10 minutes.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityGetOpenIdTokenResponse*&gt; *)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetOpenIdToken service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityGetOpenIdTokenResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenInput.html">AWSCognitoIdentityGetOpenIdTokenInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenResponse.html">AWSCognitoIdentityGetOpenIdTokenResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getOpenIdToken:completionHandler:" title="getOpenIdToken:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getOpenIdToken:completionHandler:">&ndash;&nbsp;getOpenIdToken:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p>
+
+
+<p>The OpenId token is valid for 10 minutes.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetOpenIdTokenResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetOpenIdToken service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenInput.html">AWSCognitoIdentityGetOpenIdTokenInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenResponse.html">AWSCognitoIdentityGetOpenIdTokenResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getOpenIdTokenForDeveloperIdentity:" title="getOpenIdTokenForDeveloperIdentity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getOpenIdTokenForDeveloperIdentity:">&ndash;&nbsp;getOpenIdTokenForDeveloperIdentity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the <code>Logins</code> map, which is linked to the identity pool. The developer provider is the "domain" by which Cognito will refer to your users.</p>
+
+
+<p>You can use <code>GetOpenIdTokenForDeveloperIdentity</code> to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the <code>IdentityId</code> should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing <code>IdentityId</code>. This API will create the identity in the specified <code>IdentityPoolId</code>.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse*&gt; *)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetOpenIdTokenForDeveloperIdentity service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getOpenIdTokenForDeveloperIdentity:completionHandler:" title="getOpenIdTokenForDeveloperIdentity:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getOpenIdTokenForDeveloperIdentity:completionHandler:">&ndash;&nbsp;getOpenIdTokenForDeveloperIdentity:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers (or retrieves) a Cognito <code>IdentityId</code> and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the <code>Logins</code> map, which is linked to the identity pool. The developer provider is the "domain" by which Cognito will refer to your users.</p>
+
+
+<p>You can use <code>GetOpenIdTokenForDeveloperIdentity</code> to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the <code>IdentityId</code> should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing <code>IdentityId</code>. This API will create the identity in the specified <code>IdentityPoolId</code>.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetOpenIdTokenForDeveloperIdentity service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listIdentities:" title="listIdentities:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listIdentities:">&ndash;&nbsp;listIdentities:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the identities in an identity pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityListIdentitiesResponse*&gt; *)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListIdentities service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityListIdentitiesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentitiesInput.html">AWSCognitoIdentityListIdentitiesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentitiesResponse.html">AWSCognitoIdentityListIdentitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listIdentities:completionHandler:" title="listIdentities:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listIdentities:completionHandler:">&ndash;&nbsp;listIdentities:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the identities in an identity pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListIdentities service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentitiesInput.html">AWSCognitoIdentityListIdentitiesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentitiesResponse.html">AWSCognitoIdentityListIdentitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listIdentityPools:" title="listIdentityPools:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listIdentityPools:">&ndash;&nbsp;listIdentityPools:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists all of the Cognito identity pools registered for your account.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityListIdentityPoolsResponse*&gt; *)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListIdentityPools service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityListIdentityPoolsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentityPoolsInput.html">AWSCognitoIdentityListIdentityPoolsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentityPoolsResponse.html">AWSCognitoIdentityListIdentityPoolsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listIdentityPools:completionHandler:" title="listIdentityPools:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listIdentityPools:completionHandler:">&ndash;&nbsp;listIdentityPools:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists all of the Cognito identity pools registered for your account.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListIdentityPoolsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListIdentityPools service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentityPoolsInput.html">AWSCognitoIdentityListIdentityPoolsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListIdentityPoolsResponse.html">AWSCognitoIdentityListIdentityPoolsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTagsForResource:" title="listTagsForResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:">&ndash;&nbsp;listTagsForResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the tags that are assigned to an Amazon Cognito identity pool.</p>
+
+
+<p>A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>You can use this action up to 10 times per second, per account.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityListTagsForResourceResponse*&gt; *)listTagsForResource:(AWSCognitoIdentityListTagsForResourceInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityListTagsForResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListTagsForResourceInput.html">AWSCognitoIdentityListTagsForResourceInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListTagsForResourceResponse.html">AWSCognitoIdentityListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTagsForResource:completionHandler:" title="listTagsForResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTagsForResource:completionHandler:">&ndash;&nbsp;listTagsForResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the tags that are assigned to an Amazon Cognito identity pool.</p>
+
+
+<p>A tag is a label that you can apply to identity pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>You can use this action up to 10 times per second, per account.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForResource:(AWSCognitoIdentityListTagsForResourceInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListTagsForResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTagsForResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListTagsForResourceInput.html">AWSCognitoIdentityListTagsForResourceInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityListTagsForResourceResponse.html">AWSCognitoIdentityListTagsForResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/lookupDeveloperIdentity:" title="lookupDeveloperIdentity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/lookupDeveloperIdentity:">&ndash;&nbsp;lookupDeveloperIdentity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the <code>IdentityID</code> associated with a <code>DeveloperUserIdentifier</code> or the list of <code>DeveloperUserIdentifier</code> values associated with an <code>IdentityId</code> for an existing identity. Either <code>IdentityID</code> or <code>DeveloperUserIdentifier</code> must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, <code>DeveloperUserIdentifier</code> will be matched against <code>IdentityID</code>. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a <code>ResourceConflictException</code> is thrown.</p>
+
+
+<p><code>LookupDeveloperIdentity</code> is intended for low-throughput control plane operations: for example, to enable customer service to locate an identity ID by username. If you are using it for higher-volume operations such as user authentication, your requests are likely to be throttled. <a>GetOpenIdTokenForDeveloperIdentity</a> is a better option for higher-volume operations for user authentication.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityLookupDeveloperIdentityResponse*&gt; *)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the LookupDeveloperIdentity service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityLookupDeveloperIdentityResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityInput.html">AWSCognitoIdentityLookupDeveloperIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityResponse.html">AWSCognitoIdentityLookupDeveloperIdentityResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/lookupDeveloperIdentity:completionHandler:" title="lookupDeveloperIdentity:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/lookupDeveloperIdentity:completionHandler:">&ndash;&nbsp;lookupDeveloperIdentity:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the <code>IdentityID</code> associated with a <code>DeveloperUserIdentifier</code> or the list of <code>DeveloperUserIdentifier</code> values associated with an <code>IdentityId</code> for an existing identity. Either <code>IdentityID</code> or <code>DeveloperUserIdentifier</code> must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, <code>DeveloperUserIdentifier</code> will be matched against <code>IdentityID</code>. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a <code>ResourceConflictException</code> is thrown.</p>
+
+
+<p><code>LookupDeveloperIdentity</code> is intended for low-throughput control plane operations: for example, to enable customer service to locate an identity ID by username. If you are using it for higher-volume operations such as user authentication, your requests are likely to be throttled. <a>GetOpenIdTokenForDeveloperIdentity</a> is a better option for higher-volume operations for user authentication.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityLookupDeveloperIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the LookupDeveloperIdentity service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityInput.html">AWSCognitoIdentityLookupDeveloperIdentityInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityResponse.html">AWSCognitoIdentityLookupDeveloperIdentityResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mergeDeveloperIdentities:" title="mergeDeveloperIdentities:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mergeDeveloperIdentities:">&ndash;&nbsp;mergeDeveloperIdentities:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Merges two users having different <code>IdentityId</code>s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (<code>SourceUserIdentifier</code>) with the <code>IdentityId</code> of the <code>DestinationUserIdentifier</code>. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.</p>
+
+
+<p>The number of linked logins is limited to 20. So, the number of linked logins for the source user, <code>SourceUserIdentifier</code>, and the destination user, <code>DestinationUserIdentifier</code>, together should not be larger than 20. Otherwise, an exception will be thrown.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityMergeDeveloperIdentitiesResponse*&gt; *)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the MergeDeveloperIdentities service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityMergeDeveloperIdentitiesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesInput.html">AWSCognitoIdentityMergeDeveloperIdentitiesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesResponse.html">AWSCognitoIdentityMergeDeveloperIdentitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mergeDeveloperIdentities:completionHandler:" title="mergeDeveloperIdentities:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mergeDeveloperIdentities:completionHandler:">&ndash;&nbsp;mergeDeveloperIdentities:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Merges two users having different <code>IdentityId</code>s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (<code>SourceUserIdentifier</code>) with the <code>IdentityId</code> of the <code>DestinationUserIdentifier</code>. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.</p>
+
+
+<p>The number of linked logins is limited to 20. So, the number of linked logins for the source user, <code>SourceUserIdentifier</code>, and the destination user, <code>DestinationUserIdentifier</code>, together should not be larger than 20. Otherwise, an exception will be thrown.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityMergeDeveloperIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the MergeDeveloperIdentities service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesInput.html">AWSCognitoIdentityMergeDeveloperIdentitiesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesResponse.html">AWSCognitoIdentityMergeDeveloperIdentitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setIdentityPoolRoles:" title="setIdentityPoolRoles:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setIdentityPoolRoles:">&ndash;&nbsp;setIdentityPoolRoles:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetIdentityPoolRoles service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorConcurrentModification</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentitySetIdentityPoolRolesInput.html">AWSCognitoIdentitySetIdentityPoolRolesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setIdentityPoolRoles:completionHandler:" title="setIdentityPoolRoles:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setIdentityPoolRoles:completionHandler:">&ndash;&nbsp;setIdentityPoolRoles:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetIdentityPoolRoles service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorConcurrentModification</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentitySetIdentityPoolRolesInput.html">AWSCognitoIdentitySetIdentityPoolRolesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:" title="tagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:">&ndash;&nbsp;tagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both identity pools. The value of this key might be <code>Test</code> for one identity pool and <code>Production</code> for the other.</p>
+
+
+<p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.</p>
+
+
+<p>You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityTagResourceResponse*&gt; *)tagResource:(AWSCognitoIdentityTagResourceInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityTagResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityTagResourceInput.html">AWSCognitoIdentityTagResourceInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityTagResourceResponse.html">AWSCognitoIdentityTagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:completionHandler:" title="tagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:completionHandler:">&ndash;&nbsp;tagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
+
+
+<p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both identity pools. The value of this key might be <code>Test</code> for one identity pool and <code>Production</code> for the other.</p>
+
+
+<p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.</p>
+
+
+<p>You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSCognitoIdentityTagResourceInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityTagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityTagResourceInput.html">AWSCognitoIdentityTagResourceInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityTagResourceResponse.html">AWSCognitoIdentityTagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unlinkDeveloperIdentity:" title="unlinkDeveloperIdentity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unlinkDeveloperIdentity:">&ndash;&nbsp;unlinkDeveloperIdentity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UnlinkDeveloperIdentity service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUnlinkDeveloperIdentityInput.html">AWSCognitoIdentityUnlinkDeveloperIdentityInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unlinkDeveloperIdentity:completionHandler:" title="unlinkDeveloperIdentity:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unlinkDeveloperIdentity:completionHandler:">&ndash;&nbsp;unlinkDeveloperIdentity:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UnlinkDeveloperIdentity service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUnlinkDeveloperIdentityInput.html">AWSCognitoIdentityUnlinkDeveloperIdentityInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unlinkIdentity:" title="unlinkIdentity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unlinkIdentity:">&ndash;&nbsp;unlinkIdentity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UnlinkIdentity service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUnlinkIdentityInput.html">AWSCognitoIdentityUnlinkIdentityInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unlinkIdentity:completionHandler:" title="unlinkIdentity:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unlinkIdentity:completionHandler:">&ndash;&nbsp;unlinkIdentity:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.</p>
+
+
+<p>This is a public API. You do not need any credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UnlinkIdentity service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorExternalService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUnlinkIdentityInput.html">AWSCognitoIdentityUnlinkIdentityInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:" title="untagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:">&ndash;&nbsp;untagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified tags from an Amazon Cognito identity pool. You can use this action up to 5 times per second, per account</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityUntagResourceResponse*&gt; *)untagResource:(AWSCognitoIdentityUntagResourceInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityUntagResourceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUntagResourceInput.html">AWSCognitoIdentityUntagResourceInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUntagResourceResponse.html">AWSCognitoIdentityUntagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:completionHandler:" title="untagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:completionHandler:">&ndash;&nbsp;untagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified tags from an Amazon Cognito identity pool. You can use this action up to 5 times per second, per account</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSCognitoIdentityUntagResourceInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityUntagResourceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUntagResourceInput.html">AWSCognitoIdentityUntagResourceInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityUntagResourceResponse.html">AWSCognitoIdentityUntagResourceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateIdentityPool:" title="updateIdentityPool:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateIdentityPool:">&ndash;&nbsp;updateIdentityPool:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates an identity pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoIdentityIdentityPool*&gt; *)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateIdentityPool service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoIdentityIdentityPool</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorConcurrentModification</code>, <code>AWSCognitoIdentityErrorLimitExceeded</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateIdentityPool:completionHandler:" title="updateIdentityPool:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateIdentityPool:completionHandler:">&ndash;&nbsp;updateIdentityPool:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates an identity pool.</p>
+
+
+<p>You must use AWS Developer credentials to call this API.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateIdentityPool service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoIdentityErrorDomain</code> domain and the following error code: <code>AWSCognitoIdentityErrorInvalidParameter</code>, <code>AWSCognitoIdentityErrorResourceNotFound</code>, <code>AWSCognitoIdentityErrorNotAuthorized</code>, <code>AWSCognitoIdentityErrorResourceConflict</code>, <code>AWSCognitoIdentityErrorTooManyRequests</code>, <code>AWSCognitoIdentityErrorInternalError</code>, <code>AWSCognitoIdentityErrorConcurrentModification</code>, <code>AWSCognitoIdentityErrorLimitExceeded</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
