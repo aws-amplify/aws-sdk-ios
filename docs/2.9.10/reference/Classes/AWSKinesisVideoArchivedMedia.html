@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSKinesisVideoArchivedMedia Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/KinesisVideoArchivedMediaForKey:">+ KinesisVideoArchivedMediaForKey:</option>
+		
+		<option value="//api/name/defaultKinesisVideoArchivedMedia">+ defaultKinesisVideoArchivedMedia</option>
+		
+		<option value="//api/name/registerKinesisVideoArchivedMediaWithConfiguration:forKey:">+ registerKinesisVideoArchivedMediaWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeKinesisVideoArchivedMediaForKey:">+ removeKinesisVideoArchivedMediaForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/getHLSStreamingSessionURL:">- getHLSStreamingSessionURL:</option>
+		
+		<option value="//api/name/getHLSStreamingSessionURL:completionHandler:">- getHLSStreamingSessionURL:completionHandler:</option>
+		
+		<option value="//api/name/getMediaForFragmentList:">- getMediaForFragmentList:</option>
+		
+		<option value="//api/name/getMediaForFragmentList:completionHandler:">- getMediaForFragmentList:completionHandler:</option>
+		
+		<option value="//api/name/listFragments:">- listFragments:</option>
+		
+		<option value="//api/name/listFragments:completionHandler:">- listFragments:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSKinesisVideoArchivedMedia Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSKinesisVideoArchivedMediaService.h<br />AWSKinesisVideoArchivedMediaService.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><p/></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultKinesisVideoArchivedMedia" title="defaultKinesisVideoArchivedMedia"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultKinesisVideoArchivedMedia">+&nbsp;defaultKinesisVideoArchivedMedia</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultKinesisVideoArchivedMedia</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let KinesisVideoArchivedMedia = AWSKinesisVideoArchivedMedia.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSKinesisVideoArchivedMedia *KinesisVideoArchivedMedia = [AWSKinesisVideoArchivedMedia defaultKinesisVideoArchivedMedia];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerKinesisVideoArchivedMediaWithConfiguration:forKey:" title="registerKinesisVideoArchivedMediaWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerKinesisVideoArchivedMediaWithConfiguration:forKey:">+&nbsp;registerKinesisVideoArchivedMediaWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerKinesisVideoArchivedMediaWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSKinesisVideoArchivedMedia.register(with: configuration!, forKey: "USWest2KinesisVideoArchivedMedia")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSKinesisVideoArchivedMedia registerKinesisVideoArchivedMediaWithConfiguration:configuration forKey:@"USWest2KinesisVideoArchivedMedia"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let KinesisVideoArchivedMedia = AWSKinesisVideoArchivedMedia(forKey: "USWest2KinesisVideoArchivedMedia")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSKinesisVideoArchivedMedia *KinesisVideoArchivedMedia = [AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:@"USWest2KinesisVideoArchivedMedia"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/KinesisVideoArchivedMediaForKey:" title="KinesisVideoArchivedMediaForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/KinesisVideoArchivedMediaForKey:">+&nbsp;KinesisVideoArchivedMediaForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerKinesisVideoArchivedMediaWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)KinesisVideoArchivedMediaForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSKinesisVideoArchivedMedia.register(with: configuration!, forKey: "USWest2KinesisVideoArchivedMedia")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSKinesisVideoArchivedMedia registerKinesisVideoArchivedMediaWithConfiguration:configuration forKey:@"USWest2KinesisVideoArchivedMedia"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let KinesisVideoArchivedMedia = AWSKinesisVideoArchivedMedia(forKey: "USWest2KinesisVideoArchivedMedia")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSKinesisVideoArchivedMedia *KinesisVideoArchivedMedia = [AWSKinesisVideoArchivedMedia KinesisVideoArchivedMediaForKey:@"USWest2KinesisVideoArchivedMedia"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeKinesisVideoArchivedMediaForKey:" title="removeKinesisVideoArchivedMediaForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeKinesisVideoArchivedMediaForKey:">+&nbsp;removeKinesisVideoArchivedMediaForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeKinesisVideoArchivedMediaForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getHLSStreamingSessionURL:" title="getHLSStreamingSessionURL:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getHLSStreamingSessionURL:">&ndash;&nbsp;getHLSStreamingSessionURL:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. The URL can then be opened in a browser or media player to view the stream contents.</p>
+
+
+<p>You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+
+
+<p>An Amazon Kinesis video stream has the following requirements for providing data through HLS:</p>
+
+
+<ul><li><p>The media type must be <code>video/h264</code>.</p></li><li><p>Data retention must be greater than 0.</p></li><li><p>The fragments must contain codec private data in the AVC (Advanced Video Coding) for H.264 format (<a href="https://www.iso.org/standard/55980.html">MPEG-4 specification ISO/IEC 14496-15</a>). For information about adapting stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/latest/dg/producer-reference-nal.html">NAL Adaptation Flags</a>.</p></li></ul>
+
+
+<p>Kinesis Video Streams HLS sessions contain fragments in the fragmented MPEG-4 form (also called fMP4 or CMAF), rather than the MPEG-2 form (also called TS chunks, which the HLS specification also supports). For more information about HLS fragment types, see the <a href="https://tools.ietf.org/html/draft-pantos-http-live-streaming-23">HLS specification</a>.</p>
+
+
+<p>The following procedure shows how to use HLS with Kinesis Video Streams:</p>
+
+
+<ol><li><p>Get an endpoint using <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_GetDataEndpoint.html">GetDataEndpoint</a>, specifying <code>GET_HLS_STREAMING_SESSION_URL</code> for the <code>APIName</code> parameter.</p></li><li><p>Retrieve the HLS URL using <code>GetHLSStreamingSessionURL</code>. Kinesis Video Streams creates an HLS streaming session to be used for accessing content in a stream using the HLS protocol. <code>GetHLSStreamingSessionURL</code> returns an authenticated URL (that includes an encrypted session token) for the session's HLS <i>master playlist</i> (the root resource needed for streaming with HLS).</p><note><p>Don't share or store this token where an unauthorized entity could access it. The token provides access to the content of the stream. Safeguard the token with the same measures that you would use with your AWS credentials.</p></note><p>The media that is made available through the playlist consists only of the requested stream, time range, and format. No other media data (such as frames outside the requested window or alternate bit rates) is made available.</p></li><li><p>Provide the URL (containing the encrypted session token) for the HLS master playlist to a media player that supports the HLS protocol. Kinesis Video Streams makes the HLS media playlist, initialization fragment, and media fragments available through the master playlist URL. The initialization fragment contains the codec private data for the stream, and other data needed to set up the video decoder and renderer. The media fragments contain H.264-encoded video frames and time stamps.</p></li><li><p>The media player receives the authenticated URL and requests stream metadata and media data normally. When the media player requests data, it calls the following actions:</p><ul><li><p><b>GetHLSMasterPlaylist:</b> Retrieves an HLS master playlist, which contains a URL for the <code>GetHLSMediaPlaylist</code> action, and additional metadata for the media player, including estimated bit rate and resolution.</p></li><li><p><b>GetHLSMediaPlaylist:</b> Retrieves an HLS media playlist, which contains a URL to access the MP4 intitialization fragment with the <code>GetMP4InitFragment</code> action, and URLs to access the MP4 media fragments with the <code>GetMP4MediaFragment</code> actions. The HLS media playlist also contains metadata about the stream that the player needs to play it, such as whether the <code>PlaybackMode</code> is <code>LIVE</code> or <code>ON_DEMAND</code>. The HLS media playlist is typically static for sessions with a <code>PlaybackType</code> of <code>ON_DEMAND</code>. The HLS media playlist is continually updated with new fragments for sessions with a <code>PlaybackType</code> of <code>LIVE</code>.</p></li><li><p><b>GetMP4InitFragment:</b> Retrieves the MP4 initialization fragment. The media player typically loads the initialization fragment before loading any media fragments. This fragment contains the "<code>fytp</code>" and "<code>moov</code>" MP4 atoms, and the child atoms that are needed to initialize the media player decoder.</p><p>The initialization fragment does not correspond to a fragment in a Kinesis video stream. It contains only the codec private data for the stream, which the media player needs to decode video frames.</p></li><li><p><b>GetMP4MediaFragment:</b> Retrieves MP4 media fragments. These fragments contain the "<code>moof</code>" and "<code>mdat</code>" MP4 atoms and their child atoms, containing the encoded fragment's video frames and their time stamps.</p><note><p>After the first media fragment is made available in a streaming session, any fragments that don't contain the same codec private data are excluded in the HLS media playlist. Therefore, the codec private data does not change between fragments in a session.</p></note></li></ul></li></ol>
+
+
+<p><note><p>The following restrictions apply to HLS sessions:</p><ul><li><p>A streaming session URL should not be shared between players. The service might throttle a session if multiple media players are sharing it. For connection limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p></li><li><p>A Kinesis video stream can have a maximum of five active HLS streaming sessions. If a new session is created when the maximum number of sessions is already active, the oldest (earliest created) session is closed. The number of active <code>GetMedia</code> connections on a Kinesis video stream does not count against this limit, and the number of active HLS sessions does not count against the active <code>GetMedia</code> connection limit.</p></li></ul></note><p>You can monitor the amount of data that the media player consumes by monitoring the <code>GetMP4MediaFragment.OutgoingBytes</code> Amazon CloudWatch metric. For information about using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS Pricing</a>. Charges for both HLS sessions and outgoing AWS data apply.</p><p>For more information about HLS, see <a href="https://developer.apple.com/streaming/">HTTP Live Streaming</a> on the <a href="https://developer.apple.com">Apple Developer site</a>.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput*&gt; *)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetHLSStreamingSessionURL service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoArchivedMediaErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoArchivedMediaErrorResourceNotFound</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidArgument</code>, <code>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</code>, <code>AWSKinesisVideoArchivedMediaErrorNotAuthorized</code>, <code>AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType</code>, <code>AWSKinesisVideoArchivedMediaErrorNoDataRetention</code>, <code>AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput.html">AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput.html">AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getHLSStreamingSessionURL:completionHandler:" title="getHLSStreamingSessionURL:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getHLSStreamingSessionURL:completionHandler:">&ndash;&nbsp;getHLSStreamingSessionURL:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves an HTTP Live Streaming (HLS) URL for the stream. The URL can then be opened in a browser or media player to view the stream contents.</p>
+
+
+<p>You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
+
+
+<p>An Amazon Kinesis video stream has the following requirements for providing data through HLS:</p>
+
+
+<ul><li><p>The media type must be <code>video/h264</code>.</p></li><li><p>Data retention must be greater than 0.</p></li><li><p>The fragments must contain codec private data in the AVC (Advanced Video Coding) for H.264 format (<a href="https://www.iso.org/standard/55980.html">MPEG-4 specification ISO/IEC 14496-15</a>). For information about adapting stream data to a given format, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/latest/dg/producer-reference-nal.html">NAL Adaptation Flags</a>.</p></li></ul>
+
+
+<p>Kinesis Video Streams HLS sessions contain fragments in the fragmented MPEG-4 form (also called fMP4 or CMAF), rather than the MPEG-2 form (also called TS chunks, which the HLS specification also supports). For more information about HLS fragment types, see the <a href="https://tools.ietf.org/html/draft-pantos-http-live-streaming-23">HLS specification</a>.</p>
+
+
+<p>The following procedure shows how to use HLS with Kinesis Video Streams:</p>
+
+
+<ol><li><p>Get an endpoint using <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_GetDataEndpoint.html">GetDataEndpoint</a>, specifying <code>GET_HLS_STREAMING_SESSION_URL</code> for the <code>APIName</code> parameter.</p></li><li><p>Retrieve the HLS URL using <code>GetHLSStreamingSessionURL</code>. Kinesis Video Streams creates an HLS streaming session to be used for accessing content in a stream using the HLS protocol. <code>GetHLSStreamingSessionURL</code> returns an authenticated URL (that includes an encrypted session token) for the session's HLS <i>master playlist</i> (the root resource needed for streaming with HLS).</p><note><p>Don't share or store this token where an unauthorized entity could access it. The token provides access to the content of the stream. Safeguard the token with the same measures that you would use with your AWS credentials.</p></note><p>The media that is made available through the playlist consists only of the requested stream, time range, and format. No other media data (such as frames outside the requested window or alternate bit rates) is made available.</p></li><li><p>Provide the URL (containing the encrypted session token) for the HLS master playlist to a media player that supports the HLS protocol. Kinesis Video Streams makes the HLS media playlist, initialization fragment, and media fragments available through the master playlist URL. The initialization fragment contains the codec private data for the stream, and other data needed to set up the video decoder and renderer. The media fragments contain H.264-encoded video frames and time stamps.</p></li><li><p>The media player receives the authenticated URL and requests stream metadata and media data normally. When the media player requests data, it calls the following actions:</p><ul><li><p><b>GetHLSMasterPlaylist:</b> Retrieves an HLS master playlist, which contains a URL for the <code>GetHLSMediaPlaylist</code> action, and additional metadata for the media player, including estimated bit rate and resolution.</p></li><li><p><b>GetHLSMediaPlaylist:</b> Retrieves an HLS media playlist, which contains a URL to access the MP4 intitialization fragment with the <code>GetMP4InitFragment</code> action, and URLs to access the MP4 media fragments with the <code>GetMP4MediaFragment</code> actions. The HLS media playlist also contains metadata about the stream that the player needs to play it, such as whether the <code>PlaybackMode</code> is <code>LIVE</code> or <code>ON_DEMAND</code>. The HLS media playlist is typically static for sessions with a <code>PlaybackType</code> of <code>ON_DEMAND</code>. The HLS media playlist is continually updated with new fragments for sessions with a <code>PlaybackType</code> of <code>LIVE</code>.</p></li><li><p><b>GetMP4InitFragment:</b> Retrieves the MP4 initialization fragment. The media player typically loads the initialization fragment before loading any media fragments. This fragment contains the "<code>fytp</code>" and "<code>moov</code>" MP4 atoms, and the child atoms that are needed to initialize the media player decoder.</p><p>The initialization fragment does not correspond to a fragment in a Kinesis video stream. It contains only the codec private data for the stream, which the media player needs to decode video frames.</p></li><li><p><b>GetMP4MediaFragment:</b> Retrieves MP4 media fragments. These fragments contain the "<code>moof</code>" and "<code>mdat</code>" MP4 atoms and their child atoms, containing the encoded fragment's video frames and their time stamps.</p><note><p>After the first media fragment is made available in a streaming session, any fragments that don't contain the same codec private data are excluded in the HLS media playlist. Therefore, the codec private data does not change between fragments in a session.</p></note></li></ul></li></ol>
+
+
+<p><note><p>The following restrictions apply to HLS sessions:</p><ul><li><p>A streaming session URL should not be shared between players. The service might throttle a session if multiple media players are sharing it. For connection limits, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html">Kinesis Video Streams Limits</a>.</p></li><li><p>A Kinesis video stream can have a maximum of five active HLS streaming sessions. If a new session is created when the maximum number of sessions is already active, the oldest (earliest created) session is closed. The number of active <code>GetMedia</code> connections on a Kinesis video stream does not count against this limit, and the number of active HLS sessions does not count against the active <code>GetMedia</code> connection limit.</p></li></ul></note><p>You can monitor the amount of data that the media player consumes by monitoring the <code>GetMP4MediaFragment.OutgoingBytes</code> Amazon CloudWatch metric. For information about using CloudWatch to monitor Kinesis Video Streams, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/monitoring.html">Monitoring Kinesis Video Streams</a>. For pricing information, see <a href="https://aws.amazon.com/kinesis/video-streams/pricing/">Amazon Kinesis Video Streams Pricing</a> and <a href="https://aws.amazon.com/pricing/">AWS Pricing</a>. Charges for both HLS sessions and outgoing AWS data apply.</p><p>For more information about HLS, see <a href="https://developer.apple.com/streaming/">HTTP Live Streaming</a> on the <a href="https://developer.apple.com">Apple Developer site</a>.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetHLSStreamingSessionURL service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoArchivedMediaErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoArchivedMediaErrorResourceNotFound</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidArgument</code>, <code>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</code>, <code>AWSKinesisVideoArchivedMediaErrorNotAuthorized</code>, <code>AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType</code>, <code>AWSKinesisVideoArchivedMediaErrorNoDataRetention</code>, <code>AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput.html">AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput.html">AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMediaForFragmentList:" title="getMediaForFragmentList:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMediaForFragmentList:">&ndash;&nbsp;getMediaForFragmentList:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.</p>
+
+
+<p>The following limits apply when using the <code>GetMediaForFragmentList</code> API:</p>
+
+
+<ul><li><p>A client can call <code>GetMediaForFragmentList</code> up to five times per second per stream. </p></li><li><p>Kinesis Video Streams sends media data at a rate of up to 25 megabytes per second (or 200 megabits per second) during a <code>GetMediaForFragmentList</code> session. </p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput*&gt; *)getMediaForFragmentList:(AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetMediaForFragmentList service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoArchivedMediaErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoArchivedMediaErrorResourceNotFound</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidArgument</code>, <code>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</code>, <code>AWSKinesisVideoArchivedMediaErrorNotAuthorized</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput.html">AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput.html">AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMediaForFragmentList:completionHandler:" title="getMediaForFragmentList:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMediaForFragmentList:completionHandler:">&ndash;&nbsp;getMediaForFragmentList:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.</p>
+
+
+<p>The following limits apply when using the <code>GetMediaForFragmentList</code> API:</p>
+
+
+<ul><li><p>A client can call <code>GetMediaForFragmentList</code> up to five times per second per stream. </p></li><li><p>Kinesis Video Streams sends media data at a rate of up to 25 megabytes per second (or 200 megabits per second) during a <code>GetMediaForFragmentList</code> session. </p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getMediaForFragmentList:(AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetMediaForFragmentList service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoArchivedMediaErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoArchivedMediaErrorResourceNotFound</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidArgument</code>, <code>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</code>, <code>AWSKinesisVideoArchivedMediaErrorNotAuthorized</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput.html">AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput.html">AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listFragments:" title="listFragments:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listFragments:">&ndash;&nbsp;listFragments:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of <a>Fragment</a> objects from the specified stream and start location within the archived data.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSKinesisVideoArchivedMediaListFragmentsOutput*&gt; *)listFragments:(AWSKinesisVideoArchivedMediaListFragmentsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListFragments service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoArchivedMediaListFragmentsOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoArchivedMediaErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoArchivedMediaErrorResourceNotFound</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidArgument</code>, <code>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</code>, <code>AWSKinesisVideoArchivedMediaErrorNotAuthorized</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaListFragmentsInput.html">AWSKinesisVideoArchivedMediaListFragmentsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaListFragmentsOutput.html">AWSKinesisVideoArchivedMediaListFragmentsOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listFragments:completionHandler:" title="listFragments:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listFragments:completionHandler:">&ndash;&nbsp;listFragments:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of <a>Fragment</a> objects from the specified stream and start location within the archived data.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listFragments:(AWSKinesisVideoArchivedMediaListFragmentsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoArchivedMediaListFragmentsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListFragments service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoArchivedMediaErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoArchivedMediaErrorResourceNotFound</code>, <code>AWSKinesisVideoArchivedMediaErrorInvalidArgument</code>, <code>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</code>, <code>AWSKinesisVideoArchivedMediaErrorNotAuthorized</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaListFragmentsInput.html">AWSKinesisVideoArchivedMediaListFragmentsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSKinesisVideoArchivedMediaListFragmentsOutput.html">AWSKinesisVideoArchivedMediaListFragmentsOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisVideoArchivedMediaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

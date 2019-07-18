@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSLexInteractionKit Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/defaultInteractionKit">+ defaultInteractionKit</option>
+		
+		<option value="//api/name/interactionKitForKey:">+ interactionKitForKey:</option>
+		
+		<option value="//api/name/registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:">+ registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeInteractionKitForKey:">+ removeInteractionKitForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/audioInAudioOut">- audioInAudioOut</option>
+		
+		<option value="//api/name/audioInAudioOutWithSessionAttributes:">- audioInAudioOutWithSessionAttributes:</option>
+		
+		<option value="//api/name/audioInTextOut">- audioInTextOut</option>
+		
+		<option value="//api/name/audioInTextOutWithSessionAttributes:">- audioInTextOutWithSessionAttributes:</option>
+		
+		<option value="//api/name/cancel">- cancel</option>
+		
+		<option value="//api/name/releaseAudioSource">- releaseAudioSource</option>
+		
+		<option value="//api/name/textInAudioOut:">- textInAudioOut:</option>
+		
+		<option value="//api/name/textInAudioOut:sessionAttributes:">- textInAudioOut:sessionAttributes:</option>
+		
+		<option value="//api/name/textInTextOut:">- textInTextOut:</option>
+		
+		<option value="//api/name/textInTextOut:sessionAttributes:">- textInTextOut:sessionAttributes:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSLexInteractionKit Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSLexInteractionKit.h<br />AWSLexInteractionKit.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/defaultInteractionKit" title="defaultInteractionKit"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultInteractionKit">+&nbsp;defaultInteractionKit</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton interactionKit client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultInteractionKit</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default interactionKit client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+     AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+     return true
+  }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code>  -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+     return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code>  let interactionKit = AWSLexInteractionKit.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code>  AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit defaultInteractionKit];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:" title="registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:">+&nbsp;registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a InteractionKit client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerInteractionKitWithServiceConfiguration:(AWSServiceConfiguration *)<em>configuration</em> interactionKitConfiguration:(AWSLexInteractionKitConfig *)<em>config</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSLexInteractionKit.register(with: configuration!, forKey: "USWest2InteractionKit")
+
+     return true
+  }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code>  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+
+     [AWSLexInteractionKit registerInteractionKitWithServiceConfiguration:configuration forKey:@"USWest2InteractionKit"];
+
+     return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code>  let interactionKit = AWSLexInteractionKit(forKey: "USWest2InteractionKit")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code>  AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit interactionKitForKey:@"USWest2InteractionKit"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/interactionKitForKey:" title="interactionKitForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/interactionKitForKey:">+&nbsp;interactionKitForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerLexWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)interactionKitForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSLexInteractionKit.register(with: configuration!, forKey: "USWest2InteractionKit")
+
+     return true
+  }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code>  - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+     [AWSLexInteractionKit registerInteractionKitWithServiceConfiguration:configuration forKey:@"USWest2InteractionKit"];
+
+     return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code>  let interactionKit = AWSLexInteractionKit(forKey: "USWest2InteractionKit")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code>  AWSLexInteractionKit *interactionKit = [AWSLexInteractionKit interactionKitForKey:@"USWest2InteractionKit"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeInteractionKitForKey:" title="removeInteractionKitForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeInteractionKitForKey:">+&nbsp;removeInteractionKitForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the interaction kit associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeInteractionKitForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/textInTextOut:" title="textInTextOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/textInTextOut:">&ndash;&nbsp;textInTextOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Accepts a text input and responds back with a text output</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)textInTextOut:(NSString *)<em>inputText</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>inputText</code></th>
+						<td><p>The text input</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/textInTextOut:sessionAttributes:" title="textInTextOut:sessionAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/textInTextOut:sessionAttributes:">&ndash;&nbsp;textInTextOut:sessionAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Accets a text input and an optional sessionAttribute dictionary and responds back with a text output.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)textInTextOut:(NSString *)<em>inputText</em> sessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)<em>sessionAttributes</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>inputText</code></th>
+						<td><p>The text input</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionAttributes</code></th>
+						<td><p>Optional Session attributes dictionary</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/textInAudioOut:" title="textInAudioOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/textInAudioOut:">&ndash;&nbsp;textInAudioOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Accepts a text input and responds back with an audio response. the playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)textInAudioOut:(NSString *)<em>inputText</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>inputText</code></th>
+						<td><p>The text input</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/textInAudioOut:sessionAttributes:" title="textInAudioOut:sessionAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/textInAudioOut:sessionAttributes:">&ndash;&nbsp;textInAudioOut:sessionAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Accepts a text input and an optional sessionAttribute dictionary and responds back with an audio response. The playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)textInAudioOut:(NSString *)<em>inputText</em> sessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)<em>sessionAttributes</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>inputText</code></th>
+						<td><p>The text input</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionAttributes</code></th>
+						<td><p>Optional Session attributes dictionary</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioInAudioOut" title="audioInAudioOut"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioInAudioOut">&ndash;&nbsp;audioInAudioOut</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts the microphone and listens to audio from the phone microphone and responds back with an audio response.The playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioInAudioOut</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioInAudioOutWithSessionAttributes:" title="audioInAudioOutWithSessionAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioInAudioOutWithSessionAttributes:">&ndash;&nbsp;audioInAudioOutWithSessionAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts the microphone and listens to audio from the phone microphone and responds back with an audio response.The playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioInAudioOutWithSessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)<em>sessionAttributes</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionAttributes</code></th>
+						<td><p>Optional Session attributes dictionary</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioInTextOut" title="audioInTextOut"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioInTextOut">&ndash;&nbsp;audioInTextOut</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts the microphone and listens to audio from the phone microphone and responds back with a text response.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioInTextOut</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/audioInTextOutWithSessionAttributes:" title="audioInTextOutWithSessionAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/audioInTextOutWithSessionAttributes:">&ndash;&nbsp;audioInTextOutWithSessionAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts the microphone and listens to audio from the phone microphone and responds back with a text response.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)audioInTextOutWithSessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)<em>sessionAttributes</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionAttributes</code></th>
+						<td><p>Optional Session attributes dictionary</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cancel" title="cancel"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cancel">&ndash;&nbsp;cancel</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Cancels ongoing http call and stops listening to Microphone if Audio input was requested.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)cancel</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/releaseAudioSource" title="releaseAudioSource"></a>
+	<h3 class="method-title"><code><a href="#//api/name/releaseAudioSource">&ndash;&nbsp;releaseAudioSource</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Safely stop and release audioSource.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)releaseAudioSource</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexInteractionKit.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

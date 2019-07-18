@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSCognitoSync Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.10 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/CognitoSyncForKey:">+ CognitoSyncForKey:</option>
+		
+		<option value="//api/name/defaultCognitoSync">+ defaultCognitoSync</option>
+		
+		<option value="//api/name/registerCognitoSyncWithConfiguration:forKey:">+ registerCognitoSyncWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeCognitoSyncForKey:">+ removeCognitoSyncForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/bulkPublish:">- bulkPublish:</option>
+		
+		<option value="//api/name/bulkPublish:completionHandler:">- bulkPublish:completionHandler:</option>
+		
+		<option value="//api/name/deleteDataset:">- deleteDataset:</option>
+		
+		<option value="//api/name/deleteDataset:completionHandler:">- deleteDataset:completionHandler:</option>
+		
+		<option value="//api/name/describeDataset:">- describeDataset:</option>
+		
+		<option value="//api/name/describeDataset:completionHandler:">- describeDataset:completionHandler:</option>
+		
+		<option value="//api/name/describeIdentityPoolUsage:">- describeIdentityPoolUsage:</option>
+		
+		<option value="//api/name/describeIdentityPoolUsage:completionHandler:">- describeIdentityPoolUsage:completionHandler:</option>
+		
+		<option value="//api/name/describeIdentityUsage:">- describeIdentityUsage:</option>
+		
+		<option value="//api/name/describeIdentityUsage:completionHandler:">- describeIdentityUsage:completionHandler:</option>
+		
+		<option value="//api/name/getBulkPublishDetails:">- getBulkPublishDetails:</option>
+		
+		<option value="//api/name/getBulkPublishDetails:completionHandler:">- getBulkPublishDetails:completionHandler:</option>
+		
+		<option value="//api/name/getCognitoEvents:">- getCognitoEvents:</option>
+		
+		<option value="//api/name/getCognitoEvents:completionHandler:">- getCognitoEvents:completionHandler:</option>
+		
+		<option value="//api/name/getIdentityPoolConfiguration:">- getIdentityPoolConfiguration:</option>
+		
+		<option value="//api/name/getIdentityPoolConfiguration:completionHandler:">- getIdentityPoolConfiguration:completionHandler:</option>
+		
+		<option value="//api/name/listDatasets:">- listDatasets:</option>
+		
+		<option value="//api/name/listDatasets:completionHandler:">- listDatasets:completionHandler:</option>
+		
+		<option value="//api/name/listIdentityPoolUsage:">- listIdentityPoolUsage:</option>
+		
+		<option value="//api/name/listIdentityPoolUsage:completionHandler:">- listIdentityPoolUsage:completionHandler:</option>
+		
+		<option value="//api/name/listRecords:">- listRecords:</option>
+		
+		<option value="//api/name/listRecords:completionHandler:">- listRecords:completionHandler:</option>
+		
+		<option value="//api/name/registerDevice:">- registerDevice:</option>
+		
+		<option value="//api/name/registerDevice:completionHandler:">- registerDevice:completionHandler:</option>
+		
+		<option value="//api/name/setCognitoEvents:">- setCognitoEvents:</option>
+		
+		<option value="//api/name/setCognitoEvents:completionHandler:">- setCognitoEvents:completionHandler:</option>
+		
+		<option value="//api/name/setIdentityPoolConfiguration:">- setIdentityPoolConfiguration:</option>
+		
+		<option value="//api/name/setIdentityPoolConfiguration:completionHandler:">- setIdentityPoolConfiguration:completionHandler:</option>
+		
+		<option value="//api/name/subscribeToDataset:">- subscribeToDataset:</option>
+		
+		<option value="//api/name/subscribeToDataset:completionHandler:">- subscribeToDataset:completionHandler:</option>
+		
+		<option value="//api/name/unsubscribeFromDataset:">- unsubscribeFromDataset:</option>
+		
+		<option value="//api/name/unsubscribeFromDataset:completionHandler:">- unsubscribeFromDataset:completionHandler:</option>
+		
+		<option value="//api/name/updateRecords:">- updateRecords:</option>
+		
+		<option value="//api/name/updateRecords:completionHandler:">- updateRecords:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSCognitoSync Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSCognitoSyncService.h<br />AWSCognitoSyncService.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><fullname>Amazon Cognito Sync</fullname><p>Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it&rsquo;s available even if the device is offline. Developer credentials don&rsquo;t need to be stored on the mobile device to access the service. You can use Amazon Cognito to obtain a normalized user ID and credentials. User data is persisted in a dataset that can store up to 1 MB of key-value pairs, and you can have up to 20 datasets per user identity.</p><p>With Amazon Cognito Sync, the data stored for each identity is accessible only to credentials assigned to that identity. In order to use the Cognito Sync service, you need to make API calls using credentials retrieved with <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html">Amazon Cognito Identity service</a>.</p><p>If you want to use Cognito Sync in an Android or iOS application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the <a href="http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html">Developer Guide for Android</a> and the <a href="http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html">Developer Guide for iOS</a>.</p></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultCognitoSync" title="defaultCognitoSync"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultCognitoSync">+&nbsp;defaultCognitoSync</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultCognitoSync</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let CognitoSync = AWSCognitoSync.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSCognitoSync *CognitoSync = [AWSCognitoSync defaultCognitoSync];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerCognitoSyncWithConfiguration:forKey:" title="registerCognitoSyncWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerCognitoSyncWithConfiguration:forKey:">+&nbsp;registerCognitoSyncWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerCognitoSyncWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSCognitoSync.register(with: configuration!, forKey: "USWest2CognitoSync")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSCognitoSync registerCognitoSyncWithConfiguration:configuration forKey:@"USWest2CognitoSync"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let CognitoSync = AWSCognitoSync(forKey: "USWest2CognitoSync")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSCognitoSync *CognitoSync = [AWSCognitoSync CognitoSyncForKey:@"USWest2CognitoSync"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/CognitoSyncForKey:" title="CognitoSyncForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/CognitoSyncForKey:">+&nbsp;CognitoSyncForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerCognitoSyncWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)CognitoSyncForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSCognitoSync.register(with: configuration!, forKey: "USWest2CognitoSync")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSCognitoSync registerCognitoSyncWithConfiguration:configuration forKey:@"USWest2CognitoSync"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let CognitoSync = AWSCognitoSync(forKey: "USWest2CognitoSync")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSCognitoSync *CognitoSync = [AWSCognitoSync CognitoSyncForKey:@"USWest2CognitoSync"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeCognitoSyncForKey:" title="removeCognitoSyncForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeCognitoSyncForKey:">+&nbsp;removeCognitoSyncForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeCognitoSyncForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bulkPublish:" title="bulkPublish:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bulkPublish:">&ndash;&nbsp;bulkPublish:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncBulkPublishResponse*&gt; *)bulkPublish:(AWSCognitoSyncBulkPublishRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the BulkPublish service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncBulkPublishResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorDuplicateRequest</code>, <code>AWSCognitoSyncErrorAlreadyStreamed</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncBulkPublishRequest.html">AWSCognitoSyncBulkPublishRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncBulkPublishResponse.html">AWSCognitoSyncBulkPublishResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/bulkPublish:completionHandler:" title="bulkPublish:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/bulkPublish:completionHandler:">&ndash;&nbsp;bulkPublish:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initiates a bulk publish of all existing datasets for an Identity Pool to the configured stream. Customers are limited to one successful bulk publish per 24 hours. Bulk publish is an asynchronous request, customers can see the status of the request via the GetBulkPublishDetails operation.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)bulkPublish:(AWSCognitoSyncBulkPublishRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncBulkPublishResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the BulkPublish service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorDuplicateRequest</code>, <code>AWSCognitoSyncErrorAlreadyStreamed</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncBulkPublishRequest.html">AWSCognitoSyncBulkPublishRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncBulkPublishResponse.html">AWSCognitoSyncBulkPublishResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteDataset:" title="deleteDataset:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteDataset:">&ndash;&nbsp;deleteDataset:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncDeleteDatasetResponse*&gt; *)deleteDataset:(AWSCognitoSyncDeleteDatasetRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteDataset service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncDeleteDatasetResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorResourceConflict</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDeleteDatasetRequest.html">AWSCognitoSyncDeleteDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDeleteDatasetResponse.html">AWSCognitoSyncDeleteDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteDataset:completionHandler:" title="deleteDataset:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteDataset:completionHandler:">&ndash;&nbsp;deleteDataset:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the specific dataset. The dataset will be deleted permanently, and the action can't be undone. Datasets that this dataset was merged with will no longer report the merge. Any subsequent operation on this dataset will result in a ResourceNotFoundException.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteDataset:(AWSCognitoSyncDeleteDatasetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncDeleteDatasetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteDataset service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorResourceConflict</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDeleteDatasetRequest.html">AWSCognitoSyncDeleteDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDeleteDatasetResponse.html">AWSCognitoSyncDeleteDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeDataset:" title="describeDataset:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeDataset:">&ndash;&nbsp;describeDataset:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncDescribeDatasetResponse*&gt; *)describeDataset:(AWSCognitoSyncDescribeDatasetRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeDataset service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncDescribeDatasetResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeDatasetRequest.html">AWSCognitoSyncDescribeDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeDatasetResponse.html">AWSCognitoSyncDescribeDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeDataset:completionHandler:" title="describeDataset:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeDataset:completionHandler:">&ndash;&nbsp;describeDataset:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets meta data about a dataset by identity and dataset name. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeDataset:(AWSCognitoSyncDescribeDatasetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncDescribeDatasetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeDataset service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeDatasetRequest.html">AWSCognitoSyncDescribeDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeDatasetResponse.html">AWSCognitoSyncDescribeDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentityPoolUsage:" title="describeIdentityPoolUsage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentityPoolUsage:">&ndash;&nbsp;describeIdentityPoolUsage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets usage details (for example, data storage) about a particular identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncDescribeIdentityPoolUsageResponse*&gt; *)describeIdentityPoolUsage:(AWSCognitoSyncDescribeIdentityPoolUsageRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentityPoolUsage service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncDescribeIdentityPoolUsageResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityPoolUsageRequest.html">AWSCognitoSyncDescribeIdentityPoolUsageRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityPoolUsageResponse.html">AWSCognitoSyncDescribeIdentityPoolUsageResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentityPoolUsage:completionHandler:" title="describeIdentityPoolUsage:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentityPoolUsage:completionHandler:">&ndash;&nbsp;describeIdentityPoolUsage:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets usage details (for example, data storage) about a particular identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentityPoolUsage:(AWSCognitoSyncDescribeIdentityPoolUsageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncDescribeIdentityPoolUsageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentityPoolUsage service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityPoolUsageRequest.html">AWSCognitoSyncDescribeIdentityPoolUsageRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityPoolUsageResponse.html">AWSCognitoSyncDescribeIdentityPoolUsageResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentityUsage:" title="describeIdentityUsage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentityUsage:">&ndash;&nbsp;describeIdentityUsage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets usage information for an identity, including number of datasets and data usage.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncDescribeIdentityUsageResponse*&gt; *)describeIdentityUsage:(AWSCognitoSyncDescribeIdentityUsageRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentityUsage service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncDescribeIdentityUsageResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityUsageRequest.html">AWSCognitoSyncDescribeIdentityUsageRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityUsageResponse.html">AWSCognitoSyncDescribeIdentityUsageResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeIdentityUsage:completionHandler:" title="describeIdentityUsage:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeIdentityUsage:completionHandler:">&ndash;&nbsp;describeIdentityUsage:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets usage information for an identity, including number of datasets and data usage.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentityUsage:(AWSCognitoSyncDescribeIdentityUsageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncDescribeIdentityUsageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeIdentityUsage service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityUsageRequest.html">AWSCognitoSyncDescribeIdentityUsageRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncDescribeIdentityUsageResponse.html">AWSCognitoSyncDescribeIdentityUsageResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getBulkPublishDetails:" title="getBulkPublishDetails:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getBulkPublishDetails:">&ndash;&nbsp;getBulkPublishDetails:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the status of the last BulkPublish operation for an identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncGetBulkPublishDetailsResponse*&gt; *)getBulkPublishDetails:(AWSCognitoSyncGetBulkPublishDetailsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetBulkPublishDetails service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncGetBulkPublishDetailsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetBulkPublishDetailsRequest.html">AWSCognitoSyncGetBulkPublishDetailsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetBulkPublishDetailsResponse.html">AWSCognitoSyncGetBulkPublishDetailsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getBulkPublishDetails:completionHandler:" title="getBulkPublishDetails:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getBulkPublishDetails:completionHandler:">&ndash;&nbsp;getBulkPublishDetails:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the status of the last BulkPublish operation for an identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getBulkPublishDetails:(AWSCognitoSyncGetBulkPublishDetailsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncGetBulkPublishDetailsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetBulkPublishDetails service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetBulkPublishDetailsRequest.html">AWSCognitoSyncGetBulkPublishDetailsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetBulkPublishDetailsResponse.html">AWSCognitoSyncGetBulkPublishDetailsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCognitoEvents:" title="getCognitoEvents:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCognitoEvents:">&ndash;&nbsp;getCognitoEvents:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncGetCognitoEventsResponse*&gt; *)getCognitoEvents:(AWSCognitoSyncGetCognitoEventsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCognitoEvents service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncGetCognitoEventsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetCognitoEventsRequest.html">AWSCognitoSyncGetCognitoEventsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetCognitoEventsResponse.html">AWSCognitoSyncGetCognitoEventsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCognitoEvents:completionHandler:" title="getCognitoEvents:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCognitoEvents:completionHandler:">&ndash;&nbsp;getCognitoEvents:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the events and the corresponding Lambda functions associated with an identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getCognitoEvents:(AWSCognitoSyncGetCognitoEventsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncGetCognitoEventsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCognitoEvents service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetCognitoEventsRequest.html">AWSCognitoSyncGetCognitoEventsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetCognitoEventsResponse.html">AWSCognitoSyncGetCognitoEventsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getIdentityPoolConfiguration:" title="getIdentityPoolConfiguration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getIdentityPoolConfiguration:">&ndash;&nbsp;getIdentityPoolConfiguration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the configuration settings of an identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncGetIdentityPoolConfigurationResponse*&gt; *)getIdentityPoolConfiguration:(AWSCognitoSyncGetIdentityPoolConfigurationRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetIdentityPoolConfiguration service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncGetIdentityPoolConfigurationResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetIdentityPoolConfigurationRequest.html">AWSCognitoSyncGetIdentityPoolConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetIdentityPoolConfigurationResponse.html">AWSCognitoSyncGetIdentityPoolConfigurationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getIdentityPoolConfiguration:completionHandler:" title="getIdentityPoolConfiguration:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getIdentityPoolConfiguration:completionHandler:">&ndash;&nbsp;getIdentityPoolConfiguration:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the configuration settings of an identity pool.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityPoolConfiguration:(AWSCognitoSyncGetIdentityPoolConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncGetIdentityPoolConfigurationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetIdentityPoolConfiguration service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetIdentityPoolConfigurationRequest.html">AWSCognitoSyncGetIdentityPoolConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncGetIdentityPoolConfigurationResponse.html">AWSCognitoSyncGetIdentityPoolConfigurationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listDatasets:" title="listDatasets:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listDatasets:">&ndash;&nbsp;listDatasets:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+
+
+<p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncListDatasetsResponse*&gt; *)listDatasets:(AWSCognitoSyncListDatasetsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListDatasets service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncListDatasetsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListDatasetsRequest.html">AWSCognitoSyncListDatasetsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListDatasetsResponse.html">AWSCognitoSyncListDatasetsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listDatasets:completionHandler:" title="listDatasets:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listDatasets:completionHandler:">&ndash;&nbsp;listDatasets:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists datasets for an identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+
+
+<p>ListDatasets can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use the Cognito Identity credentials to make this API call.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listDatasets:(AWSCognitoSyncListDatasetsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncListDatasetsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListDatasets service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListDatasetsRequest.html">AWSCognitoSyncListDatasetsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListDatasetsResponse.html">AWSCognitoSyncListDatasetsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listIdentityPoolUsage:" title="listIdentityPoolUsage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listIdentityPoolUsage:">&ndash;&nbsp;listIdentityPoolUsage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets a list of identity pools registered with Cognito.</p>
+
+
+<p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncListIdentityPoolUsageResponse*&gt; *)listIdentityPoolUsage:(AWSCognitoSyncListIdentityPoolUsageRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListIdentityPoolUsage service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncListIdentityPoolUsageResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListIdentityPoolUsageRequest.html">AWSCognitoSyncListIdentityPoolUsageRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListIdentityPoolUsageResponse.html">AWSCognitoSyncListIdentityPoolUsageResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listIdentityPoolUsage:completionHandler:" title="listIdentityPoolUsage:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listIdentityPoolUsage:completionHandler:">&ndash;&nbsp;listIdentityPoolUsage:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets a list of identity pools registered with Cognito.</p>
+
+
+<p>ListIdentityPoolUsage can only be called with developer credentials. You cannot make this API call with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listIdentityPoolUsage:(AWSCognitoSyncListIdentityPoolUsageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncListIdentityPoolUsageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListIdentityPoolUsage service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListIdentityPoolUsageRequest.html">AWSCognitoSyncListIdentityPoolUsageRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListIdentityPoolUsageResponse.html">AWSCognitoSyncListIdentityPoolUsageResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listRecords:" title="listRecords:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listRecords:">&ndash;&nbsp;listRecords:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+
+
+<p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncListRecordsResponse*&gt; *)listRecords:(AWSCognitoSyncListRecordsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListRecords service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncListRecordsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListRecordsRequest.html">AWSCognitoSyncListRecordsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListRecordsResponse.html">AWSCognitoSyncListRecordsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listRecords:completionHandler:" title="listRecords:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listRecords:completionHandler:">&ndash;&nbsp;listRecords:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets paginated records, optionally changed after a particular sync count for a dataset and identity. With Amazon Cognito Sync, each identity has access only to its own data. Thus, the credentials used to make this API call need to have access to the identity data.</p>
+
+
+<p>ListRecords can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listRecords:(AWSCognitoSyncListRecordsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncListRecordsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListRecords service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListRecordsRequest.html">AWSCognitoSyncListRecordsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncListRecordsResponse.html">AWSCognitoSyncListRecordsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerDevice:" title="registerDevice:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerDevice:">&ndash;&nbsp;registerDevice:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers a device to receive push sync notifications.</p>
+
+
+<p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncRegisterDeviceResponse*&gt; *)registerDevice:(AWSCognitoSyncRegisterDeviceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the RegisterDevice service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncRegisterDeviceResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorInvalidConfiguration</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncRegisterDeviceRequest.html">AWSCognitoSyncRegisterDeviceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncRegisterDeviceResponse.html">AWSCognitoSyncRegisterDeviceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerDevice:completionHandler:" title="registerDevice:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerDevice:completionHandler:">&ndash;&nbsp;registerDevice:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers a device to receive push sync notifications.</p>
+
+
+<p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)registerDevice:(AWSCognitoSyncRegisterDeviceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncRegisterDeviceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the RegisterDevice service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorInvalidConfiguration</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncRegisterDeviceRequest.html">AWSCognitoSyncRegisterDeviceRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncRegisterDeviceResponse.html">AWSCognitoSyncRegisterDeviceResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setCognitoEvents:" title="setCognitoEvents:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCognitoEvents:">&ndash;&nbsp;setCognitoEvents:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)setCognitoEvents:(AWSCognitoSyncSetCognitoEventsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetCognitoEvents service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSetCognitoEventsRequest.html">AWSCognitoSyncSetCognitoEventsRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setCognitoEvents:completionHandler:" title="setCognitoEvents:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCognitoEvents:completionHandler:">&ndash;&nbsp;setCognitoEvents:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the AWS Lambda function for a given event type for an identity pool. This request only updates the key/value pair specified. Other key/values pairs are not updated. To remove a key value pair, pass a empty value for the particular key.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setCognitoEvents:(AWSCognitoSyncSetCognitoEventsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetCognitoEvents service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSetCognitoEventsRequest.html">AWSCognitoSyncSetCognitoEventsRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setIdentityPoolConfiguration:" title="setIdentityPoolConfiguration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setIdentityPoolConfiguration:">&ndash;&nbsp;setIdentityPoolConfiguration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the necessary configuration for push sync.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncSetIdentityPoolConfigurationResponse*&gt; *)setIdentityPoolConfiguration:(AWSCognitoSyncSetIdentityPoolConfigurationRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetIdentityPoolConfiguration service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncSetIdentityPoolConfigurationResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorConcurrentModification</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSetIdentityPoolConfigurationRequest.html">AWSCognitoSyncSetIdentityPoolConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSetIdentityPoolConfigurationResponse.html">AWSCognitoSyncSetIdentityPoolConfigurationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setIdentityPoolConfiguration:completionHandler:" title="setIdentityPoolConfiguration:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setIdentityPoolConfiguration:completionHandler:">&ndash;&nbsp;setIdentityPoolConfiguration:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the necessary configuration for push sync.</p>
+
+
+<p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityPoolConfiguration:(AWSCognitoSyncSetIdentityPoolConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncSetIdentityPoolConfigurationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetIdentityPoolConfiguration service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorConcurrentModification</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSetIdentityPoolConfigurationRequest.html">AWSCognitoSyncSetIdentityPoolConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSetIdentityPoolConfigurationResponse.html">AWSCognitoSyncSetIdentityPoolConfigurationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/subscribeToDataset:" title="subscribeToDataset:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/subscribeToDataset:">&ndash;&nbsp;subscribeToDataset:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Subscribes to receive notifications when a dataset is modified by another device.</p>
+
+
+<p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncSubscribeToDatasetResponse*&gt; *)subscribeToDataset:(AWSCognitoSyncSubscribeToDatasetRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SubscribeToDataset service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncSubscribeToDatasetResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorInvalidConfiguration</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSubscribeToDatasetRequest.html">AWSCognitoSyncSubscribeToDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSubscribeToDatasetResponse.html">AWSCognitoSyncSubscribeToDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/subscribeToDataset:completionHandler:" title="subscribeToDataset:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/subscribeToDataset:completionHandler:">&ndash;&nbsp;subscribeToDataset:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Subscribes to receive notifications when a dataset is modified by another device.</p>
+
+
+<p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)subscribeToDataset:(AWSCognitoSyncSubscribeToDatasetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncSubscribeToDatasetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SubscribeToDataset service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorInvalidConfiguration</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSubscribeToDatasetRequest.html">AWSCognitoSyncSubscribeToDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncSubscribeToDatasetResponse.html">AWSCognitoSyncSubscribeToDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unsubscribeFromDataset:" title="unsubscribeFromDataset:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unsubscribeFromDataset:">&ndash;&nbsp;unsubscribeFromDataset:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
+
+
+<p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncUnsubscribeFromDatasetResponse*&gt; *)unsubscribeFromDataset:(AWSCognitoSyncUnsubscribeFromDatasetRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UnsubscribeFromDataset service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncUnsubscribeFromDatasetResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorInvalidConfiguration</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUnsubscribeFromDatasetRequest.html">AWSCognitoSyncUnsubscribeFromDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUnsubscribeFromDatasetResponse.html">AWSCognitoSyncUnsubscribeFromDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unsubscribeFromDataset:completionHandler:" title="unsubscribeFromDataset:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unsubscribeFromDataset:completionHandler:">&ndash;&nbsp;unsubscribeFromDataset:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unsubscribes from receiving notifications when a dataset is modified by another device.</p>
+
+
+<p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)unsubscribeFromDataset:(AWSCognitoSyncUnsubscribeFromDatasetRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncUnsubscribeFromDatasetResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UnsubscribeFromDataset service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorInternalError</code>, <code>AWSCognitoSyncErrorInvalidConfiguration</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUnsubscribeFromDatasetRequest.html">AWSCognitoSyncUnsubscribeFromDatasetRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUnsubscribeFromDatasetResponse.html">AWSCognitoSyncUnsubscribeFromDatasetResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateRecords:" title="updateRecords:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateRecords:">&ndash;&nbsp;updateRecords:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Posts updates to records and adds and deletes records for a dataset and user.</p>
+
+
+<p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p>
+
+
+<p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCognitoSyncUpdateRecordsResponse*&gt; *)updateRecords:(AWSCognitoSyncUpdateRecordsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateRecords service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCognitoSyncUpdateRecordsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorLimitExceeded</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorResourceConflict</code>, <code>AWSCognitoSyncErrorInvalidLambdaFunctionOutput</code>, <code>AWSCognitoSyncErrorLambdaThrottled</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorInternalError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUpdateRecordsRequest.html">AWSCognitoSyncUpdateRecordsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUpdateRecordsResponse.html">AWSCognitoSyncUpdateRecordsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateRecords:completionHandler:" title="updateRecords:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateRecords:completionHandler:">&ndash;&nbsp;updateRecords:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Posts updates to records and adds and deletes records for a dataset and user.</p>
+
+
+<p>The sync count in the record patch is your last known sync count for that record. The server will reject an UpdateRecords request with a ResourceConflictException if you try to patch a record with a new value but a stale sync count.</p>
+
+
+<p>For example, if the sync count on the server is 5 for a key called highScore and you try and submit a new highScore with sync count of 4, the request will be rejected. To obtain the current sync count for a record, call ListRecords. On a successful update of the record, the response returns the new sync count for that record. You should present that sync count the next time you try to update that same record. When the record does not exist, specify the sync count as 0.</p>
+
+
+<p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateRecords:(AWSCognitoSyncUpdateRecordsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoSyncUpdateRecordsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateRecords service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSCognitoSyncErrorDomain</code> domain and the following error code: <code>AWSCognitoSyncErrorInvalidParameter</code>, <code>AWSCognitoSyncErrorLimitExceeded</code>, <code>AWSCognitoSyncErrorNotAuthorized</code>, <code>AWSCognitoSyncErrorResourceNotFound</code>, <code>AWSCognitoSyncErrorResourceConflict</code>, <code>AWSCognitoSyncErrorInvalidLambdaFunctionOutput</code>, <code>AWSCognitoSyncErrorLambdaThrottled</code>, <code>AWSCognitoSyncErrorTooManyRequests</code>, <code>AWSCognitoSyncErrorInternalError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUpdateRecordsRequest.html">AWSCognitoSyncUpdateRecordsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCognitoSyncUpdateRecordsResponse.html">AWSCognitoSyncUpdateRecordsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoSyncService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-03</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
