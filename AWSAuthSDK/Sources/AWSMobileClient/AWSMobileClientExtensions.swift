@@ -643,7 +643,7 @@ extension AWSMobileClient {
     ///   - userAttributes: user attributes required for the operation.
     ///   - completionHandler: completionHandler which will be called when result is available.
     public func confirmSignIn(challengeResponse: String,
-                              userAttributes:[String:String] = [:],
+                              userAttributes: [String:String] = [:],
                               completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         if (self.userpoolOpsHelper.mfaCodeCompletionSource != nil) {
             self.userpoolOpsHelper.currentSignInHandlerCallback = completionHandler

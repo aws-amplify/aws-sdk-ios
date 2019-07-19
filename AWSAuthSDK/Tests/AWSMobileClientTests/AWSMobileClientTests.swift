@@ -146,9 +146,11 @@ class AWSMobileClientTests: XCTestCase {
                 return
             }
 
-            if let signInResult = signInResult {
-                XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
+            guard let signInResult = signInResult else {
+                XCTFail("User login failed, signInResult unexpectedly nil")
+                return
             }
+            XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
             signInWasSuccessful.fulfill()
         }
         wait(for: [signInWasSuccessful], timeout: 5)
