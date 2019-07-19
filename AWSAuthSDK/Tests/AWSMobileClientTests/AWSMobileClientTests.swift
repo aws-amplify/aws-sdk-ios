@@ -136,31 +136,65 @@ class AWSMobileClientTests: XCTestCase {
             return nil
         }).waitUntilFinished()
     }
-    
-    func signIn(username: String) {
+
+    func signIn(username: String, password: String? = nil, verifySignState: SignInState = .signedIn) {
+        let passwordToUse = password ?? sharedPassword
         let signInWasSuccessful = expectation(description: "signIn was successful")
-        AWSMobileClient.sharedInstance().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.sharedInstance().signIn(username: username, password: passwordToUse) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
             }
 
             if let signInResult = signInResult {
-                switch(signInResult.signInState) {
-                case .signedIn:
-                    print("signed in")
-                default:
-                    XCTFail("User was not signed in, un-expected.")
-                }
+                XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
             }
             signInWasSuccessful.fulfill()
         }
         wait(for: [signInWasSuccessful], timeout: 5)
     }
     
+    func confirmSign(challengeResponse: String, userAttributes:[String:String] = [:], verifySignState: SignInState = .signedIn) {
+        
+        let signInConfirmWasSuccessful = expectation(description: "signIn confirm was successful")
+        AWSMobileClient.sharedInstance().confirmSignIn(challengeResponse: challengeResponse,
+                                                       userAttributes: userAttributes) {
+                                                        (signInResult, error) in
+                                                        
+                                                        if let error = error {
+                                                            XCTFail("Sign in confirm failed: \(error.localizedDescription)")
+                                                            return
+                                                        }
+                                                        if let signInResult = signInResult {
+                                                            XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
+                                                        }
+                                                        
+             signInConfirmWasSuccessful.fulfill()
+        }
+         wait(for: [signInConfirmWasSuccessful], timeout: 5)
+    }
+    
     func signUpAndVerifyUser(username: String, customUserAttributes: [String: String]? = nil) {
         signUpUser(username: username, customUserAttributes: customUserAttributes)
         adminVerifyUser(username: username)
+    }
+    
+    func adminCreateUser(username: String, temporaryPassword: String, userAttributes: [String: String] = [:]) {
+        guard let adminCreateUserRequest = AWSCognitoIdentityProviderAdminCreateUserRequest() else {
+            XCTFail("Unable to create adminCreateUserRequest")
+            return
+        }
+        let userAttributesTransformed = userAttributes.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
+        adminCreateUserRequest.username = username
+        adminCreateUserRequest.temporaryPassword = temporaryPassword
+        adminCreateUserRequest.userAttributes = userAttributesTransformed
+        adminCreateUserRequest.userPoolId = userPoolId
+        userPoolsAdminClient.adminCreateUser(adminCreateUserRequest).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTFail("Could not create user. Failing the test: \(error)")
+            }
+            return nil
+        }.waitUntilFinished()
     }
     
     func testSignUp() {
@@ -808,6 +842,14 @@ class AWSMobileClientTests: XCTestCase {
         wait(for: [identityIdExpectation], timeout: 5)
 
         XCTAssertNotNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should not be nil.")
+    }
+    
+    func testPasswordResetChallenge() {
+        let username = "testUser" + UUID().uuidString
+        let tempPassword = "tempPassword" + UUID().uuidString
+        adminCreateUser(username: username, temporaryPassword: tempPassword)
+        signIn(username: username, password: tempPassword, verifySignState: .newPasswordRequired)
+        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": sharedEmail])
     }
 
 }
