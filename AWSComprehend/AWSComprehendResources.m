@@ -878,7 +878,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -926,7 +926,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -978,7 +978,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -1026,7 +1026,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"SyntaxLanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -1181,7 +1181,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         },\
         \"VolumeKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
@@ -1469,7 +1469,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -1495,7 +1495,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -1521,7 +1521,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         }\
       }\
     },\
@@ -1551,7 +1551,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"SyntaxLanguageCode\",\
-          \"documentation\":\"<p>The language code of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\").</p>\"\
+          \"documentation\":\"<p>The language code of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\").</p>\"\
         }\
       }\
     },\
@@ -2013,7 +2013,7 @@
           \"documentation\":\"<p>A measure of how accurate the recognizer results are for the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>\"\
         }\
       },\
-      \"documentation\":\"<p> Detailed information about the accuracy of an entity recognizer. </p>\"\
+      \"documentation\":\"<p>Detailed information about the accuracy of an entity recognizer. </p>\"\
     },\
     \"EntityRecognizerFilter\":{\
       \"type\":\"structure\",\
@@ -2042,7 +2042,7 @@
       \"members\":{\
         \"EntityTypes\":{\
           \"shape\":\"EntityTypesList\",\
-          \"documentation\":\"<p>The entity types in the input data for an entity recognizer.</p>\"\
+          \"documentation\":\"<p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>\"\
         },\
         \"Documents\":{\
           \"shape\":\"EntityRecognizerDocuments\",\
@@ -2072,7 +2072,7 @@
         },\
         \"EvaluationMetrics\":{\
           \"shape\":\"EntityRecognizerEvaluationMetrics\",\
-          \"documentation\":\"<p> Detailed information about the accuracy of an entity recognizer.</p>\"\
+          \"documentation\":\"<p>Detailed information about the accuracy of an entity recognizer.</p>\"\
         },\
         \"EntityTypes\":{\
           \"shape\":\"EntityRecognizerMetadataEntityTypesList\",\
@@ -2091,6 +2091,14 @@
         \"Type\":{\
           \"shape\":\"AnyLengthString\",\
           \"documentation\":\"<p>Type of entity from the list of entity types in the metadata of an entity recognizer. </p>\"\
+        },\
+        \"EvaluationMetrics\":{\
+          \"shape\":\"EntityTypesEvaluationMetrics\",\
+          \"documentation\":\"<p>Detailed information about the accuracy of the entity recognizer for a specific item on the list of entity types. </p>\"\
+        },\
+        \"NumberOfTrainMentions\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>indicates the number of times the given entity name was seen in the training data. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Individual item from the list of entity types in the metadata of an entity recognizer.</p>\"\
@@ -2176,6 +2184,24 @@
       \"max\":64,\
       \"pattern\":\"[_A-Z0-9]+\"\
     },\
+    \"EntityTypesEvaluationMetrics\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Precision\":{\
+          \"shape\":\"Double\",\
+          \"documentation\":\"<p>A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. </p>\"\
+        },\
+        \"Recall\":{\
+          \"shape\":\"Double\",\
+          \"documentation\":\"<p>A measure of how complete the recognizer results are for a specific entity type in the test data. High recall means that the recognizer returned most of the relevant results.</p>\"\
+        },\
+        \"F1Score\":{\
+          \"shape\":\"Double\",\
+          \"documentation\":\"<p>A measure of how accurate the recognizer results are for for a specific entity type in the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Detailed information about the accuracy of an entity recognizer for a specific entity type. </p>\"\
+    },\
     \"EntityTypesList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"EntityTypesListItem\"}\
@@ -2235,7 +2261,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The filter specified for the <code>ListDocumentClassificationJobs</code> operation is invalid. Specify a different filter.</p>\",\
+      \"documentation\":\"<p>The filter specified for the operation is invalid. Specify a different filter.</p>\",\
       \"exception\":true\
     },\
     \"InvalidRequestException\":{\
@@ -3132,7 +3158,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         },\
         \"ClientRequestToken\":{\
           \"shape\":\"ClientRequestTokenString\",\
@@ -3189,7 +3215,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify English (\\\"en\\\") or Spanish (\\\"es\\\"). All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German (\\\"de\\\"), English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         },\
         \"ClientRequestToken\":{\
           \"shape\":\"ClientRequestTokenString\",\
@@ -3627,7 +3653,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>Amazon Comprehend can't process the language of the input text. For all custom entity recognition APIs (such as <code>CreateEntityRecognizer</code>), only English is accepted. For most other APIs, Amazon Comprehend accepts only English or Spanish text. </p>\",\
+      \"documentation\":\"<p>Amazon Comprehend can't process the language of the input text. For all custom entity recognition APIs (such as <code>CreateEntityRecognizer</code>), only English is accepted. For most other APIs, such as those for Custom Classification, Amazon Comprehend accepts text in all supported languages. For a list of supported languages, see <a>supported-languages</a>. </p>\",\
       \"exception\":true\
     },\
     \"UntagResourceRequest\":{\

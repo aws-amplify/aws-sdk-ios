@@ -2210,8 +2210,14 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"evaluationMetrics" : @"EvaluationMetrics",
+             @"numberOfTrainMentions" : @"NumberOfTrainMentions",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)evaluationMetricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendEntityTypesEvaluationMetrics class]];
 }
 
 @end
@@ -2365,6 +2371,18 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendEntityTypesEvaluationMetrics
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"f1Score" : @"F1Score",
+             @"precision" : @"Precision",
+             @"recall" : @"Recall",
+             };
 }
 
 @end
