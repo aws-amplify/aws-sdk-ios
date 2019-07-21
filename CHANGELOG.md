@@ -1,5 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.10.1
+
+- Model updates for the following services
+  - Amazon Comprehend
+
 ## 2.10.0
 
 ### New Features
