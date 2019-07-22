@@ -525,14 +525,12 @@ extension AWSMobileClient {
         } else {
             user!.getSession(username, password: password, validationData: validationAttributes).continueWith { (task) -> Any? in
                 if let error = task.error {
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error))
-                    self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+                    self.invokeSignInCallback(signInResult: nil, error: self.getMobileError(for: error))
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
                     self.federationProvider = .userPools
                     let signInResult = SignInResult(signInState: .signedIn)
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(signInResult, nil)
-                    self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+                    self.invokeSignInCallback(signInResult: signInResult, error: nil)
                     self.performUserPoolSuccessfulSignInTasks(session: result)
                 }
                 return nil
@@ -784,8 +782,7 @@ extension AWSMobileClient {
     internal func performUserPoolSignOut() {
         self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-        self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
-        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+        self.invokeSignInCallback(signInResult: nil, error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userPoolClient?.clearAll()
     }
     
@@ -899,16 +896,14 @@ extension AWSMobileClient {
                 self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                     if let error = task.error {
                         completionHandler(nil, error)
-                        self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, error)
-                        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+                        self.invokeSignInCallback(signInResult: nil, error: error)
                     } else if let session = task.result {
                         completionHandler(self.userSessionToTokens(userSession: session), nil)
                         self.federationProvider = .userPools
                         if (self.currentUserState != .signedIn) {
                             self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
                         }
-                        self.userpoolOpsHelper.currentSignInHandlerCallback?(SignInResult(signInState: .signedIn), nil)
-                        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+                        self.invokeSignInCallback(signInResult: SignInResult(signInState: .signedIn), error: nil)
                     }
                     self.tokenFetchLock.leave()
                     return nil
@@ -954,22 +949,19 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks{
     
     func didCompletePasswordStepWithError(_ error: Error?) {
         if error != nil {
-            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error!))
-            self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+            self.invokeSignInCallback(signInResult: nil, error: self.getMobileError(for: error!))
         }
     }
     
     func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput, newPasswordRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>) {
         self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = newPasswordRequiredCompletionSource
         let result = SignInResult(signInState: .newPasswordRequired, codeDetails: nil)
-        self.userpoolOpsHelper.currentSignInHandlerCallback?(result, nil)
-        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+        self.invokeSignInCallback(signInResult: result, error: nil)
     }
     
     func didCompleteNewPasswordStepWithError(_ error: Error?) {
         if error != nil {
-            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error!))
-            self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+            self.invokeSignInCallback(signInResult: nil, error: self.getMobileError(for: error!))
         }
     }
     
@@ -986,17 +978,20 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks{
             }
         
         let result = SignInResult(signInState: .smsMFA, codeDetails: codeDeliveryDetails)
-        self.userpoolOpsHelper.currentSignInHandlerCallback?(result, nil)
-        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+        self.invokeSignInCallback(signInResult: result, error: nil)
     }
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?) {
         if error != nil {
-            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error!))
-            self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+            invokeSignInCallback(signInResult: nil, error: self.getMobileError(for: error!))
         }
     }
     
+    func invokeSignInCallback(signInResult: SignInResult?, error: Error?) {
+        guard let handler = self.userpoolOpsHelper.currentSignInHandlerCallback else { return }
+        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+        handler(signInResult, error)
+    }
 }
 
 extension AWSMobileClient: AWSCognitoAuthDelegate {
