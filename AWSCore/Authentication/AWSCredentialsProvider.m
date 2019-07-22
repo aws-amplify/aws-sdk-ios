@@ -227,6 +227,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
     if (self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
         && self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
+        AWSDDLogVerbose(@"Retrieving credentials from keychain");
         NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
         NSDate *expiration = nil;
         if (expirationString) {
@@ -236,6 +237,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                                       secretKey:self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]
                                                                      sessionKey:self.keychain[AWSCredentialsProviderKeychainSessionToken]
                                                                      expiration:expiration];
+
+        _internalCredentials = credentials;
 
         return credentials;
     }
@@ -703,6 +706,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
     if (self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
         && self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
+        AWSDDLogVerbose(@"Retrieving credentials from keychain");
         NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
         NSDate *expiration = nil;
         if (expirationString) {
@@ -712,6 +716,9 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                                                                       secretKey:self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]
                                                                      sessionKey:self.keychain[AWSCredentialsProviderKeychainSessionToken]
                                                                      expiration:expiration];
+
+        _internalCredentials = credentials;
+
         return credentials;
     }
 

@@ -235,24 +235,58 @@ BOOL _identityChanged;
                                                                                                         roleArn:@"arn:aws:iam::335750469596:role/WICProviderTestRole"
                                                                                                 roleSessionName:@"iOSTest-WICProvider"
                                                                                                webIdentityToken:_facebookToken];
-
+    
     [[[provider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         XCTAssertNil(task.error);
-
+        
         AWSCredentials *credentials = task.result;
-
+        
         XCTAssertNotNil(credentials.accessKey);
         XCTAssertNotNil(credentials.secretKey);
         XCTAssertNotNil(credentials.sessionKey);
         XCTAssertNotNil(credentials.expiration);
-
+        
         XCTAssertNotNil(provider.webIdentityToken);
         XCTAssertNotNil(provider.roleArn);
         XCTAssertNotNil(provider.roleSessionName);
-
+        
         XCTAssertNotNil(provider.providerId);
         return nil;
     }] waitUntilFinished ];
+}
+
+- (void)testWICProviderKeychain{
+    // Although we aren't asserting it in the test, we only expect the message "Retrieving credentials from keychain" to be logged
+    // once during this test. Subsequent accesses of `internalCredentials` should use the in-memory cache rather than the keychain.
+    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+
+    AWSWebIdentityCredentialsProvider *provider1 = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     providerId:@"graph.facebook.com"
+                                                                                                        roleArn:@"arn:aws:iam::335750469596:role/WICProviderTestRole"
+                                                                                                roleSessionName:@"iOSTest-WICProvider"
+                                                                                               webIdentityToken:_facebookToken];
+    
+    __block AWSWebIdentityCredentialsProvider *provider2 = nil;
+
+    [[[[provider1 credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        provider2 = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                       providerId:@"graph.facebook.com"
+                                                                          roleArn:@"arn:aws:iam::335750469596:role/WICProviderTestRole"
+                                                                  roleSessionName:@"iOSTest-WICProvider"
+                                                                 webIdentityToken:_facebookToken];
+        
+        return [provider2 credentials];
+    }] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        
+        AWSCredentials *credentials = task.result;
+        XCTAssertNotNil(credentials.accessKey);
+        XCTAssertNotNil(credentials.secretKey);
+        XCTAssertNotNil(credentials.sessionKey);
+        XCTAssertNotNil(credentials.expiration);
+        return nil;
+    }] waitUntilFinished];
 }
 
 - (void)testProvider {
@@ -488,6 +522,11 @@ BOOL _identityChanged;
 }
 
 - (void)testEnhancedProviderKeychain {
+    // Although we aren't asserting it in the test, we only expect the message "Retrieving credentials from keychain" to be logged
+    // once during this test. Subsequent accesses of `internalCredentials` should use the in-memory cache rather than the keychain.
+    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+    
     AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
                                                                                           identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                  identityProviderManager:[AWSTestFacebookIdentityProvider new]];
