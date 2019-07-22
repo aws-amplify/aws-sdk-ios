@@ -279,6 +279,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         } else {
             host = endpoint.hostName;
         }
+        host = endpoint.hostName;
         [getPreSignedURLRequest setValue:host forRequestHeader:@"host"];
         
         //If this is a presigned request for a multipart upload, set the uploadID and partNumber on the request.
@@ -291,8 +292,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [getPreSignedURLRequest setValue:[NSString stringWithFormat:@"%@", getPreSignedURLRequest.partNumber]
                          forRequestParameter:@"partNumber"];
         }
-        
-        AWSEndpoint *newEndpoint = [[AWSEndpoint alloc]initWithRegion:configuration.regionType service:AWSServiceS3 URL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", endpoint.useUnsafeURL?@"http":@"https", host]]];
+        NSString *portNumber = endpoint.portNumber != nil ? [NSString stringWithFormat:@":%@", endpoint.portNumber.stringValue]: @"";
+        AWSEndpoint *newEndpoint = [[AWSEndpoint alloc]initWithRegion:configuration.regionType service:AWSServiceS3 URL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@", endpoint.useUnsafeURL?@"http":@"https", host, portNumber]]];
         
         int32_t expireDuration = [expires timeIntervalSinceNow];
         if (expireDuration > 604800) {

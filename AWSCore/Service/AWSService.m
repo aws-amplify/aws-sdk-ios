@@ -305,6 +305,7 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
                                        serviceName:_serviceName
                                       useUnsafeURL:useUnsafeURL];
             _hostName = [_URL host];
+            _portNumber = [NSNumber numberWithInt:20005];
         }
         return self;
     }
@@ -352,6 +353,7 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
         _serviceName = serviceName;
         _URL = URL;
         _hostName = [_URL host];
+        _portNumber = [_URL port];
     }
     
     return self;
@@ -368,6 +370,7 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
         _serviceName = [self serviceNameFromType:serviceType];
         _URL = URL;
         _hostName = [_URL host];
+        _portNumber = [_URL port];
     }
 
     return self;
@@ -382,6 +385,7 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
         }else{
             _useUnsafeURL = YES;
         }
+        _portNumber = [_URL port];
     }
     return self;
 }

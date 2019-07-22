@@ -120,6 +120,7 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
 @property (nonatomic, readonly) NSURL *URL;
 @property (nonatomic, readonly) NSString *hostName;
 @property (nonatomic, readonly) BOOL useUnsafeURL;
+@property (nonatomic, readonly) NSNumber *portNumber;
 
 + (NSString *)regionNameFromType:(AWSRegionType)regionType;
 
