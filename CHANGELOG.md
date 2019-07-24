@@ -2,6 +2,12 @@
 
 ## 2.10.1
 
+### Bug Fixes
+
+- **Amazon Polly**
+   - Fixed error trying to use 'Zeina' voice with presigned URLs
+
+### Misc. Updates
 - Model updates for the following services
   - Amazon Comprehend
 
