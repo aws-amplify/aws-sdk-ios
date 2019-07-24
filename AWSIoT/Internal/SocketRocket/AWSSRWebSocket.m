@@ -324,6 +324,7 @@ static __strong NSData *CRLFCRLF;
     _webSocketVersion = 13;
     
     _workQueue = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
+    _delegateDispatchQueue = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
     
     // Going to set a specific on the queue so we can validate we're on the work queue
     dispatch_queue_set_specific(_workQueue, (__bridge void *)self, maybe_bridge(_workQueue), NULL);
@@ -407,6 +408,12 @@ static __strong NSData *CRLFCRLF;
         [_delegateOperationQueue addOperationWithBlock:block];
     } else {
         SRFastLog(@"using _delegateDispatchQueue.");
+        NSLog(@"%@", _delegateDispatchQueue);
+        if(_delegateDispatchQueue) {
+            
+        } else {
+            _delegateDispatchQueue = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
+        }
         assert(_delegateDispatchQueue);
         dispatch_async(_delegateDispatchQueue, block);
     }

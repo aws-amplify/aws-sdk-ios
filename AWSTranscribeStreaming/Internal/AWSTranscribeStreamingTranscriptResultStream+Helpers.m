@@ -32,12 +32,14 @@ static NSDictionary *errorCodeDictionary = nil;
 + (nullable AWSTranscribeStreamingTranscriptResultStream *)resultStreamForWSSBody:(NSString *)body
                                                                           headers:(NSDictionary<NSString *, NSString *> *)headers
                                                                             error:(NSError * __autoreleasing *)errorPointer {
+    NSLog(@"Response header %@", headers);
+    NSLog(@"Response error %@", errorPointer);
     
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:[body dataUsingEncoding:NSUTF8StringEncoding]
                                                                options:NSJSONReadingMutableContainers
                                                                  error:errorPointer];
-    
-    if (!jsonObject || *errorPointer) {
+    NSLog(@"Response body json %@", jsonObject);
+    if (!jsonObject || (errorPointer && *errorPointer)) {
         return nil;
     }
     

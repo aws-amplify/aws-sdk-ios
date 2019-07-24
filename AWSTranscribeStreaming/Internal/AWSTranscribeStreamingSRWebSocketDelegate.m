@@ -39,6 +39,13 @@
     return self;
 }
 
+- (instancetype)initWithClientDelegate:(id<AWSTranscribeStreamingClientDelegate>)clientDelegate callbackQueue:(dispatch_queue_t)queue {
+    if (self = [super init]) {
+        _clientDelegate = clientDelegate;
+    }
+    return self;
+}
+
 /**
  Converts incoming WSS message to a AWSTranscribeStreamingTranscriptResultStream and invokes the client delegate
  `didReceiveEvent` callback
@@ -47,8 +54,8 @@
  @param message the message
  */
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
-    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)message];
-    [self.clientDelegate didReceiveEvent:result];
+    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)message decodingError: NULL];
+    [self.clientDelegate didReceiveEvent:result decodingError: NULL];
 }
 
 /**

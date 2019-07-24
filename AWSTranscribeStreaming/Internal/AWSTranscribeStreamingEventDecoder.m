@@ -62,7 +62,7 @@
                                                                                                                               headers:headers
                                                                                                                                 error:decodingErrorPointer];
 
-    if (*decodingErrorPointer) {
+    if (decodingErrorPointer && *decodingErrorPointer) {
         AWSDDLogError(@"Error deserializing response data into AWSTranscribeStreamingTranscriptResultStream: %@", *decodingErrorPointer);
     } else {
         AWSDDLogDebug(@"Created AWSTranscribeStreamingTranscriptResultStream from decoded message");
