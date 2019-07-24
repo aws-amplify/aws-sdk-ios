@@ -81,6 +81,40 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     [super tearDown];
 }
 
+- (void)testLocalTestingConfiguration {
+    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"accessKey"
+                                                                                                      secretKey:@"secretKey"];
+    NSString *key = @"testLocalTestingConfiguration";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionLocal
+                                                                         credentialsProvider:credentialsProvider];
+    AWSS3TransferUtilityConfiguration *transferUtilityConfig = [[AWSS3TransferUtilityConfiguration alloc] init];
+    transferUtilityConfig.localTestingEnabled = YES;
+    [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration
+                                        transferUtilityConfiguration:transferUtilityConfig
+                                                              forKey:key];
+    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
+    configuration = transferUtility.configuration;
+    [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration
+                                                                      forKey:key];
+    AWSS3PreSignedURLBuilder *customPreSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:key];
+    
+    
+    AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
+    getPreSignedURLRequest.bucket = @"ios-v2-s3-tm-testdata";
+    getPreSignedURLRequest.key = @"temp2.txt";
+    getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
+    getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
+
+    [[[customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
+        
+        NSURL *presignedURL = task.result;
+        XCTAssertNotNil(presignedURL);
+        XCTAssertEqualObjects(presignedURL.host, @"localhost", @"Should be localhost");
+        XCTAssertEqual(presignedURL.port.intValue, 20005, @"Port should be matching");
+        return nil;
+    }] waitUntilFinished];
+    
+}
 
 - (void)testCustomServiceConfiguration {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"

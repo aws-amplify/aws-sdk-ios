@@ -140,9 +140,9 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
 
 - (instancetype)initWithURLString:(NSString *)URLString;
 
-- (instancetype)initWithRegion:(AWSRegionType)regionType
-                       service:(AWSServiceType)serviceType
-                  useUnsafeURL:(BOOL)useUnsafeURL
-           localTestingEnabled:(BOOL)localTestingEnabled;
+- (instancetype)initLocalEndpointWithRegion:(AWSRegionType)regionType
+                                    service:(AWSServiceType)serviceType
+                               useUnsafeURL:(BOOL)useUnsafeURL
+                                       port:(NSInteger)portNumber;
 
 @end

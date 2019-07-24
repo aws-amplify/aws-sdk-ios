@@ -270,7 +270,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         //generate correct hostName (use virtualHostStyle if possible)
         NSString *host = nil;
-        if (bucketName && [bucketName aws_isVirtualHostedStyleCompliant]) {
+        if (endpoint.regionType != AWSRegionLocal &&
+            bucketName &&
+            [bucketName aws_isVirtualHostedStyleCompliant]) {
             if (isAccelerateModeEnabled) {
                 host = [NSString stringWithFormat:@"%@.%@", bucketName, AWSS3PreSignedURLBuilderAcceleratedEndpoint];
             } else {
@@ -279,7 +281,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         } else {
             host = endpoint.hostName;
         }
-        host = endpoint.hostName;
         [getPreSignedURLRequest setValue:host forRequestHeader:@"host"];
         
         //If this is a presigned request for a multipart upload, set the uploadID and partNumber on the request.

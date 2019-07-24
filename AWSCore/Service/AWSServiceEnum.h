@@ -28,6 +28,10 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      */
     AWSRegionUnknown NS_SWIFT_NAME(Unknown),
     /**
+     *  Local Testing Region
+     */
+    AWSRegionLocal NS_SWIFT_NAME(Local),
+    /**
      *  US East (N. Virginia)
      */
     AWSRegionUSEast1 NS_SWIFT_NAME(USEast1),

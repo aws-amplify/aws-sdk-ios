@@ -466,10 +466,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
         // Setup local testing endpoint if local testing is enabled.
         if (_transferUtilityConfiguration.localTestingEnabled) {
-            _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
-                                                                  service:AWSServiceS3
-                                                             useUnsafeURL:YES
-                                                      localTestingEnabled:YES];
+            _configuration.endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:_configuration.regionType
+                                                                               service:AWSServiceS3
+                                                                          useUnsafeURL:YES
+                                                                                  port:20005];
             
         }
         

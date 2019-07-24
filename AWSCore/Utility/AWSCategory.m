@@ -484,6 +484,11 @@ static NSTimeInterval _clockskew = 0.0;
 }
 
 - (AWSRegionType)aws_regionTypeValue {
+    if ([self isEqualToString:@"AWSRegionLocal"]
+        || [self isEqualToString:@"Local"]
+        || [self isEqualToString:@"local"]) {
+        return AWSRegionLocal;
+    }
     if ([self isEqualToString:@"AWSRegionUSEast1"]
         || [self isEqualToString:@"USEast1"]
         || [self isEqualToString:@"us-east-1"]) {

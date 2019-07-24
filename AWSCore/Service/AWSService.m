@@ -217,6 +217,7 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
 
 #pragma mark - AWSEndpoint
 
+static NSString *const AWSRegionNameLocal = @"local";
 static NSString *const AWSRegionNameUSEast1 = @"us-east-1";
 static NSString *const AWSRegionNameUSEast2 = @"us-east-2";
 static NSString *const AWSRegionNameUSWest2 = @"us-west-2";
@@ -288,28 +289,38 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
                                    reason:@"`- init` is not a valid initializer. Use `- initWithRegion:service:useUnsafeURL:` instead."
                                  userInfo:nil];
 }
-- (instancetype)initWithRegion:(AWSRegionType)regionType
-                       service:(AWSServiceType)serviceType
-                  useUnsafeURL:(BOOL)useUnsafeURL
-                  localTestingEnabled:(BOOL)localTestingEnabled {
-    if (localTestingEnabled) {
-        if (self = [super init]) {
-            _regionType = regionType;
-            _serviceType = serviceType;
-            _useUnsafeURL = useUnsafeURL;
-            _regionName = @"local";
-            
-            _URL = [self localTestingURLWithRegion:_regionType
-                                        regionName:_regionName
-                                           service:_serviceType
-                                       serviceName:_serviceName
-                                      useUnsafeURL:useUnsafeURL];
-            _hostName = [_URL host];
-            _portNumber = [NSNumber numberWithInt:20005];
+
+- (instancetype)initLocalEndpointWithRegion:(AWSRegionType)regionType
+                                    service:(AWSServiceType)serviceType
+                               useUnsafeURL:(BOOL)useUnsafeURL
+                                       port:(NSInteger)portNumber {
+    if (self = [super init]) {
+        _regionType = regionType;
+        _serviceType = serviceType;
+        _useUnsafeURL = useUnsafeURL;
+        _regionName = [AWSEndpoint regionNameFromType:regionType];
+        if (!_regionName) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid region type."
+                                         userInfo:nil];
         }
-        return self;
+        _serviceName = [self serviceNameFromType:serviceType];
+        if (!_serviceName) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid service type."
+                                         userInfo:nil];
+        }
+        if (portNumber > 0) {
+            _portNumber = [NSNumber numberWithInteger:portNumber];
+        }
+        _URL = [self localTestingURLWithRegion:_regionType
+                                          port:_portNumber
+                                       service:_serviceType
+                                  useUnsafeURL:useUnsafeURL];
+        _hostName = [_URL host];
+        
     }
-    return [self initWithRegion:regionType service:serviceType useUnsafeURL:useUnsafeURL];
+    return self;
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
@@ -403,6 +414,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 
 + (NSString *)regionNameFromType:(AWSRegionType)regionType {
     switch (regionType) {
+        case AWSRegionLocal:
+            return AWSRegionNameLocal;
         case AWSRegionUSEast1:
             return AWSRegionNameUSEast1;
         case AWSRegionUSEast2:
@@ -529,9 +542,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 
 
 - (NSURL *)localTestingURLWithRegion:(AWSRegionType)regionType
-                          regionName:(NSString *)regionName
+                                port:(NSNumber *)portNumber
                              service:(AWSServiceType)serviceType
-                         serviceName:(NSString *)serviceName
                         useUnsafeURL:(BOOL)useUnsafeURL {
     NSURL *URL = nil;
     NSString *HTTPType = @"https";
@@ -539,7 +551,7 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
         HTTPType = @"http";
     }
     if (serviceType == AWSServiceS3) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://localhost:20002/", HTTPType]];
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://localhost:%@/", HTTPType, portNumber.stringValue]];
     }
     return URL;
 }

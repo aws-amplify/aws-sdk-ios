@@ -64,6 +64,22 @@ static id urlSession = nil;
     OCMStub([mockNetworking sendRequest:[OCMArg isKindOfClass:[AWSNetworkingRequest class]]]).andReturn(errorTask);
 }
 
+- (void)testInitializingForLocalTesting {
+    NSString *key = @"testLocalTesting";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionLocal credentialsProvider:nil];
+    AWSS3TransferUtilityConfiguration *transferUtilityConfig = [[AWSS3TransferUtilityConfiguration alloc] init];
+    transferUtilityConfig.localTestingEnabled = YES;
+    [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration
+                                        transferUtilityConfiguration:transferUtilityConfig
+                                                              forKey:key];
+    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
+    configuration = transferUtility.configuration;
+    XCTAssertNotNil(configuration, @"Transfer utility configuration should not be nil");
+    XCTAssertEqualObjects(configuration.endpoint.URL, [NSURL URLWithString:@"http://localhost:20005/"], @"Local host url should be set");
+    XCTAssertEqualObjects(configuration.endpoint.portNumber, [NSNumber numberWithInt:20005], @"Local host port should be set");
+    XCTAssertEqual(configuration.endpoint.regionType, AWSRegionLocal, @"Endpoint region should local");
+}
+
 /**
  Test the successfull execution of multipart data upload.
  **/
