@@ -15,7 +15,6 @@
 
 #import "AWSMobileAnalyticsSDKInfo.h"
 
-// We should move to semantic versioning instead of versioning off of Brazil
 #ifndef BUILD_VERSION
 #define BUILD_VERSION @"2.0-alpha"
 #endif
