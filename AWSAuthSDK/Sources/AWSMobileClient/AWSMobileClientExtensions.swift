@@ -640,14 +640,17 @@ extension AWSMobileClient {
     ///
     /// - Parameters:
     ///   - challengeResponse: confirmation code or TOTP token which is available to the user.
+    ///   - userAttributes: user attributes required for the operation.
     ///   - completionHandler: completionHandler which will be called when result is available.
-    public func confirmSignIn(challengeResponse: String, completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
+    public func confirmSignIn(challengeResponse: String,
+                              userAttributes: [String:String] = [:],
+                              completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         if (self.userpoolOpsHelper.mfaCodeCompletionSource != nil) {
             self.userpoolOpsHelper.currentSignInHandlerCallback = completionHandler
             self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: challengeResponse as NSString)
         } else if (self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentSignInHandlerCallback = completionHandler
-            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse, userAttributes: [String:String]()))
+            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse, userAttributes: userAttributes))
         } else {
             completionHandler(nil, AWSMobileClientError.invalidState(message: "Please call `signIn` before calling this method."))
         }
