@@ -4,6 +4,9 @@
 #
 version: 2.1
 
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+
 commands:
   early_return_for_forked_prs:
     description: >-
@@ -607,6 +610,8 @@ jobs:
           command: |
             sudo gem install cocoapods
             pod --version
+      - aws-cli/install
+      - aws-cli/configure
       - override_test_job
       - skip_job_unless_required
       - early_return_for_forked_prs
