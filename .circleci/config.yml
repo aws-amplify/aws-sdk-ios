@@ -4,6 +4,10 @@
 #
 version: 2.1
 
+## Using aws-cli to create test user for e2e testing
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+
 commands:
   early_return_for_forked_prs:
     description: >-
@@ -54,6 +58,8 @@ commands:
             pre_name=$(echo "${CIRCLE_SHA1}" | cut -c1-7)
             override_test_variable_name=OVERRIDE_TEST_${pre_name}
             echo "export override_test_variable_name=$override_test_variable_name" >> $BASH_ENV
+            circleci_root_directory=$(pwd)  
+            echo "export circleci_root_directory=$circleci_root_directory" >> $BASH_ENV
 
   quit_for_nominorversion:
     description: >-
@@ -150,7 +156,7 @@ commands:
             echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
   pre_start_simulator:
     description: >-
-      pre start simulator, build may fail is simulator is not started
+      pre start simulator, build may fail if simulator is not started
     steps:
       - run:
           name: pre-start simulator
@@ -599,31 +605,57 @@ jobs:
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
   run_ui_test:
-    # Specify the Xcode version to use
     macos:
-      xcode: "10.2.1"
+      xcode: "10.3.0"
+    parameters:
+      appname:
+        description: "specifies app for UI Testing. Should be a subset of apps specified in config file"
+        type: string
     steps:
       - set_environment_variables
-      - override_test_job
-      - skip_job_unless_required
-      - early_return_for_forked_prs
+      - aws-cli/install
+      - aws-cli/configure
+      - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
+      - skip_job_unless_required #skip_job_from_environment_variable SKIP_JOB_${CIRCLE_JOB}
+      - early_return_for_forked_prs # do not run for forked PRs
       - checkout
-      - skip_test_job
-      - pre_start_simulator
       - run:
-          name: Run Sample UI Test
+          name: "Checkout sample apps repository"
           command: |
-            git clone https://github.com/awslabs/aws-sdk-ios-samples.git
-            rootDirectory=$(pwd)
-            cd aws-sdk-ios-samples/S3TransferUtility-Sample/Swift/
-            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
-            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_PODFILE} | base64 --decode > Podfile
-            pod install
-            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination "${destination}" test | tee $rootDirectory/raw_ui_test.log
-            cd $rootDirectory
-            rm -rf aws-sdk-ios-samples
+            cd ${circleci_root_directory}
+            git clone https://github.com/phanisrikar93/aws-sdk-ios-samples
+      - run:
+          name: "Set-Up configuration for UITests"
+          ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
+          ## Use the setup_uitest_config API to create a custom config file from the template 
+          ## <Internal> More information on this API can be found in the <Internal> Design Hand-Book WIKI
+          command: |
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 setup_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
+      - run:
+          name: "Set-Up Mobile SDK Dependencies"
+          command: |
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_setup_mobile_sdk_dependencies.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+      - run:
+          name: "Configure AWS Resources"
+          command: |
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_configure_aws_resources.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples 
+      - run:
+          name: "Build and UITest"
+          command: |
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_build_and_uitest.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples -c ${circleci_root_directory}
+      - run:
+          name: "Clean-Up UITest"
+          command: |
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_cleanup_uitests.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+          when: always 
       - store_artifacts:
-          path: raw_ui_test.log
+          path: uitest_logs
+
   add_doc_tag:
     macos:
       xcode: "10.1.0"
@@ -1243,6 +1275,7 @@ workflows:
                 - master
                 - develop
       - run_ui_test:
+          appname: PhotoAlbum
           requires:
             - build
           filters:
@@ -1250,6 +1283,17 @@ workflows:
               only:
                 - master
                 - develop
+                - e2e-testing
+      - run_ui_test:
+          appname: S3TransferUtility
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+                - e2e-testing
       - merge_to_master:
           requires:
             - build
