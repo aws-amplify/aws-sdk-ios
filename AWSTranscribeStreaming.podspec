@@ -10,7 +10,10 @@ Pod::Spec.new do |s|
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
   s.platform     = :ios, '9.0'
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
-                     :tag => s.version}
+                     :branch => 'palpatim/finish-transcribe-wss'}
+                      # Restore this after development of TranscribeStreaming WSS is finished, before
+                      # merging to the /develop branch
+                      # :tag => s.version}
   s.requires_arc = true
   s.dependency 'AWSCore', '2.10.0'
   s.source_files = 'AWSTranscribeStreaming/*.{h,m}', 'AWSTranscribeStreaming/**/*.{h,m}', 'AWSIoT/Internal/SocketRocket/*.{h,m}'
