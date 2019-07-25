@@ -905,12 +905,6 @@ workflows:
             branches:
               only:
                 - /^models-update-.+$/
-      - pre_integrationtest:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
       - run_ui_test:
           requires:
             - build
