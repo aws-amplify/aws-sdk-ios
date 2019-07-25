@@ -180,11 +180,6 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property NSNumber *partNumber;
 @end
 
-@interface AWSServiceConfiguration()
-
-@property (nonatomic, strong) AWSEndpoint *endpoint;
-
-@end
 
 @interface AWSS3TransferUtilityDatabaseHelper()
 
