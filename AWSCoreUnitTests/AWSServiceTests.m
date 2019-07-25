@@ -161,20 +161,24 @@
 }
 
 - (void)testLocalEndpointForS3 {
-    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:AWSRegionLocal
+    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:AWSRegionUSEast1
                                                                      service:AWSServiceS3
-                                                                useUnsafeURL:YES
-                                                                        port:100];
+                                                                useUnsafeURL:YES];
     [self verifyServiceEndpointWith:endpoint
-                         regionType:AWSRegionLocal
+                         regionType:AWSRegionUSEast1
                             service:AWSServiceS3
-                         regionName:@"local"
+                         regionName:@"us-east-1"
                         serviceName:@"s3"
-                         serviceURL:[NSURL URLWithString:@"http://localhost:100/"]
+                         serviceURL:[NSURL URLWithString:@"http://localhost:20005/"]
                     serviceHostName:@"localhost"
                        useUnsafeURL:YES];
-    XCTAssertEqual(endpoint.portNumber.integerValue, 100);
+    XCTAssertEqual(endpoint.portNumber.integerValue, 20005);
     
+    // Test that when we create service endpoint in non local testing setup, the port number is nil
+    AWSEndpoint *nonLocalTestingEndpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
+                                                                       service:AWSServiceS3
+                                                                  useUnsafeURL:NO];
+    XCTAssertNil(nonLocalTestingEndpoint.portNumber);
 }
 
 - (void)testEndpointForAutoScaling {

@@ -85,12 +85,12 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"accessKey"
                                                                                                       secretKey:@"secretKey"];
     NSString *key = @"testLocalTestingConfiguration";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionLocal
-                                                                         credentialsProvider:credentialsProvider];
-    AWSS3TransferUtilityConfiguration *transferUtilityConfig = [[AWSS3TransferUtilityConfiguration alloc] init];
-    transferUtilityConfig.localTestingEnabled = YES;
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                                 serviceType:AWSServiceS3
+                                                                         credentialsProvider:credentialsProvider
+                                                                         localTestingEnabled:YES];
     [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration
-                                        transferUtilityConfiguration:transferUtilityConfig
+                                        transferUtilityConfiguration:[AWSS3TransferUtilityConfiguration new]
                                                               forKey:key];
     AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
     configuration = transferUtility.configuration;
@@ -111,6 +111,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         XCTAssertNotNil(presignedURL);
         XCTAssertEqualObjects(presignedURL.host, @"localhost", @"Should be localhost");
         XCTAssertEqual(presignedURL.port.intValue, 20005, @"Port should be matching");
+        XCTAssertEqualObjects(presignedURL.scheme, @"http", @"Should be in http protocol for local testing");
         return nil;
     }] waitUntilFinished];
     

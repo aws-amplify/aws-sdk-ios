@@ -270,7 +270,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         //generate correct hostName (use virtualHostStyle if possible)
         NSString *host = nil;
-        if (endpoint.regionType != AWSRegionLocal &&
+        if (!self.configuration.localTestingEnabled &&
             bucketName &&
             [bucketName aws_isVirtualHostedStyleCompliant]) {
             if (isAccelerateModeEnabled) {

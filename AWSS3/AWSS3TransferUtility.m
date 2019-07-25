@@ -265,14 +265,15 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoS3TransferUtility];
        
         if (serviceInfo) {
+            NSNumber *localTestingEnabled = [serviceInfo.infoDictionary valueForKey:@"DangerouslyConnectToHTTPEndpointForTesting"];
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+                                                                       serviceType:AWSServiceS3
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider
+                                                               localTestingEnabled:[localTestingEnabled boolValue]];
             NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
             NSString *bucketName = [serviceInfo.infoDictionary valueForKey:@"Bucket"];
-            NSNumber *localTestingEnabled = [serviceInfo.infoDictionary valueForKey:@"DangerouslyConnectToHTTPEndpointForTesting"];
             transferUtilityConfiguration.bucket = bucketName;
             transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
-            transferUtilityConfiguration.localTestingEnabled = [localTestingEnabled boolValue];
         }
         
         if (!serviceConfiguration) {
@@ -463,14 +464,6 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
         else {
             _transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
-        }
-        // Setup local testing endpoint if local testing is enabled.
-        if (_transferUtilityConfiguration.localTestingEnabled) {
-            _configuration.endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:_configuration.regionType
-                                                                               service:AWSServiceS3
-                                                                          useUnsafeURL:YES
-                                                                                  port:20005];
-            
         }
         
         _preSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:_configuration];
@@ -2588,7 +2581,6 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
         _retryLimit = 0;
         _multiPartConcurrencyLimit = @(AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit);
         _timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
-        _localTestingEnabled = NO;
     }
     return self;
 }
@@ -2600,7 +2592,6 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     configuration.retryLimit = self.retryLimit;
     configuration.multiPartConcurrencyLimit = self.multiPartConcurrencyLimit;
     configuration.timeoutIntervalForResource = self.timeoutIntervalForResource;
-    configuration.localTestingEnabled = self.localTestingEnabled;
     return configuration;
 }
 
