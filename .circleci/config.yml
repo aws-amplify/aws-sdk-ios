@@ -602,6 +602,11 @@ jobs:
       xcode: "10.2.1"
     steps:
       - set_environment_variables
+      - run:
+          name: "Install Latest Cocoapods"
+          command: |
+            sudo gem install cocoapods
+            pod --version
       - override_test_job
       - skip_job_unless_required
       - early_return_for_forked_prs
