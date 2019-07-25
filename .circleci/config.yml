@@ -931,12 +931,6 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
-      - unittest:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: bump_sdk_version
       - create_pullrequest_for_modelupdate:
           filters:
             branches:
