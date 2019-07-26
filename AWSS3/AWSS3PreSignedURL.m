@@ -270,7 +270,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         //generate correct hostName (use virtualHostStyle if possible)
         NSString *host = nil;
-        if (bucketName && [bucketName aws_isVirtualHostedStyleCompliant]) {
+        if (!self.configuration.localTestingEnabled &&
+            bucketName &&
+            [bucketName aws_isVirtualHostedStyleCompliant]) {
             if (isAccelerateModeEnabled) {
                 host = [NSString stringWithFormat:@"%@.%@", bucketName, AWSS3PreSignedURLBuilderAcceleratedEndpoint];
             } else {
@@ -291,8 +293,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [getPreSignedURLRequest setValue:[NSString stringWithFormat:@"%@", getPreSignedURLRequest.partNumber]
                          forRequestParameter:@"partNumber"];
         }
-        
-        AWSEndpoint *newEndpoint = [[AWSEndpoint alloc]initWithRegion:configuration.regionType service:AWSServiceS3 URL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", endpoint.useUnsafeURL?@"http":@"https", host]]];
+        NSString *portNumber = endpoint.portNumber != nil ? [NSString stringWithFormat:@":%@", endpoint.portNumber.stringValue]: @"";
+        AWSEndpoint *newEndpoint = [[AWSEndpoint alloc]initWithRegion:configuration.regionType service:AWSServiceS3 URL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@", endpoint.useUnsafeURL?@"http":@"https", host, portNumber]]];
         
         int32_t expireDuration = [expires timeIntervalSinceNow];
         if (expireDuration > 604800) {

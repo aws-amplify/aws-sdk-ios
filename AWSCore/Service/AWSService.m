@@ -107,7 +107,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 @property (nonatomic, strong) id<AWSCredentialsProvider> credentialsProvider;
 @property (nonatomic, strong) AWSEndpoint *endpoint;
 @property (nonatomic, strong) NSArray *userAgentProductTokens;
-
+@property (nonatomic, assign) BOOL localTestingEnabled;
 @end
 
 @implementation AWSServiceConfiguration
@@ -119,10 +119,27 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
+                   serviceType:(AWSServiceType)serviceType
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
+           localTestingEnabled:(BOOL)localTestingEnabled {
+    if(self = [self initWithRegion:regionType credentialsProvider:credentialsProvider]){
+        _localTestingEnabled = localTestingEnabled;
+        if(localTestingEnabled) {
+            _endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:regionType
+                                                                 service:serviceType
+                                                            useUnsafeURL:YES];
+        }
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithRegion:(AWSRegionType)regionType
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
     if (self = [super init]) {
         _regionType = regionType;
         _credentialsProvider = credentialsProvider;
+        _localTestingEnabled = NO;
     }
 
     return self;
@@ -209,7 +226,7 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
     configuration.credentialsProvider = self.credentialsProvider;
     configuration.userAgentProductTokens = self.userAgentProductTokens;
     configuration.endpoint = self.endpoint;
-    
+    configuration.localTestingEnabled = self.localTestingEnabled;
     return configuration;
 }
 
@@ -287,6 +304,36 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:@"`- init` is not a valid initializer. Use `- initWithRegion:service:useUnsafeURL:` instead."
                                  userInfo:nil];
+}
+
+- (instancetype)initLocalEndpointWithRegion:(AWSRegionType)regionType
+                                    service:(AWSServiceType)serviceType
+                               useUnsafeURL:(BOOL)useUnsafeURL {
+    if (self = [super init]) {
+        _regionType = regionType;
+        _serviceType = serviceType;
+        _useUnsafeURL = useUnsafeURL;
+        _regionName = [AWSEndpoint regionNameFromType:regionType];
+        if (!_regionName) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid region type."
+                                         userInfo:nil];
+        }
+        _serviceName = [self serviceNameFromType:serviceType];
+        if (!_serviceName) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid service type."
+                                         userInfo:nil];
+        }
+        NSNumber *portNumber = [self portNumberForService:serviceType
+                                       isLocalTestingPort:YES];
+        _URL = [self localTestingURLForService:serviceType
+                                          port:portNumber
+                                  useUnsafeURL:useUnsafeURL];
+        _hostName = [_URL host];
+        
+    }
+    return self;
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
@@ -499,6 +546,37 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
         default:
             return nil;
     }
+}
+
+- (NSNumber *)portNumber {
+    if (_URL != nil) {
+        return _URL.port;
+    }
+    return nil;
+}
+
+- (NSNumber *)portNumberForService:(AWSServiceType)serviceType
+                isLocalTestingPort:(BOOL)isLocalTestingPort {
+    if (isLocalTestingPort) {
+        if (serviceType == AWSServiceS3) {
+            return [NSNumber numberWithInteger:20005];
+        }
+    }
+    return nil;
+}
+
+- (NSURL *)localTestingURLForService:(AWSServiceType)serviceType
+                                port:(NSNumber *)portNumber
+                        useUnsafeURL:(BOOL)useUnsafeURL {
+    NSURL *URL = nil;
+    NSString *HTTPType = @"https";
+    if (useUnsafeURL) {
+        HTTPType = @"http";
+    }
+    if (serviceType == AWSServiceS3) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://localhost:%@/", HTTPType, portNumber.stringValue]];
+    }
+    return URL;
 }
 
 - (NSURL *)URLWithRegion:(AWSRegionType)regionType
