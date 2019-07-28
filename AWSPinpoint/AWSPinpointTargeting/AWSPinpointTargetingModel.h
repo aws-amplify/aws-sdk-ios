@@ -187,6 +187,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingActivitiesResponse;
 @class AWSPinpointTargetingActivityResponse;
 @class AWSPinpointTargetingAddressConfiguration;
+@class AWSPinpointTargetingApplicationDateRangeKpiResponse;
 @class AWSPinpointTargetingApplicationResponse;
 @class AWSPinpointTargetingApplicationSettingsResource;
 @class AWSPinpointTargetingApplicationsResponse;
@@ -195,6 +196,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingBaiduChannelRequest;
 @class AWSPinpointTargetingBaiduChannelResponse;
 @class AWSPinpointTargetingBaiduMessage;
+@class AWSPinpointTargetingBaseKpiResult;
+@class AWSPinpointTargetingCampaignDateRangeKpiResponse;
 @class AWSPinpointTargetingCampaignEmailMessage;
 @class AWSPinpointTargetingCampaignEventFilter;
 @class AWSPinpointTargetingCampaignHook;
@@ -293,6 +296,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingGetApnsVoipSandboxChannelResponse;
 @class AWSPinpointTargetingGetAppRequest;
 @class AWSPinpointTargetingGetAppResponse;
+@class AWSPinpointTargetingGetApplicationDateRangeKpiRequest;
+@class AWSPinpointTargetingGetApplicationDateRangeKpiResponse;
 @class AWSPinpointTargetingGetApplicationSettingsRequest;
 @class AWSPinpointTargetingGetApplicationSettingsResponse;
 @class AWSPinpointTargetingGetAppsRequest;
@@ -301,6 +306,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingGetBaiduChannelResponse;
 @class AWSPinpointTargetingGetCampaignActivitiesRequest;
 @class AWSPinpointTargetingGetCampaignActivitiesResponse;
+@class AWSPinpointTargetingGetCampaignDateRangeKpiRequest;
+@class AWSPinpointTargetingGetCampaignDateRangeKpiResponse;
 @class AWSPinpointTargetingGetCampaignRequest;
 @class AWSPinpointTargetingGetCampaignResponse;
 @class AWSPinpointTargetingGetCampaignVersionRequest;
@@ -373,6 +380,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingRecencyDimension;
 @class AWSPinpointTargetingRemoveAttributesRequest;
 @class AWSPinpointTargetingRemoveAttributesResponse;
+@class AWSPinpointTargetingResultRow;
+@class AWSPinpointTargetingResultRowValue;
 @class AWSPinpointTargetingSMSChannelRequest;
 @class AWSPinpointTargetingSMSChannelResponse;
 @class AWSPinpointTargetingSMSMessage;
@@ -1305,6 +1314,45 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
+ Required parameters: [KpiResult, KpiName, EndTime, StartTime, ApplicationId]
+ */
+@interface AWSPinpointTargetingApplicationDateRangeKpiResponse : AWSModel
+
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The last date or date and time of the date range that was used to filter the query results, in ISO 8601 format. The date range is inclusive.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kpiName;
+
+/**
+ <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingBaseKpiResult * _Nullable kpiResult;
+
+/**
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the App Metrics resource. The App Metrics resource returns all results in a single page.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The first date or date and time of the date range that was used to filter the query results, in ISO 8601 format. The date range is inclusive.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
  <p>Provides information about an application.</p>
  Required parameters: [Id, Arn, Name]
  */
@@ -1591,6 +1639,64 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The URL to open in the recipient's default mobile browser, if a recipient taps the push notification and the value of the Action property is URL.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable url;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application or campaign.</p>
+ Required parameters: [Rows]
+ */
+@interface AWSPinpointTargetingBaseKpiResult : AWSModel
+
+
+/**
+ <p>An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application or campaign.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingResultRow *> * _Nullable rows;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
+ Required parameters: [KpiResult, KpiName, EndTime, CampaignId, StartTime, ApplicationId]
+ */
+@interface AWSPinpointTargetingCampaignDateRangeKpiResponse : AWSModel
+
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the campaign that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable campaignId;
+
+/**
+ <p>The last date or date and time of the date range that was used to filter the query results, in ISO 8601 format. The date range is inclusive.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kpiName;
+
+/**
+ <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingBaseKpiResult * _Nullable kpiResult;
+
+/**
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Campaign Metrics resource. The Campaign Metrics resource returns all results in a single page.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The first date or date and time of the date range that was used to filter the query results, in ISO 8601 format. The date range is inclusive.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
 
 @end
 
@@ -3959,6 +4065,57 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 /**
  
  */
+@interface AWSPinpointTargetingGetApplicationDateRangeKpiRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The last date to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in ISO 8601 format, for example: 2019-07-19 for July 19, 2019. To define a date range that ends at a specific time, specify the date and time in ISO 8601 format, for example: 2019-07-19T20:00Z for 8:00 PM July 19, 2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are attempted-deliveries and successful-deliveries. For a list of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kpiName;
+
+/**
+ <p>The NextToken string that specifies which page of results to return in a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The first date to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in ISO 8601 format, for example: 2019-07-15 for July 15, 2019. To define a date range that begins at a specific time, specify the date and time in ISO 8601 format, for example: 2019-07-15T16:00Z for 4:00 PM July 15, 2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetApplicationDateRangeKpiResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, and provides information about that query.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingApplicationDateRangeKpiResponse * _Nullable applicationDateRangeKpiResponse;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPinpointTargetingGetApplicationSettingsRequest : AWSRequest
 
 
@@ -3989,7 +4146,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4056,7 +4213,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4077,6 +4234,62 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>Provides information about the activities that were performed by a campaign.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingActivitiesResponse * _Nullable activitiesResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetCampaignDateRangeKpiRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the campaign.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable campaignId;
+
+/**
+ <p>The last date to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in ISO 8601 format, for example: 2019-07-19 for July 19, 2019. To define a date range that ends at a specific time, specify the date and time in ISO 8601 format, for example: 2019-07-19T20:00Z for 8:00 PM July 19, 2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are attempted-deliveries and successful-deliveries. For a list of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kpiName;
+
+/**
+ <p>The NextToken string that specifies which page of results to return in a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The first date to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in ISO 8601 format, for example: 2019-07-15 for July 15, 2019. To define a date range that begins at a specific time, specify the date and time in ISO 8601 format, for example: 2019-07-15T16:00Z for 4:00 PM July 15, 2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetCampaignDateRangeKpiResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to a campaign, and provides information about that query.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingCampaignDateRangeKpiResponse * _Nullable campaignDateRangeKpiResponse;
 
 @end
 
@@ -4164,7 +4377,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4200,7 +4413,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4376,7 +4589,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4469,7 +4682,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4505,7 +4718,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4546,7 +4759,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4654,7 +4867,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4695,7 +4908,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include on each page in a paginated response.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the App Metrics and Campaign Metrics resources.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5307,7 +5520,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The carrier or service provider that the phone number is currently registered with.</p>
+ <p>The carrier or service provider that the phone number is currently registered with. In some countries and regions, this value may be the carrier or service provider that the phone number was originally registered with.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable carrier;
 
@@ -5612,6 +5825,49 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingAttributesResource * _Nullable attributesResource;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application or campaign.</p>
+ Required parameters: [GroupedBys, Values]
+ */
+@interface AWSPinpointTargetingResultRow : AWSModel
+
+
+/**
+  <p>An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingResultRowValue *> * _Nullable groupedBys;
+
+/**
+  <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application or campaign.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingResultRowValue *> * _Nullable values;
+
+@end
+
+/**
+  <p>Provides a single value and metadata about that value as part of an array of query results for a standard metric that applies to an application or campaign.</p>
+ Required parameters: [Type, Value, Key]
+ */
+@interface AWSPinpointTargetingResultRowValue : AWSModel
+
+
+/**
+  <p>The name of the field that Amazon Pinpoint uses to store the value specified by the Value property.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+  <p>The data type of the value specified by the Value property.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable types;
+
+/**
+  <p>In a Values object, the value for the metric that the query retrieved data for. In a GroupedBys object, the value for the field that was used to group data in a result set that contains multiple results (Values objects).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 

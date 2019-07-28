@@ -938,6 +938,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingGetApplicationDateRangeKpiResponse *> *)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/kpis/daterange/{kpi-name}"
+                  targetPrefix:@""
+                 operationName:@"GetApplicationDateRangeKpi"
+                   outputClass:[AWSPinpointTargetingGetApplicationDateRangeKpiResponse class]];
+}
+
+- (void)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetApplicationDateRangeKpiResponse *response, NSError *error))completionHandler {
+    [[self getApplicationDateRangeKpi:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetApplicationDateRangeKpiResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetApplicationDateRangeKpiResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingGetApplicationSettingsResponse *> *)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1043,6 +1066,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingGetCampaignActivitiesResponse *response, NSError *error))completionHandler {
     [[self getCampaignActivities:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignActivitiesResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetCampaignActivitiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetCampaignDateRangeKpiResponse *> *)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/apps/{application-id}/campaigns/{campaign-id}/kpis/daterange/{kpi-name}"
+                  targetPrefix:@""
+                 operationName:@"GetCampaignDateRangeKpi"
+                   outputClass:[AWSPinpointTargetingGetCampaignDateRangeKpiResponse class]];
+}
+
+- (void)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetCampaignDateRangeKpiResponse *response, NSError *error))completionHandler {
+    [[self getCampaignDateRangeKpi:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetCampaignDateRangeKpiResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetCampaignDateRangeKpiResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -1353,6 +1353,54 @@ static id mockNetworking = nil;
     [AWSPinpointTargeting removePinpointTargetingForKey:key];
 }
 
+- (void)testGetApplicationDateRangeKpi {
+    NSString *key = @"testGetApplicationDateRangeKpi";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSPinpointTargeting registerPinpointTargetingWithConfiguration:configuration forKey:key];
+
+    AWSPinpointTargeting *awsClient = [AWSPinpointTargeting PinpointTargetingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSPinpointTargeting PinpointTargetingForKey:key] getApplicationDateRangeKpi:[AWSPinpointTargetingGetApplicationDateRangeKpiRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSPinpointTargeting removePinpointTargetingForKey:key];
+}
+
+- (void)testGetApplicationDateRangeKpiCompletionHandler {
+    NSString *key = @"testGetApplicationDateRangeKpi";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSPinpointTargeting registerPinpointTargetingWithConfiguration:configuration forKey:key];
+
+    AWSPinpointTargeting *awsClient = [AWSPinpointTargeting PinpointTargetingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSPinpointTargeting PinpointTargetingForKey:key] getApplicationDateRangeKpi:[AWSPinpointTargetingGetApplicationDateRangeKpiRequest new] completionHandler:^(AWSPinpointTargetingGetApplicationDateRangeKpiResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSPinpointTargeting removePinpointTargetingForKey:key];
+}
+
 - (void)testGetApplicationSettings {
     NSString *key = @"testGetApplicationSettings";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1580,6 +1628,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSPinpointTargeting PinpointTargetingForKey:key] getCampaignActivities:[AWSPinpointTargetingGetCampaignActivitiesRequest new] completionHandler:^(AWSPinpointTargetingGetCampaignActivitiesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSPinpointTargeting removePinpointTargetingForKey:key];
+}
+
+- (void)testGetCampaignDateRangeKpi {
+    NSString *key = @"testGetCampaignDateRangeKpi";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSPinpointTargeting registerPinpointTargetingWithConfiguration:configuration forKey:key];
+
+    AWSPinpointTargeting *awsClient = [AWSPinpointTargeting PinpointTargetingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSPinpointTargeting PinpointTargetingForKey:key] getCampaignDateRangeKpi:[AWSPinpointTargetingGetCampaignDateRangeKpiRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSPinpointTargeting removePinpointTargetingForKey:key];
+}
+
+- (void)testGetCampaignDateRangeKpiCompletionHandler {
+    NSString *key = @"testGetCampaignDateRangeKpi";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSPinpointTargeting registerPinpointTargetingWithConfiguration:configuration forKey:key];
+
+    AWSPinpointTargeting *awsClient = [AWSPinpointTargeting PinpointTargetingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSPinpointTargeting PinpointTargetingForKey:key] getCampaignDateRangeKpi:[AWSPinpointTargetingGetCampaignDateRangeKpiRequest new] completionHandler:^(AWSPinpointTargetingGetCampaignDateRangeKpiResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
