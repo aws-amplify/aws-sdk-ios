@@ -422,6 +422,41 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingApplicationDateRangeKpiResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"kpiResult" : @"KpiResult",
+             @"nextToken" : @"NextToken",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)kpiResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingBaseKpiResult class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingApplicationResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -596,6 +631,56 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
             default:
                 return nil;
         }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingBaseKpiResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"rows" : @"Rows",
+             };
+}
+
++ (NSValueTransformer *)rowsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingResultRow class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCampaignDateRangeKpiResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"campaignId" : @"CampaignId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"kpiResult" : @"KpiResult",
+             @"nextToken" : @"NextToken",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)kpiResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingBaseKpiResult class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
 }
 
@@ -2564,6 +2649,51 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetApplicationDateRangeKpiRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetApplicationDateRangeKpiResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationDateRangeKpiResponse" : @"ApplicationDateRangeKpiResponse",
+             };
+}
+
++ (NSValueTransformer *)applicationDateRangeKpiResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingApplicationDateRangeKpiResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetApplicationSettingsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2660,6 +2790,52 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)activitiesResponseJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingActivitiesResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetCampaignDateRangeKpiRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"campaignId" : @"CampaignId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetCampaignDateRangeKpiResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"campaignDateRangeKpiResponse" : @"CampaignDateRangeKpiResponse",
+             };
+}
+
++ (NSValueTransformer *)campaignDateRangeKpiResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignDateRangeKpiResponse class]];
 }
 
 @end
@@ -3996,6 +4172,37 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)attributesResourceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAttributesResource class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingResultRow
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupedBys" : @"GroupedBys",
+             @"values" : @"Values",
+             };
+}
+
++ (NSValueTransformer *)groupedBysJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingResultRowValue class]];
+}
+
++ (NSValueTransformer *)valuesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingResultRowValue class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingResultRowValue
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"types" : @"Type",
+             @"value" : @"Value",
+             };
 }
 
 @end
