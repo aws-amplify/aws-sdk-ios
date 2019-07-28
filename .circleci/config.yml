@@ -943,6 +943,7 @@ workflows:
               only:
                 - /^models-update-.+$/
       - run_ui_test:
+          appname: PhotoAlbum
           requires:
             - build
           filters:
