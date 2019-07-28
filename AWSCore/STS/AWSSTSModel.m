@@ -209,6 +209,26 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSSTSGetAccessKeyInfoRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accessKeyId" : @"AccessKeyId",
+             };
+}
+
+@end
+
+@implementation AWSSTSGetAccessKeyInfoResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"account" : @"Account",
+             };
+}
+
+@end
+
 @implementation AWSSTSGetCallerIdentityRequest
 
 @end
