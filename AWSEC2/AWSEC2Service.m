@@ -6121,6 +6121,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2GetCapacityReservationUsageResult *> *)getCapacityReservationUsage:(AWSEC2GetCapacityReservationUsageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetCapacityReservationUsage"
+                   outputClass:[AWSEC2GetCapacityReservationUsageResult class]];
+}
+
+- (void)getCapacityReservationUsage:(AWSEC2GetCapacityReservationUsageRequest *)request
+     completionHandler:(void (^)(AWSEC2GetCapacityReservationUsageResult *response, NSError *error))completionHandler {
+    [[self getCapacityReservationUsage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetCapacityReservationUsageResult *> * _Nonnull task) {
+        AWSEC2GetCapacityReservationUsageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2GetConsoleOutputResult *> *)getConsoleOutput:(AWSEC2GetConsoleOutputRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
