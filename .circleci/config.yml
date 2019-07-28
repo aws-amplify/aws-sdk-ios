@@ -1,4 +1,5 @@
             - release_carthage
+            - release_carthage
 # iOS CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
@@ -60,6 +61,9 @@ commands:
             override_test_variable_name=OVERRIDE_TEST_${pre_name}
             echo "export override_test_variable_name=$override_test_variable_name" >> $BASH_ENV
             circleci_root_directory=$(pwd)  
+            echo "export circleci_root_directory=$circleci_root_directory" >> $BASH_ENV
+
+            circleci_root_directory=$(pwd)
             echo "export circleci_root_directory=$circleci_root_directory" >> $BASH_ENV
 
   quit_for_nominorversion:
@@ -607,25 +611,51 @@ jobs:
 
   run_ui_test:
     macos:
+<<<<<<< HEAD
       xcode: "10.3.0"
+=======
+      xcode: "10.2.1"
+>>>>>>> CircleCI: split master script into utility scripts(setup_pods, configure_aws_resources, build_and_uitest, cleanup)
     parameters:
       appname:
         description: "specifies app for UI Testing. Should be a subset of apps specified in config file"
         type: string
+<<<<<<< HEAD
     steps:
       - set_environment_variables
+=======
+        default: "S3TransferUtility"
+    steps:
+      - set_environment_variables
+      - run:
+          name: "Install Latest Cocoapods"
+          command: |
+            sudo gem install cocoapods
+            pod --version
+      - run:
+          name: "Install XCPretty"
+          command: |
+            sudo gem install xcpretty
+>>>>>>> CircleCI: split master script into utility scripts(setup_pods, configure_aws_resources, build_and_uitest, cleanup)
       - aws-cli/install
       - aws-cli/configure
       - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
       - skip_job_unless_required #skip_job_from_environment_variable SKIP_JOB_${CIRCLE_JOB}
       - early_return_for_forked_prs # do not run for forked PRs
       - checkout
+<<<<<<< HEAD
+=======
+      - skip_test_job
+      # - pre_start_simulator
+>>>>>>> CircleCI: split master script into utility scripts(setup_pods, configure_aws_resources, build_and_uitest, cleanup)
       - run:
           name: "Checkout sample apps repository"
           command: |
             cd ${circleci_root_directory}
             git clone https://github.com/phanisrikar93/aws-sdk-ios-samples
+            cd aws-sdk-ios-samples/CircleciScripts
       - run:
+<<<<<<< HEAD
           name: "Set-Up configuration for UITests"
           ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
           ## Use the setup_uitest_config API to create a custom config file from the template 
@@ -657,6 +687,29 @@ jobs:
       - store_artifacts:
           path: uitest_logs
 
+=======
+          name: "Edit config file for UITests"
+          command: |
+            python3 edit_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
+      - run:
+          name: "Set-Up Pods"
+          command: |
+            python3 run_setup_pods.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+      - run:
+          name: "Configure AWS Resources"
+          command: |
+            python3 run_configure_aws_resources.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+      - run:
+          name: "Build and UITest"
+          command: |
+            python3 run_build_and_uitest.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples -c ${circleci_root_directory}
+      - run:
+          name: "Clean-Up UITest"
+          command: |
+            python3 run_cleanup_uitests.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+      - store_artifacts:
+          path: uitest_logs
+>>>>>>> CircleCI: split master script into utility scripts(setup_pods, configure_aws_resources, build_and_uitest, cleanup)
   add_doc_tag:
     macos:
       xcode: "10.1.0"
