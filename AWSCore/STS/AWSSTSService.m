@@ -362,6 +362,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSSTSGetAccessKeyInfoResponse *> *)getAccessKeyInfo:(AWSSTSGetAccessKeyInfoRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetAccessKeyInfo"
+                   outputClass:[AWSSTSGetAccessKeyInfoResponse class]];
+}
+
+- (void)getAccessKeyInfo:(AWSSTSGetAccessKeyInfoRequest *)request
+     completionHandler:(void (^)(AWSSTSGetAccessKeyInfoResponse *response, NSError *error))completionHandler {
+    [[self getAccessKeyInfo:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSGetAccessKeyInfoResponse *> * _Nonnull task) {
+        AWSSTSGetAccessKeyInfoResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSSTSGetCallerIdentityResponse *> *)getCallerIdentity:(AWSSTSGetCallerIdentityRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
