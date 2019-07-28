@@ -1217,6 +1217,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"endTime" : @"endTime",
              @"limit" : @"limit",
              @"logGroupName" : @"logGroupName",
+             @"logGroupNames" : @"logGroupNames",
              @"queryString" : @"queryString",
              @"startTime" : @"startTime",
              };
