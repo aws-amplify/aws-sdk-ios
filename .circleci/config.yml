@@ -614,10 +614,11 @@ jobs:
     steps:
       - set_environment_variables
       - run:
-          name: "Install Latest Cocoapods"
+          name: "Install Latest Cocoapods and set-up master repo"
           command: |
             sudo gem install cocoapods
             pod --version
+            pod setup
       - run:
           name: "Install XCPretty"
           command: |
@@ -944,6 +945,15 @@ workflows:
                 - /^models-update-.+$/
       - run_ui_test:
           appname: PhotoAlbum
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - run_ui_test:
+          appname: S3TransferUtility
           requires:
             - build
           filters:
