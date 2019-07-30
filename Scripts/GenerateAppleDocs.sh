@@ -54,6 +54,7 @@ else
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
+    cp -r AWSTextract ./docs_tmp/AWSTextract
     cp -r AWSTranscribe ./docs_tmp/AWSTranscribe
     cp -r AWSTranslate ./docs_tmp/AWSTranslate
     cp -r AWSComprehend ./docs_tmp/AWSComprehend

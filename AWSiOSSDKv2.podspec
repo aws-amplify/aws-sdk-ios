@@ -121,8 +121,12 @@ Pod::Spec.new do |s|
   s.subspec 'AWSSQS' do |sqs|
   	sqs.dependency 'AWSSQS', '2.10.1'
   end
-
-  s.subspec 'AWSTranscribe' do |transcribe|
+  
+  s.subspec 'AWSTextract' do |textract|
+  	textract.dependency 'AWSTextract', '2.10.1'
+  end
+  
+s.subspec 'AWSTranscribe' do |transcribe|
     transcribe.dependency 'AWSTranscribe', '2.10.1'
   end
 

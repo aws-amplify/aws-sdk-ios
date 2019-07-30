@@ -38,6 +38,7 @@ podpackages = [
                'AWSLex.podspec',
                'AWSPolly.podspec',
                'AWSRekognition.podspec',
+               'AWSTextract.podspec',
                'AWSTranslate.podspec',
                'AWSComprehend.podspec',
                'AWSTranscribe.podspec',

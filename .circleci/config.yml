@@ -397,6 +397,8 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Pinpoint
       - restore_cache:
+          key: test_result-{{ .Revision }}-Textract
+      - restore_cache:
           key: test_result-{{ .Revision }}-S3
       - restore_cache:
           key: test_result-{{ .Revision }}-DynamoDB
@@ -1175,6 +1177,16 @@ workflows:
                 - master
                 - develop
       - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
           name: SageMakerRuntime
           groupname: SageMakerRuntime
           requires:
@@ -1222,6 +1234,7 @@ workflows:
             - Pinpoint
             - S3
             - DynamoDB
+            - Textract
             - SageMakerRuntime
             - Connect
           filters:
@@ -1539,6 +1552,16 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
           name: SageMakerRuntime
           groupname: SageMakerRuntime
           requires:
@@ -1586,6 +1609,7 @@ workflows:
             - Pinpoint
             - S3
             - DynamoDB
+            - Textract
             - SageMakerRuntime
             - Connect
           filters:
