@@ -285,6 +285,7 @@ static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameSNS = @"sns";
 static NSString *const AWSServiceNameSQS = @"sqs";
 static NSString *const AWSServiceNameSTS = @"sts";
+static NSString *const AWSServiceNameTextract = @"textract";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
 static NSString *const AWSServiceNameTranslate = @"translate";
 static NSString *const AWSServiceNameComprehend = @"comprehend";
@@ -531,6 +532,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
             return AWSServiceNameSQS;
         case AWSServiceSTS:
             return AWSServiceNameSTS;
+        case AWSServiceTextract:
+            return AWSServiceNameTextract;
         case AWSServiceTranscribe:
             return AWSServiceNameTranscribe;
         case AWSServiceTranslate:

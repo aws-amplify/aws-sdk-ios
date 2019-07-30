@@ -257,6 +257,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceSTS NS_SWIFT_NAME(STS),
     /**
+     *  Amazon Textract
+     */
+    AWSServiceTextract NS_SWIFT_NAME(Textract),
+    /**
      *  Amazon Transcribe
      */
     AWSServiceTranscribe NS_SWIFT_NAME(Transcribe),

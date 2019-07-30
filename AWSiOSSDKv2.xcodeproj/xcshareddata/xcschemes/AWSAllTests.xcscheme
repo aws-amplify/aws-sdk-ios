@@ -76,6 +76,34 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5C01AFB22EB7F00000F2877"
+               BuildableName = "AWSTextractTests.xctest"
+               BlueprintName = "AWSTextractTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5A0262422F01B33001C75CE"
+               BuildableName = "AWSTextractUnitTests.xctest"
+               BlueprintName = "AWSTextractUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -742,6 +770,26 @@
                BlueprintIdentifier = "B5DD454D22CA6474003871AE"
                BuildableName = "AWSConnectUnitTests.xctest"
                BlueprintName = "AWSConnectUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5C01AFB22EB7F00000F2877"
+               BuildableName = "AWSTextractTests.xctest"
+               BlueprintName = "AWSTextractTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5A0262422F01B33001C75CE"
+               BuildableName = "AWSTextractUnitTests.xctest"
+               BlueprintName = "AWSTextractUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
