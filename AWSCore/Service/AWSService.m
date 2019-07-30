@@ -255,6 +255,7 @@ static NSString *const AWSRegionNameCNNorthWest1 = @"cn-northwest-1";
 static NSString *const AWSRegionNameCACentral1 = @"ca-central-1";
 static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 static NSString *const AWSRegionNameUSGovEast1 = @"us-gov-east-1";
+static NSString *const AWSRegionNameMESouth1 = @"me-south-1";
 
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -466,6 +467,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
             return AWSRegionNameEUNorth1;
         case AWSRegionAPEast1:
             return AWSRegionNameAPEast1;
+        case AWSRegionMESouth1:
+            return AWSRegionNameMESouth1;
         default:
             return nil;
     }
@@ -599,7 +602,8 @@ static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
             || regionType == AWSRegionAPSoutheast2
             || regionType == AWSRegionAPSouth1
             || regionType == AWSRegionSAEast1
-            || regionType == AWSRegionUSGovWest1)) {
+            || regionType == AWSRegionUSGovWest1
+            || regionType == AWSRegionMESouth1)) {
             separator = @"-";
         }
 

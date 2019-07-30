@@ -2,6 +2,11 @@
 
 ## 2.10.1
 
+### New Features
+
+- **AWS Core**
+  - Added support for `me-south-1` - Middle East South (Bahrain) region.
+
 ### Bug Fixes
 
 - **Amazon Kinesis**
