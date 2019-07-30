@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.1 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -221,10 +221,56 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/defaultConnect" title="defaultConnect"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultConnect">+&nbsp;defaultConnect</a></code>
 </h3>
@@ -657,7 +703,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createUser:(AWSConnectCreateUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectCreateUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createUser:(AWSConnectCreateUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectCreateUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -797,7 +843,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteUser:(AWSConnectDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteUser:(AWSConnectDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -936,7 +982,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUser:(AWSConnectDescribeUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectDescribeUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUser:(AWSConnectDescribeUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectDescribeUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1078,7 +1124,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUserHierarchyGroup:(AWSConnectDescribeUserHierarchyGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectDescribeUserHierarchyGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUserHierarchyGroup:(AWSConnectDescribeUserHierarchyGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectDescribeUserHierarchyGroupResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1220,7 +1266,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUserHierarchyStructure:(AWSConnectDescribeUserHierarchyStructureRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectDescribeUserHierarchyStructureResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUserHierarchyStructure:(AWSConnectDescribeUserHierarchyStructureRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectDescribeUserHierarchyStructureResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1362,7 +1408,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContactAttributes:(AWSConnectGetContactAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetContactAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getContactAttributes:(AWSConnectGetContactAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectGetContactAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1510,7 +1556,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getCurrentMetricData:(AWSConnectGetCurrentMetricDataRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetCurrentMetricDataResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getCurrentMetricData:(AWSConnectGetCurrentMetricDataRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectGetCurrentMetricDataResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1652,7 +1698,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getFederationToken:(AWSConnectGetFederationTokenRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetFederationTokenResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getFederationToken:(AWSConnectGetFederationTokenRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectGetFederationTokenResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1800,7 +1846,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSConnectGetMetricDataRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectGetMetricDataResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSConnectGetMetricDataRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectGetMetricDataResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1942,7 +1988,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListRoutingProfilesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectListRoutingProfilesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2084,7 +2130,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListSecurityProfilesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectListSecurityProfilesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2226,7 +2272,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListUserHierarchyGroupsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectListUserHierarchyGroupsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2368,7 +2414,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUsers:(AWSConnectListUsersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectListUsersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUsers:(AWSConnectListUsersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectListUsersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2522,7 +2568,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectStartOutboundVoiceContactResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectStartOutboundVoiceContactResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2670,7 +2716,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopContact:(AWSConnectStopContactRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectStopContactResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopContact:(AWSConnectStopContactRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectStopContactResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2830,7 +2876,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSConnectUpdateContactAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSConnectUpdateContactAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2970,7 +3016,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3107,7 +3153,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserIdentityInfo:(AWSConnectUpdateUserIdentityInfoRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserIdentityInfo:(AWSConnectUpdateUserIdentityInfoRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3244,7 +3290,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserPhoneConfig:(AWSConnectUpdateUserPhoneConfigRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserPhoneConfig:(AWSConnectUpdateUserPhoneConfigRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3381,7 +3427,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserRoutingProfile:(AWSConnectUpdateUserRoutingProfileRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserRoutingProfile:(AWSConnectUpdateUserRoutingProfileRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3518,7 +3564,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserSecurityProfiles:(AWSConnectUpdateUserSecurityProfilesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserSecurityProfiles:(AWSConnectUpdateUserSecurityProfilesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3572,60 +3618,6 @@
 </div>
 						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSConnectService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
@@ -3638,7 +3630,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-30</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

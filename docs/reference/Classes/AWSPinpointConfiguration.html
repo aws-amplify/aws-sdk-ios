@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.1 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -152,216 +152,7 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/defaultPinpointConfigurationWithLaunchOptions:" title="defaultPinpointConfigurationWithLaunchOptions:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/defaultPinpointConfigurationWithLaunchOptions:">+&nbsp;defaultPinpointConfigurationWithLaunchOptions:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Creates an <code>AWSPinpointConfiguration</code> instance with the specified configuration inside <code>Info.plist</code> to configure the AWSPinpoint intializer.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultPinpointConfigurationWithLaunchOptions:(nullable NSDictionary *)<em>launchOptions</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>launchOptions</code></th>
-						<td><p>A dictionary indicating the reason the app was launched (if any). The contents of this dictionary may be empty in situations where the user launched the app directly.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The AWSPinpointConfiguration instance with the specified default appId, serviceConfigurations from <code>Info.plist</code></p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>This initializer of AWSPinpoint should be called inside your AppDelegates' application:didFinishLaunchingWithOptions: method.</p>
-
-<p>You must specify the launchOptions returned from  application:didFinishLaunchingWithOptions:</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointConfiguration.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initWithAppId:launchOptions:" title="initWithAppId:launchOptions:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithAppId:launchOptions:">&ndash;&nbsp;initWithAppId:launchOptions:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns an AWSPinpointConfiguration object with the specified max storage size.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithAppId:(NSString *)<em>appId</em> launchOptions:(NSDictionary *)<em>launchOptions</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>appId</code></th>
-						<td><p>The Pinpoint Application ID, if nil is passed it defaults to the specified <code>appId</code> in the <code>Info.plist</code>.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>launchOptions</code></th>
-						<td><p>A dictionary indicating the reason the app was launched (if any). The contents of this dictionary may be empty in situations where the user launched the app directly.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>an AWSPinpointConfiguration object</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointConfiguration.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/initWithAppId:launchOptions:maxStorageSize:sessionTimeout:" title="initWithAppId:launchOptions:maxStorageSize:sessionTimeout:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithAppId:launchOptions:maxStorageSize:sessionTimeout:">&ndash;&nbsp;initWithAppId:launchOptions:maxStorageSize:sessionTimeout:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns an AWSPinpointConfiguration object with the specified max storage size.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithAppId:(NSString *)<em>appId</em> launchOptions:(NSDictionary *)<em>launchOptions</em> maxStorageSize:(int)<em>maxStorageSize</em> sessionTimeout:(int)<em>sessionTimeout</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>appId</code></th>
-						<td><p>The Pinpoint Application ID, if nil is passed it defaults to the specified <code>appId</code> in the <code>Info.plist</code>.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>launchOptions</code></th>
-						<td><p>A dictionary indicating the reason the app was launched (if any). The contents of this dictionary may be empty in situations where the user launched the app directly.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>maxStorageSize</code></th>
-						<td><p>The max storage size in bytes to use for event storage.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>sessionTimeout</code></th>
-						<td><p>The amount of time it takes for a session to timeout after being paused.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>an AWSPinpointConfiguration object</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointConfiguration.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
@@ -1026,6 +817,207 @@ For information about the possible keys in this dictionary and how to handle the
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultPinpointConfigurationWithLaunchOptions:" title="defaultPinpointConfigurationWithLaunchOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultPinpointConfigurationWithLaunchOptions:">+&nbsp;defaultPinpointConfigurationWithLaunchOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSPinpointConfiguration</code> instance with the specified configuration inside <code>Info.plist</code> to configure the AWSPinpoint intializer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultPinpointConfigurationWithLaunchOptions:(nullable NSDictionary *)<em>launchOptions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>launchOptions</code></th>
+						<td><p>A dictionary indicating the reason the app was launched (if any). The contents of this dictionary may be empty in situations where the user launched the app directly.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSPinpointConfiguration instance with the specified default appId, serviceConfigurations from <code>Info.plist</code></p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This initializer of AWSPinpoint should be called inside your AppDelegates' application:didFinishLaunchingWithOptions: method.</p>
+
+<p>You must specify the launchOptions returned from  application:didFinishLaunchingWithOptions:</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointConfiguration.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithAppId:launchOptions:" title="initWithAppId:launchOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithAppId:launchOptions:">&ndash;&nbsp;initWithAppId:launchOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an AWSPinpointConfiguration object with the specified max storage size.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithAppId:(NSString *)<em>appId</em> launchOptions:(nullable NSDictionary *)<em>launchOptions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>The Pinpoint Application ID, if nil is passed it defaults to the specified <code>appId</code> in the <code>Info.plist</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>launchOptions</code></th>
+						<td><p>A dictionary indicating the reason the app was launched (if any). The contents of this dictionary may be empty in situations where the user launched the app directly.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an AWSPinpointConfiguration object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointConfiguration.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithAppId:launchOptions:maxStorageSize:sessionTimeout:" title="initWithAppId:launchOptions:maxStorageSize:sessionTimeout:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithAppId:launchOptions:maxStorageSize:sessionTimeout:">&ndash;&nbsp;initWithAppId:launchOptions:maxStorageSize:sessionTimeout:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an AWSPinpointConfiguration object with the specified max storage size.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithAppId:(NSString *)<em>appId</em> launchOptions:(nullable NSDictionary *)<em>launchOptions</em> maxStorageSize:(int)<em>maxStorageSize</em> sessionTimeout:(int)<em>sessionTimeout</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>The Pinpoint Application ID, if nil is passed it defaults to the specified <code>appId</code> in the <code>Info.plist</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>launchOptions</code></th>
+						<td><p>A dictionary indicating the reason the app was launched (if any). The contents of this dictionary may be empty in situations where the user launched the app directly.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>maxStorageSize</code></th>
+						<td><p>The max storage size in bytes to use for event storage.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sessionTimeout</code></th>
+						<td><p>The amount of time it takes for a session to timeout after being paused.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an AWSPinpointConfiguration object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointConfiguration.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1041,7 +1033,7 @@ For information about the possible keys in this dictionary and how to handle the
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-30</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

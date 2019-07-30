@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.10.0 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.1 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -186,6 +186,10 @@
 		
 		<option value="//api/name/getApp:completionHandler:">- getApp:completionHandler:</option>
 		
+		<option value="//api/name/getApplicationDateRangeKpi:">- getApplicationDateRangeKpi:</option>
+		
+		<option value="//api/name/getApplicationDateRangeKpi:completionHandler:">- getApplicationDateRangeKpi:completionHandler:</option>
+		
 		<option value="//api/name/getApplicationSettings:">- getApplicationSettings:</option>
 		
 		<option value="//api/name/getApplicationSettings:completionHandler:">- getApplicationSettings:completionHandler:</option>
@@ -205,6 +209,10 @@
 		<option value="//api/name/getCampaignActivities:">- getCampaignActivities:</option>
 		
 		<option value="//api/name/getCampaignActivities:completionHandler:">- getCampaignActivities:completionHandler:</option>
+		
+		<option value="//api/name/getCampaignDateRangeKpi:">- getCampaignDateRangeKpi:</option>
+		
+		<option value="//api/name/getCampaignDateRangeKpi:completionHandler:">- getCampaignDateRangeKpi:completionHandler:</option>
 		
 		<option value="//api/name/getCampaignVersion:">- getCampaignVersion:</option>
 		
@@ -4662,6 +4670,146 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getApplicationDateRangeKpi:" title="getApplicationDateRangeKpi:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getApplicationDateRangeKpi:">&ndash;&nbsp;getApplicationDateRangeKpi:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSPinpointTargetingGetApplicationDateRangeKpiResponse*&gt; *)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetApplicationDateRangeKpi service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPinpointTargetingGetApplicationDateRangeKpiResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetApplicationDateRangeKpiRequest.html">AWSPinpointTargetingGetApplicationDateRangeKpiRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetApplicationDateRangeKpiResponse.html">AWSPinpointTargetingGetApplicationDateRangeKpiResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getApplicationDateRangeKpi:completionHandler:" title="getApplicationDateRangeKpi:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getApplicationDateRangeKpi:completionHandler:">&ndash;&nbsp;getApplicationDateRangeKpi:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetApplicationDateRangeKpiResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetApplicationDateRangeKpi service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetApplicationDateRangeKpiRequest.html">AWSPinpointTargetingGetApplicationDateRangeKpiRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetApplicationDateRangeKpiResponse.html">AWSPinpointTargetingGetApplicationDateRangeKpiResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getApplicationSettings:" title="getApplicationSettings:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getApplicationSettings:">&ndash;&nbsp;getApplicationSettings:</a></code>
 </h3>
@@ -5357,6 +5505,146 @@
 					<li><code><p><a href="../Classes/AWSPinpointTargetingGetCampaignActivitiesRequest.html">AWSPinpointTargetingGetCampaignActivitiesRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSPinpointTargetingGetCampaignActivitiesResponse.html">AWSPinpointTargetingGetCampaignActivitiesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCampaignDateRangeKpi:" title="getCampaignDateRangeKpi:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCampaignDateRangeKpi:">&ndash;&nbsp;getCampaignDateRangeKpi:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSPinpointTargetingGetCampaignDateRangeKpiResponse*&gt; *)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCampaignDateRangeKpi service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPinpointTargetingGetCampaignDateRangeKpiResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetCampaignDateRangeKpiRequest.html">AWSPinpointTargetingGetCampaignDateRangeKpiRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetCampaignDateRangeKpiResponse.html">AWSPinpointTargetingGetCampaignDateRangeKpiResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getCampaignDateRangeKpi:completionHandler:" title="getCampaignDateRangeKpi:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getCampaignDateRangeKpi:completionHandler:">&ndash;&nbsp;getCampaignDateRangeKpi:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetCampaignDateRangeKpiResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetCampaignDateRangeKpi service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPinpointTargetingErrorDomain</code> domain and the following error code: <code>AWSPinpointTargetingErrorBadRequest</code>, <code>AWSPinpointTargetingErrorInternalServerError</code>, <code>AWSPinpointTargetingErrorForbidden</code>, <code>AWSPinpointTargetingErrorNotFound</code>, <code>AWSPinpointTargetingErrorMethodNotAllowed</code>, <code>AWSPinpointTargetingErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetCampaignDateRangeKpiRequest.html">AWSPinpointTargetingGetCampaignDateRangeKpiRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPinpointTargetingGetCampaignDateRangeKpiResponse.html">AWSPinpointTargetingGetCampaignDateRangeKpiResponse</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -11764,7 +12052,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-17</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-30</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
