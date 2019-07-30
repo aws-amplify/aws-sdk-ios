@@ -18,30 +18,38 @@ import AWSTextract
 
 class AWSTextractTests : XCTestCase {
     
-    var instanceId: String?
-    var destinationDialInPhoneNumber: String?
-    
-    //var textractClient: AWSTextract?
-    
     override func setUp() {
         super.setUp()
-        
-        // Setup Verbose Log level
-        AWSDDLog.sharedInstance.logLevel = .verbose
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
-        
-        AWSTestUtility.setupCredentialsViaFile()
-        
-        let credentialsJson: [String : String]? = AWSTestUtility.getCredentialsJsonAsDictionary()
-        
-        textractClient = AWSTextract.default()
+        AWSTestUtility.setupCognitoCredentialsProvider()
     }
     
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testAnalyzeDocument() {
-        XCTAssertNotNil(textractClient)
+    func testAnalyzeDocumentInS3() {
+        let awsTextractClient = AWSTextract.default()
+        
+        let credentialsJson = AWSTestUtility.getCredentialsJsonAsDictionary()
+        let s3ObjectName = credentialsJson?["textract-s3-object-name"]
+        let s3BucketName = credentialsJson?["textract-s3-bucket-name"]
+        
+        let analyzeDocumentRequest = AWSTextractAnalyzeDocumentRequest()
+        analyzeDocumentRequest?.featureTypes = ["TABLES","FORMS"]
+        
+        let s3Object = AWSTextractS3Object()
+        s3Object?.name = s3ObjectName
+        s3Object?.bucket = s3BucketName
+        
+        let document = AWSTextractDocument()
+        document?.s3Object = s3Object
+        analyzeDocumentRequest?.document = document
+        
+        awsTextractClient.analyzeDocument(analyzeDocumentRequest!).continueWith { (task) -> Any? in
+            guard let result = task.result else {
+                let error =  task.error as NSError?
+                XCTFail("Should not produce error: \(error.debugDescription)")
+                return nil
+            }
+            XCTAssertNotNil(result.documentMetadata, "Should return a document metadata")
+            XCTAssertEqual(1, result.documentMetadata?.pages, "Pages count should be 1")
+            return nil
+            }.waitUntilFinished()
     }
 }
