@@ -2,14 +2,28 @@
 
 ## 2.10.1
 
+### New Features
+
+- **AWS Core**
+  - Added support for `me-south-1` - Middle East South (Bahrain) region.
+
 ### Bug Fixes
 
+- **Amazon Kinesis**
+  - Fixed default value of `batchRecordsByteLimit`--the documented size is 512**KB**, but the code incorrectly set it to 512**MB**.
+    See [PR #1688](https://github.com/aws-amplify/aws-sdk-ios/pull/1688). Thanks @runlucky!
 - **Amazon Polly**
-   - Fixed error trying to use 'Zeina' voice with presigned URLs
+  - Fixed error trying to use 'Zeina' voice with presigned URLs
 
 ### Misc. Updates
 - Model updates for the following services
+  - Amazon CloudWatch Logs
   - Amazon Comprehend
+  - Amazon EC2
+  - Amazon Pinpoint
+  - Amazon Security Token Service (STS)
+- Fix incorrect license specification in AWSCognitoIdentityProvider.podspec (See
+  [Issue #1684](https://github.com/aws-amplify/aws-sdk-ios/issues/1684), [PR #1699](https://github.com/aws-amplify/aws-sdk-ios/pull/1699).)
 
 ## 2.10.0
 

@@ -27,7 +27,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.10.0";
+NSString *const AWSEC2SDKVersion = @"2.10.1";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -6111,6 +6111,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ExportTransitGatewayRoutesResult *response, NSError *error))completionHandler {
     [[self exportTransitGatewayRoutes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ExportTransitGatewayRoutesResult *> * _Nonnull task) {
         AWSEC2ExportTransitGatewayRoutesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetCapacityReservationUsageResult *> *)getCapacityReservationUsage:(AWSEC2GetCapacityReservationUsageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetCapacityReservationUsage"
+                   outputClass:[AWSEC2GetCapacityReservationUsageResult class]];
+}
+
+- (void)getCapacityReservationUsage:(AWSEC2GetCapacityReservationUsageRequest *)request
+     completionHandler:(void (^)(AWSEC2GetCapacityReservationUsageResult *response, NSError *error))completionHandler {
+    [[self getCapacityReservationUsage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetCapacityReservationUsageResult *> * _Nonnull task) {
+        AWSEC2GetCapacityReservationUsageResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

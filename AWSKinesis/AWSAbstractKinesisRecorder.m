@@ -20,7 +20,7 @@
 NSUInteger const AWSKinesisAbstractClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSKinesisAbstractClientAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
 NSString *const AWSKinesisAbstractClientUserAgent = @"recorder";
-NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024 * 1024;
+NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024; // 512KB
 NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 
 @protocol AWSKinesisRecorderHelper <NSObject>

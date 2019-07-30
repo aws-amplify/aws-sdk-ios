@@ -850,6 +850,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApp:(AWSPinpointTargetingGetAppRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetAppResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetApplicationDateRangeKpi service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingGetApplicationDateRangeKpiResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetApplicationDateRangeKpiRequest
+ @see AWSPinpointTargetingGetApplicationDateRangeKpiResponse
+ */
+- (AWSTask<AWSPinpointTargetingGetApplicationDateRangeKpiResponse *> *)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)request;
+
+/**
+  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetApplicationDateRangeKpi service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetApplicationDateRangeKpiRequest
+ @see AWSPinpointTargetingGetApplicationDateRangeKpiResponse
+ */
+- (void)getApplicationDateRangeKpi:(AWSPinpointTargetingGetApplicationDateRangeKpiRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApplicationDateRangeKpiResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves information about the settings for an application.</p>
  
  @param request A container for the necessary parameters to execute the GetApplicationSettings service method.
@@ -973,6 +998,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
  @see AWSPinpointTargetingGetCampaignActivitiesResponse
  */
 - (void)getCampaignActivities:(AWSPinpointTargetingGetCampaignActivitiesRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignActivitiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCampaignDateRangeKpi service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingGetCampaignDateRangeKpiResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetCampaignDateRangeKpiRequest
+ @see AWSPinpointTargetingGetCampaignDateRangeKpiResponse
+ */
+- (AWSTask<AWSPinpointTargetingGetCampaignDateRangeKpiResponse *> *)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)request;
+
+/**
+  <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCampaignDateRangeKpi service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingGetCampaignDateRangeKpiRequest
+ @see AWSPinpointTargetingGetCampaignDateRangeKpiResponse
+ */
+- (void)getCampaignDateRangeKpi:(AWSPinpointTargetingGetCampaignDateRangeKpiRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetCampaignDateRangeKpiResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>
