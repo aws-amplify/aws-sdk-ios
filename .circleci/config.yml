@@ -614,11 +614,21 @@ jobs:
     steps:
       - set_environment_variables
       - run:
-          name: "Install Latest Cocoapods and set-up master repo"
+          name: "Install Latest Cocoapods version"
           command: |
             sudo gem install cocoapods
             pod --version
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+            echo $CIRCLE_JOB
+      - restore_cache:
+          key: cocoapods_master-{{ .Environment.CIRCLE_JOB }}
+      - run:
+          name: "Set up master specs repo for cocoapods"
+          command: |
+            pod setup
+      - save_cache:
+          key: cocoapods_master-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - $HOME/.cocoapods/repos/master
       - run:
           name: "Install XCPretty"
           command: |
