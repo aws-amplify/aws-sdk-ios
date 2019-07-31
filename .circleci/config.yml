@@ -20,7 +20,6 @@ commands:
               echo "Nothing to do for forked PRs, so marking this step successful"
               circleci step halt
             fi
-
   update_brew:
     description: >-
       update brew
@@ -603,7 +602,6 @@ jobs:
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
   run_ui_test:
-    # Specify the Xcode version to use
     macos:
       xcode: "10.2.1"
     parameters:
