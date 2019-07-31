@@ -963,12 +963,12 @@ workflows:
               only:
                 - master
                 - develop
-      - run_ui_test:
-          appname: S3TransferUtility
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+      # - run_ui_test:
+      #     appname: S3TransferUtility
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      #           - develop
