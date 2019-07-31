@@ -612,24 +612,11 @@ jobs:
     steps:
       - set_environment_variables
       - run:
-          name: "Install Latest Cocoapods version"
+          name: "Install Latest Cocoapods version and setup master specs repo for cocoapods"
           command: |
             sudo gem install cocoapods
             pod --version
-      - restore_cache:
-          key: cocoapods_master_specs
-      - run:
-          name: "Set up master specs repo for cocoapods"
-          command: |
-            if [ -d "~/.cocoapods/repos/master" ]; then
-              pod setup
-            else
-              curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-            fi
-      - save_cache:
-          key: cocoapods_master_specs
-          paths:
-            - ~/.cocoapods/repos/master
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run:
           name: "Install XCPretty"
           command: |
@@ -963,12 +950,12 @@ workflows:
               only:
                 - master
                 - develop
-      # - run_ui_test:
-      #     appname: S3TransferUtility
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      #           - develop
+      - run_ui_test:
+          appname: S3TransferUtility
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+                - develop
