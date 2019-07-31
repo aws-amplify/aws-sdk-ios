@@ -620,13 +620,13 @@ jobs:
             pod --version
             echo $CIRCLE_JOB
       - restore_cache:
-          key: cocoapods_master-{{ .Revision }}
+          key: cocoapods_master
       - run:
           name: "Set up master specs repo for cocoapods"
           command: |
             pod setup
       - save_cache:
-          key: cocoapods_master-{{ .Revision }}
+          key: cocoapods_master
           paths:
             - $HOME/.cocoapods/repos/master
       - run:
