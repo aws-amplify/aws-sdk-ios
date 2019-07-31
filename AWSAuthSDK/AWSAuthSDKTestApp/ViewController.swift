@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLaunchCognitoAuthFacebookSignIn(_ sender: Any) {
+        // Note: the scopes provided here will override options provided in the app's awsconfiguration.json
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"], identityProvider: "Facebook")
         
         AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
@@ -48,6 +49,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func onLaunchCognitoAuthGoogleSignIn(_ sender: Any) {
+        // Note: the scopes provided here will override options provided in the app's awsconfiguration.json
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"], identityProvider: "Google")
         
         AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
@@ -61,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLaunchAuth0SignIn(_ sender: Any) {
-        
+        // Note: the scopes provided here will override options provided in the app's awsconfiguration.json
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"], federationProviderName: AWSInfo.default().rootInfoDictionary["Auth0FederationProviderName"] as? String)
         
         AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in

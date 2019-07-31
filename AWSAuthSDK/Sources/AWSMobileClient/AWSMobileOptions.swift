@@ -68,6 +68,9 @@ public struct FederatedSignInOptions {
 
 
 /// The options object for `showSignIn` API when using Hosted Auth solution like Amazon Cognito UserPools or AUth0.
+///
+/// NOTE: If specified, some of the values in this type will override the corresponding values in `awsconfiguration.json`. See
+/// the `init` method below.
 public struct HostedUIOptions {
     let scopes: [String]?
     
