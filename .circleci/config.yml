@@ -601,6 +601,16 @@ jobs:
             git commit -m "Update jazzy documentation for ${CIRCLE_TAG}"
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
+  setup_cocoapods_master:
+    macos:
+      xcode: "10.2.1"
+    steps:
+      - run:
+          name: "Install Latest Cocoapods version and setup master specs repo for cocoapods"
+          command: |
+            sudo gem install cocoapods
+            pod --version
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
   run_ui_test:
     macos:
       xcode: "10.2.1"
@@ -611,12 +621,6 @@ jobs:
         default: "S3TransferUtility"
     steps:
       - set_environment_variables
-      - run:
-          name: "Install Latest Cocoapods version and setup master specs repo for cocoapods"
-          command: |
-            sudo gem install cocoapods
-            pod --version
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run:
           name: "Install XCPretty"
           command: |
@@ -945,6 +949,7 @@ workflows:
           appname: PhotoAlbum
           requires:
             - build
+            - setup_cocoapods_master
           filters:
             branches:
               only:
@@ -954,6 +959,7 @@ workflows:
           appname: S3TransferUtility
           requires:
             - build
+            - setup_cocoapods_master
           filters:
             branches:
               only:
