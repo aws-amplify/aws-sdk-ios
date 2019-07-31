@@ -945,6 +945,12 @@ workflows:
             branches:
               only:
                 - /^models-update-.+$/
+      - setup_cocoapods_master:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
       - run_ui_test:
           appname: PhotoAlbum
           requires:
