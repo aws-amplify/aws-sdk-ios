@@ -616,17 +616,20 @@ jobs:
           command: |
             sudo gem install cocoapods
             pod --version
-            echo $CIRCLE_JOB
       - restore_cache:
-          key: cocoapods_master
+          key: cocoapods_master_specs
       - run:
           name: "Set up master specs repo for cocoapods"
           command: |
-            pod setup
+            if [ -d "~/.cocoapods/repos/master" ]; then
+              pod setup
+            else
+              curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+            fi
       - save_cache:
-          key: cocoapods_master
+          key: cocoapods_master_specs
           paths:
-            - $HOME/.cocoapods/repos/master
+            - ~/.cocoapods/repos/master
       - run:
           name: "Install XCPretty"
           command: |
