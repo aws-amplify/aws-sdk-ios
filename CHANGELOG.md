@@ -1,5 +1,15 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.10.2
+
+### New Features
+
+- **Amazon Textract**
+  - Amazon Textract is a service that automatically extracts text and data from scanned documents. Amazon Textract goes beyond simple optical character
+    recognition (OCR) to also identify the contents of fields in forms and information stored in tables. See
+    [Amazon Textract Documentation](https://aws.amazon.com/textract/) for more details.
+
+
 ## 2.10.1
 
 ### New Features
