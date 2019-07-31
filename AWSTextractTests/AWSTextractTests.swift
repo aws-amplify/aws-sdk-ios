@@ -27,28 +27,47 @@ class AWSTextractTests : XCTestCase {
         let awsTextractClient = AWSTextract.default()
         
         let credentialsJson = AWSTestUtility.getCredentialsJsonAsDictionary()
-        let s3ObjectName = credentialsJson?["textract-s3-object-name"]
-        let s3BucketName = credentialsJson?["textract-s3-bucket-name"]
+        guard let s3ObjectName = credentialsJson?["textract-s3-object-name"] else {
+            XCTFail("s3ObjectName unexpectedly nil")
+            return
+        }
         
-        let analyzeDocumentRequest = AWSTextractAnalyzeDocumentRequest()
-        analyzeDocumentRequest?.featureTypes = ["TABLES","FORMS"]
+        guard let s3BucketName = credentialsJson?["textract-s3-bucket-name"] else {
+            XCTFail("s3BucketName unexpectedly nil")
+            return
+        }
         
-        let s3Object = AWSTextractS3Object()
-        s3Object?.name = s3ObjectName
-        s3Object?.bucket = s3BucketName
+        guard let analyzeDocumentRequest = AWSTextractAnalyzeDocumentRequest() else {
+            XCTFail("analyzeDocumentRequest unexpectedly nil")
+            return
+        }
+        analyzeDocumentRequest.featureTypes = ["TABLES","FORMS"]
         
-        let document = AWSTextractDocument()
-        document?.s3Object = s3Object
-        analyzeDocumentRequest?.document = document
+        guard let s3Object = AWSTextractS3Object() else {
+            XCTFail("s3Object unexpectedly nil")
+            return
+        }
+        s3Object.name = s3ObjectName
+        s3Object.bucket = s3BucketName
         
-        awsTextractClient.analyzeDocument(analyzeDocumentRequest!).continueWith { (task) -> Any? in
+        guard let document = AWSTextractDocument() else {
+            XCTFail("document unexpectedly nil")
+            return
+        }
+        
+        document.s3Object = s3Object
+        analyzeDocumentRequest.document = document
+        awsTextractClient.analyzeDocument(analyzeDocumentRequest).continueWith { (task) -> Any? in
             guard let result = task.result else {
                 let error =  task.error as NSError?
                 XCTFail("Should not produce error: \(error.debugDescription)")
                 return nil
             }
-            XCTAssertNotNil(result.documentMetadata, "Should return a document metadata")
-            XCTAssertEqual(1, result.documentMetadata?.pages, "Pages count should be 1")
+            guard let documentMetadata = result.documentMetadata else {
+                XCTFail("Should return a document metadata")
+                return nil
+            }
+            XCTAssertEqual(1, documentMetadata.pages, "Pages count should be 1")
             return nil
             }.waitUntilFinished()
     }

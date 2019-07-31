@@ -126,7 +126,7 @@ Pod::Spec.new do |s|
   	textract.dependency 'AWSTextract', '2.10.1'
   end
   
-s.subspec 'AWSTranscribe' do |transcribe|
+  s.subspec 'AWSTranscribe' do |transcribe|
     transcribe.dependency 'AWSTranscribe', '2.10.1'
   end
 
