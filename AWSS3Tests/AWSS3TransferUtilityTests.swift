@@ -89,8 +89,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         testData = dataString.data(using: String.Encoding.utf8)!
         
-        let timeInterval = Date.timeIntervalSinceReferenceDate
-        generalTestBucket = "ios-v2-s3.periods\(timeInterval)"
+        let timeInterval = (Int)((Date.timeIntervalSinceReferenceDate * 1000).rounded())
+        generalTestBucket = "s3-integ-transferutil-test-\(timeInterval)"
         AWSS3TestHelper.createBucket(withName: generalTestBucket, andRegion: AWSRegionType.USEast1)
     }
 

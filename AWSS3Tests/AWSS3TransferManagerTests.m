@@ -25,7 +25,7 @@
 @implementation AWSS3TransferManagerTests
 
 static NSString *testBucketNameGeneral = nil;
-static NSString *const AWSS3TestBucketNamePrefix = @"ios-v2-tm-test-";
+static NSString *const AWSS3TestBucketNamePrefix = @"s3-integ-transfermanager-test-";
 static NSURL *tempLargeURL = nil;
 static NSURL *tempSmallURL = nil;
 

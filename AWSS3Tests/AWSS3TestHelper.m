@@ -14,7 +14,6 @@
 //
 
 #import "AWSS3TestHelper.h"
-#define AWS_TEST_BAH_INSTEAD true
 
 @interface AWSS3CreateBucketConfiguration()
 
@@ -118,22 +117,25 @@
     
     [[[s3 listObjects:listObjectsRequest] continueWithBlock:^id(AWSTask *task) {
         AWSS3ListObjectsOutput *output = task.result;
-        
+        AWSS3DeleteObjectsRequest *deleteObjectsRequest = [AWSS3DeleteObjectsRequest new];
+        deleteObjectsRequest.bucket = bucketName;
+        AWSS3Remove *s3Remove = [AWSS3Remove new];
+        NSMutableArray *objects = [NSMutableArray new];
         for (AWSS3Object *object in output.contents) {
-            // Delete the object
-            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
-            deleteObjectRequest.bucket = bucketName;
-            deleteObjectRequest.key = object.key;
-            
-            [[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
-                if (task.error) {
-                    NSLog(@"Failed to delete: %@", object.key);
-                } else {
-                    NSLog(@"Successfully deleted: %@", object.key);
-                }
-                return nil;
-            }];
+            AWSS3ObjectIdentifier *identifier = [AWSS3ObjectIdentifier new];
+            identifier.key = object.key;
+            [objects addObject:identifier];
         }
+        s3Remove.objects = objects;
+        deleteObjectsRequest.remove = s3Remove;
+        [[s3 deleteObjects:deleteObjectsRequest] continueWithBlock:^id(AWSTask *task) {
+            if (task.error) {
+                NSLog(@"Failed to delete: %@", task.error);
+            } else {
+                NSLog(@"Successfully deleted: %@", objects);
+            }
+            return nil;
+        }];
         return nil;
     }] waitUntilFinished];
 }

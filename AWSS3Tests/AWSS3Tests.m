@@ -26,7 +26,7 @@
 
 NSUInteger const AWSS3Test256KB = 1024 * 256;
 NSUInteger const AWSS3TestsTransferManagerMinimumPartSize = 5 * 1024 * 1024;
-NSString *const AWSS3TestBucketNamePrefix = @"ios-v2-test-";
+NSString *const AWSS3TestBucketNamePrefix = @"s3-integ-test-";
 
 static NSURL *tempLargeURL = nil;
 static NSURL *tempSmallURL = nil;
@@ -109,11 +109,10 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
 + (void)tearDown {
     
-    // Delete all contents of the bucket
-    [AWSS3TestHelper deleteAllObjectsFromBucket:testBucketNameGeneral];
-    
     //Delete Buckets
     for ( NSString *bucketName in testBucketsCreated) {
+        // Delete all contents of the bucket
+        [AWSS3TestHelper deleteAllObjectsFromBucket:bucketName];
         [AWSS3TestHelper deleteBucketWithName:bucketName];
     }
     
