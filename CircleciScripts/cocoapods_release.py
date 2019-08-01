@@ -4,58 +4,59 @@ import os
 from datetime import datetime
 import time
 
-
-
 podpackages = [
-               'AWSCore.podspec',
-               'AWSAPIGateway.podspec',
-               'AWSAutoScaling.podspec',
-               'AWSCloudWatch.podspec',
-               'AWSCognito.podspec',
-               'AWSCognitoIdentityProvider.podspec',
-               'AWSCognitoSync.podspec',
-               'AWSCognitoAuth.podspec',
-               'AWSConnect.podspec',
-               'AWSDynamoDB.podspec',
-               'AWSEC2.podspec',
-               'AWSElasticLoadBalancing.podspec',
-               'AWSIoT.podspec',
-               'AWSKinesis.podspec',
-               'AWSKinesisVideo.podspec',
-               'AWSKinesisVideoArchivedMedia.podspec',
-               'AWSKMS.podspec',
-               'AWSLambda.podspec',
-               'AWSLogs.podspec',
-               'AWSMachineLearning.podspec',
-               'AWSMobileAnalytics.podspec',
-               'AWSPinpoint.podspec',
-               'AWSS3.podspec',
-               'AWSSageMakerRuntime.podspec',
-               'AWSSES.podspec',
-               'AWSSimpleDB.podspec',
-               'AWSSNS.podspec',
-               'AWSSQS.podspec',
-               'AWSLex.podspec',
-               'AWSPolly.podspec',
-               'AWSRekognition.podspec',
-               'AWSTextract.podspec',
-               'AWSTranslate.podspec',
-               'AWSComprehend.podspec',
-               'AWSTranscribe.podspec',
-               
-               'AWSAuthCore.podspec',
-               'AWSUserPoolsSignIn.podspec',
-               'AWSFacebookSignIn.podspec',
-               'AWSGoogleSignIn.podspec',
-               'AWSAuthUI.podspec',
-               'AWSAuth.podspec',
-               
-               'AWSMobileClient.podspec',
-               
-               'AWSiOSSDKv2.podspec',
+    'AWSCore.podspec',
 
-               ]
+    'AWSAPIGateway.podspec',
+    'AWSAutoScaling.podspec',
+    'AWSCloudWatch.podspec',
+    'AWSCognito.podspec',
+    'AWSCognitoAuth.podspec',
+    'AWSCognitoIdentityProvider.podspec',
+    'AWSCognitoSync.podspec',
+    'AWSComprehend.podspec',
+    'AWSConnect.podspec',
+    'AWSDynamoDB.podspec',
+    'AWSEC2.podspec',
+    'AWSElasticLoadBalancing.podspec',
+    'AWSIoT.podspec',
+    'AWSKMS.podspec',
+    'AWSKinesis.podspec',
+    'AWSKinesisVideo.podspec',
+    'AWSKinesisVideoArchivedMedia.podspec',
+    'AWSLambda.podspec',
+    'AWSLex.podspec',
+    'AWSLogs.podspec',
+    'AWSMachineLearning.podspec',
+    'AWSMobileAnalytics.podspec',
+    'AWSPinpoint.podspec',
+    'AWSPolly.podspec',
+    'AWSRekognition.podspec',
+    'AWSS3.podspec',
+    'AWSSES.podspec',
+    'AWSSNS.podspec',
+    'AWSSQS.podspec',
+    'AWSSageMakerRuntime.podspec',
+    'AWSSimpleDB.podspec',
+    'AWSTextract.podspec',
+    'AWSTranscribe.podspec',
+    'AWSTranslate.podspec',
+
+    'AWSAuthCore.podspec',
+    'AWSUserPoolsSignIn.podspec',
+    'AWSFacebookSignIn.podspec',
+    'AWSGoogleSignIn.podspec',
+    'AWSAuthUI.podspec',
+    'AWSAuth.podspec',
+
+    'AWSMobileClient.podspec',
+
+    'AWSiOSSDKv2.podspec',
+
+    ]
+
 print (str(datetime.now()) + ': publishing cocoapods ...')
+
 for package in podpackages:
     print (str(datetime.now())+': publishing ' + package + ' ...')
     process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout= PIPE, stderr= PIPE)
@@ -84,7 +85,4 @@ for package in podpackages:
             print(str(datetime.now()) + " Failed to publish " + package)
             quit(exit_code);
     print (str(datetime.now())+': published ' + package)
-
-
-
 
