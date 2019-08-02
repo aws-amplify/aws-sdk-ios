@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGatewayTests/AWSStringValue.h">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGatewayTests/AWSStringValue.m">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

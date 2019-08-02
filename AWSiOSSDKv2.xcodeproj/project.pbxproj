@@ -381,6 +381,7 @@
 		9AD5842A20F63E9B00042041 /* city_thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5842920F63E9B00042041 /* city_thumb.jpg */; };
 		B434294122F0FA0E00567E83 /* AWSTextract.h in Headers */ = {isa = PBXBuildFile; fileRef = B434294022F0FA0D00567E83 /* AWSTextract.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B47FAF4322C577CE00014548 /* AWSS3TransferUtilityUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */; };
+		B482E84722EEA9F20075A0A3 /* AWSS3TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B482E84622EEA9F20075A0A3 /* AWSS3TestHelper.m */; };
 		B4A4DFFE22B4201400379396 /* AWSSageMakerRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */; };
 		B4A4E01222B420C500379396 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		B4A4E01B22B4212A00379396 /* AWSSageMakerRuntimeService.h in Headers */ = {isa = PBXBuildFile; fileRef = B4A4E01422B4212900379396 /* AWSSageMakerRuntimeService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3444,6 +3445,8 @@
 		9AD5842920F63E9B00042041 /* city_thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city_thumb.jpg; sourceTree = "<group>"; };
 		B434294022F0FA0D00567E83 /* AWSTextract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTextract.h; sourceTree = "<group>"; };
 		B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityUnitTests.m; sourceTree = "<group>"; };
+		B482E84522EEA9F10075A0A3 /* AWSS3TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TestHelper.h; sourceTree = "<group>"; };
+		B482E84622EEA9F20075A0A3 /* AWSS3TestHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TestHelper.m; sourceTree = "<group>"; };
 		B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSSageMakerRuntime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A4DFF822B4201400379396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A4DFFD22B4201400379396 /* AWSSageMakerRuntimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSageMakerRuntimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6939,6 +6942,8 @@
 				CE9DE9F31C6A7CA50060793F /* AWSS3TransferManagerTests.m */,
 				CE9DE9CD1C6A7C2E0060793F /* Info.plist */,
 				CE1F3A911CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift */,
+				B482E84522EEA9F10075A0A3 /* AWSS3TestHelper.h */,
+				B482E84622EEA9F20075A0A3 /* AWSS3TestHelper.m */,
 			);
 			path = AWSS3Tests;
 			sourceTree = "<group>";
@@ -12391,6 +12396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DE9F51C6A7CA50060793F /* AWSS3PreSignedURLBuilderTests.m in Sources */,
+				B482E84722EEA9F20075A0A3 /* AWSS3TestHelper.m in Sources */,
 				CE9DEB481C6A9C0B0060793F /* AWSTestUtility.m in Sources */,
 				CE9DE9F71C6A7CA50060793F /* AWSS3TransferManagerTests.m in Sources */,
 				CE1F3A921CD96A9E00C8EBCB /* AWSS3TransferUtilityTests.swift in Sources */,
