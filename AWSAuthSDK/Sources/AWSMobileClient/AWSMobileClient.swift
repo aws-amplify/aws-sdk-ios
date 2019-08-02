@@ -459,13 +459,24 @@ final public class AWSMobileClient: _AWSMobileClient {
                     signInInfo[self.TokenKey] = session.accessToken!.tokenString
                     signInInfo[self.ProviderKey] = "OAuth"
                     
-                    self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
-                    completionHandler(.signedIn, nil)
-                    if self.pendingGetTokensCompletion != nil {
-                        self.tokenFetchLock.leave()
-                    }
-                    self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
-                    self.pendingGetTokensCompletion = nil
+                    self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation,
+                                                              session: session,
+                                                              federationToken: federationToken!,
+                                                              federationProviderIdentifier: federationProviderIdentifier,
+                                                              signInInfo: &signInInfo).continueWith(block: { task -> Any? in
+                                                                
+                                                                if let error = task.error {
+                                                                    completionHandler(nil, error)
+                                                                } else {
+                                                                    completionHandler(.signedIn, nil)
+                                                                    if self.pendingGetTokensCompletion != nil {
+                                                                        self.tokenFetchLock.leave()
+                                                                    }
+                                                                    self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
+                                                                    self.pendingGetTokensCompletion = nil
+                                                                }
+                                                                return nil
+                                                              })
                 }
             }
             
@@ -477,8 +488,14 @@ final public class AWSMobileClient: _AWSMobileClient {
                     } else {
                         self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                             if let session = task.result {
-                                self.performUserPoolSuccessfulSignInTasks(session: session)
-                                completionHandler(.signedIn, nil)
+                                self.performUserPoolSuccessfulSignInTasks(session: session).continueWith(block: { (task) -> Any? in
+                                    if let error = task.error {
+                                        completionHandler(nil, error)
+                                    } else {
+                                        completionHandler(.signedIn, nil)
+                                    }
+                                    return nil
+                                })
                             } else {
                                 completionHandler(nil, task.error)
                             }
