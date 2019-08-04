@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 + (void)removePollyForKey:(NSString *)key;
 
 /**
- <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p><p>For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteLexicon service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (AWSTask<AWSPollyDeleteLexiconOutput *> *)deleteLexicon:(AWSPollyDeleteLexiconInput *)request;
 
 /**
- <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p><p>For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteLexicon service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (void)describeVoices:(AWSPollyDescribeVoicesInput *)request completionHandler:(void (^ _Nullable)(AWSPollyDescribeVoicesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetLexicon service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (AWSTask<AWSPollyGetLexiconOutput *> *)getLexicon:(AWSPollyGetLexiconInput *)request;
 
 /**
- <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetLexicon service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (void)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)request completionHandler:(void (^ _Nullable)(AWSPollyGetSpeechSynthesisTaskOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListLexicons service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (AWSTask<AWSPollyListLexiconsOutput *> *)listLexicons:(AWSPollyListLexiconsInput *)request;
 
 /**
- <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListLexicons service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (void)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)request completionHandler:(void (^ _Nullable)(AWSPollyListSpeechSynthesisTasksOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the PutLexicon service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (AWSTask<AWSPollyPutLexiconOutput *> *)putLexicon:(AWSPollyPutLexiconInput *)request;
 
 /**
- <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+ <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the PutLexicon service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -354,7 +354,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
  
  @param request A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollyStartSpeechSynthesisTaskOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidS3Bucket`, `AWSPollyErrorInvalidS3Key`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSnsTopicArn`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollyStartSpeechSynthesisTaskOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidS3Bucket`, `AWSPollyErrorInvalidS3Key`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSnsTopicArn`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorEngineNotSupported`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
  
  @see AWSPollyStartSpeechSynthesisTaskInput
  @see AWSPollyStartSpeechSynthesisTaskOutput
@@ -367,7 +367,7 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
  @param request A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidS3Bucket`, `AWSPollyErrorInvalidS3Key`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSnsTopicArn`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidS3Bucket`, `AWSPollyErrorInvalidS3Key`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSnsTopicArn`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorEngineNotSupported`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
  
  @see AWSPollyStartSpeechSynthesisTaskInput
  @see AWSPollyStartSpeechSynthesisTaskOutput
@@ -375,11 +375,11 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (void)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)request completionHandler:(void (^ _Nullable)(AWSPollyStartSpeechSynthesisTaskOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
+ <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
  
  @param request A container for the necessary parameters to execute the SynthesizeSpeech service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollySynthesizeSpeechOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollySynthesizeSpeechOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`, `AWSPollyErrorEngineNotSupported`.
  
  @see AWSPollySynthesizeSpeechInput
  @see AWSPollySynthesizeSpeechOutput
@@ -387,12 +387,12 @@ FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
 - (AWSTask<AWSPollySynthesizeSpeechOutput *> *)synthesizeSpeech:(AWSPollySynthesizeSpeechInput *)request;
 
 /**
- <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
+ <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
  
  @param request A container for the necessary parameters to execute the SynthesizeSpeech service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`, `AWSPollyErrorEngineNotSupported`.
  
  @see AWSPollySynthesizeSpeechInput
  @see AWSPollySynthesizeSpeechOutput
