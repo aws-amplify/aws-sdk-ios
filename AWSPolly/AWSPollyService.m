@@ -40,6 +40,7 @@ NSString *const AWSPollySDKVersion = @"2.10.2";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"EngineNotSupportedException" : @(AWSPollyErrorEngineNotSupported),
                             @"InvalidLexiconException" : @(AWSPollyErrorInvalidLexicon),
                             @"InvalidNextTokenException" : @(AWSPollyErrorInvalidNextToken),
                             @"InvalidS3BucketException" : @(AWSPollyErrorInvalidS3Bucket),
