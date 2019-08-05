@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## vNext
+## 2.10.3
 
 ### Misc. Updates
 - Model updates for the following services
