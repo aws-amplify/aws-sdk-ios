@@ -659,6 +659,7 @@ jobs:
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
             python3 run_cleanup_uitests.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+          when: always
       - store_artifacts:
           path: uitest_logs
   add_doc_tag:
