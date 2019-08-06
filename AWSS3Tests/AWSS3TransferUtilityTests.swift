@@ -2322,7 +2322,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 
                 if let HTTPResponse = task.response {
                     XCTAssertEqual(HTTPResponse.statusCode, 200)
-                    
+                    // Sleep for 2 sec so that the url created will be accessible.
+                    sleep(2)
                     let downloadExpression = AWSS3TransferUtilityDownloadExpression()
                     downloadExpression.progressBlock = {(task, progress) in
                         print("Download progress: ", progress.fractionCompleted)
