@@ -140,4 +140,21 @@
     }] waitUntilFinished];
 }
 
++ (BOOL)checkIfObjectIsPresent:(NSString *)keyName bucket:(NSString *)bucketName {
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    AWSS3HeadObjectRequest *headObjectRequest = [AWSS3HeadObjectRequest new];
+    headObjectRequest.bucket = bucketName;
+    headObjectRequest.key = keyName;
+    __block BOOL success = NO;
+    [[[s3 headObject:headObjectRequest] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            success = NO;
+        } else {
+            success = YES;
+        }
+        return nil;
+    }] waitUntilFinished];
+    return success;
+}
+
 @end
