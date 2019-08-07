@@ -56,6 +56,8 @@ commands:
             pre_name=$(echo "${CIRCLE_SHA1}" | cut -c1-7)
             override_test_variable_name=OVERRIDE_TEST_${pre_name}
             echo "export override_test_variable_name=$override_test_variable_name" >> $BASH_ENV
+            circleci_root_directory=$(pwd)  
+            echo "export circleci_root_directory=$circleci_root_directory" >> $BASH_ENV
 
   quit_for_nominorversion:
     description: >-
@@ -620,36 +622,36 @@ jobs:
       - run:
           name: "Checkout sample apps repository"
           command: |
+            cd ${circleci_root_directory}
             git clone https://github.com/phanisrikar93/aws-sdk-ios-samples
-          working_directory: ${CIRCLE_WORKING_DIRECTORY}
       - run:
           name: "Set-Up configuration for UITests"
           ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
           ## Use the setup_uitest_config API to create a custom config file from the template 
           ## More information on this API can be found here: ##PATH_TO_WIKI_PAGE##
           command: |
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
             python3 setup_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
-          working_directory: ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples/CircleciScripts
       - run:
           name: "Set-Up Mobile SDK Dependencies"
           command: |
-            cd ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples/CircleciScripts
-            python3 run_setup_mobile_sdk_dependencies.py -n << parameters.appname >> -a ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_setup_mobile_sdk_dependencies.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
       - run:
           name: "Configure AWS Resources"
           command: |
-            cd ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples/CircleciScripts
-            python3 run_configure_aws_resources.py -n << parameters.appname >> -a ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples 
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_configure_aws_resources.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples 
       - run:
           name: "Build and UITest"
           command: |
-            cd ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples/CircleciScripts
-            python3 run_build_and_uitest.py -n << parameters.appname >> -a ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples -c ${CIRCLE_WORKING_DIRECTORY}
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_build_and_uitest.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples -c ${circleci_root_directory}
       - run:
           name: "Clean-Up UITest"
           command: |
-            cd ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples/CircleciScripts
-            python3 run_cleanup_uitests.py -n << parameters.appname >> -a ${CIRCLE_WORKING_DIRECTORY}/aws-sdk-ios-samples
+            cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
+            python3 run_cleanup_uitests.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
           when: always 
       - store_artifacts:
           path: uitest_logs
