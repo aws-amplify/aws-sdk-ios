@@ -623,7 +623,6 @@ jobs:
       - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
       - skip_job_unless_required #skip_job_from_environment_variable SKIP_JOB_${CIRCLE_JOB}
       - early_return_for_forked_prs # do not run for forked PRs
-      - skip_test_job
       - checkout
       - run:
           name: "Checkout sample apps repository"
@@ -634,15 +633,15 @@ jobs:
           name: "Set-Up configuration for UITests"
           ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
           ## Use the setup_uitest_config API to create a custom config file from the template 
-          ## More information on this API can be found here: 
+          ## More information on this API can be found here: ##PATH_TO_WIKI_PAGE##
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
-            python3 edit_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
+            python3 setup_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
       - run:
           name: "Set-Up Mobile SDK Dependencies"
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
-            python3 run_setup_pods.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
+            python3 run_setup_mobile_sdk_dependencies.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
       - run:
           name: "Configure AWS Resources"
           command: |
