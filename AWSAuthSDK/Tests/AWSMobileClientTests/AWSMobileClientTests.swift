@@ -241,6 +241,38 @@ class AWSMobileClientTests: XCTestCase {
         signIn(username: username)
     }
     
+    func testSignInWithListener() {
+        let username = "testUser" + UUID().uuidString
+        let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
+        let signInWasSuccessful = expectation(description: "signIn was successful")
+        signUpAndVerifyUser(username: username)
+
+        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+            switch (userState) {
+            case .signedIn:
+                signInListenerWasSuccessful.fulfill()
+                print("Listener user is signed in.")
+            default:
+                print("Listener \(userState)")
+            }
+        }
+
+        AWSMobileClient.sharedInstance().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+            if let error = error {
+                XCTFail("User login failed: \(error.localizedDescription)")
+                return
+            }
+
+            guard let signInResult = signInResult else {
+                XCTFail("User login failed, signInResult unexpectedly nil")
+                return
+            }
+            XCTAssertEqual(signInResult.signInState, .signedIn, "Could not verify sign in state")
+            signInWasSuccessful.fulfill()
+        }
+        wait(for: [signInListenerWasSuccessful, signInWasSuccessful], timeout: 5, enforceOrder: true)
+    }
+
     func testSignInFailCase() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
@@ -622,6 +654,20 @@ class AWSMobileClientTests: XCTestCase {
         XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
     }
     
+    func testSignOutWithCallback() {
+        let username = "testUser" + UUID().uuidString
+        let signoutExpectation = expectation(description: "Successfully signout")
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == true, "Expected to return true for isSignedIn")
+        sleep(1)
+        AWSMobileClient.sharedInstance().signOut { (error) in
+            XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
+            signoutExpectation.fulfill()
+        }
+        wait(for: [signoutExpectation], timeout: 2)
+    }
+
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
         getOpendIdRequest?.identityPoolId = identityPoolId

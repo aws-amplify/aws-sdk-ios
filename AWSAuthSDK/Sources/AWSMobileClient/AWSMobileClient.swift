@@ -315,6 +315,9 @@ final public class AWSMobileClient: _AWSMobileClient {
     }
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
+        if (self.currentUserState == userState) {
+            return
+        }
         self.currentUserState = userState
         for listener in listeners {
             listener.1(userState, additionalInfo)
