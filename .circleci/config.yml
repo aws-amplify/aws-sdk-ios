@@ -607,7 +607,7 @@ jobs:
 
   run_ui_test:
     macos:
-      xcode: "10.3"
+      xcode: "10.3.0"
     parameters:
       appname:
         description: "specifies app for UI Testing. Should be a subset of apps specified in config file"
