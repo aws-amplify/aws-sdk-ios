@@ -2324,11 +2324,11 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 if let HTTPResponse = task.response {
                     XCTAssertEqual(HTTPResponse.statusCode, 200)
 
-                    let timeout = DispatchTime.now() + .seconds(2)
+                    let timeout = DispatchTime.now() + .seconds(30)
                     while(!AWSS3TestHelper.checkIfObjectIsPresent(key, bucket: generalTestBucket)) {
                         if (DispatchTime.now() > timeout )  {
                             XCTFail("Could not verify uploaded key \(key)")
-                            break;
+                            return;
                         }
                         sleep(1)
                     }
