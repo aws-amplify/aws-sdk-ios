@@ -2310,6 +2310,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         for i in 1...25 {
+            let key = "testDataForConcurrentDownloads\(i).txt"
             let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
                 XCTAssertNil(error)
                 if ( error != nil ) {
@@ -2322,8 +2323,16 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 
                 if let HTTPResponse = task.response {
                     XCTAssertEqual(HTTPResponse.statusCode, 200)
-                    // Sleep for 2 sec so that the url created will be accessible.
-                    sleep(2)
+
+                    let timeout = DispatchTime.now() + .seconds(2)
+                    while(!AWSS3TestHelper.checkIfObjectIsPresent(key, bucket: generalTestBucket)) {
+                        if (DispatchTime.now() > timeout )  {
+                            XCTFail("Could not verify uploaded key \(key)")
+                            break;
+                        }
+                        sleep(1)
+                    }
+
                     let downloadExpression = AWSS3TransferUtilityDownloadExpression()
                     downloadExpression.progressBlock = {(task, progress) in
                         print("Download progress: ", progress.fractionCompleted)
@@ -2346,7 +2355,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertNotNil(transferUtility)
                     transferUtility?.download(to: url!,
                                             bucket: generalTestBucket,
-                                            key: "testDataForConcurrentDownloads\(i).txt",
+                                            key: key,
                                      expression: downloadExpression,
                               completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
                                         XCTAssertNil(task.error)
@@ -2358,7 +2367,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 transferUtility?.uploadData(
                     testData.data(using: String.Encoding.utf8)!,
                     bucket: generalTestBucket,
-                    key: "testDataForConcurrentDownloads\(i).txt",
+                    key: key,q
                     contentType: "text/plain",
                     expression: uploadExpression,
                     completionHandler: uploadCompletionHandler

@@ -27,6 +27,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)deleteBucketWithName:(NSString *)bucketName;
 
+/**
+Check if the given object is present inside the bucket. This is a blocking call.
+
+@param keyName Object key name to be checked
+@param bucketName Bucket name where the object is present
+@return True if the object is present inside the bucket else False
+ */
++ (BOOL)checkIfObjectIsPresent:(NSString *)keyName bucket:(NSString *)bucketName;
+
 @end
 
 NS_ASSUME_NONNULL_END
