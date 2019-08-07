@@ -60,6 +60,10 @@ commands:
             circleci_root_directory=$(pwd)
             echo "export circleci_root_directory=$circleci_root_directory" >> $BASH_ENV
 
+            echo "circleci_root_directory = ${circleci_root_directory}"
+            echo "home = ${HOME}"
+            echo "ci wd = ${CIRCLE_WORKING_DIRECTORY}"
+
   quit_for_nominorversion:
     description: >-
       If current release is not a minor version bump, stop executing the current job and return success.
@@ -603,44 +607,39 @@ jobs:
 
   run_ui_test:
     macos:
-      xcode: "10.2.1"
+      xcode: "10.3"
     parameters:
       appname:
         description: "specifies app for UI Testing. Should be a subset of apps specified in config file"
         type: string
-        default: "S3TransferUtility"
     steps:
       - set_environment_variables
       - run:
-          name: "Install Latest Cocoapods version and setup master specs repo for cocoapods"
+          name: "Setup master specs repo for cocoapods"
           command: |
-            sudo gem install cocoapods
-            pod --version
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run:
-          name: "Install XCPretty"
-          command: |
-            sudo gem install xcpretty
       - aws-cli/install
       - aws-cli/configure
-      - override_test_job
-      - skip_job_unless_required
-      - early_return_for_forked_prs
-      - checkout
+      - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
+      - skip_job_unless_required #skip_job_from_environment_variable SKIP_JOB_${CIRCLE_JOB}
+      - early_return_for_forked_prs # do not run for forked PRs
       - skip_test_job
-      # - pre_start_simulator
+      - checkout
       - run:
           name: "Checkout sample apps repository"
           command: |
             cd ${circleci_root_directory}
             git clone https://github.com/phanisrikar93/aws-sdk-ios-samples
       - run:
-          name: "Edit config file for UITests"
+          name: "Set-Up configuration for UITests"
+          ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
+          ## Use the setup_uitest_config API to create a custom config file from the template 
+          ## More information on this API can be found here: 
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
             python3 edit_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
       - run:
-          name: "Set-Up Pods"
+          name: "Set-Up Mobile SDK Dependencies"
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
             python3 run_setup_pods.py -n << parameters.appname >> -a ${circleci_root_directory}/aws-sdk-ios-samples
