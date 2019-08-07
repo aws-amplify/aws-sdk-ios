@@ -2367,7 +2367,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 transferUtility?.uploadData(
                     testData.data(using: String.Encoding.utf8)!,
                     bucket: generalTestBucket,
-                    key: key,q
+                    key: key,
                     contentType: "text/plain",
                     expression: uploadExpression,
                     completionHandler: uploadCompletionHandler
