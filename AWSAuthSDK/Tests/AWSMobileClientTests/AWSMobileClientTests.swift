@@ -241,7 +241,7 @@ class AWSMobileClientTests: XCTestCase {
         signIn(username: username)
     }
     
-    func testSignInWithListener() {
+    func testOrderOfCallbackInSuccessfulSignIn() {
         let username = "testUser" + UUID().uuidString
         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
         let signInWasSuccessful = expectation(description: "signIn was successful")
@@ -652,6 +652,35 @@ class AWSMobileClientTests: XCTestCase {
         sleep(1)
         AWSMobileClient.sharedInstance().signOut()
         XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
+    }
+    func testOrderOfCallbacksForSignOut() {
+        let username = "testUser" + UUID().uuidString
+        let signoutExpectation = expectation(description: "Successfully signout")
+        let signInListenerExpectation = expectation(description: "signIn was successful")
+        let signOutListenerExpectation = expectation(description: "signOut was successful")
+        signUpAndVerifyUser(username: username)
+        XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedOut)
+        
+        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+            switch (userState) {
+            case .signedIn:
+                signInListenerExpectation.fulfill()
+                print("Listener user is signed in.")
+            case .signedOut:
+                signOutListenerExpectation.fulfill()
+                print("Listener user signed out.")
+            default:
+                print("Listener \(userState)")
+            }
+        }
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == true, "Expected to return true for isSignedIn")
+        sleep(1)
+        AWSMobileClient.sharedInstance().signOut { (error) in
+            XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
+            signoutExpectation.fulfill()
+        }
+        wait(for: [signInListenerExpectation, signOutListenerExpectation, signoutExpectation], timeout: 2, enforceOrder: true)
     }
     
     func testSignOutWithCallback() {

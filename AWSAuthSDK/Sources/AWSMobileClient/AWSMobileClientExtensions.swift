@@ -279,9 +279,11 @@ extension AWSMobileClient {
                     self.customRoleArnInternal = customRoleArn
                     _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
                 }
-                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith(block: { (task) -> Any? in
+                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith() { task in
                     // If any credentials operation is pending, we invoke the waiting block to resume with new credentials
                     if let credentials = task.result {
+                        self.mobileClientStatusChanged(userState: .signedIn,
+                                                       additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
                         self.pendingAWSCredentialsCompletion?(credentials, nil)
                         completionHandler(UserState.signedIn, nil)
                     } else if let error = task.error {
@@ -293,7 +295,7 @@ extension AWSMobileClient {
                         self.pendingAWSCredentialsCompletion = nil
                     }
                     return nil
-                })
+                }
                 
             } else { // first time calling federatedSignIn
                 // If using developer authenticated identities, identityId is required.
@@ -311,15 +313,17 @@ extension AWSMobileClient {
                     self.customRoleArnInternal = customRoleArn
                     _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
                 }
-                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith(block: { task -> Any? in
+                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith() { task in
                     if task.error == nil {
                         let error = task.error
                         completionHandler(nil, error)
                         return nil
                     }
+                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                   additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
                     completionHandler(UserState.signedIn, nil)
                     return nil
-                })
+                }
             }
         }
     }
@@ -532,17 +536,22 @@ extension AWSMobileClient {
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
                     self.federationProvider = .userPools
-                    self.performUserPoolSuccessfulSignInTasks(session: result).continueWith(block: { (task) -> Any? in
+                    self.performUserPoolSuccessfulSignInTasks(session: result).continueWith() { task in
                         if let error = task.error {
                             self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error))
                             self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+
                         } else {
                             let signInResult = SignInResult(signInState: .signedIn)
+                            let tokenString = result.idToken!.tokenString
+                            self.mobileClientStatusChanged(userState: .signedIn,
+                                                           additionalInfo: [self.ProviderKey: self.userPoolClient!.identityProviderName,
+                                                                            self.TokenKey: tokenString])
                             self.userpoolOpsHelper.currentSignInHandlerCallback?(signInResult, nil)
                             self.userpoolOpsHelper.currentSignInHandlerCallback = nil
                         }
                         return nil
-                    })
+                    }
                 }
                 return nil
             }
@@ -613,9 +622,7 @@ extension AWSMobileClient {
         let tokenString = session.idToken!.tokenString
         self.developerNavigationController = nil
         self.cachedLoginsMap = [self.userPoolClient!.identityProviderName: tokenString]
-        return postSignInKeychainAndCredentialsUpdate(provider: .userPools,
-                                                      additionalInfo:[self.ProviderKey: self.userPoolClient!.identityProviderName,
-                                                                      self.TokenKey: tokenString])
+        return postSignInKeychainAndCredentialsUpdate(provider: .userPools)
     }
     
     internal func performHostedUISuccessfulSignInTasks(disableFederation: Bool = false,
@@ -629,33 +636,25 @@ extension AWSMobileClient {
         } else {
             self.cachedLoginsMap = [federationProviderIdentifier!: federationToken]
         }
-        return postSignInKeychainAndCredentialsUpdate(provider: .hostedUI, additionalInfo:signInInfo)
+        return postSignInKeychainAndCredentialsUpdate(provider: .hostedUI)
     }
     
     internal func performFederatedSignInTasks(provider: String, token: String) -> AWSTask<AWSCredentials>  {
         self.cachedLoginsMap = [provider:token]
         self.federationProvider = .oidcFederation
-        return postSignInKeychainAndCredentialsUpdate(provider: .oidcFederation, additionalInfo:[ProviderKey:provider, TokenKey: token])
+        return postSignInKeychainAndCredentialsUpdate(provider: .oidcFederation)
     }
     
     /// Post signin operations. Saves the login maps and provider metadata in keychain. Updates the credentials.
-    /// If credential update is successfull, informs the listener with UserState.signedIn status.
+    /// If credential update is successful, informs the listener with UserState.signedIn status.
     ///
     /// - Parameters
     ///     - provider: provider to be updated in keychain.
-    ///     - additionalInfo: additional infomap to be passed in signedIn callback.
-    func postSignInKeychainAndCredentialsUpdate(provider: FederationProvider,
-                                                additionalInfo: [String: String]) -> AWSTask<AWSCredentials> {
+    func postSignInKeychainAndCredentialsUpdate(provider: FederationProvider) -> AWSTask<AWSCredentials> {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
-        return self.internalCredentialsProvider!.credentials().continueWith(block: { (task) -> AWSTask<AWSCredentials>? in
-            if task.result != nil {
-                self.mobileClientStatusChanged(userState: .signedIn,
-                                               additionalInfo: additionalInfo)
-            }
-            return task;
-        }) as! AWSTask<AWSCredentials>;
+        return self.internalCredentialsProvider!.credentials();
     }
     
     /// Confirm a sign in which requires additional validation via steps like SMS MFA.
