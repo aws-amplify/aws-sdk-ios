@@ -2,6 +2,11 @@
 
 ## 2.10.3
 
+### Bug Fixes
+
+- **AWSCognitoAuth**
+  - `delegate` property is now retained weakly
+
 ### Misc. Updates
 - Model updates for the following services
   - Amazon Polly
