@@ -58,11 +58,19 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 
 @end
 
+#pragma mark - AWSURLSessionManager
+
+@interface AWSURLSessionManager()
+
+- (void)invalidate;
+
+@end
+
 #pragma mark - AWSNetworking
 
 @interface AWSNetworking()
 
-@property (nonatomic, strong) AWSURLSessionManager *networkManager;
+@property (nonatomic, strong) AWSURLSessionManager *sessionManager;
 
 @end
 
@@ -77,20 +85,20 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 
 - (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration {
     if (self = [super init]) {
-        _networkManager = [[AWSURLSessionManager alloc] initWithConfiguration:configuration];
+        _sessionManager = [[AWSURLSessionManager alloc] initWithConfiguration:configuration];
     }
 
     return self;
 }
 
 - (AWSTask *)sendRequest:(AWSNetworkingRequest *)request {
-    return [self.networkManager dataTaskWithRequest:request];
+    return [self.sessionManager dataTaskWithRequest:request];
 }
 
 - (void)dealloc {
     // If this is being released, the network manager should be notified so it can invalidate
     // its NSURLSession to avoid a memory leak.
-    [_networkManager invalidate];
+    [_sessionManager invalidate];
 }
 
 @end

@@ -24,11 +24,4 @@
 
 - (AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request;
 
-/**
- Invalidates the underlying NSURLSession to avoid memory leaks.
- 
- @warning Before calling this method, make sure no method is running on this manager.
- */
-- (void)invalidate;
-
 @end
