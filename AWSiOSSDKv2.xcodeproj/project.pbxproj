@@ -93,7 +93,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		170C2D471EDFAE43008A2E52 /* AWSCognitoAuthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDE85AC1ED203D9008841EC /* AWSCognitoAuthTests.m */; };
 		173641DE1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */; };
 		173641DF1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */; };
 		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
@@ -1212,6 +1211,7 @@
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
 		FA6978C821FA63D50092C8F3 /* AWSPinpointBackgroundBehaviorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */; };
+		FA81D84E22FB8FBF0018DB1B /* AWSCognitoAuthUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDE85A91ED203D9008841EC /* AWSCognitoAuthUnitTests.m */; };
 		FA99CF25216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */; };
 		FA99CF26216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */; };
 		FA99CF2D216C13E30086F9A7 /* AWSKinesisSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */; };
@@ -12690,7 +12690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				170C2D471EDFAE43008A2E52 /* AWSCognitoAuthTests.m in Sources */,
+				FA81D84E22FB8FBF0018DB1B /* AWSCognitoAuthUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
