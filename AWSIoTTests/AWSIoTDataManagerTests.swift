@@ -65,7 +65,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         //Setup iOT Data Manager for Broker 1
         let endpoint1 = AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint")
         XCTAssert(endpoint1 != nil, "Could not fetch the iot endpoint from the config file.")
-        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USWest2,
+        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1,
                 endpoint: AWSEndpoint(urlString: endpoint1!),
                 credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
         AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker1")
