@@ -609,10 +609,10 @@ jobs:
         type: string
     steps:
       - set_environment_variables
-      - run:
-          name: "Setup master specs repo for cocoapods"
-          command: |
-            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      # - run:
+      #     name: "Setup master specs repo for cocoapods"
+      #     command: |
+      #       curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - aws-cli/install
       - aws-cli/configure
       - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
@@ -628,7 +628,7 @@ jobs:
           name: "Set-Up configuration for UITests"
           ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
           ## Use the setup_uitest_config API to create a custom config file from the template 
-          ## More information on this API can be found here: ##PATH_TO_WIKI_PAGE##
+          ## More information on this API can be found in the <Internal> Operations Run Book 
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
             python3 setup_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
