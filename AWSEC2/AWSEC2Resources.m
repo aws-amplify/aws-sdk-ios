@@ -3969,7 +3969,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"lowestPrice\",\
-        \"diversified\"\
+        \"diversified\",\
+        \"capacityOptimized\"\
       ]\
     },\
     \"AllowedPrincipal\":{\
@@ -27527,7 +27528,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"lowest-price\",\
-        \"diversified\"\
+        \"diversified\",\
+        \"capacity-optimized\"\
       ]\
     },\
     \"SpotDatafeedSubscription\":{\
