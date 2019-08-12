@@ -34,6 +34,7 @@ bash CircleciScripts/run_unittest_bundle.sh AWSS3UnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSESUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSNSUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSQSUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSSageMakerRuntimeUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSimpleDBUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSTranscribeUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSTranscribeStreamingUnitTests

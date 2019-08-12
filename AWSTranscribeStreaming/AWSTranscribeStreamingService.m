@@ -396,7 +396,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                          encoding:encoding
                                                                      languageCode:languageCode
                                                                        sampleRate:sampleRate];
-            NSLog(@"%@", websocketURL);
+            AWSDDLogVerbose(@"%@", websocketURL);
             
             NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:websocketURL]];
             

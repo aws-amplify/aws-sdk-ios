@@ -57,6 +57,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
     CircleciScripts/package_sdk.sh AWSSimpleDB
     CircleciScripts/package_sdk.sh AWSTextract
     CircleciScripts/package_sdk.sh AWSTranscribe
+    CircleciScripts/package_sdk.sh AWSTranscribeStreaming
     CircleciScripts/package_sdk.sh AWSTranslate
 
     CircleciScripts/package_sdk.sh AWSAuthCore "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
