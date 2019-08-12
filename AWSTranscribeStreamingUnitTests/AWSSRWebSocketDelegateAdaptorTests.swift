@@ -54,7 +54,10 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     */
 
     let transcript_event_data = Data(base64Encoded: "AAABsgAAAFXfePLDCzpldmVudC10eXBlBwAPVHJhbnNjcmlwdEV2ZW50DTpjb250ZW50LXR5cGUHABBhcHBsaWNhdGlvbi9qc29uDTptZXNzYWdlLXR5cGUHAAVldmVudHsiVHJhbnNjcmlwdCI6eyJSZXN1bHRzIjpbeyJBbHRlcm5hdGl2ZXMiOlt7Ikl0ZW1zIjpbeyJDb250ZW50IjoiSGVsbG8iLCJFbmRUaW1lIjowLjIxLCJTdGFydFRpbWUiOjAuMTIsIlR5cGUiOiJwcm9udW5jaWF0aW9uIn0seyJDb250ZW50Ijoid2VyZSIsIkVuZFRpbWUiOjAuNDksIlN0YXJ0VGltZSI6MC4yMiwiVHlwZSI6InByb251bmNpYXRpb24ifV0sIlRyYW5zY3JpcHQiOiJIZWxsbyB3ZXJlIn1dLCJFbmRUaW1lIjowLjUzLCJJc1BhcnRpYWwiOnRydWUsIlJlc3VsdElkIjoiOTQ4NjJmNGEtMzc5My00ZTViLThlODUtMTkxNWM4ZDMzZjkyIiwiU3RhcnRUaW1lIjowLjEyfV19fRMshLQ=")!
-    
+
+    // BadRequestException
+    let transcript_error_data = Data(base64Encoded: "AAAAxwAAAGEEorpsDzpleGNlcHRpb24tdHlwZQcAE0JhZFJlcXVlc3RFeGNlcHRpb24NOmNvbnRlbnQtdHlwZQcAEGFwcGxpY2F0aW9uL2pzb24NOm1lc3NhZ2UtdHlwZQcACWV4Y2VwdGlvbnsiTWVzc2FnZSI6IllvdXIgcmVxdWVzdCB0aW1lZCBvdXQgYmVjYXVzZSBubyBuZXcgYXVkaW8gd2FzIHJlY2VpdmVkIGZvciAxNSBzZWNvbmRzLiJ9PblBbw==")!
+
     func testEventReceivedOnSpecifiedQueue() {
         let key = DispatchSpecificKey<UUID>()
         let uuid = UUID()
@@ -116,15 +119,109 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     }
     
     func testDecodesEventStreamWithErrorPayload() {
-        XCTFail("Not yet implemented")
+        let delegate = MockDelegate()
+        let eventContainsErrorPayload = expectation(description: "Event contains error payload")
+
+        delegate.receiveEventCallback = { event, error in
+            if let error = error {
+                XCTFail("Unexpected decoding error in receiveEventCallback: \(error)")
+                return
+            }
+
+            guard let event = event else {
+                XCTFail("event unexpectedly nil")
+                return
+            }
+
+            XCTAssertNotNil(event.badRequestException)
+            eventContainsErrorPayload.fulfill()
+        }
+
+        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
+        adaptor.webSocket(nil, didReceiveMessage: transcript_error_data)
+
+        waitForExpectations(timeout: 0.1)
     }
-    
-    func testConnectionDidChangePropagatesErrorInformation() {
-        XCTFail("Not yet implemented")
+
+    /// Given: An adaptor with a delegate
+    /// When: The adaptor's `didFailWithError` method is propagated with an error
+    /// Then: the delegate receives the raw, untranslated error information
+    func testDidFailWithErrorPropagatesRawErrorInformation() {
+        let delegate = MockDelegate()
+        let receivedErrorCallback = expectation(description: "Received error callback")
+
+        delegate.connectionStatusCallback = { _, error in
+            guard let error = error as NSError? else {
+                XCTFail("Error unexpectedly nil in connectionStatusCallback")
+                return
+            }
+
+            XCTAssertEqual(error.domain, AWSSRWebSocketErrorDomain)
+            XCTAssertEqual(error.code, 1234)
+
+            receivedErrorCallback.fulfill()
+        }
+
+        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
+
+        let error = NSError(domain: AWSSRWebSocketErrorDomain,
+                            code: 1234,
+                            userInfo: nil)
+        adaptor.webSocket(nil, didFailWithError: error)
+
+        waitForExpectations(timeout: 0.1)
     }
-    
+
+    /// Given: An adaptor with a delegate
+    /// When: The adaptor's `didFailWithError` method is propagated with an error
+    /// Then: the delegate receives the raw, untranslated error information
+    func testDidCloseWithCodeTranslatesErrorInformation() {
+        let delegate = MockDelegate()
+        let receivedErrorCallback = expectation(description: "Received error callback")
+
+        delegate.connectionStatusCallback = { _, error in
+            guard let error = error as NSError? else {
+                XCTFail("Error unexpectedly nil in connectionStatusCallback")
+                return
+            }
+
+            XCTAssertEqual(error.domain, AWSTranscribeStreamingClientErrorDomain)
+            XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.webSocketClosedUnexpectedly.rawValue)
+
+            receivedErrorCallback.fulfill()
+        }
+
+        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
+
+        adaptor.webSocket(nil,
+                          didCloseWithCode: AWSSRStatusCodeGoingAway.rawValue,
+                          reason: "Test reason",
+                          wasClean: false)
+
+        waitForExpectations(timeout: 0.1)
+    }
+
     func testConnectionDidChangeErrorIsNilForCleanlyClosed() {
-        XCTFail("Not yet implemented")
+        let delegate = MockDelegate()
+        let receivedErrorCallback = expectation(description: "Received error callback")
+
+        delegate.connectionStatusCallback = { status, error in
+            if let error = error {
+                XCTFail("Unexpected error in testConnectionDidChangeErrorIsNilForCleanlyClosed: \(error)")
+                return
+            }
+            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.closed)
+            receivedErrorCallback.fulfill()
+        }
+
+        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
+
+        adaptor.webSocket(nil,
+                          didCloseWithCode: AWSSRStatusCodeGoingAway.rawValue,
+                          reason: "Test reason",
+                          wasClean: true)
+
+        waitForExpectations(timeout: 0.1)
     }
     
 }

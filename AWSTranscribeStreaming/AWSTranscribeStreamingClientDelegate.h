@@ -20,14 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 extern NSString *const AWSTranscribeStreamingClientErrorDomain;
 
-typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientDelegateConnectionStatus) {
-    AWSTranscribeStreamingClientDelegateConnectionStatusConnecting,
-    AWSTranscribeStreamingClientDelegateConnectionStatusConnected,
-    AWSTranscribeStreamingClientDelegateConnectionStatusClosing,
-    AWSTranscribeStreamingClientDelegateConnectionStatusClosed,
-    AWSTranscribeStreamingClientDelegateConnectionStatusUnknown
-};
-
 typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientErrorCode) {
     AWSTranscribeStreamingClientErrorCodeEventSerializationError,
     AWSTranscribeStreamingClientErrorCodeInvalidMessagePrelude,
@@ -35,6 +27,14 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientErrorCode) {
     AWSTranscribeStreamingClientErrorCodeWebSocketProtocolError,
     AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly,
     AWSTranscribeStreamingClientErrorCodeUnknown
+};
+
+typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientDelegateConnectionStatus) {
+    AWSTranscribeStreamingClientDelegateConnectionStatusConnecting,
+    AWSTranscribeStreamingClientDelegateConnectionStatusConnected,
+    AWSTranscribeStreamingClientDelegateConnectionStatusClosing,
+    AWSTranscribeStreamingClientDelegateConnectionStatusClosed,
+    AWSTranscribeStreamingClientDelegateConnectionStatusUnknown
 };
 
 @protocol AWSTranscribeStreamingClientDelegate <NSObject>

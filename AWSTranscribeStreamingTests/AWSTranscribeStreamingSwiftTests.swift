@@ -39,7 +39,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
         AWSTranscribeStreaming.register(with: config, forKey: AWSTranscribeStreamingSwiftTests.transcribeClientKey)
         transcribeStreamingClient = AWSTranscribeStreaming(forKey: AWSTranscribeStreamingSwiftTests.transcribeClientKey)
 
-        AWSDDLog.sharedInstance.logLevel = .info
+        AWSDDLog.sharedInstance.logLevel = .verbose
         AWSDDLog.sharedInstance.add(AWSDDTTYLogger.sharedInstance)
     }
 
@@ -151,14 +151,14 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
         while currentStart < audioDataSize {
             let dataChunk = audioData[currentStart ..< currentEnd]
             transcribeStreamingClient.send(dataChunk, headers: headers)
-            
+
             currentStart = currentEnd
             currentEnd = min(currentStart + chunkSize, audioDataSize)
         }
         
         print("Sending end frame")
         self.transcribeStreamingClient.sendEndFrame()
-        
+
         print("Waiting for final transcription event")
         wait(for: [receivedFinalTranscription], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
         
