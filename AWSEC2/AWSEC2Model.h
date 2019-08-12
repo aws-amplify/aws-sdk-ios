@@ -59,6 +59,7 @@ typedef NS_ENUM(NSInteger, AWSEC2AllocationStrategy) {
     AWSEC2AllocationStrategyUnknown,
     AWSEC2AllocationStrategyLowestPrice,
     AWSEC2AllocationStrategyDiversified,
+    AWSEC2AllocationStrategyCapacityOptimized,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ArchitectureValues) {
@@ -1135,6 +1136,7 @@ typedef NS_ENUM(NSInteger, AWSEC2SpotAllocationStrategy) {
     AWSEC2SpotAllocationStrategyUnknown,
     AWSEC2SpotAllocationStrategyLowestPrice,
     AWSEC2SpotAllocationStrategyDiversified,
+    AWSEC2SpotAllocationStrategyCapacityOptimized,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2SpotInstanceInterruptionBehavior) {
