@@ -9,7 +9,10 @@
 
 ### Misc. Updates
 - Model updates for the following services
+  - Amazon EC2
+  - Amazon Lex
   - Amazon Polly
+  - AWS IoT
 
 ## 2.10.2
 
