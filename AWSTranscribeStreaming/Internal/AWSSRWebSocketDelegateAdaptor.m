@@ -98,13 +98,15 @@
     switch (webSocket.readyState) {
         case AWSSR_CONNECTING:
             status = AWSTranscribeStreamingClientDelegateConnectionStatusConnecting;
+            break;
         case AWSSR_OPEN:
             status = AWSTranscribeStreamingClientDelegateConnectionStatusConnected;
+            break;
         case AWSSR_CLOSING:
             status = AWSTranscribeStreamingClientDelegateConnectionStatusClosing;
+            break;
         case AWSSR_CLOSED:
             status = AWSTranscribeStreamingClientDelegateConnectionStatusClosed;
-        default:
             break;
     }
 

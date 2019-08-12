@@ -385,7 +385,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         
         if (task.result != nil) {
             AWSCredentials *credentials = task.result;
-            NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:[NSString stringWithFormat: @"transcribestreaming.%@.amazonaws.com:8443", self.configuration.endpoint.regionName]
+            NSString *hostName = [NSString stringWithFormat:@"transcribestreaming.%@.amazonaws.com:8443",
+                                  self.configuration.endpoint.regionName];
+
+            NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:hostName
                                                                        regionName:self.configuration.endpoint.regionName
                                                                         accessKey:credentials.accessKey
                                                                         secretKey:credentials.secretKey

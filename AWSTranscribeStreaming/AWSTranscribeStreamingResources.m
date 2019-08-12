@@ -55,7 +55,7 @@
     return self;
 }
 
-- (NSString *)definitionString {
+- (nonnull NSString *)definitionString {
     return @"{\
   \"version\":\"2.0\",\
   \"metadata\":{\

@@ -18,53 +18,19 @@ import XCTest
 @testable import AWSTranscribeStreaming
 
 class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
-    /*
-     A base64 encoded representation of the raw event data for a transcript event:
-        {
-          "Transcript": {
-            "Results": [
-              {
-                "Alternatives": [
-                  {
-                    "Items": [
-                      {
-                        "Content": "Hello",
-                        "EndTime": 0.21,
-                        "StartTime": 0.12,
-                        "Type": "pronunciation"
-                      },
-                      {
-                        "Content": "were",
-                        "EndTime": 0.49,
-                        "StartTime": 0.22,
-                        "Type": "pronunciation"
-                      }
-                    ],
-                    "Transcript": "Hello were"
-                  }
-                ],
-                "EndTime": 0.53,
-                "IsPartial": true,
-                "ResultId": "94862f4a-3793-4e5b-8e85-1915c8d33f92",
-                "StartTime": 0.12
-              }
-            ]
-          }
-        }
-    */
 
-    let transcript_event_data = Data(base64Encoded: "AAABsgAAAFXfePLDCzpldmVudC10eXBlBwAPVHJhbnNjcmlwdEV2ZW50DTpjb250ZW50LXR5cGUHABBhcHBsaWNhdGlvbi9qc29uDTptZXNzYWdlLXR5cGUHAAVldmVudHsiVHJhbnNjcmlwdCI6eyJSZXN1bHRzIjpbeyJBbHRlcm5hdGl2ZXMiOlt7Ikl0ZW1zIjpbeyJDb250ZW50IjoiSGVsbG8iLCJFbmRUaW1lIjowLjIxLCJTdGFydFRpbWUiOjAuMTIsIlR5cGUiOiJwcm9udW5jaWF0aW9uIn0seyJDb250ZW50Ijoid2VyZSIsIkVuZFRpbWUiOjAuNDksIlN0YXJ0VGltZSI6MC4yMiwiVHlwZSI6InByb251bmNpYXRpb24ifV0sIlRyYW5zY3JpcHQiOiJIZWxsbyB3ZXJlIn1dLCJFbmRUaW1lIjowLjUzLCJJc1BhcnRpYWwiOnRydWUsIlJlc3VsdElkIjoiOTQ4NjJmNGEtMzc5My00ZTViLThlODUtMTkxNWM4ZDMzZjkyIiwiU3RhcnRUaW1lIjowLjEyfV19fRMshLQ=")!
+    // MARK: - General callback tests
 
-    // BadRequestException
-    let transcript_error_data = Data(base64Encoded: "AAAAxwAAAGEEorpsDzpleGNlcHRpb24tdHlwZQcAE0JhZFJlcXVlc3RFeGNlcHRpb24NOmNvbnRlbnQtdHlwZQcAEGFwcGxpY2F0aW9uL2pzb24NOm1lc3NhZ2UtdHlwZQcACWV4Y2VwdGlvbnsiTWVzc2FnZSI6IllvdXIgcmVxdWVzdCB0aW1lZCBvdXQgYmVjYXVzZSBubyBuZXcgYXVkaW8gd2FzIHJlY2VpdmVkIGZvciAxNSBzZWNvbmRzLiJ9PblBbw==")!
-
+    /// - Given: an adaptor with a delegate
+    /// - When: The adaptor is constructed specifying a dispatch queue
+    /// - Then: The delegate's `didReceiveEvent(_:decodingError:)` method is invoked on the specified queue
     func testEventReceivedOnSpecifiedQueue() {
         let key = DispatchSpecificKey<UUID>()
         let uuid = UUID()
         let callbackQueue = DispatchQueue(label: "testEventReceivedOnSpecifiedQueue")
         callbackQueue.setSpecific(key: key, value: uuid)
 
-        let delegate = MockDelegate()
+        let delegate = FullyImplementedMockDelegate()
         let callbackInvokedOnSpecifiedQueue = expectation(description: "Callback was received on specified queue")
 
         delegate.receiveEventCallback = { _, _ in
@@ -74,17 +40,20 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
         }
 
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: callbackQueue)
-        adaptor.webSocket(nil, didReceiveMessage: transcript_event_data)
+        adaptor.webSocket(nil, didReceiveMessage: TestData.transcriptEventData)
         waitForExpectations(timeout: 0.1)
     }
     
+    /// - Given: an adaptor with a delegate
+    /// - When: The adaptor is constructed specifying a dispatch queue
+    /// - Then: The delegate's `connectionStatusDidChange(_:withError:)` method is invoked on the specified queue
     func testConnectionStatusDidChangeReceivedOnSpecifiedQueue() {
         let key = DispatchSpecificKey<UUID>()
         let uuid = UUID()
         let callbackQueue = DispatchQueue(label: "testConnectionStatusDidChangeReceivedOnSpecifiedQueue")
         callbackQueue.setSpecific(key: key, value: uuid)
         
-        let delegate = MockDelegate()
+        let delegate = FullyImplementedMockDelegate()
         let callbackInvokedOnSpecifiedQueue = expectation(description: "Callback was received on specified queue")
 
         delegate.connectionStatusCallback = { _, _ in
@@ -98,8 +67,13 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
     }
 
+    // MARK: - webSocket:didReceiveMessage:
+
+    /// - Given: An adaptor with a delegate
+    /// - When: The adaptor's receives an event with a transcription event
+    /// - Then: The delegate receives an event callback with transcription content
     func testDecodesEventStreamWithTranscriptionEventPayload() {
-        let delegate = MockDelegate()
+        let delegate = FullyImplementedMockDelegate()
         let receivedEventCallback = expectation(description: "Received event callback")
         
         delegate.receiveEventCallback = { event, _ in
@@ -113,13 +87,16 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
         }
         
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
-        adaptor.webSocket(nil, didReceiveMessage: transcript_event_data)
+        adaptor.webSocket(nil, didReceiveMessage: TestData.transcriptEventData)
 
         waitForExpectations(timeout: 0.1)
     }
-    
+
+    /// - Given: An adaptor with a delegate
+    /// - When: The adaptor's `-[webSocket:didReceiveMessage:]` method is invoked with a payload of error type
+    /// - Then: the delegate receives the raw, untranslated error information
     func testDecodesEventStreamWithErrorPayload() {
-        let delegate = MockDelegate()
+        let delegate = FullyImplementedMockDelegate()
         let eventContainsErrorPayload = expectation(description: "Event contains error payload")
 
         delegate.receiveEventCallback = { event, error in
@@ -138,104 +115,63 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
         }
 
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
-        adaptor.webSocket(nil, didReceiveMessage: transcript_error_data)
+        adaptor.webSocket(nil, didReceiveMessage: TestData.transcriptErrorEvent)
 
         waitForExpectations(timeout: 0.1)
     }
 
-    /// Given: An adaptor with a delegate
-    /// When: The adaptor's `didFailWithError` method is propagated with an error
-    /// Then: the delegate receives the raw, untranslated error information
-    func testDidFailWithErrorPropagatesRawErrorInformation() {
-        let delegate = MockDelegate()
-        let receivedErrorCallback = expectation(description: "Received error callback")
+    /// - Given: An adaptor with a delegate
+    /// - When: The adaptor's `-[webSocket:didReceiveMessage:]` method is invoked with junk data that is below the
+    ///   minimum length specified by the protocol
+    /// - Then: the delegate receives a AWSTranscribeStreamingClientErrorCodeEventSerializationError
+    func testEventStreamWithShortJunkData() {
+        let delegate = FullyImplementedMockDelegate()
+        let callbackInvoked = expectation(description: "receiveEventCallback invoked")
 
-        delegate.connectionStatusCallback = { _, error in
+        delegate.receiveEventCallback = { event, error in
+            if let event = event {
+                XCTFail("Event should not be present: \(event)")
+                return
+            }
+
             guard let error = error as NSError? else {
-                XCTFail("Error unexpectedly nil in connectionStatusCallback")
+                XCTFail("error unexpectedly nil")
                 return
             }
 
-            XCTAssertEqual(error.domain, AWSSRWebSocketErrorDomain)
-            XCTAssertEqual(error.code, 1234)
-
-            receivedErrorCallback.fulfill()
+            XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.eventSerializationError.rawValue)
+            callbackInvoked.fulfill()
         }
 
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
-
-        let error = NSError(domain: AWSSRWebSocketErrorDomain,
-                            code: 1234,
-                            userInfo: nil)
-        adaptor.webSocket(nil, didFailWithError: error)
+        adaptor.webSocket(nil, didReceiveMessage: TestData.junkData)
 
         waitForExpectations(timeout: 0.1)
     }
 
-    /// Given: An adaptor with a delegate
-    /// When: The adaptor's `didFailWithError` method is propagated with an error
-    /// Then: the delegate receives the raw, untranslated error information
-    func testDidCloseWithCodeTranslatesErrorInformation() {
-        let delegate = MockDelegate()
-        let receivedErrorCallback = expectation(description: "Received error callback")
+    /// - Given: An adaptor with a delegate
+    /// - When: The adaptor's `-[webSocket:didReceivePong:]` method is invoked
+    /// - Then: the delegate receives no callback, and the app does not crash
+    func testIgnoresPong() {
+        let delegate = FullyImplementedMockDelegate()
 
-        delegate.connectionStatusCallback = { _, error in
-            guard let error = error as NSError? else {
-                XCTFail("Error unexpectedly nil in connectionStatusCallback")
-                return
-            }
+        let receiveEventNotInvoked = expectation(description: "didReceiveEvent callback was not invoked")
+        receiveEventNotInvoked.isInverted = true
+        delegate.receiveEventCallback = { _, _ in
+            receiveEventNotInvoked.fulfill()
+        }
 
-            XCTAssertEqual(error.domain, AWSTranscribeStreamingClientErrorDomain)
-            XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.webSocketClosedUnexpectedly.rawValue)
-
-            receivedErrorCallback.fulfill()
+        let connectionStatusNotInvoked = expectation(description: "connectionStatus callback was not invoked")
+        connectionStatusNotInvoked.isInverted = true
+        delegate.connectionStatusCallback = { _, _ in
+            connectionStatusNotInvoked.fulfill()
         }
 
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
 
-        adaptor.webSocket(nil,
-                          didCloseWithCode: AWSSRStatusCodeGoingAway.rawValue,
-                          reason: "Test reason",
-                          wasClean: false)
+        adaptor.webSocket(nil, didReceivePong: Data())
 
         waitForExpectations(timeout: 0.1)
     }
 
-    func testConnectionDidChangeErrorIsNilForCleanlyClosed() {
-        let delegate = MockDelegate()
-        let receivedErrorCallback = expectation(description: "Received error callback")
-
-        delegate.connectionStatusCallback = { status, error in
-            if let error = error {
-                XCTFail("Unexpected error in testConnectionDidChangeErrorIsNilForCleanlyClosed: \(error)")
-                return
-            }
-            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.closed)
-            receivedErrorCallback.fulfill()
-        }
-
-        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
-
-        adaptor.webSocket(nil,
-                          didCloseWithCode: AWSSRStatusCodeGoingAway.rawValue,
-                          reason: "Test reason",
-                          wasClean: true)
-
-        waitForExpectations(timeout: 0.1)
-    }
-    
-}
-
-class MockDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
-    var receiveEventCallback: ((AWSTranscribeStreamingTranscriptResultStream?, Error?) -> Void)?
-    var connectionStatusCallback: ((AWSTranscribeStreamingClientDelegateConnectionStatus, Error?) -> Void)?
-
-    func didReceiveEvent(_ event: AWSTranscribeStreamingTranscriptResultStream?, decodingError: Error?) {
-        receiveEventCallback?(event, decodingError)
-    }
-    
-    func connectionStatusDidChange(_ connectionStatus: AWSTranscribeStreamingClientDelegateConnectionStatus,
-                                   withError error: Error?) {
-        connectionStatusCallback?(connectionStatus, error)
-    }
 }

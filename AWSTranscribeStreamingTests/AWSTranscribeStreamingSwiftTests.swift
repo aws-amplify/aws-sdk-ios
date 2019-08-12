@@ -39,7 +39,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
         AWSTranscribeStreaming.register(with: config, forKey: AWSTranscribeStreamingSwiftTests.transcribeClientKey)
         transcribeStreamingClient = AWSTranscribeStreaming(forKey: AWSTranscribeStreamingSwiftTests.transcribeClientKey)
 
-        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.sharedInstance.logLevel = .info
         AWSDDLog.sharedInstance.add(AWSDDTTYLogger.sharedInstance)
     }
 
