@@ -241,6 +241,17 @@ class AWSMobileClientTests: XCTestCase {
         signIn(username: username)
     }
     
+    /// Test successful sign in and order of callback
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I add a user state listener
+    ///    - I invoke `signIn` with a completion callback
+    /// - Then:
+    ///    - The user state is `signedIn`
+    ///    - My user state listener callback is invoked first
+    ///    - My `signIn` completion callback is invoked last
+    ///
     func testOrderOfCallbackInSuccessfulSignIn() {
         let username = "testUser" + UUID().uuidString
         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
@@ -653,6 +664,20 @@ class AWSMobileClientTests: XCTestCase {
         AWSMobileClient.sharedInstance().signOut()
         XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
     }
+    
+    /// Test successful sign out and order of callback
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I add a user state listener
+    ///    - I invoke `signIn` with a completion callback
+    ///    - I invoke `signOut` with a completion callback
+    /// - Then:
+    ///    - The user state is `signedOut`
+    ///    - My user state listener callback is invoked first with signedIn
+    ///    - My user state listener callback is invoked first with signedOut
+    ///    - My `signOut` completion callback is invoked last
+    ///
     func testOrderOfCallbacksForSignOut() {
         let username = "testUser" + UUID().uuidString
         let signoutExpectation = expectation(description: "Successfully signout")
