@@ -785,7 +785,10 @@ extension AWSMobileClient {
     }
     
     internal func performUserPoolSignOut() {
-        self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
+        
+        if let task = self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.task, !task.isCompleted {
+            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
+        }
         self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
         self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userpoolOpsHelper.currentSignInHandlerCallback = nil

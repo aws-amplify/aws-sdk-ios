@@ -13,6 +13,9 @@
 - **AWSCognitoAuth**
   - `delegate` property is now retained weakly
 
+- **AWSMobileClient**
+  - Fixes the crash during signout while setting error on completed task (See [Issue 1505](https://github.com/aws-amplify/aws-sdk-ios/issues/1505) and [Issue 1682](https://github.com/aws-amplify/aws-sdk-ios/issues/1682).)
+
 ### Misc. Updates
 - Model updates for the following services
   - Amazon EC2
