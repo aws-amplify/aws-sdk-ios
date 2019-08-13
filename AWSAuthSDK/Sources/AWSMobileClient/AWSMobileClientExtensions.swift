@@ -314,8 +314,7 @@ extension AWSMobileClient {
                     _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
                 }
                 self.performFederatedSignInTasks(provider: providerName, token: token).continueWith() { task in
-                    if task.error == nil {
-                        let error = task.error
+                    if let error = task.error {
                         completionHandler(nil, error)
                         return nil
                     }
