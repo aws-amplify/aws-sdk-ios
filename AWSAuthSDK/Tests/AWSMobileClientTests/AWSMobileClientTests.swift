@@ -622,6 +622,20 @@ class AWSMobileClientTests: XCTestCase {
         XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
     }
     
+    func testSignOutWithCallback() {
+        let username = "testUser" + UUID().uuidString
+        let signoutExpectation = expectation(description: "Successfully signout")
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == true, "Expected to return true for isSignedIn")
+        sleep(1)
+        AWSMobileClient.sharedInstance().signOut { (error) in
+            XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
+            signoutExpectation.fulfill()
+        }
+        wait(for: [signoutExpectation], timeout: 2)
+    }
+    
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
         getOpendIdRequest?.identityPoolId = identityPoolId

@@ -579,7 +579,7 @@ extension AWSMobileClient {
             return
         }
         signOut()
-        
+        completionHandler(nil)
     }
     
     /// Signs out the current logged in user and clears the local keychain store.
