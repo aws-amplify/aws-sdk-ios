@@ -609,10 +609,6 @@ jobs:
         type: string
     steps:
       - set_environment_variables
-      # - run:
-      #     name: "Setup master specs repo for cocoapods"
-      #     command: |
-      #       curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - aws-cli/install
       - aws-cli/configure
       - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
