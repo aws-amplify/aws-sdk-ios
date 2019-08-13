@@ -282,6 +282,7 @@ class AWSMobileClientTests: XCTestCase {
             signInWasSuccessful.fulfill()
         }
         wait(for: [signInListenerWasSuccessful, signInWasSuccessful], timeout: 5, enforceOrder: true)
+        AWSMobileClient.sharedInstance().removeUserStateListener(self)
     }
 
     func testSignInFailCase() {
@@ -706,6 +707,7 @@ class AWSMobileClientTests: XCTestCase {
             signoutExpectation.fulfill()
         }
         wait(for: [signInListenerExpectation, signOutListenerExpectation, signoutExpectation], timeout: 2, enforceOrder: true)
+        AWSMobileClient.sharedInstance().removeUserStateListener(self)
     }
     
     func testSignOutWithCallback() {

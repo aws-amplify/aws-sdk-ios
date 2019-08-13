@@ -471,14 +471,14 @@ final public class AWSMobileClient: _AWSMobileClient {
                                                                 if let error = task.error {
                                                                     completionHandler(nil, error)
                                                                 } else {
+                                                                    if self.pendingGetTokensCompletion != nil {
+                                                                        self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
+                                                                        self.pendingGetTokensCompletion = nil
+                                                                        self.tokenFetchLock.leave()
+                                                                    }
                                                                     self.mobileClientStatusChanged(userState: .signedIn,
                                                                                                    additionalInfo: signInInfo)
                                                                     completionHandler(.signedIn, nil)
-                                                                    if self.pendingGetTokensCompletion != nil {
-                                                                        self.tokenFetchLock.leave()
-                                                                    }
-                                                                    self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
-                                                                    self.pendingGetTokensCompletion = nil
                                                                 }
                                                                 return nil
                     }

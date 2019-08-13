@@ -279,7 +279,7 @@ extension AWSMobileClient {
                     self.customRoleArnInternal = customRoleArn
                     _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
                 }
-                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith() { task in
+                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith { task in
                     // If any credentials operation is pending, we invoke the waiting block to resume with new credentials
                     if let credentials = task.result {
                         self.mobileClientStatusChanged(userState: .signedIn,
@@ -313,7 +313,7 @@ extension AWSMobileClient {
                     self.customRoleArnInternal = customRoleArn
                     _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
                 }
-                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith() { task in
+                self.performFederatedSignInTasks(provider: providerName, token: token).continueWith { task in
                     if let error = task.error {
                         completionHandler(nil, error)
                         return nil
@@ -535,7 +535,7 @@ extension AWSMobileClient {
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
                     self.federationProvider = .userPools
-                    self.performUserPoolSuccessfulSignInTasks(session: result).continueWith() { task in
+                    self.performUserPoolSuccessfulSignInTasks(session: result).continueWith { task in
                         if let error = task.error {
                             self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error))
                             self.userpoolOpsHelper.currentSignInHandlerCallback = nil
@@ -652,8 +652,11 @@ extension AWSMobileClient {
     func postSignInKeychainAndCredentialsUpdate(provider: FederationProvider) -> AWSTask<AWSCredentials> {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
-        self.internalCredentialsProvider?.clearCredentials()
-        return self.internalCredentialsProvider!.credentials();
+        guard let credentialsProvider = self.internalCredentialsProvider else {
+            return AWSTask(error: AWSMobileClientError.internalError(message: "Credentials provider is nil."))
+        }
+        credentialsProvider.clearCredentials()
+        return credentialsProvider.credentials();
     }
     
     /// Confirm a sign in which requires additional validation via steps like SMS MFA.
