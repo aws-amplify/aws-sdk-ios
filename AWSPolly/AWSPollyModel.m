@@ -36,10 +36,32 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"engine" : @"Engine",
              @"includeAdditionalLanguageCodes" : @"IncludeAdditionalLanguageCodes",
              @"languageCode" : @"LanguageCode",
              @"nextToken" : @"NextToken",
              };
+}
+
++ (NSValueTransformer *)engineJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"standard"] == NSOrderedSame) {
+            return @(AWSPollyEngineStandard);
+        }
+        if ([value caseInsensitiveCompare:@"neural"] == NSOrderedSame) {
+            return @(AWSPollyEngineNeural);
+        }
+        return @(AWSPollyEngineUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyEngineStandard:
+                return @"standard";
+            case AWSPollyEngineNeural:
+                return @"neural";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)languageCodeJSONTransformer {
@@ -575,6 +597,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"engine" : @"Engine",
              @"languageCode" : @"LanguageCode",
              @"lexiconNames" : @"LexiconNames",
              @"outputFormat" : @"OutputFormat",
@@ -587,6 +610,27 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
              @"textType" : @"TextType",
              @"voiceId" : @"VoiceId",
              };
+}
+
++ (NSValueTransformer *)engineJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"standard"] == NSOrderedSame) {
+            return @(AWSPollyEngineStandard);
+        }
+        if ([value caseInsensitiveCompare:@"neural"] == NSOrderedSame) {
+            return @(AWSPollyEngineNeural);
+        }
+        return @(AWSPollyEngineUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyEngineStandard:
+                return @"standard";
+            case AWSPollyEngineNeural:
+                return @"neural";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)languageCodeJSONTransformer {
@@ -1119,6 +1163,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationTime" : @"CreationTime",
+             @"engine" : @"Engine",
              @"languageCode" : @"LanguageCode",
              @"lexiconNames" : @"LexiconNames",
              @"outputFormat" : @"OutputFormat",
@@ -1140,6 +1185,27 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)engineJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"standard"] == NSOrderedSame) {
+            return @(AWSPollyEngineStandard);
+        }
+        if ([value caseInsensitiveCompare:@"neural"] == NSOrderedSame) {
+            return @(AWSPollyEngineNeural);
+        }
+        return @(AWSPollyEngineUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyEngineStandard:
+                return @"standard";
+            case AWSPollyEngineNeural:
+                return @"neural";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -1689,6 +1755,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"engine" : @"Engine",
              @"languageCode" : @"LanguageCode",
              @"lexiconNames" : @"LexiconNames",
              @"outputFormat" : @"OutputFormat",
@@ -1698,6 +1765,27 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
              @"textType" : @"TextType",
              @"voiceId" : @"VoiceId",
              };
+}
+
++ (NSValueTransformer *)engineJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"standard"] == NSOrderedSame) {
+            return @(AWSPollyEngineStandard);
+        }
+        if ([value caseInsensitiveCompare:@"neural"] == NSOrderedSame) {
+            return @(AWSPollyEngineNeural);
+        }
+        return @(AWSPollyEngineUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyEngineStandard:
+                return @"standard";
+            case AWSPollyEngineNeural:
+                return @"neural";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)languageCodeJSONTransformer {
@@ -2233,6 +2321,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
              @"languageCode" : @"LanguageCode",
              @"languageName" : @"LanguageName",
              @"name" : @"Name",
+             @"supportedEngines" : @"SupportedEngines",
              };
 }
 

@@ -751,7 +751,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 //clean up vc
                 self.svc = nil;
             }];
-        }else {
+        } else {
             dismissBlock();
         }
     });

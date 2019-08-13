@@ -316,7 +316,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)attachPrincipalPolicy:(AWSIoTAttachPrincipalPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Associates a Device Defender security profile with a thing group or with this account. Each thing group or account can have up to five security profiles associated with it.</p>
+ <p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p>
  
  @param request A container for the necessary parameters to execute the AttachSecurityProfile service method.
 
@@ -328,7 +328,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTAttachSecurityProfileResponse *> *)attachSecurityProfile:(AWSIoTAttachSecurityProfileRequest *)request;
 
 /**
- <p>Associates a Device Defender security profile with a thing group or with this account. Each thing group or account can have up to five security profiles associated with it.</p>
+ <p>Associates a Device Defender security profile with a thing group or this account. Each thing group or account can have up to five security profiles associated with it.</p>
  
  @param request A container for the necessary parameters to execute the AttachSecurityProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -364,6 +364,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTAttachThingPrincipalResponse
  */
 - (void)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAttachThingPrincipalResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+ 
+ @param request A container for the necessary parameters to execute the CancelAuditMitigationActionsTask service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCancelAuditMitigationActionsTaskResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCancelAuditMitigationActionsTaskRequest
+ @see AWSIoTCancelAuditMitigationActionsTaskResponse
+ */
+- (AWSTask<AWSIoTCancelAuditMitigationActionsTaskResponse *> *)cancelAuditMitigationActionsTask:(AWSIoTCancelAuditMitigationActionsTaskRequest *)request;
+
+/**
+ <p>Cancels a mitigation action task that is in progress. If the task is not in progress, an InvalidRequestException occurs.</p>
+ 
+ @param request A container for the necessary parameters to execute the CancelAuditMitigationActionsTask service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCancelAuditMitigationActionsTaskRequest
+ @see AWSIoTCancelAuditMitigationActionsTaskResponse
+ */
+- (void)cancelAuditMitigationActionsTask:(AWSIoTCancelAuditMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCancelAuditMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Cancels an audit that is in progress. The audit can be either scheduled or on-demand. If the audit is not in progress, an "InvalidRequestException" occurs.</p>
@@ -635,6 +660,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateKeysAndCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateMitigationAction service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateMitigationActionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateMitigationActionRequest
+ @see AWSIoTCreateMitigationActionResponse
+ */
+- (AWSTask<AWSIoTCreateMitigationActionResponse *> *)createMitigationAction:(AWSIoTCreateMitigationActionRequest *)request;
+
+/**
+ <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateMitigationAction service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateMitigationActionRequest
+ @see AWSIoTCreateMitigationActionResponse
+ */
+- (void)createMitigationAction:(AWSIoTCreateMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
  
  @param request A container for the necessary parameters to execute the CreateOTAUpdate service method.
@@ -739,7 +789,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateScheduledAudit service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateScheduledAuditResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateScheduledAuditResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorLimitExceeded`.
  
  @see AWSIoTCreateScheduledAuditRequest
  @see AWSIoTCreateScheduledAuditResponse
@@ -752,7 +802,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @param request A container for the necessary parameters to execute the CreateScheduledAudit service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceAlreadyExists`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorLimitExceeded`.
  
  @see AWSIoTCreateScheduledAuditRequest
  @see AWSIoTCreateScheduledAuditResponse
@@ -1007,7 +1057,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteCACertificate:(AWSIoTDeleteCACertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteCACertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
+ <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCertificate service method.
 
@@ -1018,7 +1068,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)deleteCertificate:(AWSIoTDeleteCertificateRequest *)request;
 
 /**
- <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
+ <p>Deletes the specified certificate.</p><p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>
  
  @param request A container for the necessary parameters to execute the DeleteCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1096,6 +1146,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTDeleteJobExecutionRequest
  */
 - (void)deleteJobExecution:(AWSIoTDeleteJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a defined mitigation action from your AWS account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteMitigationAction service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDeleteMitigationActionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteMitigationActionRequest
+ @see AWSIoTDeleteMitigationActionResponse
+ */
+- (AWSTask<AWSIoTDeleteMitigationActionResponse *> *)deleteMitigationAction:(AWSIoTDeleteMitigationActionRequest *)request;
+
+/**
+ <p>Deletes a defined mitigation action from your AWS account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteMitigationAction service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteMitigationActionRequest
+ @see AWSIoTDeleteMitigationActionResponse
+ */
+- (void)deleteMitigationAction:(AWSIoTDeleteMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Delete an OTA update.</p>
@@ -1461,6 +1536,56 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeAccountAuditConfiguration:(AWSIoTDescribeAccountAuditConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAccountAuditConfigurationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAuditFinding service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeAuditFindingResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeAuditFindingRequest
+ @see AWSIoTDescribeAuditFindingResponse
+ */
+- (AWSTask<AWSIoTDescribeAuditFindingResponse *> *)describeAuditFinding:(AWSIoTDescribeAuditFindingRequest *)request;
+
+/**
+ <p>Gets information about a single audit finding. Properties include the reason for noncompliance, the severity of the issue, and when the audit that returned the finding was started.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAuditFinding service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeAuditFindingRequest
+ @see AWSIoTDescribeAuditFindingResponse
+ */
+- (void)describeAuditFinding:(AWSIoTDescribeAuditFindingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAuditFindingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAuditMitigationActionsTask service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeAuditMitigationActionsTaskResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeAuditMitigationActionsTaskRequest
+ @see AWSIoTDescribeAuditMitigationActionsTaskResponse
+ */
+- (AWSTask<AWSIoTDescribeAuditMitigationActionsTaskResponse *> *)describeAuditMitigationActionsTask:(AWSIoTDescribeAuditMitigationActionsTaskRequest *)request;
+
+/**
+ <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAuditMitigationActionsTask service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeAuditMitigationActionsTaskRequest
+ @see AWSIoTDescribeAuditMitigationActionsTaskResponse
+ */
+- (void)describeAuditMitigationActionsTask:(AWSIoTDescribeAuditMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeAuditMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets information about a Device Defender audit.</p>
  
  @param request A container for the necessary parameters to execute the DescribeAuditTask service method.
@@ -1734,6 +1859,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTDescribeJobExecutionResponse
  */
 - (void)describeJobExecution:(AWSIoTDescribeJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobExecutionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets information about a mitigation action.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeMitigationAction service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeMitigationActionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeMitigationActionRequest
+ @see AWSIoTDescribeMitigationActionResponse
+ */
+- (AWSTask<AWSIoTDescribeMitigationActionResponse *> *)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request;
+
+/**
+ <p>Gets information about a mitigation action.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeMitigationAction service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeMitigationActionRequest
+ @see AWSIoTDescribeMitigationActionResponse
+ */
+- (void)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes a role alias.</p>
@@ -2424,6 +2574,56 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listAuditFindings:(AWSIoTListAuditFindingsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditFindingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets the status of audit mitigation action tasks that were executed.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAuditMitigationActionsExecutions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListAuditMitigationActionsExecutionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListAuditMitigationActionsExecutionsRequest
+ @see AWSIoTListAuditMitigationActionsExecutionsResponse
+ */
+- (AWSTask<AWSIoTListAuditMitigationActionsExecutionsResponse *> *)listAuditMitigationActionsExecutions:(AWSIoTListAuditMitigationActionsExecutionsRequest *)request;
+
+/**
+ <p>Gets the status of audit mitigation action tasks that were executed.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAuditMitigationActionsExecutions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListAuditMitigationActionsExecutionsRequest
+ @see AWSIoTListAuditMitigationActionsExecutionsResponse
+ */
+- (void)listAuditMitigationActionsExecutions:(AWSIoTListAuditMitigationActionsExecutionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditMitigationActionsExecutionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAuditMitigationActionsTasks service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListAuditMitigationActionsTasksResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListAuditMitigationActionsTasksRequest
+ @see AWSIoTListAuditMitigationActionsTasksResponse
+ */
+- (AWSTask<AWSIoTListAuditMitigationActionsTasksResponse *> *)listAuditMitigationActionsTasks:(AWSIoTListAuditMitigationActionsTasksRequest *)request;
+
+/**
+ <p>Gets a list of audit mitigation action tasks that match the specified filters.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAuditMitigationActionsTasks service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListAuditMitigationActionsTasksRequest
+ @see AWSIoTListAuditMitigationActionsTasksResponse
+ */
+- (void)listAuditMitigationActionsTasks:(AWSIoTListAuditMitigationActionsTasksRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListAuditMitigationActionsTasksResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists the Device Defender audits that have been performed during a given time period.</p>
  
  @param request A container for the necessary parameters to execute the ListAuditTasks service method.
@@ -2672,6 +2872,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTListJobsResponse
  */
 - (void)listJobs:(AWSIoTListJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListMitigationActions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListMitigationActionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListMitigationActionsRequest
+ @see AWSIoTListMitigationActionsResponse
+ */
+- (AWSTask<AWSIoTListMitigationActionsResponse *> *)listMitigationActions:(AWSIoTListMitigationActionsRequest *)request;
+
+/**
+ <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListMitigationActions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListMitigationActionsRequest
+ @see AWSIoTListMitigationActionsResponse
+ */
+- (void)listMitigationActions:(AWSIoTListMitigationActionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListMitigationActionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists OTA updates.</p>
@@ -3324,7 +3549,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listV2LoggingLevels:(AWSIoTListV2LoggingLevelsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListV2LoggingLevelsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior or thing (device).</p>
+ <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p>
  
  @param request A container for the necessary parameters to execute the ListViolationEvents service method.
 
@@ -3336,7 +3561,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListViolationEventsResponse *> *)listViolationEvents:(AWSIoTListViolationEventsRequest *)request;
 
 /**
- <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior or thing (device).</p>
+ <p>Lists the Device Defender security profile violations discovered during the given time period. You can use filters to limit the results to those alerts issued for a particular security profile, behavior, or thing (device).</p>
  
  @param request A container for the necessary parameters to execute the ListViolationEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3654,6 +3879,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTSetV2LoggingOptionsRequest
  */
 - (void)setV2LoggingOptions:(AWSIoTSetV2LoggingOptionsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartAuditMitigationActionsTask service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTStartAuditMitigationActionsTaskResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorTaskAlreadyExists`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTStartAuditMitigationActionsTaskRequest
+ @see AWSIoTStartAuditMitigationActionsTaskResponse
+ */
+- (AWSTask<AWSIoTStartAuditMitigationActionsTaskResponse *> *)startAuditMitigationActionsTask:(AWSIoTStartAuditMitigationActionsTaskRequest *)request;
+
+/**
+ <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartAuditMitigationActionsTask service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorTaskAlreadyExists`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTStartAuditMitigationActionsTaskRequest
+ @see AWSIoTStartAuditMitigationActionsTaskResponse
+ */
+- (void)startAuditMitigationActionsTask:(AWSIoTStartAuditMitigationActionsTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTStartAuditMitigationActionsTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Starts an on-demand Device Defender audit.</p>
@@ -4072,6 +4322,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateJob:(AWSIoTUpdateJobRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Updates the definition for the specified mitigation action.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateMitigationAction service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTUpdateMitigationActionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTUpdateMitigationActionRequest
+ @see AWSIoTUpdateMitigationActionResponse
+ */
+- (AWSTask<AWSIoTUpdateMitigationActionResponse *> *)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request;
+
+/**
+ <p>Updates the definition for the specified mitigation action.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateMitigationAction service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTUpdateMitigationActionRequest
+ @see AWSIoTUpdateMitigationActionResponse
+ */
+- (void)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateMitigationActionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Updates a role alias.</p>
  
  @param request A container for the necessary parameters to execute the UpdateRoleAlias service method.
@@ -4097,7 +4372,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateRoleAlias:(AWSIoTUpdateRoleAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateRoleAliasResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a scheduled audit, including what checks are performed and how often the audit takes place.</p>
+ <p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p>
  
  @param request A container for the necessary parameters to execute the UpdateScheduledAudit service method.
 
@@ -4109,7 +4384,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateScheduledAuditResponse *> *)updateScheduledAudit:(AWSIoTUpdateScheduledAuditRequest *)request;
 
 /**
- <p>Updates a scheduled audit, including what checks are performed and how often the audit takes place.</p>
+ <p>Updates a scheduled audit, including which checks are performed and how often the audit takes place.</p>
  
  @param request A container for the necessary parameters to execute the UpdateScheduledAudit service method.
  @param completionHandler The completion handler to call when the load request is complete.

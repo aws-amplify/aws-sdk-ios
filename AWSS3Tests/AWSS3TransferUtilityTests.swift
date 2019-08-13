@@ -17,6 +17,8 @@ import XCTest
 import AWSS3
 
 var testData = Data()
+var generalTestBucket = ""
+var transferAccelerationBucket = "ios-v2-s3-transfer-acceleration"
 
 class AWSS3TransferUtilityTests: XCTestCase {
 
@@ -86,12 +88,22 @@ class AWSS3TransferUtilityTests: XCTestCase {
             dataString += dataString
         }
         testData = dataString.data(using: String.Encoding.utf8)!
+        
+        let timeInterval = (Int)((Date.timeIntervalSinceReferenceDate * 1000).rounded())
+        generalTestBucket = "s3-integ-transferutil-test-\(timeInterval)"
+        AWSS3TestHelper.createBucket(withName: generalTestBucket, andRegion: AWSRegionType.USEast1)
     }
 
     override func setUp() {
         super.setUp()
     }
 
+    override class func tearDown() {
+        AWSS3TestHelper.deleteAllObjects(fromBucket: generalTestBucket)
+        AWSS3TestHelper.deleteBucket(withName: generalTestBucket)
+        super.tearDown()
+    }
+    
     override func tearDown() {
         super.tearDown()
     }
@@ -139,7 +151,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 }
 
                 transferUtility?.downloadData(
-                    fromBucket: "ios-v2-s3.periods",
+                    fromBucket: generalTestBucket,
                     key: "test-swift-upload&~:'()|[] i.txt",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -153,7 +165,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
         transferUtility?.uploadData(
             testData,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "test-swift-upload&~:'()|[] i.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -216,7 +228,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 }
                 
                 transferUtility?.downloadData(
-                    fromBucket: "ios-v2-s3.periods",
+                    fromBucket: generalTestBucket,
                     key: "testUploadAndDownloadLargeData.txt",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -230,7 +242,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility?.uploadData(
             dataString.data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testUploadAndDownloadLargeData.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -294,7 +306,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 var refDownloadTask:AWSS3TransferUtilityDownloadTask?
                 
                 transferUtility?.downloadData(
-                    fromBucket: "ios-v2-s3.periods",
+                    fromBucket: generalTestBucket,
                     key: "testSuspendResumeUploadAndDownloadLargeData.txt",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -320,7 +332,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility?.uploadData(
             dataString.data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testSuspendResumeUploadAndDownloadLargeData.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -391,7 +403,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 var refDownloadTask:AWSS3TransferUtilityDownloadTask?
                 
                 transferUtility?.downloadData(
-                    fromBucket: "ios-v2-s3.periods",
+                    fromBucket: generalTestBucket,
                     key: "testCancelDownload.txt",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -413,7 +425,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility?.uploadData(
             dataString.data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testCancelDownload.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -475,7 +487,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 var refDownloadTask:AWSS3TransferUtilityDownloadTask?
                 
                 transferUtility?.downloadData(
-                    fromBucket: "ios-v2-s3.periods",
+                    fromBucket: generalTestBucket,
                     key: "testSuspendResumeUploadAndDownloadLargeDataLongDelay.txt",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -503,7 +515,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility?.uploadData(
             dataString.data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testSuspendResumeUploadAndDownloadLargeDataLongDelay.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -557,7 +569,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility?.uploadData(
             testData,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "test-swift-upload",
             contentType: "application/octet-stream",
             expression: uploadExpression,
@@ -584,7 +596,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
-
+                
                 let downloadExpression = AWSS3TransferUtilityDownloadExpression()
 
                 let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
@@ -599,7 +611,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 }
 
                 transferUtility?.downloadData(
-                    fromBucket: "ios-v2-s3-transfer-acceleration",
+                    fromBucket: transferAccelerationBucket,
                     key: "test-swift-upload",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith (block: { (task) -> AnyObject? in
@@ -613,7 +625,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
         transferUtility?.uploadData(
             testData,
-            bucket: "ios-v2-s3-transfer-acceleration",
+            bucket: transferAccelerationBucket,
             key: "test-swift-upload",
             contentType: "application/octet-stream",
             expression: uploadExpression,
@@ -713,7 +725,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
         XCTAssertNotNil(transferUtility)
         transferUtility?.uploadFile(URL(fileURLWithPath: "~/abc.txt"),
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                       key: "should-have-failed-testBadFilePathUpload.txt",
                               contentType: "text/plain",
                                expression: nil,
@@ -755,7 +767,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testGoodFilePathUpload.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -775,7 +787,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         transferUtility?.uploadFile(fileURL,
-                                    bucket: "ios-v2-s3.periods",
+                                    bucket: generalTestBucket,
                                        key: "testGoodFilePathUpload.txt",
                                contentType: "text/plain",
                                 expression: expression,
@@ -822,7 +834,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testLargeFileUpload.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -842,7 +854,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         transferUtility?.uploadFile(fileURL,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testLargeFileUpload.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -883,7 +895,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         var refUploadTask: AWSS3TransferUtilityUploadTask?
         
         transferUtility?.uploadFile(fileURL,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testLargeFileUploadCancel.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -929,7 +941,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testSuspendResumeLargeFileUpload.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -950,7 +962,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         var refUploadTask: AWSS3TransferUtilityUploadTask?
         transferUtility?.uploadFile(fileURL,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testSuspendResumeLargeFileUpload.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1004,7 +1016,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testSuspendResumeLargeFileUploadLongDelay.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1025,7 +1037,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         var refUploadTask: AWSS3TransferUtilityUploadTask?
         
         transferUtility?.uploadFile(fileURL,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testSuspendResumeLargeFileUploadLongDelay.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1052,7 +1064,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
         XCTAssertNotNil(transferUtility)
         let transferUtilityCongiguration = AWSS3TransferUtilityConfiguration()
-        transferUtilityCongiguration.bucket = "ios-v2-s3.periods"
+        transferUtilityCongiguration.bucket = generalTestBucket
         AWSS3TransferUtility.register(with: transferUtility!.configuration,
                                       transferUtilityConfiguration: transferUtilityCongiguration,
                                       forKey: "CustomConfig")
@@ -1079,7 +1091,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testGoodFilePathUpload.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1139,7 +1151,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1158,7 +1170,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         transferUtility?.uploadFile(fileURL,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1203,7 +1215,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testMultiPartUploadSmallFile.txt"
             
             
@@ -1218,7 +1230,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertEqual(uuid, output.metadata?["id"])
                 }
                 //Download the file and make sure that contents are the same.
-                self.verifyContent(tu: transferUtility, bucket: "ios-v2-s3.periods", key: "testMultiPartUploadSmallFile.txt", hash: calculatedHash)
+                self.verifyContent(tu: transferUtility, bucket: generalTestBucket, key: "testMultiPartUploadSmallFile.txt", hash: calculatedHash)
                 
                 expectation.fulfill()
                 return nil
@@ -1226,7 +1238,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
     
         transferUtility.uploadUsingMultiPart(fileURL:fileURL,
-                                                 bucket: "ios-v2-s3.periods",
+                                                 bucket: generalTestBucket,
                                                  key: "testMultiPartUploadSmallFile.txt",
                                                  contentType: "text/plain",
                                                  expression: expression,
@@ -1273,7 +1285,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.txt"
 
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1286,7 +1298,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertEqual(author, output.metadata?["author"])
                     XCTAssertEqual(uuid, output.metadata?["id"])
                 }
-                self.verifyContent(tu: transferUtility!, bucket: "ios-v2-s3.periods", key: "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.txt", hash: calculatedHash)
+                self.verifyContent(tu: transferUtility!, bucket: generalTestBucket, key: "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.txt", hash: calculatedHash)
                 expectation.fulfill()
                 return nil
             })
@@ -1294,7 +1306,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
 
         transferUtility?.uploadUsingMultiPart(fileURL:fileURL,
-                                             bucket: "ios-v2-s3.periods",
+                                             bucket: generalTestBucket,
                                              key: "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.txt",
                                              contentType: "text/plain",
                                              expression: expression,
@@ -1354,7 +1366,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testMultiPartUploadLargeFile.txt"
             headObjectRequest?.sseCustomerAlgorithm = "AES256"
             headObjectRequest?.sseCustomerKey = customerKey
@@ -1377,7 +1389,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     "x-amz-server-side-encryption-customer-key-MD5" : customerKeyMD5]
                 
                 self.verifyContent(tu: transferUtility!,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testMultiPartUploadLargeFile.txt",
                                    hash: calculatedHash,
                                    headerKeyValues: headers)
@@ -1388,7 +1400,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             
         }
         
-        transferUtility?.uploadUsingMultiPart(fileURL: fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL: fileURL, bucket: generalTestBucket,
                                    key: "testMultiPartUploadLargeFile.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1439,7 +1451,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testMultiPartSinglePartEdgeCase.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1453,7 +1465,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertEqual(uuid, output.metadata?["id"])
                 }
                 self.verifyContent(tu: transferUtility!,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testMultiPartSinglePartEdgeCase.txt",
                                    hash: calculatedHash)
                 expectation.fulfill()
@@ -1463,7 +1475,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
        
-        transferUtility?.uploadUsingMultiPart(fileURL:fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL:fileURL, bucket: generalTestBucket,
                                    key: "testMultiPartSinglePartEdgeCase.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1514,7 +1526,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testMultiPartEdgeCase.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1528,7 +1540,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertEqual(uuid, output.metadata?["id"])
                 }
                 self.verifyContent(tu: transferUtility!,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testMultiPartEdgeCase.txt",
                                    hash: calculatedHash)
                 expectation.fulfill()
@@ -1537,7 +1549,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             
         }
         
-        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: generalTestBucket,
                                    key: "testMultiPartEdgeCase.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1572,7 +1584,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
         XCTAssertNotNil(transferUtility)
-        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: generalTestBucket,
                                    key: "testCancelMultipartUpload.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1623,7 +1635,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testSuspendResumeMultipartUpload.txt"
 
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1637,7 +1649,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertEqual(uuid, output.metadata?["id"])
                 }
                 self.verifyContent(tu: transferUtility!,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testSuspendResumeMultipartUpload.txt",
                                    hash: calculatedHash)
                 expectation.fulfill()
@@ -1649,7 +1661,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         var refUploadTask: AWSS3TransferUtilityMultiPartUploadTask?
         
         
-        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: generalTestBucket,
                                    key: "testSuspendResumeMultipartUpload.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1708,7 +1720,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testPauseResumeUploadLongDelay.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1723,7 +1735,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 }
                 
                 self.verifyContent(tu: transferUtility!,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testPauseResumeUploadLongDelay.txt",
                                    hash: calculatedHash)
                 
@@ -1735,7 +1747,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         var refUploadTask: AWSS3TransferUtilityMultiPartUploadTask?
         
-        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: generalTestBucket,
                                    key: "testPauseResumeUploadLongDelay.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1783,7 +1795,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
             XCTAssertEqual(task.status, AWSS3TransferUtilityTransferStatusType.completed)
             self.verifyContent(tu: transferUtility!,
-                               bucket: "ios-v2-s3-transfer-acceleration",
+                               bucket: transferAccelerationBucket,
                                key: "testMultiPartUploadTransferAcceleration.txt",
                                hash: calculatedHash)
             expectation.fulfill()
@@ -1795,7 +1807,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
        
-        transferUtility?.uploadUsingMultiPart(fileURL:fileURL, bucket: "ios-v2-s3-transfer-acceleration",
+        transferUtility?.uploadUsingMultiPart(fileURL:fileURL, bucket: transferAccelerationBucket,
                                    key: "testMultiPartUploadTransferAcceleration.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -1846,7 +1858,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 //Get Meta Data and verify that it has been updated
                 let s3 = AWSS3.default()
                 let headObjectRequest = AWSS3HeadObjectRequest()
-                headObjectRequest?.bucket = "ios-v2-s3.periods"
+                headObjectRequest?.bucket = generalTestBucket
                 headObjectRequest?.key = "testUploadAndDownloadDataWithCustomMetaData"
                 
                 s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1869,7 +1881,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility.uploadData(
             testData,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testUploadAndDownloadDataWithCustomMetaData",
             contentType: "video/mp4",
             expression: uploadExpression,
@@ -1935,7 +1947,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
             let s3 = AWSS3.default()
             let headObjectRequest = AWSS3HeadObjectRequest()
-            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.bucket = generalTestBucket
             headObjectRequest?.key = "testMultiPartUploadLargeFileWithCustomMetaData.txt"
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
@@ -1960,7 +1972,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
         XCTAssertNotNil(transferUtility)
-        transferUtility?.uploadUsingMultiPart(fileURL: fileURL, bucket: "ios-v2-s3.periods",
+        transferUtility?.uploadUsingMultiPart(fileURL: fileURL, bucket: generalTestBucket,
                                              key: "testMultiPartUploadLargeFileWithCustomMetaData.txt",
                                              contentType: "video/mp4" ,
                                              expression: expression,
@@ -2016,7 +2028,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 }
                 
                 transferUtility.downloadData(
-                    fromBucket: "ios-v2-s3.periods",
+                    fromBucket: generalTestBucket,
                     key: "testDataForIfModifiedSince.txt",
                     expression: downloadExpression,
                     completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -2030,7 +2042,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility.uploadData(
             "1234567890".data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testDataForIfModifiedSince.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -2089,7 +2101,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         transferUtility?.uploadUsingMultiPart(
             data: "1234567890".data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "any-file-which-gets-rejected.txt",
             contentType: "text/plain",
             expression: nil,
@@ -2126,7 +2138,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         transferUtility?.downloadData(
-            fromBucket: "ios-v2-s3.periods",
+            fromBucket: generalTestBucket,
             key: "some-non-existent-key-" + UUID().uuidString,
             expression: downloadExpression,
             completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -2158,7 +2170,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         transferUtility?.downloadData(
-            fromBucket: "ios-v2-s3.periods",
+            fromBucket: generalTestBucket,
             key: "some-non-existent-key-" + UUID().uuidString,
             expression: downloadExpression,
             completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -2244,7 +2256,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertNotNil(transferUtility)
                     
                     transferUtility?.download(to: url!,
-                        bucket: "ios-v2-s3.periods",
+                        bucket: generalTestBucket,
                         key: "testDataForConcurrentDownloads.txt",
                         expression: downloadExpression,
                         completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -2263,7 +2275,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         transferUtility.uploadData(
             testData.data(using: String.Encoding.utf8)!,
-            bucket: "ios-v2-s3.periods",
+            bucket: generalTestBucket,
             key: "testDataForConcurrentDownloads.txt",
             contentType: "text/plain",
             expression: uploadExpression,
@@ -2298,6 +2310,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         for i in 1...25 {
+            let key = "testDataForConcurrentDownloads\(i).txt"
             let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
                 XCTAssertNil(error)
                 if ( error != nil ) {
@@ -2310,7 +2323,16 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 
                 if let HTTPResponse = task.response {
                     XCTAssertEqual(HTTPResponse.statusCode, 200)
-                    
+
+                    let timeout = DispatchTime.now() + .seconds(30)
+                    while(!AWSS3TestHelper.checkIfObjectIsPresent(key, bucket: generalTestBucket)) {
+                        if (DispatchTime.now() > timeout )  {
+                            XCTFail("Could not verify uploaded key \(key)")
+                            return;
+                        }
+                        sleep(1)
+                    }
+
                     let downloadExpression = AWSS3TransferUtilityDownloadExpression()
                     downloadExpression.progressBlock = {(task, progress) in
                         print("Download progress: ", progress.fractionCompleted)
@@ -2332,8 +2354,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
                     XCTAssertNotNil(transferUtility)
                     transferUtility?.download(to: url!,
-                                            bucket: "ios-v2-s3.periods",
-                                            key: "testDataForConcurrentDownloads\(i).txt",
+                                            bucket: generalTestBucket,
+                                            key: key,
                                      expression: downloadExpression,
                               completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
                                         XCTAssertNil(task.error)
@@ -2344,8 +2366,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
             
                 transferUtility?.uploadData(
                     testData.data(using: String.Encoding.utf8)!,
-                    bucket: "ios-v2-s3.periods",
-                    key: "testDataForConcurrentDownloads\(i).txt",
+                    bucket: generalTestBucket,
+                    key: key,
                     contentType: "text/plain",
                     expression: uploadExpression,
                     completionHandler: uploadCompletionHandler
@@ -2392,7 +2414,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         var refUploadTask: AWSS3TransferUtilityUploadTask?
         transferUtility?.uploadFile(fileURL,
-                                   bucket: "ios-v2-s3.periods",
+                                   bucket: generalTestBucket,
                                    key: "testShortExpiryLargeFileUpload.txt",
                                    contentType: "text/plain",
                                    expression: expression,
@@ -2530,7 +2552,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 1...3 {
             transferUtility?.uploadData(
                 testData.data(using: String.Encoding.utf8)!,
-                bucket: "ios-v2-s3.periods",
+                bucket: generalTestBucket,
                 key: "testFileForGetTasks\(i).txt",
                 contentType: "text/plain",
                 expression: uploadExpression,
@@ -2552,7 +2574,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 4...6 {
             transferUtility?.uploadUsingMultiPart(
                 data: testData.data(using: String.Encoding.utf8)!,
-                bucket: "ios-v2-s3.periods",
+                bucket: generalTestBucket,
                 key: "testFileForGetTasks\(i).txt",
                 contentType: "text/plain",
                 expression: multiPartUploadExpression,
@@ -2573,7 +2595,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 1...6 {
             let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("file\(i)")
             transferUtility?.download(to: url!,
-                                 bucket: "ios-v2-s3.periods",
+                                 bucket: generalTestBucket,
                                     key: "testFileForGetTasks\(i).txt",
                 expression: downloadExpression,
                 completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
@@ -2672,7 +2694,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 1...3 {
             transferUtility?.uploadData(
                 testData.data(using: String.Encoding.utf8)!,
-                bucket: "ios-v2-s3.periods",
+                bucket: generalTestBucket,
                 key: "testFileForGetTasks\(i).txt",
                 contentType: "text/plain",
                 expression: uploadExpression,
@@ -2693,7 +2715,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 4...6 {
             transferUtility?.uploadUsingMultiPart(
                 data: testData.data(using: String.Encoding.utf8)!,
-                bucket: "ios-v2-s3.periods",
+                bucket: generalTestBucket,
                 key: "testFileForGetTasks\(i).txt",
                 contentType: "text/plain",
                 expression: multiPartUploadExpression,
@@ -2713,7 +2735,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         for i in 1...6 {
             let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("file\(i)")
             transferUtility?.download(to: url!,
-                                      bucket: "ios-v2-s3.periods",
+                                      bucket: generalTestBucket,
                                       key: "testFileForGetTasks\(i).txt",
                 expression: downloadExpression,
                 completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in

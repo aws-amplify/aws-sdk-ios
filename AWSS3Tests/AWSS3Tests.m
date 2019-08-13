@@ -16,6 +16,7 @@
 #import <XCTest/XCTest.h>
 #import "AWSS3.h"
 #import "AWSTestUtility.h"
+#import "AWSS3TestHelper.h"
 
 @interface AWSS3Tests : XCTestCase
 
@@ -25,7 +26,7 @@
 
 NSUInteger const AWSS3Test256KB = 1024 * 256;
 NSUInteger const AWSS3TestsTransferManagerMinimumPartSize = 5 * 1024 * 1024;
-NSString *const AWSS3TestBucketNamePrefix = @"ios-v2-test-";
+NSString *const AWSS3TestBucketNamePrefix = @"s3-integ-test-";
 
 static NSURL *tempLargeURL = nil;
 static NSURL *tempSmallURL = nil;
@@ -45,7 +46,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testBucketNameGeneral = [NSString stringWithFormat:@"%@%lld", AWSS3TestBucketNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
 
-    [AWSS3Tests createBucketWithName:testBucketNameGeneral];
+    [AWSS3TestHelper createBucketWithName:testBucketNameGeneral andRegion:AWSRegionUSEast1];
     [testBucketsCreated addObject:testBucketNameGeneral];
     
     //Create a large temporary file for uploading & downloading test
@@ -67,12 +68,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
             [tempBaseString appendFormat:@"%d", i];
         }
         
-        int multiplier;
-#if AWS_TEST_BJS_INSTEAD
-        multiplier = 5;
-#else
-        multiplier = 5;
-#endif
+        int multiplier = 5;
         for (int32_t j = 0; j < multiplier; j++) {
             @autoreleasepool {
                 [fileHandle writeData:[tempBaseString dataUsingEncoding:NSUTF8StringEncoding]];
@@ -113,12 +109,11 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
 + (void)tearDown {
     
-    // Delete all contents of the bucket
-    [AWSS3Tests deleteAllObjectsFromBucket:testBucketNameGeneral];
-    
     //Delete Buckets
     for ( NSString *bucketName in testBucketsCreated) {
-        [AWSS3Tests deleteBucketWithName:bucketName];
+        // Delete all contents of the bucket
+        [AWSS3TestHelper deleteAllObjectsFromBucket:bucketName];
+        [AWSS3TestHelper deleteBucketWithName:bucketName];
     }
     
     //Delete Temp files
@@ -134,107 +129,6 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 - (void)tearDown {
     // Put teardown code here; it will be run once, after the last test case.
     [super tearDown];
-}
-
-+ (void)deleteAllObjectsFromBucket:(NSString *)bucketName {
-    AWSS3 *s3 = [AWSS3 defaultS3];
-    
-    AWSS3ListObjectsRequest *listObjectsRequest = [AWSS3ListObjectsRequest new];
-    listObjectsRequest.bucket = testBucketNameGeneral;
-    
-    [[[s3 listObjects:listObjectsRequest] continueWithBlock:^id(AWSTask *task) {
-        AWSS3ListObjectsOutput *output = task.result;
-        
-        for (AWSS3Object *object in output.contents) {
-            // Delete the object
-            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
-            deleteObjectRequest.bucket = testBucketNameGeneral;
-            deleteObjectRequest.key = object.key;
-            
-            [[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask *task) {
-                if (task.error) {
-                    NSLog(@"Failed to delete: %@", object.key);
-                } else {
-                    NSLog(@"Successfully deleted: %@", object.key);
-                }
-                return nil;
-            }];
-        }
-        return nil;
-    }] waitUntilFinished];
-}
-
-+ (BOOL)createBucketWithName:(NSString *)bucketName {
-    AWSS3 *s3 = [AWSS3 defaultS3];
-
-    AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
-    createBucketReq.bucket = bucketName;
-
-#if AWS_TEST_BJS_INSTEAD
-    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
-    createBucketConfiguration.locationConstraint = AWSS3BucketLocationConstraintCNNorth1;
-    createBucketReq.createBucketConfiguration = createBucketConfiguration;
-#endif
-
-    __block BOOL success = NO;
-    [[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            success = NO;
-        } else {
-            success = YES;
-        }
-        return nil;
-    }] waitUntilFinished];
-
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-
-    return success;
-}
-
-+ (BOOL)deleteBucketWithName:(NSString *)bucketName {
-    AWSS3 *s3 = [AWSS3 defaultS3];
-
-    AWSS3ListObjectVersionsRequest *listObjectVersionsRequest = [AWSS3ListObjectVersionsRequest new];
-    listObjectVersionsRequest.bucket = bucketName;
-
-    [[[s3 listObjectVersions:listObjectVersionsRequest] continueWithSuccessBlock:^id(AWSTask *task) {
-        NSMutableArray *tasks = [NSMutableArray new];
-
-        AWSS3ListObjectVersionsOutput *listObjectVersionsOutput = task.result;
-        for (AWSS3ObjectVersion *version in listObjectVersionsOutput.versions) {
-            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
-            deleteObjectRequest.bucket = bucketName;
-            deleteObjectRequest.key = version.key;
-            deleteObjectRequest.versionId = version.versionId;
-            AWSTask *task = [s3 deleteObject:deleteObjectRequest];
-            [tasks addObject:task];
-        }
-        for (AWSS3DeleteMarkerEntry *deleteMarker in listObjectVersionsOutput.deleteMarkers) {
-            AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
-            deleteObjectRequest.bucket = bucketName;
-            deleteObjectRequest.key = deleteMarker.key;
-            deleteObjectRequest.versionId = deleteMarker.versionId;
-            AWSTask *task = [s3 deleteObject:deleteObjectRequest];
-            [tasks addObject:task];
-        }
-
-        return [AWSTask taskForCompletionOfAllTasks:tasks];
-    }] waitUntilFinished];
-
-    AWSS3DeleteBucketRequest *deleteBucketReq = [AWSS3DeleteBucketRequest new];
-    deleteBucketReq.bucket = bucketName;
-
-    __block BOOL success = NO;
-    [[[s3 deleteBucket:deleteBucketReq] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            success = NO;
-        } else {
-            success = YES;
-        }
-        return nil;
-    }] waitUntilFinished];
-
-    return success;
 }
 
 - (BOOL)isContainBucketName:(NSString *)bucketName inBucketArray:(NSArray *)bucketsArray {
@@ -496,7 +390,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 - (void)testPutBucketWithGrants {
     NSString *grantBucketName = [testBucketNameGeneral stringByAppendingString:@"-grant"];
     [testBucketsCreated addObject:grantBucketName];
-    XCTAssertTrue([AWSS3Tests createBucketWithName:grantBucketName]);
+    XCTAssertTrue([AWSS3TestHelper createBucketWithName:grantBucketName andRegion:AWSRegionUSEast1]);
 
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
@@ -539,9 +433,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     
     // Delete all objects from the bucket
-    [AWSS3Tests deleteAllObjectsFromBucket:grantBucketName];
+    [AWSS3TestHelper deleteAllObjectsFromBucket:grantBucketName];
     
-    XCTAssertTrue([AWSS3Tests deleteBucketWithName:grantBucketName]);
+    XCTAssertTrue([AWSS3TestHelper deleteBucketWithName:grantBucketName]);
 }
 
 - (void)testListObjects {

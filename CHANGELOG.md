@@ -1,5 +1,28 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.10.3
+
+### Bug Fixes
+
+- **AWS Core**
+  - `-[AWSURLSessionManager invalidate]` now invokes `-[NSURLSession finishTasksAndInvalidate]` before releasing the underlying URLSession.
+    If you attempt to start a new task on the invalidated session, AWSNetworking will now throw an `AWSNetworkingErrorSessionInvalid` error.
+    (See [PR #1203](https://github.com/aws-amplify/aws-sdk-ios/pull/1203) and [PR #1556](https://github.com/aws-amplify/aws-sdk-ios/pull/1556)).
+    Thanks @jkennington and @jaetzold!
+
+- **AWSCognitoAuth**
+  - `delegate` property is now retained weakly
+
+- **AWSMobileClient**
+  - Fixes the crash during signout while setting error on completed task (See [Issue 1505](https://github.com/aws-amplify/aws-sdk-ios/issues/1505) and [Issue 1682](https://github.com/aws-amplify/aws-sdk-ios/issues/1682).)
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Lex
+  - Amazon Polly
+  - AWS IoT
+
 ## 2.10.2
 
 ### New Features
@@ -8,7 +31,6 @@
   - Amazon Textract is a service that automatically extracts text and data from scanned documents. Amazon Textract goes beyond simple optical character
     recognition (OCR) to also identify the contents of fields in forms and information stored in tables. See
     [Amazon Textract Documentation](https://aws.amazon.com/textract/) for more details.
-
 
 ## 2.10.1
 
