@@ -466,7 +466,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                                                               session: session,
                                                               federationToken: federationToken!,
                                                               federationProviderIdentifier: federationProviderIdentifier,
-                                                              signInInfo: &signInInfo).continueWith() { task in
+                                                              signInInfo: &signInInfo).continueWith { task in
                                                                 
                                                                 if let error = task.error {
                                                                     completionHandler(nil, error)
@@ -493,7 +493,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                     } else {
                         self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                             if let session = task.result {
-                                self.performUserPoolSuccessfulSignInTasks(session: session).continueWith() { task in
+                                self.performUserPoolSuccessfulSignInTasks(session: session).continueWith { task in
                                     if let error = task.error {
                                         completionHandler(nil, error)
                                     } else {
