@@ -15,6 +15,8 @@
 
 - **AWSMobileClient**
   - Fixes the crash during signout while setting error on completed task (See [Issue 1505](https://github.com/aws-amplify/aws-sdk-ios/issues/1505) and [Issue 1682](https://github.com/aws-amplify/aws-sdk-ios/issues/1682).)
+  - Fixed race condition where state listener call back is called before the sign in logic is complete. (See [Issue 1700](https://github.com/aws-amplify/aws-sdk-ios/issues/1700) and [PR 1721](https://github.com/aws-amplify/aws-sdk-ios/pull/1721).)
+  - Fixed an issue where signOut callback is not called (See [Issue 1717](https://github.com/aws-amplify/aws-sdk-ios/issues/1717).)
 
 ### Misc. Updates
 - Model updates for the following services

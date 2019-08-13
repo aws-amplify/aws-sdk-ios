@@ -315,6 +315,9 @@ final public class AWSMobileClient: _AWSMobileClient {
     }
     
     internal func mobileClientStatusChanged(userState: UserState, additionalInfo: [String: String]) {
+        if (self.currentUserState == userState) {
+            return
+        }
         self.currentUserState = userState
         for listener in listeners {
             listener.1(userState, additionalInfo)
@@ -459,13 +462,26 @@ final public class AWSMobileClient: _AWSMobileClient {
                     signInInfo[self.TokenKey] = session.accessToken!.tokenString
                     signInInfo[self.ProviderKey] = "OAuth"
                     
-                    self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
-                    completionHandler(.signedIn, nil)
-                    if self.pendingGetTokensCompletion != nil {
-                        self.tokenFetchLock.leave()
+                    self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation,
+                                                              session: session,
+                                                              federationToken: federationToken!,
+                                                              federationProviderIdentifier: federationProviderIdentifier,
+                                                              signInInfo: &signInInfo).continueWith { task in
+                                                                
+                                                                if let error = task.error {
+                                                                    completionHandler(nil, error)
+                                                                } else {
+                                                                    if self.pendingGetTokensCompletion != nil {
+                                                                        self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
+                                                                        self.pendingGetTokensCompletion = nil
+                                                                        self.tokenFetchLock.leave()
+                                                                    }
+                                                                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                                                                   additionalInfo: signInInfo)
+                                                                    completionHandler(.signedIn, nil)
+                                                                }
+                                                                return nil
                     }
-                    self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
-                    self.pendingGetTokensCompletion = nil
                 }
             }
             
@@ -477,8 +493,18 @@ final public class AWSMobileClient: _AWSMobileClient {
                     } else {
                         self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                             if let session = task.result {
-                                self.performUserPoolSuccessfulSignInTasks(session: session)
-                                completionHandler(.signedIn, nil)
+                                self.performUserPoolSuccessfulSignInTasks(session: session).continueWith { task in
+                                    if let error = task.error {
+                                        completionHandler(nil, error)
+                                    } else {
+                                        let tokenString = session.idToken!.tokenString
+                                        self.mobileClientStatusChanged(userState: .signedIn,
+                                                                       additionalInfo: [self.ProviderKey: self.userPoolClient!.identityProviderName,
+                                                                                        self.TokenKey: tokenString])
+                                        completionHandler(.signedIn, nil)
+                                    }
+                                    return nil
+                                }
                             } else {
                                 completionHandler(nil, task.error)
                             }
