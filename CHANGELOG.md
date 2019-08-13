@@ -2,9 +2,23 @@
 
 ## 2.10.3
 
+### Bug Fixes
+
+- **AWS Core**
+  - `-[AWSURLSessionManager invalidate]` now invokes `-[NSURLSession finishTasksAndInvalidate]` before releasing the underlying URLSession.
+    If you attempt to start a new task on the invalidated session, AWSNetworking will now throw an `AWSNetworkingErrorSessionInvalid` error.
+    (See [PR #1203](https://github.com/aws-amplify/aws-sdk-ios/pull/1203) and [PR #1556](https://github.com/aws-amplify/aws-sdk-ios/pull/1556)).
+    Thanks @jkennington and @jaetzold!
+
+- **AWSCognitoAuth**
+  - `delegate` property is now retained weakly
+
 ### Misc. Updates
 - Model updates for the following services
+  - Amazon EC2
+  - Amazon Lex
   - Amazon Polly
+  - AWS IoT
 
 ## 2.10.2
 
