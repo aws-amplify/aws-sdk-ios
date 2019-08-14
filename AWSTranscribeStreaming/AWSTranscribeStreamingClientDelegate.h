@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientErrorCode) {
     AWSTranscribeStreamingClientErrorCodeInvalidMessagePrelude,
     AWSTranscribeStreamingClientErrorCodeInvalidMessageLengthHeader,
     AWSTranscribeStreamingClientErrorCodeWebSocketProtocolError,
+    AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize,
     AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly,
     AWSTranscribeStreamingClientErrorCodeUnknown
 };

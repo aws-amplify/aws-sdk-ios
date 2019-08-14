@@ -370,7 +370,6 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     return authorization;
 }
 
-
 + (AWSTask<NSURL *> *)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider>)credentialsProvider
                                                                    httpMethod:(AWSHTTPMethod)httpMethod
                                                                expireDuration:(int32_t)expireDuration
@@ -379,11 +378,31 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                                                requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
                                                             requestParameters:(NSDictionary<NSString *, id> *)requestParameters
                                                                      signBody:(BOOL)signBody{
+    return [self generateQueryStringForSignatureV4WithCredentialProvider:credentialsProvider
+                                                              httpMethod:httpMethod
+                                                          expireDuration:expireDuration
+                                                                endpoint:endpoint
+                                                                 keyPath:keyPath
+                                                          requestHeaders:requestHeaders
+                                                       requestParameters:requestParameters
+                                                                signBody:signBody
+                                                        signSessionToken:YES];
+}
+
++ (AWSTask<NSURL *> *)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider>)credentialsProvider
+                                                                   httpMethod:(AWSHTTPMethod)httpMethod
+                                                               expireDuration:(int32_t)expireDuration
+                                                                     endpoint:(AWSEndpoint *)endpoint
+                                                                      keyPath:(NSString *)keyPath
+                                                               requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
+                                                            requestParameters:(NSDictionary<NSString *, id> *)requestParameters
+                                                                     signBody:(BOOL)signBody
+                                                             signSessionToken:(BOOL)signSessionToken{
     
     return [[credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         AWSCredentials *credentials = task.result;
         
-        //Implementation of V4 signaure http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
+        //Implementation of V4 signature http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
         NSMutableString *queryString = [NSMutableString new];
         
         //Append Identifies the version of AWS Signature and the algorithm that you used to calculate the signature.
@@ -438,8 +457,8 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
             }
         }
         
-        //add security-token if necessary
-        if ([credentials.sessionKey length] > 0) {
+        // Add security-token as part of signed payload if present, and `signSessionToken` is true
+        if (signSessionToken && [credentials.sessionKey length] > 0) {
             [queryString appendFormat:@"%@=%@&", @"X-Amz-Security-Token", [credentials.sessionKey aws_stringWithURLEncoding]];
         }
         
@@ -450,7 +469,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
          * HTTP-VERB + "\n" +  (e.g. GET, PUT, POST)
          * Canonical URI + "\n" + (e.g. /test.txt)
          * Canonical Query String + "\n" (multiple queryString need to sorted by QueryParameter)
-         * Canonical Headrs + "\n" + (multiple headers need to be sorted by HeaderName)
+         * Canonical Headers + "\n" + (multiple headers need to be sorted by HeaderName)
          * Signed Headers + "\n" + (multiple headers need to be sorted by HeaderName)
          * "UNSIGNED-PAYLOAD"
          */
@@ -498,9 +517,19 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         
         // ============  generate v4 signature string (END) ===================
         
+        // Add security-token as part of the postamble if present, and `signSessionToken` is false
+        if (!signSessionToken && [credentials.sessionKey length] > 0) {
+            [queryString appendFormat:@"%@=%@&", @"X-Amz-Security-Token", [credentials.sessionKey aws_stringWithURLEncoding]];
+        }
+
         [queryString appendFormat:@"%@=%@", @"X-Amz-Signature", signatureString];
         NSString *portNumber = endpoint.portNumber != nil ? [NSString stringWithFormat:@":%@", endpoint.portNumber.stringValue]: @"";
-        NSString *urlString = [NSString stringWithFormat:@"%@://%@%@/%@?%@", endpoint.URL.scheme, endpoint.hostName, portNumber, keyPath, queryString];
+        NSString *urlString = [NSString stringWithFormat:@"%@://%@%@/%@?%@",
+                               endpoint.URL.scheme,
+                               endpoint.hostName,
+                               portNumber,
+                               keyPath,
+                               queryString];
         
         return [NSURL URLWithString:urlString];
     }];

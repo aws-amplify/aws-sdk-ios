@@ -377,46 +377,106 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (AWSTask *)getWebsocketForRequest:(NSDictionary *)requestParams {
-    NSString *encoding = [requestParams valueForKey:@"MediaEncoding"];
-    NSString *languageCode = [requestParams valueForKey:@"LanguageCode"];
-    NSString *sampleRate = [requestParams valueForKey:@"MediaSampleRateHertz"];
-    
-    return [self.signer.credentialsProvider.credentials continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
-        
-        if (task.result != nil) {
-            AWSCredentials *credentials = task.result;
-            NSString *hostName = [NSString stringWithFormat:@"transcribestreaming.%@.amazonaws.com:8443",
-                                  self.configuration.endpoint.regionName];
 
-            NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:hostName
-                                                                       regionName:self.configuration.endpoint.regionName
-                                                                        accessKey:credentials.accessKey
-                                                                        secretKey:credentials.secretKey
-                                                                       sessionKey:credentials.sessionKey
-                                                                         encoding:encoding
-                                                                     languageCode:languageCode
-                                                                       sampleRate:sampleRate];
-            AWSDDLogVerbose(@"%@", websocketURL);
-            
-            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:websocketURL]];
-            
-            self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
-            
-            [self updateWebSocketDelegate];
-
-            //Open the web socket
-            [self.webSocket open];
-            
-            AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocket);
-        } else {
-            // return task error if we any issue getting wss connection and object
-            return [AWSTask taskWithError:[[NSError alloc]init]];
+    return [[self getPreSignedURL:requestParams] continueWithBlock:^id _Nullable(AWSTask<NSURL *> * _Nonnull task) {
+        if (task.error != nil) {
+            return [AWSTask taskWithError:task.error];
         }
-        
+
+        if (task.result == nil) {
+            NSError *error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                                 code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
+                                             userInfo:nil];
+            return [AWSTask taskWithError:error];
+        }
+
+        NSURL *websocketURL = task.result;
+        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:websocketURL];
+
+        self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
+
+        [self updateWebSocketDelegate];
+
+        //Open the web socket
+        [self.webSocket open];
+
+        AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocket);
+
         return [AWSTask taskWithResult:self.webSocket];
     }];
-    
-    
+
+//    return [self.signer.credentialsProvider.credentials continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+//
+//        if (task.result != nil) {
+//            AWSCredentials *credentials = task.result;
+//            NSString *hostName = [NSString stringWithFormat:@"transcribestreaming.%@.amazonaws.com:8443",
+//                                  self.configuration.endpoint.regionName];
+//
+//            NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:hostName
+//                                                                       regionName:self.configuration.endpoint.regionName
+//                                                                        accessKey:credentials.accessKey
+//                                                                        secretKey:credentials.secretKey
+//                                                                       sessionKey:credentials.sessionKey
+//                                                                         encoding:encoding
+//                                                                     languageCode:languageCode
+//                                                                       sampleRate:sampleRate];
+//            AWSDDLogVerbose(@"%@", websocketURL);
+//
+//            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:websocketURL]];
+//
+//            self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
+//
+//            [self updateWebSocketDelegate];
+//
+//            //Open the web socket
+//            [self.webSocket open];
+//
+//            AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocket);
+//        } else {
+//            // return task error if we any issue getting wss connection and object
+//            return [AWSTask taskWithError:[[NSError alloc]init]];
+//        }
+//
+//        return [AWSTask taskWithResult:self.webSocket];
+//    }];
+//
+
+}
+
+- (AWSTask<NSURL *> *)getPreSignedURL:(NSDictionary *)requestParams {
+    return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id _Nullable(AWSTask *task) {
+
+        id<AWSCredentialsProvider> credentialProvider = self.configuration.credentialsProvider;
+
+        NSString *path = @"/stream-transcription-websocket";
+
+        NSString *urlString = [NSString stringWithFormat:@"wss://transcribestreaming.%@.amazonaws.com:8443/%@",
+                               self.configuration.endpoint.regionName,
+                               path];
+
+        AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithURLString:urlString];
+
+        int32_t expireDuration = 300;
+
+        NSDictionary *parameters = @{
+                                     @"media-encoding": [requestParams valueForKey:@"MediaEncoding"],
+                                     @"language-code": [requestParams valueForKey:@"LanguageCode"],
+                                     @"sample-rate": [requestParams valueForKey:@"MediaSampleRateHertz"]
+                                     };
+
+
+        NSMutableDictionary *headers = [NSMutableDictionary new];
+        [headers setObject:endpoint.hostName forKey:@"host"];
+
+        return [AWSSignatureV4Signer generateQueryStringForSignatureV4WithCredentialProvider:credentialProvider
+                                                                                  httpMethod:AWSHTTPMethodGET
+                                                                              expireDuration:expireDuration
+                                                                                    endpoint:endpoint
+                                                                                     keyPath:path
+                                                                              requestHeaders:headers
+                                                                           requestParameters:parameters
+                                                                                    signBody:YES];
+    }];
 }
 
 @end

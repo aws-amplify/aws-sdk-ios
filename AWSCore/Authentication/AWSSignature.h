@@ -49,6 +49,30 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
                                                             requestParameters:(NSDictionary<NSString *, id> *)requestParameters
                                                                      signBody:(BOOL)signBody;
 
+/**
+ Returns a URL signed using the SigV4 algorithm.
+
+ @param credentialsProvider credentials provider to get accessKey, secretKey, and optional sessionKey
+ @param httpMethod the HTTP method (e.g., "GET", "POST", etc)
+ @param expireDuration when should the signed URL expire
+ @param endpoint the endpoint of the service for which the URL is being generated
+ @param keyPath the request path
+ @param requestHeaders the headers to sign as part of the request
+ @param requestParameters the URL parameters to sign
+ @param signBody if true and the httpMethod is GET, sign an empty string as part of the signature content
+ @param signSessionToken if true, include the sessionKey returned by the credentialsProvider in the signed payload. If false, appends the X-AMZ-Security-Token to the end of the signed URL request parameters
+ @return a task containing the signed URL
+ */
++ (AWSTask<NSURL *> *)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider>)credentialsProvider
+                                                                   httpMethod:(AWSHTTPMethod)httpMethod
+                                                               expireDuration:(int32_t)expireDuration
+                                                                     endpoint:(AWSEndpoint *)endpoint
+                                                                      keyPath:(NSString *)keyPath
+                                                               requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
+                                                            requestParameters:(NSDictionary<NSString *, id> *)requestParameters
+                                                                     signBody:(BOOL)signBody
+                                                             signSessionToken:(BOOL)signSessionToken;
+
 + (NSString *)getCanonicalizedRequest:(NSString *)method
                                  path:(NSString *)path
                                 query:(NSString *)query
