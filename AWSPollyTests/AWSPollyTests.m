@@ -164,7 +164,6 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 }
 
 - (void)testPresignedGetUrl{
-    
     AWSPollySynthesizeSpeechURLBuilderRequest *request = [[AWSPollySynthesizeSpeechURLBuilderRequest alloc]init];
     [request setText:@"I agree with W3C and W2C."];
     [request setOutputFormat:AWSPollyOutputFormatMp3];

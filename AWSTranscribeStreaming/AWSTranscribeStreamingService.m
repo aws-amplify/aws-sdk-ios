@@ -27,15 +27,12 @@
 
 #import "AWSTranscribeEventEncoder.h"
 #import "AWSTranscribeStreamingResources.h"
-#import "AWSTranscribeStreamingSignature.h"
 #import "AWSSRWebSocketDelegateAdaptor.h"
-#import "AWSTSNetworking.h"
 
 NSString *const AWSTranscribeStreamingClientErrorDomain = @"com.amazonaws.AWSTranscribeStreamingClientErrorDomain";
 
 static NSString *const AWSInfoTranscribeStreaming = @"TranscribeStreaming";
 NSString *const AWSTranscribeStreamingSDKVersion = @"2.10.2";
-
 
 @interface AWSTranscribeStreamingResponseSerializer : AWSJSONResponseSerializer
 
@@ -55,68 +52,6 @@ static NSDictionary *errorCodeDictionary = nil;
                             };
 }
 
-#pragma mark - Standard HTTP response handling
-
-- (id)responseObjectForResponse:(NSHTTPURLResponse *)response
-                originalRequest:(NSURLRequest *)originalRequest
-                 currentRequest:(NSURLRequest *)currentRequest
-                           data:(id)data
-                          error:(NSError *__autoreleasing *)error {
-    id responseObject = [super responseObjectForResponse:response
-                                         originalRequest:originalRequest
-                                          currentRequest:currentRequest
-                                                    data:data
-                                                   error:error];
-    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-    	NSString *errorTypeString = [[response allHeaderFields] objectForKey:@"x-amzn-ErrorType"];
-        NSString *errorTypeHeader = [[errorTypeString componentsSeparatedByString:@":"] firstObject];
-
-        if ([errorTypeString length] > 0 && errorTypeHeader) {
-            if (errorCodeDictionary[errorTypeHeader]) {
-                if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
-                    *error = [NSError errorWithDomain:AWSTranscribeStreamingErrorDomain
-                                                 code:[[errorCodeDictionary objectForKey:errorTypeHeader] integerValue]
-                                             userInfo:userInfo];
-                }
-                return responseObject;
-            } else if (errorTypeHeader) {
-                if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
-                    *error = [NSError errorWithDomain:AWSTranscribeStreamingErrorDomain
-                                                 code:AWSTranscribeStreamingErrorUnknown
-                                             userInfo:userInfo];
-                }
-                return responseObject;
-            }
-        }
-    }
-
-    if (!*error && response.statusCode/100 != 2) {
-        *error = [NSError errorWithDomain:AWSTranscribeStreamingErrorDomain
-                                     code:AWSTranscribeStreamingErrorUnknown
-                                 userInfo:nil];
-    }
-
-    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
-        if (self.outputClass) {
-            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
-                                          fromJSONDictionary:responseObject
-                                                       error:error];
-        }
-    }
-	
-    return responseObject;
-}
-
-@end
-
-@interface AWSTranscribeStreamingRequestRetryHandler : AWSURLRequestRetryHandler
-
-@end
-
-@implementation AWSTranscribeStreamingRequestRetryHandler
-
 @end
 
 @interface AWSRequest()
@@ -129,7 +64,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSTranscribeStreamingSignature *signer;
 @property (nonatomic, strong) AWSSRWebSocket *webSocket;
 @property (nonatomic, strong) AWSSRWebSocketDelegateAdaptor *webSocketDelegateAdaptor;
 
@@ -244,60 +178,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                       service:AWSServiceTranscribeStreaming];
         }
 
-        _signer = [[AWSTranscribeStreamingSignature alloc] initWithCredentialsProvider:_configuration.credentialsProvider
-                                                                              endpoint:_configuration.endpoint];
-
-        AWSNetworkingRequestInterceptor *baseInterceptor = [[AWSNetworkingRequestInterceptor alloc] initWithUserAgent:_configuration.userAgent];
-        
         _configuration.baseURL = _configuration.endpoint.URL;
-        _configuration.retryHandler = [[AWSTranscribeStreamingRequestRetryHandler alloc] initWithMaximumRetryCount:_configuration.maxRetryCount];
-        _configuration.headers = @{@"Content-Type" : @"application/vnd.amazon.eventstream",
-                                   @"Transfer-Encoding" : @"",
-                                   @"x-amz-content-sha256": @"STREAMING-AWS4-HMAC-SHA256-EVENTS",
-                                   @"x-amz-target": @"com.amazonaws.transcribe.Transcribe.StartStreamTranscription"
-                                   };
-		
-        AWSTSNetworking *networkInterceptor = [[AWSTSNetworking alloc] initWithConfiguration:_configuration];
-
-        _configuration.requestInterceptors = @[baseInterceptor, self.signer, networkInterceptor];
 
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }
     
     return self;
-}
-
-- (AWSTask *)invokeRequest:(AWSRequest *)request
-               HTTPMethod:(AWSHTTPMethod)HTTPMethod
-                URLString:(NSString *) URLString
-             targetPrefix:(NSString *)targetPrefix
-            operationName:(NSString *)operationName
-              outputClass:(Class)outputClass {
-    
-    @autoreleasepool {
-        if (!request) {
-            request = [AWSRequest new];
-        }
-
-        AWSNetworkingRequest *networkingRequest = request.internalRequest;
-        if (request) {
-            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
-        } else {
-            networkingRequest.parameters = @{};
-        }
-
-        networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSTranscribeStreamingResources sharedInstance] JSONObject]
-                                                                                                   actionName:operationName];
-        networkingRequest.responseSerializer = [[AWSTranscribeStreamingResponseSerializer alloc] initWithJSONDefinition:[[AWSTranscribeStreamingResources sharedInstance] JSONObject]
-                                                                                             actionName:operationName
-                                                                                            outputClass:outputClass];
-        
-        
-        
-        
-        return [self.networking sendRequest:networkingRequest];
-    }
 }
 
 #pragma mark - TranscribeStreaming WSS support
@@ -391,7 +277,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
 
         NSURL *websocketURL = task.result;
-        NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:websocketURL];
+        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:websocketURL];
 
         self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
 
@@ -404,78 +290,46 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         return [AWSTask taskWithResult:self.webSocket];
     }];
-
-//    return [self.signer.credentialsProvider.credentials continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
-//
-//        if (task.result != nil) {
-//            AWSCredentials *credentials = task.result;
-//            NSString *hostName = [NSString stringWithFormat:@"transcribestreaming.%@.amazonaws.com:8443",
-//                                  self.configuration.endpoint.regionName];
-//
-//            NSString *websocketURL = [self.signer prepareWebSocketUrlWithHostName:hostName
-//                                                                       regionName:self.configuration.endpoint.regionName
-//                                                                        accessKey:credentials.accessKey
-//                                                                        secretKey:credentials.secretKey
-//                                                                       sessionKey:credentials.sessionKey
-//                                                                         encoding:encoding
-//                                                                     languageCode:languageCode
-//                                                                       sampleRate:sampleRate];
-//            AWSDDLogVerbose(@"%@", websocketURL);
-//
-//            NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:websocketURL]];
-//
-//            self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
-//
-//            [self updateWebSocketDelegate];
-//
-//            //Open the web socket
-//            [self.webSocket open];
-//
-//            AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocket);
-//        } else {
-//            // return task error if we any issue getting wss connection and object
-//            return [AWSTask taskWithError:[[NSError alloc]init]];
-//        }
-//
-//        return [AWSTask taskWithResult:self.webSocket];
-//    }];
-//
-
 }
 
 - (AWSTask<NSURL *> *)getPreSignedURL:(NSDictionary *)requestParams {
     return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id _Nullable(AWSTask *task) {
 
-        id<AWSCredentialsProvider> credentialProvider = self.configuration.credentialsProvider;
+        NSURLComponents *components = [[NSURLComponents alloc] init];
 
-        NSString *path = @"/stream-transcription-websocket";
+        components.scheme = @"wss";
 
-        NSString *urlString = [NSString stringWithFormat:@"wss://transcribestreaming.%@.amazonaws.com:8443/%@",
-                               self.configuration.endpoint.regionName,
-                               path];
+        components.host = [NSString stringWithFormat:@"transcribestreaming.%@.amazonaws.com",
+                           self.configuration.endpoint.regionName];
 
-        AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithURLString:urlString];
+        components.port = @(8443);
 
-        int32_t expireDuration = 300;
+        components.path = @"/stream-transcription-websocket";
 
+        // Signer expects values of parameters dictionary to be strings or arrays of strings
+        NSString *sampleRate = [NSString stringWithFormat:@"%@", [requestParams valueForKey:@"MediaSampleRateHertz"]];
         NSDictionary *parameters = @{
-                                     @"media-encoding": [requestParams valueForKey:@"MediaEncoding"],
+                                     @"media-encoding": [requestParams objectForKey:@"MediaEncoding"],
                                      @"language-code": [requestParams valueForKey:@"LanguageCode"],
-                                     @"sample-rate": [requestParams valueForKey:@"MediaSampleRateHertz"]
+                                     @"sample-rate": sampleRate
                                      };
 
+        components.queryItems = [AWSNetworkingHelpers queryItemsFromDictionary:parameters];
 
-        NSMutableDictionary *headers = [NSMutableDictionary new];
-        [headers setObject:endpoint.hostName forKey:@"host"];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:components.URL];
+        NSString *hostAndPort = [NSString stringWithFormat:@"%@:%@", components.host, components.port];
+        [request setValue:hostAndPort forHTTPHeaderField:@"host"];
 
-        return [AWSSignatureV4Signer generateQueryStringForSignatureV4WithCredentialProvider:credentialProvider
-                                                                                  httpMethod:AWSHTTPMethodGET
-                                                                              expireDuration:expireDuration
-                                                                                    endpoint:endpoint
-                                                                                     keyPath:path
-                                                                              requestHeaders:headers
-                                                                           requestParameters:parameters
-                                                                                    signBody:YES];
+        id<AWSCredentialsProvider> credentialProvider = self.configuration.credentialsProvider;
+
+        return [AWSSignatureV4Signer sigV4SignedURLWithRequest:request
+                                            credentialProvider:credentialProvider
+                                                    regionName:self.configuration.endpoint.regionName
+                                                   serviceName:self.configuration.endpoint.serviceName
+                                                          date:[NSDate aws_clockSkewFixedDate]
+                                                expireDuration:300
+                                                      signBody:YES
+                                              signSessionToken:YES];
     }];
 }
 

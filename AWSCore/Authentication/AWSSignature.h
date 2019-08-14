@@ -40,6 +40,20 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 - (instancetype)initWithCredentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
                                    endpoint:(AWSEndpoint *)endpoint;
 
+/**
+ Returns a URL signed using the SigV4 algorithm, using the current date, and including the session token (if any) as
+ part of the signed query paramters.
+
+ @param credentialsProvider credentials provider to get accessKey, secretKey, and optional sessionKey
+ @param httpMethod the HTTP method (e.g., "GET", "POST", etc)
+ @param expireDuration when should the signed URL expire
+ @param endpoint the endpoint of the service for which the URL is being generated
+ @param keyPath the request path
+ @param requestHeaders the headers to sign as part of the request
+ @param requestParameters the URL parameters to sign
+ @param signBody if true and the httpMethod is GET, sign an empty string as part of the signature content
+ @return a task containing the signed URL
+ */
 + (AWSTask<NSURL *> *)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider>)credentialsProvider
                                                                    httpMethod:(AWSHTTPMethod)httpMethod
                                                                expireDuration:(int32_t)expireDuration
@@ -52,26 +66,33 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 /**
  Returns a URL signed using the SigV4 algorithm.
 
+ This method requires both regionName and serviceName, because not all AWS service endpoints have the URL format
+ "<service>.<region>.amazonaws.com", so we can't necessarily derive the region and service from the URL.
+
+ In addition, the method requires the caller to specify a date to use for the signing. This allows for ease of testing,
+ but in practice, callers should use `-[NSDate aws_clockSkewFixedDate]` as this value.
+
+ @param request the NSURLRequest to sign
  @param credentialsProvider credentials provider to get accessKey, secretKey, and optional sessionKey
- @param httpMethod the HTTP method (e.g., "GET", "POST", etc)
- @param expireDuration when should the signed URL expire
- @param endpoint the endpoint of the service for which the URL is being generated
- @param keyPath the request path
- @param requestHeaders the headers to sign as part of the request
- @param requestParameters the URL parameters to sign
+ @param regionName the string representing the AWS region of the endpoint to be signed.
+ @param serviceName the name of the AWS service the request is for
+ @param date the date of the signed credential
+ @param expireDuration the duration in seconds the signed URL will be valid for
  @param signBody if true and the httpMethod is GET, sign an empty string as part of the signature content
- @param signSessionToken if true, include the sessionKey returned by the credentialsProvider in the signed payload. If false, appends the X-AMZ-Security-Token to the end of the signed URL request parameters
+ @param signSessionToken if true, include the sessionKey returned by the credentialsProvider in the signed payload.
+        If false, appends the X-AMZ-Security-Token to the end of the signed URL request parameters
  @return a task containing the signed URL
  */
-+ (AWSTask<NSURL *> *)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider>)credentialsProvider
-                                                                   httpMethod:(AWSHTTPMethod)httpMethod
-                                                               expireDuration:(int32_t)expireDuration
-                                                                     endpoint:(AWSEndpoint *)endpoint
-                                                                      keyPath:(NSString *)keyPath
-                                                               requestHeaders:(NSDictionary<NSString *, NSString *> *)requestHeaders
-                                                            requestParameters:(NSDictionary<NSString *, id> *)requestParameters
-                                                                     signBody:(BOOL)signBody
-                                                             signSessionToken:(BOOL)signSessionToken;
++ (AWSTask<NSURL *> *)sigV4SignedURLWithRequest:(NSURLRequest * _Nonnull)request
+                             credentialProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider
+                                     regionName:(NSString * _Nonnull)regionName
+                                    serviceName:(NSString * _Nonnull)serviceName
+                                           date:(NSDate * _Nonnull)date
+                                 expireDuration:(int32_t)expireDuration
+                                       signBody:(BOOL)signBody
+                               signSessionToken:(BOOL)signSessionToken;
+
++ (NSString *)getCanonicalizedQueryStringForDate:(NSDate *)currentDate;
 
 + (NSString *)getCanonicalizedRequest:(NSString *)method
                                  path:(NSString *)path

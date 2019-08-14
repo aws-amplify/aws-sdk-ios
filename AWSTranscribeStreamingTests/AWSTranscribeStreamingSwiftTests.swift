@@ -29,7 +29,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        AWSTestUtility.setupCredentialsViaFile()
+        AWSTestUtility.setupCognitoCredentialsProvider()
 
         guard let config = AWSServiceManager.default().defaultServiceConfiguration else {
             XCTFail("Can't get default service configuration")
@@ -44,6 +44,9 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     }
 
     func testStreamingExample() throws {
+        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        
         let bundle = Bundle(for: AWSTranscribeStreamingSwiftTests.self)
         guard let audioPath = bundle.path(forResource: "hello_world", ofType: "wav") else {
             XCTFail("Can't find audio path")
