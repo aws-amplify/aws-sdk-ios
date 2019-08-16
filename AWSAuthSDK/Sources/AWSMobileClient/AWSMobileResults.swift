@@ -118,7 +118,7 @@ extension AWSMobileClientError {
     }
     
     /// Utility class which maps a service error to `AWSMobileClientError`. If no mapping is available, returns the original error.
-    public static func getMobileError(for error: Error) -> Error {
+    public static func makeMobileClientError(from error: Error) -> Error {
         if error._domain == AWSCognitoIdentityProviderErrorDomain {
             if error._code == -3000 {
                 return AWSMobileClientError.deviceNotRemembered(message: "This device does not have an id, either it was never tracked or previously forgotten.")
@@ -131,11 +131,12 @@ extension AWSMobileClientError {
         return error
     }
     
-    public static func getMobileError(cognitoAuthError: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
-        return AWSMobileClientError.CognitoAuthErrorMappingHelper(error: cognitoAuthError)
+    /// Utility class which maps a cognito error to `AWSMobileClientError`.
+    public static func makeMobileClientError(from cognitoAuthError: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
+        return CognitoAuthErrorMappingHelper(error: cognitoAuthError)
     }
     
-    public static func CognitoAuthErrorMappingHelper(error: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
+    static func CognitoAuthErrorMappingHelper(error: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
         switch error {
         case .errorBadRequest:
             return .badRequest(message: "Incorrect host URL or query parameters.")
@@ -158,7 +159,7 @@ extension AWSMobileClientError {
     }
     
     /// Mapping helper to map error code and messages to `AWSMobileClientError`
-    public static func ErrorMappingHelper(errorCode: String, message: String, error: NSError?) -> AWSMobileClientError {
+    static func ErrorMappingHelper(errorCode: String, message: String, error: NSError?) -> AWSMobileClientError {
         switch (errorCode) {
         case "AliasExistsException":
             return .aliasExists(message: message)
@@ -278,7 +279,6 @@ public struct SignUpResult {
         self.signUpConfirmationState = signUpState
     }
 }
-
 
 /// Describes the medium through which a code was sent to the user.
 public enum UserCodeDeliveryMedium {

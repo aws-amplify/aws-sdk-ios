@@ -173,7 +173,7 @@ extension AWSMobileClient {
         } else {
             user!.getSession(username, password: password, validationData: validationAttributes).continueWith { (task) -> Any? in
                 if let error = task.error {
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.getMobileError(for: error))
+                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.makeMobileClientError(from: error))
                     self.userpoolOpsHelper.currentSignInHandlerCallback = nil
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
@@ -286,7 +286,7 @@ extension AWSMobileClient {
                                    userAttributes: userAttributesTransformed.count == 0 ? nil : userAttributesTransformed,
                                    validationData: validationDataTransformed.count == 0 ? nil : validationDataTransformed).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 self.userpoolOpsHelper.signUpUser = task.result?.user
                 var confirmedStatus: SignUpConfirmationState?
@@ -331,7 +331,7 @@ extension AWSMobileClient {
     internal func confirmSignUp(user: AWSCognitoIdentityUser, confirmationCode: String, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         user.confirmSignUp(confirmationCode).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 let signUpResult = SignUpResult(signUpState: .confirmed, codeDeliveryDetails: nil)
                 completionHandler(signUpResult, nil)
@@ -357,7 +357,7 @@ extension AWSMobileClient {
     internal func resendSignUpCode(user: AWSCognitoIdentityUser, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         user.resendConfirmationCode().continueWith(block: { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 let confirmedStatus: SignUpConfirmationState = .unconfirmed
                 var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
@@ -379,7 +379,7 @@ extension AWSMobileClient {
         let user = self.userPoolClient?.getUser(username)
         user!.forgotPassword().continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
                 if let deliveryDetails = result.codeDeliveryDetails {
@@ -402,7 +402,7 @@ extension AWSMobileClient {
         let user = self.userPoolClient?.getUser(username)
         user!.confirmForgotPassword(confirmationCode, password: newPassword).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(ForgotPasswordResult(forgotPasswordState: .done, codeDeliveryDetails: nil), nil)
             }
@@ -422,7 +422,7 @@ extension AWSMobileClient {
                 AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
                     // If there is an error invalidating tokens, we return error to the developer.
                     if (error != nil) {
-                        completionHandler(AWSMobileClientError.getMobileError(for: error!))
+                        completionHandler(AWSMobileClientError.makeMobileClientError(from: error!))
                     } else {
                         // If the token is successfully invalidated, we clear tokens locally and perform signout flow.
                         self.signOut()
@@ -441,7 +441,7 @@ extension AWSMobileClient {
                     completionHandler(nil)
                 } else if let error = task.error {
                     // If there is an error signing out globally, we notify the developer.
-                    completionHandler(AWSMobileClientError.getMobileError(for: error))
+                    completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
                 }
                 return nil
             }
@@ -550,7 +550,7 @@ extension AWSMobileClient {
     public func changePassword(currentPassword: String, proposedPassword: String, completionHandler: @escaping ((Error?) -> Void)) {
         self.userpoolOpsHelper.currentActiveUser!.changePassword(currentPassword, proposedPassword: proposedPassword).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(AWSMobileClientError.getMobileError(for: error))
+                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(nil)
             }
@@ -566,7 +566,7 @@ extension AWSMobileClient {
     public func verifyUserAttribute(attributeName: String, completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
         self.userpoolOpsHelper.currentActiveUser!.getAttributeVerificationCode(attributeName).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
                 if let deliveryDetails = result.codeDeliveryDetails {
@@ -587,7 +587,7 @@ extension AWSMobileClient {
         let attributes = attributeMap.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
         self.userpoolOpsHelper.currentActiveUser!.update(attributes).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 var codeDeliveryDetailsList: [UserCodeDeliveryDetails] = []
                 if result.codeDeliveryDetailsList != nil {
@@ -607,7 +607,7 @@ extension AWSMobileClient {
     public func getUserAttributes(completionHandler: @escaping (([String: String]?, Error?) -> Void)) {
         self.userpoolOpsHelper.currentActiveUser!.getDetails().continueWith { (task) -> Any? in
             if let error = task.error {
-               completionHandler(nil, AWSMobileClientError.getMobileError(for: error))
+               completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 let userAttributes = result.userAttributes
                 var attributesMap = [String: String]()
@@ -642,7 +642,7 @@ extension AWSMobileClient {
     public func confirmVerifyUserAttribute(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
         self.userpoolOpsHelper.currentActiveUser!.verifyAttribute(attributeName, code: code).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(AWSMobileClientError.getMobileError(for: error))
+                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(nil)
             }
@@ -749,7 +749,7 @@ extension AWSMobileClient {
                             // return early without releasing the tokenFetch lock.
                             return
                         } else {
-                            completionHandler(nil, AWSMobileClientError.getMobileError(cognitoAuthError: error))
+                            completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
                         }
                     } else if let session = session {
                         completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
@@ -825,7 +825,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
     
     func didCompletePasswordStepWithError(_ error: Error?) {
         if error != nil {
-            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.getMobileError(for: error!))
+            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.makeMobileClientError(from: error!))
             self.userpoolOpsHelper.currentSignInHandlerCallback = nil
         }
     }
@@ -839,7 +839,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
     
     func didCompleteNewPasswordStepWithError(_ error: Error?) {
         if error != nil {
-            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.getMobileError(for: error!))
+            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.makeMobileClientError(from: error!))
             self.userpoolOpsHelper.currentSignInHandlerCallback = nil
         }
     }
@@ -863,7 +863,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?) {
         if error != nil {
-            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.getMobileError(for: error!))
+            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, AWSMobileClientError.makeMobileClientError(from: error!))
             self.userpoolOpsHelper.currentSignInHandlerCallback = nil
         }
     }
