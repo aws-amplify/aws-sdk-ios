@@ -1302,8 +1302,6 @@ static AWSPinpoint *initializePinpointWithConfig(AWSPinpointConfiguration *confi
 }
 
 - (void) test250MultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread {
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
-    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
     [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:250];
 }
 
