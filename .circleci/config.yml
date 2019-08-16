@@ -4,6 +4,7 @@
 #
 version: 2.1
 
+## Using aws-cli to create test user for e2e testing
 orbs:
   aws-cli: circleci/aws-cli@0.1.13
 
@@ -20,6 +21,7 @@ commands:
               echo "Nothing to do for forked PRs, so marking this step successful"
               circleci step halt
             fi
+
   update_brew:
     description: >-
       update brew
@@ -401,6 +403,8 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Pinpoint
       - restore_cache:
+          key: test_result-{{ .Revision }}-Textract
+      - restore_cache:
           key: test_result-{{ .Revision }}-S3
       - restore_cache:
           key: test_result-{{ .Revision }}-DynamoDB
@@ -624,7 +628,7 @@ jobs:
           name: "Set-Up configuration for UITests"
           ## The configuration template with defaults can be found here: https://github.com/phanisrikar93/aws-sdk-ios-samples/blob/master/Configuration
           ## Use the setup_uitest_config API to create a custom config file from the template 
-          ## More information on this API can be found in the <Internal> Operations Run Book 
+          ## <Internal> More information on this API can be found in the <Internal> Design Hand-Book WIKI
           command: |
             cd ${circleci_root_directory}/aws-sdk-ios-samples/CircleciScripts
             python3 setup_uitest_config.py -s $CIRCLE_BRANCH -l uitest_logs
@@ -651,6 +655,7 @@ jobs:
           when: always 
       - store_artifacts:
           path: uitest_logs
+
   add_doc_tag:
     macos:
       xcode: "10.1.0"
@@ -926,11 +931,349 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
+      - unittest:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
       - create_pullrequest_for_modelupdate:
           filters:
             branches:
               only:
                 - /^models-update-.+$/
+      - pre_integrationtest:
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: AWSMobileClient
+          groupname: AWSMobileClient
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: SQS
+          groupname: SQS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: MobileAnalytics
+          groupname: MobileAnalytics
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Rekognition
+          groupname: Rekognition
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: SES
+          groupname: SES
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: SNS
+          groupname: SNS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: CloudWatch
+          groupname: CloudWatch
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: AutoScaling
+          groupname: AutoScaling
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: APIGateway
+          groupname: APIGateway
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Translate
+          groupname: Translate
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Transcribe
+          groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Polly
+          groupname: Polly
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Cognito
+          groupname: Cognito
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Comprehend
+          groupname: Comprehend
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Core
+          groupname: Core
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Kinesis
+          groupname: Kinesis
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: KMS
+          groupname: KMS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: ElasticLoadBalancing
+          groupname: ElasticLoadBalancing
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: EC2
+          groupname: EC2
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Lambda
+          groupname: Lambda
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Lex
+          groupname: Lex
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: IoT
+          groupname: IoT
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      # - integrationtest:
+      #     name: MachineLearning
+      #     groupname: MachineLearning
+      #     requires:
+      #       - pre_integrationtest
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      #           - develop
+      - integrationtest:
+          name: Pinpoint
+          groupname: Pinpoint
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: S3
+          groupname: S3
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: DynamoDB
+          groupname: DynamoDB
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Connect
+          groupname: Connect
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - post_integrationtest:
+          requires:
+            - AWSMobileClient
+            - SQS
+            - MobileAnalytics
+            - Rekognition
+            - SES
+            - SNS
+            - CloudWatch
+            - AutoScaling
+            - APIGateway
+            - Translate
+            - Transcribe
+            - Polly
+            - Cognito
+            - Comprehend
+            - Core
+            - Kinesis
+            - KMS
+            - ElasticLoadBalancing
+            - EC2
+            - Lambda
+            - Lex
+            - IoT
+            # - MachineLearning
+            - Pinpoint
+            - S3
+            - DynamoDB
+            - Textract
+            - SageMakerRuntime
+            - Connect
+          filters:
+            branches:
+              only:
+                - master
+                - develop
       - run_ui_test:
           appname: PhotoAlbum
           requires:
@@ -949,3 +1292,449 @@ workflows:
               only:
                 - master
                 - develop
+      - merge_to_master:
+          requires:
+            - build
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              only:
+                - develop
+      - prepare_release_sdk:
+          requires:
+            - build
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+
+  release_sdk:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - unittest:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - pre_integrationtest:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: AWSMobileClient
+          groupname: AWSMobileClient
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SQS
+          groupname: SQS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: MobileAnalytics
+          groupname: MobileAnalytics
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Rekognition
+          groupname: Rekognition
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SES
+          groupname: SES
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SNS
+          groupname: SNS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: CloudWatch
+          groupname: CloudWatch
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: AutoScaling
+          groupname: AutoScaling
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: APIGateway
+          groupname: APIGateway
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Translate
+          groupname: Translate
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Transcribe
+          groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Polly
+          groupname: Polly
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Cognito
+          groupname: Cognito
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Comprehend
+          groupname: Comprehend
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Core
+          groupname: Core
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Kinesis
+          groupname: Kinesis
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: KMS
+          groupname: KMS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: ElasticLoadBalancing
+          groupname: ElasticLoadBalancing
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: EC2
+          groupname: EC2
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Lambda
+          groupname: Lambda
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Lex
+          groupname: Lex
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: IoT
+          groupname: IoT
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      # - integrationtest:
+      #     name: MachineLearning
+      #     groupname: MachineLearning
+      #     requires:
+      #       - pre_integrationtest
+      #     filters:
+      #       branches:
+      #         ignore: /.*/
+      #       tags:
+      #         only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Pinpoint
+          groupname: Pinpoint
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: S3
+          groupname: S3
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: DynamoDB
+          groupname: DynamoDB
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Connect
+          groupname: Connect
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - post_integrationtest:
+          requires:
+            - AWSMobileClient
+            - SQS
+            - MobileAnalytics
+            - Rekognition
+            - SES
+            - SNS
+            - CloudWatch
+            - AutoScaling
+            - APIGateway
+            - Translate
+            - Transcribe
+            - Polly
+            - Cognito
+            - Comprehend
+            - Core
+            - Kinesis
+            - KMS
+            - ElasticLoadBalancing
+            - EC2
+            - Lambda
+            - Lex
+            - IoT
+            # - MachineLearning
+            - Pinpoint
+            - S3
+            - DynamoDB
+            - Textract
+            - SageMakerRuntime
+            - Connect
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_ios_s3:
+          requires:
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_tag:
+          requires:
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_carthage:
+          requires:
+            - release_tag
+            - release_ios_s3
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_cocoapods:
+          requires:
+            - release_ios_s3
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_appledoc:
+          requires:
+            - release_carthage
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_jazzydoc:
+          requires:
+            - release_appledoc
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - add_doc_tag:
+          requires:
+            - release_jazzydoc
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - bump_ios_amplifydocs_version:
+          requires:
+            - release_carthage
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - bump_ios_sampleapp_version:
+          requires:
+            - release_carthage
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+
