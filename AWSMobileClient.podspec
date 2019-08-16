@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
    s.requires_arc = true
    s.dependency 'AWSAuthCore', '2.10.2'
    s.dependency 'AWSCognitoIdentityProvider', '2.10.2'
-   s.source_files = 'AWSAuthSDK/Sources/AWSMobileClient/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/*.swift', 'AWSCognitoAuth/**/*.{h,m,c}'
+   s.source_files = 'AWSAuthSDK/Sources/AWSMobileClient/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.{h,m}', 'AWSAuthSDK/Sources/AWSMobileClient/*.swift', 'AWSCognitoAuth/**/*.{h,m,c}', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/*.swift'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.h', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/_AWSMobileClient.h', 'AWSCognitoAuth/*.h', 'AWSAuthSDK/Sources/AWSMobileClient/Internal/AWSCognitoAuth+Extensions.h'
  end
