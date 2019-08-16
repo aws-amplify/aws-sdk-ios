@@ -1283,6 +1283,7 @@ workflows:
               only:
                 - master
                 - develop
+                - e2e-testing
       - run_ui_test:
           appname: S3TransferUtility
           requires:
@@ -1292,6 +1293,7 @@ workflows:
               only:
                 - master
                 - develop
+                - e2e-testing 
       - merge_to_master:
           requires:
             - build
