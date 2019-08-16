@@ -19,13 +19,13 @@
 import Foundation
 
 /// Helper class to convert json data
-public struct JSONHelper {
+struct JSONHelper {
     
     /// Return a dictionary from the data
     ///
     /// - Parameter dictionaryAsData: data object to convert
     /// - Returns: dictonary of string to string
-    public static func dictionaryFromData(_ dictionaryAsData: Data?) -> [String: String]? {
+    static func dictionaryFromData(_ dictionaryAsData: Data?) -> [String: String]? {
         guard let dictionaryAsData = dictionaryAsData else {
             return nil
         }
@@ -42,7 +42,7 @@ public struct JSONHelper {
     ///
     /// - Parameter dictionary: Dictionary representation of json
     /// - Returns: data object with the json
-    public static func dataFromDictionary(_ dictionary: [String: String]?) -> Data? {
+    static func dataFromDictionary(_ dictionary: [String: String]?) -> Data? {
         guard let dictionary = dictionary else {
             return nil
         }
