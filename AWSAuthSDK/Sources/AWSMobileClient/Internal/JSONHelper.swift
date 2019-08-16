@@ -18,7 +18,6 @@
 
 import Foundation
 
-
 /// Helper class to convert json data
 public struct JSONHelper {
     
@@ -38,8 +37,7 @@ public struct JSONHelper {
         }
         return nil
     }
-    
-    
+
     /// Return a data from json dictionary
     ///
     /// - Parameter dictionary: Dictionary representation of json
@@ -56,6 +54,4 @@ public struct JSONHelper {
         }
         return nil
     }
-    
 }
-
