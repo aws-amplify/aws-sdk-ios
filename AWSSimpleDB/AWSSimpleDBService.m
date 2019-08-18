@@ -278,6 +278,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
 
         networkingRequest.HTTPMethod = HTTPMethod;
+        networkingRequest.URLString = URLString;
         networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSSimpleDBResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSSimpleDBResponseSerializer alloc] initWithJSONDefinition:[[AWSSimpleDBResources sharedInstance] JSONObject]
