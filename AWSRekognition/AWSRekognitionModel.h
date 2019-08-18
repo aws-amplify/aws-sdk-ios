@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionEmotionName) {
     AWSRekognitionEmotionNameDisgusted,
     AWSRekognitionEmotionNameSurprised,
     AWSRekognitionEmotionNameCalm,
+    AWSRekognitionEmotionNameFear,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionFaceAttributes) {

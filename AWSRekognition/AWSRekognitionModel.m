@@ -746,6 +746,9 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"UNKNOWN"] == NSOrderedSame) {
             return @(AWSRekognitionEmotionNameUnknown);
         }
+        if ([value caseInsensitiveCompare:@"FEAR"] == NSOrderedSame) {
+            return @(AWSRekognitionEmotionNameFear);
+        }
         return @(AWSRekognitionEmotionNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -765,6 +768,8 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"CALM";
             case AWSRekognitionEmotionNameUnknown:
                 return @"UNKNOWN";
+            case AWSRekognitionEmotionNameFear:
+                return @"FEAR";
             default:
                 return nil;
         }
