@@ -1241,7 +1241,6 @@
 		FA7A44C62305D09C00F55D7A /* AWSNetworkingHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = FA7A44C42305D09C00F55D7A /* AWSNetworkingHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA7A44C72305D09C00F55D7A /* AWSNetworkingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FA7A44C52305D09C00F55D7A /* AWSNetworkingHelpers.m */; };
 		FA7A44C92305DE0E00F55D7A /* SigV4TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A44C82305DE0E00F55D7A /* SigV4TestCase.swift */; };
-		FA7A57042308BCBC0093A523 /* SigV4TestCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A57032308BCBC0093A523 /* SigV4TestCredentials.swift */; };
 		FA7A57062308BEB10093A523 /* SigV4TestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A57052308BEB10093A523 /* SigV4TestCases.swift */; };
 		FA81D84E22FB8FBF0018DB1B /* AWSCognitoAuthUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDE85A91ED203D9008841EC /* AWSCognitoAuthUnitTests.m */; };
 		FA968B632302115E00AC6007 /* TranscribeStreamingTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */; };
@@ -4406,7 +4405,6 @@
 		FA7A44C42305D09C00F55D7A /* AWSNetworkingHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSNetworkingHelpers.h; sourceTree = "<group>"; };
 		FA7A44C52305D09C00F55D7A /* AWSNetworkingHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSNetworkingHelpers.m; sourceTree = "<group>"; };
 		FA7A44C82305DE0E00F55D7A /* SigV4TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCase.swift; sourceTree = "<group>"; };
-		FA7A57032308BCBC0093A523 /* SigV4TestCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCredentials.swift; sourceTree = "<group>"; };
 		FA7A57052308BEB10093A523 /* SigV4TestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCases.swift; sourceTree = "<group>"; };
 		FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeStreamingTestHelpers.swift; sourceTree = "<group>"; };
 		FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift; sourceTree = "<group>"; };
@@ -6473,11 +6471,7 @@
 				CE96C3FA1C6EA4670092D828 /* AWSServiceTests.m */,
 				FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */,
 				CE5603D61C6BC74500B4E00B /* Info.plist */,
-				FA7A44C82305DE0E00F55D7A /* SigV4TestCase.swift */,
-				FA7A57052308BEB10093A523 /* SigV4TestCases.swift */,
-				FA7A57032308BCBC0093A523 /* SigV4TestCredentials.swift */,
-				FA7A44BC23046B8900F55D7A /* SigV4Tests.swift */,
-				FA7A44C0230487A400F55D7A /* SigV4TestUtilities.swift */,
+				FA7A5707230911470093A523 /* SigV4Tests */,
 			);
 			path = AWSCoreUnitTests;
 			sourceTree = "<group>";
@@ -7728,6 +7722,17 @@
 				FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */,
 			);
 			path = AWSTranscribeStreamingUnitTests;
+			sourceTree = "<group>";
+		};
+		FA7A5707230911470093A523 /* SigV4Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FA7A44C82305DE0E00F55D7A /* SigV4TestCase.swift */,
+				FA7A57052308BEB10093A523 /* SigV4TestCases.swift */,
+				FA7A44BC23046B8900F55D7A /* SigV4Tests.swift */,
+				FA7A44C0230487A400F55D7A /* SigV4TestUtilities.swift */,
+			);
+			path = SigV4Tests;
 			sourceTree = "<group>";
 		};
 		FA8ECEC4216E7CE300DB67B2 /* Internal */ = {
@@ -12333,7 +12338,6 @@
 				FA7A44C1230487A400F55D7A /* SigV4TestUtilities.swift in Sources */,
 				FA7A44C92305DE0E00F55D7A /* SigV4TestCase.swift in Sources */,
 				FA7A57062308BEB10093A523 /* SigV4TestCases.swift in Sources */,
-				FA7A57042308BCBC0093A523 /* SigV4TestCredentials.swift in Sources */,
 				CE5603E41C6BC82E00B4E00B /* AWSTestUtility.m in Sources */,
 				CE5603E11C6BC7C700B4E00B /* AWSGeneralSTSTests.m in Sources */,
 				CE96C3FB1C6EA4670092D828 /* AWSServiceTests.m in Sources */,

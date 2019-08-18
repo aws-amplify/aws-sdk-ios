@@ -27,7 +27,7 @@ struct SigV4TestCase {
     // Given these setups (plus the other configs in SigV4TestCredentials)
     let credentialsProvider: AWSCredentialsProvider
     let shouldSignBody: Bool
-    let shouldSignSessionToken: Bool
+    let shouldSignSecurityToken: Bool
 
     // When we presign this original request
     let originalRequest: String
@@ -38,12 +38,13 @@ struct SigV4TestCase {
     // Useful debugging properties
     let canonicalRequest: String
     let stringToSign: String
+    let signature: String
 
 }
 
 extension SigV4TestCase {
     func makeURLRequest(fromRequestString requestString: String) throws -> URLRequest {
-        var lines = requestString.split(separator: "\n")
+        var lines = requestString.split(separator: "\n", maxSplits: Int.max, omittingEmptySubsequences: false)
 
         let startLine = lines.remove(at: 0)
         let startLineComponents = startLine.components(separatedBy: .whitespaces)
@@ -55,19 +56,37 @@ extension SigV4TestCase {
             throw "Not an HTTP request: \(originalRequest)"
         }
 
-        // Remaining lines are headers, up to the last empty line
+        // Remaining lines are headers, up to the first empty line, then body
         var headers = [String: String]()
         var hostFromHeader: String?
         var portFromHeader: String?
-        for line in lines {
+        var currentHeaderName: String?
+        while !lines.isEmpty {
+            let line = lines.remove(at: 0)
+
+            if line == "" {
+                break
+            }
+
+            // Folded headers are obsoleted, but we still need to be able to canonicalize them
+            if line.range(of: #"^\s+"#, options: .regularExpression) != nil, let currentHeaderName = currentHeaderName {
+                if let currentHeaderValue = headers[currentHeaderName] {
+                    headers[currentHeaderName] = currentHeaderValue + String(line)
+                } else {
+                    headers[currentHeaderName] = String(line)
+                }
+                continue
+            }
+
             // Get key/value pair, respecting potential colons in the value (e.g., "host:www.example.com:80")
             let headerComponents = line
                 .split(separator: ":", maxSplits: 1, omittingEmptySubsequences: false)
                 .map { String($0) }
 
             let key = headerComponents[0]
-            let value = headerComponents[1]
+            let value = headerComponents.last
             headers[key] = value
+            currentHeaderName = key
 
             if key.lowercased() == "host" {
                 hostFromHeader = value
@@ -96,6 +115,12 @@ extension SigV4TestCase {
         request.allHTTPHeaderFields = headers
         request.httpMethod = httpMethod
 
+        if !lines.isEmpty {
+            let body = lines.joined(separator: "\n")
+            let bodyData = body.data(using: .utf8)
+            request.httpBody = bodyData
+        }
+
         return request
     }
 }
@@ -105,22 +130,24 @@ extension SigV4TestCase: CustomStringConvertible {
         let description =
         """
         ######################
-        ### BEGIN testCaseName: \(testCaseName)
-        ### shouldSignBody:
-        \(shouldSignBody)
-        ### shouldSignSessionToken:
-        \(shouldSignSessionToken)
-        ### credentialsProvider:
-        \(credentialsProvider)
-        ### expectedPresignedURL:
-        \(expectedPresignedURL)
-        ### originalRequest:
+        testCaseName: \(testCaseName)
+        shouldSignBody: \(shouldSignBody)
+        shouldSignSecurityToken: \(shouldSignSecurityToken)
+        access_key: \(credentialsProvider)
+        expectedPresignedURL: \(expectedPresignedURL)
+
+        originalRequest:
         \(originalRequest)
-        ### canonicalRequest:
+
+        canonicalRequest:
         \(canonicalRequest)
-        ### stringToSign:
+
+        stringToSign:
         \(stringToSign)
-        ### END testCaseName: \(testCaseName)
+
+        signature: \(signature)
+        
+        (end \(testCaseName))
         ######################
         """
 

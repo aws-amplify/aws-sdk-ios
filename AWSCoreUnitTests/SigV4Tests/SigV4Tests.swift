@@ -19,17 +19,19 @@ import AWSCore
 
 class SigV4Tests: XCTestCase {
 
-    // MARK: - Tests
+    func testPresignedURLCases() {
+        // Uncomment these lines to add verbose logging for debugging test failures
+         AWSDDLog.sharedInstance.logLevel = .verbose
+         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
-    func testPresignedURL() {
-        AWSDDLog.sharedInstance.logLevel = .verbose
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        var testCaseName: String?
         do {
-            for testData in SigV4PresignedURLTestCases.allCases {
-                try assertPresignedURL(for: testData)
+            for testCase in SigV4PresignedURLTestCases.allCases {
+                testCaseName = testCase.testCaseName
+                try assertPresignedURL(for: testCase)
             }
         } catch {
-            XCTFail("Error processing test: \(error)")
+            XCTFail("Error processing test: \(testCaseName ?? "(unknown name)")")
         }
     }
 
@@ -49,7 +51,7 @@ class SigV4Tests: XCTestCase {
             date: SigV4TestCredentials.testDate,
             expireDuration: SigV4TestCredentials.expiry,
             signBody: testCase.shouldSignBody,
-            signSessionToken: testCase.shouldSignSessionToken)?.continueWith { task in
+            signSessionToken: testCase.shouldSignSecurityToken)?.continueWith { task in
                 defer {
                     taskIsComplete.fulfill()
                 }
