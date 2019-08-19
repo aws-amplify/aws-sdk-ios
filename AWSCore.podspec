@@ -12,10 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
 
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
-                     :branch => 'palpatim/finish-transcribe-wss'}
-                      # Restore this after development of TranscribeStreaming WSS is finished, before
-                      # merging to the /develop branch
-                      # :tag => s.version}
+                     :tag => s.version}
 
   s.frameworks   = 'CoreGraphics', 'UIKit', 'Foundation', 'SystemConfiguration', 'Security'
   s.libraries    = 'z', 'sqlite3'

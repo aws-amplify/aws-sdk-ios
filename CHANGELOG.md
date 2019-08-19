@@ -11,8 +11,13 @@
 
 ### New Features
 
-- **Amazon Transcribe Streaming**
+- **Amazon Transcribe Streaming (Beta)**
   - Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time using WebSockets.
+    See [AWS Documentation](https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html) for more information, and the
+    [integration test](https://github.com/aws-amplify/aws-sdk-ios/blob/master/AWSTranscribeStreamingTests/AWSTranscribeStreamingSwiftTests.swift)
+    for an example of usage.
+
+    *Note: This is beta software. Please [report issues](https://github.com/aws-amplify/aws-sdk-ios/issues) if you encounter any problems.*
 
 ### Bug Fixes
 
