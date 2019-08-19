@@ -57,9 +57,6 @@ struct TestData {
 
     /// A data event representing a BadRequestException, to test serialization of error members of TranscribeEventStream
     static let transcriptErrorEvent = Data(base64Encoded: "AAAAxwAAAGEEorpsDzpleGNlcHRpb24tdHlwZQcAE0JhZFJlcXVlc3RFeGNlcHRpb24NOmNvbnRlbnQtdHlwZQcAEGFwcGxpY2F0aW9uL2pzb24NOm1lc3NhZ2UtdHlwZQcACWV4Y2VwdGlvbnsiTWVzc2FnZSI6IllvdXIgcmVxdWVzdCB0aW1lZCBvdXQgYmVjYXVzZSBubyBuZXcgYXVkaW8gd2FzIHJlY2VpdmVkIGZvciAxNSBzZWNvbmRzLiJ9PblBbw==")!
-
-    /// Junk data, to test decoder error cases
-    static let junkData = Data(repeating: 0x01, count: 10)
 }
 
 /// A mock delegate that implements all members of AWSTranscribeStreamingClientDelegate

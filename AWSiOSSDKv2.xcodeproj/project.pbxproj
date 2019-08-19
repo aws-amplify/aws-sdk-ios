@@ -1230,7 +1230,6 @@
 		FA53332322D40B5500BD88AF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		FA53332422D4110900BD88AF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		FA53333A22D4D54800BD88AF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
-		FA53333C22D4D5E900BD88AF /* AWSTranscribeStreamingEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA53333B22D4D5E900BD88AF /* AWSTranscribeStreamingEncoderTests.swift */; };
 		FA53334122D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FA53334222D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */; };
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
@@ -1247,7 +1246,6 @@
 		FA968B65230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */; };
 		FA968B67230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA968B66230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift */; };
 		FA968B692302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA968B682302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift */; };
-		FA968B6B23021CDD00AC6007 /* AWSTranscribeStreamingDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA968B6A23021CDD00AC6007 /* AWSTranscribeStreamingDecoderTests.swift */; };
 		FA99CF25216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */; };
 		FA99CF26216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */; };
 		FA99CF2D216C13E30086F9A7 /* AWSKinesisSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */; };
@@ -4392,7 +4390,6 @@
 		FA53332022D4065900BD88AF /* AWSTranscribeStreamingSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingSwiftTests.swift; sourceTree = "<group>"; };
 		FA53332B22D4D47D00BD88AF /* AWSTranscribeStreamingUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSTranscribeStreamingUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA53332F22D4D47E00BD88AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA53333B22D4D5E900BD88AF /* AWSTranscribeStreamingEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingEncoderTests.swift; sourceTree = "<group>"; };
 		FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingEventDecoder.h; sourceTree = "<group>"; };
 		FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingEventDecoder.m; sourceTree = "<group>"; };
 		FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityASF.m; sourceTree = "<group>"; };
@@ -4410,7 +4407,6 @@
 		FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift; sourceTree = "<group>"; };
 		FA968B66230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidOpenTests.swift; sourceTree = "<group>"; };
 		FA968B682302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidCloseTests.swift; sourceTree = "<group>"; };
-		FA968B6A23021CDD00AC6007 /* AWSTranscribeStreamingDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingDecoderTests.swift; sourceTree = "<group>"; };
 		FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPEncodingJSONRequestSerializer.h; sourceTree = "<group>"; };
 		FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingJSONRequestSerializer.m; sourceTree = "<group>"; };
 		FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisSerializer.h; sourceTree = "<group>"; };
@@ -7715,8 +7711,6 @@
 				FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */,
 				FA968B66230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift */,
 				FA09EEA722D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift */,
-				FA968B6A23021CDD00AC6007 /* AWSTranscribeStreamingDecoderTests.swift */,
-				FA53333B22D4D5E900BD88AF /* AWSTranscribeStreamingEncoderTests.swift */,
 				FA09EEAB22D65666007EA360 /* AWSTranscribeStreamingUnitTests-Bridging-Header.h */,
 				FA53332F22D4D47E00BD88AF /* Info.plist */,
 				FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */,
@@ -13091,8 +13085,6 @@
 				FA968B65230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift in Sources */,
 				FA09EEA822D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift in Sources */,
 				FA968B692302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift in Sources */,
-				FA968B6B23021CDD00AC6007 /* AWSTranscribeStreamingDecoderTests.swift in Sources */,
-				FA53333C22D4D5E900BD88AF /* AWSTranscribeStreamingEncoderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

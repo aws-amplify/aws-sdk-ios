@@ -34,22 +34,12 @@
 //    [data writeToURL:temporaryFileURL options:NSDataWritingAtomic error:&error];
 //    assert(error == nil);
 //    AWSDDLogError(@"Wrote data_chunk to %@", temporaryFileURL);
-    
-    BOOL messageLengthHeaderIsValid =
-    [AWSTranscribeStreamingEventDecoder verifyMessageLengthHeaderForData:data
-                                                          expectedLength:[data length]];
-    
-    if (!messageLengthHeaderIsValid) {
-        *decodingErrorPointer = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
-                                            code:AWSTranscribeStreamingClientErrorCodeInvalidMessageLengthHeader
-                                        userInfo:nil];
+
+    if(![AWSTranscribeStreamingEventDecoder verifyPreludeForData:data decodingError:decodingErrorPointer]) {
         return nil;
     }
-    
-    if(![AWSTranscribeStreamingEventDecoder verifyPreludeForData:data]) {
-        *decodingErrorPointer = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
-                                            code:AWSTranscribeStreamingClientErrorCodeInvalidMessagePrelude
-                                        userInfo:nil];
+
+    if (![AWSTranscribeStreamingEventDecoder verifyMessageLengthHeaderForData:data decodingError:decodingErrorPointer]) {
         return nil;
     }
     
@@ -72,14 +62,34 @@
     return resultStream;
 }
 
-+(bool)verifyMessageLengthHeaderForData:(NSData *)data
-                         expectedLength:(NSUInteger)len {
-    // TODO: Implement reverse process of encoding to verify the length
++(bool)verifyPreludeForData:(NSData *)data
+              decodingError:(NSError **)decodingErrorPointer {
+    if (data.length < 16) {
+        NSString *failureReason = [NSString stringWithFormat:@"Socket overhead is at least 16 bytes, actual data size is %lu",
+                                   data.length];
+
+        NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey:failureReason};
+        *decodingErrorPointer = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                                    code:AWSTranscribeStreamingClientErrorCodeInvalidMessagePrelude
+                                                userInfo:userInfo];
+        return NO;
+    }
     return YES;
 }
 
-+(bool)verifyPreludeForData:(NSData *)data {
-    // TODO: Implement reverse process of encoding to verify the prelude
++(bool)verifyMessageLengthHeaderForData:(NSData *)data
+                          decodingError:(NSError **)decodingErrorPointer {
+    int totalLength = [AWSTranscribeStreamingEventDecoder getTotalLengthForData:data];
+    if (data.length < totalLength) {
+        NSString *failureReason = [NSString stringWithFormat:@"Prelude specifies data size of %d, actual size is %lu",
+                                   totalLength,
+                                   data.length];
+        NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: failureReason};
+        *decodingErrorPointer = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                                    code:AWSTranscribeStreamingClientErrorCodeInvalidMessageLengthHeader
+                                                userInfo:userInfo];
+        return NO;
+    }
     return YES;
 }
 
@@ -123,8 +133,12 @@
     return dataString;
 }
 
++(int)getTotalLengthForData:(NSData *)data {
+    return CFSwapInt32(*(UInt32 *)[[data subdataWithRange:NSMakeRange(0, 4)] bytes]);;
+}
+
 +(int)getHeaderLengthForData:(NSData *)data {
-    return CFSwapInt32(*(UInt32 *)[[data subdataWithRange:NSMakeRange(4, 8)]  bytes]);;
+    return CFSwapInt32(*(UInt32 *)[[data subdataWithRange:NSMakeRange(4, 8)] bytes]);;
 }
 
 @end

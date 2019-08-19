@@ -139,12 +139,44 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
                 return
             }
 
-            XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.eventSerializationError.rawValue)
+            XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.invalidMessagePrelude.rawValue)
             callbackInvoked.fulfill()
         }
 
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
-        adaptor.webSocket(nil, didReceiveMessage: TestData.junkData)
+
+        let shortData = Data(repeating: 0x01, count: 4)
+        adaptor.webSocket(nil, didReceiveMessage: shortData)
+
+        waitForExpectations(timeout: 0.1)
+    }
+
+    /// - Given: An adaptor with a delegate
+    /// - When: The adaptor's `-[webSocket:didReceiveMessage:]` method is invoked with junk data that is below the
+    ///   minimum length specified by the protocol
+    /// - Then: the delegate receives a AWSTranscribeStreamingClientErrorCodeEventSerializationError
+    func testEventStreamWithJunkData() {
+        let delegate = FullyImplementedMockDelegate()
+        let callbackInvoked = expectation(description: "receiveEventCallback invoked")
+
+        delegate.receiveEventCallback = { event, error in
+            if let event = event {
+                XCTFail("Event should not be present: \(event)")
+                return
+            }
+
+            guard let error = error as NSError? else {
+                XCTFail("error unexpectedly nil")
+                return
+            }
+
+            XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.invalidMessageLengthHeader.rawValue)
+            callbackInvoked.fulfill()
+        }
+
+        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
+        let junkData = Data(repeating: 0x01, count: 100)
+        adaptor.webSocket(nil, didReceiveMessage: junkData)
 
         waitForExpectations(timeout: 0.1)
     }
