@@ -21,8 +21,8 @@ class SigV4Tests: XCTestCase {
 
     func testPresignedURLCases() {
         // Uncomment these lines to add verbose logging for debugging test failures
-         AWSDDLog.sharedInstance.logLevel = .verbose
-         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        // AWSDDLog.sharedInstance.logLevel = .verbose
+        // AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
         var testCaseName: String?
         do {

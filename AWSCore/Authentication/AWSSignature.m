@@ -421,8 +421,9 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:request.URL
                                                       resolvingAgainstBaseURL:NO];
 
-        //Implementation of V4 signature http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
-        NSMutableArray<NSURLQueryItem *> *queryItems = [[NSMutableArray alloc] init];
+        // Implementation of V4 signature http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html
+        // Start with existing query string parameters; signature parameters will be appended to them
+        NSMutableArray<NSURLQueryItem *> *queryItems = [[NSMutableArray alloc] initWithArray:urlComponents.queryItems];
 
         //Append Identifies the version of AWS Signature and the algorithm that you used to calculate the signature.
         [queryItems addObject:[NSURLQueryItem queryItemWithName:@"X-Amz-Algorithm" value:AWSSignatureV4Algorithm]];
@@ -450,9 +451,6 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         NSDictionary *headers = request.allHTTPHeaderFields;
         NSString *signedHeaders = [self getSignedHeadersString:headers];
         [queryItems addObject:[NSURLQueryItem queryItemWithName: @"X-Amz-SignedHeaders" value:signedHeaders]];
-
-        //add existing query string parameters to queryString
-        [queryItems addObjectsFromArray:urlComponents.queryItems];
 
         // Add security-token as part of signed payload if present, and `signSessionToken` is true
         if (signSessionToken && credentials.sessionKey.length > 0) {
@@ -648,20 +646,25 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 }
 
 + (NSString *)getCanonicalizedHeaderString:(NSDictionary *)headers {
+    NSCharacterSet *whitespaceChars = [NSCharacterSet whitespaceCharacterSet];
+
     NSMutableArray *sortedHeaders = [[NSMutableArray alloc] initWithArray:[headers allKeys]];
 
     [sortedHeaders sortUsingSelector:@selector(caseInsensitiveCompare:)];
 
     NSMutableString *headerString = [NSMutableString new];
     for (NSString *header in sortedHeaders) {
+        NSString *value = [headers valueForKey:header];
+        if (value != nil) {
+            value = [value stringByTrimmingCharactersInSet:whitespaceChars];
+        }
         [headerString appendString:[header lowercaseString]];
         [headerString appendString:@":"];
-        [headerString appendString:[headers valueForKey:header]];
+        [headerString appendString:value];
         [headerString appendString:@"\n"];
     }
 
     // SigV4 expects all whitespace in headers and values to be collapsed to a single space
-    NSCharacterSet *whitespaceChars = [NSCharacterSet whitespaceCharacterSet];
     NSPredicate *noEmptyStrings = [NSPredicate predicateWithFormat:@"SELF != ''"];
 
     NSArray *parts = [headerString componentsSeparatedByCharactersInSet:whitespaceChars];
