@@ -69,7 +69,7 @@ extension SigV4TestCase {
             }
 
             // Folded headers are obsoleted, but we still need to be able to canonicalize them
-            if line.range(of: #"^\s+"#, options: .regularExpression) != nil, let currentHeaderName = currentHeaderName {
+            if line.range(of: "^\\s+", options: .regularExpression) != nil, let currentHeaderName = currentHeaderName {
                 if let currentHeaderValue = headers[currentHeaderName] {
                     headers[currentHeaderName] = currentHeaderValue + String(line)
                 } else {
