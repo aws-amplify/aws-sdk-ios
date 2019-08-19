@@ -9,6 +9,8 @@
     If you attempt to start a new task on the invalidated session, AWSNetworking will now throw an `AWSNetworkingErrorSessionInvalid` error.
     (See [PR #1203](https://github.com/aws-amplify/aws-sdk-ios/pull/1203) and [PR #1556](https://github.com/aws-amplify/aws-sdk-ios/pull/1556)).
     Thanks @jkennington and @jaetzold!
+  - Propagate `URLString` parameter from service `invokeRequest` method calls to `-[AWSNetworking sendRequest]`. Previously, all API calls would use the
+    base URL, even if a `URLString` parameter was specified.
 
 - **AWSCognitoAuth**
   - `delegate` property is now retained weakly
@@ -22,6 +24,7 @@
   - Amazon EC2
   - Amazon Lex
   - Amazon Polly
+  - Amazon Rekognition
   - AWS IoT
 
 ## 2.10.2
