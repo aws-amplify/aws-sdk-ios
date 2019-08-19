@@ -1399,7 +1399,8 @@
         \"DISGUSTED\",\
         \"SURPRISED\",\
         \"CALM\",\
-        \"UNKNOWN\"\
+        \"UNKNOWN\",\
+        \"FEAR\"\
       ]\
     },\
     \"Emotions\":{\
