@@ -53,6 +53,50 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
         signIn(username: username)
     }
     
+    /// Test successful sign in with callback
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I set listener to AWSMobileClient
+    ///    - I invoke `signIn` with completion callback
+    /// - Then:
+    ///    - My `signIn` completion callback is invoked
+    ///    - My listener is invoked with signedIn state
+    ///    - The user state is `signedIn`
+    ///
+    func testSignInCallbacks() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        
+         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
+        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+            switch (userState) {
+            case .signedIn:
+                signInListenerWasSuccessful.fulfill()
+                print("Listener user is signed in.")
+            default:
+                print("Listener \(userState)")
+            }
+        }
+        
+        let signInWasSuccessful = expectation(description: "signIn was successful")
+        AWSMobileClient.sharedInstance().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+            if let error = error {
+                XCTFail("User login failed: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let signInResult = signInResult else {
+                XCTFail("User login failed, signInResult unexpectedly nil")
+                return
+            }
+            XCTAssertEqual(signInResult.signInState, .signedIn, "Could not verify sign in state")
+            signInWasSuccessful.fulfill()
+        }
+        wait(for: [signInWasSuccessful, signInListenerWasSuccessful], timeout: 5)
+        AWSMobileClient.sharedInstance().removeUserStateListener(self)
+    }
+    
     func testSignInFailCase() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
