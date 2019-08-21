@@ -130,8 +130,8 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
         return self.baseURL;
     }
 
-    return [NSURL URLWithString:self.URLString
-                  relativeToURL:self.baseURL];
+    NSURL *url = [self.baseURL URLByAppendingPathComponent:self.URLString];
+    return url;
 }
 
 - (void)setMaxRetryCount:(uint32_t)maxRetryCount {

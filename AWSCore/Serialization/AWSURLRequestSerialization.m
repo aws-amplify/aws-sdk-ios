@@ -90,15 +90,14 @@
     NSDictionary *shapeRules = [self.serviceDefinitionJSON objectForKey:@"shapes"];
     AWSJSONDictionary *inputRules = [[AWSJSONDictionary alloc] initWithDictionary:[actionRules objectForKey:@"input"] JSONDefinitionRule:shapeRules];
 
-    NSDictionary *actionHTTPRule = [actionRules objectForKey:@"http"];
-    NSString *ruleURIStr = [actionHTTPRule objectForKey:@"requestUri"];
+    NSString *urlPath = [request.URL.path stringByRemovingPercentEncoding];
 
     NSError *error = nil;
 
     [AWSXMLRequestSerializer constructURIandHeadersAndBody:request
                                                      rules:inputRules
                                                 parameters:parameters
-                                                 uriSchema:ruleURIStr
+                                                 uriSchema:urlPath
                                                      error:&error];
     if (error) {
         return [AWSTask taskWithError:error];
@@ -240,7 +239,7 @@
 
     rules = rules[@"members"] ? rules[@"members"] : @{};
 
-    __block NSString *rawURI = uriSchema?uriSchema:@"";
+    __block NSString *uriTemplate = uriSchema ? uriSchema : @"";
     __block BOOL isValid = YES;
     __block NSError *blockErr = nil;
     [rules enumerateKeysAndObjectsUsingBlock:^(NSString *memberName, id memberRules, BOOL *stop) {
@@ -308,12 +307,12 @@
                 NSString *keyToFind = [NSString stringWithFormat:@"{%@}", xmlElementName];
                 NSString *greedyKeyToFind = [NSString stringWithFormat:@"{%@+}", xmlElementName];
 
-                if ([rawURI rangeOfString:keyToFind].location != NSNotFound) {
-                    rawURI = [rawURI stringByReplacingOccurrencesOfString:keyToFind
+                if ([uriTemplate rangeOfString:keyToFind].location != NSNotFound) {
+                    uriTemplate = [uriTemplate stringByReplacingOccurrencesOfString:keyToFind
                                                                withString:[valueStr aws_stringWithURLEncoding]];
 
-                } else if ([rawURI rangeOfString:greedyKeyToFind].location != NSNotFound) {
-                    rawURI = [rawURI stringByReplacingOccurrencesOfString:greedyKeyToFind
+                } else if ([uriTemplate rangeOfString:greedyKeyToFind].location != NSNotFound) {
+                    uriTemplate = [uriTemplate stringByReplacingOccurrencesOfString:greedyKeyToFind
                                                                withString:[valueStr aws_stringWithURLEncodingPathWithoutPriorDecoding]];
                 }
 
@@ -390,18 +389,18 @@
                 queryString = [queryString stringByAppendingString:appendString];
             }
         }
-        rawURI = [rawURI stringByAppendingString:queryString];
+        uriTemplate = [uriTemplate stringByAppendingString:queryString];
     }
 
     //removed unused query key
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{.*?\\}" options:NSRegularExpressionCaseInsensitive error:nil];
-    rawURI = [regex stringByReplacingMatchesInString:rawURI options:0 range:NSMakeRange(0, [rawURI length]) withTemplate:@""];
+    uriTemplate = [regex stringByReplacingMatchesInString:uriTemplate options:0 range:NSMakeRange(0, [uriTemplate length]) withTemplate:@""];
 
     //validate URL
-    NSRange r = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"{}"]];
+    NSRange r = [uriTemplate rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"{}"]];
     if (r.location != NSNotFound) {
         if (error) {
-            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"the constructed request queryString is invalid:%@",rawURI] forKey:NSLocalizedDescriptionKey]];
+            *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"the constructed request queryString is invalid:%@",uriTemplate] forKey:NSLocalizedDescriptionKey]];
         }
         request.URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", request.URL]];
 
@@ -410,17 +409,22 @@
         // fix query string
         // @"?location" -> @"?location="
 
-        NSRange hasQuestionMark = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
-        NSRange hasEqualMark = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
+        NSRange hasQuestionMark = [uriTemplate rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
+        NSRange hasEqualMark = [uriTemplate rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
         if ((hasQuestionMark.location != NSNotFound) && (hasEqualMark.location == NSNotFound)) {
-            rawURI = [rawURI stringByAppendingString:@"="];
+            uriTemplate = [uriTemplate stringByAppendingString:@"="];
         }
 
-        NSString *finalURL = [NSString stringWithFormat:@"%@%@", request.URL,rawURI];
-        request.URL = [NSURL URLWithString:finalURL];
+        NSURLComponents *components = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
+        components.path = uriTemplate;
+        request.URL = components.URL;
         if (!request.URL) {
             if (error) {
-                *error = [NSError errorWithDomain:AWSValidationErrorDomain code:AWSValidationURIIsInvalid userInfo:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"unable the assigned URL to request, URL may be invalid:%@",finalURL] forKey:NSLocalizedDescriptionKey]];
+                *error = [NSError errorWithDomain:AWSValidationErrorDomain
+                                             code:AWSValidationURIIsInvalid
+                                         userInfo:@{
+                                                    NSLocalizedDescriptionKey:[NSString stringWithFormat:@"unable to assign URL to request, URL may be invalid: %@", components]
+                                                    }];
             }
             return NO;
         }
