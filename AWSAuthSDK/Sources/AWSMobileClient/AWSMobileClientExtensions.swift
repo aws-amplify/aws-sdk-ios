@@ -519,6 +519,7 @@ extension AWSMobileClient {
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
         self.internalCredentialsProvider?.credentials()
+        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: additionalInfo)
     }
     
     /// Confirm a sign in which requires additional validation via steps like SMS MFA.
