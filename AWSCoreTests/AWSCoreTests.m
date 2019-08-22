@@ -973,4 +973,57 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
     [[NSFileManager defaultManager] createFileAtPath:filePath contents:validData attributes:nil];
 }
 
+- (void)testInMemoryAwsConfiguration {
+    NSDictionary<NSString *, id> *configDictionary = @{
+                                                       @"ServiceName": @{
+                                                           @"EnvName": @{
+                                                               @"SomeKey": @"SomeValue"
+                                                           }
+                                                       }
+                                                     };
+    [AWSInfo configure:configDictionary];
+    @try {
+        AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+        XCTAssertNotNil(defaultInfo);
+        XCTAssertEqual(defaultInfo.rootInfoDictionary, configDictionary);
+        XCTAssertNotNil([defaultInfo.rootInfoDictionary objectForKey:@"ServiceName"]);
+
+        // AWSServiceInfo is only returned by `defaultServiceInfo` when `CredentialsProvider` is also set
+        XCTAssertNil([defaultInfo defaultServiceInfo:@"ServiceName"]);
+    } @catch (NSException *exception) {
+        XCTFail(@"AWSInfo initilization failed.");
+    }
+}
+
+- (void)testInMemoryServiceConfiguration {
+    NSDictionary<NSString *, id> *configDictionary = @{
+                                                       @"CredentialsProvider": @{
+                                                           @"CognitoIdentity": @{
+                                                               @"Default": @{
+                                                                   @"PoolId": @"COGNITO_POOL_ID",
+                                                                   @"Region": @"us-east-1"
+                                                               }
+                                                           }
+                                                       },
+                                                       @"PinpointAnalytics": @{
+                                                           @"Default": @{
+                                                               @"AppId": @"PINPOINT_APP_ID",
+                                                               @"Region": @"us-east-1"
+                                                           }
+                                                       }
+                                                     };
+    [AWSInfo configure:configDictionary];
+    @try {
+        AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+        XCTAssertNotNil(defaultInfo);
+
+        AWSServiceInfo *serviceInfo = [defaultInfo defaultServiceInfo:@"PinpointAnalytics"];
+        XCTAssertNotNil(serviceInfo);
+        XCTAssertEqual([serviceInfo.infoDictionary objectForKey:@"AppId"], @"PINPOINT_APP_ID");
+        XCTAssertEqual(serviceInfo.region, AWSRegionUSEast1);
+    } @catch (NSException *exception) {
+        XCTFail(@"AWSInfo initilization failed.");
+    }
+}
+
 @end
