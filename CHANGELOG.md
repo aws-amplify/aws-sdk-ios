@@ -23,6 +23,8 @@
   - Amazon EC2
   - Amazon Lex
   - Amazon Polly
+  - Amazon Rekognition
+  * Amazon Simple Queue Service (SQS)
   - AWS IoT
 
 ## 2.10.2

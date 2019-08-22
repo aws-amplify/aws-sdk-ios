@@ -118,6 +118,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 	return @{
              @"attributes" : @"Attributes",
              @"queueName" : @"QueueName",
+             @"tags" : @"tags",
              };
 }
 

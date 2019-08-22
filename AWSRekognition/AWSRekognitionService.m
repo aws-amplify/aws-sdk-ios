@@ -277,7 +277,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.URLString = URLString;
         networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSRekognitionResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSRekognitionResponseSerializer alloc] initWithJSONDefinition:[[AWSRekognitionResources sharedInstance] JSONObject]
