@@ -23,10 +23,10 @@ import AWSCognitoIdentityProvider
 ///
 internal class AWSMobileClientUserDetails {
     
-    let user:AWSCognitoIdentityUser
+    let cognitoIdentityUser: AWSCognitoIdentityUser
     
-    init(withUser: AWSCognitoIdentityUser) {
-            user = withUser
+    init(with user: AWSCognitoIdentityUser) {
+            cognitoIdentityUser = user
     }
     
     /// Verify a user attribute like phone_number.
@@ -35,7 +35,7 @@ internal class AWSMobileClientUserDetails {
     ///   - attributeName: name of the attribute.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func verifyUserAttribute(attributeName: String, completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
-        self.user.getAttributeVerificationCode(attributeName).continueWith { (task) -> Any? in
+        self.cognitoIdentityUser.getAttributeVerificationCode(attributeName).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -56,7 +56,7 @@ internal class AWSMobileClientUserDetails {
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func updateUserAttributes(attributeMap: [String: String], completionHandler: @escaping (([UserCodeDeliveryDetails]?, Error?) -> Void)) {
         let attributes = attributeMap.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
-        self.user.update(attributes).continueWith { (task) -> Any? in
+        self.cognitoIdentityUser.update(attributes).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -76,7 +76,7 @@ internal class AWSMobileClientUserDetails {
     ///
     /// - Parameter completionHandler: completion handler which will be invoked when result is available.
     public func getUserAttributes(completionHandler: @escaping (([String: String]?, Error?) -> Void)) {
-        self.user.getDetails().continueWith { (task) -> Any? in
+        self.cognitoIdentityUser.getDetails().continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -101,7 +101,7 @@ internal class AWSMobileClientUserDetails {
     ///   - code: the code sent to the user.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmVerifyUserAttribute(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
-        self.user.verifyAttribute(attributeName, code: code).continueWith { (task) -> Any? in
+        self.cognitoIdentityUser.verifyAttribute(attributeName, code: code).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
