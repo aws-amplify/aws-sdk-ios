@@ -267,7 +267,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
 
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.URLString = URLString;
         networkingRequest.requestSerializer = [[AWSQueryStringRequestSerializer alloc] initWithJSONDefinition:[[AWSAutoScalingResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSAutoScalingResponseSerializer alloc] initWithJSONDefinition:[[AWSAutoScalingResources sharedInstance] JSONObject]
