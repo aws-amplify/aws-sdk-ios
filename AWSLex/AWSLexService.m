@@ -28,7 +28,7 @@
 #import "AWSLexSignature.h"
 
 static NSString *const AWSInfoLex = @"Lex";
-NSString *const AWSLexSDKVersion = @"2.10.2";
+NSString *const AWSLexSDKVersion = @"2.10.3";
 
 
 @interface AWSLexResponseSerializer : AWSJSONResponseSerializer
@@ -283,6 +283,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask<AWSLexDeleteSessionResponse *> *)deleteSession:(AWSLexDeleteSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/bot/{botName}/alias/{botAlias}/user/{userId}/session"
+                  targetPrefix:@""
+                 operationName:@"DeleteSession"
+                   outputClass:[AWSLexDeleteSessionResponse class]];
+}
+
+- (void)deleteSession:(AWSLexDeleteSessionRequest *)request
+     completionHandler:(void (^)(AWSLexDeleteSessionResponse *response, NSError *error))completionHandler {
+    [[self deleteSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSLexDeleteSessionResponse *> * _Nonnull task) {
+        AWSLexDeleteSessionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLexGetSessionResponse *> *)getSession:(AWSLexGetSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/bot/{botName}/alias/{botAlias}/user/{userId}/session"
+                  targetPrefix:@""
+                 operationName:@"GetSession"
+                   outputClass:[AWSLexGetSessionResponse class]];
+}
+
+- (void)getSession:(AWSLexGetSessionRequest *)request
+     completionHandler:(void (^)(AWSLexGetSessionResponse *response, NSError *error))completionHandler {
+    [[self getSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSLexGetSessionResponse *> * _Nonnull task) {
+        AWSLexGetSessionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLexPostContentResponse *> *)postContent:(AWSLexPostContentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -319,6 +365,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLexPostTextResponse *response, NSError *error))completionHandler {
     [[self postText:request] continueWithBlock:^id _Nullable(AWSTask<AWSLexPostTextResponse *> * _Nonnull task) {
         AWSLexPostTextResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLexPutSessionResponse *> *)putSession:(AWSLexPutSessionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/bot/{botName}/alias/{botAlias}/user/{userId}/session"
+                  targetPrefix:@""
+                 operationName:@"PutSession"
+                   outputClass:[AWSLexPutSessionResponse class]];
+}
+
+- (void)putSession:(AWSLexPutSessionRequest *)request
+     completionHandler:(void (^)(AWSLexPutSessionResponse *response, NSError *error))completionHandler {
+    [[self putSession:request] continueWithBlock:^id _Nullable(AWSTask<AWSLexPutSessionResponse *> * _Nonnull task) {
+        AWSLexPutSessionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

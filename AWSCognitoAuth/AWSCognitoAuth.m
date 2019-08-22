@@ -68,7 +68,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.10.2";
+NSString *const AWSCognitoAuthSDKVersion = @"2.10.3";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -751,7 +751,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 //clean up vc
                 self.svc = nil;
             }];
-        }else {
+        } else {
             dismissBlock();
         }
     });
