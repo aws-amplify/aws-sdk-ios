@@ -178,10 +178,18 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeStreamingSDKVersion;
 #pragma mark - TranscribeStreaming WSS support
 
 /**
- Prepares a websocket to receive streaming data according to the specifications contained in `request`, and opens the underlying web socket.
- 
- Apps should set a delegate before calling this method so that they may be notified when the web socket is open and ready to begin receiving
- data.
+ Prepares a websocket to handle the transcription job described by `request`. This method prepares the websocket
+ and initiates opening the socket, but the web socket will not be ready for handling audio data until the delegate
+ receives a `AWSTranscribeStreamingClientConnectionStatusConnected` status on the
+ `-[AWSTranscribeStreamingClientDelegate connectionStatusDidChange:withError:]` callback.
+
+ Apps should set a delegate before calling this method so that they may be notified when the web socket is open and
+ ready to begin receiving data.
+
+ The process of opening a socket involves crafting a presigned URL according to the rules at
+ https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html. The presigned URL requires credentials, which
+ eventually makes a call to the configured credentialsProvider. The credentials provider may make a network call to
+ refresh the credentials, or fail with a message indicating the
 
  @param request the request containing the stream details
  */

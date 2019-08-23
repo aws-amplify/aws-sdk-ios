@@ -23,7 +23,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
     /// - When: The adaptor receives `-[webSocket:didFailWithError:]` invocation
     /// - Then: the delegate receives a connectionDidChange
     func testAdaptor() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { _, error in
@@ -41,34 +41,11 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
     }
 
-    /// - Given: An adaptor with a delegate that implements only the required methods of
-    ///   `AWSTranscribeStreamingClientDelegate`
-    /// - When: The adaptor receives `-[webSocket:didFailWithError:]` invocation
-    /// - Then: the delegate receives no message, and does not crash
-    func testAdaptorHandlesPartialDelegate() {
-        let delegate = PartiallyImplementedMockDelegate()
-        let receiveEventNotInvoked = expectation(description: "didReceiveEvent method was not invoked")
-        receiveEventNotInvoked.isInverted = true
-
-        delegate.receiveEventCallback = { _, _ in
-            receiveEventNotInvoked.fulfill()
-        }
-
-        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
-
-        let error = NSError(domain: AWSSRWebSocketErrorDomain,
-                            code: 1234,
-                            userInfo: nil)
-        adaptor.webSocket(nil, didFailWithError: error)
-
-        waitForExpectations(timeout: 0.1)
-    }
-
     /// - Given: An adaptor with a delegate
     /// - When: The adaptor's `-[webSocket:didFailWithError:]` method is invoked with an error
     /// - Then: the delegate receives the raw, untranslated error information
     func testAdaptorPropagatesRawErrorInformation() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { _, error in
@@ -98,7 +75,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
     /// - Then: the delegate receives the `AWSTranscribeStreamingClientDelegateConnectionStatus` appropriate
     ///   to the raw SocketRocket status
     func testAdaptorPropagatesConnectionStatus_CONNECTING() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
@@ -125,7 +102,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
     /// - Then: the delegate receives the `AWSTranscribeStreamingClientDelegateConnectionStatus` appropriate
     ///   to the raw SocketRocket status
     func testAdaptorPropagatesConnectionStatus_OPEN() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
@@ -152,7 +129,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
     /// - Then: the delegate receives the `AWSTranscribeStreamingClientDelegateConnectionStatus` appropriate
     ///   to the raw SocketRocket status
     func testAdaptorPropagatesConnectionStatus_CLOSING() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
@@ -179,7 +156,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
     /// - Then: the delegate receives the `AWSTranscribeStreamingClientDelegateConnectionStatus` appropriate
     ///   to the raw SocketRocket status
     func testAdaptorPropagatesConnectionStatus_CLOSED() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in

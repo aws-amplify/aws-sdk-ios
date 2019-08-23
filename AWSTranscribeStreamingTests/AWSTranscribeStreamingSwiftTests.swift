@@ -66,7 +66,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
         request.mediaSampleRateHertz = 8000
         
         // Set up delegate and its expectations
-        let delegate = MockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
 
         // Connection open/close
         let webSocketIsConnected = expectation(description: "Web socket is connected")
@@ -170,19 +170,5 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
         
         print("Waiting for websocket to close")
         wait(for: [webSocketIsClosed], timeout: AWSTranscribeStreamingSwiftTests.networkOperationTimeout)
-    }
-}
-
-class MockDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
-    var receiveEventCallback: ((AWSTranscribeStreamingTranscriptResultStream?, Error?) -> Void)?
-    var connectionStatusCallback: ((AWSTranscribeStreamingClientConnectionStatus, Error?) -> Void)?
-    
-    func didReceiveEvent(_ event: AWSTranscribeStreamingTranscriptResultStream?, decodingError: Error?) {
-        receiveEventCallback?(event, decodingError)
-    }
-    
-    func connectionStatusDidChange(_ connectionStatus: AWSTranscribeStreamingClientConnectionStatus,
-                                   withError error: Error?) {
-        connectionStatusCallback?(connectionStatus, error)
     }
 }

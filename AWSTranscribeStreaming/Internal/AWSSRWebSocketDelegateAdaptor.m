@@ -49,7 +49,7 @@
 
  @param webSocket the web socket receiving the message
  @param message the message
- */
+*/
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
     NSError *decodingError;

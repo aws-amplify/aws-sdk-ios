@@ -59,31 +59,6 @@ struct TestData {
     static let transcriptErrorEvent = Data(base64Encoded: "AAAAxwAAAGEEorpsDzpleGNlcHRpb24tdHlwZQcAE0JhZFJlcXVlc3RFeGNlcHRpb24NOmNvbnRlbnQtdHlwZQcAEGFwcGxpY2F0aW9uL2pzb24NOm1lc3NhZ2UtdHlwZQcACWV4Y2VwdGlvbnsiTWVzc2FnZSI6IllvdXIgcmVxdWVzdCB0aW1lZCBvdXQgYmVjYXVzZSBubyBuZXcgYXVkaW8gd2FzIHJlY2VpdmVkIGZvciAxNSBzZWNvbmRzLiJ9PblBbw==")!
 }
 
-/// A mock delegate that implements all members of AWSTranscribeStreamingClientDelegate
-class FullyImplementedMockDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
-    var receiveEventCallback: ((AWSTranscribeStreamingTranscriptResultStream?, Error?) -> Void)?
-    var connectionStatusCallback: ((AWSTranscribeStreamingClientConnectionStatus, Error?) -> Void)?
-
-    func didReceiveEvent(_ event: AWSTranscribeStreamingTranscriptResultStream?, decodingError: Error?) {
-        receiveEventCallback?(event, decodingError)
-    }
-
-    func connectionStatusDidChange(_ connectionStatus: AWSTranscribeStreamingClientConnectionStatus,
-                                   withError error: Error?) {
-        connectionStatusCallback?(connectionStatus, error)
-    }
-}
-
-/// A mock delegate that implements only the required members of AWSTranscribeStreamingClientDelegate
-class PartiallyImplementedMockDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
-    var receiveEventCallback: ((AWSTranscribeStreamingTranscriptResultStream?, Error?) -> Void)?
-
-    func didReceiveEvent(_ event: AWSTranscribeStreamingTranscriptResultStream?, decodingError: Error?) {
-        receiveEventCallback?(event, decodingError)
-    }
-
-}
-
 /// Mock WebSocket to allow for testing conditions where the adaptor inspects ready state
 class MockWebSocket: AWSSRWebSocket {
     var overrideReadyState: AWSSRReadyState

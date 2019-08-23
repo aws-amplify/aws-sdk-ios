@@ -145,7 +145,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:serviceConfiguration
-                                                                forKey:key];
+                                                                          forKey:key];
         }
 
         return [_serviceClients objectForKey:key];
@@ -168,14 +168,14 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
-       	
+
         if (!configuration.endpoint) {
             _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
-                                                              service:AWSServiceTranscribeStreaming
-                                                         useUnsafeURL:NO];
+                                                                  service:AWSServiceTranscribeStreaming
+                                                             useUnsafeURL:NO];
         } else {
             [_configuration.endpoint setRegion:_configuration.regionType
-                                      service:AWSServiceTranscribeStreaming];
+                                       service:AWSServiceTranscribeStreaming];
         }
 
         _configuration.baseURL = _configuration.endpoint.URL;
@@ -205,12 +205,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)startTranscriptionWSS:(AWSTranscribeStreamingStartStreamTranscriptionRequest *)request {
+    NSError *error;
     [self invokeRequestForWSS:request
                    HTTPMethod:AWSHTTPMethodPOST
-                    URLString:@"/stream-transcription"
-                 targetPrefix:@""
                 operationName:@"StartStreamTranscription"
-                  outputClass:[AWSTranscribeStreamingStartStreamTranscriptionResponse class]];
+                  outputClass:[AWSTranscribeStreamingStartStreamTranscriptionResponse class]
+                        error:&error];
+
+    if (error) {
+        NSError *wrappingError = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                                     code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
+                                                 userInfo:@{NSUnderlyingErrorKey: error}];
+
+        [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:wrappingError];
+        return;
+    }
+
+    if (!self.webSocket) {
+        error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                    code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
+                                userInfo:nil];
+        [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:error];
+        return;
+    }
 }
 
 - (void)sendData:(NSData *)data headers:(NSDictionary *)headers {
@@ -227,45 +244,46 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.webSocket close];
 }
 
-- (AWSSRWebSocket *)invokeRequestForWSS:(AWSRequest *)request
-                             HTTPMethod:(AWSHTTPMethod)HTTPMethod
-                              URLString:(NSString *) URLString
-                           targetPrefix:(NSString *)targetPrefix
-                          operationName:(NSString *)operationName
-                            outputClass:(Class)outputClass {
-    
-    @autoreleasepool {
-        if (!request) {
-            request = [AWSRequest new];
-        }
-        
-        AWSNetworkingRequest *networkingRequest = request.internalRequest;
-        if (request) {
-            networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
-        } else {
-            networkingRequest.parameters = @{};
-        }
-        
-        networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSTranscribeStreamingResources sharedInstance] JSONObject]
-                                                                                            actionName:operationName];
-        networkingRequest.responseSerializer = [[AWSTranscribeStreamingResponseSerializer alloc] initWithJSONDefinition:[[AWSTranscribeStreamingResources sharedInstance] JSONObject]
-                                                                                                             actionName:operationName
-                                                                                                            outputClass:outputClass];
+- (void)invokeRequestForWSS:(AWSRequest *)request
+                 HTTPMethod:(AWSHTTPMethod)HTTPMethod
+              operationName:(NSString *)operationName
+                outputClass:(Class)outputClass
+                      error:(NSError **)errorPointer {
 
-        [[[self getWebsocketForRequest:networkingRequest.parameters] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
-            if (t.error) {
-                AWSDDLogError(@"Error getting web socket for request: %@", t.error);
-            }
-            return nil;
-        }] waitUntilFinished];
-        
-        return self.webSocket;
-        
+    if (!request) {
+        request = [AWSRequest new];
     }
+
+    AWSNetworkingRequest *networkingRequest = request.internalRequest;
+    if (request) {
+        networkingRequest.parameters = [[AWSMTLJSONAdapter JSONDictionaryFromModel:request] aws_removeNullValues];
+    } else {
+        networkingRequest.parameters = @{};
+    }
+
+    AWSTranscribeStreamingResources *resources = [AWSTranscribeStreamingResources sharedInstance];
+    NSDictionary *json = [resources JSONObject];
+
+    networkingRequest.HTTPMethod = HTTPMethod;
+    networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:json
+                                                                                        actionName:operationName];
+    networkingRequest.responseSerializer = [[AWSTranscribeStreamingResponseSerializer alloc] initWithJSONDefinition:json
+                                                                                                         actionName:operationName
+                                                                                                        outputClass:outputClass];
+
+    __block NSError *initError;
+    [[[self setUpWebsocketForRequest:networkingRequest.parameters] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+        if (t.error) {
+            AWSDDLogError(@"Error getting web socket for request: %@", t.error);
+            initError = t.error;
+        }
+        return nil;
+    }] waitUntilFinished];
+
+    *errorPointer = initError;
 }
 
-- (AWSTask *)getWebsocketForRequest:(NSDictionary *)requestParams {
+- (AWSTask *)setUpWebsocketForRequest:(NSDictionary *)requestParams {
 
     return [[self getPreSignedURL:requestParams] continueWithBlock:^id _Nullable(AWSTask<NSURL *> * _Nonnull task) {
         if (task.error != nil) {
@@ -273,9 +291,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
 
         if (task.result == nil) {
+            NSDictionary<NSString *, id> *userInfo = @{
+                                                       NSLocalizedFailureReasonErrorKey: @"Unable to get presigned URL"
+                                                       };
             NSError *error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                                  code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
-                                             userInfo:nil];
+                                             userInfo:userInfo];
             return [AWSTask taskWithError:error];
         }
 
@@ -291,7 +312,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocket);
 
-        return [AWSTask taskWithResult:self.webSocket];
+        return nil;
     }];
 }
 

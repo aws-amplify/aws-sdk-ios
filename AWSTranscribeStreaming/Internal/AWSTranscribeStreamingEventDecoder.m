@@ -21,7 +21,7 @@
 @implementation AWSTranscribeStreamingEventDecoder
 
 + (nullable AWSTranscribeStreamingTranscriptResultStream *)decodeEvent:(NSData *)data
-                                                         decodingError:(NSError **)decodingErrorPointer  {
+                                                         decodingError:(NSError **)decodingErrorPointer {
 
     // Uncomment these lines to write data chunks to a file for testing.
 //    NSURL *destinationURL = [NSURL URLWithString:@"/transcribe_event_stream_data"];

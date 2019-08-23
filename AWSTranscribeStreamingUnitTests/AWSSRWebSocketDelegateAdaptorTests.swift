@@ -30,7 +30,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
         let callbackQueue = DispatchQueue(label: "testEventReceivedOnSpecifiedQueue")
         callbackQueue.setSpecific(key: key, value: uuid)
 
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let callbackInvokedOnSpecifiedQueue = expectation(description: "Callback was received on specified queue")
 
         delegate.receiveEventCallback = { _, _ in
@@ -53,7 +53,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
         let callbackQueue = DispatchQueue(label: "testConnectionStatusDidChangeReceivedOnSpecifiedQueue")
         callbackQueue.setSpecific(key: key, value: uuid)
         
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let callbackInvokedOnSpecifiedQueue = expectation(description: "Callback was received on specified queue")
 
         delegate.connectionStatusCallback = { _, _ in
@@ -73,7 +73,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     /// - When: The adaptor's receives an event with a transcription event
     /// - Then: The delegate receives an event callback with transcription content
     func testDecodesEventStreamWithTranscriptionEventPayload() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedEventCallback = expectation(description: "Received event callback")
         
         delegate.receiveEventCallback = { event, _ in
@@ -96,7 +96,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     /// - When: The adaptor's `-[webSocket:didReceiveMessage:]` method is invoked with a payload of error type
     /// - Then: the delegate receives the raw, untranslated error information
     func testDecodesEventStreamWithErrorPayload() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let eventContainsErrorPayload = expectation(description: "Event contains error payload")
 
         delegate.receiveEventCallback = { event, error in
@@ -125,7 +125,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     ///   minimum length specified by the protocol
     /// - Then: the delegate receives a AWSTranscribeStreamingClientErrorCodeEventSerializationError
     func testEventStreamWithShortJunkData() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let callbackInvoked = expectation(description: "receiveEventCallback invoked")
 
         delegate.receiveEventCallback = { event, error in
@@ -156,7 +156,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     ///   minimum length specified by the protocol
     /// - Then: the delegate receives a AWSTranscribeStreamingClientErrorCodeEventSerializationError
     func testEventStreamWithJunkData() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let callbackInvoked = expectation(description: "receiveEventCallback invoked")
 
         delegate.receiveEventCallback = { event, error in
@@ -185,7 +185,7 @@ class AWSSRWebSocketDelegateAdaptorTests: XCTestCase {
     /// - When: The adaptor's `-[webSocket:didReceivePong:]` method is invoked
     /// - Then: the delegate receives no callback, and the app does not crash
     func testIgnoresPong() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
 
         let receiveEventNotInvoked = expectation(description: "didReceiveEvent callback was not invoked")
         receiveEventNotInvoked.isInverted = true

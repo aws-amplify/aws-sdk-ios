@@ -24,7 +24,7 @@ class AWSSRWebSocketDelegateAdaptorDidCloseTests: XCTestCase {
     ///         `wasClean` = false
     /// - Then: the delegate receives the raw, untranslated error information
     func testTranslatesErrorInformation() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { _, error in
@@ -53,7 +53,7 @@ class AWSSRWebSocketDelegateAdaptorDidCloseTests: XCTestCase {
     /// - When: The adaptor's `-[webSocket:didCloseWithCode:reason:wasClean:]` method is invoked with `wasClean` = true
     /// - Then: the delegate receives a `closed` status and no error
     func testErrorIsNilForCleanlyClosed() {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedStatusCallback = expectation(description: "Received status callback")
 
         delegate.connectionStatusCallback = { status, error in
@@ -67,28 +67,6 @@ class AWSSRWebSocketDelegateAdaptorDidCloseTests: XCTestCase {
 
         let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
 
-        adaptor.webSocket(nil,
-                          didCloseWithCode: AWSSRStatusCodeGoingAway.rawValue,
-                          reason: "Test reason",
-                          wasClean: true)
-
-        waitForExpectations(timeout: 0.1)
-    }
-
-    /// - Given: An adaptor with a delegate that implements only the required methods of
-    ///   `AWSTranscribeStreamingClientDelegate`
-    /// - When: The adaptor receives `-[webSocket:didCloseWithCode:reason:wasClean:]` invocation
-    /// - Then: the delegate receives no message, and does not crash
-    func testAdaptorHandlesPartialDelegate() {
-        let delegate = PartiallyImplementedMockDelegate()
-        let receiveEventNotInvoked = expectation(description: "didReceiveEvent method was not invoked")
-        receiveEventNotInvoked.isInverted = true
-
-        delegate.receiveEventCallback = { _, _ in
-            receiveEventNotInvoked.fulfill()
-        }
-
-        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: DispatchQueue.global())
         adaptor.webSocket(nil,
                           didCloseWithCode: AWSSRStatusCodeGoingAway.rawValue,
                           reason: "Test reason",
@@ -172,7 +150,7 @@ class AWSSRWebSocketDelegateAdaptorDidCloseTests: XCTestCase {
                                      fromCloseCode closeCode: Int,
                                      file: StaticString = #file,
                                      line: UInt = #line) {
-        let delegate = FullyImplementedMockDelegate()
+        let delegate = MockTranscribeStreamingClientDelegate()
         let receivedStatusCallback = expectation(description: "Received status callback")
 
         delegate.connectionStatusCallback = { _, error in

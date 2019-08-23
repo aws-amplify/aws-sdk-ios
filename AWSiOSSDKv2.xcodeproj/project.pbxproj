@@ -1252,6 +1252,9 @@
 		FA99CF2E216C13E30086F9A7 /* AWSFirehoseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF2C216C13E30086F9A7 /* AWSFirehoseSerializer.h */; };
 		FA99CF30216C14240086F9A7 /* AWSFirehoseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */; };
 		FA99CF32216C144F0086F9A7 /* AWSKinesisSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */; };
+		FAB1E00923102F320097396E /* AWSTranscribeStreamingClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */; };
+		FAB1E00B23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */; };
+		FAB1E00D23103C090097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */; };
 		FABCFA632167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */; };
 		FABD9ECE22D65B4E00BD4441 /* AWSTranscribeStreaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178A800C22AF7DA600B167D6 /* AWSTranscribeStreaming.framework */; };
 		FABD9ED422D6661300BD4441 /* hello_world.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD9ED322D6661200BD4441 /* hello_world.wav */; };
@@ -4412,6 +4415,8 @@
 		FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseSerializer.m; sourceTree = "<group>"; };
 		FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisSerializer.m; sourceTree = "<group>"; };
 		FA9E3E1A2199ED2600C65B0A /* AWSCognitoIdentityProvider+TestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProvider+TestUtils.h"; sourceTree = "<group>"; };
+		FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientTests.swift; sourceTree = "<group>"; };
+		FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTranscribeStreamingClientDelegate.swift; sourceTree = "<group>"; };
 		FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingFirehoseTests.m; sourceTree = "<group>"; };
 		FABD9ED322D6661200BD4441 /* hello_world.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hello_world.wav; sourceTree = "<group>"; };
 		FABD9ED522D6AC8A00BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSTranscribeStreamingTranscriptResultStream+Helpers.h"; sourceTree = "<group>"; };
@@ -7701,10 +7706,12 @@
 		FA53332C22D4D47E00BD88AF /* AWSTranscribeStreamingUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAB1E00C23103BEB0097396E /* Common */,
 				FA968B682302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift */,
 				FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */,
 				FA968B66230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift */,
 				FA09EEA722D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift */,
+				FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */,
 				FA09EEAB22D65666007EA360 /* AWSTranscribeStreamingUnitTests-Bridging-Header.h */,
 				FA53332F22D4D47E00BD88AF /* Info.plist */,
 				FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */,
@@ -7734,6 +7741,14 @@
 				FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */,
 			);
 			path = Internal;
+			sourceTree = "<group>";
+		};
+		FAB1E00C23103BEB0097396E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -11880,6 +11895,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB1E00D23103C090097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */,
 				FA53332322D40B5500BD88AF /* AWSTestUtility.m in Sources */,
 				FA53332122D4065900BD88AF /* AWSTranscribeStreamingSwiftTests.swift in Sources */,
 			);
@@ -13075,6 +13091,8 @@
 				FA968B67230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift in Sources */,
 				FA968B632302115E00AC6007 /* TranscribeStreamingTestHelpers.swift in Sources */,
 				FA968B65230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift in Sources */,
+				FAB1E00923102F320097396E /* AWSTranscribeStreamingClientTests.swift in Sources */,
+				FAB1E00B23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */,
 				FA09EEA822D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift in Sources */,
 				FA968B692302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift in Sources */,
 			);

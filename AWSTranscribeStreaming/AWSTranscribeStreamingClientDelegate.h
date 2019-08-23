@@ -41,19 +41,6 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientConnectionStatus) {
 @protocol AWSTranscribeStreamingClientDelegate <NSObject>
 
 /**
- Invoked when the underlying web socket receives a Transcription event. The payload of the event may represent
- an error condition that would not be reported by the error callbacks. See
- `AWSTranscribeStreamingTranscriptResultStream` for details.
- 
- @param event the event
- @param decodingError an optional error that occurred attempting to decode the event
- */
-- (void)didReceiveEvent:(nullable AWSTranscribeStreamingTranscriptResultStream *)event
-          decodingError:(nullable NSError *)decodingError;
-
-@optional
-
-/**
  Invoked when the underlying web socket's connection status changes. If there is an error associated with the
  status change, the error will be included in the callback.
  
@@ -72,6 +59,17 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientConnectionStatus) {
  */
 - (void)connectionStatusDidChange:(AWSTranscribeStreamingClientConnectionStatus)connectionStatus
                         withError:(nullable NSError *)error;
+
+/**
+ Invoked when the underlying web socket receives a Transcription event. The payload of the event may represent
+ an error condition that would not be reported by the error callbacks. See
+ `AWSTranscribeStreamingTranscriptResultStream` for details.
+
+ @param event the event
+ @param decodingError an optional error that occurred attempting to decode the event
+ */
+- (void)didReceiveEvent:(nullable AWSTranscribeStreamingTranscriptResultStream *)event
+          decodingError:(nullable NSError *)decodingError;
 
 @end
 

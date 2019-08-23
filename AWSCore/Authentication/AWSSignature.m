@@ -414,6 +414,18 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
                                signSessionToken:(BOOL)signSessionToken {
 
     return [[credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        // No nullability specifier on `credentials` return value means that we need to check for nil here to be safe
+        if (!task.result) {
+            NSString *description = @"Credentials result unexpectedly nil generating presigned URL";
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey: description
+                                       };
+            NSError *error = [NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
+                                                 code:AWSCognitoCredentialsProviderErrorUnknown
+                                             userInfo:userInfo];
+            return [AWSTask taskWithError:error];
+        }
+
         AWSCredentials *credentials = task.result;
 
         // Deconstruct the incoming URL into components for easier manipulation and inspection of individual pieces.
