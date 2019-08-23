@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.10.2 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.3 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -162,7 +162,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>[EC2-VPC] Indicates whether to assign a public IP address to each instance.</p>
+				<p>For Auto Scaling groups that are running in a VPC, specifies whether to assign a public IP address to the group's instances. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -206,6 +209,9 @@
 			<div class="method-subsection brief-description">
 				<p>A block device mapping, which specifies the block devices for the instance.</p>
 
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block Device Mapping</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+
 			</div>
 			
 		    
@@ -246,7 +252,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter can only be used if you are launching EC2-Classic instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+				<p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -288,10 +297,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+				<p>The IDs of one or more security groups for the VPC specified in <code>ClassicLinkVPCId</code>. </p>
 
 
-<p>Conditional: This parameter is required if you specify a ClassicLink-enabled VPC, and cannot be used otherwise.</p>
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -375,7 +384,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Controls whether the instance is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>).</p>
+				<p>Specifies whether the launch configuration is optimized for EBS I/O (<code>true</code>) or not (<code>false</code>). </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
 			</div>
 			
@@ -417,7 +429,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name or Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance.</p>
+				<p>The name or the Amazon Resource Name (ARN) of the instance profile associated with the IAM role for the instance. The instance profile contains the IAM role. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM Role for Applications That Run on Amazon EC2 Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -459,7 +474,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the Amazon Machine Image (AMI).</p>
+				<p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding an AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
 			</div>
 			
@@ -501,7 +519,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
+				<p>Controls whether instances in this group are launched with detailed (<code>true</code>) or basic (<code>false</code>) monitoring. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics">Configure Monitoring for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
 
 			</div>
 			
@@ -544,6 +565,9 @@
 			
 			<div class="method-subsection brief-description">
 				<p>The instance type for the instances.</p>
+
+
+<p>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available Instance Types</a> in the <i>Amazon EC2 User Guide for Linux Instances.</i></p>
 
 			</div>
 			
@@ -628,6 +652,9 @@
 			
 			<div class="method-subsection brief-description">
 				<p>The name of the key pair.</p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
 			</div>
 			
@@ -753,7 +780,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs in an isolated, single-tenant hardware and can only be launched into a VPC.</p>
+				<p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.</p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-vpc-tenancy">Instance Placement Tenancy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -837,7 +867,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The security groups to associate with the instances.</p>
+				<p>A list that contains the security groups to assign to the instances in the Auto Scaling group. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
 
 			</div>
 			
@@ -879,7 +912,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The price to bid when launching Spot Instances.</p>
+				<p>The maximum hourly price to be paid for any Spot Instance launched to fulfill the request. Spot Instances are launched when the price you specify exceeds the current Spot market price. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching Spot Instances in Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -921,7 +957,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The user data available to the instances.</p>
+				<p>The Base64-encoded user data to make available to the launched EC2 instances. </p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
 			</div>
 			
@@ -966,7 +1005,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-31</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-08-22</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

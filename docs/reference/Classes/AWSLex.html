@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.10.2 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.10.3 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -78,6 +78,14 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/deleteSession:">- deleteSession:</option>
+		
+		<option value="//api/name/deleteSession:completionHandler:">- deleteSession:completionHandler:</option>
+		
+		<option value="//api/name/getSession:">- getSession:</option>
+		
+		<option value="//api/name/getSession:completionHandler:">- getSession:completionHandler:</option>
+		
 		<option value="//api/name/postContent:">- postContent:</option>
 		
 		<option value="//api/name/postContent:completionHandler:">- postContent:completionHandler:</option>
@@ -85,6 +93,10 @@
 		<option value="//api/name/postText:">- postText:</option>
 		
 		<option value="//api/name/postText:completionHandler:">- postText:completionHandler:</option>
+		
+		<option value="//api/name/putSession:">- putSession:</option>
+		
+		<option value="//api/name/putSession:completionHandler:">- putSession:completionHandler:</option>
 		
 	</optgroup>
 	
@@ -528,6 +540,290 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/deleteSession:" title="deleteSession:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteSession:">&ndash;&nbsp;deleteSession:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes session information for a specified bot, alias, and user ID. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLexDeleteSessionResponse*&gt; *)deleteSession:(AWSLexDeleteSessionRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteSession service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLexDeleteSessionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLexErrorDomain</code> domain and the following error code: <code>AWSLexErrorNotFound</code>, <code>AWSLexErrorBadRequest</code>, <code>AWSLexErrorLimitExceeded</code>, <code>AWSLexErrorInternalFailure</code>, <code>AWSLexErrorConflict</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLexDeleteSessionRequest.html">AWSLexDeleteSessionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLexDeleteSessionResponse.html">AWSLexDeleteSessionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteSession:completionHandler:" title="deleteSession:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteSession:completionHandler:">&ndash;&nbsp;deleteSession:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes session information for a specified bot, alias, and user ID. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteSession:(AWSLexDeleteSessionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLexDeleteSessionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteSession service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLexErrorDomain</code> domain and the following error code: <code>AWSLexErrorNotFound</code>, <code>AWSLexErrorBadRequest</code>, <code>AWSLexErrorLimitExceeded</code>, <code>AWSLexErrorInternalFailure</code>, <code>AWSLexErrorConflict</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLexDeleteSessionRequest.html">AWSLexDeleteSessionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLexDeleteSessionResponse.html">AWSLexDeleteSessionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSession:" title="getSession:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSession:">&ndash;&nbsp;getSession:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns session information for a specified bot, alias, and user ID.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLexGetSessionResponse*&gt; *)getSession:(AWSLexGetSessionRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSession service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLexGetSessionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLexErrorDomain</code> domain and the following error code: <code>AWSLexErrorNotFound</code>, <code>AWSLexErrorBadRequest</code>, <code>AWSLexErrorLimitExceeded</code>, <code>AWSLexErrorInternalFailure</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLexGetSessionRequest.html">AWSLexGetSessionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLexGetSessionResponse.html">AWSLexGetSessionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSession:completionHandler:" title="getSession:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSession:completionHandler:">&ndash;&nbsp;getSession:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns session information for a specified bot, alias, and user ID.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSession:(AWSLexGetSessionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLexGetSessionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSession service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLexErrorDomain</code> domain and the following error code: <code>AWSLexErrorNotFound</code>, <code>AWSLexErrorBadRequest</code>, <code>AWSLexErrorLimitExceeded</code>, <code>AWSLexErrorInternalFailure</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLexGetSessionRequest.html">AWSLexGetSessionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLexGetSessionResponse.html">AWSLexGetSessionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/postContent:" title="postContent:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/postContent:">&ndash;&nbsp;postContent:</a></code>
 </h3>
@@ -557,7 +853,7 @@
 <ul><li><p> If the message is to elicit slot data, Amazon Lex returns the following context information: </p><ul><li><p><code>x-amz-lex-dialog-state</code> header set to <code>ElicitSlot</code></p></li><li><p><code>x-amz-lex-intent-name</code> header set to the intent name in the current context </p></li><li><p><code>x-amz-lex-slot-to-elicit</code> header set to the slot name for which the <code>message</code> is eliciting information </p></li><li><p><code>x-amz-lex-slots</code> header set to a map of slots configured for the intent with their current values </p></li></ul></li><li><p> If the message is a confirmation prompt, the <code>x-amz-lex-dialog-state</code> header is set to <code>Confirmation</code> and the <code>x-amz-lex-slot-to-elicit</code> header is omitted. </p></li><li><p> If the message is a clarification prompt configured for the intent, indicating that the user intent is not understood, the <code>x-amz-dialog-state</code> header is set to <code>ElicitIntent</code> and the <code>x-amz-slot-to-elicit</code> header is omitted. </p></li></ul>
 
 
-<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
+<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
 
 			</div>
 			
@@ -645,7 +941,7 @@
 <ul><li><p> If the message is to elicit slot data, Amazon Lex returns the following context information: </p><ul><li><p><code>x-amz-lex-dialog-state</code> header set to <code>ElicitSlot</code></p></li><li><p><code>x-amz-lex-intent-name</code> header set to the intent name in the current context </p></li><li><p><code>x-amz-lex-slot-to-elicit</code> header set to the slot name for which the <code>message</code> is eliciting information </p></li><li><p><code>x-amz-lex-slots</code> header set to a map of slots configured for the intent with their current values </p></li></ul></li><li><p> If the message is a confirmation prompt, the <code>x-amz-lex-dialog-state</code> header is set to <code>Confirmation</code> and the <code>x-amz-lex-slot-to-elicit</code> header is omitted. </p></li><li><p> If the message is a clarification prompt configured for the intent, indicating that the user intent is not understood, the <code>x-amz-dialog-state</code> header is set to <code>ElicitIntent</code> and the <code>x-amz-slot-to-elicit</code> header is omitted. </p></li></ul>
 
 
-<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
+<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
 
 			</div>
 			
@@ -717,7 +1013,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sends user input (text-only) to Amazon Lex. Client applications can use this API to send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it built for the bot. </p>
+				<p>Sends user input (text or SSML) to Amazon Lex. Client applications can use this API to send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it built for the bot. </p>
 
 
 <p> In response, Amazon Lex returns the next <code>message</code> to convey to the user an optional <code>responseCard</code> to display. Consider the following example messages: </p>
@@ -732,7 +1028,7 @@
 <ul><li><p>If the message is to elicit slot data, Amazon Lex returns the following context information:</p><ul><li><p><code>dialogState</code> set to ElicitSlot </p></li><li><p><code>intentName</code> set to the intent name in the current context </p></li><li><p><code>slotToElicit</code> set to the slot name for which the <code>message</code> is eliciting information </p></li><li><p><code>slots</code> set to a map of slots, configured for the intent, with currently known values </p></li></ul></li><li><p> If the message is a confirmation prompt, the <code>dialogState</code> is set to ConfirmIntent and <code>SlotToElicit</code> is set to null. </p></li><li><p>If the message is a clarification prompt (configured for the intent) that indicates that user intent is not understood, the <code>dialogState</code> is set to ElicitIntent and <code>slotToElicit</code> is set to null. </p></li></ul>
 
 
-<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
+<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
 
 			</div>
 			
@@ -802,7 +1098,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sends user input (text-only) to Amazon Lex. Client applications can use this API to send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it built for the bot. </p>
+				<p>Sends user input (text or SSML) to Amazon Lex. Client applications can use this API to send requests to Amazon Lex at runtime. Amazon Lex then interprets the user input using the machine learning model it built for the bot. </p>
 
 
 <p> In response, Amazon Lex returns the next <code>message</code> to convey to the user an optional <code>responseCard</code> to display. Consider the following example messages: </p>
@@ -817,7 +1113,7 @@
 <ul><li><p>If the message is to elicit slot data, Amazon Lex returns the following context information:</p><ul><li><p><code>dialogState</code> set to ElicitSlot </p></li><li><p><code>intentName</code> set to the intent name in the current context </p></li><li><p><code>slotToElicit</code> set to the slot name for which the <code>message</code> is eliciting information </p></li><li><p><code>slots</code> set to a map of slots, configured for the intent, with currently known values </p></li></ul></li><li><p> If the message is a confirmation prompt, the <code>dialogState</code> is set to ConfirmIntent and <code>SlotToElicit</code> is set to null. </p></li><li><p>If the message is a clarification prompt (configured for the intent) that indicates that user intent is not understood, the <code>dialogState</code> is set to ElicitIntent and <code>slotToElicit</code> is set to null. </p></li></ul>
 
 
-<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
+<p> In addition, Amazon Lex also returns your application-specific <code>sessionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html">Managing Conversation Context</a>. </p>
 
 			</div>
 			
@@ -877,6 +1173,154 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/putSession:" title="putSession:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putSession:">&ndash;&nbsp;putSession:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this operation to enable your application to set the state of the bot.</p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLexPutSessionResponse*&gt; *)putSession:(AWSLexPutSessionRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutSession service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLexPutSessionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLexErrorDomain</code> domain and the following error code: <code>AWSLexErrorNotFound</code>, <code>AWSLexErrorBadRequest</code>, <code>AWSLexErrorLimitExceeded</code>, <code>AWSLexErrorInternalFailure</code>, <code>AWSLexErrorConflict</code>, <code>AWSLexErrorNotAcceptable</code>, <code>AWSLexErrorDependencyFailed</code>, <code>AWSLexErrorBadGateway</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLexPutSessionRequest.html">AWSLexPutSessionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLexPutSessionResponse.html">AWSLexPutSessionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putSession:completionHandler:" title="putSession:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putSession:completionHandler:">&ndash;&nbsp;putSession:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new session or modifies an existing session with an Amazon Lex bot. Use this operation to enable your application to set the state of the bot.</p>
+
+
+<p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-session-api.html">Managing Sessions</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putSession:(AWSLexPutSessionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLexPutSessionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutSession service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLexErrorDomain</code> domain and the following error code: <code>AWSLexErrorNotFound</code>, <code>AWSLexErrorBadRequest</code>, <code>AWSLexErrorLimitExceeded</code>, <code>AWSLexErrorInternalFailure</code>, <code>AWSLexErrorConflict</code>, <code>AWSLexErrorNotAcceptable</code>, <code>AWSLexErrorDependencyFailed</code>, <code>AWSLexErrorBadGateway</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLexPutSessionRequest.html">AWSLexPutSessionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLexPutSessionResponse.html">AWSLexPutSessionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLexService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -892,7 +1336,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-07-31</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-08-22</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
