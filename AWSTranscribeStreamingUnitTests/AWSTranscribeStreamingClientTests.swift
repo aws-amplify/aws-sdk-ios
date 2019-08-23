@@ -24,8 +24,8 @@ class AWSTranscribeStreamingClientTests: XCTestCase {
     func testWSSInitWithError() {
         guard let config = AWSServiceConfiguration(
             region: .USEast1,
-            credentialsProvider: MockNilProvidingCredentialsProvider()) else {
-                XCTFail("Couldn't initialize error-throwing configuration")
+            credentialsProvider: MockErrorReturningCredentialsProvider()) else {
+                XCTFail("Couldn't initialize config with MockErrorReturningCredentialsProvider")
                 return
         }
 
@@ -61,7 +61,7 @@ class AWSTranscribeStreamingClientTests: XCTestCase {
 
 }
 
-class MockNilProvidingCredentialsProvider: NSObject, AWSCredentialsProvider {
+class MockErrorReturningCredentialsProvider: NSObject, AWSCredentialsProvider {
     func credentials() -> AWSTask<AWSCredentials> {
         let error = NSError(domain: "TestErrorDomain", code: 1, userInfo: nil)
         return AWSTask(error: error)

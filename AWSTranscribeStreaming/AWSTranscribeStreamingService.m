@@ -204,30 +204,37 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }
 }
 
+// Note that this method hands off work to the global queue, to prevent potential deadlocks on the main thread while
+// the presigned URL routine is attempting to get refreshed credentials. This method eventually internally invokes
+// getCredentials, which can stay blocked if we need to fetch user token. Fetching user token would need to show some
+// UI in the main thread, which would be a problem if this method was invoked from the main thread (which is a
+// completely reasonable use case).
 - (void)startTranscriptionWSS:(AWSTranscribeStreamingStartStreamTranscriptionRequest *)request {
-    NSError *error;
-    [self invokeRequestForWSS:request
-                   HTTPMethod:AWSHTTPMethodPOST
-                operationName:@"StartStreamTranscription"
-                  outputClass:[AWSTranscribeStreamingStartStreamTranscriptionResponse class]
-                        error:&error];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSError *error;
+        [self invokeRequestForWSS:request
+                       HTTPMethod:AWSHTTPMethodPOST
+                    operationName:@"StartStreamTranscription"
+                      outputClass:[AWSTranscribeStreamingStartStreamTranscriptionResponse class]
+                            error:&error];
 
-    if (error) {
-        NSError *wrappingError = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
-                                                     code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
-                                                 userInfo:@{NSUnderlyingErrorKey: error}];
+        if (error) {
+            NSError *wrappingError = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                                         code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
+                                                     userInfo:@{NSUnderlyingErrorKey: error}];
 
-        [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:wrappingError];
-        return;
-    }
+            [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:wrappingError];
+            return;
+        }
 
-    if (!self.webSocket) {
-        error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
-                                    code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
-                                userInfo:nil];
-        [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:error];
-        return;
-    }
+        if (!self.webSocket) {
+            error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+                                        code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
+                                    userInfo:nil];
+            [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:error];
+            return;
+        }
+    });
 }
 
 - (void)sendData:(NSData *)data headers:(NSDictionary *)headers {
