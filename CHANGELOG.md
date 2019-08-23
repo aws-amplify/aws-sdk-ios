@@ -16,12 +16,15 @@
 - **AWSMobileClient**
   - Fixes the crash during signout while setting error on completed task (See [Issue 1505](https://github.com/aws-amplify/aws-sdk-ios/issues/1505) and [Issue 1682](https://github.com/aws-amplify/aws-sdk-ios/issues/1682).)
   - Fixed an issue where signOut callback is not called (See [Issue 1717](https://github.com/aws-amplify/aws-sdk-ios/issues/1717).)
+  - Code clean up on source and test files
 
 ### Misc. Updates
 - Model updates for the following services
   - Amazon EC2
   - Amazon Lex
   - Amazon Polly
+  - Amazon Rekognition
+  * Amazon Simple Queue Service (SQS)
   - AWS IoT
 
 ## 2.10.2
