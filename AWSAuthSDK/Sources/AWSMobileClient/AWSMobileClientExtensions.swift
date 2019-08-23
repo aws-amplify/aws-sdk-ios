@@ -142,6 +142,14 @@ extension AWSMobileClient {
         return self.userPoolClient?.currentUser()
     }
     
+    /// SignIn can be a two way process where the developer has to call signIn first and then
+    /// call the confirmSignIn method. Both of these apis can result in the same callback path.
+    /// This method is called for any signIn related callback. We check whether the callback
+    /// is available and then invoke the callback. Before invoking the callback we make sure that the
+    /// internal callback representation is set to nil.
+    /// - Parameters:
+    ///     - signResult: signIn result if there is no error
+    ///     - error: error occured
     internal func invokeSignInCallback(signResult: SignInResult?, error: Error?) {
         if let signCallback = self.userpoolOpsHelper.currentSignInHandlerCallback {
             self.invalidateSignInCallbacks()
