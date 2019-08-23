@@ -32,7 +32,7 @@
 NSString *const AWSTranscribeStreamingClientErrorDomain = @"com.amazonaws.AWSTranscribeStreamingClientErrorDomain";
 
 static NSString *const AWSInfoTranscribeStreaming = @"TranscribeStreaming";
-NSString *const AWSTranscribeStreamingSDKVersion = @"2.10.2";
+NSString *const AWSTranscribeStreamingSDKVersion = @"2.10.3";
 
 @interface AWSTranscribeStreamingResponseSerializer : AWSJSONResponseSerializer
 
@@ -254,6 +254,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                                                             outputClass:outputClass];
 
         [[[self getWebsocketForRequest:networkingRequest.parameters] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+            if (t.error) {
+                AWSDDLogError(@"Error getting web socket for request: %@", t.error);
+            }
             return nil;
         }] waitUntilFinished];
         

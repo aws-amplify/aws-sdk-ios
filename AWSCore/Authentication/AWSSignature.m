@@ -655,9 +655,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     NSMutableString *headerString = [NSMutableString new];
     for (NSString *header in sortedHeaders) {
         NSString *value = [headers valueForKey:header];
-        if (value != nil) {
-            value = [value stringByTrimmingCharactersInSet:whitespaceChars];
-        }
+        value = [value stringByTrimmingCharactersInSet:whitespaceChars];
         [headerString appendString:[header lowercaseString]];
         [headerString appendString:@":"];
         [headerString appendString:value];

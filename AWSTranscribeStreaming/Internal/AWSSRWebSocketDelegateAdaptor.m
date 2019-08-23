@@ -21,7 +21,7 @@
 @interface AWSSRWebSocketDelegateAdaptor ()
 
 @property (nonatomic, weak, readwrite) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
-@property (nonatomic, readwrite) dispatch_queue_t callbackQueue;
+@property (nonatomic, weak, readwrite) dispatch_queue_t callbackQueue;
 
 @end
 
@@ -76,7 +76,7 @@
         return;
     }
 
-    NSInteger status = AWSTranscribeStreamingClientDelegateConnectionStatusConnected;
+    NSInteger status = AWSTranscribeStreamingClientConnectionStatusConnected;
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:nil];
     });
@@ -94,19 +94,19 @@
         return;
     }
 
-    NSInteger status = AWSTranscribeStreamingClientDelegateConnectionStatusUnknown;
+    NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
     switch (webSocket.readyState) {
         case AWSSR_CONNECTING:
-            status = AWSTranscribeStreamingClientDelegateConnectionStatusConnecting;
+            status = AWSTranscribeStreamingClientConnectionStatusConnecting;
             break;
         case AWSSR_OPEN:
-            status = AWSTranscribeStreamingClientDelegateConnectionStatusConnected;
+            status = AWSTranscribeStreamingClientConnectionStatusConnected;
             break;
         case AWSSR_CLOSING:
-            status = AWSTranscribeStreamingClientDelegateConnectionStatusClosing;
+            status = AWSTranscribeStreamingClientConnectionStatusClosing;
             break;
         case AWSSR_CLOSED:
-            status = AWSTranscribeStreamingClientDelegateConnectionStatusClosed;
+            status = AWSTranscribeStreamingClientConnectionStatusClosed;
             break;
     }
 
@@ -124,7 +124,7 @@
         return;
     }
     
-    NSInteger status = AWSTranscribeStreamingClientDelegateConnectionStatusClosed;
+    NSInteger status = AWSTranscribeStreamingClientConnectionStatusClosed;
     NSError *error;
     if (!wasClean) {
         NSInteger errorCode = AWSTranscribeStreamingClientErrorCodeUnknown;

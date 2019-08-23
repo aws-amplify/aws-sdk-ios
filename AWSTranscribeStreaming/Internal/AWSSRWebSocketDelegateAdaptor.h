@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AWSSRWebSocketDelegateAdaptor : NSObject <AWSSRWebSocketDelegate>
 
 @property (nonatomic, weak, readonly) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
-@property (nonatomic, readonly) dispatch_queue_t callbackQueue;
+@property (nonatomic, weak, readonly) dispatch_queue_t callbackQueue;
 
 - (instancetype)initWithClientDelegate:(nullable id<AWSTranscribeStreamingClientDelegate>)clientDelegate
                          callbackQueue:(dispatch_queue_t)callbackQueue;

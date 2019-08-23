@@ -61,7 +61,7 @@ class AWSSRWebSocketDelegateAdaptorDidCloseTests: XCTestCase {
                 XCTFail("Unexpected error in testConnectionDidChangeErrorIsNilForCleanlyClosed: \(error)")
                 return
             }
-            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.closed)
+            XCTAssertEqual(status, AWSTranscribeStreamingClientConnectionStatus.closed)
             receivedStatusCallback.fulfill()
         }
 

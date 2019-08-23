@@ -175,13 +175,13 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
 
 class MockDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
     var receiveEventCallback: ((AWSTranscribeStreamingTranscriptResultStream?, Error?) -> Void)?
-    var connectionStatusCallback: ((AWSTranscribeStreamingClientDelegateConnectionStatus, Error?) -> Void)?
+    var connectionStatusCallback: ((AWSTranscribeStreamingClientConnectionStatus, Error?) -> Void)?
     
     func didReceiveEvent(_ event: AWSTranscribeStreamingTranscriptResultStream?, decodingError: Error?) {
         receiveEventCallback?(event, decodingError)
     }
     
-    func connectionStatusDidChange(_ connectionStatus: AWSTranscribeStreamingClientDelegateConnectionStatus,
+    func connectionStatusDidChange(_ connectionStatus: AWSTranscribeStreamingClientConnectionStatus,
                                    withError error: Error?) {
         connectionStatusCallback?(connectionStatus, error)
     }

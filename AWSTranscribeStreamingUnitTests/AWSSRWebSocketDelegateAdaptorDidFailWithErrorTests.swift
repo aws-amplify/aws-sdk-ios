@@ -102,7 +102,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
-            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.connecting)
+            XCTAssertEqual(status, AWSTranscribeStreamingClientConnectionStatus.connecting)
             receivedErrorCallback.fulfill()
         }
 
@@ -129,7 +129,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
-            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.connected)
+            XCTAssertEqual(status, AWSTranscribeStreamingClientConnectionStatus.connected)
             receivedErrorCallback.fulfill()
         }
 
@@ -156,7 +156,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
-            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.closing)
+            XCTAssertEqual(status, AWSTranscribeStreamingClientConnectionStatus.closing)
             receivedErrorCallback.fulfill()
         }
 
@@ -183,7 +183,7 @@ class AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests: XCTestCase {
         let receivedErrorCallback = expectation(description: "Received error callback")
 
         delegate.connectionStatusCallback = { status, _ in
-            XCTAssertEqual(status, AWSTranscribeStreamingClientDelegateConnectionStatus.closed)
+            XCTAssertEqual(status, AWSTranscribeStreamingClientConnectionStatus.closed)
             receivedErrorCallback.fulfill()
         }
 

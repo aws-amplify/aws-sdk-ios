@@ -30,12 +30,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientErrorCode) {
     AWSTranscribeStreamingClientErrorCodeUnknown
 };
 
-typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientDelegateConnectionStatus) {
-    AWSTranscribeStreamingClientDelegateConnectionStatusConnecting,
-    AWSTranscribeStreamingClientDelegateConnectionStatusConnected,
-    AWSTranscribeStreamingClientDelegateConnectionStatusClosing,
-    AWSTranscribeStreamingClientDelegateConnectionStatusClosed,
-    AWSTranscribeStreamingClientDelegateConnectionStatusUnknown
+typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientConnectionStatus) {
+    AWSTranscribeStreamingClientConnectionStatusConnecting,
+    AWSTranscribeStreamingClientConnectionStatusConnected,
+    AWSTranscribeStreamingClientConnectionStatusClosing,
+    AWSTranscribeStreamingClientConnectionStatusClosed,
+    AWSTranscribeStreamingClientConnectionStatusUnknown
 };
 
 @protocol AWSTranscribeStreamingClientDelegate <NSObject>
@@ -70,7 +70,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeStreamingClientDelegateConnectionStatus)
  @param connectionStatus the web socket's new connection status
  @param error an optional error associated with the status change
  */
-- (void)connectionStatusDidChange:(AWSTranscribeStreamingClientDelegateConnectionStatus)connectionStatus
+- (void)connectionStatusDidChange:(AWSTranscribeStreamingClientConnectionStatus)connectionStatus
                         withError:(nullable NSError *)error;
 
 @end

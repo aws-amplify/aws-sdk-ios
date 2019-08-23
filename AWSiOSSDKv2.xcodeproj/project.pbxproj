@@ -1259,8 +1259,6 @@
 		FABD9ED822D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */; };
 		FAC3E7002208AE460037813E /* AWSFMDB+AWSHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC3E6FF2208AE460037813E /* AWSFMDB+AWSHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAC3E7022208B0D60037813E /* AWSFMDB+AWSHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */; };
-		FADA6AFB22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = FADA6AF922D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		FADA6AFC22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA6AFA22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.m */; };
 		FADA6AFF22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FADA6B0022D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */; };
 		FAEE86AC2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */; };
@@ -4420,8 +4418,6 @@
 		FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSTranscribeStreamingTranscriptResultStream+Helpers.m"; sourceTree = "<group>"; };
 		FAC3E6FF2208AE460037813E /* AWSFMDB+AWSHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSFMDB+AWSHelpers.h"; sourceTree = "<group>"; };
 		FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSFMDB+AWSHelpers.m"; sourceTree = "<group>"; };
-		FADA6AF922D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingChunkedEncodingInputStream.h; sourceTree = "<group>"; };
-		FADA6AFA22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingChunkedEncodingInputStream.m; sourceTree = "<group>"; };
 		FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSSRWebSocketDelegateAdaptor.h; sourceTree = "<group>"; };
 		FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocketDelegateAdaptor.m; sourceTree = "<group>"; };
 		FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingKinesisTests.m; sourceTree = "<group>"; };
@@ -7694,8 +7690,6 @@
 				FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */,
 				17D0A70022B9EC2A00A83073 /* AWSTranscribeEventEncoder.h */,
 				17D0A70122B9EC2A00A83073 /* AWSTranscribeEventEncoder.m */,
-				FADA6AF922D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.h */,
-				FADA6AFA22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.m */,
 				FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */,
 				FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */,
 				FABD9ED522D6AC8A00BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.h */,
@@ -7772,7 +7766,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA09EEA522D63786007EA360 /* AWSTranscribeStreamingClientDelegate.h in Headers */,
-				FADA6AFB22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.h in Headers */,
 				FA53334122D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h in Headers */,
 				FADA6AFF22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h in Headers */,
 				17D0A70222B9EC2A00A83073 /* AWSTranscribeEventEncoder.h in Headers */,
@@ -11875,7 +11868,6 @@
 				FABD9ED822D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m in Sources */,
 				17D0A70322B9EC2A00A83073 /* AWSTranscribeEventEncoder.m in Sources */,
 				17D0A6FF22B844AF00A83073 /* AWSSRWebSocket.m in Sources */,
-				FADA6AFC22D5557E00A7599A /* AWSTranscribeStreamingChunkedEncodingInputStream.m in Sources */,
 				FADA6B0022D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m in Sources */,
 				178A802322AF7DE600B167D6 /* AWSTranscribeStreamingResources.m in Sources */,
 				178A801F22AF7DE600B167D6 /* AWSTranscribeStreamingService.m in Sources */,
