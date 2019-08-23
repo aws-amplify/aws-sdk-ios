@@ -7,17 +7,15 @@
 - **AWSPinpoint**
   - The limit of "Maximum number events in a request" defined by the [Pinpoint service limits](https://docs.aws.amazon.com/pinpoint/latest/developerguide/limits.html#limits-events) (100 per request) is now enforced by the client. When recording more than 100 events the client will submit multiple batches of 100 to avoid a service failure. See [Issue #1680](https://github.com/aws-amplify/aws-sdk-ios/issues/1680) and [PR #1743](github.com/aws-amplify/aws-sdk-ios/pull/1743) for details.
 
-## 2.10.3
-
 ### New Features
 
-- **Amazon Transcribe Streaming (Beta)**
+- **Amazon Transcribe Streaming**
   - Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time using WebSockets.
     See [AWS Documentation](https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html) for more information, and the
     [integration test](https://github.com/aws-amplify/aws-sdk-ios/blob/master/AWSTranscribeStreamingTests/AWSTranscribeStreamingSwiftTests.swift)
     for an example of usage.
 
-    *Note: This is beta software. Please [report issues](https://github.com/aws-amplify/aws-sdk-ios/issues) if you encounter any problems.*
+## 2.10.3
 
 ### Bug Fixes
 
