@@ -142,28 +142,28 @@ extension AWSMobileClient {
         return self.userPoolClient?.currentUser()
     }
     
-    /// SignIn can be a two way process where the developer has to call signIn first and then
+    /// SignIn can be a two phase process where the developer has to call signIn first and then
     /// call the confirmSignIn method. Both of these apis can result in the same callback path.
     /// This method is called for any signIn related callback. We check whether the callback
     /// is available and then invoke the callback. Before invoking the callback we make sure that the
-    /// internal callback representation is set to nil.
+    /// internal callback reference is set to nil.
     /// - Parameters:
     ///     - signResult: signIn result if there is no error
     ///     - error: error occured
     internal func invokeSignInCallback(signResult: SignInResult?, error: Error?) {
-        if let signCallback = self.userpoolOpsHelper.currentSignInHandlerCallback {
-            self.invalidateSignInCallbacks()
+        if let signCallback = userpoolOpsHelper.currentSignInHandlerCallback {
+            invalidateSignInCallbacks()
             signCallback(signResult, error)
             
-        } else if let confirmSignCallback = self.userpoolOpsHelper.currentConfirmSignInHandlerCallback {
-            self.invalidateSignInCallbacks()
+        } else if let confirmSignCallback = userpoolOpsHelper.currentConfirmSignInHandlerCallback {
+            invalidateSignInCallbacks()
             confirmSignCallback(signResult, error)
         }
     }
     
     internal func invalidateSignInCallbacks() {
-        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
-        self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = nil
+        userpoolOpsHelper.currentSignInHandlerCallback = nil
+        userpoolOpsHelper.currentConfirmSignInHandlerCallback = nil
     }
     
     /// Signs in a user with the given username and password.
@@ -495,7 +495,7 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         }
         self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-        self.invokeSignInCallback(signResult: nil, error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
+        invokeSignInCallback(signResult: nil, error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userPoolClient?.clearAll()
     }
     
@@ -826,12 +826,12 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
             }
         
         let result = SignInResult(signInState: .smsMFA, codeDetails: codeDeliveryDetails)
-        self.invokeSignInCallback(signResult: result, error: nil)
+        invokeSignInCallback(signResult: result, error: nil)
     }
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?) {
         if let error = error {
-            self.invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
+            invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
     }
 }
