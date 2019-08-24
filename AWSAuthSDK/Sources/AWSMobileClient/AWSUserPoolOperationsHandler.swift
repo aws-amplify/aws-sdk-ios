@@ -53,6 +53,7 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     internal var mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>?
     
     internal var currentSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
+    internal var currentConfirmSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     
     var authHelperDelegate: UserPoolAuthHelperlCallbacks?
     
