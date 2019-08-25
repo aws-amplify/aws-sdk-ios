@@ -7709,6 +7709,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DescribeExportImageTasksRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"exportImageTaskIds" : @"ExportImageTaskIds",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeExportImageTasksResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exportImageTasks" : @"ExportImageTasks",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)exportImageTasksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ExportImageTask class]];
+}
+
+@end
+
 @implementation AWSEC2DescribeExportTasksRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -14082,6 +14115,120 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ExportImageRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"detail" : @"Description",
+             @"diskImageFormat" : @"DiskImageFormat",
+             @"dryRun" : @"DryRun",
+             @"imageId" : @"ImageId",
+             @"roleName" : @"RoleName",
+             @"s3ExportLocation" : @"S3ExportLocation",
+             };
+}
+
++ (NSValueTransformer *)diskImageFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"VMDK"] == NSOrderedSame) {
+            return @(AWSEC2DiskImageFormatVMDK);
+        }
+        if ([value caseInsensitiveCompare:@"RAW"] == NSOrderedSame) {
+            return @(AWSEC2DiskImageFormatRAW);
+        }
+        if ([value caseInsensitiveCompare:@"VHD"] == NSOrderedSame) {
+            return @(AWSEC2DiskImageFormatVHD);
+        }
+        return @(AWSEC2DiskImageFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DiskImageFormatVMDK:
+                return @"VMDK";
+            case AWSEC2DiskImageFormatRAW:
+                return @"RAW";
+            case AWSEC2DiskImageFormatVHD:
+                return @"VHD";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)s3ExportLocationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ExportTaskS3LocationRequest class]];
+}
+
+@end
+
+@implementation AWSEC2ExportImageResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"diskImageFormat" : @"DiskImageFormat",
+             @"exportImageTaskId" : @"ExportImageTaskId",
+             @"imageId" : @"ImageId",
+             @"progress" : @"Progress",
+             @"roleName" : @"RoleName",
+             @"s3ExportLocation" : @"S3ExportLocation",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             };
+}
+
++ (NSValueTransformer *)diskImageFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"VMDK"] == NSOrderedSame) {
+            return @(AWSEC2DiskImageFormatVMDK);
+        }
+        if ([value caseInsensitiveCompare:@"RAW"] == NSOrderedSame) {
+            return @(AWSEC2DiskImageFormatRAW);
+        }
+        if ([value caseInsensitiveCompare:@"VHD"] == NSOrderedSame) {
+            return @(AWSEC2DiskImageFormatVHD);
+        }
+        return @(AWSEC2DiskImageFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DiskImageFormatVMDK:
+                return @"VMDK";
+            case AWSEC2DiskImageFormatRAW:
+                return @"RAW";
+            case AWSEC2DiskImageFormatVHD:
+                return @"VHD";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)s3ExportLocationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ExportTaskS3Location class]];
+}
+
+@end
+
+@implementation AWSEC2ExportImageTask
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"exportImageTaskId" : @"ExportImageTaskId",
+             @"imageId" : @"ImageId",
+             @"progress" : @"Progress",
+             @"s3ExportLocation" : @"S3ExportLocation",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             };
+}
+
++ (NSValueTransformer *)s3ExportLocationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ExportTaskS3Location class]];
+}
+
+@end
+
 @implementation AWSEC2ExportTask
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -14132,6 +14279,28 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSEC2ExportTaskS3Location
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Prefix" : @"S3Prefix",
+             };
+}
+
+@end
+
+@implementation AWSEC2ExportTaskS3LocationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Prefix" : @"S3Prefix",
+             };
 }
 
 @end
