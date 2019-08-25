@@ -25,7 +25,46 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSTranscribeStreamingSDKVersion;
 
 /**
- <p>Operations and objects for transcribing streaming speech to text.</p>
+ Operations and objects for transcribing streaming speech to text.
+
+ For backend setup and instructions on configuring policies, please see
+ https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html
+
+ This SDK currently only supports streaming via WebSockets, which is described here
+ https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html
+
+ **How to Use**
+
+ See the `AWSTranscribeStreamingSwiftTests.testStreamingExample()` integration test for an example of the "happy path"
+ usage of this SDK. The general steps for usage are:
+
+ 1. Configure the AWSServiceConfiguration, including setting a credentials provider for signing WebSocket requests
+
+ 2. Create a TranscribeStreaming client with `+[AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:forKey:]`, or use the default
+
+ 3. Create a `AWSTranscribeStreamingStartStreamTranscriptionRequest` and set its properties to allow transcription of your audio stream
+
+ 4. Set up an `AWSTranscribeStreamingClientDelegate` to receive callbacks for connection status changes and transcription events
+
+ 5. Call `AWSTranscribeStreaming.setDelegate(:callbackQueue:)` to register your delegate with the client. **NOTE** We do not recommend using the
+    `main` queue as your callback queue, since doing so could impact your app's UI performance.
+
+ 6. Call `AWSTranscribeStreaming.startTranscriptionWSS()` with the configured request
+
+ 7. Wait for your delegate's `connectionStatusCallback` to be invoked with a status of `.connected`. At this point, the transcribe client is ready to
+    receive audio data
+
+ 8. Chunk your audio data and send it to AWS Transcribe using the `AWSTranscribeStreaming.send()` method
+
+ 9. As you send data, your delegate will be receiving transcription events in the `receiveEventCallback`, which you can decode and use in your app.
+
+ 10. When you reach the end of your audio data, call `AWSTranscribeStreaming.sendEndFrame()` to signal the end of processing.
+ <b>NOTE: We recommend waiting 2-3 seconds past the end of your last detected audio data before sending the end frame.</b>
+
+ 11. Wait for your final transcription events to be received, as indicated by a transcription event with the `isPartial` flag set to `0`.
+
+ 12. Call `AWSTranscribeStreaming.endTranscription()` to close the web socket and gracefully shut down the connection to the service.
+
  */
 @interface AWSTranscribeStreaming : AWSService
 
