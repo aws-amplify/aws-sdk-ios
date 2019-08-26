@@ -296,4 +296,17 @@ public struct UserCodeDeliveryDetails {
         self.deliveryMedium = deliveryMedium
         self.attributeName = attributeName
     }
+    
+    public static func getUserCodeDeliveryDetails(_ deliveryDetails: AWSCognitoIdentityProviderCodeDeliveryDetailsType) -> UserCodeDeliveryDetails {
+        var codeDeliveryDetails: UserCodeDeliveryDetails?
+        switch(deliveryDetails.deliveryMedium) {
+        case .email:
+            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .email, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+        case .sms:
+            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+        case .unknown:
+            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+        }
+        return codeDeliveryDetails!
+    }
 }

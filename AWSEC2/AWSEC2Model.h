@@ -1829,6 +1829,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeEgressOnlyInternetGatewaysResult;
 @class AWSEC2DescribeElasticGpusRequest;
 @class AWSEC2DescribeElasticGpusResult;
+@class AWSEC2DescribeExportImageTasksRequest;
+@class AWSEC2DescribeExportImageTasksResult;
 @class AWSEC2DescribeExportTasksRequest;
 @class AWSEC2DescribeExportTasksResult;
 @class AWSEC2DescribeFleetError;
@@ -2052,7 +2054,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ExportClientVpnClientCertificateRevocationListResult;
 @class AWSEC2ExportClientVpnClientConfigurationRequest;
 @class AWSEC2ExportClientVpnClientConfigurationResult;
+@class AWSEC2ExportImageRequest;
+@class AWSEC2ExportImageResult;
+@class AWSEC2ExportImageTask;
 @class AWSEC2ExportTask;
+@class AWSEC2ExportTaskS3Location;
+@class AWSEC2ExportTaskS3LocationRequest;
 @class AWSEC2ExportToS3Task;
 @class AWSEC2ExportToS3TaskSpecification;
 @class AWSEC2ExportTransitGatewayRoutesRequest;
@@ -5425,7 +5432,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable coreCount;
 
 /**
- <p>The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>
+ <p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable threadsPerCore;
 
@@ -10102,6 +10109,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeExportImageTasksRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IDs of the export image tasks.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable exportImageTaskIds;
+
+/**
+ <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>, <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return in a single call.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A token that indicates the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeExportImageTasksResult : AWSModel
+
+
+/**
+ <p>Information about the export image tasks.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2ExportImageTask *> * _Nullable exportImageTasks;
+
+/**
+ <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeExportTasksRequest : AWSRequest
 
 
@@ -10840,17 +10898,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>Filter tasks using the <code>task-state</code> filter and one of the following values: active, completed, deleting, deleted.</p>
+ <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>, <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>A list of import image task IDs.</p>
+ <p>The IDs of the import image tasks.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable importTaskIds;
 
 /**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+ <p>The maximum number of results to return in a single call.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -15250,6 +15308,145 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2ExportImageRequest : AWSRequest
+
+
+/**
+ <p>Token to enable idempotency for export image requests.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>A description of the image being exported. The maximum length is 255 bytes.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The disk image format.</p>
+ */
+@property (nonatomic, assign) AWSEC2DiskImageFormat diskImageFormat;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the image.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+/**
+ <p>The name of the role that grants VM Import/Export permission to export images to your S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleName;
+
+/**
+ <p>Information about the destination S3 bucket. The bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.</p>
+ */
+@property (nonatomic, strong) AWSEC2ExportTaskS3LocationRequest * _Nullable s3ExportLocation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ExportImageResult : AWSModel
+
+
+/**
+ <p>A description of the image being exported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The disk image format for the exported image.</p>
+ */
+@property (nonatomic, assign) AWSEC2DiskImageFormat diskImageFormat;
+
+/**
+ <p>The ID of the export image task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportImageTaskId;
+
+/**
+ <p>The ID of the image.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+/**
+ <p>The percent complete of the export image task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable progress;
+
+/**
+ <p>The name of the role that grants VM Import/Export permission to export images to your S3 bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleName;
+
+/**
+ <p>Information about the destination S3 bucket.</p>
+ */
+@property (nonatomic, strong) AWSEC2ExportTaskS3Location * _Nullable s3ExportLocation;
+
+/**
+ <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>, <code>deleting</code>, and <code>deleted</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable status;
+
+/**
+ <p>The status message for the export image task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+@end
+
+/**
+ <p>Describes an export image task.</p>
+ */
+@interface AWSEC2ExportImageTask : AWSModel
+
+
+/**
+ <p>A description of the image being exported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The ID of the export image task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportImageTaskId;
+
+/**
+ <p>The ID of the image.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+/**
+ <p>The percent complete of the export image task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable progress;
+
+/**
+ <p>Information about the destination S3 bucket.</p>
+ */
+@property (nonatomic, strong) AWSEC2ExportTaskS3Location * _Nullable s3ExportLocation;
+
+/**
+ <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>, <code>deleting</code>, and <code>deleted</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable status;
+
+/**
+ <p>The status message for the export image task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+@end
+
+/**
  <p>Describes an instance export task.</p>
  */
 @interface AWSEC2ExportTask : AWSModel
@@ -15284,6 +15481,43 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The status message related to the export task.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+@end
+
+/**
+ <p>Describes the destination for an export image task.</p>
+ */
+@interface AWSEC2ExportTaskS3Location : AWSModel
+
+
+/**
+ <p>The destination S3 bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The prefix (logical hierarchy) in the bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
+
+@end
+
+/**
+ <p>Describes the destination for an export image task.</p>
+ Required parameters: [S3Bucket]
+ */
+@interface AWSEC2ExportTaskS3LocationRequest : AWSModel
+
+
+/**
+ <p>The destination S3 bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The prefix (logical hierarchy) in the bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
 
 @end
 
@@ -19188,7 +19422,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable coreCount;
 
 /**
- <p>The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>
+ <p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable threadsPerCore;
 
@@ -26591,7 +26825,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.</p><p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p><p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from all the Spot Instance pools that you specify.</p><p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.</p>
+ <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.</p><p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p><p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from all the Spot Instance pools that you specify.</p><p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p>
  */
 @property (nonatomic, assign) AWSEC2AllocationStrategy allocationStrategy;
 
@@ -26904,7 +27138,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p><p>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p><p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all the Spot Instance pools that you specify.</p><p>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.</p>
+ <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p><p>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p><p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all the Spot Instance pools that you specify.</p><p>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p>
  */
 @property (nonatomic, assign) AWSEC2SpotAllocationStrategy allocationStrategy;
 
@@ -26947,7 +27181,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p><p>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p><p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all the Spot Instance pools that you specify.</p><p>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools that are optimally chosen based on the available Spot Instance capacity.</p>
+ <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p><p>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p><p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all the Spot Instance pools that you specify.</p><p>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p>
  */
 @property (nonatomic, assign) AWSEC2SpotAllocationStrategy allocationStrategy;
 

@@ -1,5 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.10.4
+
+### Bug Fixes
+
+- **AWSPinpoint**
+  - The limit of "Maximum number events in a request" defined by the [Pinpoint service limits](https://docs.aws.amazon.com/pinpoint/latest/developerguide/limits.html#limits-events) (100 per request) is now enforced by the client. When recording more than 100 events the client will submit multiple batches of 100 to avoid a service failure. See [Issue #1680](https://github.com/aws-amplify/aws-sdk-ios/issues/1680) and [PR #1743](github.com/aws-amplify/aws-sdk-ios/pull/1743) for details.
+
 ## 2.10.3
 
 ### Bug Fixes

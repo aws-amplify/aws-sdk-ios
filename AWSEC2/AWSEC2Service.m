@@ -3691,6 +3691,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeExportImageTasksResult *> *)describeExportImageTasks:(AWSEC2DescribeExportImageTasksRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeExportImageTasks"
+                   outputClass:[AWSEC2DescribeExportImageTasksResult class]];
+}
+
+- (void)describeExportImageTasks:(AWSEC2DescribeExportImageTasksRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeExportImageTasksResult *response, NSError *error))completionHandler {
+    [[self describeExportImageTasks:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeExportImageTasksResult *> * _Nonnull task) {
+        AWSEC2DescribeExportImageTasksResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeExportTasksResult *> *)describeExportTasks:(AWSEC2DescribeExportTasksRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6088,6 +6111,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ExportClientVpnClientConfigurationResult *response, NSError *error))completionHandler {
     [[self exportClientVpnClientConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ExportClientVpnClientConfigurationResult *> * _Nonnull task) {
         AWSEC2ExportClientVpnClientConfigurationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ExportImageResult *> *)exportImage:(AWSEC2ExportImageRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ExportImage"
+                   outputClass:[AWSEC2ExportImageResult class]];
+}
+
+- (void)exportImage:(AWSEC2ExportImageRequest *)request
+     completionHandler:(void (^)(AWSEC2ExportImageResult *response, NSError *error))completionHandler {
+    [[self exportImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ExportImageResult *> * _Nonnull task) {
+        AWSEC2ExportImageResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
