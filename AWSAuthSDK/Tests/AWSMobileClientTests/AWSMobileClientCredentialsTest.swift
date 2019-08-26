@@ -109,5 +109,74 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         wait(for: [downloadExpectation], timeout: 5)
         
     }
+    
+    /// Test that upload to s3 fails for a signedOut user
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I try to upload a file to S3
+    /// - Then:
+    ///    - I should get an error
+    ///
+    func testUploadFileWithSignOutUser() {
+
+        let transferUtility = AWSS3TransferUtility.default()
+        let verifyCredentialsExpectation = expectation(description: "Credentials should be retrieved successfully")
+        AWSMobileClient.sharedInstance().getAWSCredentials { (creds, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(creds)
+            verifyCredentialsExpectation.fulfill()
+        }
+        wait(for: [verifyCredentialsExpectation], timeout: 5)
+        
+        XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "User should be in signOut state")
+        let uploadKey = "private/file.txt"
+        let uploadExpectation = expectation(description: "Successful file upload.")
+        let content = "Hello World"
+        print("Uploading file to : \(uploadKey)")
+        
+        transferUtility.uploadData(content.data(using: .utf8)!, key: uploadKey, contentType: "txt/plain", expression: nil) { (task, error) in
+            XCTAssertNotNil(error)
+            uploadExpectation.fulfill()
+        }
+        wait(for: [uploadExpectation], timeout: 5)
+    }
+    
+    /// Test that S3 upload works if we call it inside the user state listener
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I invoke signIn
+    ///    - I invoke upload to s3 inside the user state listener for signedIn case
+    /// - Then:
+    ///    - I should be able to upload to S3 without any error
+    ///
+    func testUploadFileInUserStateListener() {
+        let username = "testUser" + UUID().uuidString
+        let transferUtility = AWSS3TransferUtility.default()
+        let uploadKey = "private/file.txt"
+        let uploadExpectation = expectation(description: "Successful file upload.")
+        let content = "Hello World"
+        
+        let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
+        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+            switch (userState) {
+            case .signedIn:
+                signInListenerWasSuccessful.fulfill()
+                print("Listener user is signed in.")
+                print("Uploading file to : \(uploadKey)")
+                transferUtility.uploadData(content.data(using: .utf8)!, key: uploadKey, contentType: "txt/plain", expression: nil) { (task, error) in
+                    XCTAssertNil(error, "Upload data should not produce any error.")
+                    uploadExpectation.fulfill()
+                }
+            default:
+                print("Listener \(userState)")
+            }
+        }
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        wait(for: [signInListenerWasSuccessful, uploadExpectation], timeout: 5)
+        AWSMobileClient.sharedInstance().removeUserStateListener(self)
+    }
 
 }
