@@ -27,7 +27,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             }
             credentialsExpectation.fulfill()
         }
-        wait(for: [credentialsExpectation], timeout: 5)
+        wait(for: [credentialsExpectation], timeout: 10)
     }
     
     func testUploadPrivateFile() {
@@ -41,7 +41,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             XCTAssertNotNil(creds)
             verifyCredentialsExpectation.fulfill()
         }
-        wait(for: [verifyCredentialsExpectation], timeout: 5)
+        wait(for: [verifyCredentialsExpectation], timeout: 10)
         
         guard let identityId = AWSMobileClient.sharedInstance().identityId else {
             XCTFail("Could not find identityId to do private upload.")
@@ -58,7 +58,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             }
             uploadExpectation.fulfill()
         }
-        wait(for: [uploadExpectation], timeout: 5)
+        wait(for: [uploadExpectation], timeout: 10)
     }
     
     func testDownloadPrivateFile() {
@@ -72,7 +72,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             XCTAssertNotNil(creds)
             verifyCredentialsExpectation.fulfill()
         }
-        wait(for: [verifyCredentialsExpectation], timeout: 5)
+        wait(for: [verifyCredentialsExpectation], timeout: 10)
         
         guard let identityId = AWSMobileClient.sharedInstance().identityId else {
             XCTFail("Could not find identityId to do private upload.")
@@ -91,7 +91,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             }
             uploadExpectation.fulfill()
         }
-        wait(for: [uploadExpectation], timeout: 5)
+        wait(for: [uploadExpectation], timeout: 10)
         
         let downloadExpectation = expectation(description: "Successful file download.")
         transferUtility.downloadData(forKey: uploadKey, expression: nil) { (task, url, data, error) in
@@ -106,7 +106,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             }
             downloadExpectation.fulfill()
         }
-        wait(for: [downloadExpectation], timeout: 5)
+        wait(for: [downloadExpectation], timeout: 10)
         
     }
     
@@ -127,7 +127,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             XCTAssertNotNil(creds)
             verifyCredentialsExpectation.fulfill()
         }
-        wait(for: [verifyCredentialsExpectation], timeout: 5)
+        wait(for: [verifyCredentialsExpectation], timeout: 10)
         
         XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "User should be in signOut state")
         let uploadKey = "private/file.txt"
@@ -135,11 +135,21 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         let content = "Hello World"
         print("Uploading file to : \(uploadKey)")
         
-        transferUtility.uploadData(content.data(using: .utf8)!, key: uploadKey, contentType: "txt/plain", expression: nil) { (task, error) in
-            XCTAssertNotNil(error)
-            uploadExpectation.fulfill()
+        transferUtility.uploadData(content.data(using: .utf8)!,
+                                   key: uploadKey,
+                                   contentType: "text/plain",
+                                   expression: nil) { (_, error) in
+            defer {
+                uploadExpectation.fulfill()
+            }
+            guard let error = error as NSError? else {
+                XCTFail("Error unexpectedly nil")
+                return
+            }
+            XCTAssertEqual(error.domain, AWSS3TransferUtilityErrorDomain)
+            XCTAssertEqual(error.code, AWSS3TransferUtilityErrorType.clientError.rawValue)
         }
-        wait(for: [uploadExpectation], timeout: 5)
+        wait(for: [uploadExpectation], timeout: 10)
     }
     
     /// Test that S3 upload works if we call it inside the user state listener
@@ -154,18 +164,21 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
     func testUploadFileInUserStateListener() {
         let username = "testUser" + UUID().uuidString
         let transferUtility = AWSS3TransferUtility.default()
-        let uploadKey = "private/file.txt"
-        let uploadExpectation = expectation(description: "Successful file upload.")
         let content = "Hello World"
-        
+        let uploadKey = "private/\(username)/file.txt"
+        let uploadExpectation = expectation(description: "Successful file upload.")
         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
+        
         AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
             switch (userState) {
             case .signedIn:
                 signInListenerWasSuccessful.fulfill()
                 print("Listener user is signed in.")
                 print("Uploading file to : \(uploadKey)")
-                transferUtility.uploadData(content.data(using: .utf8)!, key: uploadKey, contentType: "txt/plain", expression: nil) { (task, error) in
+                transferUtility.uploadData(content.data(using: .utf8)!,
+                                           key: uploadKey,
+                                           contentType: "text/plain",
+                                           expression: nil) { (_, error) in
                     XCTAssertNil(error, "Upload data should not produce any error.")
                     uploadExpectation.fulfill()
                 }
@@ -175,7 +188,52 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         }
         signUpAndVerifyUser(username: username)
         signIn(username: username)
-        wait(for: [signInListenerWasSuccessful, uploadExpectation], timeout: 5)
+        wait(for: [signInListenerWasSuccessful, uploadExpectation], timeout: 10)
+        AWSMobileClient.sharedInstance().removeUserStateListener(self)
+    }
+    
+    /// Test user state are in consistent state when we upload a file from state listener
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I invoke signIn
+    ///    - I invoke upload to s3 inside the user state listener for signedIn case
+    /// - Then:
+    ///    - I should be able to upload to S3 without any error
+    ///    - Only state change that happen should be signedIn state
+    ///
+    func testUserStateWhileUploadingInsideStateListener() {
+        let username = "testUser" + UUID().uuidString
+        let transferUtility = AWSS3TransferUtility.default()
+        let uploadKey = "private/\(username)/file.txt"
+        let content = "Hello World"
+        
+        let uploadExpectation = expectation(description: "Successful file upload.")
+        let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
+        let noOtherSignInStateReceived = expectation(description: "No other state should be called")
+        noOtherSignInStateReceived.isInverted = true
+        
+        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+            switch (userState) {
+            case .signedIn:
+                signInListenerWasSuccessful.fulfill()
+                print("Listener user is signed in.")
+                print("Uploading file to : \(uploadKey)")
+                transferUtility.uploadData(content.data(using: .utf8)!,
+                                           key: uploadKey,
+                                           contentType: "text/plain",
+                                           expression: nil) { (_, error) in
+                                            XCTAssertNil(error, "Upload data should not produce any error.")
+                                            uploadExpectation.fulfill()
+                }
+            default:
+                print("Listener \(userState)")
+                noOtherSignInStateReceived.fulfill()
+            }
+        }
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        wait(for: [signInListenerWasSuccessful, uploadExpectation, noOtherSignInStateReceived], timeout: 10)
         AWSMobileClient.sharedInstance().removeUserStateListener(self)
     }
 
