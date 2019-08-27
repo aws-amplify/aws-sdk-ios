@@ -4,9 +4,6 @@
 #
 version: 2.1
 
-## Using aws-cli to create test user for e2e testing
-orbs:
-  aws-cli: circleci/aws-cli@0.1.13
 
 commands:
   early_return_for_forked_prs:
@@ -613,11 +610,19 @@ jobs:
         type: string
     steps:
       - set_environment_variables
-      - aws-cli/install
-      - aws-cli/configure
       - override_test_job #skip the test job is project variable OVERRIDE_TEST is set with TRUE
       - skip_job_unless_required #skip_job_from_environment_variable SKIP_JOB_${CIRCLE_JOB}
       - early_return_for_forked_prs # do not run for forked PRs
+      - run:
+          name: installing aws cli
+          command: |
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
+      - run:
+          name: configuring aws profile
+          command: |
+            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile default 
+            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile default 
+            aws configure set region $AWS_DEFAULT_REGION --profile default 
       - checkout
       - run:
           name: "Checkout sample apps repository"
