@@ -9,6 +9,8 @@
 - **AWSMobileClient**
   - Fixed a race condition where the confirm signIn callback becoming nil. See issues [#1248](https://github.com/aws-amplify/aws-sdk-ios/issues/1248) and
     [#1686](https://github.com/aws-amplify/aws-sdk-ios/issues/1686), and [PR #1815](https://github.com/aws-amplify/aws-sdk-ios/pull/1815).
+  - Fix an issue where the signIn callback and user state listener callback are out of sync. See issues [#1700](https://github.com/aws-amplify/aws-sdk-ios/issues/1700) and 
+    [#1314](https://github.com/aws-amplify/aws-sdk-ios/issues/1314), and [PR #1822](https://github.com/aws-amplify/aws-sdk-ios/pull/1822).
 
 ### Misc. Updates
 - Model updates for the following services

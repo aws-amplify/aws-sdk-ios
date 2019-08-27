@@ -55,7 +55,7 @@ class AWSMobileClientSignInTests: AWSMobileClientBaseTests {
             XCTAssertEqual(signInResult.signInState, .signedIn, "Could not verify sign in state")
             signInWasSuccessful.fulfill()
         }
-        wait(for: [signInWasSuccessful, signInListenerWasSuccessful], timeout: 5)
+        wait(for: [signInWasSuccessful, signInListenerWasSuccessful], timeout: 10)
         XCTAssertNil(AWSMobileClient.sharedInstance().userpoolOpsHelper.currentSignInHandlerCallback,
                      "Current sign callback should be nil after callback is invoked")
         AWSMobileClient.sharedInstance().removeUserStateListener(self)
@@ -78,7 +78,7 @@ class AWSMobileClientSignInTests: AWSMobileClientBaseTests {
             XCTAssertNotNil(error, "Expecting error for wrong password.")
             signInShouldFail.fulfill()
         }
-        wait(for: [signInShouldFail], timeout: 5)
+        wait(for: [signInShouldFail], timeout: 10)
         XCTAssertNil(AWSMobileClient.sharedInstance().userpoolOpsHelper.currentSignInHandlerCallback,
                      "Current sign callback should be nil after callback is invoked")
     }
@@ -116,14 +116,101 @@ class AWSMobileClientSignInTests: AWSMobileClientBaseTests {
             }
             signInWasSuccessfulExpectation.fulfill()
         }
-        wait(for: [signInWasSuccessfulExpectation], timeout: 5)
+        wait(for: [signInWasSuccessfulExpectation], timeout: 10)
         XCTAssertNotNil(AWSMobileClient.sharedInstance().userpoolOpsHelper.currentConfirmSignInHandlerCallback,
                         "Current confirmsign callback should not be nil")
         XCTAssertNil(AWSMobileClient.sharedInstance().userpoolOpsHelper.currentSignInHandlerCallback,
                      "Current sign callback should be nil")
-        
-        
-        
     }
-
+    
+    /// Test whether signIn operation works as intended after a signIn and signOut call
+    ///
+    /// - Given: An unauthenticated session
+    /// - When:
+    ///    - I invoke the signIn operation
+    ///    - I invoke signOut operation
+    ///    - Then invoke signIn again
+    /// - Then:
+    ///    - The callbacks for each operation should produce the expected result.
+    ///    - ie after the first signIn the user should be in signIn state
+    ///    - then after signOut, the user should be in signOut state
+    ///    - and the last signIn call should end the user in signIn state.
+    ///
+    func testSignInAfterASignOut() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        let firstSignInExpectation = expectation(description: "First signIn was successful")
+        let secondSignInExpectation = expectation(description: "Second signIn was successful")
+        AWSMobileClient.sharedInstance().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+            
+            defer {
+                firstSignInExpectation.fulfill()
+            }
+            if let error = error {
+                XCTFail("User login failed: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let signInResult = signInResult else {
+                XCTFail("User login failed, signInResult unexpectedly nil")
+                return
+            }
+            XCTAssertEqual(signInResult.signInState, .signedIn, "Could not verify sign in state for first signIn")
+            XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedIn, "User should be in signedIn state after first signIn")
+            AWSMobileClient.sharedInstance().signOut()
+            XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedOut, "User should be in signedOut state after signedOut")
+            
+            // Second signIn call
+            AWSMobileClient.sharedInstance().signIn(username: username, password: self.sharedPassword) { (signInResult, error) in
+                defer {
+                    secondSignInExpectation.fulfill()
+                }
+                
+                if let error = error {
+                    XCTFail("User login failed: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let signInResult = signInResult else {
+                    XCTFail("User login failed, signInResult unexpectedly nil")
+                    return
+                }
+                XCTAssertEqual(signInResult.signInState, .signedIn, "Could not verify sign in state for second signIn")
+                XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedIn, "User should be in signedIn state after second signIn")
+            }
+            
+        }
+        wait(for: [firstSignInExpectation, secondSignInExpectation], timeout: 10)
+    }
+    
+    /// Test whether the state of AWSMobileClient is current after signIn
+    ///
+    /// - Given:  An unauthenticated session
+    /// - When:
+    ///    - I invoke `signIn` valid username and password
+    /// - Then:
+    ///    - I should successfully signIn with AWSMobileClient.sharedInstance().currentUserState
+    ///    - with state signedIn and AWSMobileClient.sharedInstance().isSignedIn to be true
+    ///
+    func testUserStateAfterSignIn() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        let firstSignInExpectation = expectation(description: "First signIn was successful")
+        AWSMobileClient.sharedInstance().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+            if let error = error {
+                XCTFail("User login failed: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let signInResult = signInResult else {
+                XCTFail("User login failed, signInResult unexpectedly nil")
+                return
+            }
+            XCTAssertEqual(signInResult.signInState, .signedIn, "Could not verify sign in state")
+            XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedIn, "User should be in signedIn state after signIn")
+            XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn, "AWSMobileClient isSignedIn should be true after signIn")
+            firstSignInExpectation.fulfill()
+        }
+        wait(for: [firstSignInExpectation], timeout: 10)
+    }
 }

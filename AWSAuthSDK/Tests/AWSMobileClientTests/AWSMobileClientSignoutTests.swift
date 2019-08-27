@@ -91,5 +91,47 @@ class AWSMobileClientSignoutTests: AWSMobileClientBaseTests {
         }
         wait(for: [signoutExpectation], timeout: 2)
     }
+    
+    /// Test successfull sign out and check the state of AWSMobileClient
+    ///
+    /// - Given: An authenticated session
+    /// - When:
+    ///    - I invoke `signOut` without callback
+    /// - Then:
+    ///    - The user state is `signedOut` and isSignedIn is false
+    ///
+    func testSignOutState() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn, "Expected to return true for isSignedIn")
+        AWSMobileClient.sharedInstance().signOut()
+        XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "Expected to return false for isSignedIn")
+        XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedOut, "User should be in signedOut state after signedOut")
+    }
+    
+    /// Test successfull sign out using callback and check the state of AWSMobileClient
+    ///
+    /// - Given: An authenticated session
+    /// - When:
+    ///    - I invoke `signOut` with callback
+    /// - Then:
+    ///    - The user state is `signedOut` and isSignedIn is false
+    ///
+    func testSignOutStateWithCallback() {
+        let username = "testUser" + UUID().uuidString
+        let signoutExpectation = expectation(description: "Successfully signout")
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn, "Expected to return true for isSignedIn")
+        let signoutOptions = SignOutOptions(signOutGlobally: true, invalidateTokens: true)
+        AWSMobileClient.sharedInstance().signOut(options: signoutOptions) { (error) in
+            XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "Expected to return false for isSignedIn")
+            XCTAssertEqual(AWSMobileClient.sharedInstance().currentUserState, .signedOut, "User should be in signedOut state after signedOut")
+            signoutExpectation.fulfill()
+        }
+        wait(for: [signoutExpectation], timeout: 2)
+        
+    }
 
 }
