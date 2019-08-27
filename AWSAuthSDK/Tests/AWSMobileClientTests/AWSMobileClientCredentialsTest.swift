@@ -112,7 +112,9 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
     
     /// Test to check aws credentials fetched for unauth user
     ///
-    /// - Given: An unauthenticated session
+    /// - Given:
+    ///     - An unauthenticated session
+    ///     - AWSMobileClient configured to use Cognito with an unauthenticated role
     /// - When:
     ///    - I fetch AWS credentials
     /// - Then:
