@@ -295,6 +295,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             // Create an identity id via GetID if the call to logins didn't set it which DevAuth does
             // And there are no other calls in flight to create one
             if (!self.identityId && self.count <= 1) {
+                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 0));
                 AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
                 getIdInput.identityPoolId = self.identityPoolId;
                 getIdInput.logins = logins;
