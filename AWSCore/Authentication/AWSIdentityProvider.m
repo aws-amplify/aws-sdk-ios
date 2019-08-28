@@ -114,9 +114,10 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 
 @property (nonatomic, strong) AWSCognitoIdentity *cognitoIdentity;
 @property (nonatomic, strong) AWSExecutor *executor;
-@property (atomic, assign) int32_t count;
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @property (atomic, assign) BOOL hasClearedIdentityId;
+
+@property (nonatomic, strong) NSOperationQueue *serialOperationQueue;
+@property (nonatomic, strong) dispatch_group_t fetchIdentityLock;
 
 @end
 
@@ -128,8 +129,10 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
            identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager {
     if (self = [super init]) {
         _executor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
-        _count = 0;
-        _semaphore = dispatch_semaphore_create(0);
+        _serialOperationQueue = [[NSOperationQueue alloc] init];
+        _serialOperationQueue.maxConcurrentOperationCount = 1;
+        _fetchIdentityLock = dispatch_group_create();
+        
         _useEnhancedFlow = useEnhancedFlow;
         self.identityPoolId = identityPoolId;
         self.identityProviderManager = identityProviderManager;
@@ -279,56 +282,59 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 
 #pragma mark -
 
-- (AWSTask<NSString *> *)getIdentityId {
-    if (self.identityId) {
-        return [AWSTask taskWithResult:self.identityId];
-    } else {
-        AWSTask *task = [AWSTask taskWithResult:nil];
-        if (self.identityProviderManager) {
-            task = [self.identityProviderManager logins];
-        }
-        return [[task continueWithExecutor:self.executor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
-            NSDictionary<NSString *, NSString *> *logins = task.result;
-            self.cachedLogins = logins;
-            self.count++;
-            
-            // Create an identity id via GetID if the call to logins didn't set it which DevAuth does
-            // And there are no other calls in flight to create one
-            if (!self.identityId && self.count <= 1) {
-                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 0));
+- (AWSTask<NSString *> *)fetchIdentityId {
+    AWSTaskCompletionSource<NSString *> *completionSource = [AWSTaskCompletionSource new];
+    
+    // Serial operation queue is used here so that only one fetch identity Id happens at a time.
+    [self.serialOperationQueue addOperationWithBlock:^{
+
+        dispatch_group_enter(self.fetchIdentityLock);
+        if (self.identityId) {
+            dispatch_group_leave(self.fetchIdentityLock);
+        } else {
+            AWSTask *task = [AWSTask taskWithResult:nil];
+            if (self.identityProviderManager) {
+                task = [self.identityProviderManager logins];
+            }
+            [[task continueWithExecutor:self.executor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
+                
+                NSDictionary<NSString *, NSString *> *logins = task.result;
                 AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
                 getIdInput.identityPoolId = self.identityPoolId;
                 getIdInput.logins = logins;
                 return [self.cognitoIdentity getId:getIdInput];
-            } else {
-                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-                return [AWSTask taskWithResult:nil];
-            }
-        }] continueWithBlock:^id(AWSTask *task) {
-            if (task.error) {
-                AWSDDLogError(@"GetId failed. Error is [%@]", task.error);
-            } else if (task.result) {
-                AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
-                self.identityId = getIdResponse.identityId;
-            }
-            
-            //ensure that the identityID is set before the semaphore is signaled, otherwise it's possible
-            //that continuation blocks execute before the identityID is set
-            self.count--;
-            dispatch_semaphore_signal(self.semaphore);
-            if (task.faulted) {
-                return task;
-            }
-            if(!self.identityId){
-                NSString * error = @"Obtaining an identity id in another thread failed or didn't complete within 5 seconds.";
-                AWSDDLogError(@"%@",error);
-                return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
-                                                                  code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
-                                                              userInfo:@{NSLocalizedDescriptionKey: error}]];
-            } else {
-                return [AWSTask taskWithResult:self.identityId];
-            }
-        }];
+            }] continueWithBlock:^id(AWSTask *task) {
+                
+                if (task.error) {
+                    AWSDDLogError(@"GetId failed. Error is [%@]", task.error);
+                } else if (task.result) {
+                    AWSCognitoIdentityGetIdResponse *getIdResponse = task.result;
+                    self.identityId = getIdResponse.identityId;
+                }
+                dispatch_group_leave(self.fetchIdentityLock);
+                return nil;
+            }];
+        }
+        dispatch_group_wait(self.fetchIdentityLock, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
+        if(!self.identityId){
+            NSString * error = @"Obtaining an identity id in another thread failed or didn't complete within 5 seconds.";
+            AWSDDLogError(@"%@",error);
+            [completionSource setError:[NSError errorWithDomain:AWSCognitoCredentialsProviderHelperErrorDomain
+                                                           code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
+                                                       userInfo:@{NSLocalizedDescriptionKey: error}]];
+        } else {
+            [completionSource setResult:self.identityId];
+        }
+
+    }];
+    return completionSource.task;
+}
+
+- (AWSTask<NSString *> *)getIdentityId {
+    if (self.identityId) {
+        return [AWSTask taskWithResult:self.identityId];
+    } else {
+        return [self fetchIdentityId];
     }
 }
 

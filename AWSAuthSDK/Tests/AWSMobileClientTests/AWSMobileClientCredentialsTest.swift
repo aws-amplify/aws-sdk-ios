@@ -262,4 +262,33 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         AWSMobileClient.sharedInstance().removeUserStateListener(self)
     }
 
+    
+    func testMultipleGetCredentials() {
+        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        let username = "testUser" + UUID().uuidString
+        let credentialFetchBeforeSignIn = expectation(description: "Request to getAWSCredentials before signIn")
+        let credentialFetchAfterSignIn = expectation(description: "Request to getAWSCredentials after signIn")
+        let credentialFetchAfterSignOut = expectation(description: "Request to getAWSCredentials after signOut")
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchBeforeSignIn.fulfill()
+        })
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignIn.fulfill()
+        })
+        AWSMobileClient.sharedInstance().signOut()
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignOut.fulfill()
+        })
+        wait(for: [credentialFetchAfterSignOut, credentialFetchAfterSignIn, credentialFetchBeforeSignIn],
+             timeout: 30)
+    }
 }

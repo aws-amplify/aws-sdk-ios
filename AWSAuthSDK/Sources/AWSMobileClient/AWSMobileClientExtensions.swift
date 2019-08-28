@@ -494,6 +494,7 @@ extension AWSMobileClient {
         self.internalCredentialsProvider?.identityProvider.identityId = nil
         self.internalCredentialsProvider?.clearKeychain()
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
+        federationProvider = .none
     }
     
     internal func performUserPoolSignOut() {
