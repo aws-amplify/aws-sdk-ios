@@ -201,8 +201,12 @@ extension AWSMobileClient {
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
                     self.federationProvider = .userPools
-                    self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
                     self.performUserPoolSuccessfulSignInTasks(session: result)
+                    let tokenString = result.idToken!.tokenString
+                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                   additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
+                                                                    self.TokenKey:tokenString])
+                    self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
                 }
                 return nil
             }
@@ -227,6 +231,8 @@ extension AWSMobileClient {
             // At the end of operation if there is an error anywhere in the flow, we return it back to the developer; else return a successful signedIn state.
             defer {
                 if error == nil {
+                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                   additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
                     completionHandler(UserState.signedIn, nil)
                 } else {
                     completionHandler(nil, error)
@@ -529,8 +535,8 @@ extension AWSMobileClient {
                                                additionalInfo: [ProviderKey:provider, TokenKey: token])
     }
     
-    /// Post signin operations. Saves the login maps and provider metadata in keychain. Updates the credentials.
-    /// If credential update is successful, informs the listener with UserState.signedIn status.
+    /// Post signin operations. Saves the login maps and provider metadata in keychain. Refreshes the credentials.
+    /// We dont wait for the credentials to be updated, it is an async task which happens in background.
     ///
     /// - Parameters
     ///     - provider: provider to be updated in keychain.
@@ -539,7 +545,6 @@ extension AWSMobileClient {
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
         self.internalCredentialsProvider?.credentials()
-        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: additionalInfo)
     }
     
     /// Confirm a sign in which requires additional validation via steps like SMS MFA.
@@ -556,7 +561,9 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: challengeResponse as NSString)
         } else if (self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
-            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse, userAttributes: userAttributes))
+            let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
+                                                                                    userAttributes: userAttributes)
+            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
         } else {
             completionHandler(nil, AWSMobileClientError.invalidState(message: "Please call `signIn` before calling this method."))
         }
