@@ -211,6 +211,16 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
              enforceOrder: true)
     }
     
+    /// Test whether we are getting different identity Id on signOut and signIn state
+    ///
+    /// - Given: An unauthenticated user session
+    /// - When:
+    ///    - I fetch Identity Id, id1
+    ///    - Then I signIn and fetch identity id , id2
+    ///    - Then I signOut and fetch another id , id3
+    /// - Then:
+    ///    - All identity id1 != id2 and id2 != id3
+    ///
     func testGetIdentityWithSignOutAndSignIn() {
         XCTAssertNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should be nil after initialize.")
         var identityIdBeforeSignIn: String?
