@@ -469,6 +469,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                     signInInfo[self.ProviderKey] = "OAuth"
                     
                     self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
+                    self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
                     completionHandler(.signedIn, nil)
                     if self.pendingGetTokensCompletion != nil {
                         self.tokenFetchLock.leave()
@@ -487,6 +488,10 @@ final public class AWSMobileClient: _AWSMobileClient {
                         self.currentUser?.getSession().continueWith(block: { (task) -> Any? in
                             if let session = task.result {
                                 self.performUserPoolSuccessfulSignInTasks(session: session)
+                                let tokenString = session.idToken!.tokenString
+                                self.mobileClientStatusChanged(userState: .signedIn,
+                                                               additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
+                                                                                self.TokenKey:tokenString])
                                 completionHandler(.signedIn, nil)
                             } else {
                                 completionHandler(nil, task.error)
