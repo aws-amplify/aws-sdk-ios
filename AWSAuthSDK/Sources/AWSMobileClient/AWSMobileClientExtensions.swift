@@ -543,7 +543,6 @@ extension AWSMobileClient {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
-        self.internalCredentialsProvider?.clearKeychain()
         self.internalCredentialsProvider?.credentials()
     }
     
