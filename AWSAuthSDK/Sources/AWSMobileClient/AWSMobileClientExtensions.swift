@@ -248,7 +248,7 @@ extension AWSMobileClient {
                 // Update the Custom Role ARN if specified
                 if let customRoleArn = federatedSignInOptions.customRoleARN {
                     self.customRoleArnInternal = customRoleArn
-                    _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
+                    self.setCustomRoleArnInternal(customRoleArn, for: self)
                 }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
                 // If any credentials operation is pending, we invoke the waiting block to resume with new credentials
@@ -277,7 +277,7 @@ extension AWSMobileClient {
                 }
                 if let customRoleArn = federatedSignInOptions.customRoleARN {
                     self.customRoleArnInternal = customRoleArn
-                    _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
+                    self.setCustomRoleArnInternal(customRoleArn, for: self)
                 }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
             }
@@ -480,7 +480,7 @@ extension AWSMobileClient {
         }
         self.cachedLoginsMap = [:]
         self.customRoleArnInternal = nil
-        _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(nil, for: self)
+        self.setCustomRoleArnInternal(nil, for: self)
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: .none)
         self.internalCredentialsProvider?.clearKeychain()

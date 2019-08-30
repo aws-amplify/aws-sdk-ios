@@ -2,6 +2,15 @@
 
 ## 2.10.4
 
+### New Features
+
+- **AWSCore**
+  - Added the option of passing the configuration as an in-memory object (i.e. `[String: Any]`/`NSDictionary`) instead of the default `awsconfiguration.json` through the new API `AWSInfo.configureDefaultAWSInfo(config: [String: Any])`.
+- **AWSMobileClient**
+  - Based on the ability to pass a custom configuration through an in-memory object described above, exposed a new initializer that accepts a custom configuration: `AWSMobileClient.init(configuration: [String: Any])`.
+  - Changed `AWSMobileClient.sharedInstance()` in favor of `AWSMobileClient.default()` since it better communicates the API intent. The `sharedInstance` is still available for backwards compatibility.
+  - Refer to [Issue #1649](https://github.com/aws-amplify/aws-sdk-ios/issues/1649) for the feature request details.
+
 ### Bug Fixes
 
 - **AWSPinpoint**

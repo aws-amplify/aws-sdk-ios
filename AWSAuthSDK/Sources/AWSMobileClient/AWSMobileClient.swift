@@ -121,7 +121,11 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     /// The registered listeners who want to observe change in `UserState`.
     var listeners: [(AnyObject, UserStateChangeCallback)] = []
-    
+
+    /// Holds a reference to the AWSInfo configuration object
+    internal lazy var awsInfo: AWSInfo = {
+        return AWSInfo.default()
+    }()
     
     // MARK: Public API variables
     
@@ -141,16 +145,11 @@ final public class AWSMobileClient: _AWSMobileClient {
         return self.internalCredentialsProvider?.identityId
     }
     
-    @objc override public func interceptApplication(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        
-        return _AWSMobileClient.sharedInstance().interceptApplication(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-    }
-    
     /// Returns true if there is a user currently signed in.
     @objc public var isSignedIn: Bool {
         get {
             if (operateInLegacyMode) {
-                return _AWSMobileClient.sharedInstance().isLoggedIn
+                return self.isLoggedIn
             } else {
                 return self.cachedLoginsMap.count > 0
             }
@@ -160,11 +159,21 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     /// The singleton instance of `AWSMobileClient`.
     ///
+    /// **Note:** prefer to use `AWSMobileClient.default()` since it communicates better the API intent.
+    /// You can manage your own instance of `AWSMobileClient` through the `AWSMobileClient.init(configuration)`.
+    ///
     /// - Returns: The singleton `AWSMobileClient` instance.
     @objc override public class func sharedInstance() -> AWSMobileClient {
+        return self.default()
+    }
+
+    /// The default instance of `AWSMobileClient`. The configuration is loaded from the `awsconfiguration.json` file.
+    ///
+    /// - Returns: The default `AWSMobileClient` instance
+    @objc public class func `default`() -> AWSMobileClient {
         return _sharedInstance
     }
-    
+
     public func handleAuthResponse(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) {
         if (isCognitoAuthRegistered) {
             AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).application(application, open: url, options: [:])
@@ -207,7 +216,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             if self.federationProvider == .hostedUI {
                 loadOAuthURIQueryParametersFromKeychain()
                 
-                let infoDictionaryMobileClient = AWSInfo.default().rootInfoDictionary["Auth"] as? [String: [String: Any]]
+                let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
                 var infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
                 
                 let clientId = infoDictionary?["AppClientId"] as? String
@@ -266,9 +275,9 @@ final public class AWSMobileClient: _AWSMobileClient {
                 
                 self.isAuthorizationAvailable = true
                 self.internalCredentialsProvider = credentialsProvider
-                _AWSMobileClient.sharedInstance().update(self)
+                self.update(self)
                 self.internalCredentialsProvider?.setIdentityProviderManagerOnce(self)
-                _AWSMobileClient.sharedInstance().registerConfigSignInProviders()
+                self.registerConfigSignInProviders()
                 
                if (self.internalCredentialsProvider?.identityId != nil) {
                     if (federationProvider == .none) {
@@ -470,7 +479,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             }
             
         } else {
-            _AWSMobileClient.sharedInstance().showSign(inScreen: navigationController, signInUIConfiguration: signInUIOptions, completionHandler: { providerName, token, error in
+            self.showSign(inScreen: navigationController, signInUIConfiguration: signInUIOptions, completionHandler: { providerName, token, error in
                 if error == nil {
                     if (providerName == IdentityProvider.facebook.rawValue) || (providerName == IdentityProvider.google.rawValue) {
                         self.federatedSignIn(providerName: providerName!, token: token!, completionHandler: completionHandler)
@@ -565,42 +574,6 @@ extension AWSMobileClient {
     /// Clear ALL saved values for this provider (identityId, credentials, logins).
     override public func clearKeychain() {
         self.internalCredentialsProvider?.clearKeychain()
-    }
-    
-}
-
-// MARK: Deprecated AWSMobileClient methods
-
-extension AWSMobileClient {
-    
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient using `initialize`. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
-    override public func interceptApplication(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any]? = nil) -> Bool {
-        return _AWSMobileClient.sharedInstance().interceptApplication(application, didFinishLaunchingWithOptions: launchOptions)
-    }
-    
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient using `initialize`. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
-    @objc override public func interceptApplication(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable : Any]? = nil, resumeSessionWithCompletionHandler completionHandler: @escaping (Any, Error) -> Void) -> Bool {
-        operateInLegacyMode = true
-        return _AWSMobileClient.sharedInstance().interceptApplication(application,
-                                                                      didFinishLaunchingWithOptions: launchOptions,
-                                                                      resumeSessionWithCompletionHandler: completionHandler)
-    }
-    
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. Please update to use AWSMobileClient in the updated manner. Please visit https://aws-amplify.github.io for the latest iOS documentation")
-    @objc override public func setSignInProviders(_ signInProviderConfig: [AWSSignInProviderConfig]?) {
-        _AWSMobileClient.sharedInstance().setSignInProviders(signInProviderConfig)
-    }
-    
-    /// Get the credentials provider object which provides `AWSCredentials`.
-    ///
-    /// - Returns: An object which implements `AWSCredentialsProvider`.
-    @available(*, deprecated: 2.7, message: "This method will be removed in the next minor version. AWSMobileClient itself is a credentials provider now and should be passed directly where required. Please visit https://aws-amplify.github.io for the latest iOS documentation.")
-    @objc override public func getCredentialsProvider() -> AWSCognitoCredentialsProvider {
-        if (operateInLegacyMode) {
-            return _AWSMobileClient.sharedInstance().getCredentialsProvider()
-        } else {
-            return self
-        }
     }
     
 }

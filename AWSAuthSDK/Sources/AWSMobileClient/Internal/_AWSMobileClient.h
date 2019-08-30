@@ -54,6 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 /**
+ Initializes the AWSMobileClient with a custom configuration object. This initializer should be used when custom
+ configuration through code is required over the `awsconfiguration.json` file.
+ */
+- (instancetype)initWithConfiguration:(NSDictionary<NSString *, id> *)config;
+
+/**
  Configure third-party services from application delegate with url, application
  that called this provider, and any annotation info.
  

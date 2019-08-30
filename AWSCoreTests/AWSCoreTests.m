@@ -981,7 +981,7 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
                                                            }
                                                        }
                                                      };
-    [AWSInfo configure:configDictionary];
+    [AWSInfo configureDefaultAWSInfo:configDictionary];
     @try {
         AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
         XCTAssertNotNil(defaultInfo);
@@ -1012,7 +1012,7 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
                                                            }
                                                        }
                                                      };
-    [AWSInfo configure:configDictionary];
+    [AWSInfo configureDefaultAWSInfo:configDictionary];
     @try {
         AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
         XCTAssertNotNil(defaultInfo);

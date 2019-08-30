@@ -52,7 +52,7 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
 static AWSInfo *_defaultAWSInfo = nil;
 static NSDictionary<NSString *, id> * _userConfig = nil;
 
-- (instancetype)initWithConfig:(NSDictionary<NSString *, id> *)config {
+- (instancetype)initWithConfiguration:(NSDictionary<NSString *, id> *)config {
     if (self = [super init]) {
         _rootInfoDictionary = config;
 
@@ -106,14 +106,14 @@ static NSDictionary<NSString *, id> * _userConfig = nil;
         config = [[[NSBundle mainBundle] infoDictionary] objectForKey:AWSInfoRoot];
     }
 
-    return [self initWithConfig:config];
+    return [self initWithConfiguration:config];
 }
 
 + (instancetype)defaultAWSInfo {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (_userConfig) {
-            _defaultAWSInfo = [[AWSInfo alloc] initWithConfig:_userConfig];
+            _defaultAWSInfo = [[AWSInfo alloc] initWithConfiguration:_userConfig];
         } else {
             _defaultAWSInfo = [AWSInfo new];
         }
@@ -122,7 +122,7 @@ static NSDictionary<NSString *, id> * _userConfig = nil;
     return _defaultAWSInfo;
 }
 
-+ (void)configure:(NSDictionary<NSString *, id> *)config {
++ (void)configureDefaultAWSInfo:(NSDictionary<NSString *, id> *)config {
     if (_defaultAWSInfo) {
         AWSDDLogWarn(@"Configuration already set, you cannot call configure after AWSInfo is created.");
     } else {
