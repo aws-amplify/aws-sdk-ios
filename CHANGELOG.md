@@ -11,6 +11,7 @@
     [#1686](https://github.com/aws-amplify/aws-sdk-ios/issues/1686), and [PR #1815](https://github.com/aws-amplify/aws-sdk-ios/pull/1815).
   - Fix an issue where the signIn callback and user state listener callback are out of sync. See issues [#1700](https://github.com/aws-amplify/aws-sdk-ios/issues/1700) and 
     [#1314](https://github.com/aws-amplify/aws-sdk-ios/issues/1314), and [PR #1822](https://github.com/aws-amplify/aws-sdk-ios/pull/1822).
+  - Fix an issue where getIdentity call fails without waiting. Also makes sure that identityId is different between unauth and auth roles. See PR [#182](https://github.com/aws-amplify/aws-sdk-ios/pull/1824)
 
 ### Misc. Updates
 - Model updates for the following services
