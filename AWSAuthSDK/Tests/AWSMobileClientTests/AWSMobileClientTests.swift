@@ -207,8 +207,7 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
             return nil
         })
         wait(for: [identityIdExpectation1, identityIdExpectation2, identityIdExpectation3, identityIdExpectation4, identityIdExpectation5],
-             timeout: 15,
-             enforceOrder: true)
+             timeout: 15)
     }
     
     /// Test whether we are getting different identity Id on signOut and signIn state

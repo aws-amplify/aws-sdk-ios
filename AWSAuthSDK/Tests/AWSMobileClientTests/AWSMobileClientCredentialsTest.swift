@@ -283,7 +283,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
             credentialFetchAfterSignIn.fulfill()
         })
-        wait(for: [credentialFetchAfterSignIn], timeout: 30)
+        wait(for: [credentialFetchAfterSignIn], timeout: 15)
         
         AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
             // We do not need to check the values here, this can succeed
@@ -297,6 +297,6 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
             credentialFetchAfterSignOut.fulfill()
         })
         wait(for: [credentialFetchAfterSignOut, credentialFetchAfterSignIn2, credentialFetchBeforeSignIn],
-             timeout: 30)
+             timeout: 15)
     }
 }
