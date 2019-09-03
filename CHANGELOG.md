@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.10.4
+## 2.11.0
 
 ### Bug Fixes
 
@@ -17,6 +17,8 @@
 - Model updates for the following services
   - Amazon EC2
   - Amazon Transcribe
+- **AWSMobileClient**
+	* **Breaking API change** Removed deprecated method inside AWSMobileClient. See PR [#1738](https://github.com/aws-amplify/aws-sdk-ios/pull/1738)
 
 ## 2.10.3
 
