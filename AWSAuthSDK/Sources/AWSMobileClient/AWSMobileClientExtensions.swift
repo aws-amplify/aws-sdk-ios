@@ -490,6 +490,7 @@ extension AWSMobileClient {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: .none)
         self.performUserPoolSignOut()
+        self.internalCredentialsProvider?.identityProvider.identityId = nil
         self.internalCredentialsProvider?.clearKeychain()
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
         self.federationProvider = .none
