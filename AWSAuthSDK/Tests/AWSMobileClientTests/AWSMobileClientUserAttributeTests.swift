@@ -105,5 +105,58 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
         
         wait(for: [getUserAttributesResultHandlerInvoked], timeout: 5)
     }
+    
+    
+    
+    
+    /// Test to verify that tokens are valid after an update attritbue
+    /// Note: This test relies on the configuration of the test UserPools to have two mutable custom attributes:
+    /// custom:mutableStringAttr1;
+    ///
+    /// - Given: An authenticated user session
+    /// - When:
+    ///    - I update user attritbutes
+    /// - Then:
+    ///    - Get token on the same user session should have valid values
+    ///
+    func testTokenAfterUpdateAttributes() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        let updateUserAttributesResultHandlerInvoked = expectation(description: "updateUserAttributes result handler should be invoked")
+        let newUserAttributes = ["custom:mutableStringAttr1": "new value for previously set attribute"]
+        
+        AWSMobileClient.sharedInstance().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
+            defer {
+                updateUserAttributesResultHandlerInvoked.fulfill()
+            }
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error.debugDescription)")
+                return
+            }
+            guard let result = result else {
+                XCTFail("updateUserAttributes result unexpectedtly nil")
+                return
+            }
+            XCTAssertEqual(result.count, 0)
+        }
+        wait(for: [updateUserAttributesResultHandlerInvoked], timeout: 5)
+        
+        let getTokenExpectation = expectation(description: "Get token result handler should be invoked")
+        AWSMobileClient.sharedInstance().getTokens { (token, error) in
+            defer {
+                getTokenExpectation.fulfill()
+            }
+            guard error == nil else {
+                XCTFail("Received un-expected error: \(error.debugDescription)")
+                return
+            }
+            XCTAssertNotNil(token!.accessToken, "Access token should not be nil for a signed in user")
+            XCTAssertNotNil(token!.idToken, "Id token should not be nil for a signed in user")
+            XCTAssertNotNil(token!.expiration, "Expiration date should not be nil for a signed in user")
+        }
+        wait(for: [getTokenExpectation], timeout: 10)
+    }
 
 }
