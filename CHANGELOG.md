@@ -1,5 +1,23 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.10.4
+
+### Bug Fixes
+
+- **AWSPinpoint**
+  - The limit of "Maximum number events in a request" defined by the [Pinpoint service limits](https://docs.aws.amazon.com/pinpoint/latest/developerguide/limits.html#limits-events) (100 per request) is now enforced by the client. When recording more than 100 events the client will submit multiple batches of 100 to avoid a service failure. See [Issue #1680](https://github.com/aws-amplify/aws-sdk-ios/issues/1680) and [PR #1743](github.com/aws-amplify/aws-sdk-ios/pull/1743) for details.
+- **AWSMobileClient**
+  - Fixed a race condition where the confirm signIn callback becoming nil. See issues [#1248](https://github.com/aws-amplify/aws-sdk-ios/issues/1248) and
+    [#1686](https://github.com/aws-amplify/aws-sdk-ios/issues/1686), and [PR #1815](https://github.com/aws-amplify/aws-sdk-ios/pull/1815).
+  - Fix an issue where the signIn callback and user state listener callback are out of sync. See issues [#1700](https://github.com/aws-amplify/aws-sdk-ios/issues/1700) and 
+    [#1314](https://github.com/aws-amplify/aws-sdk-ios/issues/1314), and [PR #1822](https://github.com/aws-amplify/aws-sdk-ios/pull/1822).
+  - Fix an issue where getIdentity call fails without waiting. See PR [#1824](https://github.com/aws-amplify/aws-sdk-ios/pull/1824)
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Transcribe
+
 ## 2.10.3
 
 ### Bug Fixes
@@ -16,12 +34,15 @@
 - **AWSMobileClient**
   - Fixes the crash during signout while setting error on completed task (See [Issue 1505](https://github.com/aws-amplify/aws-sdk-ios/issues/1505) and [Issue 1682](https://github.com/aws-amplify/aws-sdk-ios/issues/1682).)
   - Fixed an issue where signOut callback is not called (See [Issue 1717](https://github.com/aws-amplify/aws-sdk-ios/issues/1717).)
+  - Code clean up on source and test files
 
 ### Misc. Updates
 - Model updates for the following services
   - Amazon EC2
   - Amazon Lex
   - Amazon Polly
+  - Amazon Rekognition
+  * Amazon Simple Queue Service (SQS)
   - AWS IoT
 
 ## 2.10.2

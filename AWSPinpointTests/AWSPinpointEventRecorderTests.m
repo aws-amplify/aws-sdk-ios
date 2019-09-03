@@ -136,12 +136,24 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     [super tearDown];
 }
 
-static AWSPinpointEvent * extracted() {
-    return [[AWSPinpointEvent alloc] initWithEventType:@"TEST"
-                                        eventTimestamp:123
-                                               session:[[AWSPinpointSession alloc] initWithSessionId:nil withStartTime:[NSDate date] withStopTime:[NSDate date]]
-                                            attributes:nil
-                                               metrics:nil];
+
+static AWSPinpoint *initializePinpointWithConfig(AWSPinpointConfiguration *config) {
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    return pinpoint;
+}
+
+- (void) removeAllEventsAndVerify:(AWSPinpoint *)pinpoint {
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNotNil(task.result);
+        //Should contain no events after removal
+        XCTAssertEqual([task.result count], 0);
+        return nil;
+    }] waitUntilFinished];
 }
 
 - (void) testEventsWithNoSessionId {
@@ -159,7 +171,11 @@ static AWSPinpointEvent * extracted() {
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
-    AWSPinpointEvent *event1 = extracted();
+    AWSPinpointEvent *event1 = [[AWSPinpointEvent alloc] initWithEventType:@"TEST"
+                                                            eventTimestamp:123
+                                                                   session:[[AWSPinpointSession alloc] initWithSessionId:nil withStartTime:[NSDate date] withStopTime:[NSDate date]]
+                                                                attributes:nil
+                                                                   metrics:nil];
     // Test for default session id
     [[[pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         AWSPinpointEvent *taskEvent = task.result;
@@ -484,14 +500,7 @@ static AWSPinpointEvent * extracted() {
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
+    [self removeAllEventsAndVerify:pinpoint];
     
     [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
@@ -538,7 +547,7 @@ static AWSPinpointEvent * extracted() {
         XCTAssertNil(error);
     }];
 }
-
+    
 - (void)fullEventCycleWithEndpointUpdate {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
@@ -547,11 +556,7 @@ static AWSPinpointEvent * extracted() {
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint * pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
@@ -560,14 +565,7 @@ static AWSPinpointEvent * extracted() {
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
+    [self removeAllEventsAndVerify:pinpoint];
     
     [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
@@ -650,14 +648,7 @@ static AWSPinpointEvent * extracted() {
     [event2 addAttribute:@"Attr2" forKey:@"Attr2"];
     [event2 addMetric:@(2) forKey:@"Mettr2"];
     
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
+    [self removeAllEventsAndVerify:pinpoint];
     
     [[[pinpoint.analyticsClient.eventRecorder saveEvent:event1] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
@@ -1220,11 +1211,7 @@ static AWSPinpointEvent * extracted() {
                                                                         sessionTimeout:0];
     
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
@@ -1314,6 +1301,10 @@ static AWSPinpointEvent * extracted() {
     [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:100];
 }
 
+- (void) test250MultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread {
+    [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:250];
+}
+
 - (void) validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
@@ -1322,11 +1313,7 @@ static AWSPinpointEvent * extracted() {
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
@@ -1418,6 +1405,13 @@ static AWSPinpointEvent * extracted() {
     [self validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:100];
 }
 
+- (AWSPinpoint *)createAWSPinpointWithConfig:(AWSPinpointConfiguration *)config batchByteLimit:(int) byteBatchLimit {
+    config.userDefaults = [NSUserDefaults standardUserDefaults];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
+    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:byteBatchLimit];
+    return pinpoint;
+}
+
 - (void) validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
 
@@ -1425,13 +1419,7 @@ static AWSPinpointEvent * extracted() {
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
-    config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:DEFAULT_BATCH_LIMIT];
+    AWSPinpoint * pinpoint = [self createAWSPinpointWithConfig:config batchByteLimit:DEFAULT_BATCH_LIMIT];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
     
@@ -1584,11 +1572,7 @@ static AWSPinpointEvent * extracted() {
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
@@ -1597,14 +1581,7 @@ static AWSPinpointEvent * extracted() {
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
+    [self removeAllEventsAndVerify:pinpoint];
     
     for (int i = 0; i < numberOfEvents; i++) {
         [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -1690,23 +1667,12 @@ static AWSPinpointEvent * extracted() {
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10]; //Each batch will contain 1 event
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
 
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
+    [self removeAllEventsAndVerify:pinpoint];
     
     for (int i = 0; i < numberOfEvents; i++) {
         AWSPinpointEvent *event = [pinpoint.analyticsClient createEventWithEventType:
@@ -1798,11 +1764,7 @@ static AWSPinpointEvent * extracted() {
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
@@ -1811,15 +1773,8 @@ static AWSPinpointEvent * extracted() {
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
-    
+    [self removeAllEventsAndVerify:pinpoint];
+
     for (int i = 0; i < numberOfEvents; i++) {
         [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             XCTAssertNil(task.error);
@@ -1949,8 +1904,12 @@ static AWSPinpointEvent * extracted() {
     [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:50];
 }
 
-- (void) test100ultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
+- (void) test100MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
     [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:100];
+}
+
+- (void) test250MultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain {
+    [self validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:250];
 }
 
 - (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:(int) numberOfEvents {
@@ -1961,11 +1920,7 @@ static AWSPinpointEvent * extracted() {
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
     config.userDefaults = [NSUserDefaults standardUserDefaults];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
-    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
-    [config.userDefaults synchronize];
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    AWSPinpoint *pinpoint = initializePinpointWithConfig(config);
     [pinpoint.analyticsClient.eventRecorder setBatchRecordsByteLimit:10];
     
     XCTAssertNotNil(pinpoint.analyticsClient.eventRecorder);
@@ -1974,14 +1929,7 @@ static AWSPinpointEvent * extracted() {
     [event addAttribute:@"Attr1" forKey:@"Attr1"];
     [event addMetric:@(1) forKey:@"Mettr1"];
     
-    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
-    
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-        XCTAssertNotNil(task.result);
-        //Should contain no events after removal
-        XCTAssertEqual([task.result count], 0);
-        return nil;
-    }] waitUntilFinished];
+    [self removeAllEventsAndVerify:pinpoint];
     
     for (int i = 0; i < numberOfEvents; i++) {
         [[[pinpoint.analyticsClient.eventRecorder saveEvent:event] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -1990,7 +1938,7 @@ static AWSPinpointEvent * extracted() {
         }] waitUntilFinished];
     }
     
-    [[[pinpoint.analyticsClient.eventRecorder getEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@1000] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         
