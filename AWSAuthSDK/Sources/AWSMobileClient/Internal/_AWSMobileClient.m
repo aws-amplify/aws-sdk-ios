@@ -74,8 +74,8 @@ Class AWSCognitoUserPoolsSignInProviderClass;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.isInitialized = NO;
-        self.signInProviderConfig = nil;
+        _isInitialized = NO;
+        _signInProviderConfig = nil;
         AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
         AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
         AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");

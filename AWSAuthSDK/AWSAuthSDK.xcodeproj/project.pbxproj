@@ -174,6 +174,7 @@
 		B92BA3CB2318859D007C1175 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FC69011FAFA1AA004790CB /* AWSMobileClient.framework */; };
 		B92BA3D223188606007C1175 /* AWSMobileClientConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BA3D123188605007C1175 /* AWSMobileClientConfigTests.swift */; };
 		B92BA3D42318867D007C1175 /* AWSMobileClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BA3D32318867D007C1175 /* AWSMobileClientConfig.swift */; };
+		B9E2F6CD231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1264,6 +1265,7 @@
 		B92BA3CA2318859D007C1175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92BA3D123188605007C1175 /* AWSMobileClientConfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClientConfigTests.swift; sourceTree = "<group>"; };
 		B92BA3D32318867D007C1175 /* AWSMobileClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientConfig.swift; sourceTree = "<group>"; };
+		B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientInitializerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1762,6 +1764,7 @@
 			children = (
 				B92BA3D32318867D007C1175 /* AWSMobileClientConfig.swift */,
 				B92BA3D123188605007C1175 /* AWSMobileClientConfigTests.swift */,
+				B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */,
 				B92BA3CA2318859D007C1175 /* Info.plist */,
 			);
 			path = AWSMobileClientUnitTests;
@@ -3111,6 +3114,7 @@
 			files = (
 				B92BA3D42318867D007C1175 /* AWSMobileClientConfig.swift in Sources */,
 				B92BA3D223188606007C1175 /* AWSMobileClientConfigTests.swift in Sources */,
+				B9E2F6CD231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

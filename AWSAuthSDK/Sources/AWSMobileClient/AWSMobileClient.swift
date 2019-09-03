@@ -159,15 +159,17 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     /// The singleton instance of `AWSMobileClient`.
     ///
-    /// **Note:** prefer to use `AWSMobileClient.default()` since it communicates better the API intent.
-    /// You can manage your own instance of `AWSMobileClient` through the `AWSMobileClient.init(configuration)`.
+    /// **Deprecation note:** use `AWSMobileClient.default()` since it communicates better the API intent.
     ///
     /// - Returns: The singleton `AWSMobileClient` instance.
+    @available(*, deprecated, renamed: "default")
     @objc override public class func sharedInstance() -> AWSMobileClient {
         return self.default()
     }
 
     /// The default instance of `AWSMobileClient`. The configuration is loaded from the `awsconfiguration.json` file.
+    ///
+    /// You can manage your own instance of `AWSMobileClient` through the `AWSMobileClient.init(configuration)`.
     ///
     /// - Returns: The default `AWSMobileClient` instance
     @objc public class func `default`() -> AWSMobileClient {
