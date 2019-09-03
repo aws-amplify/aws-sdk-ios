@@ -489,11 +489,11 @@ extension AWSMobileClient {
         _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(nil, for: self)
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: .none)
-        self.internalCredentialsProvider?.clearKeychain()
         self.performUserPoolSignOut()
         self.internalCredentialsProvider?.identityProvider.identityId = nil
         self.internalCredentialsProvider?.clearKeychain()
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
+        self.federationProvider = .none
     }
     
     internal func performUserPoolSignOut() {

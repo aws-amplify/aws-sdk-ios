@@ -262,4 +262,41 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         AWSMobileClient.sharedInstance().removeUserStateListener(self)
     }
 
+    
+    func testMultipleGetCredentials() {
+        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        let username = "testUser" + UUID().uuidString
+        let credentialFetchBeforeSignIn = expectation(description: "Request to getAWSCredentials before signIn")
+        let credentialFetchAfterSignIn = expectation(description: "Request to getAWSCredentials after signIn")
+        let credentialFetchAfterSignIn2 = expectation(description: "Request to getAWSCredentials after signIn")
+        let credentialFetchAfterSignOut = expectation(description: "Request to getAWSCredentials after signOut")
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchBeforeSignIn.fulfill()
+        })
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignIn.fulfill()
+        })
+        wait(for: [credentialFetchAfterSignIn], timeout: 15)
+        
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            // We do not need to check the values here, this can succeed
+            // or fail based on whether this method completes before the below signOut.
+            credentialFetchAfterSignIn2.fulfill()
+        })
+        AWSMobileClient.sharedInstance().signOut()
+        AWSMobileClient.sharedInstance().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignOut.fulfill()
+        })
+        wait(for: [credentialFetchAfterSignOut, credentialFetchAfterSignIn2, credentialFetchBeforeSignIn],
+             timeout: 15)
+    }
 }
