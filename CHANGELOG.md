@@ -14,7 +14,7 @@
   - Fix an issue where getIdentity call fails without waiting. See PR [#1824](https://github.com/aws-amplify/aws-sdk-ios/pull/1824)
 - **AWSCore**
   - Fixed a bug where credentials would be retrieved from the keychain instead of in-memory. See [#1554](https://github.com/aws-amplify/aws-sdk-ios/issues/1554)
-    and [#1691](https://github.com/aws-amplify/aws-sdk-ios/issues/1554). Thanks @phanchutoan!
+    and [#1691](https://github.com/aws-amplify/aws-sdk-ios/issues/1691). Thanks @phanchutoan!
 
 ### Misc. Updates
 - Model updates for the following services
