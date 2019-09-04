@@ -169,7 +169,14 @@ final public class AWSMobileClient: _AWSMobileClient {
 
     /// The default instance of `AWSMobileClient`. The configuration is loaded from the `awsconfiguration.json` file.
     ///
-    /// You can manage your own instance of `AWSMobileClient` through the `AWSMobileClient.init(configuration)`.
+    /// You can manage your own instance of `AWSMobileClient` by constructing it with `AWSMobileClient(configuration)`,
+    /// however please note that multiple instances of AWSMobileClient is not supported.
+    ///
+    /// **Implementation Notes:**
+    ///
+    /// The `AWSMobileClient` relies on `AWSInfo` for configuration and once that class is initialized, the configuration
+    /// cannot be reset and/or re-initialized. Therefore, even though you can instantiate `AWSMobileClient` multiple times,
+    /// all instances will have teh same configuration reference.
     ///
     /// - Returns: The default `AWSMobileClient` instance
     @objc public class func `default`() -> AWSMobileClient {
