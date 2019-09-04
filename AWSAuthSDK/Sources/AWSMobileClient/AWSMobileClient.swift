@@ -176,7 +176,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     ///
     /// The `AWSMobileClient` relies on `AWSInfo` for configuration and once that class is initialized, the configuration
     /// cannot be reset and/or re-initialized. Therefore, even though you can instantiate `AWSMobileClient` multiple times,
-    /// all instances will have teh same configuration reference.
+    /// all instances will have the same configuration reference.
     ///
     /// - Returns: The default `AWSMobileClient` instance
     @objc public class func `default`() -> AWSMobileClient {
