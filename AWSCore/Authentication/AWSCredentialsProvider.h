@@ -259,8 +259,6 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 
 - (void)setIdentityProviderManagerOnce:(id<AWSIdentityProviderManager>)identityProviderManager;
 
-- (AWSTask<AWSCredentials *> *)credentialsWithCancellationToken:(AWSCancellationTokenSource * _Nullable)cancellationTokenSource;
-
 @end
 
 NS_ASSUME_NONNULL_END

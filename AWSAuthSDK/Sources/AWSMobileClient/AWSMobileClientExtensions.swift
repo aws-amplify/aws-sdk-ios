@@ -546,7 +546,6 @@ extension AWSMobileClient {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
-        self.credentialsFetchCancellationSource = AWSCancellationTokenSource()
         self.internalCredentialsProvider?.credentials(withCancellationToken:self.credentialsFetchCancellationSource)
     }
     

@@ -284,6 +284,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 // This is a temporary solution to bypass the requirement of protocol check for `AWSIdentityProviderManager`.
 @property (nonatomic, strong) NSString *customRoleArnOverride;
 
+- (AWSTask<AWSCredentials *> *)credentialsWithCancellationToken:(AWSCancellationTokenSource * _Nullable)cancellationTokenSource;
+
 @end
 
 @implementation AWSCognitoCredentialsProvider
