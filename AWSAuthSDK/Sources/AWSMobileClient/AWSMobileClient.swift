@@ -91,6 +91,8 @@ final public class AWSMobileClient: _AWSMobileClient {
     }()
     internal let credentialsFetchLock = DispatchGroup()
     
+    var credentialsFetchCancellationSource: AWSCancellationTokenSource? = AWSCancellationTokenSource()
+    
     // MARK: AWSMobileClient helpers
     
     let ProviderKey: String = "provider"

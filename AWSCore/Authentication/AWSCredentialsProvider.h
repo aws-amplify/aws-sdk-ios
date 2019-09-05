@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 };
 
 @class AWSTask<__covariant ResultType>;
+@class AWSCancellationTokenSource;
 
 /**
  An AWS credentials container class.
@@ -257,6 +258,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 - (void)clearCredentials;
 
 - (void)setIdentityProviderManagerOnce:(id<AWSIdentityProviderManager>)identityProviderManager;
+
+- (AWSTask<AWSCredentials *> *)credentialsWithCancellationToken:(AWSCancellationTokenSource * _Nullable)cancellationTokenSource;
 
 @end
 
