@@ -46,7 +46,32 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 
 @end
 
+@interface AWSCredentials()
+
+- (nullable instancetype)initFromKeychain:(nonnull AWSUICKeyChainStore *)keychain;
+
+@end
+
 @implementation AWSCredentials
+
+- (nullable instancetype)initFromKeychain:(nonnull AWSUICKeyChainStore *)keychain {
+    if (self = [super init]) {
+        if (keychain[AWSCredentialsProviderKeychainAccessKeyId]
+            && keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
+            AWSDDLogVerbose(@"Retrieving credentials from keychain");
+            _accessKey = keychain[AWSCredentialsProviderKeychainAccessKeyId];
+            _secretKey = keychain[AWSCredentialsProviderKeychainSecretAccessKey];
+            _sessionKey = keychain[AWSCredentialsProviderKeychainSessionToken];
+
+            NSString *expirationString = keychain[AWSCredentialsProviderKeychainExpiration];
+            if (expirationString) {
+                _expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
+            }
+        }
+    }
+
+    return self;
+}
 
 - (instancetype)initWithAccessKey:(NSString *)accessKey
                         secretKey:(NSString *)secretKey
@@ -171,6 +196,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
                                                                              credentialsProvider:credentialsProvider];
         _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
+        _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
     }
 
     return self;
@@ -221,26 +247,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 #pragma mark -
 
 - (AWSCredentials *)internalCredentials {
-    if (_internalCredentials) {
-        return _internalCredentials;
+    if (! _internalCredentials) {
+        _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
     }
-
-    if (self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
-        && self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
-        NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
-        NSDate *expiration = nil;
-        if (expirationString) {
-            expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
-        }
-        AWSCredentials *credentials = [[AWSCredentials alloc] initWithAccessKey:self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
-                                                                      secretKey:self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]
-                                                                     sessionKey:self.keychain[AWSCredentialsProviderKeychainSessionToken]
-                                                                     expiration:expiration];
-
-        return credentials;
-    }
-
-    return nil;
+    return _internalCredentials;
 }
 
 - (void)setInternalCredentials:(AWSCredentials *)internalCredentials {
@@ -394,6 +404,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     if (!_useEnhancedFlow) {
         _sts = [[AWSSTS alloc] initWithConfiguration:configuration];
     }
+
+    _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
 }
 
 - (AWSTask<AWSCredentials *> *)getCredentialsWithSTS:(NSDictionary<NSString *,NSString *> *)logins
@@ -697,25 +709,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 }
 
 - (AWSCredentials *)internalCredentials {
-    if (_internalCredentials) {
-        return _internalCredentials;
+    if (! _internalCredentials) {
+        _internalCredentials = [[AWSCredentials alloc] initFromKeychain:self.keychain];
     }
-
-    if (self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
-        && self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]) {
-        NSString *expirationString = self.keychain[AWSCredentialsProviderKeychainExpiration];
-        NSDate *expiration = nil;
-        if (expirationString) {
-            expiration = [NSDate dateWithTimeIntervalSince1970:[expirationString doubleValue]];
-        }
-        AWSCredentials *credentials = [[AWSCredentials alloc] initWithAccessKey:self.keychain[AWSCredentialsProviderKeychainAccessKeyId]
-                                                                      secretKey:self.keychain[AWSCredentialsProviderKeychainSecretAccessKey]
-                                                                     sessionKey:self.keychain[AWSCredentialsProviderKeychainSessionToken]
-                                                                     expiration:expiration];
-        return credentials;
-    }
-
-    return nil;
+    return _internalCredentials;
 }
 
 - (void)setInternalCredentials:(AWSCredentials *)internalCredentials {
