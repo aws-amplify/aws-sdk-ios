@@ -15,6 +15,9 @@
 #ifndef AWSCognitoCredentialsProvider_Extension_h
 #define AWSCognitoCredentialsProvider_Extension_h
 
+/**
+ Internal interface to be used inside AWSMobileClient.
+ **/
 @interface AWSCognitoCredentialsProvider (Internal)
 
 - (AWSTask<AWSCredentials *> * _Nonnull)credentialsWithCancellationToken:(AWSCancellationTokenSource * _Nullable)cancellationTokenSource;
