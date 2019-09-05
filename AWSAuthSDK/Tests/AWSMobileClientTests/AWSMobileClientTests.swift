@@ -284,7 +284,5 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
         wait(for: [signInIdentityIdExpectation2], timeout: 5)
         XCTAssertNotNil(AWSMobileClient.default().identityId, "Identity Id should not be nil.")
         XCTAssertEqual(identityIdAfterSignIn2, identityIdAfterSignOut)
-        
-        print ("Ids -> \(identityIdBeforeSignIn) \(identityIdAfterSignIn) \(identityIdAfterSignOut) \(identityIdAfterSignIn2)")
     }
 }

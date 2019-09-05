@@ -93,7 +93,7 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     /// This token is invoked when the developer explicitly calls the signOut from
     /// AWSMobileClient, thus invalidating all credentials calls.
-    var credentialsFetchCancellationSource: AWSCancellationTokenSource? = AWSCancellationTokenSource()
+    var credentialsFetchCancellationSource: AWSCancellationTokenSource = AWSCancellationTokenSource()
     
     // MARK: AWSMobileClient helpers
     

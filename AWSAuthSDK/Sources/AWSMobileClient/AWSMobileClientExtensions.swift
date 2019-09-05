@@ -481,10 +481,7 @@ extension AWSMobileClient {
     /// Signs out the current logged in user and clears the local keychain store.
     /// Note: This does not invalidate the tokens from the service or sign out the user from other devices. 
     public func signOut() {
-        if let cancellationSource = self.credentialsFetchCancellationSource {
-            cancellationSource.cancel()
-        }
-        
+        self.credentialsFetchCancellationSource.cancel()
         if federationProvider == .hostedUI {
             AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOutLocallyAndClearLastKnownUser()
         }
@@ -600,7 +597,7 @@ extension AWSMobileClient {
             completionHandler(nil, AWSMobileClientError.cognitoIdentityPoolNotConfigured(message: "There is no valid cognito identity pool configured in `awsconfiguration.json`."))
         }
         
-        let cancellationToken = self.credentialsFetchCancellationSource!
+        let cancellationToken = self.credentialsFetchCancellationSource
         credentialsFetchOperationQueue.addOperation {
             self.credentialsFetchLock.enter()
             self.internalCredentialsProvider?.credentials(withCancellationToken: cancellationToken).continueWith(block: { (task) -> Any? in
