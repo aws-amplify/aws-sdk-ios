@@ -16,7 +16,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientBaseTests {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         let forgotPasswordExpection = expectation(description: "Expecting code to be sent for forgot password.")
-        AWSMobileClient.sharedInstance().forgotPassword(username: username) { (forgotPasswordResult, error) in
+        AWSMobileClient.default().forgotPassword(username: username) { (forgotPasswordResult, error) in
             XCTAssertNotNil(error, "should get error which mentions there is no verified email or phone.")
             forgotPasswordExpection.fulfill()
         }
@@ -28,7 +28,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientBaseTests {
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         let changePasswordExpectation = expectation(description: "Change password should be successful")
-        AWSMobileClient.sharedInstance().changePassword(currentPassword: sharedPassword, proposedPassword: "NewPassword123!@") { (error) in
+        AWSMobileClient.default().changePassword(currentPassword: sharedPassword, proposedPassword: "NewPassword123!@") { (error) in
             XCTAssertNil(error)
             changePasswordExpectation.fulfill()
         }
@@ -40,7 +40,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientBaseTests {
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         let changePasswordExpectation = expectation(description: "Change password should fail")
-        AWSMobileClient.sharedInstance().changePassword(currentPassword: "WronPassword", proposedPassword: "NewPassword123!@") { (error) in
+        AWSMobileClient.default().changePassword(currentPassword: "WronPassword", proposedPassword: "NewPassword123!@") { (error) in
             XCTAssertNotNil(error)
             guard let _ = error as? AWSMobileClientError else {
                 XCTFail("Error should be of type AWSMobileClientError")

@@ -17,7 +17,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
         signIn(username: username)
         let verifyAttrExpectation = expectation(description: "verify attribute expectation.")
         
-        AWSMobileClient.sharedInstance().verifyUserAttribute(attributeName: "email") { (codeDeliveryDetails, error) in
+        AWSMobileClient.default().verifyUserAttribute(attributeName: "email") { (codeDeliveryDetails, error) in
             if let codeDeliveryDetails = codeDeliveryDetails {
                 print(codeDeliveryDetails.deliveryMedium)
             } else if let error = error {
@@ -36,7 +36,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
         signIn(username: username)
         let getAttrExpectation = expectation(description: "get attributes expectation.")
         
-        AWSMobileClient.sharedInstance().getUserAttributes { (attributes, error) in
+        AWSMobileClient.default().getUserAttributes { (attributes, error) in
             if let attributes = attributes {
                 XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
                 XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
@@ -64,7 +64,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
             "custom:mutableStringAttr2": "value for never-before-set attribute"
         ]
         
-        AWSMobileClient.sharedInstance().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
+        AWSMobileClient.default().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
             defer {
                 updateUserAttributesResultHandlerInvoked.fulfill()
             }
@@ -84,7 +84,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
         wait(for: [updateUserAttributesResultHandlerInvoked], timeout: 5)
         
         let getUserAttributesResultHandlerInvoked = expectation(description: "getUserAttributes result handler should be invoked")
-        AWSMobileClient.sharedInstance().getUserAttributes { attributes, error in
+        AWSMobileClient.default().getUserAttributes { attributes, error in
             defer {
                 getUserAttributesResultHandlerInvoked.fulfill()
             }
@@ -127,7 +127,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
         let updateUserAttributesResultHandlerInvoked = expectation(description: "updateUserAttributes result handler should be invoked")
         let newUserAttributes = ["custom:mutableStringAttr1": "new value for previously set attribute"]
         
-        AWSMobileClient.sharedInstance().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
+        AWSMobileClient.default().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
             defer {
                 updateUserAttributesResultHandlerInvoked.fulfill()
             }
@@ -144,7 +144,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
         wait(for: [updateUserAttributesResultHandlerInvoked], timeout: 5)
         
         let getTokenExpectation = expectation(description: "Get token result handler should be invoked")
-        AWSMobileClient.sharedInstance().getTokens { (token, error) in
+        AWSMobileClient.default().getTokens { (token, error) in
             defer {
                 getTokenExpectation.fulfill()
             }

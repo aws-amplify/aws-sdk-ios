@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  *Swift*
  
- let mobileClient = AWSMobileClient.sharedInstance()
+ let mobileClient = AWSMobileClient.default()
  
  *Objective-C*
  

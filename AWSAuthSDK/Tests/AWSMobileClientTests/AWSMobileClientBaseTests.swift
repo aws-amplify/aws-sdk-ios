@@ -42,9 +42,9 @@ class AWSMobileClientBaseTests: XCTestCase {
     }
     
     override func tearDown() {
-        AWSMobileClient.sharedInstance().signOut()
-        AWSMobileClient.sharedInstance().clearCredentials()
-        AWSMobileClient.sharedInstance().clearKeychain()
+        AWSMobileClient.default().signOut()
+        AWSMobileClient.default().clearCredentials()
+        AWSMobileClient.default().clearKeychain()
     }
     
     //MARK: Helper methods
@@ -59,7 +59,7 @@ class AWSMobileClientBaseTests: XCTestCase {
     func initializeMobileClient() {
         
         let mobileClientIsInitialized = expectation(description: "AWSMobileClient is initialized")
-        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+        AWSMobileClient.default().initialize { (userState, error) in
             if let error = error {
                 XCTFail("Encountered unexpected error in initialize: \(error.localizedDescription)")
                 return
@@ -71,7 +71,7 @@ class AWSMobileClientBaseTests: XCTestCase {
             }
             
             if userState != UserState.signedOut {
-                AWSMobileClient.sharedInstance().signOut()
+                AWSMobileClient.default().signOut()
             }
             mobileClientIsInitialized.fulfill()
         }
@@ -81,7 +81,7 @@ class AWSMobileClientBaseTests: XCTestCase {
     func signIn(username: String, password: String? = nil, verifySignState: SignInState = .signedIn) {
         let passwordToUse = password ?? sharedPassword
         let signInWasSuccessful = expectation(description: "signIn was successful")
-        AWSMobileClient.sharedInstance().signIn(username: username, password: passwordToUse) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username, password: passwordToUse) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
@@ -100,7 +100,7 @@ class AWSMobileClientBaseTests: XCTestCase {
     func confirmSign(challengeResponse: String, userAttributes:[String:String] = [:], verifySignState: SignInState = .signedIn) {
         
         let signInConfirmWasSuccessful = expectation(description: "signIn confirm was successful")
-        AWSMobileClient.sharedInstance().confirmSignIn(challengeResponse: challengeResponse,
+        AWSMobileClient.default().confirmSignIn(challengeResponse: challengeResponse,
                                                        userAttributes: userAttributes) {
                                                         (signInResult, error) in
                                                         
@@ -124,7 +124,7 @@ class AWSMobileClientBaseTests: XCTestCase {
         }
         
         let signUpExpectation = expectation(description: "successful sign up expectation.")
-        AWSMobileClient.sharedInstance().signUp(
+        AWSMobileClient.default().signUp(
             username: username,
             password: sharedPassword,
             userAttributes: userAttributes) { (signUpResult, error) in
