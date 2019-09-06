@@ -23,7 +23,7 @@ class AWSMobileClientConfigTests: XCTestCase {
     }
 
     func testSharedInstanceReference() {
-        XCTAssertEqual(AWSMobileClient.default(), AWSMobileClient.default())
+        XCTAssertEqual(AWSMobileClient.sharedInstance(), AWSMobileClient.default())
     }
 
 }
