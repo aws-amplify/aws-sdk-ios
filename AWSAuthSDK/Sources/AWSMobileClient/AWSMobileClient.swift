@@ -91,6 +91,10 @@ final public class AWSMobileClient: _AWSMobileClient {
     }()
     internal let credentialsFetchLock = DispatchGroup()
     
+    /// This token is invoked when the developer explicitly calls the signOut from
+    /// AWSMobileClient, thus invalidating all credentials calls.
+    var credentialsFetchCancellationSource: AWSCancellationTokenSource = AWSCancellationTokenSource()
+    
     // MARK: AWSMobileClient helpers
     
     let ProviderKey: String = "provider"

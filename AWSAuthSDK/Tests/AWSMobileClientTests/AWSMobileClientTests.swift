@@ -169,38 +169,38 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
     }
     
     func testMultipleGetIdentityId() {
-        XCTAssertNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should be nil after initialize.")
+        XCTAssertNil(AWSMobileClient.default().identityId, "Identity Id should be nil after initialize.")
         
         let identityIdExpectation1 = expectation(description: "Request to GetIdentityID 1 is complete")
         let identityIdExpectation2 = expectation(description: "Request to GetIdentityID 2 is complete")
         let identityIdExpectation3 = expectation(description: "Request to GetIdentityID 3 is complete")
         let identityIdExpectation4 = expectation(description: "Request to GetIdentityID 4 is complete")
         let identityIdExpectation5 = expectation(description: "Request to GetIdentityID 5 is complete")
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdExpectation1.fulfill()
             return nil
         })
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdExpectation2.fulfill()
             return nil
         })
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdExpectation3.fulfill()
             return nil
         })
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdExpectation4.fulfill()
             return nil
         })
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdExpectation5.fulfill()
@@ -219,10 +219,10 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
     ///    - Then I signOut and fetch another id , id3
     ///    - Then I signIn again and fetch identity id , id4
     /// - Then:
-    ///    - All identity id1 == id2 and id2 != id3 and id3 == id3.
+    ///    - All identity id1 == id2 and id2 != id3 and id3 == id4.
     ///
     func testGetIdentityWithSignOutAndSignIn() {
-        XCTAssertNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should be nil after initialize.")
+        XCTAssertNil(AWSMobileClient.default().identityId, "Identity Id should be nil after initialize.")
         var identityIdBeforeSignIn: String?
         var identityIdAfterSignIn: String?
         var identityIdAfterSignOut: String?
@@ -233,7 +233,7 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
         let signOutIdentityIdExpectation2 = expectation(description: "Request to GetIdentityID before signOut is complete")
         let signInIdentityIdExpectation2 = expectation(description: "Request to GetIdentityID before second signIn is complete")
         
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdBeforeSignIn = task.result as String?
@@ -241,13 +241,13 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
             return nil
         })
         wait(for: [signOutIdentityIdExpectation], timeout: 5)
-        XCTAssertNotNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should not be nil.")
+        XCTAssertNotNil(AWSMobileClient.default().identityId, "Identity Id should not be nil.")
         
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdAfterSignIn = task.result as String?
@@ -255,11 +255,11 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
             return nil
         })
         wait(for: [signInIdentityIdExpectation], timeout: 5)
-        XCTAssertNotNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should not be nil.")
+        XCTAssertNotNil(AWSMobileClient.default().identityId, "Identity Id should not be nil.")
         XCTAssertEqual(identityIdBeforeSignIn, identityIdAfterSignIn)
-        AWSMobileClient.sharedInstance().signOut()
+        AWSMobileClient.default().signOut()
         
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdAfterSignOut = task.result as String?
@@ -267,14 +267,14 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
             return nil
         })
         wait(for: [signOutIdentityIdExpectation2], timeout: 5)
-        XCTAssertNotNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should not be nil.")
+        XCTAssertNotNil(AWSMobileClient.default().identityId, "Identity Id should not be nil.")
         XCTAssertNotEqual(identityIdAfterSignIn, identityIdAfterSignOut)
         
         let username2 = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username2)
         signIn(username: username2)
         
-        AWSMobileClient.sharedInstance().getIdentityId().continueWith(block: { (task) -> Any? in
+        AWSMobileClient.default().getIdentityId().continueWith(block: { (task) -> Any? in
             XCTAssertNil(task.error)
             XCTAssertNotNil(task.result, "GetIdentityId should not return nil.")
             identityIdAfterSignIn2 = task.result as String?
@@ -282,7 +282,7 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
             return nil
         })
         wait(for: [signInIdentityIdExpectation2], timeout: 5)
-        XCTAssertNotNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should not be nil.")
+        XCTAssertNotNil(AWSMobileClient.default().identityId, "Identity Id should not be nil.")
         XCTAssertEqual(identityIdAfterSignIn2, identityIdAfterSignOut)
     }
 }
