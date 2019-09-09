@@ -1,6 +1,15 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.10.4
+## 2.11.0
+
+### New Features
+
+- **AWSCore**
+  - Added the option of passing the configuration as an in-memory object (i.e. `[String: Any]`/`NSDictionary`) instead of the default `awsconfiguration.json` through the new API `AWSInfo.configureDefaultAWSInfo(config: [String: Any])`.
+- **AWSMobileClient**
+  - Based on the ability to pass a custom configuration through an in-memory object described above, exposed a new initializer that accepts a custom configuration: `AWSMobileClient.init(configuration: [String: Any])`.
+    - Changed `AWSMobileClient.sharedInstance()` in favor of `AWSMobileClient.default()` since it better communicates the API intent. The `sharedInstance` is deprecated as of now and still available for backwards compatibility.
+    - Refer to [Issue #1649](https://github.com/aws-amplify/aws-sdk-ios/issues/1649) for the feature request details.
 
 ### Bug Fixes
 
@@ -10,15 +19,21 @@
   - Fixed a race condition where the confirm signIn callback becoming nil. See issues [#1248](https://github.com/aws-amplify/aws-sdk-ios/issues/1248) and
     [#1686](https://github.com/aws-amplify/aws-sdk-ios/issues/1686), and [PR #1815](https://github.com/aws-amplify/aws-sdk-ios/pull/1815).
   - Fix an issue where the signIn callback and user state listener callback are out of sync. See issues [#1700](https://github.com/aws-amplify/aws-sdk-ios/issues/1700) and 
-    [#1314](https://github.com/aws-amplify/aws-sdk-ios/issues/1314), and [PR #1822](https://github.com/aws-amplify/aws-sdk-ios/pull/1822).
-    
+    [#1314](https://github.com/aws-amplify/aws-sdk-ios/issues/1314), and [PR #1822](https://github.com/aws-amplify/aws-sdk-ios/pull/1822).  
 - **Amazon S3**
   - TransferUtility now properly reports progress on failed and restarted uploads. See [Issue #1512](https://github.com/aws-amplify/aws-sdk-ios/issues/1512), [PR #1813](https://github.com/aws-amplify/aws-sdk-ios/pull/1813).
+  - Fix an issue where getIdentity call fails without waiting. See PR [#1824](https://github.com/aws-amplify/aws-sdk-ios/pull/1824)
+- **AWSCore**
+  - Fixed a bug where credentials would be retrieved from the keychain instead of in-memory. See [#1554](https://github.com/aws-amplify/aws-sdk-ios/issues/1554)
+    and [#1691](https://github.com/aws-amplify/aws-sdk-ios/issues/1691). Thanks @phanchutoan!
 
 ### Misc. Updates
+
 - Model updates for the following services
   - Amazon EC2
   - Amazon Transcribe
+- **AWSMobileClient**
+	* **Breaking API change** Removed deprecated methods inside AWSMobileClient. See PR [#1738](https://github.com/aws-amplify/aws-sdk-ios/pull/1738)
 
 ## 2.10.3
 

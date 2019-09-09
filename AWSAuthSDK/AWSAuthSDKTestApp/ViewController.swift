@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+        AWSMobileClient.default().initialize { (userState, error) in
             if let userState = userState {
                 print("Userstate is \(userState.rawValue)")
                 DispatchQueue.main.async {
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
             }
         }
         
-        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+        AWSMobileClient.default().addUserStateListener(self) { (userState, info) in
             DispatchQueue.main.async {
                 self.signInStateLabel.text = userState.rawValue
             }
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         // Note: the scopes provided here will override options provided in the app's awsconfiguration.json
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"], identityProvider: "Facebook")
         
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
+        AWSMobileClient.default().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
             if let error = error as? AWSMobileClientError {
                 print(error.localizedDescription)
             }
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         // Note: the scopes provided here will override options provided in the app's awsconfiguration.json
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"], identityProvider: "Google")
         
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
+        AWSMobileClient.default().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
             if let error = error as? AWSMobileClientError {
                 print(error.localizedDescription)
             }
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         // Note: the scopes provided here will override options provided in the app's awsconfiguration.json
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"], federationProviderName: AWSInfo.default().rootInfoDictionary["Auth0FederationProviderName"] as? String)
         
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
+        AWSMobileClient.default().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
             if let error = error as? AWSMobileClientError {
                 print(error.localizedDescription)
             }
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     @IBAction func onLaunchCognitoAuthSignIn(_ sender: Any) {
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"])
         
-        AWSMobileClient.sharedInstance().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
+        AWSMobileClient.default().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
             if let error = error as? AWSMobileClientError {
                 print(error.localizedDescription)
             }
@@ -90,13 +90,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onSignOutClicked(_ sender: Any) {
-        AWSMobileClient.sharedInstance().signOut(options: SignOutOptions(signOutGlobally: false, invalidateTokens: true)) { (error) in
+        AWSMobileClient.default().signOut(options: SignOutOptions(signOutGlobally: false, invalidateTokens: true)) { (error) in
             print("Error: \(error.debugDescription)")
         }
     }
     
     @IBAction func onGetAWSCredentials(_ sender: Any) {
-        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     self.awsCredentialsLabel.text = "ERROR: \(error.localizedDescription)"

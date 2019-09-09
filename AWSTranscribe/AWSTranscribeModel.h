@@ -425,12 +425,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeMedia * _Nullable media;
 
 /**
- <p>The format of the input media file.</p>
+ <p>The format of the input media file.</p><p> If you do not specify the format of the media file, Amazon Transcribe determines the format. If the format is not recognized, Amazon Transcribe returns an <code>InternalFailureException</code> exception. If you specify the format, it must match the format detected by Amazon Transcribe, otherwise you get an <code>InternalFailureException</code> exception.</p>
  */
 @property (nonatomic, assign) AWSTranscribeMediaFormat mediaFormat;
 
 /**
- <p>The sample rate, in Hertz, of the audio track in the input media file. </p><p>If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the <code>MediaSampleRateHertz</code> field blank and let Amazon Transcribe determine the sample rate.</p>
+ <p>The sample rate of the audio track in the input media file in Hertz. </p><p>If you do not specify the media sample rate, Amazon Transcribe determines the sample rate. If you specify the sample rate, it must match the sample rate detected by Amazon Transcribe. In most cases, you should leave the <code>MediaSampleRateHertz</code> field blank and let Amazon Transcribe determine the sample rate.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable mediaSampleRateHertz;
 

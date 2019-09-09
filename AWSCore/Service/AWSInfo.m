@@ -49,44 +49,22 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
 
 @implementation AWSInfo
 
-- (instancetype)init {
+static AWSInfo *_defaultAWSInfo = nil;
+static NSDictionary<NSString *, id> * _userConfig = nil;
+
+- (instancetype)initWithConfiguration:(NSDictionary<NSString *, id> *)config {
     if (self = [super init]) {
-        
-        NSString *pathToAWSConfigJson = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
-                                                                        ofType:@"json"];
-        if (pathToAWSConfigJson) {
-            NSData *data = [NSData dataWithContentsOfFile:pathToAWSConfigJson];
-            if (!data) {
-                AWSDDLogError(@"Couldn't read the awsconfiguration.json file. Skipping load of awsconfiguration.json.");
-            } else {
-                NSError *error = nil;
-                NSDictionary <NSString *, id> *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
-                                                                                                options:kNilOptions
-                                                                                                  error:&error];
-                if (!jsonDictionary || [jsonDictionary count] <= 0 || error) {
-                    AWSDDLogError(@"Couldn't deserialize data from the JSON file or the contents are empty. Please check the awsconfiguration.json file.");
-                } else {
-                    _rootInfoDictionary = jsonDictionary;
-                }
-            }
-            
-        } else {
-            AWSDDLogDebug(@"Couldn't locate the awsconfiguration.json file. Skipping load of awsconfiguration.json.");
-        }
-        
-        if (!_rootInfoDictionary) {
-            _rootInfoDictionary = [[[NSBundle mainBundle] infoDictionary] objectForKey:AWSInfoRoot];
-        }
-        
+        _rootInfoDictionary = config;
+
         if (_rootInfoDictionary) {
             NSString *userAgent = [self.rootInfoDictionary objectForKey:AWSInfoUserAgent];
             if (userAgent) {
                 [AWSServiceConfiguration addGlobalUserAgentProductToken:userAgent];
             }
         }
-        
+
         NSDictionary <NSString *, id> *defaultInfoDictionary = [_rootInfoDictionary objectForKey:AWSInfoDefault];
-        
+
         NSDictionary <NSString *, id> *defaultCredentialsProviderDictionary = [[[_rootInfoDictionary objectForKey:AWSInfoCredentialsProvider] objectForKey:AWSInfoCognitoIdentity] objectForKey:AWSInfoDefault];
         NSString *cognitoIdentityPoolID = [defaultCredentialsProviderDictionary objectForKey:AWSInfoCognitoIdentityPoolId];
         AWSRegionType cognitoIdentityRegion =  [[defaultCredentialsProviderDictionary objectForKey:AWSInfoRegion] aws_regionTypeValue];
@@ -94,21 +72,62 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
             _defaultCognitoCredentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegion
                                                                                             identityPoolId:cognitoIdentityPoolID];
         }
-        
+
         _defaultRegion = [[defaultInfoDictionary objectForKey:AWSInfoRegion] aws_regionTypeValue];
     }
-    
     return self;
 }
 
+- (instancetype)init {
+    NSDictionary<NSString *, id> *config;
+    NSString *pathToAWSConfigJson = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
+                                                                    ofType:@"json"];
+    if (pathToAWSConfigJson) {
+        NSData *data = [NSData dataWithContentsOfFile:pathToAWSConfigJson];
+        if (!data) {
+            AWSDDLogError(@"Couldn't read the awsconfiguration.json file. Skipping load of awsconfiguration.json.");
+        } else {
+            NSError *error = nil;
+            NSDictionary <NSString *, id> *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data
+                                                                                            options:kNilOptions
+                                                                                              error:&error];
+            if (!jsonDictionary || [jsonDictionary count] <= 0 || error) {
+                AWSDDLogError(@"Couldn't deserialize data from the JSON file or the contents are empty. Please check the awsconfiguration.json file.");
+            } else {
+                config = jsonDictionary;
+            }
+        }
+        
+    } else {
+        AWSDDLogDebug(@"Couldn't locate the awsconfiguration.json file. Skipping load of awsconfiguration.json.");
+    }
+    
+    if (!config) {
+        config = [[[NSBundle mainBundle] infoDictionary] objectForKey:AWSInfoRoot];
+    }
+
+    return [self initWithConfiguration:config];
+}
+
 + (instancetype)defaultAWSInfo {
-    static AWSInfo *_defaultAWSInfo = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultAWSInfo = [AWSInfo new];
+        if (_userConfig) {
+            _defaultAWSInfo = [[AWSInfo alloc] initWithConfiguration:_userConfig];
+        } else {
+            _defaultAWSInfo = [AWSInfo new];
+        }
     });
 
     return _defaultAWSInfo;
+}
+
++ (void)configureDefaultAWSInfo:(NSDictionary<NSString *, id> *)config {
+    if (_defaultAWSInfo) {
+        AWSDDLogWarn(@"Configuration already set, you cannot call configure after AWSInfo is created.");
+    } else {
+        _userConfig = config;
+    }
 }
 
 + (void)overrideCredentialsProvider:(AWSCognitoCredentialsProvider *)cognitoCredentialsProvider {

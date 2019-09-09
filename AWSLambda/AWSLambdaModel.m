@@ -163,6 +163,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"enabled" : @"Enabled",
              @"eventSourceArn" : @"EventSourceArn",
              @"functionName" : @"FunctionName",
+             @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              };
@@ -448,6 +449,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"functionArn" : @"FunctionArn",
              @"lastModified" : @"LastModified",
              @"lastProcessingResult" : @"LastProcessingResult",
+             @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
              @"UUID" : @"UUID",
@@ -1552,6 +1554,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"batchSize" : @"BatchSize",
              @"enabled" : @"Enabled",
              @"functionName" : @"FunctionName",
+             @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"UUID" : @"UUID",
              };
 }

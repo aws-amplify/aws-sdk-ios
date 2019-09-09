@@ -19,7 +19,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let initialRememberDeviceExpectation = expectation(description: "initial remember device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+        AWSMobileClient.default().deviceOperations.updateStatus(remembered: true) { (result, error) in
             if error != nil {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
             }
@@ -30,7 +30,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let listDevicesExpectation = expectation(description: "list devices expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+        AWSMobileClient.default().deviceOperations.list(limit: 60) { (result, error) in
             defer {
                 listDevicesExpectation.fulfill()
             }
@@ -56,7 +56,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let initialRememberDeviceExpectation = expectation(description: "initial remember device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+        AWSMobileClient.default().deviceOperations.updateStatus(remembered: true) { (result, error) in
             if error != nil {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
             }
@@ -67,7 +67,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let listDevicesExpectation = expectation(description: "list devices expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+        AWSMobileClient.default().deviceOperations.list(limit: 60) { (result, error) in
             
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
@@ -82,7 +82,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let getDeviceExpectation = expectation(description: "get device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.get { (device, error) in
+        AWSMobileClient.default().deviceOperations.get { (device, error) in
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
                 getDeviceExpectation.fulfill()
@@ -98,7 +98,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let notRememberDeviceExpectation = expectation(description: "forget device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: false) { (result, error) in
+        AWSMobileClient.default().deviceOperations.updateStatus(remembered: false) { (result, error) in
             if error != nil {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
             }
@@ -109,7 +109,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let listDevicesExpectation2 = expectation(description: "list devices expectation2.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+        AWSMobileClient.default().deviceOperations.list(limit: 60) { (result, error) in
             
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
@@ -124,7 +124,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let rememberDeviceExpectation = expectation(description: "remember device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+        AWSMobileClient.default().deviceOperations.updateStatus(remembered: true) { (result, error) in
             if error != nil {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
             }
@@ -136,7 +136,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let listDevicesExpectation3 = expectation(description: "list devices expectation3.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+        AWSMobileClient.default().deviceOperations.list(limit: 60) { (result, error) in
             
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
@@ -158,7 +158,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let initialRememberDeviceExpectation = expectation(description: "initial remember device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+        AWSMobileClient.default().deviceOperations.updateStatus(remembered: true) { (result, error) in
             if error != nil {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
             }
@@ -169,7 +169,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let listDevicesExpectation = expectation(description: "list devices expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+        AWSMobileClient.default().deviceOperations.list(limit: 60) { (result, error) in
             
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
@@ -184,7 +184,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let getDeviceExpectation = expectation(description: "get device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.get { (device, error) in
+        AWSMobileClient.default().deviceOperations.get { (device, error) in
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
                 getDeviceExpectation.fulfill()
@@ -200,7 +200,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let notRememberDeviceExpectation = expectation(description: "forget device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.forget({ (error) in
+        AWSMobileClient.default().deviceOperations.forget({ (error) in
             if error != nil {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
             }
@@ -211,7 +211,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let listDevicesExpectation2 = expectation(description: "list devices expectation2.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.list(limit: 60) { (result, error) in
+        AWSMobileClient.default().deviceOperations.list(limit: 60) { (result, error) in
             
             guard error == nil else {
                 XCTFail("Received un-expected error: \(error!.localizedDescription)")
@@ -226,7 +226,7 @@ class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
         
         let rememberDeviceExpectation = expectation(description: "remember device expectation.")
         
-        AWSMobileClient.sharedInstance().deviceOperations.updateStatus(remembered: true) { (result, error) in
+        AWSMobileClient.default().deviceOperations.updateStatus(remembered: true) { (result, error) in
             XCTAssertNotNil(error, "Expecting error but didn't get one.")
             if let mobileError = error as? AWSMobileClientError {
                 

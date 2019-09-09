@@ -18,7 +18,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         let credentialsExpectation = expectation(description: "Successfully fetch AWS Credentials")
-        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
             if let credentials = credentials {
                 XCTAssertNotNil(credentials.accessKey)
                 XCTAssertNotNil(credentials.secretKey)
@@ -36,14 +36,14 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         signIn(username: username)
         let transferUtility = AWSS3TransferUtility.default()
         let verifyCredentialsExpectation = expectation(description: "Credentials should be retrieved successfully")
-        AWSMobileClient.sharedInstance().getAWSCredentials { (creds, error) in
+        AWSMobileClient.default().getAWSCredentials { (creds, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(creds)
             verifyCredentialsExpectation.fulfill()
         }
         wait(for: [verifyCredentialsExpectation], timeout: 10)
         
-        guard let identityId = AWSMobileClient.sharedInstance().identityId else {
+        guard let identityId = AWSMobileClient.default().identityId else {
             XCTFail("Could not find identityId to do private upload.")
             return
         }
@@ -67,14 +67,14 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         signIn(username: username)
         let transferUtility = AWSS3TransferUtility.default()
         let verifyCredentialsExpectation = expectation(description: "Credentials should be retrieved successfully")
-        AWSMobileClient.sharedInstance().getAWSCredentials { (creds, error) in
+        AWSMobileClient.default().getAWSCredentials { (creds, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(creds)
             verifyCredentialsExpectation.fulfill()
         }
         wait(for: [verifyCredentialsExpectation], timeout: 10)
         
-        guard let identityId = AWSMobileClient.sharedInstance().identityId else {
+        guard let identityId = AWSMobileClient.default().identityId else {
             XCTFail("Could not find identityId to do private upload.")
             return
         }
@@ -122,7 +122,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
     ///
     func testUnAuthCredentialsForSignOutUser() {
         let verifyCredentialsExpectation = expectation(description: "Credentials should be retrieved successfully")
-        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(credentials)
             XCTAssertNotNil(credentials?.accessKey)
@@ -146,12 +146,12 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
 
         let transferUtility = AWSS3TransferUtility.default()
         let verifyCredentialsExpectation = expectation(description: "Credentials should be retrieved successfully")
-        AWSMobileClient.sharedInstance().getAWSCredentials { (_, _) in
+        AWSMobileClient.default().getAWSCredentials { (_, _) in
             verifyCredentialsExpectation.fulfill()
         }
         wait(for: [verifyCredentialsExpectation], timeout: 10)
         
-        XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "User should be in signOut state")
+        XCTAssertFalse(AWSMobileClient.default().isSignedIn, "User should be in signOut state")
         let uploadKey = "private/file.txt"
         let s3UploadDataCompletionExpectation = expectation(description: "S3 transfer utility uploadData task completed")
         let content = "Hello World"
@@ -191,7 +191,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         let s3UploadDataCompletionExpectation = expectation(description: "S3 transfer utility uploadData task completed")
         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
         
-        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+        AWSMobileClient.default().addUserStateListener(self) { (userState, info) in
             defer {
                 signInListenerWasSuccessful.fulfill()
             }
@@ -214,7 +214,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         wait(for: [signInListenerWasSuccessful, s3UploadDataCompletionExpectation], timeout: 10)
-        AWSMobileClient.sharedInstance().removeUserStateListener(self)
+        AWSMobileClient.default().removeUserStateListener(self)
     }
     
     /// Test user state are in consistent state when we upload a file from state listener
@@ -238,7 +238,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         let noOtherSignInStateReceived = expectation(description: "No other state should be called")
         noOtherSignInStateReceived.isInverted = true
         
-        AWSMobileClient.sharedInstance().addUserStateListener(self) { (userState, info) in
+        AWSMobileClient.default().addUserStateListener(self) { (userState, info) in
             
             defer {
                 signInListenerWasSuccessful.fulfill()
@@ -259,7 +259,43 @@ class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         wait(for: [signInListenerWasSuccessful, s3UploadDataCompletionExpectation, noOtherSignInStateReceived], timeout: 10)
-        AWSMobileClient.sharedInstance().removeUserStateListener(self)
+        AWSMobileClient.default().removeUserStateListener(self)
     }
 
+    
+    func testMultipleGetCredentials() {
+        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
+        let username = "testUser" + UUID().uuidString
+        let credentialFetchBeforeSignIn = expectation(description: "Request to getAWSCredentials before signIn")
+        let credentialFetchAfterSignIn = expectation(description: "Request to getAWSCredentials after signIn")
+        let credentialFetchAfterSignIn2 = expectation(description: "Request to getAWSCredentials after signIn")
+        let credentialFetchAfterSignOut = expectation(description: "Request to getAWSCredentials after signOut")
+        AWSMobileClient.default().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchBeforeSignIn.fulfill()
+        })
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        AWSMobileClient.default().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignIn.fulfill()
+        })
+        wait(for: [credentialFetchAfterSignIn], timeout: 15)
+        
+        AWSMobileClient.default().getAWSCredentials({ (awscredentials, error) in
+            // We do not need to check the values here, this can succeed
+            // or fail based on whether this method completes before the below signOut.
+            credentialFetchAfterSignIn2.fulfill()
+        })
+        AWSMobileClient.default().signOut()
+        AWSMobileClient.default().getAWSCredentials({ (awscredentials, error) in
+            XCTAssertNil(error)
+            XCTAssertNotNil(awscredentials, "Credentials should not return nil.")
+            credentialFetchAfterSignOut.fulfill()
+        })
+        wait(for: [credentialFetchAfterSignIn2, credentialFetchBeforeSignIn, credentialFetchAfterSignOut], timeout: 15)
+    }
 }
