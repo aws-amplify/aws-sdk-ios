@@ -264,6 +264,7 @@ static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
 static NSString *const AWSServiceNameCognitoIdentityProvider = @"cognito-idp";
 static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
 static NSString *const AWSServiceNameConnect = @"connect";
+static NSString *const AWSServiceNameConnectParticipant = @"connectparticipant";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
@@ -494,6 +495,8 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSServiceNameComprehend;
         case AWSServiceConnect:
             return AWSServiceNameConnect;
+        case AWSServiceConnectParticipant:
+            return AWSServiceNameConnectParticipant;
         case AWSServiceDynamoDB:
             return AWSServiceNameDynamoDB;
         case AWSServiceEC2:
@@ -640,6 +643,8 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://runtime.%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
     } else if (serviceType == AWSServiceTranscribeStreaming) {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://transcribestreaming%@%@.amazonaws.com", HTTPType, separator, regionName]];
+    }  else if (serviceType == AWSServiceConnectParticipant) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://participant.connect%@%@.amazonaws.com", HTTPType, separator, regionName]];
     } else {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
     }

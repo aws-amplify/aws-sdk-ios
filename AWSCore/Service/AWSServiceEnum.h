@@ -161,6 +161,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceConnect NS_SWIFT_NAME(Connect),
     /**
+     *  Amazon Connect Participant
+     */
+    AWSServiceConnectParticipant NS_SWIFT_NAME(ConnectParticipant),
+    /**
      *  Amazon DynamoDB
      */
     AWSServiceDynamoDB NS_SWIFT_NAME(DynamoDB),

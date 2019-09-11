@@ -48,6 +48,11 @@
       "AWSConnectTests": {}
     }
   },
+  "ConnectParticipant": {
+    "test_list": {
+      "AWSConnectParticipantTests": {}
+    }
+  },
   "Core": {
     "test_list": {
       "AWSCoreTests": {}
