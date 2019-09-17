@@ -1,5 +1,19 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.11.1
+
+### Misc. Updates
+
+- Model updates for the following services
+  - Amazon EC2
+    - NOTE: This model update includes a change to the mapping of certain service-emitted enum values. The symbols to which these values map
+      remains the same, but customers using older versions of the AWSEC2 SDK may wish to upgrade. Enum values affected:
+      - "deleted-running" is now "deleted_running"
+      - "deleted-terminating" is now "deleted_terminating"
+      - "pending-fulfillment" is now "pending_fulfillment"
+      - "pending-termination" is now "pending_termination"
+  - Amazon Simple Email Service
+
 ## 2.11.0
 
 ### New Features
