@@ -29,6 +29,10 @@ protocol UserPoolAuthHelperlCallbacks {
     
     func didCompleteNewPasswordStepWithError(_ error: Error?)
     
+    func getCustomAuthenticationDetails(_ customAuthentiationInput: AWSCognitoIdentityCustomAuthenticationInput, customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>)
+    
+    func didCompleteCustomAuthenticationStepWithError(_ error: Error?)
+    
     func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>)
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?)
@@ -44,10 +48,8 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     }
     
     internal var passwordAuthTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
-    internal var passwordAuthInput: AWSCognitoIdentityPasswordAuthenticationInput?
-    
     internal var newPasswordRequiredTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>?
-    internal var newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput?
+    internal var customAuthChallengeTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>?
     
     internal var mfaAuthenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput?
     internal var mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>?
@@ -81,6 +83,23 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     
     internal func setAuthHelperDelegate(authHelperDelegate: UserPoolAuthHelperlCallbacks) {
         self.authHelperDelegate = authHelperDelegate
+    }
+    
+    internal func startCustomAuthentication_v2() -> AWSCognitoIdentityCustomAuthentication {
+        return self
+    }
+}
+
+extension UserPoolOperationsHandler: AWSCognitoIdentityCustomAuthentication {
+    
+    public func getCustomChallengeDetails(_ authenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
+                                          customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
+        self.authHelperDelegate?.getCustomAuthenticationDetails(authenticationInput,
+                                                                customAuthCompletionSource: customAuthCompletionSource)
+    }
+
+    public func didCompleteCustomAuthenticationStepWithError(error: Error?) {
+        self.authHelperDelegate?.didCompleteCustomAuthenticationStepWithError(error)
     }
 }
 

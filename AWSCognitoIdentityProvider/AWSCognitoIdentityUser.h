@@ -103,6 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
                                                 password:(NSString *)password
                                           validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData;
 
+- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
+                                                password:(NSString *)password
+                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
+                                isInitialCustomChallenge:(BOOL)isInitialCustomChallenge;
+
 /**
  Get details about this user, including user attributes
  */

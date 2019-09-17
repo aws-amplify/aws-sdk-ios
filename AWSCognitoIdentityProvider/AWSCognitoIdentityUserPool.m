@@ -149,7 +149,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
             }
             _configuration = [[AWSServiceManager defaultServiceManager].defaultServiceConfiguration copy];
         }
-
+        _isCustomAuth = NO;
         _userPoolConfiguration = [userPoolConfiguration copy];
 
         _client = [[AWSCognitoIdentityProvider alloc] initWithConfiguration:_configuration];

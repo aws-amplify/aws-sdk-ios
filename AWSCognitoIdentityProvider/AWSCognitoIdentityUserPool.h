@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) AWSServiceConfiguration *configuration;
 @property (nonatomic, readonly) AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration;
 @property (nonatomic, readonly) NSString *identityProviderName;
+@property (nonatomic, assign) BOOL isCustomAuth;
 
 /**
  Set this delegate to interactively prompt users for authentication challenges when necessary
@@ -344,6 +345,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
 -(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication;
 
 /**
+ Initialize ui to prompt end user for custom authentication flow. This is added to support AWSMobileClient.
+ */
+-(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication_v2;
+
+/**
  Initialize ui to prompt end user to setup a software mfa token */
 -(id<AWSCognitoIdentitySoftwareMfaSetupRequired>) startSoftwareMfaSetupRequired;
 
@@ -396,7 +402,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured
  */
--(void) didCompleteCustomAuthenticationStepWithError:(NSError* _Nullable) error;
+-(void) didCompleteCustomAuthenticationStepWithError:(NSError* _Nullable) error NS_SWIFT_NAME(didCompleteCustomAuthenticationStepWithError(error:));
 
 
 @end
