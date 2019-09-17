@@ -7377,6 +7377,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2ModifyVpnTunnelOptionsResult *> *)modifyVpnTunnelOptions:(AWSEC2ModifyVpnTunnelOptionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyVpnTunnelOptions"
+                   outputClass:[AWSEC2ModifyVpnTunnelOptionsResult class]];
+}
+
+- (void)modifyVpnTunnelOptions:(AWSEC2ModifyVpnTunnelOptionsRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyVpnTunnelOptionsResult *response, NSError *error))completionHandler {
+    [[self modifyVpnTunnelOptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyVpnTunnelOptionsResult *> * _Nonnull task) {
+        AWSEC2ModifyVpnTunnelOptionsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2MonitorInstancesResult *> *)monitorInstances:(AWSEC2MonitorInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
