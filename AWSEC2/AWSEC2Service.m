@@ -27,7 +27,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.10.3";
+NSString *const AWSEC2SDKVersion = @"2.11.0";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -7367,6 +7367,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyVpnTunnelCertificateResult *response, NSError *error))completionHandler {
     [[self modifyVpnTunnelCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyVpnTunnelCertificateResult *> * _Nonnull task) {
         AWSEC2ModifyVpnTunnelCertificateResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyVpnTunnelOptionsResult *> *)modifyVpnTunnelOptions:(AWSEC2ModifyVpnTunnelOptionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyVpnTunnelOptions"
+                   outputClass:[AWSEC2ModifyVpnTunnelOptionsResult class]];
+}
+
+- (void)modifyVpnTunnelOptions:(AWSEC2ModifyVpnTunnelOptionsRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyVpnTunnelOptionsResult *response, NSError *error))completionHandler {
+    [[self modifyVpnTunnelOptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyVpnTunnelOptionsResult *> * _Nonnull task) {
+        AWSEC2ModifyVpnTunnelOptionsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
