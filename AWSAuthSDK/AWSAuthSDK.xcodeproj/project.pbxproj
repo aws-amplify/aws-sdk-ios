@@ -133,6 +133,8 @@
 		B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */; };
 		B4031BE623105727009EB524 /* AWSMobileClientSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */; };
 		B4B74AC02331516D0024326F /* AWSMobileClientCustomAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B74A58233151580024326F /* AWSMobileClientCustomAuthTests.swift */; };
+		B4B74B9A2331C2A40024326F /* awsconfiguration_customAuth.json in Resources */ = {isa = PBXBuildFile; fileRef = B4B74B322331BBAC0024326F /* awsconfiguration_customAuth.json */; };
+		B4B74B9B2331C2A50024326F /* awsconfiguration_customAuth.json in Resources */ = {isa = PBXBuildFile; fileRef = B4B74B322331BBAC0024326F /* awsconfiguration_customAuth.json */; };
 		B4C8E4212306064D0064C158 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E3A72306056A0064C158 /* JSONHelper.swift */; };
 		B4C8E4A023073D7B0064C158 /* AWSMobileClientBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */; };
 		B4C8E4A2230740200064C158 /* AWSMobileClientSignoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */; };
@@ -1231,6 +1233,7 @@
 		B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClientUserDetails.swift; sourceTree = "<group>"; };
 		B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignInTests.swift; sourceTree = "<group>"; };
 		B4B74A58233151580024326F /* AWSMobileClientCustomAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientCustomAuthTests.swift; sourceTree = "<group>"; };
+		B4B74B322331BBAC0024326F /* awsconfiguration_customAuth.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = awsconfiguration_customAuth.json; sourceTree = "<group>"; };
 		B4C8E3A72306056A0064C158 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientBaseTests.swift; sourceTree = "<group>"; };
 		B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignoutTests.swift; sourceTree = "<group>"; };
@@ -1578,6 +1581,7 @@
 				B4C8E4A5230742200064C158 /* AWSMobileClientUserAttributeTests.swift */,
 				B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */,
 				B4B74A58233151580024326F /* AWSMobileClientCustomAuthTests.swift */,
+				B4B74B322331BBAC0024326F /* awsconfiguration_customAuth.json */,
 			);
 			path = AWSMobileClientTests;
 			sourceTree = "<group>";
@@ -2947,6 +2951,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B74B9A2331C2A40024326F /* awsconfiguration_customAuth.json in Resources */,
 				1773B1D922029DAE00356909 /* credentials-mc.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2963,6 +2968,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B74B9B2331C2A50024326F /* awsconfiguration_customAuth.json in Resources */,
 				17CD4B5621826BA100953483 /* credentials-mc.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

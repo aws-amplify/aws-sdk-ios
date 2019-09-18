@@ -131,6 +131,10 @@ final public class AWSMobileClient: _AWSMobileClient {
         return AWSInfo.default()
     }()
     
+    /// Hold on to user password for custom auth. Password verification can
+    /// come as the second step in custom auth.
+    var userPassword: String? = nil
+    
     // MARK: Public API variables
     
     /// Returns the current state of user. If MobileClient is not initialized, it will return `unknown`

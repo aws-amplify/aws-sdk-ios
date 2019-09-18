@@ -57,7 +57,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientBaseTests {
         let tempPassword = "tempPassword" + UUID().uuidString
         adminCreateUser(username: username, temporaryPassword: tempPassword)
         signIn(username: username, password: tempPassword, verifySignState: .newPasswordRequired)
-        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": sharedEmail])
+        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": AWSMobileClientBaseTests.sharedEmail])
     }
 
 }

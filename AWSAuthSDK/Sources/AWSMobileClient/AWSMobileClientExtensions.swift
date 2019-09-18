@@ -204,10 +204,14 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: details)
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else {
+            let isCustomAuth = self.userPoolClient?.isCustomAuth ?? false
+            if (isCustomAuth) {
+                userPassword = password
+            }
             user!.getSession(username,
                              password: password,
                              validationData: validationAttributes,
-                             isInitialCustomChallenge: self.userPoolClient?.isCustomAuth ?? false).continueWith { (task) -> Any? in
+                             isInitialCustomChallenge: isCustomAuth).continueWith { (task) -> Any? in
                 if let error = task.error {
                     self.invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let result = task.result {
@@ -824,6 +828,17 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
     func getPasswordDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput,
                             passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
         
+        // getPasswordDetails for customAuth will be called when the session expires.
+        // This call would be triggered from getSession(). In this case we donot need
+        // to inform the user that the session is expired, because that is handled by
+        // getCustomAuthenticationDetails.
+        if(self.userPoolClient?.isCustomAuth ?? false) {
+            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.currentUser?.username ?? "",
+                                                                              password: userPassword ?? "dummyPassword")
+            passwordAuthenticationCompletionSource.set(result: authDetails)
+            userPassword = nil
+            return
+        }
         if (self.federationProvider != .userPools) {
             passwordAuthenticationCompletionSource.set(error: AWSMobileClientError.notSignedIn(message: "User is not signed in, please sign in to use this API."))
         }
@@ -860,14 +875,15 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         
         self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
         
-        // Custom auth challenge can come during a signIn process or when the token expires.
-        // So, if this get invoked when the token expires, we first inform the listener that
-        // the user got signedOut. And update the status to signedOut.
+        // getCustomAuthenticationDetails will be invoked in a signIn process or when the token expires.
+        // If this get invoked when the token expires, we first inform the listener that
+        // the user got signedOut.
         if (self.currentUserState == .signedIn) {
+            let username = self.userPoolClient?.currentUser()?.username ?? ""
             self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
-                                           additionalInfo: ["username":self.userPoolClient?.currentUser()?.username ?? ""])
+                                           additionalInfo: ["username": username])
         } else {
-            // If user is not signedIn, we come here as part of the signIn flow. Next step
+            // If user is not signedIn, we reach here as part of the signIn flow. Next step
             // is to inform the user to enter custom auth challenge.
             let result = SignInResult(signInState: .customChallenge, codeDetails: nil)
             invokeSignInCallback(signResult: result, error: nil)

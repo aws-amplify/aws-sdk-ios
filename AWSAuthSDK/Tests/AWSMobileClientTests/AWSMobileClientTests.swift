@@ -66,12 +66,12 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
     
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
-        getOpendIdRequest?.identityPoolId = identityPoolId
+        getOpendIdRequest?.identityPoolId = AWSMobileClientBaseTests.identityPoolId
         getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_users"]
         var identityId: String?
         var token: String?
         
-        cognitoIdentity!.getOpenIdToken(forDeveloperIdentity: getOpendIdRequest!).continueWith { (task) -> Any? in
+        AWSMobileClientBaseTests.cognitoIdentity!.getOpenIdToken(forDeveloperIdentity: getOpendIdRequest!).continueWith { (task) -> Any? in
             if let result = task.result {
                 identityId = result.identityId
                 token = result.token
