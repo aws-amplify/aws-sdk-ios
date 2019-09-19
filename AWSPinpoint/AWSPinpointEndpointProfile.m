@@ -63,8 +63,8 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
                                  debug:(BOOL) debug
                           userDefaults:(NSUserDefaults*) userDefaults {
     if (self = [super init]) {
-        //Remove spaces and brackets from token
-        NSString *deviceTokenString = [[[[userDefaults objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
+        NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
         
         _applicationId = applicationId;
         _endpointId = endpointId;
@@ -99,7 +99,8 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     if (userDefaults == nil) {
         userDefaults = [NSUserDefaults standardUserDefaults];
     }
-    NSString *deviceTokenString = [[[[userDefaults objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSData *tokenData = [userDefaults objectForKey:AWSDeviceTokenKey];
+    NSString *deviceTokenString = [AWSPinpointEndpointProfile hexStringFromData:tokenData];
     @synchronized (self) {
         _channelType = context.configuration.debug ? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
         _applicationId = context.configuration.appId;
@@ -342,6 +343,22 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     [encoder encodeInt64:_effectiveDate forKey:@"effectiveDate"];
     [encoder encodeObject:_optOut forKey:@"optOut"];
 
+}
+
++ (NSString *)hexStringFromData:(NSData *)data {
+    if (!data || data.length == 0) {
+        return @"";
+    }
+
+    const unsigned char *bytes = [data bytes];
+
+    NSMutableString *hexString = [[NSMutableString alloc] init];
+    for (int i = 0; i < data.length; i++) {
+        unsigned char byte = bytes[i];
+        [hexString appendFormat:@"%02x", byte];
+    }
+
+    return hexString;
 }
 
 @end
