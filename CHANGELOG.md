@@ -13,6 +13,7 @@
       - "pending-fulfillment" is now "pending_fulfillment"
       - "pending-termination" is now "pending_termination"
   - Amazon Simple Email Service
+- Removed redundant import of `AWSNetworking.h` from model service files. See [PR #1855](https://github.com/aws-amplify/aws-sdk-ios/pull/1855). Thanks @thii!
 
 ## 2.11.0
 
