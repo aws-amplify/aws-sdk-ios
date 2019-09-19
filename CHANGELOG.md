@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+  - Amazon Simple Notification Service (SNS)
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.11.1
