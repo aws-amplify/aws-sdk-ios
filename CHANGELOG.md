@@ -1,3 +1,7 @@
+### Misc. Updates
+
+- Model updates for the following services
+- sns is on branch models-update-sns-2019-09-19-07-16\n
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.11.1
