@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-  - Amazon Autoscaling\n  - Amazon Cognito Identity\n  - Amazon Cognito Identity Provider\n  - Amazon Comprehend\n  - Amazon Connect\n  - Amazon DynamoDB\n  - Amazon EC2\n  - Amazon Elastic Load Balancing\n  - Amazon Simple Email Service (SES)\n  - Amazon Kinesis Firehose\n  - Amazon IoT\n  - Amazon IoT\n  - Amazon Kinesis Video Streams\n  - AWS KMS\n  - AWS Lambda\n  - Amazon CloudWatch Logs\n  - Amazon Pinpoint\n  - Amazon Polly\n  - Amazon Rekognition\n  - Amazon Lex\n  - Amazon SageMaker\n  - Amazon Simple DB (SDB)\n  - Amazon Simple Notification Service (SNS)\n  - Amazon Simple Queue Service (SQS)\n  - Amazon Security Token Service (STS)\n  - Amazon Transcribe\n  - Amazon Translate\n
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.11.1
@@ -24,6 +13,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
       - "pending-fulfillment" is now "pending_fulfillment"
       - "pending-termination" is now "pending_termination"
   - Amazon Simple Email Service
+- Removed redundant import of `AWSNetworking.h` from model service files. See [PR #1855](https://github.com/aws-amplify/aws-sdk-ios/pull/1855). Thanks @thii!
 
 ## 2.11.0
 
