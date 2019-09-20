@@ -9,7 +9,7 @@ import XCTest
 import AWSAuthCore
 import AWSCognitoIdentityProvider
 
-class AWSMobileClientTests: AWSMobileClientBaseTests {
+class AWSMobileClientTests: AWSMobileClientTestBase {
     
     func testSignUp() {
         let username = "testUser" + UUID().uuidString
@@ -66,12 +66,12 @@ class AWSMobileClientTests: AWSMobileClientBaseTests {
     
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
-        getOpendIdRequest?.identityPoolId = AWSMobileClientBaseTests.identityPoolId
+        getOpendIdRequest?.identityPoolId = AWSMobileClientTestBase.identityPoolId
         getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_users"]
         var identityId: String?
         var token: String?
         
-        AWSMobileClientBaseTests.cognitoIdentity!.getOpenIdToken(forDeveloperIdentity: getOpendIdRequest!).continueWith { (task) -> Any? in
+        AWSMobileClientTestBase.cognitoIdentity!.getOpenIdToken(forDeveloperIdentity: getOpendIdRequest!).continueWith { (task) -> Any? in
             if let result = task.result {
                 identityId = result.identityId
                 token = result.token

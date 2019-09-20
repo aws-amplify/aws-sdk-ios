@@ -9,7 +9,7 @@ import XCTest
 import AWSAuthCore
 import AWSCognitoIdentityProvider
 
-class AWSMobileClientBaseTests: XCTestCase {
+class AWSMobileClientTestBase: XCTestCase {
 
     static var cognitoIdentity: AWSCognitoIdentity!
     static var userPoolsAdminClient: AWSCognitoIdentityProvider!
@@ -50,7 +50,7 @@ class AWSMobileClientBaseTests: XCTestCase {
     //MARK: Helper methods
     
     static func loadCredentialsFromFile() -> [String: Any] {
-        let filePath = Bundle(for: AWSMobileClientBaseTests.self).path(forResource: "credentials-mc", ofType: "json")!
+        let filePath = Bundle(for: AWSMobileClientTestBase.self).path(forResource: "credentials-mc", ofType: "json")!
         let fileData = try! NSData(contentsOfFile: filePath) as Data
         let credentialsJson = try! JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! [String: Any]
         return credentialsJson
@@ -118,7 +118,7 @@ class AWSMobileClientBaseTests: XCTestCase {
     }
     
     func signUpUser(username: String, customUserAttributes: [String: String]? = nil, signupState: SignUpConfirmationState = .unconfirmed) {
-        var userAttributes = ["email": AWSMobileClientBaseTests.sharedEmail!]
+        var userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
         if let customUserAttributes = customUserAttributes {
             userAttributes.merge(customUserAttributes) { current, _ in current }
         }
@@ -168,9 +168,9 @@ class AWSMobileClientBaseTests: XCTestCase {
         }
         
         adminConfirmSignUpRequest.username = username
-        adminConfirmSignUpRequest.userPoolId = AWSMobileClientBaseTests.userPoolId
+        adminConfirmSignUpRequest.userPoolId = AWSMobileClientTestBase.userPoolId
         
-        AWSMobileClientBaseTests.userPoolsAdminClient.adminConfirmSignUp(adminConfirmSignUpRequest).continueWith(block: { (task) -> Any? in
+        AWSMobileClientTestBase.userPoolsAdminClient.adminConfirmSignUp(adminConfirmSignUpRequest).continueWith(block: { (task) -> Any? in
             if let error = task.error {
                 XCTFail("Could not confirm user. Failing the test: \(error)")
             }
@@ -192,8 +192,8 @@ class AWSMobileClientBaseTests: XCTestCase {
         adminCreateUserRequest.username = username
         adminCreateUserRequest.temporaryPassword = temporaryPassword
         adminCreateUserRequest.userAttributes = userAttributesTransformed
-        adminCreateUserRequest.userPoolId = AWSMobileClientBaseTests.userPoolId
-        AWSMobileClientBaseTests.userPoolsAdminClient.adminCreateUser(adminCreateUserRequest).continueWith { (task) -> Any? in
+        adminCreateUserRequest.userPoolId = AWSMobileClientTestBase.userPoolId
+        AWSMobileClientTestBase.userPoolsAdminClient.adminCreateUser(adminCreateUserRequest).continueWith { (task) -> Any? in
             if let error = task.error {
                 XCTFail("Could not create user. Failing the test: \(error)")
             }

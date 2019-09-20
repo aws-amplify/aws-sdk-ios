@@ -7,7 +7,7 @@ import XCTest
 @testable import AWSMobileClient
 import AWSCognitoIdentityProvider
 
-class AWSMobileClientSignInTests: AWSMobileClientBaseTests {
+class AWSMobileClientSignInTests: AWSMobileClientTestBase {
 
     func testSignIn() {
         let username = "testUser" + UUID().uuidString

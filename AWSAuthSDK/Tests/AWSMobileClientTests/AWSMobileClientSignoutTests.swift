@@ -10,7 +10,7 @@ import AWSAuthCore
 import AWSCognitoIdentityProvider
 
 /// AWSMobileClient tests related to signout operation
-class AWSMobileClientSignoutTests: AWSMobileClientBaseTests {
+class AWSMobileClientSignoutTests: AWSMobileClientTestBase {
 
     func testSignOut() {
         let username = "testUser" + UUID().uuidString

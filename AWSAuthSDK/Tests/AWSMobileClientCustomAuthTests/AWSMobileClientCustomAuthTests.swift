@@ -8,7 +8,7 @@ import XCTest
 import AWSCore
 @testable import AWSCognitoIdentityProvider
 
-class AWSMobileClientCustomAuthTests: AWSMobileClientBaseTests {
+class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
     
     override class func setUp() {
         loadConfigurationForCustomAuth()
