@@ -2,6 +2,11 @@
 
 ## 2.11.1
 
+### Bug Fixes
+
+- **AWSPinpoint**
+  - Fixed a bug retrieving APNS device tokens on iOS 13. See [Issue #1926](https://github.com/aws-amplify/aws-sdk-ios/pull/1926)
+
 ### Misc. Updates
 
 - Model updates for the following services
