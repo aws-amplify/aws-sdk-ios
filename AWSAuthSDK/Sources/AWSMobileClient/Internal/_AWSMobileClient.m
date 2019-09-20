@@ -64,14 +64,29 @@ Class AWSCognitoUserPoolsSignInProviderClass;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedMobileClient = [[_AWSMobileClient alloc] init];
-        _sharedMobileClient.isInitialized = NO;
-        _sharedMobileClient.signInProviderConfig = nil;
-        AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
-        AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
-        AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
     });
     
     return _sharedMobileClient;
+}
+
+#pragma initializers
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _isInitialized = NO;
+        _signInProviderConfig = nil;
+        AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
+        AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
+        AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
+    }
+    return self;
+}
+
+- (instancetype)initWithConfiguration:(NSDictionary<NSString *,id> *)config {
+    AWSDDLogDebug(@"AWSMobileClient initialized with custom configuration object...");
+    [AWSInfo configureDefaultAWSInfo:config];
+    return [self init];
 }
 
 #pragma mark AppDelegate Methods

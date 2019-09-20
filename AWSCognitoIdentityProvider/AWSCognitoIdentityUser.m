@@ -226,6 +226,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
  */
 - (AWSTask<AWSCognitoIdentityUserSession*>*) getSession:(NSString *)username password:(NSString *)password validationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*)validationData {
     AWSTask *authenticationTask = self.pool.userPoolConfiguration.migrationEnabled ? [self migrationAuth:username password:password validationData:validationData lastChallenge:nil] : [self srpAuthInternal:username password:password validationData:validationData lastChallenge:nil isInitialCustomChallenge:NO];
+    
     return [self setConfirmationStatus: [authenticationTask continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
         return [self getSessionInternal:task];
     }]];

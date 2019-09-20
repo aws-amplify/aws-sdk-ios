@@ -1120,7 +1120,6 @@
 		CECBE1571C6E924200B1291D /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CECBE1581C6E924800B1291D /* AWSSQS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE9DEA8D1C6A7F460060793F /* AWSSQS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CED218AA1C6ACE660031A8E3 /* AWSDynamoDBTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CED218A91C6ACE660031A8E3 /* AWSDynamoDBTestUtility.m */; };
-		CEE5AF321CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */; };
 		CEE5AF331CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */; };
 		CEFE06541C6AA1C8007A42E4 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEFE06551C6AA1DF007A42E4 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
@@ -1203,6 +1202,7 @@
 		EFF1B9F21CBC42FF001F4CF1 /* aws_tommath_class.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF1B9EE1CBC42FF001F4CF1 /* aws_tommath_class.h */; };
 		EFF1B9F31CBC42FF001F4CF1 /* aws_tommath_superclass.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF1B9EF1CBC42FF001F4CF1 /* aws_tommath_superclass.h */; };
 		EFF1B9F41CBC42FF001F4CF1 /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = EFF1B9F01CBC42FF001F4CF1 /* tommath.c */; };
+		FA0A61CD22FE3B2400B051BE /* AWSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */; };
 		FA2800EE22C9C1E1000B41F4 /* AWSStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */; };
 		FA40A91221FA2F2A0050F4B2 /* AWSDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40A91121FA2F2A0050F4B2 /* AWSDateFormatterTests.m */; };
 		FA41B39322C652E300142F8D /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -4217,7 +4217,6 @@
 		CEB8EF5F1C6A6A2E0098B15B /* OCMStubRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMStubRecorder.h; sourceTree = "<group>"; };
 		CED218A91C6ACE660031A8E3 /* AWSDynamoDBTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDynamoDBTestUtility.m; sourceTree = "<group>"; };
 		CED218AB1C6ACF600031A8E3 /* AWSDynamoDBTestUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSDynamoDBTestUtility.h; sourceTree = "<group>"; };
-		CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityProviderUnitTests.m; sourceTree = "<group>"; };
 		CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralCognitoIdentityProviderTests.m; sourceTree = "<group>"; };
 		E4E1DA1E1E5F4E680080F769 /* AWSKMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSKMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E1DA201E5F4E690080F769 /* AWSKMS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSKMS.h; sourceTree = "<group>"; };
@@ -4279,6 +4278,7 @@
 		EFF1B9EE1CBC42FF001F4CF1 /* aws_tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aws_tommath_class.h; sourceTree = "<group>"; };
 		EFF1B9EF1CBC42FF001F4CF1 /* aws_tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aws_tommath_superclass.h; sourceTree = "<group>"; };
 		EFF1B9F01CBC42FF001F4CF1 /* tommath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tommath.c; sourceTree = "<group>"; };
+		FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSURLSessionManagerTests.m; sourceTree = "<group>"; };
 		FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSStringValue.m; sourceTree = "<group>"; };
 		FA2800EF22C9C1E5000B41F4 /* AWSStringValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSStringValue.h; sourceTree = "<group>"; };
 		FA40A91121FA2F2A0050F4B2 /* AWSDateFormatterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSDateFormatterTests.m; sourceTree = "<group>"; };
@@ -5831,12 +5831,12 @@
 				CE9DE9BE1C6A7C2D0060793F /* AWSS3 */,
 				CE9DE9CA1C6A7C2E0060793F /* AWSS3Tests */,
 				CE5604A01C6BC97600B4E00B /* AWSS3UnitTests */,
-				B4A4DFF622B4201400379396 /* AWSSageMakerRuntime */,
-				B4A4E00322B4201400379396 /* AWSSageMakerRuntimeTests */,
-				B4A4E02822B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
 				CE9DE9FE1C6A7DFF0060793F /* AWSSES */,
 				CE9DEA0A1C6A7E000060793F /* AWSSESTests */,
 				CE5604AF1C6BC98800B4E00B /* AWSSESUnitTests */,
+				B4A4DFF622B4201400379396 /* AWSSageMakerRuntime */,
+				B4A4E00322B4201400379396 /* AWSSageMakerRuntimeTests */,
+				B4A4E02822B4233B00379396 /* AWSSageMakerRuntimeUnitTests */,
 				CE9DEA2E1C6A7E710060793F /* AWSSimpleDB */,
 				CE9DEA3A1C6A7E710060793F /* AWSSimpleDBTests */,
 				CE5604BE1C6BC99500B4E00B /* AWSSimpleDBUnitTests */,
@@ -6277,6 +6277,7 @@
 				CE5603DE1C6BC7C700B4E00B /* AWSGeneralCognitoIdentityTests.m */,
 				CE5603DF1C6BC7C700B4E00B /* AWSGeneralSTSTests.m */,
 				CE96C3FA1C6EA4670092D828 /* AWSServiceTests.m */,
+				FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */,
 				CE5603D61C6BC74500B4E00B /* Info.plist */,
 			);
 			path = AWSCoreUnitTests;
@@ -7272,7 +7273,6 @@
 				FA9E3E1A2199ED2600C65B0A /* AWSCognitoIdentityProvider+TestUtils.h */,
 				FA4DB84C2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift */,
 				FA4DB84B2199E33B00AE7F20 /* AWSCognitoIdentityProviderUnitTests-Bridging-Header.h */,
-				CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */,
 				CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */,
 				CEA316C41C93A415002A9F58 /* Info.plist */,
 			);
@@ -11949,6 +11949,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0A61CD22FE3B2400B051BE /* AWSURLSessionManagerTests.m in Sources */,
 				CE5603E01C6BC7C700B4E00B /* AWSGeneralCognitoIdentityTests.m in Sources */,
 				FA40A91221FA2F2A0050F4B2 /* AWSDateFormatterTests.m in Sources */,
 				CE5603E41C6BC82E00B4E00B /* AWSTestUtility.m in Sources */,
@@ -12627,7 +12628,6 @@
 				FA4DB84D2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift in Sources */,
 				CEA316CC1C93A460002A9F58 /* AWSTestUtility.m in Sources */,
 				CEE5AF331CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m in Sources */,
-				CEE5AF321CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -16352,9 +16352,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSS3UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3UnitTests/AWSS3UnitTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -16372,8 +16369,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSS3UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3UnitTests/AWSS3UnitTests-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -82,6 +82,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) AWSSynchronizedMutableDictionary *sessionManagerDelegates;
+@property (nonatomic) BOOL isSessionValid;
 
 @end
 
@@ -92,6 +93,10 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                                    reason:@"`- init` is not a valid initializer. Use `- initWithConfiguration` instead."
                                  userInfo:nil];
     return nil;
+}
+
+- (void)dealloc {
+    // Do nothing
 }
 
 - (instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration {
@@ -114,6 +119,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                                                  delegate:self
                                             delegateQueue:nil];
         _sessionManagerDelegates = [AWSSynchronizedMutableDictionary new];
+        _isSessionValid = YES;
     }
 
     return self;
@@ -136,6 +142,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 }
 
 - (void)taskWithDelegate:(AWSURLSessionManagerDelegate *)delegate {
+    if (!self.session || !self.isSessionValid) {
+        delegate.taskCompletionSource.error = [NSError errorWithDomain:AWSNetworkingErrorDomain
+                                                                  code:AWSNetworkingErrorSessionInvalid
+                                                              userInfo:@{NSLocalizedDescriptionKey: @"URLSession is nil or invalidated"}];
+        return;
+    }
+
     if (delegate.downloadingFileURL) delegate.shouldWriteToFile = YES;
     delegate.responseData = nil;
     delegate.responseObject = nil;
@@ -181,6 +194,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         }
 
         if (delegate.request.task) {
+            if (!self.session || !self.isSessionValid) {
+                AWSDDLogError(@"Invalid AWSURLSessionTaskType.");
+                return [AWSTask taskWithError:[NSError errorWithDomain:AWSNetworkingErrorDomain
+                                                                  code:AWSNetworkingErrorSessionInvalid
+                                                              userInfo:@{NSLocalizedDescriptionKey: @"URLSession is nil or invalidated."}]];
+            }
+
             [self.sessionManagerDelegates setObject:delegate
                                              forKey:@(((NSURLSessionTask *)delegate.request.task).taskIdentifier)];
 
@@ -202,6 +222,30 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         }
         return nil;
     }];
+}
+
+/**
+ Invalidates the underlying NSURLSession to avoid memory leaks. Internally, calls
+ `-[NSURLSession finishTasksAndInvalidate]` so that any in-process tasks are allowed
+ to complete before invalidating.
+
+ @warning Before calling this method, make sure no method is running on this manager.
+ */
+- (void)invalidate {
+    // Invalidate the session so its strong reference to self is released.
+    self.isSessionValid = NO;
+    [self.session finishTasksAndInvalidate];
+}
+
+#pragma mark - NSURLSessionDelegate
+
+- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
+    if (session == self.session) {
+        // If the session became invalid because of a call to `invalidate`, this should already be set, but we'll
+        // set it defensively in case there are other paths to invalidation.
+        self.isSessionValid = NO;
+        self.session = nil;
+    }
 }
 
 #pragma mark - NSURLSessionTaskDelegate

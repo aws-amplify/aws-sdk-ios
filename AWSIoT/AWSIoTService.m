@@ -14,7 +14,6 @@
 //
 
 #import "AWSIoTService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.10.2";
+NSString *const AWSIoTSDKVersion = @"2.11.0";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -62,6 +61,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceRegistrationFailureException" : @(AWSIoTErrorResourceRegistrationFailure),
                             @"ServiceUnavailableException" : @(AWSIoTErrorServiceUnavailable),
                             @"SqlParseException" : @(AWSIoTErrorSqlParse),
+                            @"TaskAlreadyExistsException" : @(AWSIoTErrorTaskAlreadyExists),
                             @"ThrottlingException" : @(AWSIoTErrorThrottling),
                             @"TransferAlreadyCompletedException" : @(AWSIoTErrorTransferAlreadyCompleted),
                             @"TransferConflictException" : @(AWSIoTErrorTransferConflict),
@@ -485,6 +485,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCancelAuditMitigationActionsTaskResponse *> *)cancelAuditMitigationActionsTask:(AWSIoTCancelAuditMitigationActionsTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/audit/mitigationactions/tasks/{taskId}/cancel"
+                  targetPrefix:@""
+                 operationName:@"CancelAuditMitigationActionsTask"
+                   outputClass:[AWSIoTCancelAuditMitigationActionsTaskResponse class]];
+}
+
+- (void)cancelAuditMitigationActionsTask:(AWSIoTCancelAuditMitigationActionsTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTCancelAuditMitigationActionsTaskResponse *response, NSError *error))completionHandler {
+    [[self cancelAuditMitigationActionsTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCancelAuditMitigationActionsTaskResponse *> * _Nonnull task) {
+        AWSIoTCancelAuditMitigationActionsTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCancelAuditTaskResponse *> *)cancelAuditTask:(AWSIoTCancelAuditTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -726,6 +749,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreateKeysAndCertificateResponse *response, NSError *error))completionHandler {
     [[self createKeysAndCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateKeysAndCertificateResponse *> * _Nonnull task) {
         AWSIoTCreateKeysAndCertificateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateMitigationActionResponse *> *)createMitigationAction:(AWSIoTCreateMitigationActionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/mitigationactions/actions/{actionName}"
+                  targetPrefix:@""
+                 operationName:@"CreateMitigationAction"
+                   outputClass:[AWSIoTCreateMitigationActionResponse class]];
+}
+
+- (void)createMitigationAction:(AWSIoTCreateMitigationActionRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateMitigationActionResponse *response, NSError *error))completionHandler {
+    [[self createMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateMitigationActionResponse *> * _Nonnull task) {
+        AWSIoTCreateMitigationActionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1169,6 +1215,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDeleteMitigationActionResponse *> *)deleteMitigationAction:(AWSIoTDeleteMitigationActionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/mitigationactions/actions/{actionName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteMitigationAction"
+                   outputClass:[AWSIoTDeleteMitigationActionResponse class]];
+}
+
+- (void)deleteMitigationAction:(AWSIoTDeleteMitigationActionRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteMitigationActionResponse *response, NSError *error))completionHandler {
+    [[self deleteMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteMitigationActionResponse *> * _Nonnull task) {
+        AWSIoTDeleteMitigationActionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDeleteOTAUpdateResponse *> *)deleteOTAUpdate:(AWSIoTDeleteOTAUpdateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1510,6 +1579,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeAuditFindingResponse *> *)describeAuditFinding:(AWSIoTDescribeAuditFindingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/findings/{findingId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeAuditFinding"
+                   outputClass:[AWSIoTDescribeAuditFindingResponse class]];
+}
+
+- (void)describeAuditFinding:(AWSIoTDescribeAuditFindingRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeAuditFindingResponse *response, NSError *error))completionHandler {
+    [[self describeAuditFinding:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeAuditFindingResponse *> * _Nonnull task) {
+        AWSIoTDescribeAuditFindingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeAuditMitigationActionsTaskResponse *> *)describeAuditMitigationActionsTask:(AWSIoTDescribeAuditMitigationActionsTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/mitigationactions/tasks/{taskId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeAuditMitigationActionsTask"
+                   outputClass:[AWSIoTDescribeAuditMitigationActionsTaskResponse class]];
+}
+
+- (void)describeAuditMitigationActionsTask:(AWSIoTDescribeAuditMitigationActionsTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeAuditMitigationActionsTaskResponse *response, NSError *error))completionHandler {
+    [[self describeAuditMitigationActionsTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeAuditMitigationActionsTaskResponse *> * _Nonnull task) {
+        AWSIoTDescribeAuditMitigationActionsTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeAuditTaskResponse *> *)describeAuditTask:(AWSIoTDescribeAuditTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1753,6 +1868,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeJobExecutionResponse *response, NSError *error))completionHandler {
     [[self describeJobExecution:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeJobExecutionResponse *> * _Nonnull task) {
         AWSIoTDescribeJobExecutionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeMitigationActionResponse *> *)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/mitigationactions/actions/{actionName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeMitigationAction"
+                   outputClass:[AWSIoTDescribeMitigationActionResponse class]];
+}
+
+- (void)describeMitigationAction:(AWSIoTDescribeMitigationActionRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeMitigationActionResponse *response, NSError *error))completionHandler {
+    [[self describeMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeMitigationActionResponse *> * _Nonnull task) {
+        AWSIoTDescribeMitigationActionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2403,6 +2541,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListAuditMitigationActionsExecutionsResponse *> *)listAuditMitigationActionsExecutions:(AWSIoTListAuditMitigationActionsExecutionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/mitigationactions/executions"
+                  targetPrefix:@""
+                 operationName:@"ListAuditMitigationActionsExecutions"
+                   outputClass:[AWSIoTListAuditMitigationActionsExecutionsResponse class]];
+}
+
+- (void)listAuditMitigationActionsExecutions:(AWSIoTListAuditMitigationActionsExecutionsRequest *)request
+     completionHandler:(void (^)(AWSIoTListAuditMitigationActionsExecutionsResponse *response, NSError *error))completionHandler {
+    [[self listAuditMitigationActionsExecutions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListAuditMitigationActionsExecutionsResponse *> * _Nonnull task) {
+        AWSIoTListAuditMitigationActionsExecutionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListAuditMitigationActionsTasksResponse *> *)listAuditMitigationActionsTasks:(AWSIoTListAuditMitigationActionsTasksRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/mitigationactions/tasks"
+                  targetPrefix:@""
+                 operationName:@"ListAuditMitigationActionsTasks"
+                   outputClass:[AWSIoTListAuditMitigationActionsTasksResponse class]];
+}
+
+- (void)listAuditMitigationActionsTasks:(AWSIoTListAuditMitigationActionsTasksRequest *)request
+     completionHandler:(void (^)(AWSIoTListAuditMitigationActionsTasksResponse *response, NSError *error))completionHandler {
+    [[self listAuditMitigationActionsTasks:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListAuditMitigationActionsTasksResponse *> * _Nonnull task) {
+        AWSIoTListAuditMitigationActionsTasksResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListAuditTasksResponse *> *)listAuditTasks:(AWSIoTListAuditTasksRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2623,6 +2807,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListJobsResponse *response, NSError *error))completionHandler {
     [[self listJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListJobsResponse *> * _Nonnull task) {
         AWSIoTListJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListMitigationActionsResponse *> *)listMitigationActions:(AWSIoTListMitigationActionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/mitigationactions/actions"
+                  targetPrefix:@""
+                 operationName:@"ListMitigationActions"
+                   outputClass:[AWSIoTListMitigationActionsResponse class]];
+}
+
+- (void)listMitigationActions:(AWSIoTListMitigationActionsRequest *)request
+     completionHandler:(void (^)(AWSIoTListMitigationActionsResponse *response, NSError *error))completionHandler {
+    [[self listMitigationActions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListMitigationActionsResponse *> * _Nonnull task) {
+        AWSIoTListMitigationActionsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3547,6 +3754,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTStartAuditMitigationActionsTaskResponse *> *)startAuditMitigationActionsTask:(AWSIoTStartAuditMitigationActionsTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/audit/mitigationactions/tasks/{taskId}"
+                  targetPrefix:@""
+                 operationName:@"StartAuditMitigationActionsTask"
+                   outputClass:[AWSIoTStartAuditMitigationActionsTaskResponse class]];
+}
+
+- (void)startAuditMitigationActionsTask:(AWSIoTStartAuditMitigationActionsTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTStartAuditMitigationActionsTaskResponse *response, NSError *error))completionHandler {
+    [[self startAuditMitigationActionsTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTStartAuditMitigationActionsTaskResponse *> * _Nonnull task) {
+        AWSIoTStartAuditMitigationActionsTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTStartOnDemandAuditTaskResponse *> *)startOnDemandAuditTask:(AWSIoTStartOnDemandAuditTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3929,6 +4159,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateMitigationActionResponse *> *)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/mitigationactions/actions/{actionName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateMitigationAction"
+                   outputClass:[AWSIoTUpdateMitigationActionResponse class]];
+}
+
+- (void)updateMitigationAction:(AWSIoTUpdateMitigationActionRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateMitigationActionResponse *response, NSError *error))completionHandler {
+    [[self updateMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateMitigationActionResponse *> * _Nonnull task) {
+        AWSIoTUpdateMitigationActionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

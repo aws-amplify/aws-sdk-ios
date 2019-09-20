@@ -118,6 +118,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 	return @{
              @"attributes" : @"Attributes",
              @"queueName" : @"QueueName",
+             @"tags" : @"tags",
              };
 }
 
@@ -349,6 +350,20 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 @end
 
+@implementation AWSSQSMessageSystemAttributeValue
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"binaryListValues" : @"BinaryListValues",
+             @"binaryValue" : @"BinaryValue",
+             @"dataType" : @"DataType",
+             @"stringListValues" : @"StringListValues",
+             @"stringValue" : @"StringValue",
+             };
+}
+
+@end
+
 @implementation AWSSQSPurgeQueueRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -425,12 +440,21 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
              @"messageBody" : @"MessageBody",
              @"messageDeduplicationId" : @"MessageDeduplicationId",
              @"messageGroupId" : @"MessageGroupId",
+             @"messageSystemAttributes" : @"MessageSystemAttributes",
              };
 }
 
 + (NSValueTransformer *)messageAttributesJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
         return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
++ (NSValueTransformer *)messageSystemAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageSystemAttributeValue class]];
     } reverseBlock:^id(id mapMTLDictionary) {
         return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
@@ -464,6 +488,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
              @"identifier" : @"Id",
              @"MD5OfMessageAttributes" : @"MD5OfMessageAttributes",
              @"MD5OfMessageBody" : @"MD5OfMessageBody",
+             @"MD5OfMessageSystemAttributes" : @"MD5OfMessageSystemAttributes",
              @"messageId" : @"MessageId",
              @"sequenceNumber" : @"SequenceNumber",
              };
@@ -480,6 +505,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
              @"messageBody" : @"MessageBody",
              @"messageDeduplicationId" : @"MessageDeduplicationId",
              @"messageGroupId" : @"MessageGroupId",
+             @"messageSystemAttributes" : @"MessageSystemAttributes",
              @"queueUrl" : @"QueueUrl",
              };
 }
@@ -487,6 +513,14 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 + (NSValueTransformer *)messageAttributesJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
         return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageAttributeValue class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
++ (NSValueTransformer *)messageSystemAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSQSMessageSystemAttributeValue class]];
     } reverseBlock:^id(id mapMTLDictionary) {
         return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
@@ -500,6 +534,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 	return @{
              @"MD5OfMessageAttributes" : @"MD5OfMessageAttributes",
              @"MD5OfMessageBody" : @"MD5OfMessageBody",
+             @"MD5OfMessageSystemAttributes" : @"MD5OfMessageSystemAttributes",
              @"messageId" : @"MessageId",
              @"sequenceNumber" : @"SequenceNumber",
              };

@@ -1254,17 +1254,17 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- <p>The BCC: field(s) of the message.</p>
+ <p>The recipients to place on the BCC: line of the message.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable bccAddresses;
 
 /**
- <p>The CC: field(s) of the message.</p>
+ <p>The recipients to place on the CC: line of the message.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable ccAddresses;
 
 /**
- <p>The To: field(s) of the message.</p>
+ <p>The recipients to place on the To: line of the message.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable toAddresses;
 
@@ -1791,7 +1791,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @end
 
 /**
- <p>Represents a request to list the existing custom verification email templates for your account.</p><p>For more information about custom verification email templates, see <a href="ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
+ <p>Represents a request to list the existing custom verification email templates for your account.</p><p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
  */
 @interface AWSSESListCustomVerificationEmailTemplatesRequest : AWSRequest
 
@@ -3044,7 +3044,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- <p>The name of the RuleSet that is being stopped.</p>
+ <p>The scope of the StopAction. The only acceptable value is <code>RuleSet</code>.</p>
  */
 @property (nonatomic, assign) AWSSESStopScope scope;
 

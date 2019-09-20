@@ -16,7 +16,7 @@
 #import "AWSPollySynthesizeSpeechURLBuilder.h"
 
 static NSString *const AWSInfoPollySynthesizeSpeechURLBuilder = @"PollySynthesizeSpeechUrlBuilder";
-static NSString *const AWSPollySDKVersion = @"2.10.2";
+static NSString *const AWSPollySDKVersion = @"2.11.0";
 
 NSString *const AWSPollySynthesizeSpeechURLBuilderErrorDomain = @"com.amazonaws.AWSPollySynthesizeSpeechURLBuilderErrorDomain";
 NSString *const AWSPollyPresignedUrlPath = @"v1/speech";

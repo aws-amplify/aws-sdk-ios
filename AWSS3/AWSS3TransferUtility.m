@@ -2230,7 +2230,7 @@ didCompleteWithError:(NSError *)error {
                     totalBytesSent += aSubTask.totalBytesExpectedToSend;
                 }
                 
-                if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.intValue ) {
+                if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.longLongValue ) {
                     NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
                                               transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent)];
                     
@@ -2371,8 +2371,8 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
         if (transferUtilityUploadTask.progress.totalUnitCount != totalBytesExpectedToSend) {
             transferUtilityUploadTask.progress.totalUnitCount = totalBytesExpectedToSend;
         }
-     
-        if (transferUtilityUploadTask.progress.completedUnitCount < totalBytesSent) {
+
+        if (transferUtilityUploadTask.progress.completedUnitCount != totalBytesSent) {
             transferUtilityUploadTask.progress.completedUnitCount = totalBytesSent;
             
             if (transferUtilityUploadTask.expression.progressBlock) {
@@ -2397,7 +2397,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
             totalSentSoFar += aSubTask.totalBytesSent;
         }
      
-        if (transferUtilityMultiPartUploadTask.progress.completedUnitCount < totalSentSoFar ) {
+        if (transferUtilityMultiPartUploadTask.progress.completedUnitCount != totalSentSoFar ) {
             transferUtilityMultiPartUploadTask.progress.totalUnitCount = [transferUtilityMultiPartUploadTask.contentLength longLongValue];
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = totalSentSoFar;
         
