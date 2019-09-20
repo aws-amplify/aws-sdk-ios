@@ -16,6 +16,7 @@
 @interface AWSCognitoIdentityUserPool()
 
 @property (nonatomic, strong) AWSCognitoIdentityProvider *client;
+@property (nonatomic, assign) BOOL isCustomAuth;
 
 @end
 

@@ -22,6 +22,8 @@ static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 @property (nonatomic, strong) AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration;
 @property (nonatomic, strong) NSString * pinpointEndpointId;
+@property (nonatomic, assign) BOOL isCustomAuth;
+
 @end
 
 @interface AWSCognitoIdentityProvider()
