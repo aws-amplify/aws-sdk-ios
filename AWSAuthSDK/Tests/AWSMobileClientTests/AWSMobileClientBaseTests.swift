@@ -57,8 +57,8 @@ class AWSMobileClientBaseTests: XCTestCase {
     }
     
     static func initializeMobileClient() {
-        
-        let mobileClientIsInitialized = XCTestCase().expectation(description: "AWSMobileClient is initialized")
+        let testCase = XCTestCase()
+        let mobileClientIsInitialized = testCase.expectation(description: "AWSMobileClient is initialized")
         AWSMobileClient.default().initialize { (userState, error) in
             if let error = error {
                 XCTFail("Encountered unexpected error in initialize: \(error.localizedDescription)")
@@ -75,7 +75,7 @@ class AWSMobileClientBaseTests: XCTestCase {
             }
             mobileClientIsInitialized.fulfill()
         }
-        XCTestCase().wait(for: [mobileClientIsInitialized], timeout: 5)
+        testCase.wait(for: [mobileClientIsInitialized], timeout: 5)
     }
     
     func signIn(username: String, password: String? = nil, verifySignState: SignInState = .signedIn) {
@@ -117,7 +117,7 @@ class AWSMobileClientBaseTests: XCTestCase {
         wait(for: [signInConfirmWasSuccessful], timeout: 5)
     }
     
-    func signUpUser(username: String, customUserAttributes: [String: String]? = nil) {
+    func signUpUser(username: String, customUserAttributes: [String: String]? = nil, signupState: SignUpConfirmationState = .unconfirmed) {
         var userAttributes = ["email": AWSMobileClientBaseTests.sharedEmail!]
         if let customUserAttributes = customUserAttributes {
             userAttributes.merge(customUserAttributes) { current, _ in current }
@@ -153,7 +153,7 @@ class AWSMobileClientBaseTests: XCTestCase {
                     print("Unexpected case")
                 }
                 
-                XCTAssertTrue(signUpResult.signUpConfirmationState == .unconfirmed, "User is expected to be marked as unconfirmed.")
+                XCTAssertTrue(signUpResult.signUpConfirmationState == signupState, "User is expected to be marked as \(signupState).")
                 
                 signUpExpectation.fulfill()
         }
@@ -199,5 +199,13 @@ class AWSMobileClientBaseTests: XCTestCase {
             }
             return nil
             }.waitUntilFinished()
+    }
+    
+    func invalidateSession(username: String) {
+        let bundleID = Bundle.main.bundleIdentifier
+        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
+        let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
+        let key = "\(namespace).tokenExpiration"
+        keychain.removeItem(forKey: key)
     }
 }

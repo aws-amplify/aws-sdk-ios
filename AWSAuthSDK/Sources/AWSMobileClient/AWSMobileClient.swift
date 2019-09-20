@@ -286,11 +286,11 @@ final public class AWSMobileClient: _AWSMobileClient {
                 let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
                 cognitoAuth.delegate = self
             }
+            
             let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
-            if let authenticationFlowType: String = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String {
-                if (authenticationFlowType == "CUSTOM_AUTH") {
-                    self.userPoolClient?.isCustomAuth = true
-                }
+            if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
+                authFlowType == "CUSTOM_AUTH" {
+                self.userPoolClient?.isCustomAuth = true
             }
             
             let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")

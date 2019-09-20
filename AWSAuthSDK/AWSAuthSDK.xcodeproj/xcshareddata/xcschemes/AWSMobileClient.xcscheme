@@ -60,6 +60,16 @@
                ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B412F5DE233445A500F1AC69"
+               BuildableName = "AWSMobileClientCustomAuthTests.xctest"
+               BlueprintName = "AWSMobileClientCustomAuthTests"
+               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

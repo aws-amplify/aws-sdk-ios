@@ -402,7 +402,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured
  */
--(void) didCompleteCustomAuthenticationStepWithError:(NSError* _Nullable) error NS_SWIFT_NAME(didCompleteCustomAuthenticationStepWithError(error:));
+-(void) didCompleteCustomAuthenticationStepWithError:(NSError* _Nullable) error;
 
 
 @end

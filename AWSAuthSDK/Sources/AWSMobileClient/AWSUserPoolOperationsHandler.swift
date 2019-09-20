@@ -58,7 +58,7 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     internal var currentConfirmSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     
     var authHelperDelegate: UserPoolAuthHelperlCallbacks?
-    
+    var customAuthHandler: AWSUserPoolCustomAuthHandler?
     internal static let sharedInstance: UserPoolOperationsHandler = UserPoolOperationsHandler()
     
     public override init() {
@@ -86,20 +86,11 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     }
     
     internal func startCustomAuthentication_v2() -> AWSCognitoIdentityCustomAuthentication {
-        return self
-    }
-}
-
-extension UserPoolOperationsHandler: AWSCognitoIdentityCustomAuthentication {
-    
-    public func getCustomChallengeDetails(_ authenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
-                                          customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
-        self.authHelperDelegate?.getCustomAuthenticationDetails(authenticationInput,
-                                                                customAuthCompletionSource: customAuthCompletionSource)
-    }
-
-    public func didCompleteCustomAuthenticationStepWithError(error: Error?) {
-        self.authHelperDelegate?.didCompleteCustomAuthenticationStepWithError(error)
+        if (customAuthHandler == nil) {
+            customAuthHandler = AWSUserPoolCustomAuthHandler()
+            customAuthHandler?.authHelperDelegate = authHelperDelegate
+        }
+        return customAuthHandler!
     }
 }
 

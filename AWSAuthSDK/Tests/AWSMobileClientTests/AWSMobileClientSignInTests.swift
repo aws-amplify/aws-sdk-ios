@@ -213,4 +213,56 @@ class AWSMobileClientSignInTests: AWSMobileClientBaseTests {
         }
         wait(for: [firstSignInExpectation], timeout: 10)
     }
+    
+    /// Test if invalidating refresh token displays signOut message and the user is able to signIn after that.
+    ///
+    /// - Given: An authenticated session and token
+    /// - When:
+    ///    - I manually invalidate token and then call get Token.
+    /// - Then:
+    ///    - I should get signedOutUserPoolsTokenInvalid in user state listener
+    ///    - After that signIn should be successful and the prevous token call also succeeds.
+    ///
+    func testSignInAfterTokenInvalidation() {
+        XCTAssertFalse(AWSMobileClient.default().isSignedIn, "Should be in signOut state")
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        let tokenFetchExpectation = expectation(description: "token fetch was successful")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            if let error = error {
+                XCTFail("Get token failed: \(error.localizedDescription)")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
+        invalidateSession(username: username)
+        
+        let signOutExpectation = expectation(description: "signout was called")
+        AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
+            if (userstate == .signedOutUserPoolsTokenInvalid) {
+                DispatchQueue.main.async {
+                    signOutExpectation.fulfill()
+                    self.signIn(username: username)
+                }
+            }
+        }
+        
+        let tokenFetchExpectation2 = expectation(description: "token fetch was successful")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation2.fulfill()
+            }
+            if let error = error {
+                XCTFail("Get token failed: \(error.localizedDescription)")
+                return
+            }
+        }
+        
+        wait(for: [signOutExpectation, tokenFetchExpectation2], timeout: 35, enforceOrder: true)
+        AWSMobileClient.default().removeUserStateListener(self)
+    }
 }
