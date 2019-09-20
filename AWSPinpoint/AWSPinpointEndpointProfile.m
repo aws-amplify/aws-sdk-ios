@@ -345,9 +345,9 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
 }
 
-+ (NSString *)hexStringFromData:(NSData *)data {
++ (nullable NSString *)hexStringFromData:(NSData *)data {
     if (!data || data.length == 0) {
-        return @"";
+        return NULL;
     }
 
     const unsigned char *bytes = [data bytes];
