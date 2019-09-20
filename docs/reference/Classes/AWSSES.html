@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.11.0 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.11.1 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -4459,8 +4459,6 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
-					
 					<li><code><p><a href="../Classes/AWSSESGetAccountSendingEnabledResponse.html">AWSSESGetAccountSendingEnabledResponse</a></p></code></li>
 					
 				</ul>
@@ -4533,8 +4531,6 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
-					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSSESGetAccountSendingEnabledResponse.html">AWSSESGetAccountSendingEnabledResponse</a></p></code></li>
 					
@@ -5535,8 +5531,6 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
-					
 					<li><code><p><a href="../Classes/AWSSESGetSendQuotaResponse.html">AWSSESGetSendQuotaResponse</a></p></code></li>
 					
 				</ul>
@@ -5610,8 +5604,6 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
-					
 					<li><code><p><a href="../Classes/AWSSESGetSendQuotaResponse.html">AWSSESGetSendQuotaResponse</a></p></code></li>
 					
 				</ul>
@@ -5682,8 +5674,6 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
-					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSSESGetSendStatisticsResponse.html">AWSSESGetSendStatisticsResponse</a></p></code></li>
 					
@@ -5757,8 +5747,6 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
-					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSSESGetSendStatisticsResponse.html">AWSSESGetSendStatisticsResponse</a></p></code></li>
 					
@@ -7028,8 +7016,6 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
-					
 					<li><code><p><a href="../Classes/AWSSESListVerifiedEmailAddressesResponse.html">AWSSESListVerifiedEmailAddressesResponse</a></p></code></li>
 					
 				</ul>
@@ -7099,8 +7085,6 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
-					
-					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSSESListVerifiedEmailAddressesResponse.html">AWSSESListVerifiedEmailAddressesResponse</a></p></code></li>
 					
@@ -8184,7 +8168,7 @@
 <p>Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code> operation:</p>
 
 
-<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.</p></important><p>For most common sending authorization scenarios, we recommend that you specify the <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES will set the From and Return Path addresses to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
+<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Don't include these X-headers in the DKIM signature. Amazon SES removes these before it sends the email.</p></important><p>If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES sets the From and Return-Path addresses to the same identity that you specified.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
 
 			</div>
 			
@@ -8269,7 +8253,7 @@
 <p>Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code> operation:</p>
 
 
-<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Do not include these X-headers in the DKIM signature; Amazon SES will remove them before sending the email.</p></important><p>For most common sending authorization scenarios, we recommend that you specify the <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code> or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES will set the From and Return Path addresses to the identity specified in <code>SourceIdentityArn</code>. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
+<ul><li><p>Although you can customize the message headers when using the <code>SendRawEmail</code> operation, Amazon SES will automatically apply its own <code>Message-ID</code> and <code>Date</code> headers; if you passed these headers when creating the message, they will be overwritten by the values that Amazon SES provides.</p></li><li><p>If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code> enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include the following X-headers in the header of your raw email:</p><ul><li><p><code>X-SES-SOURCE-ARN</code></p></li><li><p><code>X-SES-FROM-ARN</code></p></li><li><p><code>X-SES-RETURN-PATH-ARN</code></p></li></ul><important><p>Don't include these X-headers in the DKIM signature. Amazon SES removes these before it sends the email.</p></important><p>If you only specify the <code>SourceIdentityArn</code> parameter, Amazon SES sets the From and Return-Path addresses to the same identity that you specified.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></p></li><li><p>For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your <i>sending quota</i>). For more information about sending quotas in Amazon SES, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></p></li></ul>
 
 			</div>
 			
@@ -8645,20 +8629,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Enables or disables Easy DKIM signing of email sent from an identity:</p>
+				<p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends from addresses on that domain. If Easy DKIM signing is enabled for an email address, then Amazon SES uses DKIM to sign all email it sends from that address.</p>
 
 
-<ul><li><p>If Easy DKIM signing is enabled for a domain name identity (such as <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (for example, <code>user@example.com</code>).</p></li><li><p>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</p></li></ul>
-
-
-<p>For email addresses (for example, <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (in this case, <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> operation.</p>
-
-
-<p>You can execute this operation no more than once per second.</p>
-
-
-<p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
-
+<p><note><p>For email addresses (for example, <code>user@example.com</code>), you can only enable DKIM signing if the corresponding domain (in this case, <code>example.com</code>) has been set up to use Easy DKIM.</p></note><p>You can enable DKIM signing for an identity at any time after you start the verification process for the identity, even if the verification process isn&rsquo;t complete. </p><p>You can execute this operation no more than once per second.</p><p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p></p>
 			</div>
 			
 		    
@@ -8727,20 +8701,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Enables or disables Easy DKIM signing of email sent from an identity:</p>
+				<p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM signing is enabled for a domain, then Amazon SES uses DKIM to sign all email that it sends from addresses on that domain. If Easy DKIM signing is enabled for an email address, then Amazon SES uses DKIM to sign all email it sends from that address.</p>
 
 
-<ul><li><p>If Easy DKIM signing is enabled for a domain name identity (such as <code>example.com</code>), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (for example, <code>user@example.com</code>).</p></li><li><p>If Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.</p></li></ul>
-
-
-<p>For email addresses (for example, <code>user@example.com</code>), you can only enable Easy DKIM signing if the corresponding domain (in this case, <code>example.com</code>) has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> operation.</p>
-
-
-<p>You can execute this operation no more than once per second.</p>
-
-
-<p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
-
+<p><note><p>For email addresses (for example, <code>user@example.com</code>), you can only enable DKIM signing if the corresponding domain (in this case, <code>example.com</code>) has been set up to use Easy DKIM.</p></note><p>You can enable DKIM signing for an identity at any time after you start the verification process for the identity, even if the verification process isn&rsquo;t complete. </p><p>You can execute this operation no more than once per second.</p><p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p></p>
 			</div>
 			
 		    
@@ -11469,7 +11433,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-09-09</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-09-20</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
