@@ -42,4 +42,3 @@ Scripts/ocunit2junit
 __pycache__/
 awsconfiguration.json
 credentials-mc.json
-awsconfiguration_customAuth.json
