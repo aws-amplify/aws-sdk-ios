@@ -316,8 +316,9 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
             return [AWSTask taskWithResult:session];
         }else { //this is a custom challenge
             id<AWSCognitoIdentityCustomAuthentication> authenticationDelegate = nil;
+            // The below condition is added to support AWSMobileClient.
             if (self.pool.isCustomAuth && [self.pool.delegate respondsToSelector:@selector(startCustomAuthentication_v2)]) {
-                authenticationDelegate = [self.pool.delegate startCustomAuthentication_v2];
+                authenticationDelegate = [self.pool.delegate performSelector:@selector(startCustomAuthentication_v2)];
             } else if ([self.pool.delegate respondsToSelector:@selector(startCustomAuthentication)]) {
                 authenticationDelegate = [self.pool.delegate startCustomAuthentication];
             }
@@ -563,10 +564,10 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
  */
 - (AWSTask<AWSCognitoIdentityUserSession*>*) interactiveAuth {
     if (self.pool.delegate != nil) {
-        
+        // The below condition is added to support AWSMobileClient. 
         if (self.pool.isCustomAuth &&
             [self.pool.delegate respondsToSelector:@selector(startCustomAuthentication_v2)]) {
-            id<AWSCognitoIdentityCustomAuthentication> authenticationDelegate = [self.pool.delegate startCustomAuthentication_v2];
+            id<AWSCognitoIdentityCustomAuthentication> authenticationDelegate = [self.pool.delegate performSelector:@selector(startCustomAuthentication_v2)];
             return [self customAuthInternal:authenticationDelegate];
         }
 

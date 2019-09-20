@@ -17,4 +17,10 @@
 
 @end
 
+@protocol AWSCognitoUserPoolInternalDelegate
+
+-(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication_v2;
+
+@end
+
 #endif /* AWSCognitoIdentityUserPool_Extension_h */

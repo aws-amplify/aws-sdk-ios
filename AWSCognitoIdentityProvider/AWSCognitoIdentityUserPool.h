@@ -343,8 +343,6 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
  */
 -(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication;
 
--(id<AWSCognitoIdentityCustomAuthentication>) startCustomAuthentication_v2;
-
 /**
  Initialize ui to prompt end user to setup a software mfa token */
 -(id<AWSCognitoIdentitySoftwareMfaSetupRequired>) startSoftwareMfaSetupRequired;

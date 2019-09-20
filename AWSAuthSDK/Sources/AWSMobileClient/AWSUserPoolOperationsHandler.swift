@@ -39,7 +39,10 @@ protocol UserPoolAuthHelperlCallbacks {
     
 }
 
-internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiveAuthenticationDelegate {
+internal class UserPoolOperationsHandler: NSObject,
+    AWSCognitoIdentityInteractiveAuthenticationDelegate,
+AWSCognitoUserPoolInternalDelegate {
+    
     internal var userpoolClient: AWSCognitoIdentityUserPool?
     internal var signUpUser: AWSCognitoIdentityUser?
     
