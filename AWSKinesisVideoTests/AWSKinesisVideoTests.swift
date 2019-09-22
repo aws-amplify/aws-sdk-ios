@@ -94,12 +94,14 @@ class AWSKinesisVideoTests: XCTestCase {
                 }
                 
                 let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-                guard let match = detector.firstMatch(in: endpoint, options: [], range: NSRange(location: 0, length: endpoint.endIndex.encodedOffset)) else {
+                let endpointLength = endpoint.count
+                let range = NSRange(location: 0, length: endpointLength)
+                guard let match = detector.firstMatch(in: endpoint, options: [], range: range) else {
                     XCTFail("Data endpoint is malformed")
                     return
                 }
                 
-                XCTAssertTrue(match.range.length == endpoint.endIndex.encodedOffset, "The data endpoint was not the only thing in the response, possible malformed URL")
+                XCTAssertTrue(match.range.length == endpointLength, "The data endpoint was not the only thing in the response, possible malformed URL")
                 expectation.fulfill()
             })
         })
