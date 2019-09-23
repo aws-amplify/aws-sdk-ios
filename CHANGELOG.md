@@ -1,11 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.11.2
+## 2.12.0
 
 ### Misc. Updates
 
 - **General SDK improvements**
-  - Update project settings to Xcode 11
+  - **Breaking Build Change** The AWS SDK for iOS now requires Xcode 11 or above to build
 
 - **Model updates for the following services**
   - Amazon EC2
