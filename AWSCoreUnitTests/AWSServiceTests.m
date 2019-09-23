@@ -85,27 +85,13 @@
 }
 
 - (void)testEndpointInit {
-    @try {
-        AWSEndpoint *endpoint = [AWSEndpoint new];
-        XCTFail(@"An exception should have been thrown. %@", endpoint);
-    } @catch (NSException *exception) {
-        XCTAssertEqualObjects(exception.name, NSInternalInconsistencyException);
-    }
+    XCTAssertThrows([AWSEndpoint new]);
 }
 
 - (void)testEndpointWithException {
-    __block BOOL didThrowException = NO;
-    @try {
-        [[AWSEndpoint alloc] initWithRegion:AWSRegionUnknown
-                                    service:AWSServiceUnknown
-                               useUnsafeURL:NO];
-    }
-    @catch (NSException *exception) {
-        didThrowException = YES;
-    }
-    @finally {
-        XCTAssertTrue(didThrowException);
-    }
+    XCTAssertThrows([[AWSEndpoint alloc] initWithRegion:AWSRegionUnknown
+                                                service:AWSServiceUnknown
+                                           useUnsafeURL:NO]);
 }
 
 - (void)verifyServiceEndpointWith:(AWSEndpoint *)endpoint
