@@ -4,7 +4,10 @@
 
 ### Misc. Updates
 
-- Model updates for the following services
+- **General SDK improvements**
+  - Update project settings to Xcode 11
+
+- **Model updates for the following services**
   - Amazon EC2
 
 ## 2.11.1
