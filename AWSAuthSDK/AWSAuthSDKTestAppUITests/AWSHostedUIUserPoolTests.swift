@@ -6,7 +6,7 @@
 import XCTest
 
 class AWSHostedUIUserPoolTests: XCTestCase {
-
+    
     static var userpoolUsername: String?
     static var userpoolPassword: String?
     
@@ -24,7 +24,7 @@ class AWSHostedUIUserPoolTests: XCTestCase {
         continueAfterFailure = false
         XCUIApplication().launch()
     }
-
+    
     /// Test whether after update attribute, we have valid token and credentials
     ///
     /// - Given: An auth session with user attributes
@@ -69,6 +69,7 @@ class AWSHostedUIUserPoolTests: XCTestCase {
         inspectCredentialDetails(application: app)
     }
     
+    /// Sign in the user
     func signInUserpool(application: XCUIApplication) {
         let statusBarsQuery = application.statusBars
         if #available(iOS 11.0, *) {
@@ -89,6 +90,7 @@ class AWSHostedUIUserPoolTests: XCTestCase {
         signInButton.tap()
     }
     
+    /// Sign out the active user in the home page.
     func signOutUserpool(application: XCUIApplication) {
         let signinstatelabelElement = application.otherElements["signInStateLabel"]
         if signinstatelabelElement.label == "signedIn" {
@@ -97,12 +99,14 @@ class AWSHostedUIUserPoolTests: XCTestCase {
             statusBarsQuery.element.tap()
             let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
             let signOutExpectation = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                           handler: nil)
+                                                 handler: nil)
             wait(for: [signOutExpectation], timeout: 5)
         }
         XCTAssertEqual("signedOut", signinstatelabelElement.label)
     }
     
+    /// Inspect if we have all the token details. We fail if
+    /// the token values are still 'NA'
     func inspectTokenDetails(application: XCUIApplication) {
         
         let labelValidityPredicate = NSPredicate(format: "NOT label BEGINSWITH 'NA'")
@@ -115,15 +119,17 @@ class AWSHostedUIUserPoolTests: XCTestCase {
                                              evaluatedWith: idTokenLabelElement,
                                              handler: nil)
         let accessTokenExpectation = expectation(for: labelValidityPredicate,
-                                             evaluatedWith: accessTokenLabelElement,
-                                             handler: nil)
+                                                 evaluatedWith: accessTokenLabelElement,
+                                                 handler: nil)
         let refreshTokenExpectation = expectation(for: labelValidityPredicate,
-                                             evaluatedWith: refreshTokenLabelElement,
-                                             handler: nil)
+                                                  evaluatedWith: refreshTokenLabelElement,
+                                                  handler: nil)
         
         wait(for: [idTokenExpectation, accessTokenExpectation, refreshTokenExpectation], timeout: 10)
     }
     
+    /// Inspect if we have all the credential details. We fail if
+    /// the credential values are still 'NA'
     func inspectCredentialDetails(application: XCUIApplication) {
         
         let labelValidityPredicate = NSPredicate(format: "NOT label BEGINSWITH 'NA'")
@@ -133,16 +139,16 @@ class AWSHostedUIUserPoolTests: XCTestCase {
         let sessionKeyLabelElement = application.staticTexts["refreshTokenLabel"]
         
         let accessKeyExpectation = expectation(for: labelValidityPredicate,
-                                             evaluatedWith: accessKeyLabelElement,
-                                             handler: nil)
+                                               evaluatedWith: accessKeyLabelElement,
+                                               handler: nil)
         let secretKeyExpectation = expectation(for: labelValidityPredicate,
-                                                 evaluatedWith: secretKeyLabelElement,
-                                                 handler: nil)
+                                               evaluatedWith: secretKeyLabelElement,
+                                               handler: nil)
         let sessionKeyExpectation = expectation(for: labelValidityPredicate,
-                                                  evaluatedWith: sessionKeyLabelElement,
-                                                  handler: nil)
+                                                evaluatedWith: sessionKeyLabelElement,
+                                                handler: nil)
         
         wait(for: [accessKeyExpectation, secretKeyExpectation, sessionKeyExpectation], timeout: 10)
     }
-
+    
 }
