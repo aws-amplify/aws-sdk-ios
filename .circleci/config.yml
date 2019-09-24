@@ -255,7 +255,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -274,7 +274,7 @@ jobs:
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
   unittest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -299,7 +299,7 @@ jobs:
           path: test_result
   pre_integrationtest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -343,7 +343,7 @@ jobs:
             - build_result
   post_integrationtest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
@@ -426,7 +426,7 @@ jobs:
         default: stable_testList
         type: string
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -470,7 +470,7 @@ jobs:
   release_tag:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -488,7 +488,7 @@ jobs:
   release_carthage:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -527,7 +527,7 @@ jobs:
   release_cocoapods:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -571,7 +571,7 @@ jobs:
   release_jazzydoc:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.1"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -601,7 +601,7 @@ jobs:
   run_ui_test:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.1"
+      xcode: "11.0.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -626,7 +626,7 @@ jobs:
           path: raw_ui_test.log
   add_doc_tag:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -640,7 +640,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "10.2.1"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -684,7 +684,7 @@ jobs:
 
   bump_ios_amplifydocs_version:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -714,7 +714,7 @@ jobs:
 
   release_ios_s3:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
