@@ -132,6 +132,9 @@
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
 		B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */; };
 		B4031BE623105727009EB524 /* AWSMobileClientSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */; };
+		B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */; };
+		B40EA1ED2339789E00135711 /* HostedUIUserPoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */; };
+		B40EA1EF2339831E00135711 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */; };
 		B4C8E4212306064D0064C158 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E3A72306056A0064C158 /* JSONHelper.swift */; };
 		B4C8E4A023073D7B0064C158 /* AWSMobileClientBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */; };
 		B4C8E4A2230740200064C158 /* AWSMobileClientSignoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */; };
@@ -1243,6 +1246,9 @@
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
 		B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClientUserDetails.swift; sourceTree = "<group>"; };
 		B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignInTests.swift; sourceTree = "<group>"; };
+		B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSHostedUIUserPoolTests.swift; sourceTree = "<group>"; };
+		B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostedUIUserPoolViewController.swift; sourceTree = "<group>"; };
+		B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		B4C8E3A72306056A0064C158 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientBaseTests.swift; sourceTree = "<group>"; };
 		B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignoutTests.swift; sourceTree = "<group>"; };
@@ -1494,6 +1500,7 @@
 		177B8AE721E81B7D0051068F /* AWSAuthSDKTestAppUITests */ = {
 			isa = PBXGroup;
 			children = (
+				B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */,
 				177B8AE821E81B7D0051068F /* AWSAuthSDKTestAppUITests.swift */,
 				177B8AEA21E81B7D0051068F /* Info.plist */,
 			);
@@ -1607,6 +1614,8 @@
 			children = (
 				17CD4B22218244EA00953483 /* AppDelegate.swift */,
 				17CD4B24218244EA00953483 /* ViewController.swift */,
+				B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */,
+				B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */,
 				17CD4B26218244EA00953483 /* Main.storyboard */,
 				17CD4B29218244EC00953483 /* Assets.xcassets */,
 				17CD4B2B218244EC00953483 /* LaunchScreen.storyboard */,
@@ -3069,6 +3078,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177B8AE921E81B7D0051068F /* AWSAuthSDKTestAppUITests.swift in Sources */,
+				B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3102,6 +3112,8 @@
 			files = (
 				17CD4B25218244EA00953483 /* ViewController.swift in Sources */,
 				17CD4B23218244EA00953483 /* AppDelegate.swift in Sources */,
+				B40EA1EF2339831E00135711 /* UserDetailsViewController.swift in Sources */,
+				B40EA1ED2339789E00135711 /* HostedUIUserPoolViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
