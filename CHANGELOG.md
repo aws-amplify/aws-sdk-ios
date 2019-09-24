@@ -1,5 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.11.2
+
+### Misc. Updates
+
+- Model updates for the following services
+  - Amazon EC2
+
 ## 2.11.1
 
 ### Bug Fixes

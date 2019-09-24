@@ -48,6 +48,26 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAFFD94C2334292000E2317C"
+               BuildableName = "AWSCoreConfigurationTest.xctest"
+               BlueprintName = "AWSCoreConfigurationTest"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAFFD95B2334293B00E2317C"
+               BuildableName = "AWSCoreServiceConfigurationTest.xctest"
+               BlueprintName = "AWSCoreServiceConfigurationTest"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
