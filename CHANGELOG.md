@@ -7,6 +7,11 @@
 - **General SDK improvements**
   - **Breaking Build Change** The AWS SDK for iOS now requires Xcode 11 or above to build
 
+### Bug Fixes
+
+- **AWSCognito**
+  - Fix an issue where token is not refreshed after update attribute is invoked. See [Issue #1733](https://github.com/aws-amplify/aws-sdk-ios/issues/1733) and [PR #1734](https://github.com/aws-amplify/aws-sdk-ios/pull/1734) for details. Thanks @JesusMartinAlonso!
+  
 - **Model updates for the following services**
   - Amazon EC2
 
