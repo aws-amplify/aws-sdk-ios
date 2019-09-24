@@ -2785,7 +2785,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 let data = file.readData(ofLength: bufferSize)
                 if data.count > 0 {
                     data.withUnsafeBytes {
-                        _ = CC_SHA256_Update(&context, $0, numericCast(data.count))
+                        _ = CC_SHA256_Update(&context, $0.baseAddress, numericCast(data.count))
                     }
                     // Continue
                     return true
@@ -2798,7 +2798,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
             // Compute the SHA256 digest:
             var digest = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
             digest.withUnsafeMutableBytes {
-                _ = CC_SHA256_Final($0, &context)
+                let d = $0.bindMemory(to: UInt8.self)
+                _ = CC_SHA256_Final(d.baseAddress, &context)
             }
             
             return digest
