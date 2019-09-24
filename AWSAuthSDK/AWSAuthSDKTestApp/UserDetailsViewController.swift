@@ -7,8 +7,15 @@ import UIKit
 import AWSMobileClient
 import AWSCore
 
+/// View controller to handle user details.
+///
+/// This controller is not specific for any provider. Controller just displays tokens
+/// credentials and user attributes. We make the assumption that the user in the userpool
+/// has two custom attributes named custom:mutableStringAttr1 and custom:mutableStringAttr1
 class UserDetailsViewController: UIViewController {
     
+    let CUSTOM_ATTRIBUTE_KEY1 = "custom:mutableStringAttr1"
+    let CUSTOM_ATTRIBUTE_KEY2 = "custom:mutableStringAttr2"
     
     @IBOutlet weak var idTokenLabel: UILabel!
     @IBOutlet weak var accessTokenLabel: UILabel!
@@ -122,16 +129,16 @@ class UserDetailsViewController: UIViewController {
                     self.attribute2Label.text = "NA"
                     return
                 }
-                self.attribute1Label.text = attributes["custom:mutableStringAttr1"]
-                self.attribute2Label.text = String(attributes["custom:mutableStringAttr2"]!)
+                self.attribute1Label.text = attributes[self.CUSTOM_ATTRIBUTE_KEY1]
+                self.attribute2Label.text = String(attributes[self.CUSTOM_ATTRIBUTE_KEY2]!)
             }
         }
     }
     
     func updateUserAttributes() {
         let newUserAttributes = [
-            "custom:mutableStringAttr1": UUID().uuidString,
-            "custom:mutableStringAttr2": UUID().uuidString
+            CUSTOM_ATTRIBUTE_KEY1: UUID().uuidString,
+            CUSTOM_ATTRIBUTE_KEY2: UUID().uuidString
         ]
         
         AWSMobileClient.default().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
