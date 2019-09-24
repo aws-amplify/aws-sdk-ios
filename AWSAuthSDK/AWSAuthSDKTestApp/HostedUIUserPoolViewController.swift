@@ -21,10 +21,14 @@ class HostedUIUserPoolViewController: UIViewController {
             }
             print("Status changed: \(userState.rawValue)")
         }
+        
+        AWSMobileClient.default().getTokens { (token, error) in
+            print(token?.accessToken?.tokenString)
+        }
     }
     
     @IBAction func onLaunchCognitoAuthSignIn(_ sender: Any) {
-        let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email"])
+        let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email", "aws.cognito.signin.user.admin"])
         
         AWSMobileClient.default().showSignIn(navigationController: self.navigationController!, hostedUIOptions: hostedUIOptions) { (userState, error) in
             if let error = error as? AWSMobileClientError {

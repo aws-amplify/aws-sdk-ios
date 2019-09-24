@@ -2,9 +2,6 @@
 //  AWSHostedUIUserPoolTests.swift
 //  AWSAuthSDKTestAppUITests
 //
-//  Created by Roy, Jithin on 9/23/19.
-//  Copyright © 2019 Amazon Web Services. All rights reserved.
-//
 
 import XCTest
 
@@ -28,63 +25,124 @@ class AWSHostedUIUserPoolTests: XCTestCase {
         XCUIApplication().launch()
     }
 
+    /// Test whether after update attribute, we have valid token and credentials
+    ///
+    /// - Given: An auth session with user attributes
+    /// - When:
+    ///    - I update the user attributes and then fetch token
+    /// - Then:
+    ///    - I should have all the valid tokens
+    ///
     func testHostedUIUsernamePasswordSignIn() {
         let app = XCUIApplication()
-        let signinstatelabelElement = app.otherElements["signInStateLabel"]
+        signOutUserpool(application: app)
         
-        if signinstatelabelElement.label == "signedIn" {
-            app.buttons["SignOut"].tap()
-            let statusBarsQuery = app.statusBars
-            statusBarsQuery.element.tap()
-            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-            let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                           handler: nil)
-            
-            let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
-        }
-        XCTAssertEqual("signedOut", signinstatelabelElement.label)
-        
+        // Push the hosted UI view controller
         app.buttons["Hosted UI Userpool tests"].tap()
         XCTAssertTrue(app.navigationBars["UserPool"].exists)
         
+        //Initiate signIn
         app.buttons["SignIn User"].tap()
-        let statusBarsQuery = app.statusBars
+        signInUserpool(application: app)
+        
+        // Check if successfully signed in
+        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
+        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
+        let expectation1 = expectation(for: predicate,
+                                       evaluatedWith: userPoolSignInStateLabelElement,
+                                       handler: nil)
+        wait(for: [expectation1], timeout: 5)
+        
+        // Push the user detail page
+        app.buttons["User pool operations"].tap()
+        XCTAssertTrue(app.navigationBars["User Details"].exists)
+        
+        // Check if all user details are present
+        inspectTokenDetails(application: app)
+        inspectCredentialDetails(application: app)
+        
+        // Initiate attribute update
+        app.buttons["Update User Attribute"].tap()
+        
+        // Check again if the values are present
+        inspectTokenDetails(application: app)
+        inspectCredentialDetails(application: app)
+    }
+    
+    func signInUserpool(application: XCUIApplication) {
+        let statusBarsQuery = application.statusBars
         if #available(iOS 11.0, *) {
             statusBarsQuery.element.tap()
         } else {
             // or use some work around
         }
         
-        let webViewsQuery = app.webViews
-        webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let webViewsQuery = application.webViews
+        webViewsQuery.textFields["Username"].tap()
         webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.typeText(AWSHostedUIUserPoolTests.userpoolUsername!)
-
+        
         let passwordSecureTextField = webViewsQuery/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".otherElements[\"Signin\"].secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         passwordSecureTextField.tap()
         passwordSecureTextField.typeText(AWSHostedUIUserPoolTests.userpoolPassword!)
-
+        
         let signInButton = webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Sign in"]/*[[".otherElements[\"Signin\"].buttons[\"Sign in\"]",".buttons[\"Sign in\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         signInButton.tap()
+    }
+    
+    func signOutUserpool(application: XCUIApplication) {
+        let signinstatelabelElement = application.otherElements["signInStateLabel"]
+        if signinstatelabelElement.label == "signedIn" {
+            application.buttons["SignOut"].tap()
+            let statusBarsQuery = application.statusBars
+            statusBarsQuery.element.tap()
+            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
+            let signOutExpectation = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
+                                           handler: nil)
+            wait(for: [signOutExpectation], timeout: 5)
+        }
+        XCTAssertEqual("signedOut", signinstatelabelElement.label)
+    }
+    
+    func inspectTokenDetails(application: XCUIApplication) {
         
-        let userPoolSignInStateLabelElement = XCUIApplication().otherElements["userPoolSignInStateLabel"]
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate,
-                                       evaluatedWith: userPoolSignInStateLabelElement,
-                                       handler: nil)
+        let labelValidityPredicate = NSPredicate(format: "NOT label BEGINSWITH 'NA'")
         
-        let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+        let idTokenLabelElement = application.staticTexts["idTokenLabel"]
+        let accessTokenLabelElement = application.staticTexts["accessTokenLabel"]
+        let refreshTokenLabelElement = application.staticTexts["refreshTokenLabel"]
         
-        app.buttons["User pool operations"].tap()
-        XCTAssertTrue(app.navigationBars["User Details"].exists)
+        let idTokenExpectation = expectation(for: labelValidityPredicate,
+                                             evaluatedWith: idTokenLabelElement,
+                                             handler: nil)
+        let accessTokenExpectation = expectation(for: labelValidityPredicate,
+                                             evaluatedWith: accessTokenLabelElement,
+                                             handler: nil)
+        let refreshTokenExpectation = expectation(for: labelValidityPredicate,
+                                             evaluatedWith: refreshTokenLabelElement,
+                                             handler: nil)
         
-        let idTokenLabelElement = XCUIApplication().otherElements["idTokenLabel"]
-        let idTokenPredicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let idTokenExpectation = expectation(for: idTokenPredicate,
-                                       evaluatedWith: idTokenLabelElement,
-                                       handler: nil)
+        wait(for: [idTokenExpectation, accessTokenExpectation, refreshTokenExpectation], timeout: 10)
+    }
+    
+    func inspectCredentialDetails(application: XCUIApplication) {
         
-        let _ = XCTWaiter().wait(for: [idTokenExpectation], timeout: 5)
+        let labelValidityPredicate = NSPredicate(format: "NOT label BEGINSWITH 'NA'")
         
+        let accessKeyLabelElement = application.staticTexts["idTokenLabel"]
+        let secretKeyLabelElement = application.staticTexts["accessTokenLabel"]
+        let sessionKeyLabelElement = application.staticTexts["refreshTokenLabel"]
+        
+        let accessKeyExpectation = expectation(for: labelValidityPredicate,
+                                             evaluatedWith: accessKeyLabelElement,
+                                             handler: nil)
+        let secretKeyExpectation = expectation(for: labelValidityPredicate,
+                                                 evaluatedWith: secretKeyLabelElement,
+                                                 handler: nil)
+        let sessionKeyExpectation = expectation(for: labelValidityPredicate,
+                                                  evaluatedWith: sessionKeyLabelElement,
+                                                  handler: nil)
+        
+        wait(for: [accessKeyExpectation, secretKeyExpectation, sessionKeyExpectation], timeout: 10)
     }
 
 }
