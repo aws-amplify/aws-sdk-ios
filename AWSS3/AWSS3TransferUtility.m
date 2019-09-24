@@ -2230,7 +2230,7 @@ didCompleteWithError:(NSError *)error {
                     totalBytesSent += aSubTask.totalBytesExpectedToSend;
                 }
                 
-                if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.intValue ) {
+                if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.longLongValue ) {
                     NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
                                               transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent)];
                     

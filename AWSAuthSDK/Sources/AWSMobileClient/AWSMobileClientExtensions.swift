@@ -201,8 +201,12 @@ extension AWSMobileClient {
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
                     self.federationProvider = .userPools
-                    self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
                     self.performUserPoolSuccessfulSignInTasks(session: result)
+                    let tokenString = result.idToken!.tokenString
+                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                   additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
+                                                                    self.TokenKey:tokenString])
+                    self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
                 }
                 return nil
             }
@@ -227,6 +231,8 @@ extension AWSMobileClient {
             // At the end of operation if there is an error anywhere in the flow, we return it back to the developer; else return a successful signedIn state.
             defer {
                 if error == nil {
+                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                   additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
                     completionHandler(UserState.signedIn, nil)
                 } else {
                     completionHandler(nil, error)
@@ -248,7 +254,7 @@ extension AWSMobileClient {
                 // Update the Custom Role ARN if specified
                 if let customRoleArn = federatedSignInOptions.customRoleARN {
                     self.customRoleArnInternal = customRoleArn
-                    _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
+                    self.setCustomRoleArnInternal(customRoleArn, for: self)
                 }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
                 // If any credentials operation is pending, we invoke the waiting block to resume with new credentials
@@ -277,7 +283,7 @@ extension AWSMobileClient {
                 }
                 if let customRoleArn = federatedSignInOptions.customRoleARN {
                     self.customRoleArnInternal = customRoleArn
-                    _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(customRoleArn, for: self)
+                    self.setCustomRoleArnInternal(customRoleArn, for: self)
                 }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
             }
@@ -475,19 +481,21 @@ extension AWSMobileClient {
     /// Signs out the current logged in user and clears the local keychain store.
     /// Note: This does not invalidate the tokens from the service or sign out the user from other devices. 
     public func signOut() {
+        self.credentialsFetchCancellationSource.cancel()
         if federationProvider == .hostedUI {
             AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOutLocallyAndClearLastKnownUser()
         }
         self.cachedLoginsMap = [:]
         self.customRoleArnInternal = nil
-        _AWSMobileClient.sharedInstance().setCustomRoleArnInternal(nil, for: self)
+        self.setCustomRoleArnInternal(nil, for: self)
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: .none)
-        self.internalCredentialsProvider?.clearKeychain()
         self.performUserPoolSignOut()
         self.internalCredentialsProvider?.identityProvider.identityId = nil
         self.internalCredentialsProvider?.clearKeychain()
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
+        self.federationProvider = .none
+        self.credentialsFetchCancellationSource = AWSCancellationTokenSource()
     }
     
     internal func performUserPoolSignOut() {
@@ -529,8 +537,8 @@ extension AWSMobileClient {
                                                additionalInfo: [ProviderKey:provider, TokenKey: token])
     }
     
-    /// Post signin operations. Saves the login maps and provider metadata in keychain. Updates the credentials.
-    /// If credential update is successful, informs the listener with UserState.signedIn status.
+    /// Post signin operations. Saves the login maps and provider metadata in keychain. Refreshes the credentials.
+    /// We dont wait for the credentials to be updated, it is an async task which happens in background.
     ///
     /// - Parameters
     ///     - provider: provider to be updated in keychain.
@@ -538,8 +546,7 @@ extension AWSMobileClient {
         self.saveLoginsMapInKeychain()
         self.setLoginProviderMetadataAndSaveInKeychain(provider: provider)
         self.internalCredentialsProvider?.clearCredentials()
-        self.internalCredentialsProvider?.credentials()
-        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: additionalInfo)
+        self.internalCredentialsProvider?.credentials(withCancellationToken:self.credentialsFetchCancellationSource)
     }
     
     /// Confirm a sign in which requires additional validation via steps like SMS MFA.
@@ -556,7 +563,9 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: challengeResponse as NSString)
         } else if (self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
-            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse, userAttributes: userAttributes))
+            let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
+                                                                                    userAttributes: userAttributes)
+            self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
         } else {
             completionHandler(nil, AWSMobileClientError.invalidState(message: "Please call `signIn` before calling this method."))
         }
@@ -587,23 +596,34 @@ extension AWSMobileClient {
             completionHandler(nil, AWSMobileClientError.cognitoIdentityPoolNotConfigured(message: "There is no valid cognito identity pool configured in `awsconfiguration.json`."))
         }
         
+        let cancellationToken = self.credentialsFetchCancellationSource
         credentialsFetchOperationQueue.addOperation {
             self.credentialsFetchLock.enter()
-            self.internalCredentialsProvider?.credentials().continueWith(block: { (task) -> Any? in
+            self.internalCredentialsProvider?.credentials(withCancellationToken: cancellationToken).continueWith(block: { (task) -> Any? in
+                // If we have called cancellation already, leave the block without doing anything
+                // with the fetched credentials.
+                if (task.isCancelled || cancellationToken.isCancellationRequested) {
+                    self.credentialsFetchLock.leave()
+                    completionHandler(task.result, task.error)
+                    return nil
+                }
+                
                 if let error = task.error {
                     if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .none {
+                        
                         self.credentialsFetchLock.leave()
                         completionHandler(nil, AWSMobileClientError.guestAccessNotAllowed(message: "Your backend is not configured with cognito identity pool to allow guest acess. Please allow un-authenticated access to identity pool to use this feature."))
+                        
                     } else if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .oidcFederation {
-
-                        self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                         
+                        self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                         // store a reference to the completion handler which we would be calling later on.
                         self.pendingAWSCredentialsCompletion = completionHandler
+                        
                     } else {
                         self.credentialsFetchLock.leave()
                         completionHandler(nil, error)
@@ -615,6 +635,7 @@ extension AWSMobileClient {
                     self.credentialsFetchLock.leave()
                     completionHandler(result, nil)
                 }
+                
                 return nil
             })
             self.credentialsFetchLock.wait()

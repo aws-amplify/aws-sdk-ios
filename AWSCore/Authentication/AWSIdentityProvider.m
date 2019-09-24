@@ -100,7 +100,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
         [userInfo setObject:self.identityId forKey:AWSCognitoNotificationPreviousId];
     }
     [userInfo setObject:newId forKey:AWSCognitoNotificationNewId];
-
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[NSNotificationCenter defaultCenter] postNotificationName:AWSCognitoIdentityIdChangedNotification
                                                             object:self
@@ -133,13 +133,13 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
         _useEnhancedFlow = useEnhancedFlow;
         self.identityPoolId = identityPoolId;
         self.identityProviderManager = identityProviderManager;
-
+        
         AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
                                                                              credentialsProvider:credentialsProvider];
         _cognitoIdentity = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
     }
-
+    
     return self;
 }
 
@@ -159,7 +159,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                                                               code:AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil
                                                           userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]];
         }
-
+        
         if (self.identityProviderManager) {
             return [self.identityProviderManager logins];
         } else {
@@ -177,17 +177,17 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                 return [AWSTask taskWithResult:[task.result objectForKey:[self identityProviderName]]];
             }
         }
-
+        
         AWSCognitoIdentityGetOpenIdTokenInput *getTokenInput = [AWSCognitoIdentityGetOpenIdTokenInput new];
         getTokenInput.identityId = self.identityId;
         getTokenInput.logins = logins;
-
+        
         return [[[self.cognitoIdentity getOpenIdToken:getTokenInput] continueWithBlock:^id(AWSTask *task) {
             // When an invalid identityId is cached in the keychain for auth,
             // we will refresh the identityId and try to get OpenID token again.
             if (task.error) {
                 AWSDDLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
-
+                
                 // If it's auth or we caught a not found or validation error
                 // we want to reset the identity id, otherwise, just return
                 // the error to our caller
@@ -195,18 +195,18 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                                                             authenticated:[self isAuthenticated]]) {
                     return task;
                 }
-
+                
                 if (self.hasClearedIdentityId) {
                     return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
                                                                       code:AWSCognitoCredentialsProviderInvalidConfiguration
                                                                   userInfo:@{NSLocalizedDescriptionKey : @"GetCredentialsForIdentity keeps failing. Clearing identityId did not help. Please check your Amazon Cognito Identity configuration."}]];
                 }
-
+                
                 AWSDDLogDebug(@"Resetting identity Id and calling getIdentityId");
                 // if it's auth, reset id and refetch
                 self.identityId = nil;
                 self.hasClearedIdentityId = YES;
-
+                
                 return [[self getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
                     // This should never happen, but just in case
                     if (!self.identityId) {
@@ -217,14 +217,14 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                                                                       userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                                 ];
                     }
-
+                    
                     AWSDDLogDebug(@"Retrying GetOpenIdToken");
-
+                    
                     // retry get token
                     AWSCognitoIdentityGetOpenIdTokenInput *tokenRetry = [AWSCognitoIdentityGetOpenIdTokenInput new];
                     tokenRetry.identityId = self.identityId;
                     tokenRetry.logins = self.cachedLogins;
-
+                    
                     return [self.cognitoIdentity getOpenIdToken:tokenRetry];
                 }];
             }
@@ -234,7 +234,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             AWSCognitoIdentityGetOpenIdTokenResponse *getTokenResponse = task.result;
             NSString *token = getTokenResponse.token;
             NSString *identityIdFromToken = getTokenResponse.identityId;
-
+            
             // This should never happen, but just in case
             if (!identityIdFromToken) {
                 AWSDDLogError(@"identityId from getOpenIdToken is nil");
@@ -243,11 +243,11 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                                                               userInfo:@{NSLocalizedDescriptionKey: @"identityId shouldn't be nil"}]
                         ];
             }
-
+            
             if (![self.identityId isEqualToString:identityIdFromToken]) {
                 self.identityId = identityIdFromToken;
             }
-
+            
             return [AWSTask taskWithResult:token];
         }];
     }];
@@ -267,7 +267,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             }
         }];
     }
-
+    
     return [[self token] continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
         if (!task.result) {
             return [AWSTask taskWithResult:nil];
@@ -295,6 +295,7 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
             // Create an identity id via GetID if the call to logins didn't set it which DevAuth does
             // And there are no other calls in flight to create one
             if (!self.identityId && self.count <= 1) {
+                dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 0));
                 AWSCognitoIdentityGetIdInput *getIdInput = [AWSCognitoIdentityGetIdInput new];
                 getIdInput.identityPoolId = self.identityPoolId;
                 getIdInput.logins = logins;
