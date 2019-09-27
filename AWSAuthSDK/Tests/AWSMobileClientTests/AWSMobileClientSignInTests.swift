@@ -11,7 +11,6 @@ class AWSMobileClientSignInTests: AWSMobileClientBaseTests {
 
     func testSignIn() {
         let username = "testUser" + UUID().uuidString
-        signUpUser(username: username)
         signUpAndVerifyUser(username: username)
         signIn(username: username)
     }
