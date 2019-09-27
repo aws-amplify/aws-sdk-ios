@@ -135,6 +135,16 @@
 		B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */; };
 		B40EA1ED2339789E00135711 /* HostedUIUserPoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */; };
 		B40EA1EF2339831E00135711 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */; };
+		B41F676F233D523B0060FDEE /* DropInUIUserPoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F676E233D523B0060FDEE /* DropInUIUserPoolViewController.swift */; };
+		B41F67D9233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */; };
+		B41F67DA233D55740060FDEE /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
+		B41F67DB233D55740060FDEE /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
+		B41F67E8233D56CB0060FDEE /* AWSAuthUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; };
+		B41F67E9233D56CB0060FDEE /* AWSAuthUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B41F67EA233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
+		B41F67EB233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B4682160233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */; };
+		B4682161233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */; };
 		B4C8E4212306064D0064C158 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E3A72306056A0064C158 /* JSONHelper.swift */; };
 		B4C8E4A023073D7B0064C158 /* AWSMobileClientBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */; };
 		B4C8E4A2230740200064C158 /* AWSMobileClientSignoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */; };
@@ -321,6 +331,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = B5FC69001FAFA1AA004790CB;
 			remoteInfo = AWSMobileClient;
+		};
+		B41F67DE233D56A80060FDEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1750D0061F2D4DFA006D915E;
+			remoteInfo = AWSUserPoolsSignIn;
+		};
+		B41F67E2233D56A80060FDEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5345D0E1F366AFA009C1041;
+			remoteInfo = AWSAuthUI;
 		};
 		B4C8E48C23073CCA0064C158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1131,6 +1155,8 @@
 			files = (
 				173A453F21E92A0200F9C579 /* AWSAuthCore.framework in Embed Frameworks */,
 				173A454321E92A0200F9C579 /* AWSMobileClient.framework in Embed Frameworks */,
+				B41F67E9233D56CB0060FDEE /* AWSAuthUI.framework in Embed Frameworks */,
+				B41F67EB233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Embed Frameworks */,
 				173A45A421E92A0200F9C579 /* AWSCore.framework in Embed Frameworks */,
 				173A45AC21E92A0200F9C579 /* AWSCognitoIdentityProviderASF.framework in Embed Frameworks */,
 				173A45A821E92A0200F9C579 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
@@ -1249,6 +1275,10 @@
 		B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSHostedUIUserPoolTests.swift; sourceTree = "<group>"; };
 		B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostedUIUserPoolViewController.swift; sourceTree = "<group>"; };
 		B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		B41F676E233D523B0060FDEE /* DropInUIUserPoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUIUserPoolViewController.swift; sourceTree = "<group>"; };
+		B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSDropInUIUserPoolTests.swift; sourceTree = "<group>"; };
+		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
+		B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolNewPasswordRequiredViewController.h; sourceTree = "<group>"; };
 		B4C8E3A72306056A0064C158 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientBaseTests.swift; sourceTree = "<group>"; };
 		B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignoutTests.swift; sourceTree = "<group>"; };
@@ -1309,6 +1339,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B41F67DA233D55740060FDEE /* AWSAuthUI.framework in Frameworks */,
+				B41F67DB233D55740060FDEE /* AWSUserPoolsSignIn.framework in Frameworks */,
 				173A45B021E9345D00F9C579 /* AWSAuthCore.framework in Frameworks */,
 				173A45B121E9345D00F9C579 /* AWSMobileClient.framework in Frameworks */,
 				173A45B221E9345D00F9C579 /* AWSCognitoIdentityProvider.framework in Frameworks */,
@@ -1342,6 +1374,8 @@
 			files = (
 				173A453E21E92A0200F9C579 /* AWSAuthCore.framework in Frameworks */,
 				173A454221E92A0200F9C579 /* AWSMobileClient.framework in Frameworks */,
+				B41F67E8233D56CB0060FDEE /* AWSAuthUI.framework in Frameworks */,
+				B41F67EA233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Frameworks */,
 				173A45A321E92A0200F9C579 /* AWSCore.framework in Frameworks */,
 				173A45AB21E92A0200F9C579 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
 				173A45A721E92A0200F9C579 /* AWSCognitoIdentityProvider.framework in Frameworks */,
@@ -1408,8 +1442,6 @@
 				1711A4BF1F43A461006105D3 /* AWSFormTableDelegate.m */,
 				1711A4C01F43A461006105D3 /* AWSTableInputCell.h */,
 				1711A4C11F43A461006105D3 /* AWSTableInputCell.m */,
-				1711A4C21F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.h */,
-				1711A4C31F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.m */,
 				1711A4C41F43A461006105D3 /* AWSUserPoolMFAViewController.h */,
 				1711A4C51F43A461006105D3 /* AWSUserPoolMFAViewController.m */,
 				1711A4C61F43A461006105D3 /* AWSUserPools.storyboard */,
@@ -1417,6 +1449,10 @@
 				1711A4CA1F43A461006105D3 /* AWSUserPoolSignUpViewController.m */,
 				1711A4CB1F43A461006105D3 /* AWSUserPoolsUIHelper.h */,
 				1711A4CC1F43A461006105D3 /* AWSUserPoolsUIHelper.m */,
+				1711A4C21F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.h */,
+				1711A4C31F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.m */,
+				B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */,
+				B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */,
 			);
 			path = UserPoolsUI;
 			sourceTree = "<group>";
@@ -1501,6 +1537,7 @@
 			isa = PBXGroup;
 			children = (
 				B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */,
+				B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */,
 				177B8AE821E81B7D0051068F /* AWSAuthSDKTestAppUITests.swift */,
 				177B8AEA21E81B7D0051068F /* Info.plist */,
 			);
@@ -1616,6 +1653,7 @@
 				17CD4B24218244EA00953483 /* ViewController.swift */,
 				B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */,
 				B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */,
+				B41F676E233D523B0060FDEE /* DropInUIUserPoolViewController.swift */,
 				17CD4B26218244EA00953483 /* Main.storyboard */,
 				17CD4B29218244EC00953483 /* Assets.xcassets */,
 				17CD4B2B218244EC00953483 /* LaunchScreen.storyboard */,
@@ -1809,6 +1847,7 @@
 				B5170D301F44F098008FD811 /* AWSUserPoolsSignIn.h in Headers */,
 				1711A4E01F43A49E006105D3 /* AWSFormTableCell.h in Headers */,
 				1711A4EF1F43A49E006105D3 /* AWSUserPoolsUIHelper.h in Headers */,
+				B4682161233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h in Headers */,
 				1711A4ED1F43A49E006105D3 /* AWSUserPoolSignUpViewController.h in Headers */,
 				1711A4E61F43A49E006105D3 /* AWSUserPoolForgotPasswordViewController.h in Headers */,
 				1711A4F51F43D7D6006105D3 /* AWSUserPoolsUIOperations.h in Headers */,
@@ -2031,6 +2070,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				B41F67DF233D56A80060FDEE /* PBXTargetDependency */,
+				B41F67E3233D56A80060FDEE /* PBXTargetDependency */,
 				173A454121E92A0200F9C579 /* PBXTargetDependency */,
 				173A454521E92A0200F9C579 /* PBXTargetDependency */,
 				173A45A621E92A0200F9C579 /* PBXTargetDependency */,
@@ -2131,6 +2172,7 @@
 				TargetAttributes = {
 					1750D0061F2D4DFA006D915E = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = W9GWBC2HN3;
 						ProvisioningStyle = Automatic;
 					};
 					1763753F1F328D210086588B = {
@@ -2170,6 +2212,7 @@
 					};
 					B5345D0E1F366AFA009C1041 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = W9GWBC2HN3;
 						ProvisioningStyle = Automatic;
 					};
 					B5FC69001FAFA1AA004790CB = {
@@ -3060,6 +3103,7 @@
 				1711A4E91F43A49E006105D3 /* AWSUserPoolMFAViewController.m in Sources */,
 				1711A4F01F43A49E006105D3 /* AWSUserPoolsUIHelper.m in Sources */,
 				1711A4E51F43A49E006105D3 /* AWSTableInputCell.m in Sources */,
+				B4682160233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m in Sources */,
 				1711A4EE1F43A49E006105D3 /* AWSUserPoolSignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3078,6 +3122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177B8AE921E81B7D0051068F /* AWSAuthSDKTestAppUITests.swift in Sources */,
+				B41F67D9233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift in Sources */,
 				B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3114,6 +3159,7 @@
 				17CD4B23218244EA00953483 /* AppDelegate.swift in Sources */,
 				B40EA1EF2339831E00135711 /* UserDetailsViewController.swift in Sources */,
 				B40EA1ED2339789E00135711 /* HostedUIUserPoolViewController.swift in Sources */,
+				B41F676F233D523B0060FDEE /* DropInUIUserPoolViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3268,6 +3314,16 @@
 			target = B5FC69001FAFA1AA004790CB /* AWSMobileClient */;
 			targetProxy = 17D6F70021C0E1DB001E5F43 /* PBXContainerItemProxy */;
 		};
+		B41F67DF233D56A80060FDEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1750D0061F2D4DFA006D915E /* AWSUserPoolsSignIn */;
+			targetProxy = B41F67DE233D56A80060FDEE /* PBXContainerItemProxy */;
+		};
+		B41F67E3233D56A80060FDEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5345D0E1F366AFA009C1041 /* AWSAuthUI */;
+			targetProxy = B41F67E2233D56A80060FDEE /* PBXContainerItemProxy */;
+		};
 		B5170C841F44EC68008FD811 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AWSCognitoIdentityProvider;
@@ -3333,8 +3389,9 @@
 		1750D00D1F2D4DFA006D915E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W9GWBC2HN3;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3351,8 +3408,9 @@
 		1750D00E1F2D4DFA006D915E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W9GWBC2HN3;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3821,8 +3879,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W9GWBC2HN3;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -3840,8 +3899,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W9GWBC2HN3;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

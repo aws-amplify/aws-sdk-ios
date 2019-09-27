@@ -2,6 +2,11 @@
 
 ## 2.12.0
 
+### New Features
+
+- **AWSMobileClient**
+  - DropIn UI now supports `FORCE_CHANGE_PASSWORD` UI flow. See issue [#1711](https://github.com/aws-amplify/aws-sdk-ios/issues/1711) for more details.
+
 ### Misc. Updates
 
 - **General SDK improvements**

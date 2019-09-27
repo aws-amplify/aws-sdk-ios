@@ -33,7 +33,7 @@ class AWSHostedUIUserPoolTests: XCTestCase {
     /// - Then:
     ///    - I should have all the valid tokens
     ///
-    func testHostedUIUsernamePasswordSignIn() {
+    func testHostedUIUpdateAttribute() {
         let app = XCUIApplication()
         signOutUserpool(application: app)
         
@@ -65,6 +65,43 @@ class AWSHostedUIUserPoolTests: XCTestCase {
         app.buttons["Update User Attribute"].tap()
         
         // Check again if the values are present
+        inspectTokenDetails(application: app)
+        inspectCredentialDetails(application: app)
+    }
+    
+    /// Test successful authentication in user pool using hosted UI
+    ///
+    /// - Given: An unauthenticated user session
+    /// - When:
+    ///    - I try to sign in using hosted UI
+    /// - Then:
+    ///    - I should get a signed in session
+    ///
+    func testHostedUIUsernamePasswordSignIn() {
+        let app = XCUIApplication()
+        signOutUserpool(application: app)
+        
+        // Push the hosted UI view controller
+        app.buttons["Hosted UI Userpool tests"].tap()
+        XCTAssertTrue(app.navigationBars["UserPool"].exists)
+        
+        //Initiate signIn
+        app.buttons["SignIn User"].tap()
+        signInUserpool(application: app)
+        
+        // Check if successfully signed in
+        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
+        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
+        let expectation1 = expectation(for: predicate,
+                                       evaluatedWith: userPoolSignInStateLabelElement,
+                                       handler: nil)
+        wait(for: [expectation1], timeout: 5)
+        
+        // Push the user detail page
+        app.buttons["User pool operations"].tap()
+        XCTAssertTrue(app.navigationBars["User Details"].exists)
+        
+        // Check if all user details are present
         inspectTokenDetails(application: app)
         inspectCredentialDetails(application: app)
     }

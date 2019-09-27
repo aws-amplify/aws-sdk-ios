@@ -2,9 +2,6 @@
 //  AWSAuthSDKTestAppUITests.swift
 //  AWSAuthSDKTestAppUITests
 //
-//  Created by Dubal, Rohan on 1/10/19.
-//  Copyright © 2019 Dubal, Rohan. All rights reserved.
-//
 
 import XCTest
 
@@ -216,66 +213,6 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
         
         print(signinstatelabelElement.label)
         
-    }
-
-    func testHostedUIUsernamePasswordSignIn() {
-        let app = XCUIApplication()
-        
-        let signinstatelabelElement = XCUIApplication().otherElements["signInStateLabel"]
-        
-        print(signinstatelabelElement.label)
-        
-        if signinstatelabelElement.label == "signedIn" {
-            app.buttons["SignOut"].tap()
-            let statusBarsQuery = app.statusBars
-            statusBarsQuery.element.tap()
-            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-            let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                           handler: nil)
-            
-            let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
-        }
-        
-        XCTAssertEqual("signedOut", signinstatelabelElement.label)
-        
-        app.buttons["Launch CognitoAuth SignIn"].tap()
-        let statusBarsQuery = app.statusBars
-        if #available(iOS 11.0, *) {
-            statusBarsQuery.element.tap()
-        } else {
-            // or use some work around
-        }
-
-        let webViewsQuery = app.webViews
-        webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.typeText(AWSAuthSDKTestAppUITests.UserpoolUsername!)
-        
-        let passwordSecureTextField = webViewsQuery/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".otherElements[\"Signin\"].secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        passwordSecureTextField.tap()
-        passwordSecureTextField.typeText(AWSAuthSDKTestAppUITests.UserpoolPassword!)
-        
-        let signInButton = webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Sign in"]/*[[".otherElements[\"Signin\"].buttons[\"Sign in\"]",".buttons[\"Sign in\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        signInButton.tap()
-        
-        
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                      handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
-        
-        print(signinstatelabelElement.label)
-        
-        app.buttons["SignOut"].tap()
-        
-        statusBarsQuery.element.tap()
-        let predicate1 = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-        let expectation2 = expectation(for: predicate1, evaluatedWith: signinstatelabelElement,
-                                       handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation2], timeout: 5)
-        
-        print(signinstatelabelElement.label)
     }
 
 }
