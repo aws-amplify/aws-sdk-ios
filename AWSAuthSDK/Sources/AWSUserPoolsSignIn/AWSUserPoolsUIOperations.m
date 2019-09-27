@@ -17,6 +17,7 @@
 #import "AWSUserPoolSignUpViewController.h"
 #import "AWSUserPoolForgotPasswordViewController.h"
 #import "AWSUserPoolMFAViewController.h"
+#import "AWSuserPoolNewPasswordRequiredViewController.h"
 #import <AWSAuthCore/AWSUIConfiguration.h>
 #import <AWSAuthCore/AWSSignInManager.h>
 
@@ -112,6 +113,18 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
          
          AWSDDLogDebug(@"result = %@, error = %@", result, error);
      }];
+}
+
+-(id<AWSCognitoIdentityNewPasswordRequired>) startNewPasswordRequired {
+
+    AWSUserPoolNewPasswordRequiredViewController *viewController = (AWSUserPoolNewPasswordRequiredViewController *)[self getUserPoolsViewControllerWithIdentifier:@"NewPasswordRequired"];
+    viewController.config = self.config;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:viewController
+                                             animated:YES];
+    });
+    
+    return viewController;
 }
 
 -(id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication {
