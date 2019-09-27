@@ -1549,7 +1549,7 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
                                                         databaseQueue:self.databaseQueue];
 
         if (startTransfer) {
-            AWSDDLogDebug(@"[CbreateUploadSubTask] startTransfer is true, Starting subTask %@", @(subTask.taskIdentifier));
+            AWSDDLogDebug(@"[CreateUploadSubTask] startTransfer is true, Starting subTask %@", @(subTask.taskIdentifier));
             [subTask.sessionTask resume];
         }
        
