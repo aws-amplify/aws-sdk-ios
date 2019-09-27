@@ -1547,6 +1547,11 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
                                                                status:subTask.status
                                                           retry_count:transferUtilityMultiPartUploadTask.retryCount
                                                         databaseQueue:self.databaseQueue];
+
+        if (startTransfer) {
+            AWSDDLogDebug(@"[CbreateUploadSubTask] startTransfer is true, Starting subTask %@", @(subTask.taskIdentifier));
+            [subTask.sessionTask resume];
+        }
        
         return nil;
     }] waitUntilFinished];
