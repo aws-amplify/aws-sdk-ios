@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon Transcribe
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.0
@@ -30,6 +19,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   
 - **Model updates for the following services**
   - Amazon EC2
+  - Amazon Transcribe
 
 ## 2.11.1
 
