@@ -649,6 +649,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"mediaFormat" : @"MediaFormat",
              @"mediaSampleRateHertz" : @"MediaSampleRateHertz",
              @"outputBucketName" : @"OutputBucketName",
+             @"outputEncryptionKMSKeyId" : @"OutputEncryptionKMSKeyId",
              @"settings" : @"Settings",
              @"transcriptionJobName" : @"TranscriptionJobName",
              };
