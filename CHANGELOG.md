@@ -25,6 +25,7 @@
   
 - **Model updates for the following services**
   - Amazon EC2
+  - Amazon Transcribe
 
 ## 2.11.1
 
