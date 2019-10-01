@@ -19,9 +19,9 @@
 #import "OCMock.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointEndpointProfile.h"
+#import "AWSPinpointNotificationManager.h"
 
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
-NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
 
 static NSString *userId;
 
@@ -173,49 +173,78 @@ static NSString *userId;
     XCTAssertFalse([profile.user.userId isEqualToString:userId]);
 }
 
-- (void)testNewDeviceTokenStringUpdation {
-    NSString *deviceToken = @"deviceToken";
-    NSString *appId = @"testNewDeviceTokenStringUpdation";
+- (void)testNewDeviceTokenUpdate {
+    const unsigned char currentTokenBytes[] = {
+        0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+        0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
+    };
+    NSData *currentTokenData = [[NSData alloc] initWithBytes:currentTokenBytes length:16];
+    NSString *currentTokenString = @"000102030405060708090a0b0c0d0e0f";
+
+    const unsigned char newTokenBytes[] = {
+        0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7,
+        0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff
+    };
+    NSData *newTokenData = [[NSData alloc] initWithBytes:newTokenBytes length:16];
+    NSString *newTokenString = @"f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff";
+
+    NSString *appId = @"testNewDeviceTokenStringUpdate";
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:appId
                                                                          launchOptions:nil];
     config.enableAutoSessionRecording = NO;
-    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testNewDeviceTokenStringUpdation"];
-    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testNewDeviceTokenStringUpdation"];
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testNewDeviceTokenStringUpdate"];
+    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testNewDeviceTokenStringUpdate"];
+
     [config.userDefaults removeObjectForKey:AWSDeviceTokenKey];
-    [config.userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
+    [config.userDefaults setObject:currentTokenData forKey:AWSDeviceTokenKey];
     [config.userDefaults synchronize];
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     AWSPinpointEndpointProfile *endpointProfile = [pinpoint.targetingClient currentEndpointProfile];
-    XCTAssertTrue([endpointProfile.address isEqualToString:deviceToken]);
-    NSString *newDeviceToken = @"newDeviceToken";
+    XCTAssertEqualObjects(endpointProfile.address, currentTokenString);
+
     [pinpoint.configuration.userDefaults removeObjectForKey:AWSDeviceTokenKey];
-    [pinpoint.configuration.userDefaults setObject:newDeviceToken forKey:AWSDeviceTokenKey];
+    [pinpoint.configuration.userDefaults setObject:newTokenData forKey:AWSDeviceTokenKey];
     [pinpoint.configuration.userDefaults synchronize];
     endpointProfile = [pinpoint.targetingClient currentEndpointProfile];
-    XCTAssertFalse([endpointProfile.address isEqualToString:deviceToken]);
-    XCTAssertTrue([endpointProfile.address isEqualToString:newDeviceToken]);
+    XCTAssertEqualObjects(endpointProfile.address, newTokenString);
 }
 
-- (void)testNewDeviceTokenStringUpdateWithDefaultUserDefaults {
+- (void)testNewDeviceTokenUpdateWithStandardUserDefaults {
+    const unsigned char currentTokenBytes[] = {
+        0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+        0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
+    };
+    NSData *currentTokenData = [[NSData alloc] initWithBytes:currentTokenBytes length:16];
+    NSString *currentTokenString = @"000102030405060708090a0b0c0d0e0f";
+
+    const unsigned char newTokenBytes[] = {
+        0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7,
+        0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff
+    };
+    NSData *newTokenData = [[NSData alloc] initWithBytes:newTokenBytes length:16];
+    NSString *newTokenString = @"f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff";
+
     NSString *appId = @"testNewDeviceTokenStringUpdateWithDefaultUserDefaults";
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:appId
                                                                          launchOptions:nil];
     config.enableAutoSessionRecording = NO;
+
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
-    NSString *deviceToken = @"deviceTokenForDefaultUserDefaults";
+
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
     [userDefaults removeObjectForKey:AWSDeviceTokenKey];
-    [userDefaults setObject:deviceToken forKey:AWSDeviceTokenKey];
+    [userDefaults setObject:currentTokenData forKey:AWSDeviceTokenKey];
     [userDefaults synchronize];
     AWSPinpointEndpointProfile *endpointProfile = [pinpoint.targetingClient currentEndpointProfile];
-    XCTAssertTrue([endpointProfile.address isEqualToString:deviceToken]);
-    NSString *newDeviceToken = @"newDeviceTokenForDefaultUserDefaults";
+    XCTAssertEqualObjects(endpointProfile.address, currentTokenString);
+
     [userDefaults removeObjectForKey:AWSDeviceTokenKey];
-    [userDefaults setObject:newDeviceToken forKey:AWSDeviceTokenKey];
+    [userDefaults setObject:newTokenData forKey:AWSDeviceTokenKey];
     [userDefaults synchronize];
     endpointProfile = [pinpoint.targetingClient currentEndpointProfile];
-    XCTAssertFalse([endpointProfile.address isEqualToString:deviceToken]);
-    XCTAssertTrue([endpointProfile.address isEqualToString:newDeviceToken]);
+    XCTAssertEqualObjects(endpointProfile.address, newTokenString);
+
     [userDefaults removeObjectForKey:AWSDeviceTokenKey];
     [userDefaults synchronize];
 }

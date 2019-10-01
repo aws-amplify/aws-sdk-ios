@@ -14,7 +14,6 @@
 //
 
 #import "AWSSTSService.h"
-#import "AWSNetworking.h"
 #import "AWSCategory.h"
 #import "AWSNetworking.h"
 #import "AWSSignature.h"

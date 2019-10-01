@@ -14,7 +14,6 @@
 //
 
 #import "AWSLambdaService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -27,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.11.0";
+NSString *const AWSLambdaSDKVersion = @"2.11.1";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
