@@ -32,7 +32,7 @@
 NSString *const AWSTranscribeStreamingClientErrorDomain = @"com.amazonaws.AWSTranscribeStreamingClientErrorDomain";
 
 static NSString *const AWSInfoTranscribeStreaming = @"TranscribeStreaming";
-NSString *const AWSTranscribeStreamingSDKVersion = @"2.11.0";
+NSString *const AWSTranscribeStreamingSDKVersion = @"2.11.1";
 
 @interface AWSTranscribeStreamingResponseSerializer : AWSJSONResponseSerializer
 
