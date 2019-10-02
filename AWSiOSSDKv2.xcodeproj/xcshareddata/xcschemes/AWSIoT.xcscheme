@@ -57,6 +57,16 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAFE10AE234D3CF200BD2DCA"
+               BuildableName = "AWSIoTFreeRTOSOTATests.xctest"
+               BlueprintName = "AWSIoTFreeRTOSOTATests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
