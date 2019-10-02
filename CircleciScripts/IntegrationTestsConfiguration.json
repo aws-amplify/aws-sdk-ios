@@ -259,6 +259,11 @@
       "AWSTranscribeTests": {}
     }
   },
+  "TranscribeStreaming": {
+    "test_list": {
+      "AWSTranscribeStreamingTests": {}
+    }
+  },
   "Translate": {
     "test_list": {
       "AWSTranslateTests": {}

@@ -40,6 +40,7 @@ podpackages = [
     'AWSSimpleDB.podspec',
     'AWSTextract.podspec',
     'AWSTranscribe.podspec',
+    'AWSTranscribeStreaming.podspec',
     'AWSTranslate.podspec',
 
     'AWSAuthCore.podspec',

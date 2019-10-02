@@ -46,6 +46,7 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[] DEPRECATED_MSG_ATTR
 #import "AWSIdentityProvider.h"
 #import "AWSModel.h"
 #import "AWSNetworking.h"
+#import "AWSNetworkingHelpers.h"
 #import "AWSCategory.h"
 #import "AWSLogging.h"
 #import "AWSClientContext.h"
