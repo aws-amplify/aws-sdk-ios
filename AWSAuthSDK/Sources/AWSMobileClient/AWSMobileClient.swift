@@ -234,7 +234,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                 loadOAuthURIQueryParametersFromKeychain()
                 
                 let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
-                var infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
+                let infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
                 
                 let clientId = infoDictionary?["AppClientId"] as? String
                 let secret = infoDictionary?["AppClientSecret"] as? String
@@ -386,7 +386,7 @@ final public class AWSMobileClient: _AWSMobileClient {
             loadOAuthURIQueryParametersFromKeychain()
             
             let infoDictionaryMobileClient = AWSInfo.default().rootInfoDictionary["Auth"] as? [String: [String: Any]]
-            var infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
+            let infoDictionary: [String: Any]? = infoDictionaryMobileClient?["Default"]?["OAuth"] as? [String: Any]
             
             let clientId = infoDictionary?["AppClientId"] as? String
             let secret = infoDictionary?["AppClientSecret"] as? String

@@ -14,7 +14,6 @@
 //
 
 #import "AWSLexService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -28,7 +27,7 @@
 #import "AWSLexSignature.h"
 
 static NSString *const AWSInfoLex = @"Lex";
-NSString *const AWSLexSDKVersion = @"2.11.0";
+NSString *const AWSLexSDKVersion = @"2.11.1";
 
 
 @interface AWSLexResponseSerializer : AWSJSONResponseSerializer

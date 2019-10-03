@@ -14,7 +14,6 @@
 //
 
 #import "AWSKinesisVideoService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSKinesisVideoResources.h"
 
 static NSString *const AWSInfoKinesisVideo = @"KinesisVideo";
-NSString *const AWSKinesisVideoSDKVersion = @"2.11.0";
+NSString *const AWSKinesisVideoSDKVersion = @"2.11.1";
 
 
 @interface AWSKinesisVideoResponseSerializer : AWSJSONResponseSerializer

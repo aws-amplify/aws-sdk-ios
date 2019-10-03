@@ -255,7 +255,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -274,7 +274,7 @@ jobs:
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
   unittest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -299,7 +299,7 @@ jobs:
           path: test_result
   pre_integrationtest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -343,69 +343,71 @@ jobs:
             - build_result
   post_integrationtest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
       - override_test_job
       - restore_cache:
+          key: test_result-{{ .Revision }}-APIGateway
+      - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SQS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-MobileAnalytics
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Rekognition
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SES
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SNS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-CloudWatch
       - restore_cache:
           key: test_result-{{ .Revision }}-AutoScaling
       - restore_cache:
-          key: test_result-{{ .Revision }}-APIGateway
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Translate
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Transcribe
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Polly
+          key: test_result-{{ .Revision }}-CloudWatch
       - restore_cache:
           key: test_result-{{ .Revision }}-Cognito
       - restore_cache:
           key: test_result-{{ .Revision }}-Comprehend
       - restore_cache:
+          key: test_result-{{ .Revision }}-Connect  
+      - restore_cache:
           key: test_result-{{ .Revision }}-Core
       - restore_cache:
-          key: test_result-{{ .Revision }}-Kinesis
+          key: test_result-{{ .Revision }}-DynamoDB
       - restore_cache:
-          key: test_result-{{ .Revision }}-KMS
+          key: test_result-{{ .Revision }}-EC2
       - restore_cache:
           key: test_result-{{ .Revision }}-ElasticLoadBalancing
       - restore_cache:
-          key: test_result-{{ .Revision }}-EC2
+          key: test_result-{{ .Revision }}-IoT
+      - restore_cache:
+          key: test_result-{{ .Revision }}-KMS
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Kinesis
       - restore_cache:
           key: test_result-{{ .Revision }}-Lambda
       - restore_cache:
           key: test_result-{{ .Revision }}-Lex
       - restore_cache:
-          key: test_result-{{ .Revision }}-IoT
-      - restore_cache:
           key: test_result-{{ .Revision }}-MachineLearning
+      - restore_cache:
+          key: test_result-{{ .Revision }}-MobileAnalytics
       - restore_cache:
           key: test_result-{{ .Revision }}-Pinpoint
       - restore_cache:
-          key: test_result-{{ .Revision }}-Textract
+          key: test_result-{{ .Revision }}-Polly
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Rekognition
       - restore_cache:
           key: test_result-{{ .Revision }}-S3
       - restore_cache:
-          key: test_result-{{ .Revision }}-DynamoDB
+          key: test_result-{{ .Revision }}-SES
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SNS
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SQS
       - restore_cache:
           key: test_result-{{ .Revision }}-SageMakerRuntime
       - restore_cache:
-          key: test_result-{{ .Revision }}-Connect  
+          key: test_result-{{ .Revision }}-Textract
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Transcribe
+      - restore_cache:
+          key: test_result-{{ .Revision }}-TranscribeStreaming
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Translate
       - store_artifacts:
           path: integration_test_result
       - run:
@@ -426,7 +428,7 @@ jobs:
         default: stable_testList
         type: string
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -470,7 +472,7 @@ jobs:
   release_tag:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -488,7 +490,7 @@ jobs:
   release_carthage:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -527,7 +529,7 @@ jobs:
   release_cocoapods:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -571,7 +573,7 @@ jobs:
   release_jazzydoc:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.1"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -601,7 +603,7 @@ jobs:
   run_ui_test:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.1"
+      xcode: "11.0.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -626,7 +628,7 @@ jobs:
           path: raw_ui_test.log
   add_doc_tag:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -640,7 +642,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "10.2.1"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -684,7 +686,7 @@ jobs:
 
   bump_ios_amplifydocs_version:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -714,7 +716,7 @@ jobs:
 
   release_ios_s3:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -916,86 +918,7 @@ workflows:
               only:
                 - master
                 - develop
-      - integrationtest:
-          name: AWSMobileClient
-          groupname: AWSMobileClient
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: SQS
-          groupname: SQS
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: MobileAnalytics
-          groupname: MobileAnalytics
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Rekognition
-          groupname: Rekognition
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: SES
-          groupname: SES
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: SNS
-          groupname: SNS
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: CloudWatch
-          groupname: CloudWatch
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: AutoScaling
-          groupname: AutoScaling
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+
       - integrationtest:
           name: APIGateway
           groupname: APIGateway
@@ -1006,9 +929,10 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
-          name: Translate
-          groupname: Translate
+          name: AutoScaling
+          groupname: AutoScaling
           requires:
             - pre_integrationtest
           filters:
@@ -1016,9 +940,10 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
-          name: Transcribe
-          groupname: Transcribe
+          name: AWSMobileClient
+          groupname: AWSMobileClient
           requires:
             - pre_integrationtest
           filters:
@@ -1026,9 +951,10 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
-          name: Polly
-          groupname: Polly
+          name: CloudWatch
+          groupname: CloudWatch
           requires:
             - pre_integrationtest
           filters:
@@ -1036,6 +962,7 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
           name: Cognito
           groupname: Cognito
@@ -1046,6 +973,7 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
           name: Comprehend
           groupname: Comprehend
@@ -1056,146 +984,7 @@ workflows:
               only:
                 - master
                 - develop
-      - integrationtest:
-          name: Core
-          groupname: Core
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Kinesis
-          groupname: Kinesis
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: KMS
-          groupname: KMS
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: ElasticLoadBalancing
-          groupname: ElasticLoadBalancing
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: EC2
-          groupname: EC2
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Lambda
-          groupname: Lambda
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Lex
-          groupname: Lex
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: IoT
-          groupname: IoT
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      # - integrationtest:
-      #     name: MachineLearning
-      #     groupname: MachineLearning
-      #     requires:
-      #       - pre_integrationtest
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      #           - develop
-      - integrationtest:
-          name: Pinpoint
-          groupname: Pinpoint
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: S3
-          groupname: S3
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: DynamoDB
-          groupname: DynamoDB
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Textract
-          groupname: Textract
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: SageMakerRuntime
-          groupname: SageMakerRuntime
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+
       - integrationtest:
           name: Connect
           groupname: Connect
@@ -1206,37 +995,280 @@ workflows:
               only:
                 - master
                 - develop
+
+      - integrationtest:
+          name: Core
+          groupname: Core
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: DynamoDB
+          groupname: DynamoDB
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: EC2
+          groupname: EC2
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: ElasticLoadBalancing
+          groupname: ElasticLoadBalancing
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: IoT
+          groupname: IoT
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Kinesis
+          groupname: Kinesis
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: KMS
+          groupname: KMS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Lambda
+          groupname: Lambda
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Lex
+          groupname: Lex
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: MobileAnalytics
+          groupname: MobileAnalytics
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Pinpoint
+          groupname: Pinpoint
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Polly
+          groupname: Polly
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Rekognition
+          groupname: Rekognition
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: S3
+          groupname: S3
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SES
+          groupname: SES
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SNS
+          groupname: SNS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SQS
+          groupname: SQS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Transcribe
+          groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: TranscribeStreaming
+          groupname: TranscribeStreaming
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Translate
+          groupname: Translate
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
       - post_integrationtest:
           requires:
-            - AWSMobileClient
-            - SQS
-            - MobileAnalytics
-            - Rekognition
-            - SES
-            - SNS
-            - CloudWatch
-            - AutoScaling
             - APIGateway
-            - Translate
-            - Transcribe
-            - Polly
+            - AWSMobileClient
+            - AutoScaling
+            - CloudWatch
             - Cognito
             - Comprehend
+            - Connect
             - Core
-            - Kinesis
-            - KMS
-            - ElasticLoadBalancing
+            - DynamoDB
             - EC2
+            - ElasticLoadBalancing
+            - IoT
+            - KMS
+            - Kinesis
             - Lambda
             - Lex
-            - IoT
-            # - MachineLearning
+            - MobileAnalytics
             - Pinpoint
+            - Polly
+            - Rekognition
             - S3
-            - DynamoDB
-            - Textract
+            - SES
+            - SNS
+            - SQS
             - SageMakerRuntime
-            - Connect
+            - Textract
+            - Transcribe
+            - TranscribeStreaming
+            - Translate
           filters:
             branches:
               only:
@@ -1394,6 +1426,16 @@ workflows:
       - integrationtest:
           name: Transcribe
           groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: TranscribeStreaming
+          groupname: TranscribeStreaming
           requires:
             - pre_integrationtest
           filters:
@@ -1594,6 +1636,7 @@ workflows:
             - APIGateway
             - Translate
             - Transcribe
+            - TranscribeStreaming
             - Polly
             - Cognito
             - Comprehend

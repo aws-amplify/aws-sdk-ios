@@ -14,6 +14,8 @@ bash CircleciScripts/run_unittest_bundle.sh AWSCognitoIdentityProviderUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCognitoUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSComprehendUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCoreUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSCoreConfigurationTest
+bash CircleciScripts/run_unittest_bundle.sh AWSCoreServiceConfigurationTest
 bash CircleciScripts/run_unittest_bundle.sh AWSDynamoDBUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSEC2UnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSElasticLoadBalancingUnitTests
@@ -34,6 +36,8 @@ bash CircleciScripts/run_unittest_bundle.sh AWSS3UnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSESUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSNSUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSQSUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSSageMakerRuntimeUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSSimpleDBUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSTranscribeUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSTranscribeStreamingUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSTranslateUnitTests

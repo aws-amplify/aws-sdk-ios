@@ -29,8 +29,8 @@ To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS]
 
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
-* Xcode 9.2 or later
-* iOS 8 or later
+* Xcode 11.0 or later
+* Most SDKs require iOS 8 or later. AWSCognitoAuth and AWSMobileClient require iOS 9.
 
 ## Include the SDK for iOS in an Existing Application
 
@@ -143,7 +143,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         Input Files: Empty
         Output Files: Empty
 
-> Note: Currently, the AWS SDK for iOS builds the Carthage binaries using Xcode 10.1.0. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
+> Note: Currently, the AWS SDK for iOS builds the Carthage binaries using Xcode 11.0.0. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
 
 ### Frameworks
 
