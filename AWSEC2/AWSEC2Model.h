@@ -307,6 +307,13 @@ typedef NS_ENUM(NSInteger, AWSEC2DeleteFleetErrorCode) {
     AWSEC2DeleteFleetErrorCodeUnexpectedError,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2DeleteQueuedReservedInstancesErrorCode) {
+    AWSEC2DeleteQueuedReservedInstancesErrorCodeUnknown,
+    AWSEC2DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid,
+    AWSEC2DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState,
+    AWSEC2DeleteQueuedReservedInstancesErrorCodeUnexpectedError,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2DeviceType) {
     AWSEC2DeviceTypeUnknown,
     AWSEC2DeviceTypeEBS,
@@ -1038,6 +1045,8 @@ typedef NS_ENUM(NSInteger, AWSEC2ReservedInstanceState) {
     AWSEC2ReservedInstanceStateActive,
     AWSEC2ReservedInstanceStatePaymentFailed,
     AWSEC2ReservedInstanceStateRetired,
+    AWSEC2ReservedInstanceStateQueued,
+    AWSEC2ReservedInstanceStateQueuedDeleted,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ResetFpgaImageAttributeName) {
@@ -1760,6 +1769,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteNetworkInterfacePermissionResult;
 @class AWSEC2DeleteNetworkInterfaceRequest;
 @class AWSEC2DeletePlacementGroupRequest;
+@class AWSEC2DeleteQueuedReservedInstancesError;
+@class AWSEC2DeleteQueuedReservedInstancesRequest;
+@class AWSEC2DeleteQueuedReservedInstancesResult;
 @class AWSEC2DeleteRouteRequest;
 @class AWSEC2DeleteRouteTableRequest;
 @class AWSEC2DeleteSecurityGroupRequest;
@@ -2070,6 +2082,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ExportToS3TaskSpecification;
 @class AWSEC2ExportTransitGatewayRoutesRequest;
 @class AWSEC2ExportTransitGatewayRoutesResult;
+@class AWSEC2FailedQueuedPurchaseDeletion;
 @class AWSEC2Filter;
 @class AWSEC2FleetData;
 @class AWSEC2FleetLaunchTemplateConfig;
@@ -2471,6 +2484,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2SubnetCidrBlockState;
 @class AWSEC2SubnetIpv6CidrBlockAssociation;
 @class AWSEC2SuccessfulInstanceCreditSpecificationItem;
+@class AWSEC2SuccessfulQueuedPurchaseDeletion;
 @class AWSEC2Tag;
 @class AWSEC2TagDescription;
 @class AWSEC2TagSpecification;
@@ -8669,6 +8683,60 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
+ */
+@interface AWSEC2DeleteQueuedReservedInstancesError : AWSModel
+
+
+/**
+ <p>The error code.</p>
+ */
+@property (nonatomic, assign) AWSEC2DeleteQueuedReservedInstancesErrorCode code;
+
+/**
+ <p>The error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteQueuedReservedInstancesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IDs of the Reserved Instances.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable reservedInstancesIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteQueuedReservedInstancesResult : AWSModel
+
+
+/**
+ <p>Information about the queued purchases that could not be deleted.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2FailedQueuedPurchaseDeletion *> * _Nullable failedQueuedPurchaseDeletions;
+
+/**
+ <p>Information about the queued purchases that were successfully deleted.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2SuccessfulQueuedPurchaseDeletion *> * _Nullable successfulQueuedPurchaseDeletions;
+
+@end
+
+/**
  
  */
 @interface AWSEC2DeleteRouteRequest : AWSRequest
@@ -14841,7 +14909,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+ <p>Indicates whether the EBS volume is deleted on instance termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving Amazon EBS Volumes on Instance Termination</a> in the Amazon Elastic Compute Cloud User Guide.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
@@ -15644,6 +15712,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The URL of the exported file in Amazon S3. For example, s3://<i>bucket_name</i>/VPCTransitGateway/TransitGatewayRouteTables/<i>file_name</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Location;
+
+@end
+
+/**
+ <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
+ */
+@interface AWSEC2FailedQueuedPurchaseDeletion : AWSModel
+
+
+/**
+ <p>The error.</p>
+ */
+@property (nonatomic, strong) AWSEC2DeleteQueuedReservedInstancesError * _Nullable error;
+
+/**
+ <p>The ID of the Reserved Instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable reservedInstancesId;
 
 @end
 
@@ -23480,6 +23566,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2ReservedInstanceLimitPrice * _Nullable limitPrice;
 
 /**
+ <p>The time at which to purchase the Reserved Instance.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable purchaseTime;
+
+/**
  <p>The ID of the Reserved Instance offering to purchase.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable reservedInstancesOfferingId;
@@ -24369,7 +24460,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2SpotInstanceType types;
 
 /**
- <p>The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.</p>
+ <p>The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.</p><p>The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable validFrom;
 
@@ -27944,6 +28035,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
+ */
+@interface AWSEC2SuccessfulQueuedPurchaseDeletion : AWSModel
+
+
+/**
+ <p>The ID of the Reserved Instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable reservedInstancesId;
 
 @end
 

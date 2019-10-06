@@ -6733,6 +6733,73 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DeleteQueuedReservedInstancesError
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"message" : @"Message",
+             };
+}
+
++ (NSValueTransformer *)codeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"reserved-instances-id-invalid"] == NSOrderedSame) {
+            return @(AWSEC2DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid);
+        }
+        if ([value caseInsensitiveCompare:@"reserved-instances-not-in-queued-state"] == NSOrderedSame) {
+            return @(AWSEC2DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState);
+        }
+        if ([value caseInsensitiveCompare:@"unexpected-error"] == NSOrderedSame) {
+            return @(AWSEC2DeleteQueuedReservedInstancesErrorCodeUnexpectedError);
+        }
+        return @(AWSEC2DeleteQueuedReservedInstancesErrorCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid:
+                return @"reserved-instances-id-invalid";
+            case AWSEC2DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState:
+                return @"reserved-instances-not-in-queued-state";
+            case AWSEC2DeleteQueuedReservedInstancesErrorCodeUnexpectedError:
+                return @"unexpected-error";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2DeleteQueuedReservedInstancesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"reservedInstancesIds" : @"ReservedInstancesIds",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteQueuedReservedInstancesResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failedQueuedPurchaseDeletions" : @"FailedQueuedPurchaseDeletions",
+             @"successfulQueuedPurchaseDeletions" : @"SuccessfulQueuedPurchaseDeletions",
+             };
+}
+
++ (NSValueTransformer *)failedQueuedPurchaseDeletionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2FailedQueuedPurchaseDeletion class]];
+}
+
++ (NSValueTransformer *)successfulQueuedPurchaseDeletionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SuccessfulQueuedPurchaseDeletion class]];
+}
+
+@end
+
 @implementation AWSEC2DeleteRouteRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -14529,6 +14596,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"s3Location" : @"S3Location",
              };
+}
+
+@end
+
+@implementation AWSEC2FailedQueuedPurchaseDeletion
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"error" : @"Error",
+             @"reservedInstancesId" : @"ReservedInstancesId",
+             };
+}
+
++ (NSValueTransformer *)errorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2DeleteQueuedReservedInstancesError class]];
 }
 
 @end
@@ -29245,12 +29327,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dryRun" : @"DryRun",
              @"instanceCount" : @"InstanceCount",
              @"limitPrice" : @"LimitPrice",
+             @"purchaseTime" : @"PurchaseTime",
              @"reservedInstancesOfferingId" : @"ReservedInstancesOfferingId",
              };
 }
 
 + (NSValueTransformer *)limitPriceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ReservedInstanceLimitPrice class]];
+}
+
++ (NSValueTransformer *)purchaseTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
 }
 
 @end
@@ -33780,6 +33871,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"retired"] == NSOrderedSame) {
             return @(AWSEC2ReservedInstanceStateRetired);
         }
+        if ([value caseInsensitiveCompare:@"queued"] == NSOrderedSame) {
+            return @(AWSEC2ReservedInstanceStateQueued);
+        }
+        if ([value caseInsensitiveCompare:@"queued-deleted"] == NSOrderedSame) {
+            return @(AWSEC2ReservedInstanceStateQueuedDeleted);
+        }
         return @(AWSEC2ReservedInstanceStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -33791,6 +33888,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"payment-failed";
             case AWSEC2ReservedInstanceStateRetired:
                 return @"retired";
+            case AWSEC2ReservedInstanceStateQueued:
+                return @"queued";
+            case AWSEC2ReservedInstanceStateQueuedDeleted:
+                return @"queued-deleted";
             default:
                 return nil;
         }
@@ -43996,6 +44097,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSEC2SuccessfulQueuedPurchaseDeletion
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"reservedInstancesId" : @"ReservedInstancesId",
              };
 }
 
