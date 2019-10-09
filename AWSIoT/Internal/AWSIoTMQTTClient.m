@@ -21,6 +21,10 @@
 #import "AWSIoTWebSocketOutputStream.h"
 #import "AWSIoTKeychain.h"
 
+#if DEBUG
+#import "DataWriter.h"
+#endif
+
 @implementation AWSIoTMQTTTopicModel
 @end
 
@@ -77,6 +81,10 @@
 @property (atomic, assign) BOOL runLoopShouldContinue;
 
 @property (strong,atomic) dispatch_semaphore_t timerSemaphore;
+
+#if DEBUG
+@property (nonatomic, strong) DataWriter *dataWriter;
+#endif
 
 @end
 
@@ -1154,7 +1162,10 @@
 
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
     AWSDDLogInfo(@"Websocket did open and is connected.");
-    
+#if DEBUG
+    self.dataWriter = [[DataWriter alloc] initWithTag:[self dataWriterTag]];
+#endif
+
     // The WebSocket is connected; at this point we need to create streams
     // for MQTT encode/decode and then instantiate the MQTT client.
     CFReadStreamRef decoderReadStream;
@@ -1216,6 +1227,10 @@
         NSData *messageData = (NSData *)message;
         AWSDDLogVerbose(@"Websocket didReceiveMessage: Received %lu bytes", (unsigned long)messageData.length);
     
+#if DEBUG
+        [self.dataWriter writeData:messageData];
+#endif
+
         // When a message is received, write it to the Decoder's input stream.
         [self.toDecoderStream write:[messageData bytes] maxLength:messageData.length];
     }
@@ -1251,5 +1266,12 @@
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
     AWSDDLogVerbose(@"Websocket received pong");
 }
+
+#if DEBUG
+- (NSString *)dataWriterTag {
+    NSString *tag = [NSString stringWithFormat:@"AWSIoTMQTTClient-%@", self.webSocket.url.host];
+    return tag;
+}
+#endif
 
 @end

@@ -92,8 +92,14 @@ struct OTAFilePayload {
     /// The client token associated with this request
     let clientToken: String
 
+    /// The OTA Job ID associated with this payload
+    let jobId: String
+
     /// The file being fulfilled
     let file: OTAJobResponse.Execution.JobDocument.OTASpec.File
+
+    /// The stream from which this payload is being downloaded
+    let streamName: String
 
     /// The size of each payload block
     let blockSize: Int
@@ -170,10 +176,18 @@ struct OTAFilePayload {
         return responses.filter { $0 == nil }.count
     }
 
+    var thingName: String {
+        let thingName = clientToken.split(separator: ":", maxSplits: 1)[1]
+        return String(thingName)
+    }
+
     init(clientToken: String,
-         file: OTAJobResponse.Execution.JobDocument.OTASpec.File) {
+         response: OTAJobResponse) {
+        jobId = response.execution.jobId
+        file = response.firstFile
+        streamName = response.streamName
+
         self.clientToken = clientToken
-        self.file = file
         self.blockSize = OTAFilePayload.defaultBlockSize
         self.fileSize = file.filesize
 
@@ -203,6 +217,36 @@ struct OTAFilePayload {
     }
 }
 
+extension OTAFilePayload: Codable {
+    static func getFilePath(forThingName thingName: String) -> URL {
+        let fileName = normalizeForFile(string: thingName).appending(".json")
+        let filePath = FileManager.default.temporaryDirectory.appendingPathComponent(fileName)
+        return filePath
+    }
+
+    static func normalizeForFile(string: String) -> String {
+        let illegalCharacters = CharacterSet(charactersIn: #"/:?%*|"<>"#)
+        let normalized = string.components(separatedBy: illegalCharacters).joined()
+        return normalized
+    }
+
+    func writeToFile() throws {
+        let jsonEncoder = JSONEncoder()
+        let json = try jsonEncoder.encode(self)
+        let filePath = OTAFilePayload.getFilePath(forThingName: thingName)
+        try json.write(to: filePath)
+        print("Wrote to \(filePath.path)")
+    }
+
+    init(fromFilePathForThingName thingName: String) throws {
+        let filePath = OTAFilePayload.getFilePath(forThingName: thingName)
+        let jsonData = try Data(contentsOf: filePath)
+        let jsonDecoder = JSONDecoder()
+        self = try jsonDecoder.decode(OTAFilePayload.self, from: jsonData)
+        print("Initialized from \(filePath.path)")
+    }
+}
+
 // MARK: - OTABlockResponse
 
 /**
@@ -219,7 +263,7 @@ struct OTAFilePayload {
  }
  ```
  */
-struct OTABlockResponse {
+struct OTABlockResponse: Codable {
     let blockLength: Int
     let fileId: Int
     let blockIndex: Int

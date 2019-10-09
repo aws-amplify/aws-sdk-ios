@@ -29,9 +29,13 @@ class OTATests: XCTestCase {
     // MARK: - Thing properties
 
     let thingName: String = {
+        return OTATests.getNewThingName()
+    }()
+
+    static func getNewThingName() -> String {
         let timestamp = IoTTestHelpers.thingNameDateFormatter.string(from: Date())
         return "OTATests-TestThing-\(timestamp)"
-    }()
+    }
 
     // MARK: - Test lifecycle
 
@@ -78,6 +82,8 @@ class OTATests: XCTestCase {
     }
 
     override func tearDown() {
+        clearCredentials()
+
         // Make a best effort attempt to delete the thing created for the tests below, but ignore any errors encountered
         // during the operation
         do {
@@ -89,17 +95,19 @@ class OTATests: XCTestCase {
 
     // MARK: - Test
 
-    /// - Given: A Thing added to an OTA-enabled group
-    /// - When: I notify the system I am ready to receive an OTA job
-    /// - Then: I am able to process a complete OTA job payload from start to finish
-    func testFullOTAJob() throws {
-        try IoTTestHelpers.createThing(withName: thingName)
-        try OTATests.addThingToOTAGroup(thingName: thingName)
-        let otaJobResponse = try OTATests.startOTAJob(for: thingName, testCase: self)
 
-        let clientToken = IoTTestHelpers.getClientToken(forThingName: thingName)
+    func testInProcessOTAJob() throws {
+        let previouslyFailingThingName = "OTATests-TestThing-2019-10-09_16:33:52-390"
+        guard !previouslyFailingThingName.isEmpty else {
+            return
+        }
 
-        var otaFilePayload = OTAFilePayload(clientToken: clientToken, file: otaJobResponse.firstFile)
+        var otaFilePayload = try OTAFilePayload(fromFilePathForThingName: previouslyFailingThingName)
+        let clientToken = otaFilePayload.clientToken
+        let streamName = otaFilePayload.streamName
+
+        // Serial queue to ensure consistency of the otaFilePayload
+        let updateQueue = DispatchQueue(label: "testInProcessOTAJob updater")
 
         let otaDataCallback: AWSIoTMQTTNewMessageBlock = { data in
             do {
@@ -112,7 +120,9 @@ class OTATests: XCTestCase {
                     throw "Unable to create response from cbor: \(cbor)"
                 }
 
-                otaFilePayload.fulfill(response: response)
+                updateQueue.async {
+                    otaFilePayload.fulfill(response: response)
+                }
             } catch {
                 print("Unable to decode reponse: \(error)")
             }
@@ -120,8 +130,20 @@ class OTATests: XCTestCase {
 
         let manager = AWSIoTDataManager(forKey: OTATests.dataManagerServiceKey)
 
+        let connected = DispatchSemaphore(value: 0)
+        manager.connectUsingWebSocket(withClientId: thingName, cleanSession: true) { status in
+            switch status {
+            case .connected:
+                connected.signal()
+            default:
+                break;
+            }
+        }
+        _ = connected.wait(timeout: .now()
+            + DispatchTimeInterval(timeInterval: OTATests.networkTimeout))
+
         let dataDownloadTopic = IoTTestHelpers.getDataDownloadTopic(forThingName: thingName,
-                                                                    streamName: otaJobResponse.streamName)
+                                                                    streamName: streamName)
 
         let dataSubscriptionAcknowledged = DispatchSemaphore(value: 0)
         let dataSubscriptionACKCallback: AWSIoTMQTTAckBlock = {
@@ -137,12 +159,14 @@ class OTATests: XCTestCase {
             sleep(3)
         }
 
-        DispatchQueue.global().async {
-            manager.subscribe(toTopic: dataDownloadTopic,
-                              qoS: .messageDeliveryAttemptedAtMostOnce,
-                              messageCallback: otaDataCallback,
-                              ackCallback: dataSubscriptionACKCallback)
+        guard manager.subscribe(toTopic: dataDownloadTopic,
+                                qoS: .messageDeliveryAttemptedAtMostOnce,
+                                messageCallback: otaDataCallback,
+                                ackCallback: dataSubscriptionACKCallback) else {
+                                    XCTFail("Can't subscribe to \(dataDownloadTopic)")
+                                    return
         }
+        print("Subscribed to \(dataDownloadTopic)")
 
         _ = dataSubscriptionAcknowledged
             .wait(timeout: .now() + DispatchTimeInterval(timeInterval: OTATests.networkTimeout))
@@ -153,14 +177,14 @@ class OTATests: XCTestCase {
 
             // Uncomment the line below to view the windowRequest--this is especially useful for seeing the bitmap
             // used to request the next set of blocks from the service.
-            // print("windowRequest: \(windowRequest.debugDescription)")
+            print("windowRequest: \(windowRequest.debugDescription)")
             let windowRequestCBOR = windowRequest.cborEncoded
 
             let deadline = Date(timeIntervalSinceNow: 2.5)
             let expectedUnfulfilledBlocksAfterWindow = otaFilePayload.unfufilledBlockCount - windowRequest.numBlocks
 
             let getDataTopic = IoTTestHelpers.getDataTopic(forThingName: thingName,
-                                                           streamName: otaJobResponse.streamName)
+                                                           streamName: streamName)
 
             manager.publishData(windowRequestCBOR,
                                 onTopic: getDataTopic,
@@ -190,12 +214,154 @@ class OTATests: XCTestCase {
         XCTAssertEqual(actualData, expectedData)
 
         // Send completion message
-        let completionMessage = #"{"status":"succeeded","statusDetails":{"reason":"accepted v1.0.0"}}"#
+        let completionMessage = #"{"status":"SUCCEEDED","statusDetails":{"reason":"accepted v1.0.0"}}"#
         let completionTopic = IoTTestHelpers.getOTAUpdateJobTopic(forThingName: thingName,
-                                                                  jobId: otaJobResponse.execution.jobId)
+                                                                  jobId: otaFilePayload.jobId)
         manager.publishString(completionMessage,
                               onTopic: completionTopic,
                               qoS: .messageDeliveryAttemptedAtMostOnce)
+    }
+
+    /// - Given: A Thing added to an OTA-enabled group
+    /// - When: I notify the system I am ready to receive an OTA job
+    /// - Then: I am able to process a complete OTA job payload from start to finish
+    func testFullOTAJob() throws {
+        for i in 0 ..< 10 {
+            do {
+                if i.isMultiple(of: 5) {
+                    clearCredentials()
+                }
+
+                let thingName = OTATests.getNewThingName()
+
+                defer {
+                    do {
+                        try IoTTestHelpers.deleteThing(withName: thingName)
+                    } catch {
+                        print("Ignoring error deleting thing \(thingName): \(error)")
+                    }
+                }
+
+                try IoTTestHelpers.createThing(withName: thingName)
+                try OTATests.addThingToOTAGroup(thingName: thingName)
+                let otaJobResponse = try OTATests.startOTAJob(for: thingName, testCase: self)
+
+                let clientToken = IoTTestHelpers.getClientToken(forThingName: thingName)
+
+                var otaFilePayload = OTAFilePayload(clientToken: clientToken, response: otaJobResponse)
+
+                // Serial queue to ensure consistency of the otaFilePayload
+                let updateQueue = DispatchQueue(label: "otaFilePayload updater")
+
+                let otaDataCallback: AWSIoTMQTTNewMessageBlock = { data in
+                    do {
+                        let byteArray = [UInt8](data)
+                        guard let cbor = try CBOR.decode(byteArray) else {
+                            throw "Unable to decode CBOR in data callback"
+                        }
+
+                        guard let response = OTABlockResponse(fromCBOR: cbor) else {
+                            throw "Unable to create response from cbor: \(cbor)"
+                        }
+
+                        updateQueue.async {
+                            otaFilePayload.fulfill(response: response)
+                        }
+                    } catch {
+                        XCTFail("Unable to decode reponse: \(error)")
+                    }
+                }
+
+                let manager = AWSIoTDataManager(forKey: OTATests.dataManagerServiceKey)
+
+                let dataDownloadTopic = IoTTestHelpers.getDataDownloadTopic(forThingName: thingName,
+                                                                            streamName: otaJobResponse.streamName)
+
+                let dataSubscriptionAcknowledged = DispatchSemaphore(value: 0)
+                let dataSubscriptionACKCallback: AWSIoTMQTTAckBlock = {
+                    dataSubscriptionAcknowledged.signal()
+                }
+
+                // Wrap up the test
+                defer {
+                    manager.unsubscribeTopic(dataDownloadTopic)
+                    manager.disconnect()
+
+                    // Wait a few seconds for the unsubscribe to finish, so we don't incur any bad access errors in the test
+                    sleep(3)
+                }
+
+                DispatchQueue.global().async {
+                    manager.subscribe(toTopic: dataDownloadTopic,
+                                      qoS: .messageDeliveryAttemptedAtMostOnce,
+                                      messageCallback: otaDataCallback,
+                                      ackCallback: dataSubscriptionACKCallback)
+                }
+
+                _ = dataSubscriptionAcknowledged
+                    .wait(timeout: .now() + DispatchTimeInterval(timeInterval: OTATests.networkTimeout))
+
+                let jobDeadline = Date(timeIntervalSinceNow: OTATests.networkTimeout)
+                while Date() < jobDeadline && otaFilePayload.unfufilledBlockCount > 0 {
+                    let windowRequest = otaFilePayload.nextWindowRequest()
+                    // Uncomment the line below to view the windowRequest--this is especially useful for seeing the bitmap
+                    // used to request the next set of blocks from the service.
+                    // print("windowRequest: \(windowRequest.debugDescription)")
+                    let windowRequestCBOR = windowRequest.cborEncoded
+
+                    let deadline = Date(timeIntervalSinceNow: 2.5)
+                    let expectedUnfulfilledBlocksAfterWindow = otaFilePayload.unfufilledBlockCount - windowRequest.numBlocks
+
+                    let getDataTopic = IoTTestHelpers.getDataTopic(forThingName: thingName,
+                                                                   streamName: otaJobResponse.streamName)
+
+                    manager.publishData(windowRequestCBOR,
+                                        onTopic: getDataTopic,
+                                        qoS: .messageDeliveryAttemptedAtMostOnce)
+
+                    // Wait for window to process, or for deadline to expire. If the deadline expires before we process all
+                    // blocks in the window, we'll re-request the block from the service
+                    while Date() < deadline && otaFilePayload.unfufilledBlockCount > expectedUnfulfilledBlocksAfterWindow {
+                        print("\(Date()) < \(deadline); \(otaFilePayload.unfufilledBlockCount) > \(expectedUnfulfilledBlocksAfterWindow)")
+                        sleep(1)
+                    }
+
+                }
+
+                XCTAssertEqual(otaFilePayload.unfufilledBlockCount, 0, "All blocks should be fulfilled at the end of the OTA job")
+
+                var actualPayloadBytes = [UInt8]()
+                otaFilePayload
+                    .responses
+                    .compactMap { $0 }
+                    .sorted { $0.blockIndex < $1.blockIndex }
+                    .forEach {
+                    actualPayloadBytes.append(contentsOf: $0.payload)
+                }
+                let actualData = Data(actualPayloadBytes)
+
+                let expectedDataPath = Bundle(for: type(of: self)).path(forResource: "ota_integ_test", ofType: "bin")!
+                let expectedDataURL = URL(fileURLWithPath: expectedDataPath)
+                let expectedData = try! Data(contentsOf: expectedDataURL)
+
+                XCTAssertEqual(actualData, expectedData)
+                if actualData != expectedData {
+                    try otaFilePayload.writeToFile()
+                    print("##### FAILING: Wrote \(thingName) to file")
+                }
+
+                // Send completion message
+                let completionMessage = #"{"status":"SUCCEEDED","statusDetails":{"reason":"accepted v1.0.0"}}"#
+                let completionTopic = IoTTestHelpers.getOTAUpdateJobTopic(forThingName: thingName,
+                                                                          jobId: otaJobResponse.execution.jobId)
+                manager.publishString(completionMessage,
+                                      onTopic: completionTopic,
+                                      qoS: .messageDeliveryAttemptedAtMostOnce)
+
+            } catch {
+                print("Caught error testing OTA job: \(error)")
+            }
+        }
     }
 
     // MARK: - Utilities
@@ -313,4 +479,17 @@ class OTATests: XCTestCase {
         return otaJobResponse
     }
 
+    func clearCredentials() {
+        guard let credentialsProvider = AWSServiceManager
+            .default()
+            .defaultServiceConfiguration
+            .credentialsProvider as? AWSCognitoCredentialsProvider else {
+                return
+        }
+
+        credentialsProvider.invalidateCachedTemporaryCredentials()
+        credentialsProvider.clearKeychain()
+        credentialsProvider.clearCredentials()
+
+    }
 }
