@@ -145,6 +145,8 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
         NSMutableDictionary<NSString *, id> *parameters = [NSMutableDictionary new];
         parameters[@"logoImage"] = signInUIConfiguration.logoImage;
         parameters[@"backgroundColor"] = signInUIConfiguration.backgroundColor;
+        parameters[@"backgroundBottomColor"] = signInUIConfiguration.backgroundBottomColor;
+        parameters[@"tintColor"] = signInUIConfiguration.tintColor;
         parameters[@"navigationController"] = navController;
         parameters[@"canCancel"] = signInUIConfiguration.canCancel ? @"YES" : @"NO";
         

@@ -36,23 +36,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  @property canCancel
- @brief If set to `YES` user can hit cancel button to dismiss sign in UI
+ @brief If set to `YES` user can hit cancel button to dismiss sign in UI.
  **/
 @property (atomic) BOOL canCancel;
 
 /**
  @property logoImage
- @brief The logo to be used on the Auth UI Screen
+ @brief The logo to be used on the Auth UI Screen.
  **/
 @property (nonatomic, nullable) UIImage *logoImage;
 
-
 /**
  @property backgroundColor
- @brief Gets the backgorund color of the sign in screen configured by the user
+ @brief The background color of the sign-in screen.
  **/
 @property (nonatomic, nullable) UIColor *backgroundColor;
 
+/**
+ @property backgroundBottomColor
+ @brief The background color applited to the bottom panel of the sign-in screen.
+ */
+@property (nonatomic, nullable) UIColor *backgroundBottomColor;
+
+/**
+ @property tintColor
+ @brief The view tint (foreground) color used for highlighted elements (button background, links).
+ */
+@property (nonatomic, nullable) UIColor *tintColor;
 
 /**
  @property enableUserPoolsUI

@@ -36,7 +36,15 @@
         [self onTap];
     }
 }
-    
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    // handle the case where the just added input has pre-set content
+    // so we can re-use the placeholder/label animation provided by onTap
+    if (![self.inputBox.text isEqual: @""] && self.placeHolderView.isHidden) {
+        [self onTap];
+    }
+}
 
 - (void)onTap {
     dispatch_async(dispatch_get_main_queue(), ^{

@@ -13,6 +13,9 @@
 // permissions and limitations under the License.
 //
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #import "AWSUserPoolSignUpViewController.h"
 #import <AWSUserPoolsSignIn/AWSUserPoolsSignIn.h>
 #import "AWSFormTableCell.h"
@@ -21,7 +24,6 @@
 #import "AWSUserPoolsUIHelper.h"
 #import <AWSAuthCore/AWSSignInManager.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
-
 
 @interface AWSSignInManager()
     
@@ -93,13 +95,17 @@ id<AWSUIConfiguration> config = nil;
     [self.tableView reloadData];
     [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
+
+    // setup button background
+    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
+                                            toView:self.signUpButton];
 }
 
 - (void)setUpBackground {
     if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
         self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
     }
     
     self.title = @"Sign Up";
@@ -235,10 +241,17 @@ id<AWSUIConfiguration> config = nil;
     [self.tableView reloadData];
     [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
+    
+    // setup button background
+    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
+                                            toView:self.confirmButton];
+    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
+                                            toView:self.requestCodeButton
+                                        background:NO];
 }
 
 - (void)setUpBackground {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
     self.title = @"Confirm";
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
     backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];

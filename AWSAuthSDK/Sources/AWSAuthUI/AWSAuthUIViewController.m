@@ -54,11 +54,17 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
         }
         
     }
-    if(configDictionary[@"logoImage"]) {
+    if (configDictionary[@"logoImage"]) {
         [config setLogoImage:(UIImage *)configDictionary[@"logoImage"]];
     }
-    if(configDictionary[@"backgroundColor"]) {
+    if (configDictionary[@"backgroundColor"]) {
         [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
+    }
+    if (configDictionary[@"backgroundBottomColor"]) {
+        [config setBackgroundBottomColor:(UIColor *)configDictionary[@"backgroundBottomColor"]];
+    }
+    if (configDictionary[@"tintColor"]) {
+        [config setTintColor:(UIColor *)configDictionary[@"tintColor"]];
     }
     
     [[AWSSignInManager sharedInstance] setDontFederate];

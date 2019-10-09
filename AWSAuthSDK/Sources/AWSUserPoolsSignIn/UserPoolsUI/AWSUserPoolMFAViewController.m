@@ -62,13 +62,17 @@
     [self.tableView reloadData];
     [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
+    
+    // setup button background
+    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
+                                            toView:self.signInButton];
 }
 
 - (void)setUpBackground {
     if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
         self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
     }
     
     self.title = @"MFA";

@@ -23,10 +23,10 @@ static id<AWSUIConfiguration> awsUIConfiguration;
 + (void) setUpFormShadowForView:(UIView *)view {
     view.layer.shadowColor = [UIColor blackColor].CGColor;
     view.layer.shadowOffset = CGSizeZero;
-    view.layer.shadowOpacity = 0.5;
-    view.layer.shadowRadius = 5;
+    view.layer.shadowOpacity = 0.25;
+    view.layer.shadowRadius = 6;
     view.layer.cornerRadius = 10.0;
-    view.layer.borderColor = [UIColor grayColor].CGColor;
+    view.layer.borderColor = [[UIColor grayColor] colorWithAlphaComponent:0.7].CGColor;
     view.layer.borderWidth = 0.5;
     view.layer.masksToBounds = NO;
 }
@@ -34,8 +34,33 @@ static id<AWSUIConfiguration> awsUIConfiguration;
 + (UIColor *) getBackgroundColor:(id<AWSUIConfiguration>)config {
     if (config != nil && config.backgroundColor != nil) {
         return config.backgroundColor;
-    } else {
-        return [UIColor darkGrayColor];
+    } else if (@available(iOS 13.0, *)) {
+        return [UIColor systemBackgroundColor];
+    }
+    return [UIColor darkGrayColor];
+}
+
++ (UIColor *) getDefaultBackgroundColor {
+    if (@available(iOS 13.0, *)) {
+        return [UIColor secondarySystemBackgroundColor];
+    }
+    return [UIColor whiteColor];
+}
+
++ (void) applyTintColorFromConfig:(id<AWSUIConfiguration>)config
+                           toView:(UIView *) view {
+    [self applyTintColorFromConfig:config toView:view background:YES];
+}
+
++ (void) applyTintColorFromConfig:(id<AWSUIConfiguration>)config
+                           toView:(UIView *) view
+                       background:(BOOL) background {
+    if (config.tintColor) {
+        if (background) {
+            view.backgroundColor = config.tintColor;
+        } else {
+            view.tintColor = config.tintColor;
+        }
     }
 }
 

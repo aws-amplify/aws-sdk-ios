@@ -271,6 +271,14 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         } else {
             [self.signUpButton removeFromSuperview];
         }
+        
+        // style buttons (tintColor)
+        if (self.config.tintColor) {
+            self.signInButton.backgroundColor = self.config.tintColor;
+            self.signUpButton.tintColor = self.config.tintColor;
+            self.forgotPasswordButton.tintColor = self.config.tintColor;
+        }
+        
     } else {
         [self.tableFormView removeFromSuperview];
         self.orSignInWithLabel.text = @"Sign in with";
@@ -323,10 +331,17 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpBackground:(UIColor *)color {
+    UIColor *backgroundColor = DEFAULT_BACKGROUND_COLOR_TOP;
+    UIColor *secondaryBackgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+    if (@available(iOS 13.0, *)) {
+        backgroundColor = [UIColor systemBackgroundColor];
+        secondaryBackgroundColor = [UIColor secondarySystemBackgroundColor];
+    }
+
     if (self.config.isBackgroundColorFullScreen) {
-        self.view.backgroundColor = color ?: DEFAULT_BACKGROUND_COLOR_TOP;
+        self.view.backgroundColor = color ?: backgroundColor;
     } else {
-        self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+        self.view.backgroundColor = self.config.backgroundBottomColor ?: secondaryBackgroundColor;
     }
     
     if (self.config.enableUserPoolsUI) {
@@ -334,7 +349,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         if (color != nil) {
             backgroundImageView.backgroundColor = color;
         } else {
-            backgroundImageView.backgroundColor = DEFAULT_BACKGROUND_COLOR_TOP;
+            backgroundImageView.backgroundColor = backgroundColor;
         }
         backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.view insertSubview:backgroundImageView atIndex:0];
@@ -409,6 +424,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         UIButton *btn = buttons[[buttonViews indexOfObject:signInButtonViewClass]];
         UIView<AWSSignInButtonView> *buttonView = [[signInButtonViewClass alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
         buttonView.buttonStyle = AWSSignInButtonStyleLarge;
+        if (self.config.tintColor) {
+            buttonView.backgroundColor = self.config.tintColor;
+        }
         buttonView.delegate = self;
         
         [btn addSubview:buttonView];

@@ -38,6 +38,22 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *) getBackgroundColor:(id<AWSUIConfiguration>)config;
 
 /**
+ Get the default background color. This is resilient to light/dark mode
+ setting on iOS 13.
+ */
++ (UIColor *) getDefaultBackgroundColor;
+
+/**
+ Apply button-like primary color to buttons and labels.
+ */
++ (void) applyTintColorFromConfig:(id<AWSUIConfiguration>)config
+                           toView:(UIView *) view
+                       background:(BOOL) background;
+
++ (void) applyTintColorFromConfig:(id<AWSUIConfiguration>)config
+                           toView:(UIView *) view;
+
+/**
  Retrieve the font set in the config or return nil
  
  @param config The object conforming to `AWSUIConfiguration` protocol

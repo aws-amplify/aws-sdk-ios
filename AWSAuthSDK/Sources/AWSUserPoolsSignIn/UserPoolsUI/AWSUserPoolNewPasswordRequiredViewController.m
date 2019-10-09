@@ -62,7 +62,7 @@
     if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
         self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
     }
     
     self.title = @"New Password Required";

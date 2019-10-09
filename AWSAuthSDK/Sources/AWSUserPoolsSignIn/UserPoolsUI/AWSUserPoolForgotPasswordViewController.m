@@ -68,13 +68,17 @@
     [self.tableView reloadData];
     [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
+    
+    // setup button background
+    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
+                                            toView:self.forgotPasswordButton];
 }
 
 - (void)setUpBackground {
     if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
         self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
     }
     
     self.title = @"Forgot Password";
@@ -158,13 +162,17 @@
     [self.tableView reloadData];
     [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
+    
+    // setup button background
+    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
+                                            toView:self.updatePasswordButton];
 }
 
 - (void)setUpBackground {
     if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
         self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
     }
     
     self.title = @"Forgot Password";
