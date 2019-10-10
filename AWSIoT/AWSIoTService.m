@@ -25,7 +25,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.11.1";
+NSString *const AWSIoTSDKVersion = @"2.12.0";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
