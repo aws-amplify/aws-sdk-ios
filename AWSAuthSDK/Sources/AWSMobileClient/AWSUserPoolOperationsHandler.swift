@@ -29,13 +29,20 @@ protocol UserPoolAuthHelperlCallbacks {
     
     func didCompleteNewPasswordStepWithError(_ error: Error?)
     
+    func getCustomAuthenticationDetails(_ customAuthentiationInput: AWSCognitoIdentityCustomAuthenticationInput, customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>)
+    
+    func didCompleteCustomAuthenticationStepWithError(_ error: Error?)
+    
     func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>)
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?)
     
 }
 
-internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiveAuthenticationDelegate {
+internal class UserPoolOperationsHandler: NSObject,
+    AWSCognitoIdentityInteractiveAuthenticationDelegate,
+AWSCognitoUserPoolInternalDelegate {
+    
     internal var userpoolClient: AWSCognitoIdentityUserPool?
     internal var signUpUser: AWSCognitoIdentityUser?
     
@@ -44,10 +51,8 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     }
     
     internal var passwordAuthTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
-    internal var passwordAuthInput: AWSCognitoIdentityPasswordAuthenticationInput?
-    
     internal var newPasswordRequiredTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>?
-    internal var newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput?
+    internal var customAuthChallengeTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>?
     
     internal var mfaAuthenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput?
     internal var mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>?
@@ -56,7 +61,7 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     internal var currentConfirmSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     
     var authHelperDelegate: UserPoolAuthHelperlCallbacks?
-    
+    var customAuthHandler: AWSUserPoolCustomAuthHandler?
     internal static let sharedInstance: UserPoolOperationsHandler = UserPoolOperationsHandler()
     
     public override init() {
@@ -81,6 +86,14 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     
     internal func setAuthHelperDelegate(authHelperDelegate: UserPoolAuthHelperlCallbacks) {
         self.authHelperDelegate = authHelperDelegate
+    }
+    
+    internal func startCustomAuthentication_v2() -> AWSCognitoIdentityCustomAuthentication {
+        if (customAuthHandler == nil) {
+            customAuthHandler = AWSUserPoolCustomAuthHandler()
+            customAuthHandler?.authHelperDelegate = authHelperDelegate
+        }
+        return customAuthHandler!
     }
 }
 

@@ -9,19 +9,19 @@ import XCTest
 import AWSAuthCore
 import AWSCognitoIdentityProvider
 
-class AWSMobileClientBaseTests: XCTestCase {
+class AWSMobileClientTestBase: XCTestCase {
 
-    var cognitoIdentity: AWSCognitoIdentity!
-    var userPoolsAdminClient: AWSCognitoIdentityProvider!
+    static var cognitoIdentity: AWSCognitoIdentity!
+    static var userPoolsAdminClient: AWSCognitoIdentityProvider!
     
-    var userPoolId: String!
-    var sharedEmail: String!
-    var identityPoolId: String!
+    static var userPoolId: String!
+    static var sharedEmail: String!
+    static var identityPoolId: String!
 
     // Test password that conforms to default UserPool password policies
     let sharedPassword: String = "Abc123@@!!"
     
-    override func setUp() {
+    override class func setUp() {
         let credentialsJson = loadCredentialsFromFile()
         userPoolId = (credentialsJson["mc-userpool_id"] as! String)
         sharedEmail = (credentialsJson["mc-email"] as! String)
@@ -49,16 +49,16 @@ class AWSMobileClientBaseTests: XCTestCase {
     
     //MARK: Helper methods
     
-    func loadCredentialsFromFile() -> [String: Any] {
-        let filePath = Bundle(for: type(of: self)).path(forResource: "credentials-mc", ofType: "json")!
+    static func loadCredentialsFromFile() -> [String: Any] {
+        let filePath = Bundle(for: AWSMobileClientTestBase.self).path(forResource: "credentials-mc", ofType: "json")!
         let fileData = try! NSData(contentsOfFile: filePath) as Data
         let credentialsJson = try! JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! [String: Any]
         return credentialsJson
     }
     
-    func initializeMobileClient() {
-        
-        let mobileClientIsInitialized = expectation(description: "AWSMobileClient is initialized")
+    static func initializeMobileClient() {
+        let testCase = XCTestCase()
+        let mobileClientIsInitialized = testCase.expectation(description: "AWSMobileClient is initialized")
         AWSMobileClient.default().initialize { (userState, error) in
             if let error = error {
                 XCTFail("Encountered unexpected error in initialize: \(error.localizedDescription)")
@@ -75,7 +75,7 @@ class AWSMobileClientBaseTests: XCTestCase {
             }
             mobileClientIsInitialized.fulfill()
         }
-        wait(for: [mobileClientIsInitialized], timeout: 5)
+        testCase.wait(for: [mobileClientIsInitialized], timeout: 5)
     }
     
     func signIn(username: String, password: String? = nil, verifySignState: SignInState = .signedIn) {
@@ -117,8 +117,8 @@ class AWSMobileClientBaseTests: XCTestCase {
         wait(for: [signInConfirmWasSuccessful], timeout: 5)
     }
     
-    func signUpUser(username: String, customUserAttributes: [String: String]? = nil) {
-        var userAttributes = ["email": sharedEmail!]
+    func signUpUser(username: String, customUserAttributes: [String: String]? = nil, signupState: SignUpConfirmationState = .unconfirmed) {
+        var userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
         if let customUserAttributes = customUserAttributes {
             userAttributes.merge(customUserAttributes) { current, _ in current }
         }
@@ -153,7 +153,7 @@ class AWSMobileClientBaseTests: XCTestCase {
                     print("Unexpected case")
                 }
                 
-                XCTAssertTrue(signUpResult.signUpConfirmationState == .unconfirmed, "User is expected to be marked as unconfirmed.")
+                XCTAssertTrue(signUpResult.signUpConfirmationState == signupState, "User is expected to be marked as \(signupState).")
                 
                 signUpExpectation.fulfill()
         }
@@ -168,9 +168,9 @@ class AWSMobileClientBaseTests: XCTestCase {
         }
         
         adminConfirmSignUpRequest.username = username
-        adminConfirmSignUpRequest.userPoolId = userPoolId
+        adminConfirmSignUpRequest.userPoolId = AWSMobileClientTestBase.userPoolId
         
-        userPoolsAdminClient.adminConfirmSignUp(adminConfirmSignUpRequest).continueWith(block: { (task) -> Any? in
+        AWSMobileClientTestBase.userPoolsAdminClient.adminConfirmSignUp(adminConfirmSignUpRequest).continueWith(block: { (task) -> Any? in
             if let error = task.error {
                 XCTFail("Could not confirm user. Failing the test: \(error)")
             }
@@ -192,12 +192,20 @@ class AWSMobileClientBaseTests: XCTestCase {
         adminCreateUserRequest.username = username
         adminCreateUserRequest.temporaryPassword = temporaryPassword
         adminCreateUserRequest.userAttributes = userAttributesTransformed
-        adminCreateUserRequest.userPoolId = userPoolId
-        userPoolsAdminClient.adminCreateUser(adminCreateUserRequest).continueWith { (task) -> Any? in
+        adminCreateUserRequest.userPoolId = AWSMobileClientTestBase.userPoolId
+        AWSMobileClientTestBase.userPoolsAdminClient.adminCreateUser(adminCreateUserRequest).continueWith { (task) -> Any? in
             if let error = task.error {
                 XCTFail("Could not create user. Failing the test: \(error)")
             }
             return nil
             }.waitUntilFinished()
+    }
+    
+    func invalidateSession(username: String) {
+        let bundleID = Bundle.main.bundleIdentifier
+        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
+        let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
+        let key = "\(namespace).tokenExpiration"
+        keychain.removeItem(forKey: key)
     }
 }

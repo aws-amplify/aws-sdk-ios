@@ -18,6 +18,7 @@
 #import <AWSMobileClient/AWSCognitoAuth.h>
 #import <AWSMobileClient/AWSCognitoAuth+Extensions.h>
 #import <AWSMobileClient/AWSCognitoCredentialsProvider+Extension.h>
+#import <AWSMobileClient/AWSCognitoIdentityUserPool+Extension.h>
 
 //! Project version number for AWSMobileClient.
 FOUNDATION_EXPORT double AWSMobileClientVersionNumber;

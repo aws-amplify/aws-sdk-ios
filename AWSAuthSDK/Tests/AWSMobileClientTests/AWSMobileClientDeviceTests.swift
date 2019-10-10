@@ -10,7 +10,7 @@ import AWSAuthCore
 import AWSCognitoIdentityProvider
 
 /// AWSMobileClient tests related to device operation
-class AWSMobileClientDeviceTests: AWSMobileClientBaseTests {
+class AWSMobileClientDeviceTests: AWSMobileClientTestBase {
 
     func testRememberDevice() {
         let username = "testRememberDeviceUser" + UUID().uuidString

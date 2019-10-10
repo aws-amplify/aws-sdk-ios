@@ -22,6 +22,8 @@ static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 @property (nonatomic, strong) AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration;
 @property (nonatomic, strong) NSString * pinpointEndpointId;
+@property (nonatomic, assign) BOOL isCustomAuth;
+
 @end
 
 @interface AWSCognitoIdentityProvider()
@@ -149,7 +151,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
             }
             _configuration = [[AWSServiceManager defaultServiceManager].defaultServiceConfiguration copy];
         }
-
+        _isCustomAuth = NO;
         _userPoolConfiguration = [userPoolConfiguration copy];
 
         _client = [[AWSCognitoIdentityProvider alloc] initWithConfiguration:_configuration];
