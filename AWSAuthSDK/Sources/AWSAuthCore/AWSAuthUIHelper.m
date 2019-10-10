@@ -79,6 +79,9 @@ static id<AWSUIConfiguration> awsUIConfiguration;
     return false;
 }
 
+/**
+ Check if a `UIColor` is bright or dark. Based on http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
+*/
 + (BOOL) isDarkColor:(UIColor *) color {
     const CGFloat *componentColors = CGColorGetComponents(color.CGColor);
     CGFloat colorBrightness = (

@@ -92,7 +92,7 @@
                          forState:UIControlStateNormal];
     }
     if (formCell.inputType == InputTypeStaticText) {
-        inputCell.placeHolderView.hidden = YES;
+        [inputCell showHeaderLabel:YES];
         inputCell.inputBox.text = formCell.staticText;
     }
     

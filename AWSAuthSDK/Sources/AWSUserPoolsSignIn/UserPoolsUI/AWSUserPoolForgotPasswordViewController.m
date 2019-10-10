@@ -92,6 +92,7 @@
 
     if([@"NewPasswordSegue" isEqualToString:segue.identifier]){
         AWSUserPoolNewPasswordViewController * confirmForgot = segue.destinationViewController;
+        confirmForgot.config = self.config;
         confirmForgot.user = self.user;
     }
 }

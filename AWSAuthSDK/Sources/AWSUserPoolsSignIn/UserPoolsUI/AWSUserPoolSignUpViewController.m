@@ -119,6 +119,7 @@ id<AWSUIConfiguration> config = nil;
     if([@"SignUpConfirmSegue" isEqualToString:segue.identifier]){
         UserPoolSignUpConfirmationViewController *signUpConfirmationViewController = segue.destinationViewController;
         signUpConfirmationViewController.sentTo = self.sentTo;
+        signUpConfirmationViewController.config = self.config;
         NSString *userName = [self.tableDelegate getValueForCell:self.userNameRow forTableView:self.tableView];
         signUpConfirmationViewController.user = [self.pool getUser:userName];
     }
@@ -241,13 +242,13 @@ id<AWSUIConfiguration> config = nil;
     [self.tableView reloadData];
     [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
-    
+
     // setup button background
     [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
                                           toView:self.confirmButton];
     [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
                                           toView:self.requestCodeButton
-                                           background:NO];
+                                      background:NO];
 }
 
 - (void)setUpBackground {

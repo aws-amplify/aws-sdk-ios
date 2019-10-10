@@ -48,13 +48,13 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param config The object conforming to `AWSUIConfiguration` protocol
  @param view The view (usually a `UIButton` or `UILabel`)
- @param background wheter the color should be applied to the background of
+ @param background whether the color should be applied to the background of
  the component or to the foreground. This is useful when styling buttons
  that look like hyperlinks.
  */
 + (void) applyPrimaryColorFromConfig:(id<AWSUIConfiguration>)config
-                           toView:(UIView *) view
-                       background:(BOOL) background;
+                              toView:(UIView *) view
+                          background:(BOOL) background;
 
 /**
  Apply primary color to the view's background.
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  @see applyPrimaryColorFromConfig:(id<AWSUIConfiguration>) toView:(UIView *) background:(BOOL)
  */
 + (void) applyPrimaryColorFromConfig:(id<AWSUIConfiguration>)config
-                           toView:(UIView *) view;
+                              toView:(UIView *) view;
 
 /**
  Retrieve the font set in the config or return nil
@@ -80,10 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 + (BOOL) isBackgroundColorFullScreen:(id<AWSUIConfiguration>)config;
 
-/**
- Check if a `UIColor` is bright or dark. Based on http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
- */
-+ (BOOL) isDarkColor:(UIColor *) color;
 
 /**
  Get the primary text color. Based on the configured background color.
