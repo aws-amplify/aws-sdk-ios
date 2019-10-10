@@ -131,6 +131,10 @@ final public class AWSMobileClient: _AWSMobileClient {
         return AWSInfo.default()
     }()
     
+    /// Hold on to user password for custom auth. Password verification can
+    /// come as the second step in custom auth.
+    var userPassword: String? = nil
+    
     // MARK: Public API variables
     
     /// Returns the current state of user. If MobileClient is not initialized, it will return `unknown`
@@ -281,6 +285,12 @@ final public class AWSMobileClient: _AWSMobileClient {
                 isCognitoAuthRegistered = true
                 let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
                 cognitoAuth.delegate = self
+            }
+            
+            let infoDictionaryMobileClient = self.awsInfo.rootInfoDictionary["Auth"] as? [String: [String: Any]]
+            if let authFlowType = infoDictionaryMobileClient?["Default"]?["authenticationFlowType"] as? String,
+                authFlowType == "CUSTOM_AUTH" {
+                self.userPoolClient?.isCustomAuth = true
             }
             
             let infoObject = AWSInfo.default().defaultServiceInfo("IdentityManager")

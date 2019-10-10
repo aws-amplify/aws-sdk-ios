@@ -11,7 +11,7 @@ import AWSCognitoIdentityProvider
 import AWSS3
 
 /// AWSMobileClient tests related to AWS credentials
-class AWSMobileClientCredentialsTest: AWSMobileClientBaseTests {
+class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
 
     func testGetAWSCredentials() {
         let username = "testUser" + UUID().uuidString

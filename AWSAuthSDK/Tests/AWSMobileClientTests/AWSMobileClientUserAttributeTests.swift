@@ -9,7 +9,7 @@ import AWSAuthCore
 import AWSCognitoIdentityProvider
 
 /// AWSMobileClient tests related to user attributes
-class AWSMobileClientUserAttributeTests: AWSMobileClientBaseTests {
+class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
     
     func testVerifyUserAttribute() {
         let username = "testUser" + UUID().uuidString

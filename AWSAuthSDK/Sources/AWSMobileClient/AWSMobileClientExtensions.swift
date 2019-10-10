@@ -173,7 +173,11 @@ extension AWSMobileClient {
     ///   - password: password of the user.
     ///   - validationData: validation data for this sign in.
     ///   - completionHandler: completionHandler which will be called when result is available.
-    public func signIn(username: String, password: String, validationData: [String: String]? = nil, completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
+    public func signIn(username: String,
+                       password: String,
+                       validationData: [String: String]? = nil,
+                       completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
+        
         switch self.currentUserState {
         case .signedIn:
             completionHandler(nil, AWSMobileClientError.invalidState(message: "There is already a user which is signed in. Please log out the user before calling showSignIn."))
@@ -194,8 +198,20 @@ extension AWSMobileClient {
             authDetails?.validationData = validationAttributes
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource!.set(result: authDetails)
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
+        } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
+            let details = AWSCognitoIdentityCustomChallengeDetails(challengeResponses: ["USERNAME": username])
+            details.initialChallengeName = "SRP_A"
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: details)
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else {
-            user!.getSession(username, password: password, validationData: validationAttributes).continueWith { (task) -> Any? in
+            let isCustomAuth = self.userPoolClient?.isCustomAuth ?? false
+            if (isCustomAuth) {
+                userPassword = password
+            }
+            user!.getSession(username,
+                             password: password,
+                             validationData: validationAttributes,
+                             isInitialCustomChallenge: isCustomAuth).continueWith { (task) -> Any? in
                 if let error = task.error {
                     self.invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
                 } else if let result = task.result {
@@ -566,7 +582,13 @@ extension AWSMobileClient {
             let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
                                                                                     userAttributes: userAttributes)
             self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
-        } else {
+        } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
+            self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
+            let customAuthDetails = AWSCognitoIdentityCustomChallengeDetails.init(challengeResponses: ["ANSWER": challengeResponse])
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: customAuthDetails)
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
+        }
+        else {
             completionHandler(nil, AWSMobileClientError.invalidState(message: "Please call `signIn` before calling this method."))
         }
     }
@@ -803,7 +825,20 @@ extension AWSMobileClient {
 //MARK: Extension to hold UserPoolAuthHelperlCallbacks methods
 extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
     
-    func getPasswordDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
+    func getPasswordDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput,
+                            passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
+        
+        // getPasswordDetails for customAuth will be called when the session expires.
+        // This call would be triggered from getSession(). In this case we donot need
+        // to inform the user that the session is expired, because that is handled by
+        // getCustomAuthenticationDetails.
+        if(self.userPoolClient?.isCustomAuth ?? false) {
+            let authDetails = AWSCognitoIdentityPasswordAuthenticationDetails(username: self.currentUser?.username ?? "",
+                                                                              password: userPassword ?? "dummyPassword")
+            passwordAuthenticationCompletionSource.set(result: authDetails)
+            userPassword = nil
+            return
+        }
         if (self.federationProvider != .userPools) {
             passwordAuthenticationCompletionSource.set(error: AWSMobileClientError.notSignedIn(message: "User is not signed in, please sign in to use this API."))
         }
@@ -822,13 +857,40 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         }
     }
     
-    func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput, newPasswordRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>) {
+    func getNewPasswordDetails(_ newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput,
+                               newPasswordRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>) {
         self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource = newPasswordRequiredCompletionSource
         let result = SignInResult(signInState: .newPasswordRequired, codeDetails: nil)
         invokeSignInCallback(signResult: result, error: nil)
     }
     
     func didCompleteNewPasswordStepWithError(_ error: Error?) {
+        if let error = error {
+            invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
+        }
+    }
+    
+    func getCustomAuthenticationDetails(_ customAuthentiationInput: AWSCognitoIdentityCustomAuthenticationInput,
+                                        customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
+        
+        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
+        
+        // getCustomAuthenticationDetails will be invoked in a signIn process or when the token expires.
+        // If this get invoked when the token expires, we first inform the listener that
+        // the user got signedOut.
+        if (self.currentUserState == .signedIn) {
+            let username = self.userPoolClient?.currentUser()?.username ?? ""
+            self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
+                                           additionalInfo: ["username": username])
+        } else {
+            // If user is not signedIn, we reach here as part of the signIn flow. Next step
+            // is to inform the user to enter custom auth challenge.
+            let result = SignInResult(signInState: .customChallenge, codeDetails: nil)
+            invokeSignInCallback(signResult: result, error: nil)
+        }
+    }
+    
+    func didCompleteCustomAuthenticationStepWithError(_ error: Error?) {
         if let error = error {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }

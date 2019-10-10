@@ -10,7 +10,7 @@ import AWSAuthCore
 import AWSCognitoIdentityProvider
 
 /// AWSMobileClient tests related to password operation
-class AWSMobileClientPasswordTests: AWSMobileClientBaseTests {
+class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
 
     func testForgotPassword() {
         let username = "testUser" + UUID().uuidString
@@ -57,7 +57,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientBaseTests {
         let tempPassword = "tempPassword" + UUID().uuidString
         adminCreateUser(username: username, temporaryPassword: tempPassword)
         signIn(username: username, password: tempPassword, verifySignState: .newPasswordRequired)
-        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": sharedEmail])
+        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
     }
 
 }

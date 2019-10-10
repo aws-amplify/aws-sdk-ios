@@ -132,6 +132,17 @@
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
 		B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */; };
 		B4031BE623105727009EB524 /* AWSMobileClientSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */; };
+		B412F5DA23341E9600F1AC69 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 177B8AD521DFF12A0051068F /* awsconfiguration.json */; };
+		B412F5E4233445A500F1AC69 /* AWSMobileClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FC69011FAFA1AA004790CB /* AWSMobileClient.framework */; };
+		B412F5EB2334468600F1AC69 /* AWSMobileClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */; };
+		B412F5EC2334755B00F1AC69 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 177B8AD521DFF12A0051068F /* awsconfiguration.json */; };
+		B412F5ED233477BF00F1AC69 /* credentials-mc.json in Resources */ = {isa = PBXBuildFile; fileRef = 17CD4B5521826BA100953483 /* credentials-mc.json */; };
+		B412F5F12334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B412F5EF2334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift */; };
+		B412F65423347FBD00F1AC69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B412F64C23347FBD00F1AC69 /* Assets.xcassets */; };
+		B412F65623347FBD00F1AC69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B412F64F23347FBD00F1AC69 /* Main.storyboard */; };
+		B412F65723347FBD00F1AC69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B412F65123347FBD00F1AC69 /* AppDelegate.swift */; };
+		B412F65F23350B5900F1AC69 /* AWSCognitoIdentityUserPool+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = B412F65E23350A5000F1AC69 /* AWSCognitoIdentityUserPool+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4B74C062332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */; };
 		B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */; };
 		B40EA1ED2339789E00135711 /* HostedUIUserPoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */; };
 		B40EA1EF2339831E00135711 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */; };
@@ -146,7 +157,7 @@
 		B4682160233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */; };
 		B4682161233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */; };
 		B4C8E4212306064D0064C158 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E3A72306056A0064C158 /* JSONHelper.swift */; };
-		B4C8E4A023073D7B0064C158 /* AWSMobileClientBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */; };
+		B4C8E4A023073D7B0064C158 /* AWSMobileClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */; };
 		B4C8E4A2230740200064C158 /* AWSMobileClientSignoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */; };
 		B4C8E4A42307415C0064C158 /* AWSMobileClientDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A32307415C0064C158 /* AWSMobileClientDeviceTests.swift */; };
 		B4C8E4A6230742200064C158 /* AWSMobileClientUserAttributeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E4A5230742200064C158 /* AWSMobileClientUserAttributeTests.swift */; };
@@ -331,6 +342,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = B5FC69001FAFA1AA004790CB;
 			remoteInfo = AWSMobileClient;
+		};
+		B412F5E5233445A500F1AC69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5FC69001FAFA1AA004790CB;
+			remoteInfo = AWSMobileClient;
+		};
+		B412F65A2334803A00F1AC69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B412F63523347D1B00F1AC69;
+			remoteInfo = AWSMobileClientIntegTestApp;
+		};
+		B412F65C2334805400F1AC69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B412F63523347D1B00F1AC69;
+			remoteInfo = AWSMobileClientIntegTestApp;
 		};
 		B41F67DE233D56A80060FDEE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1272,6 +1304,16 @@
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
 		B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClientUserDetails.swift; sourceTree = "<group>"; };
 		B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignInTests.swift; sourceTree = "<group>"; };
+		B412F5DF233445A500F1AC69 /* AWSMobileClientCustomAuthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileClientCustomAuthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B412F5EF2334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClientCustomAuthTests.swift; sourceTree = "<group>"; };
+		B412F5F02334783D00F1AC69 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B412F63623347D1B00F1AC69 /* AWSMobileClientIntegTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AWSMobileClientIntegTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B412F64C23347FBD00F1AC69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B412F65023347FBD00F1AC69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B412F65123347FBD00F1AC69 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B412F65223347FBD00F1AC69 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B412F65E23350A5000F1AC69 /* AWSCognitoIdentityUserPool+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityUserPool+Extension.h"; sourceTree = "<group>"; };
+		B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSUserPoolCustomAuthHandler.swift; sourceTree = "<group>"; };
 		B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSHostedUIUserPoolTests.swift; sourceTree = "<group>"; };
 		B40EA1EC2339789E00135711 /* HostedUIUserPoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostedUIUserPoolViewController.swift; sourceTree = "<group>"; };
 		B40EA1EE2339831E00135711 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
@@ -1280,7 +1322,7 @@
 		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
 		B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolNewPasswordRequiredViewController.h; sourceTree = "<group>"; };
 		B4C8E3A72306056A0064C158 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
-		B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientBaseTests.swift; sourceTree = "<group>"; };
+		B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientTestBase.swift; sourceTree = "<group>"; };
 		B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientSignoutTests.swift; sourceTree = "<group>"; };
 		B4C8E4A32307415C0064C158 /* AWSMobileClientDeviceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientDeviceTests.swift; sourceTree = "<group>"; };
 		B4C8E4A5230742200064C158 /* AWSMobileClientUserAttributeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientUserAttributeTests.swift; sourceTree = "<group>"; };
@@ -1382,6 +1424,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B412F5DC233445A500F1AC69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B412F5E4233445A500F1AC69 /* AWSMobileClient.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B412F63323347D1B00F1AC69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B5170D941F466CE5008FD811 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1429,6 +1486,8 @@
 				B4C8E3A72306056A0064C158 /* JSONHelper.swift */,
 				B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */,
 				B4F4C8692321CB6B001C87CD /* AWSCognitoCredentialsProvider+Extension.h */,
+				B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */,
+				B412F65E23350A5000F1AC69 /* AWSCognitoIdentityUserPool+Extension.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -1498,6 +1557,8 @@
 				17CD4B20218244EA00953483 /* AWSAuthSDKTestApp.app */,
 				177B8AE621E81B7D0051068F /* AWSAuthSDKTestAppUITests.xctest */,
 				B92BA3C62318859D007C1175 /* AWSMobileClientUnitTests.xctest */,
+				B412F5DF233445A500F1AC69 /* AWSMobileClientCustomAuthTests.xctest */,
+				B412F63623347D1B00F1AC69 /* AWSMobileClientIntegTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1625,7 +1686,7 @@
 				177B8AD521DFF12A0051068F /* awsconfiguration.json */,
 				17CD4B5521826BA100953483 /* credentials-mc.json */,
 				17CD4AA8218241AD00953483 /* Info.plist */,
-				B4C8E49F23073D7B0064C158 /* AWSMobileClientBaseTests.swift */,
+				B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */,
 				B4C8E4A92307447F0064C158 /* AWSMobileClientCredentialsTest.swift */,
 				B4C8E4A32307415C0064C158 /* AWSMobileClientDeviceTests.swift */,
 				B4C8E4A7230743780064C158 /* AWSMobileClientPasswordTests.swift */,
@@ -1640,6 +1701,8 @@
 		17CD4B0D218241B800953483 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B412F64A23347FBD00F1AC69 /* AWSMobileClientIntegTestApp */,
+				B412F5EE2334783D00F1AC69 /* AWSMobileClientCustomAuthTests */,
 				17CD4AA5218241AD00953483 /* AWSMobileClientTests */,
 				B92BA3C72318859D007C1175 /* AWSMobileClientUnitTests */,
 			);
@@ -1660,6 +1723,26 @@
 				17CD4B2E218244EC00953483 /* Info.plist */,
 			);
 			path = AWSAuthSDKTestApp;
+			sourceTree = "<group>";
+		};
+		B412F5EE2334783D00F1AC69 /* AWSMobileClientCustomAuthTests */ = {
+			isa = PBXGroup;
+			children = (
+				B412F5EF2334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift */,
+				B412F5F02334783D00F1AC69 /* Info.plist */,
+			);
+			path = AWSMobileClientCustomAuthTests;
+			sourceTree = "<group>";
+		};
+		B412F64A23347FBD00F1AC69 /* AWSMobileClientIntegTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				B412F64C23347FBD00F1AC69 /* Assets.xcassets */,
+				B412F64F23347FBD00F1AC69 /* Main.storyboard */,
+				B412F65123347FBD00F1AC69 /* AppDelegate.swift */,
+				B412F65223347FBD00F1AC69 /* Info.plist */,
+			);
+			path = AWSMobileClientIntegTestApp;
 			sourceTree = "<group>";
 		};
 		B5345D101F366AFA009C1041 /* AWSAuthUI */ = {
@@ -1951,6 +2034,7 @@
 				177B8AE021E52C730051068F /* AWSCognitoAuthUICKeyChainStore.h in Headers */,
 				177B8ADF21E52C730051068F /* AWSCognitoAuth.h in Headers */,
 				17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */,
+				B412F65F23350B5900F1AC69 /* AWSCognitoIdentityUserPool+Extension.h in Headers */,
 				B4F4C8D02321CC26001C87CD /* AWSCognitoCredentialsProvider+Extension.h in Headers */,
 				170AD35321921764004E1E88 /* AWSMobileClient.h in Headers */,
 			);
@@ -2010,6 +2094,7 @@
 			);
 			dependencies = (
 				177B8AEC21E81B7D0051068F /* PBXTargetDependency */,
+				B412F65B2334803A00F1AC69 /* PBXTargetDependency */,
 			);
 			name = AWSAuthSDKTestAppUITests;
 			productName = AWSAuthSDKTestAppUITests;
@@ -2081,6 +2166,42 @@
 			name = AWSAuthSDKTestApp;
 			productName = AWSAuthSDKTestApp;
 			productReference = 17CD4B20218244EA00953483 /* AWSAuthSDKTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B412F5DE233445A500F1AC69 /* AWSMobileClientCustomAuthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B412F5E7233445A500F1AC69 /* Build configuration list for PBXNativeTarget "AWSMobileClientCustomAuthTests" */;
+			buildPhases = (
+				B412F5DB233445A500F1AC69 /* Sources */,
+				B412F5DC233445A500F1AC69 /* Frameworks */,
+				B412F5DD233445A500F1AC69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B412F5E6233445A500F1AC69 /* PBXTargetDependency */,
+				B412F65D2334805400F1AC69 /* PBXTargetDependency */,
+			);
+			name = AWSMobileClientCustomAuthTests;
+			productName = AWSMobileClientCustomAuthTests;
+			productReference = B412F5DF233445A500F1AC69 /* AWSMobileClientCustomAuthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B412F63523347D1B00F1AC69 /* AWSMobileClientIntegTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B412F64523347D1C00F1AC69 /* Build configuration list for PBXNativeTarget "AWSMobileClientIntegTestApp" */;
+			buildPhases = (
+				B412F63223347D1B00F1AC69 /* Sources */,
+				B412F63323347D1B00F1AC69 /* Frameworks */,
+				B412F63423347D1B00F1AC69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSMobileClientIntegTestApp;
+			productName = AWSMobileClientIntegTestApp;
+			productReference = B412F63623347D1B00F1AC69 /* AWSMobileClientIntegTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B5170D971F466CE5008FD811 /* AWSAuthCore */ = {
@@ -2206,6 +2327,15 @@
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
 					};
+					B412F5DE233445A500F1AC69 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B412F63523347D1B00F1AC69;
+					};
+					B412F63523347D1B00F1AC69 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					B5170D971F466CE5008FD811 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
@@ -2246,16 +2376,18 @@
 			);
 			projectRoot = "";
 			targets = (
+				B5FC69001FAFA1AA004790CB /* AWSMobileClient */,
 				1786CA331F2BED3C003421FF /* AWSGoogleSignIn */,
 				1750D0061F2D4DFA006D915E /* AWSUserPoolsSignIn */,
 				1763753F1F328D210086588B /* AWSFacebookSignIn */,
 				B5345D0E1F366AFA009C1041 /* AWSAuthUI */,
 				B5170D971F466CE5008FD811 /* AWSAuthCore */,
-				B5FC69001FAFA1AA004790CB /* AWSMobileClient */,
-				177B8AE521E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
-				17CD4AA3218241AD00953483 /* AWSMobileClientTests */,
 				B92BA3C52318859D007C1175 /* AWSMobileClientUnitTests */,
+				17CD4AA3218241AD00953483 /* AWSMobileClientTests */,
+				B412F5DE233445A500F1AC69 /* AWSMobileClientCustomAuthTests */,
+				177B8AE521E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
 				17CD4B1F218244EA00953483 /* AWSAuthSDKTestApp */,
+				B412F63523347D1B00F1AC69 /* AWSMobileClientIntegTestApp */,
 				17D6F69521C0E1CD001E5F43 /* AWSAuthSDKAllTargets */,
 			);
 		};
@@ -3043,6 +3175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B412F5DA23341E9600F1AC69 /* awsconfiguration.json in Resources */,
 				17CD4B5621826BA100953483 /* credentials-mc.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3055,6 +3188,24 @@
 				17CD4B2D218244EC00953483 /* LaunchScreen.storyboard in Resources */,
 				17CD4B2A218244EC00953483 /* Assets.xcassets in Resources */,
 				17CD4B28218244EA00953483 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B412F5DD233445A500F1AC69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B412F5ED233477BF00F1AC69 /* credentials-mc.json in Resources */,
+				B412F5EC2334755B00F1AC69 /* awsconfiguration.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B412F63423347D1B00F1AC69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B412F65623347FBD00F1AC69 /* Main.storyboard in Resources */,
+				B412F65423347FBD00F1AC69 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3144,7 +3295,7 @@
 				B4C8E4A42307415C0064C158 /* AWSMobileClientDeviceTests.swift in Sources */,
 				B4C8E4A6230742200064C158 /* AWSMobileClientUserAttributeTests.swift in Sources */,
 				17CD4AA7218241AD00953483 /* AWSMobileClientTests.swift in Sources */,
-				B4C8E4A023073D7B0064C158 /* AWSMobileClientBaseTests.swift in Sources */,
+				B4C8E4A023073D7B0064C158 /* AWSMobileClientTestBase.swift in Sources */,
 				B4C8E4A2230740200064C158 /* AWSMobileClientSignoutTests.swift in Sources */,
 				B4C8E4A8230743780064C158 /* AWSMobileClientPasswordTests.swift in Sources */,
 				B4C8E4AA2307447F0064C158 /* AWSMobileClientCredentialsTest.swift in Sources */,
@@ -3160,6 +3311,23 @@
 				B40EA1EF2339831E00135711 /* UserDetailsViewController.swift in Sources */,
 				B40EA1ED2339789E00135711 /* HostedUIUserPoolViewController.swift in Sources */,
 				B41F676F233D523B0060FDEE /* DropInUIUserPoolViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B412F5DB233445A500F1AC69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B412F5EB2334468600F1AC69 /* AWSMobileClientTestBase.swift in Sources */,
+				B412F5F12334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B412F63223347D1B00F1AC69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B412F65723347FBD00F1AC69 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3197,6 +3365,7 @@
 				17D61FA7216BBC59009B2B9C /* AWSMobileClient.swift in Sources */,
 				B4C8E4212306064D0064C158 /* JSONHelper.swift in Sources */,
 				177B8ADC21E52C730051068F /* AWSCognitoAuth.m in Sources */,
+				B4B74C062332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift in Sources */,
 				179E0AD121656F3200E1F877 /* AWSMobileClientExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3314,6 +3483,21 @@
 			target = B5FC69001FAFA1AA004790CB /* AWSMobileClient */;
 			targetProxy = 17D6F70021C0E1DB001E5F43 /* PBXContainerItemProxy */;
 		};
+		B412F5E6233445A500F1AC69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5FC69001FAFA1AA004790CB /* AWSMobileClient */;
+			targetProxy = B412F5E5233445A500F1AC69 /* PBXContainerItemProxy */;
+		};
+		B412F65B2334803A00F1AC69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B412F63523347D1B00F1AC69 /* AWSMobileClientIntegTestApp */;
+			targetProxy = B412F65A2334803A00F1AC69 /* PBXContainerItemProxy */;
+		};
+		B412F65D2334805400F1AC69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B412F63523347D1B00F1AC69 /* AWSMobileClientIntegTestApp */;
+			targetProxy = B412F65C2334805400F1AC69 /* PBXContainerItemProxy */;
+		};
 		B41F67DF233D56A80060FDEE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1750D0061F2D4DFA006D915E /* AWSUserPoolsSignIn */;
@@ -3381,6 +3565,14 @@
 				17CD4B2C218244EC00953483 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B412F64F23347FBD00F1AC69 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B412F65023347FBD00F1AC69 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -3837,6 +4029,102 @@
 			};
 			name = Release;
 		};
+		B412F5E8233445A500F1AC69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/AWSMobileClientCustomAuthTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSMobileClientCustomAuthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSMobileClientIntegTestApp.app/AWSMobileClientIntegTestApp";
+			};
+			name = Debug;
+		};
+		B412F5E9233445A500F1AC69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/AWSMobileClientCustomAuthTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSMobileClientCustomAuthTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSMobileClientIntegTestApp.app/AWSMobileClientIntegTestApp";
+			};
+			name = Release;
+		};
+		B412F64623347D1C00F1AC69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/AWSMobileClientIntegTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSMobileClientIntegTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B412F64723347D1C00F1AC69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Tests/AWSMobileClientIntegTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSMobileClientIntegTestApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		B5170D9E1F466CE5008FD811 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4103,6 +4391,24 @@
 			buildConfigurations = (
 				17D6F69621C0E1CE001E5F43 /* Debug */,
 				17D6F69721C0E1CE001E5F43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B412F5E7233445A500F1AC69 /* Build configuration list for PBXNativeTarget "AWSMobileClientCustomAuthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B412F5E8233445A500F1AC69 /* Debug */,
+				B412F5E9233445A500F1AC69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B412F64523347D1C00F1AC69 /* Build configuration list for PBXNativeTarget "AWSMobileClientIntegTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B412F64623347D1C00F1AC69 /* Debug */,
+				B412F64723347D1C00F1AC69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
