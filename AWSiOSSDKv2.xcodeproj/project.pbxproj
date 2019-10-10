@@ -4465,11 +4465,11 @@
 		FA7A44C52305D09C00F55D7A /* AWSNetworkingHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSNetworkingHelpers.m; sourceTree = "<group>"; };
 		FA7A44C82305DE0E00F55D7A /* SigV4TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCase.swift; sourceTree = "<group>"; };
 		FA7A57052308BEB10093A523 /* SigV4TestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCases.swift; sourceTree = "<group>"; };
+		FA88357B23382DE100A0F950 /* AWSKinesisVideoTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeStreamingTestHelpers.swift; sourceTree = "<group>"; };
 		FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift; sourceTree = "<group>"; };
 		FA968B66230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidOpenTests.swift; sourceTree = "<group>"; };
 		FA968B682302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorDidCloseTests.swift; sourceTree = "<group>"; };
-		FA88357B23382DE100A0F950 /* AWSKinesisVideoTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPEncodingJSONRequestSerializer.h; sourceTree = "<group>"; };
 		FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingJSONRequestSerializer.m; sourceTree = "<group>"; };
 		FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisSerializer.h; sourceTree = "<group>"; };
@@ -11102,14 +11102,6 @@
 				1778556720F9A7CD00D083BB /* AWSKinesisVideoArchivedMedia */,
 				1778556F20F9A7CE00D083BB /* AWSKinesisVideoArchivedMediaTests */,
 				1778559A20F9A8DA00D083BB /* AWSKinesisVideoArchivedMediaUnitTests */,
-				177855D820F9B3D000D083BB /* AWSKinesisVideoTests */,
-				E4E1DA1D1E5F4E680080F769 /* AWSKMS */,
-				E4E1DA4E1E5F5BBD0080F769 /* AWSKMSTests */,
-				E4E1DA291E5F4EBC0080F769 /* AWSKMSUnitTests */,
-				1778559A20F9A8DA00D083BB /* AWSKinesisVideoArchivedMediaUnitTests */,
-				E4E1DA1D1E5F4E680080F769 /* AWSKMS */,
-				E4E1DA4E1E5F5BBD0080F769 /* AWSKMSTests */,
-				E4E1DA291E5F4EBC0080F769 /* AWSKMSUnitTests */,
 				CE9DE6D81C6A79DF0060793F /* AWSLambda */,
 				CE9DE6E11C6A79DF0060793F /* AWSLambdaTests */,
 				CE5604711C6BC93C00B4E00B /* AWSLambdaUnitTests */,
@@ -14851,7 +14843,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreaming/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -14880,7 +14872,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AWSTranscribeStreaming/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTranscribeStreaming;
