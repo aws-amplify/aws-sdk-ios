@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -15,11 +15,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <AWSAuthCore/AWSUIConfiguration.h>
+#import "AWSUIConfiguration.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AWSUserPoolsUIHelper : NSObject
+@interface AWSAuthUIHelper : NSObject
 
 /**
  Set up shadow around specified view
@@ -29,13 +29,40 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) setUpFormShadowForView:(UIView *)view;
 
 /**
- Get background color set in the config or
- return the default background color
+ Get background color set in the config or return the default background color.
+ This is resilient to light/dark mode setting on iOS 13 (`UIColor.systemBackgroundColor`).
  
  @param config The object conforming to `AWSUIConfiguration` protocol
  @return backgroundColor
  **/
 + (UIColor *) getBackgroundColor:(id<AWSUIConfiguration>)config;
+
+/**
+ Get the default secondary background color. This is resilient to
+ light/dark mode setting on iOS 13 (`UIColor.secondarySystemBackgroundColor`).
+ */
++ (UIColor *) getSecondaryBackgroundColor;
+
+/**
+ Apply button-like primary color to buttons and labels.
+ 
+ @param config The object conforming to `AWSUIConfiguration` protocol
+ @param view The view (usually a `UIButton` or `UILabel`)
+ @param background whether the color should be applied to the background of
+ the component or to the foreground. This is useful when styling buttons
+ that look like hyperlinks.
+ */
++ (void) applyPrimaryColorFromConfig:(id<AWSUIConfiguration>)config
+                              toView:(UIView *) view
+                          background:(BOOL) background;
+
+/**
+ Apply primary color to the view's background.
+ 
+ @see applyPrimaryColorFromConfig:(id<AWSUIConfiguration>) toView:(UIView *) background:(BOOL)
+ */
++ (void) applyPrimaryColorFromConfig:(id<AWSUIConfiguration>)config
+                              toView:(UIView *) view;
 
 /**
  Retrieve the font set in the config or return nil
@@ -52,6 +79,19 @@ NS_ASSUME_NONNULL_BEGIN
  @return isFullScreenBackgroundColorEnabled
  **/
 + (BOOL) isBackgroundColorFullScreen:(id<AWSUIConfiguration>)config;
+
+
+/**
+ Get the primary text color. Based on the configured background color.
+ 
+ On iOS 13 or greater is uses `UIColor.labelColor` so it auto-adapts to
+ light/dark mode. On older systems is picks a light or a dark color to
+ contrast with the main background color.
+ 
+ @param config The object conforming to `AWSUIConfiguration` protocol
+ @return a text color that contrasts with the background color.
+ */
++ (UIColor *) getTextColor:(id<AWSUIConfiguration>)config;
 
 /**
  Set the AWSAuthUIConfiguration object.

@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *tableFormView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *codeSentTo;
+@property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end

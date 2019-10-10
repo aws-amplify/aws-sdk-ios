@@ -47,18 +47,19 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
     AWSAuthUIConfiguration *config = [AWSAuthUIViewController getDefaultAuthUIConfiguration];
     if(configDictionary[@"canCancel"]) {
         NSString *canCancelValue = (NSString *)configDictionary[@"canCancel"];
-        if ([canCancelValue isEqual: @"YES"]) {
-            [config setCanCancel:true];
-        } else {
-            [config setCanCancel:false];
-        }
-        
+        [config setCanCancel:[canCancelValue isEqual: @"YES"]];
     }
-    if(configDictionary[@"logoImage"]) {
+    if (configDictionary[@"logoImage"]) {
         [config setLogoImage:(UIImage *)configDictionary[@"logoImage"]];
     }
-    if(configDictionary[@"backgroundColor"]) {
+    if (configDictionary[@"backgroundColor"]) {
         [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
+    }
+    if (configDictionary[@"secondaryBackgroundColor"]) {
+        [config setSecondaryBackgroundColor:(UIColor *)configDictionary[@"secondaryBackgroundColor"]];
+    }
+    if (configDictionary[@"primaryColor"]) {
+        [config setPrimaryColor:(UIColor *)configDictionary[@"primaryColor"]];
     }
     
     [[AWSSignInManager sharedInstance] setDontFederate];

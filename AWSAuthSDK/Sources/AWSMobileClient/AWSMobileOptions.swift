@@ -14,18 +14,22 @@ import Foundation
     @objc public let logoImage: UIImage?
     /// The background color of the sign-in screen.
     @objc public let backgroundColor: UIColor?
-    
+    /// The secondary background color. It's applied to the bottom panel of the sign-in screen.
+    @objc public let secondaryBackgroundColor: UIColor?
+    /// The view primary color used for highlighted elements (button background, links).
+    @objc public let primaryColor: UIColor?
     
     /// Initializer for the drop-in UI configuration.
-    ///
-    /// - Parameters:
-    ///   - canCancel: If set to true, the end user can cancel the sign-in operation and go back to previous view controller.
-    ///   - logoImage: The logo image to be displayed on the sign-in screen.
-    ///   - backgroundColor: The background color of the sign-in screen.
-    @objc public init(canCancel: Bool = false,logoImage: UIImage? = nil, backgroundColor: UIColor? = nil) {
+    @objc public init(canCancel: Bool = false,
+                      logoImage: UIImage? = nil,
+                      backgroundColor: UIColor? = nil,
+                      secondaryBackgroundColor: UIColor? = nil,
+                      primaryColor: UIColor? = .systemBlue) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
+        self.secondaryBackgroundColor = secondaryBackgroundColor
+        self.primaryColor = primaryColor
     }
 }
 

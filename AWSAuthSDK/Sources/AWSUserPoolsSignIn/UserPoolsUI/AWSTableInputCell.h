@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "AWSUserPoolsUIHelper.h"
+#import "AWSAuthUIHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onTap;
 
 - (void)setAWSTableInputCellFont;
+
+- (void)showHeaderLabel:(BOOL)visible;
 
 @end
 
