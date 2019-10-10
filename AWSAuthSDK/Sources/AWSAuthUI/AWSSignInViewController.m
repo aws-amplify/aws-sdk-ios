@@ -20,11 +20,8 @@
 #import "AWSFormTableCell.h"
 #import "AWSTableInputCell.h"
 #import "AWSFormTableDelegate.h"
-#import "AWSUserPoolsUIHelper.h"
 #import "AWSSignInViewController.h"
 
-#define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
-#define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
 #define NAVIGATION_BAR_HEIGHT 64
 
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
@@ -240,13 +237,13 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         self.tableView.delegate = self.tableDelegate;
         self.tableView.dataSource = self.tableDelegate;
         [self.tableView reloadData];
-        Class AWSUserPoolsUIHelper = NSClassFromString(@"AWSUserPoolsUIHelper");
-        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
-            [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
+        Class AWSAuthUIHelper = NSClassFromString(@"AWSAuthUIHelper");
+        if ([AWSAuthUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
+            [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
         }
         
-        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
-            [AWSUserPoolsUIHelper setAWSUIConfiguration:self.config];
+        if ([AWSAuthUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
+            [AWSAuthUIHelper setAWSUIConfiguration:self.config];
         }
         
         // Add SignInButton to the view
@@ -272,11 +269,11 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
             [self.signUpButton removeFromSuperview];
         }
         
-        // style buttons (tintColor)
-        if (self.config.tintColor) {
-            self.signInButton.backgroundColor = self.config.tintColor;
-            self.signUpButton.tintColor = self.config.tintColor;
-            self.forgotPasswordButton.tintColor = self.config.tintColor;
+        // style buttons (primary color)
+        if (self.config.primaryColor) {
+            self.signInButton.backgroundColor = self.config.primaryColor;
+            self.signUpButton.tintColor = self.config.primaryColor;
+            self.forgotPasswordButton.tintColor = self.config.primaryColor;
         }
         
     } else {
@@ -331,17 +328,10 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpBackground:(UIColor *)color {
-    UIColor *backgroundColor = DEFAULT_BACKGROUND_COLOR_TOP;
-    UIColor *secondaryBackgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
-    if (@available(iOS 13.0, *)) {
-        backgroundColor = [UIColor systemBackgroundColor];
-        secondaryBackgroundColor = [UIColor secondarySystemBackgroundColor];
-    }
-
     if (self.config.isBackgroundColorFullScreen) {
-        self.view.backgroundColor = color ?: backgroundColor;
+        self.view.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = self.config.backgroundBottomColor ?: secondaryBackgroundColor;
+        self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
     }
     
     if (self.config.enableUserPoolsUI) {
@@ -349,7 +339,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         if (color != nil) {
             backgroundImageView.backgroundColor = color;
         } else {
-            backgroundImageView.backgroundColor = backgroundColor;
+            backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
         }
         backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.view insertSubview:backgroundImageView atIndex:0];
@@ -369,6 +359,8 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpNavigationController {
+    UIColor *textColor = [AWSAuthUIHelper getTextColor:config];
+
     self.navigationController.navigationBar.topItem.title = @"Sign In";
     self.canCancel = self.config.canCancel;
     if (self.canCancel) {
@@ -376,15 +368,16 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(barButtonClosePressed)];
-        cancelButton.tintColor = [UIColor whiteColor];
+        cancelButton.tintColor = textColor;
         self.navigationController.navigationBar.topItem.leftBarButtonItem = cancelButton;
     }
+    
     self.navigationController.navigationBar.titleTextAttributes = @{
-                                                                    NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                    NSForegroundColorAttributeName: textColor,
                                                                     };
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = self.config.backgroundColor ?: DEFAULT_BACKGROUND_COLOR_TOP;
-    self.navigationController.navigationBar.tintColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+    self.navigationController.navigationBar.barTintColor = [AWSAuthUIHelper getBackgroundColor:config];
+    self.navigationController.navigationBar.tintColor = textColor;
     
 }
 
@@ -424,8 +417,8 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         UIButton *btn = buttons[[buttonViews indexOfObject:signInButtonViewClass]];
         UIView<AWSSignInButtonView> *buttonView = [[signInButtonViewClass alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
         buttonView.buttonStyle = AWSSignInButtonStyleLarge;
-        if (self.config.tintColor) {
-            buttonView.backgroundColor = self.config.tintColor;
+        if (self.config.primaryColor) {
+            buttonView.backgroundColor = self.config.primaryColor;
         }
         buttonView.delegate = self;
         

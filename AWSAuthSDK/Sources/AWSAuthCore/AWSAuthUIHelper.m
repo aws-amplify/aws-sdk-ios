@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -13,10 +13,9 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSAuthCore/AWSUIConfiguration.h>
-#import "AWSUserPoolsUIHelper.h"
+#import "AWSAuthUIHelper.h"
 
-@implementation AWSUserPoolsUIHelper
+@implementation AWSAuthUIHelper
 
 static id<AWSUIConfiguration> awsUIConfiguration;
 
@@ -37,29 +36,31 @@ static id<AWSUIConfiguration> awsUIConfiguration;
     } else if (@available(iOS 13.0, *)) {
         return [UIColor systemBackgroundColor];
     }
-    return [UIColor darkGrayColor];
-}
-
-+ (UIColor *) getDefaultBackgroundColor {
-    if (@available(iOS 13.0, *)) {
-        return [UIColor secondarySystemBackgroundColor];
-    }
+    // matches light systemBackgroundColor on iOS >= 13
     return [UIColor whiteColor];
 }
 
-+ (void) applyTintColorFromConfig:(id<AWSUIConfiguration>)config
-                           toView:(UIView *) view {
-    [self applyTintColorFromConfig:config toView:view background:YES];
++ (UIColor *) getSecondaryBackgroundColor {
+    if (@available(iOS 13.0, *)) {
+        return [UIColor secondarySystemBackgroundColor];
+    }
+    // light grey (matches light secondarySystemBackgroundColor on iOS >= 13)
+    return [UIColor colorWithRed:0.95 green:0.95 blue:0.97 alpha:1.0];
 }
 
-+ (void) applyTintColorFromConfig:(id<AWSUIConfiguration>)config
-                           toView:(UIView *) view
-                       background:(BOOL) background {
-    if (config.tintColor) {
++ (void) applyPrimaryColorFromConfig:(id<AWSUIConfiguration>)config
+                              toView:(UIView *) view {
+    [self applyPrimaryColorFromConfig:config toView:view background:YES];
+}
+
++ (void) applyPrimaryColorFromConfig:(id<AWSUIConfiguration>)config
+                              toView:(UIView *) view
+                          background:(BOOL) background {
+    if (config.primaryColor) {
         if (background) {
-            view.backgroundColor = config.tintColor;
+            view.backgroundColor = config.primaryColor;
         } else {
-            view.tintColor = config.tintColor;
+            view.tintColor = config.primaryColor;
         }
     }
 }
@@ -67,17 +68,34 @@ static id<AWSUIConfiguration> awsUIConfiguration;
 + (UIFont *) getFont:(id<AWSUIConfiguration>)config {
     if (config != nil && config.font != nil) {
         return config.font;
-    } else {
-        return nil;
     }
+    return nil;
 }
 
 + (BOOL) isBackgroundColorFullScreen:(id<AWSUIConfiguration>)config {
     if (config != nil) {
         return config.isBackgroundColorFullScreen;
-    } else {
-        return false;
     }
+    return false;
+}
+
++ (BOOL) isDarkColor:(UIColor *) color {
+    const CGFloat *componentColors = CGColorGetComponents(color.CGColor);
+    CGFloat colorBrightness = (
+                               (componentColors[0] * 299) +
+                               (componentColors[1] * 587) +
+                               (componentColors[2] * 114)
+                              ) / 1000;
+    return colorBrightness < 0.5;
+}
+
++ (UIColor *) getTextColor:(id<AWSUIConfiguration>)config {
+    if (@available(iOS 13.0, *)) {
+        return [UIColor labelColor];
+    } else if ([self isDarkColor:[self getBackgroundColor:config]]) {
+        return [UIColor whiteColor];
+    }
+    return [UIColor darkTextColor];
 }
 
 + (void) setAWSUIConfiguration:(id<AWSUIConfiguration>)config {

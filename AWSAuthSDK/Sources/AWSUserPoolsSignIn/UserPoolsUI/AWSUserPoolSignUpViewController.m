@@ -21,7 +21,7 @@
 #import "AWSFormTableCell.h"
 #import "AWSTableInputCell.h"
 #import "AWSFormTableDelegate.h"
-#import "AWSUserPoolsUIHelper.h"
+#import "AWSAuthUIHelper.h"
 #import <AWSAuthCore/AWSSignInManager.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
 
@@ -93,24 +93,24 @@ id<AWSUIConfiguration> config = nil;
     self.tableView.delegate = self.tableDelegate;
     self.tableView.dataSource = self.tableDelegate;
     [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
+    [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
 
     // setup button background
-    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
-                                            toView:self.signUpButton];
+    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
+                                          toView:self.signUpButton];
 }
 
 - (void)setUpBackground {
-    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
-        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    if ([AWSAuthUIHelper isBackgroundColorFullScreen:self.config]) {
+        self.view.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
+        self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
     }
     
     self.title = @"Sign Up";
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view insertSubview:backgroundImageView atIndex:0];
 }
@@ -239,22 +239,22 @@ id<AWSUIConfiguration> config = nil;
     self.tableView.delegate = self.tableDelegate;
     self.tableView.dataSource = self.tableDelegate;
     [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
+    [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
     
     // setup button background
-    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
-                                            toView:self.confirmButton];
-    [AWSUserPoolsUIHelper applyTintColorFromConfig:self.config
-                                            toView:self.requestCodeButton
-                                        background:NO];
+    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
+                                          toView:self.confirmButton];
+    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
+                                          toView:self.requestCodeButton
+                                           background:NO];
 }
 
 - (void)setUpBackground {
-    self.view.backgroundColor = [AWSUserPoolsUIHelper getDefaultBackgroundColor];
+    self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
     self.title = @"Confirm";
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view insertSubview:backgroundImageView atIndex:0];
 }

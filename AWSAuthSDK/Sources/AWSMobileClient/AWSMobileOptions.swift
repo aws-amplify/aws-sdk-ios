@@ -14,22 +14,22 @@ import Foundation
     @objc public let logoImage: UIImage?
     /// The background color of the sign-in screen.
     @objc public let backgroundColor: UIColor?
-    /// The background color applited to the bottom panel of the sign-in screen.
-    @objc public let backgroundBottomColor: UIColor?
-    /// The view tint (foreground) color used for highlighted elements (button background, links).
-    @objc public let tintColor: UIColor?
+    /// The secondary background color. It's applied to the bottom panel of the sign-in screen.
+    @objc public let secondaryBackgroundColor: UIColor?
+    /// The view primary color used for highlighted elements (button background, links).
+    @objc public let primaryColor: UIColor?
     
     /// Initializer for the drop-in UI configuration.
     @objc public init(canCancel: Bool = false,
                       logoImage: UIImage? = nil,
                       backgroundColor: UIColor? = nil,
-                      backgroundBottomColor: UIColor? = nil,
-                      tintColor: UIColor? = .systemBlue) {
+                      secondaryBackgroundColor: UIColor? = nil,
+                      primaryColor: UIColor? = .systemBlue) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
-        self.backgroundBottomColor = backgroundBottomColor
-        self.tintColor = tintColor
+        self.secondaryBackgroundColor = secondaryBackgroundColor
+        self.primaryColor = primaryColor
     }
 }
 

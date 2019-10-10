@@ -32,9 +32,9 @@
 
 @synthesize backgroundColor;
 
-@synthesize backgroundBottomColor;
+@synthesize secondaryBackgroundColor;
 
-@synthesize tintColor;
+@synthesize primaryColor;
 
 @synthesize registeredSignInButtonViews;
 

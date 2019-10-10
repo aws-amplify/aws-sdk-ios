@@ -23,21 +23,22 @@
 
 /**
  @property backgroundColor
- @brief The background color of the sign-in screen.
+ @brief The background color of the auth screens.
  **/
 @property (nonatomic, nullable) UIColor *backgroundColor;
 
 /**
- @property backgroundBottomColor
- @brief The background color applited to the bottom panel of the sign-in screen.
+ @property secondaryBackgroundColor
+ @brief The secondary background color. It's applied to the bottom panel
+ of the auth screens.
  */
-@property (nonatomic, nullable) UIColor *backgroundBottomColor;
+@property (nonatomic, nullable) UIColor *secondaryBackgroundColor;
 
 /**
- @property tintColor
- @brief The view tint (foreground) color used for highlighted elements (button background, links).
+ @property primaryColor
+ @brief The view primary color used for highlighted elements (button background, links).
  */
-@property (nonatomic, nullable) UIColor *tintColor;
+@property (nonatomic, nullable) UIColor *primaryColor;
 
 /**
  @property fullScreenBackgroundColor

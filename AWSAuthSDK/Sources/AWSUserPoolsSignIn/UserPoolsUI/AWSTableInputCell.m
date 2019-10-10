@@ -61,7 +61,7 @@
 }
 
 - (void)setAWSTableInputCellFont {
-    UIFont *font = [AWSUserPoolsUIHelper getFont:[AWSUserPoolsUIHelper getAWSUIConfiguration]];
+    UIFont *font = [AWSAuthUIHelper getFont:[AWSAuthUIHelper getAWSUIConfiguration]];
     if (font != nil) {
         [self.placeHolderLabel setFont:font];
         [self.headerLabel setFont:font];
