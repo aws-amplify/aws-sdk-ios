@@ -573,7 +573,10 @@ jobs:
   release_jazzydoc:
     # Specify the Xcode version to use
     macos:
-      xcode: "11.0.0"
+      # NOTE: As of 11-Oct-2019, Jazzy doesn't properly work with Xcode 11 on
+      # MacOS 10.14. Until and unless the CircleCI image uses MacOS 10.15, we
+      # must not use an image higher than 10.3.
+      xcode: "10.3.0"
     steps:
       - skip_job_unless_required
       - checkout
