@@ -504,12 +504,9 @@ jobs:
           command: |
             HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
-          name: download custom carthage
+          name: install carthage
           command: |
-            aws s3 cp s3://custom-carthage/customcarthage.zip customcarthage.zip
-            unzip -a customcarthage.zip
-            ls customcarthage
-            chmod 111 customcarthage/carthage
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install carthage
       - run:
           name: build
           command: |
@@ -517,7 +514,7 @@ jobs:
       - run:
           name: Build Carthage
           command: |
-            customcarthage/carthage build --no-skip-current | tee buildout.txt
+            carthage build --no-skip-current | tee buildout.txt
           no_output_timeout: 100m
       - run:
           name: Create Carthage Archive
