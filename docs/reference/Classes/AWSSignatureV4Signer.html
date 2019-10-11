@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSSignatureV4Signer Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.12.0 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:">+ generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:</option>
+		
+		<option value="//api/name/sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:">+ sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSSignatureV4Signer Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Conforms to</th>
+	<td>AWSNetworkingRequestInterceptor</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSSignature.h<br />AWSSignature.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:" title="generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:">+&nbsp;generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a URL signed using the SigV4 algorithm, using the current date, and including the session token (if any) as
+part of the signed query paramters.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (AWSTask&lt;NSURL*&gt; *)generateQueryStringForSignatureV4WithCredentialProvider:(id&lt;AWSCredentialsProvider&gt;)<em>credentialsProvider</em> httpMethod:(AWSHTTPMethod)<em>httpMethod</em> expireDuration:(int32_t)<em>expireDuration</em> endpoint:(AWSEndpoint *)<em>endpoint</em> keyPath:(NSString *)<em>keyPath</em> requestHeaders:(NSDictionary&lt;NSString*,NSString*&gt; *)<em>requestHeaders</em> requestParameters:(NSDictionary&lt;NSString*,id&gt; *)<em>requestParameters</em> signBody:(BOOL)<em>signBody</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>credentialsProvider</code></th>
+						<td><p>credentials provider to get accessKey, secretKey, and optional sessionKey</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>httpMethod</code></th>
+						<td><p>the HTTP method (e.g., &ldquo;GET&rdquo;, &ldquo;POST&rdquo;, etc)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expireDuration</code></th>
+						<td><p>when should the signed URL expire</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>endpoint</code></th>
+						<td><p>the endpoint of the service for which the URL is being generated</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>keyPath</code></th>
+						<td><p>the request path</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>requestHeaders</code></th>
+						<td><p>the headers to sign as part of the request</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>requestParameters</code></th>
+						<td><p>the URL parameters to sign</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signBody</code></th>
+						<td><p>if true and the httpMethod is GET, sign an empty string as part of the signature content</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a task containing the signed URL</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignature.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:" title="sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:">+&nbsp;sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a URL signed using the SigV4 algorithm.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (AWSTask&lt;NSURL*&gt; *)sigV4SignedURLWithRequest:(NSURLRequest *_Nonnull)<em>request</em> credentialProvider:(id&lt;AWSCredentialsProvider&gt; _Nonnull)<em>credentialsProvider</em> regionName:(NSString *_Nonnull)<em>regionName</em> serviceName:(NSString *_Nonnull)<em>serviceName</em> date:(NSDate *_Nonnull)<em>date</em> expireDuration:(int32_t)<em>expireDuration</em> signBody:(BOOL)<em>signBody</em> signSessionToken:(BOOL)<em>signSessionToken</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>the NSURLRequest to sign</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>credentialsProvider</code></th>
+						<td><p>credentials provider to get accessKey, secretKey, and optional sessionKey</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>regionName</code></th>
+						<td><p>the string representing the AWS region of the endpoint to be signed.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>serviceName</code></th>
+						<td><p>the name of the AWS service the request is for</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>date</code></th>
+						<td><p>the date of the signed credential</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expireDuration</code></th>
+						<td><p>the duration in seconds the signed URL will be valid for</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signBody</code></th>
+						<td><p>if true and the httpMethod is GET, sign an empty string as part of the signature content</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signSessionToken</code></th>
+						<td><p>if true, include the sessionKey returned by the credentialsProvider in the signed payload.
+        If false, appends the X-AMZ-Security-Token to the end of the signed URL request parameters</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a task containing the signed URL</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method requires both regionName and serviceName, because not all AWS service endpoints have the URL format
+&ldquo;<service>.<region>.amazonaws.com&rdquo;, so we can&rsquo;t necessarily derive the region and service from the URL.</p>
+
+<p>In addition, the method requires the caller to specify a date to use for the signing. This allows for ease of testing,
+but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code> as this value.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignature.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-10-11</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

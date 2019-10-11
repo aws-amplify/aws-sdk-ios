@@ -7,14 +7,14 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.11.1 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.12.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -220,56 +220,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultSQS" title="defaultSQS"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultSQS">+&nbsp;defaultSQS</a></code>
 </h3>
@@ -710,7 +664,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addPermission:(AWSSQSAddPermissionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)addPermission:(AWSSQSAddPermissionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -893,7 +847,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)changeMessageVisibility:(AWSSQSChangeMessageVisibilityRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1036,7 +990,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSChangeMessageVisibilityBatchResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)changeMessageVisibilityBatch:(AWSSQSChangeMessageVisibilityBatchRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSChangeMessageVisibilityBatchResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1224,7 +1178,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createQueue:(AWSSQSCreateQueueRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSCreateQueueResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createQueue:(AWSSQSCreateQueueRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSCreateQueueResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1368,7 +1322,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteMessage:(AWSSQSDeleteMessageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteMessage:(AWSSQSDeleteMessageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1511,7 +1465,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSDeleteMessageBatchResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteMessageBatch:(AWSSQSDeleteMessageBatchRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSDeleteMessageBatchResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1655,7 +1609,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteQueue:(AWSSQSDeleteQueueRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteQueue:(AWSSQSDeleteQueueRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1798,7 +1752,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSGetQueueAttributesResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getQueueAttributes:(AWSSQSGetQueueAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSGetQueueAttributesResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1946,7 +1900,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getQueueUrl:(AWSSQSGetQueueUrlRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSGetQueueUrlResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getQueueUrl:(AWSSQSGetQueueUrlRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSGetQueueUrlResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2094,7 +2048,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSListDeadLetterSourceQueuesResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDeadLetterSourceQueues:(AWSSQSListDeadLetterSourceQueuesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSListDeadLetterSourceQueuesResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2240,7 +2194,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listQueueTags:(AWSSQSListQueueTagsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSListQueueTagsResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listQueueTags:(AWSSQSListQueueTagsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSListQueueTagsResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2386,7 +2340,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listQueues:(AWSSQSListQueuesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSListQueuesResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listQueues:(AWSSQSListQueuesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSListQueuesResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2530,7 +2484,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)purgeQueue:(AWSSQSPurgeQueueRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)purgeQueue:(AWSSQSPurgeQueueRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2709,7 +2663,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)receiveMessage:(AWSSQSReceiveMessageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSReceiveMessageResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)receiveMessage:(AWSSQSReceiveMessageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSReceiveMessageResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2853,7 +2807,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)removePermission:(AWSSQSRemovePermissionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)removePermission:(AWSSQSRemovePermissionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2996,7 +2950,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendMessage:(AWSSQSSendMessageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSSendMessageResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendMessage:(AWSSQSSendMessageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSSendMessageResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3154,7 +3108,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSQSSendMessageBatchResult *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)sendMessageBatch:(AWSSQSSendMessageBatchRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSSQSSendMessageBatchResult *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3298,7 +3252,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setQueueAttributes:(AWSSQSSetQueueAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3457,7 +3411,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagQueue:(AWSSQSTagQueueRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagQueue:(AWSSQSTagQueueRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3598,7 +3552,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagQueue:(AWSSQSUntagQueueRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagQueue:(AWSSQSUntagQueueRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3652,6 +3606,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSQSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -3664,10 +3672,10 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-09-20</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-10-11</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>
