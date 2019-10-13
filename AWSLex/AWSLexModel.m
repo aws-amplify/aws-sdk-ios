@@ -187,6 +187,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 	return @{
              @"botAlias" : @"botAlias",
              @"botName" : @"botName",
+             @"checkpointLabelFilter" : @"checkpointLabelFilter",
              @"userId" : @"userId",
              };
 }
@@ -218,6 +219,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"checkpointLabel" : @"checkpointLabel",
              @"confirmationStatus" : @"confirmationStatus",
              @"dialogActionType" : @"dialogActionType",
              @"fulfillmentState" : @"fulfillmentState",
@@ -541,6 +543,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"botAlias" : @"botAlias",
              @"botName" : @"botName",
              @"dialogAction" : @"dialogAction",
+             @"recentIntentSummaryView" : @"recentIntentSummaryView",
              @"sessionAttributes" : @"sessionAttributes",
              @"userId" : @"userId",
              };
@@ -548,6 +551,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSValueTransformer *)dialogActionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexDialogAction class]];
+}
+
++ (NSValueTransformer *)recentIntentSummaryViewJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLexIntentSummary class]];
 }
 
 @end

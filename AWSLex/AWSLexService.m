@@ -308,7 +308,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (AWSTask<AWSLexGetSessionResponse *> *)getSession:(AWSLexGetSessionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
-                     URLString:@"/bot/{botName}/alias/{botAlias}/user/{userId}/session"
+                     URLString:@"/bot/{botName}/alias/{botAlias}/user/{userId}/session/"
                   targetPrefix:@""
                  operationName:@"GetSession"
                    outputClass:[AWSLexGetSessionResponse class]];
