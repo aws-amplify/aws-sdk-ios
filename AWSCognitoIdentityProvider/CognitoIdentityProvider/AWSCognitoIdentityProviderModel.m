@@ -138,6 +138,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientMetadata" : @"ClientMetadata",
              @"userPoolId" : @"UserPoolId",
              @"username" : @"Username",
              };
@@ -169,6 +170,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientMetadata" : @"ClientMetadata",
              @"desiredDeliveryMediums" : @"DesiredDeliveryMediums",
              @"forceAliasCreation" : @"ForceAliasCreation",
              @"messageAction" : @"MessageAction",
@@ -705,6 +707,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientMetadata" : @"ClientMetadata",
              @"userPoolId" : @"UserPoolId",
              @"username" : @"Username",
              };
@@ -724,6 +727,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"challengeName" : @"ChallengeName",
              @"challengeResponses" : @"ChallengeResponses",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"contextData" : @"ContextData",
              @"session" : @"Session",
              @"userPoolId" : @"UserPoolId",
@@ -1021,6 +1025,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientMetadata" : @"ClientMetadata",
              @"userAttributes" : @"UserAttributes",
              @"userPoolId" : @"UserPoolId",
              @"username" : @"Username",
@@ -1396,6 +1401,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"confirmationCode" : @"ConfirmationCode",
              @"password" : @"Password",
              @"secretHash" : @"SecretHash",
@@ -1424,6 +1430,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"confirmationCode" : @"ConfirmationCode",
              @"forceAliasCreation" : @"ForceAliasCreation",
              @"secretHash" : @"SecretHash",
@@ -2352,6 +2359,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"secretHash" : @"SecretHash",
              @"userContextData" : @"UserContextData",
              @"username" : @"Username",
@@ -2529,6 +2537,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"accessToken" : @"AccessToken",
              @"attributeName" : @"AttributeName",
+             @"clientMetadata" : @"ClientMetadata",
              };
 }
 
@@ -3391,6 +3400,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"secretHash" : @"SecretHash",
              @"userContextData" : @"UserContextData",
              @"username" : @"Username",
@@ -3457,6 +3467,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"challengeName" : @"ChallengeName",
              @"challengeResponses" : @"ChallengeResponses",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"session" : @"Session",
              @"userContextData" : @"UserContextData",
              };
@@ -3932,6 +3943,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"analyticsMetadata" : @"AnalyticsMetadata",
              @"clientId" : @"ClientId",
+             @"clientMetadata" : @"ClientMetadata",
              @"password" : @"Password",
              @"secretHash" : @"SecretHash",
              @"userAttributes" : @"UserAttributes",
@@ -4313,6 +4325,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"accessToken" : @"AccessToken",
+             @"clientMetadata" : @"ClientMetadata",
              @"userAttributes" : @"UserAttributes",
              };
 }

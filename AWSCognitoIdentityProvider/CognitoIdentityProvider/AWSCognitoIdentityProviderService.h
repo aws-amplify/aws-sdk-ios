@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)addCustomAttributes:(AWSCognitoIdentityProviderAddCustomAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAddCustomAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified user to the specified group.</p><p>Requires developer credentials.</p>
+ <p>Adds the specified user to the specified group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminAddUserToGroup service method.
 
@@ -211,7 +211,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask *)adminAddUserToGroup:(AWSCognitoIdentityProviderAdminAddUserToGroupRequest *)request;
 
 /**
- <p>Adds the specified user to the specified group.</p><p>Requires developer credentials.</p>
+ <p>Adds the specified user to the specified group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminAddUserToGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -222,7 +222,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminAddUserToGroup:(AWSCognitoIdentityProviderAdminAddUserToGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminConfirmSignUp service method.
 
@@ -234,7 +234,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *> *)adminConfirmSignUp:(AWSCognitoIdentityProviderAdminConfirmSignUpRequest *)request;
 
 /**
- <p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Confirms user registration as an admin without using a confirmation code. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminConfirmSignUp service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminCreateUser:(AWSCognitoIdentityProviderAdminCreateUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminCreateUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a user as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Deletes a user as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminDeleteUser service method.
 
@@ -283,7 +283,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask *)adminDeleteUser:(AWSCognitoIdentityProviderAdminDeleteUserRequest *)request;
 
 /**
- <p>Deletes a user as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Deletes a user as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminDeleteUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -294,7 +294,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminDeleteUser:(AWSCognitoIdentityProviderAdminDeleteUserRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminDeleteUserAttributes service method.
 
@@ -306,7 +306,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse *> *)adminDeleteUserAttributes:(AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest *)request;
 
 /**
- <p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Deletes the user attributes in a user pool as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminDeleteUserAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -344,7 +344,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminDisableProviderForUser:(AWSCognitoIdentityProviderAdminDisableProviderForUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminDisableProviderForUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disables the specified user as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Disables the specified user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminDisableUser service method.
 
@@ -356,7 +356,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminDisableUserResponse *> *)adminDisableUser:(AWSCognitoIdentityProviderAdminDisableUserRequest *)request;
 
 /**
- <p>Disables the specified user as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Disables the specified user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminDisableUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -369,7 +369,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminDisableUser:(AWSCognitoIdentityProviderAdminDisableUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminDisableUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Enables the specified user as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Enables the specified user as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminEnableUser service method.
 
@@ -381,7 +381,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminEnableUserResponse *> *)adminEnableUser:(AWSCognitoIdentityProviderAdminEnableUserRequest *)request;
 
 /**
- <p>Enables the specified user as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Enables the specified user as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminEnableUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -394,7 +394,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminEnableUser:(AWSCognitoIdentityProviderAdminEnableUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminEnableUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Forgets the device, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Forgets the device, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminForgetDevice service method.
 
@@ -405,7 +405,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask *)adminForgetDevice:(AWSCognitoIdentityProviderAdminForgetDeviceRequest *)request;
 
 /**
- <p>Forgets the device, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Forgets the device, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminForgetDevice service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -416,7 +416,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminForgetDevice:(AWSCognitoIdentityProviderAdminForgetDeviceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the device, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Gets the device, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminGetDevice service method.
 
@@ -428,7 +428,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminGetDeviceResponse *> *)adminGetDevice:(AWSCognitoIdentityProviderAdminGetDeviceRequest *)request;
 
 /**
- <p>Gets the device, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Gets the device, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminGetDevice service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -441,7 +441,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminGetDevice:(AWSCognitoIdentityProviderAdminGetDeviceRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminGetDeviceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminGetUser service method.
 
@@ -453,7 +453,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminGetUserResponse *> *)adminGetUser:(AWSCognitoIdentityProviderAdminGetUserRequest *)request;
 
 /**
- <p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p><p>Requires developer credentials.</p>
+ <p>Gets the specified user by user name in a user pool as an administrator. Works on any user.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminGetUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -466,7 +466,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminGetUser:(AWSCognitoIdentityProviderAdminGetUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminGetUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Initiates the authentication flow, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Initiates the authentication flow, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminInitiateAuth service method.
 
@@ -478,7 +478,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminInitiateAuthResponse *> *)adminInitiateAuth:(AWSCognitoIdentityProviderAdminInitiateAuthRequest *)request;
 
 /**
- <p>Initiates the authentication flow, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Initiates the authentication flow, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminInitiateAuth service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -516,7 +516,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminLinkProviderForUser:(AWSCognitoIdentityProviderAdminLinkProviderForUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminLinkProviderForUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists devices, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Lists devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminListDevices service method.
 
@@ -528,7 +528,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminListDevicesResponse *> *)adminListDevices:(AWSCognitoIdentityProviderAdminListDevicesRequest *)request;
 
 /**
- <p>Lists devices, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Lists devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminListDevices service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -541,7 +541,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminListDevices:(AWSCognitoIdentityProviderAdminListDevicesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminListDevicesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the groups that the user belongs to.</p><p>Requires developer credentials.</p>
+ <p>Lists the groups that the user belongs to.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminListGroupsForUser service method.
 
@@ -553,7 +553,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminListGroupsForUserResponse *> *)adminListGroupsForUser:(AWSCognitoIdentityProviderAdminListGroupsForUserRequest *)request;
 
 /**
- <p>Lists the groups that the user belongs to.</p><p>Requires developer credentials.</p>
+ <p>Lists the groups that the user belongs to.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminListGroupsForUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -591,7 +591,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminListUserAuthEvents:(AWSCognitoIdentityProviderAdminListUserAuthEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminListUserAuthEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified user from the specified group.</p><p>Requires developer credentials.</p>
+ <p>Removes the specified user from the specified group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminRemoveUserFromGroup service method.
 
@@ -602,7 +602,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask *)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)request;
 
 /**
- <p>Removes the specified user from the specified group.</p><p>Requires developer credentials.</p>
+ <p>Removes the specified user from the specified group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminRemoveUserFromGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -613,7 +613,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p><p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p><p>Requires developer credentials.</p>
+ <p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p><p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminResetUserPassword service method.
 
@@ -625,7 +625,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminResetUserPasswordResponse *> *)adminResetUserPassword:(AWSCognitoIdentityProviderAdminResetUserPasswordRequest *)request;
 
 /**
- <p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p><p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p><p>Requires developer credentials.</p>
+ <p>Resets the specified user's password in a user pool as an administrator. Works on any user.</p><p>When a developer calls this API, the current password is invalidated, so it must be changed. If a user tries to sign in after the API is called, the app will get a PasswordResetRequiredException exception back and should direct the user down the flow to reset the password, which is the same as the forgot password flow. In addition, if the user pool has phone verification selected and a verified phone number exists for the user, or if email verification is selected and a verified email exists for the user, calling this API will also result in sending a message to the end user with the code to change their password.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminResetUserPassword service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -638,7 +638,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminResetUserPassword:(AWSCognitoIdentityProviderAdminResetUserPasswordRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminResetUserPasswordResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Responds to an authentication challenge, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Responds to an authentication challenge, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminRespondToAuthChallenge service method.
 
@@ -650,7 +650,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse *> *)adminRespondToAuthChallenge:(AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest *)request;
 
 /**
- <p>Responds to an authentication challenge, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Responds to an authentication challenge, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminRespondToAuthChallenge service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -663,7 +663,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminRespondToAuthChallenge:(AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the user's multi-factor authentication (MFA) preference.</p>
+ <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserMFAPreference service method.
 
@@ -675,7 +675,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *> *)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)request;
 
 /**
- <p>Sets the user's multi-factor authentication (MFA) preference.</p>
+ <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA options are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserMFAPreference service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -688,7 +688,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- AdminSetUserPassword
+ <p>Sets the specified user's password in a user pool as an administrator. Works on any user. </p><p>The password can be temporary or permanent. If it is temporary, the user status will be placed into the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to sign in, the InitiateAuth/AdminInitiateAuth response will contain the <code>NEW_PASSWORD_REQUIRED</code> challenge. If the user does not sign in before it expires, the user will not be able to sign in and their password will need to be reset by an administrator. </p><p>Once the user has set a new password, or the password is permanent, the user status will be set to <code>Confirmed</code>.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserPassword service method.
 
@@ -700,7 +700,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminSetUserPasswordResponse *> *)adminSetUserPassword:(AWSCognitoIdentityProviderAdminSetUserPasswordRequest *)request;
 
 /**
- AdminSetUserPassword
+ <p>Sets the specified user's password in a user pool as an administrator. Works on any user. </p><p>The password can be temporary or permanent. If it is temporary, the user status will be placed into the <code>FORCE_CHANGE_PASSWORD</code> state. When the user next tries to sign in, the InitiateAuth/AdminInitiateAuth response will contain the <code>NEW_PASSWORD_REQUIRED</code> challenge. If the user does not sign in before it expires, the user will not be able to sign in and their password will need to be reset by an administrator. </p><p>Once the user has set a new password, or the password is permanent, the user status will be set to <code>Confirmed</code>.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserPassword service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -713,7 +713,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminSetUserPassword:(AWSCognitoIdentityProviderAdminSetUserPasswordRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminSetUserPasswordResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets all the user settings for a specified user name. Works on any user.</p><p>Requires developer credentials.</p>
+ <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>AdminSetUserMFAPreference</a> action instead.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserSettings service method.
 
@@ -725,7 +725,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminSetUserSettingsResponse *> *)adminSetUserSettings:(AWSCognitoIdentityProviderAdminSetUserSettingsRequest *)request;
 
 /**
- <p>Sets all the user settings for a specified user name. Works on any user.</p><p>Requires developer credentials.</p>
+ <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>AdminSetUserMFAPreference</a> action instead.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserSettings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -763,7 +763,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminUpdateAuthEventFeedback:(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the device status as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Updates the device status as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUpdateDeviceStatus service method.
 
@@ -775,7 +775,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse *> *)adminUpdateDeviceStatus:(AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest *)request;
 
 /**
- <p>Updates the device status as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Updates the device status as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUpdateDeviceStatus service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -788,7 +788,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminUpdateDeviceStatus:(AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p><p>Requires developer credentials.</p>
+ <p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUpdateUserAttributes service method.
 
@@ -800,7 +800,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse *> *)adminUpdateUserAttributes:(AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest *)request;
 
 /**
- <p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p><p>Requires developer credentials.</p>
+ <p>Updates the specified user's attributes, including developer attributes, as an administrator. Works on any user.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>In addition to updating user attributes, this API can also be used to mark phone and email as verified.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUpdateUserAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -813,7 +813,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminUpdateUserAttributes:(AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Signs out users from all devices, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Signs out users from all devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUserGlobalSignOut service method.
 
@@ -825,7 +825,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *> *)adminUserGlobalSignOut:(AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest *)request;
 
 /**
- <p>Signs out users from all devices, as an administrator.</p><p>Requires developer credentials.</p>
+ <p>Signs out users from all devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUserGlobalSignOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -963,7 +963,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)confirmSignUp:(AWSCognitoIdentityProviderConfirmSignUpRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderConfirmSignUpResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new group in the specified user pool.</p><p>Requires developer credentials.</p>
+ <p>Creates a new group in the specified user pool.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the CreateGroup service method.
 
@@ -975,7 +975,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderCreateGroupResponse *> *)createGroup:(AWSCognitoIdentityProviderCreateGroupRequest *)request;
 
 /**
- <p>Creates a new group in the specified user pool.</p><p>Requires developer credentials.</p>
+ <p>Creates a new group in the specified user pool.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the CreateGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1138,7 +1138,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)createUserPoolDomain:(AWSCognitoIdentityProviderCreateUserPoolDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderCreateUserPoolDomainResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a group. Currently only groups with no members can be deleted.</p><p>Requires developer credentials.</p>
+ <p>Deletes a group. Currently only groups with no members can be deleted.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the DeleteGroup service method.
 
@@ -1149,7 +1149,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask *)deleteGroup:(AWSCognitoIdentityProviderDeleteGroupRequest *)request;
 
 /**
- <p>Deletes a group. Currently only groups with no members can be deleted.</p><p>Requires developer credentials.</p>
+ <p>Deletes a group. Currently only groups with no members can be deleted.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the DeleteGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1592,7 +1592,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)getDevice:(AWSCognitoIdentityProviderGetDeviceRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetDeviceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a group.</p><p>Requires developer credentials.</p>
+ <p>Gets a group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the GetGroup service method.
 
@@ -1604,7 +1604,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderGetGroupResponse *> *)getGroup:(AWSCognitoIdentityProviderGetGroupRequest *)request;
 
 /**
- <p>Gets a group.</p><p>Requires developer credentials.</p>
+ <p>Gets a group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the GetGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1646,7 +1646,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderGetSigningCertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorResourceNotFound`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderGetSigningCertificateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorResourceNotFound`.
  
  @see AWSCognitoIdentityProviderGetSigningCertificateRequest
  @see AWSCognitoIdentityProviderGetSigningCertificateResponse
@@ -1659,7 +1659,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorResourceNotFound`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorResourceNotFound`.
  
  @see AWSCognitoIdentityProviderGetSigningCertificateRequest
  @see AWSCognitoIdentityProviderGetSigningCertificateResponse
@@ -1796,7 +1796,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  
  @param request A container for the necessary parameters to execute the InitiateAuth service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderInitiateAuthResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorUnexpectedLambda`, `AWSCognitoIdentityProviderErrorInvalidUserPoolConfiguration`, `AWSCognitoIdentityProviderErrorUserLambdaValidation`, `AWSCognitoIdentityProviderErrorInvalidLambdaResponse`, `AWSCognitoIdentityProviderErrorPasswordResetRequired`, `AWSCognitoIdentityProviderErrorUserNotFound`, `AWSCognitoIdentityProviderErrorUserNotConfirmed`, `AWSCognitoIdentityProviderErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderInitiateAuthResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorUnexpectedLambda`, `AWSCognitoIdentityProviderErrorInvalidUserPoolConfiguration`, `AWSCognitoIdentityProviderErrorUserLambdaValidation`, `AWSCognitoIdentityProviderErrorInvalidLambdaResponse`, `AWSCognitoIdentityProviderErrorPasswordResetRequired`, `AWSCognitoIdentityProviderErrorUserNotFound`, `AWSCognitoIdentityProviderErrorUserNotConfirmed`, `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorInvalidSmsRoleAccessPolicy`, `AWSCognitoIdentityProviderErrorInvalidSmsRoleTrustRelationship`.
  
  @see AWSCognitoIdentityProviderInitiateAuthRequest
  @see AWSCognitoIdentityProviderInitiateAuthResponse
@@ -1809,7 +1809,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
  @param request A container for the necessary parameters to execute the InitiateAuth service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorUnexpectedLambda`, `AWSCognitoIdentityProviderErrorInvalidUserPoolConfiguration`, `AWSCognitoIdentityProviderErrorUserLambdaValidation`, `AWSCognitoIdentityProviderErrorInvalidLambdaResponse`, `AWSCognitoIdentityProviderErrorPasswordResetRequired`, `AWSCognitoIdentityProviderErrorUserNotFound`, `AWSCognitoIdentityProviderErrorUserNotConfirmed`, `AWSCognitoIdentityProviderErrorInternalError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorUnexpectedLambda`, `AWSCognitoIdentityProviderErrorInvalidUserPoolConfiguration`, `AWSCognitoIdentityProviderErrorUserLambdaValidation`, `AWSCognitoIdentityProviderErrorInvalidLambdaResponse`, `AWSCognitoIdentityProviderErrorPasswordResetRequired`, `AWSCognitoIdentityProviderErrorUserNotFound`, `AWSCognitoIdentityProviderErrorUserNotConfirmed`, `AWSCognitoIdentityProviderErrorInternalError`, `AWSCognitoIdentityProviderErrorInvalidSmsRoleAccessPolicy`, `AWSCognitoIdentityProviderErrorInvalidSmsRoleTrustRelationship`.
  
  @see AWSCognitoIdentityProviderInitiateAuthRequest
  @see AWSCognitoIdentityProviderInitiateAuthResponse
@@ -1842,7 +1842,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)listDevices:(AWSCognitoIdentityProviderListDevicesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderListDevicesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the groups associated with a user pool.</p><p>Requires developer credentials.</p>
+ <p>Lists the groups associated with a user pool.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the ListGroups service method.
 
@@ -1854,7 +1854,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderListGroupsResponse *> *)listGroups:(AWSCognitoIdentityProviderListGroupsRequest *)request;
 
 /**
- <p>Lists the groups associated with a user pool.</p><p>Requires developer credentials.</p>
+ <p>Lists the groups associated with a user pool.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the ListGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2042,7 +2042,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)listUsers:(AWSCognitoIdentityProviderListUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderListUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the users in the specified group.</p><p>Requires developer credentials.</p>
+ <p>Lists the users in the specified group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the ListUsersInGroup service method.
 
@@ -2054,7 +2054,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderListUsersInGroupResponse *> *)listUsersInGroup:(AWSCognitoIdentityProviderListUsersInGroupRequest *)request;
 
 /**
- <p>Lists the users in the specified group.</p><p>Requires developer credentials.</p>
+ <p>Lists the users in the specified group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the ListUsersInGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2167,7 +2167,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderSetUICustomizationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Set the user's multi-factor authentication (MFA) method preference.</p>
+ <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
  
  @param request A container for the necessary parameters to execute the SetUserMFAPreference service method.
 
@@ -2179,7 +2179,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *> *)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)request;
 
 /**
- <p>Set the user's multi-factor authentication (MFA) method preference.</p>
+ <p>Set the user's multi-factor authentication (MFA) method preference, including which MFA factors are enabled and if any are preferred. Only one factor can be set as preferred. The preferred MFA factor will be used to authenticate a user if multiple factors are enabled. If multiple options are enabled and no preference is set, a challenge to choose an MFA option will be returned during sign in.</p>
  
  @param request A container for the necessary parameters to execute the SetUserMFAPreference service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2192,7 +2192,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderSetUserMFAPreferenceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Set the user pool MFA configuration.</p>
+ <p>Set the user pool multi-factor authentication (MFA) configuration.</p>
  
  @param request A container for the necessary parameters to execute the SetUserPoolMfaConfig service method.
 
@@ -2204,7 +2204,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *> *)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)request;
 
 /**
- <p>Set the user pool MFA configuration.</p>
+ <p>Set the user pool multi-factor authentication (MFA) configuration.</p>
  
  @param request A container for the necessary parameters to execute the SetUserPoolMfaConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2217,7 +2217,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.</p>
+ <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>SetUserMFAPreference</a> action instead.</p>
  
  @param request A container for the necessary parameters to execute the SetUserSettings service method.
 
@@ -2229,7 +2229,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderSetUserSettingsResponse *> *)setUserSettings:(AWSCognitoIdentityProviderSetUserSettingsRequest *)request;
 
 /**
- <p>Sets the user settings like multi-factor authentication (MFA). If MFA is to be removed for a particular attribute pass the attribute with code delivery as null. If null list is passed, all MFA options are removed.</p>
+ <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can't use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>SetUserMFAPreference</a> action instead.</p>
  
  @param request A container for the necessary parameters to execute the SetUserSettings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2417,7 +2417,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateDeviceStatus:(AWSCognitoIdentityProviderUpdateDeviceStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateDeviceStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified group with the specified attributes.</p><p>Requires developer credentials.</p>
+ <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the UpdateGroup service method.
 
@@ -2429,7 +2429,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateGroupResponse *> *)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)request;
 
 /**
- <p>Updates the specified group with the specified attributes.</p><p>Requires developer credentials.</p>
+ <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the UpdateGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
