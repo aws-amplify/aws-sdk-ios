@@ -1,19 +1,16 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## 2.12.1
 
 ### Misc. Updates
 
 - Model updates for the following services
 
-- Amazon Cognito Identity Provider
+ - Amazon Cognito Identity Provider
  - Amazon EC2
  - Amazon Kinesis Firehose
  - Amazon Pinpoint
  - Amazon Lex
-
----
-# AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.0
 
