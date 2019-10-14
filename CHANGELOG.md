@@ -6,6 +6,16 @@
 - **AWS AuthUI**
   - Present sign-in modal fullscreen to avoid undesirable gap. See issue [#1963](https://github.com/aws-amplify/aws-sdk-ios/issues/1963). Thanks @BillBunting!
 
+### Misc. Updates
+
+- Model updates for the following services
+
+  - Amazon Cognito Identity Provider
+  - Amazon EC2
+  - Amazon Kinesis Firehose
+  - Amazon Lex
+  - Amazon Pinpoint
+
 ## 2.12.0
 
 ### New Features
