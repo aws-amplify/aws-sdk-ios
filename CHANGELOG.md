@@ -14,7 +14,6 @@
   - Amazon EC2
   - Amazon Kinesis Firehose
   - Amazon Lex
-  - Amazon Pinpoint
 
 ## 2.12.0
 

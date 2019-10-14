@@ -362,29 +362,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingCreateEmailTemplateResponse *> *)createEmailTemplate:(AWSPinpointTargetingCreateEmailTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@"/v1/templates/{template-name}/email"
-                  targetPrefix:@""
-                 operationName:@"CreateEmailTemplate"
-                   outputClass:[AWSPinpointTargetingCreateEmailTemplateResponse class]];
-}
-
-- (void)createEmailTemplate:(AWSPinpointTargetingCreateEmailTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingCreateEmailTemplateResponse *response, NSError *error))completionHandler {
-    [[self createEmailTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateEmailTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingCreateEmailTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingCreateExportJobResponse *> *)createExportJob:(AWSPinpointTargetingCreateExportJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -431,29 +408,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingCreatePushTemplateResponse *> *)createPushTemplate:(AWSPinpointTargetingCreatePushTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@"/v1/templates/{template-name}/push"
-                  targetPrefix:@""
-                 operationName:@"CreatePushTemplate"
-                   outputClass:[AWSPinpointTargetingCreatePushTemplateResponse class]];
-}
-
-- (void)createPushTemplate:(AWSPinpointTargetingCreatePushTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingCreatePushTemplateResponse *response, NSError *error))completionHandler {
-    [[self createPushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreatePushTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingCreatePushTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingCreateSegmentResponse *> *)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -467,29 +421,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingCreateSegmentResponse *response, NSError *error))completionHandler {
     [[self createSegment:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateSegmentResponse *> * _Nonnull task) {
         AWSPinpointTargetingCreateSegmentResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSPinpointTargetingCreateSmsTemplateResponse *> *)createSmsTemplate:(AWSPinpointTargetingCreateSmsTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@"/v1/templates/{template-name}/sms"
-                  targetPrefix:@""
-                 operationName:@"CreateSmsTemplate"
-                   outputClass:[AWSPinpointTargetingCreateSmsTemplateResponse class]];
-}
-
-- (void)createSmsTemplate:(AWSPinpointTargetingCreateSmsTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingCreateSmsTemplateResponse *response, NSError *error))completionHandler {
-    [[self createSmsTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateSmsTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingCreateSmsTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -707,29 +638,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingDeleteEmailTemplateResponse *> *)deleteEmailTemplate:(AWSPinpointTargetingDeleteEmailTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodDELETE
-                     URLString:@"/v1/templates/{template-name}/email"
-                  targetPrefix:@""
-                 operationName:@"DeleteEmailTemplate"
-                   outputClass:[AWSPinpointTargetingDeleteEmailTemplateResponse class]];
-}
-
-- (void)deleteEmailTemplate:(AWSPinpointTargetingDeleteEmailTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingDeleteEmailTemplateResponse *response, NSError *error))completionHandler {
-    [[self deleteEmailTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteEmailTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingDeleteEmailTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingDeleteEndpointResponse *> *)deleteEndpoint:(AWSPinpointTargetingDeleteEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -799,29 +707,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingDeletePushTemplateResponse *> *)deletePushTemplate:(AWSPinpointTargetingDeletePushTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodDELETE
-                     URLString:@"/v1/templates/{template-name}/push"
-                  targetPrefix:@""
-                 operationName:@"DeletePushTemplate"
-                   outputClass:[AWSPinpointTargetingDeletePushTemplateResponse class]];
-}
-
-- (void)deletePushTemplate:(AWSPinpointTargetingDeletePushTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingDeletePushTemplateResponse *response, NSError *error))completionHandler {
-    [[self deletePushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeletePushTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingDeletePushTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingDeleteSegmentResponse *> *)deleteSegment:(AWSPinpointTargetingDeleteSegmentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -858,29 +743,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingDeleteSmsChannelResponse *response, NSError *error))completionHandler {
     [[self deleteSmsChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteSmsChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingDeleteSmsChannelResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSPinpointTargetingDeleteSmsTemplateResponse *> *)deleteSmsTemplate:(AWSPinpointTargetingDeleteSmsTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodDELETE
-                     URLString:@"/v1/templates/{template-name}/sms"
-                  targetPrefix:@""
-                 operationName:@"DeleteSmsTemplate"
-                   outputClass:[AWSPinpointTargetingDeleteSmsTemplateResponse class]];
-}
-
-- (void)deleteSmsTemplate:(AWSPinpointTargetingDeleteSmsTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingDeleteSmsTemplateResponse *response, NSError *error))completionHandler {
-    [[self deleteSmsTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteSmsTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingDeleteSmsTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1351,29 +1213,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingGetEmailTemplateResponse *> *)getEmailTemplate:(AWSPinpointTargetingGetEmailTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodGET
-                     URLString:@"/v1/templates/{template-name}/email"
-                  targetPrefix:@""
-                 operationName:@"GetEmailTemplate"
-                   outputClass:[AWSPinpointTargetingGetEmailTemplateResponse class]];
-}
-
-- (void)getEmailTemplate:(AWSPinpointTargetingGetEmailTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingGetEmailTemplateResponse *response, NSError *error))completionHandler {
-    [[self getEmailTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetEmailTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingGetEmailTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingGetEndpointResponse *> *)getEndpoint:(AWSPinpointTargetingGetEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1525,29 +1364,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingGetImportJobsResponse *response, NSError *error))completionHandler {
     [[self getImportJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetImportJobsResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetImportJobsResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSPinpointTargetingGetPushTemplateResponse *> *)getPushTemplate:(AWSPinpointTargetingGetPushTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodGET
-                     URLString:@"/v1/templates/{template-name}/push"
-                  targetPrefix:@""
-                 operationName:@"GetPushTemplate"
-                   outputClass:[AWSPinpointTargetingGetPushTemplateResponse class]];
-}
-
-- (void)getPushTemplate:(AWSPinpointTargetingGetPushTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingGetPushTemplateResponse *response, NSError *error))completionHandler {
-    [[self getPushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetPushTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingGetPushTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1719,29 +1535,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingGetSmsTemplateResponse *> *)getSmsTemplate:(AWSPinpointTargetingGetSmsTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodGET
-                     URLString:@"/v1/templates/{template-name}/sms"
-                  targetPrefix:@""
-                 operationName:@"GetSmsTemplate"
-                   outputClass:[AWSPinpointTargetingGetSmsTemplateResponse class]];
-}
-
-- (void)getSmsTemplate:(AWSPinpointTargetingGetSmsTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingGetSmsTemplateResponse *response, NSError *error))completionHandler {
-    [[self getSmsTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetSmsTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingGetSmsTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingGetUserEndpointsResponse *> *)getUserEndpoints:(AWSPinpointTargetingGetUserEndpointsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1801,29 +1594,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingListTagsForResourceResponse *response, NSError *error))completionHandler {
     [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingListTagsForResourceResponse *> * _Nonnull task) {
         AWSPinpointTargetingListTagsForResourceResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSPinpointTargetingListTemplatesResponse *> *)listTemplates:(AWSPinpointTargetingListTemplatesRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodGET
-                     URLString:@"/v1/templates"
-                  targetPrefix:@""
-                 operationName:@"ListTemplates"
-                   outputClass:[AWSPinpointTargetingListTemplatesResponse class]];
-}
-
-- (void)listTemplates:(AWSPinpointTargetingListTemplatesRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingListTemplatesResponse *response, NSError *error))completionHandler {
-    [[self listTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingListTemplatesResponse *> * _Nonnull task) {
-        AWSPinpointTargetingListTemplatesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2223,29 +1993,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingUpdateEmailTemplateResponse *> *)updateEmailTemplate:(AWSPinpointTargetingUpdateEmailTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPUT
-                     URLString:@"/v1/templates/{template-name}/email"
-                  targetPrefix:@""
-                 operationName:@"UpdateEmailTemplate"
-                   outputClass:[AWSPinpointTargetingUpdateEmailTemplateResponse class]];
-}
-
-- (void)updateEmailTemplate:(AWSPinpointTargetingUpdateEmailTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingUpdateEmailTemplateResponse *response, NSError *error))completionHandler {
-    [[self updateEmailTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateEmailTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingUpdateEmailTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingUpdateEndpointResponse *> *)updateEndpoint:(AWSPinpointTargetingUpdateEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -2315,29 +2062,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSPinpointTargetingUpdatePushTemplateResponse *> *)updatePushTemplate:(AWSPinpointTargetingUpdatePushTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPUT
-                     URLString:@"/v1/templates/{template-name}/push"
-                  targetPrefix:@""
-                 operationName:@"UpdatePushTemplate"
-                   outputClass:[AWSPinpointTargetingUpdatePushTemplateResponse class]];
-}
-
-- (void)updatePushTemplate:(AWSPinpointTargetingUpdatePushTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingUpdatePushTemplateResponse *response, NSError *error))completionHandler {
-    [[self updatePushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdatePushTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingUpdatePushTemplateResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
 - (AWSTask<AWSPinpointTargetingUpdateSegmentResponse *> *)updateSegment:(AWSPinpointTargetingUpdateSegmentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -2374,29 +2098,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingUpdateSmsChannelResponse *response, NSError *error))completionHandler {
     [[self updateSmsChannel:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateSmsChannelResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateSmsChannelResponse *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSPinpointTargetingUpdateSmsTemplateResponse *> *)updateSmsTemplate:(AWSPinpointTargetingUpdateSmsTemplateRequest *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPUT
-                     URLString:@"/v1/templates/{template-name}/sms"
-                  targetPrefix:@""
-                 operationName:@"UpdateSmsTemplate"
-                   outputClass:[AWSPinpointTargetingUpdateSmsTemplateResponse class]];
-}
-
-- (void)updateSmsTemplate:(AWSPinpointTargetingUpdateSmsTemplateRequest *)request
-     completionHandler:(void (^)(AWSPinpointTargetingUpdateSmsTemplateResponse *response, NSError *error))completionHandler {
-    [[self updateSmsTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateSmsTemplateResponse *> * _Nonnull task) {
-        AWSPinpointTargetingUpdateSmsTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
