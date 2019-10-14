@@ -41,7 +41,7 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
 
 // new signIn screen which allows optional federation
 + (void)presentViewControllerWithConfig:(NSMutableDictionary<NSString *, id> *)configDictionary
-                                    completionHandler:(AWSAuthUIExtendedCompletionHandler)completionHandler {
+                      completionHandler:(AWSAuthUIExtendedCompletionHandler)completionHandler {
     
     UINavigationController *navigationController = (UINavigationController *)configDictionary[@"navigationController"];
     AWSAuthUIConfiguration *config = [AWSAuthUIViewController getDefaultAuthUIConfiguration];
@@ -74,6 +74,9 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
         [loginController createInternalCompletionHandler];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
+
+        navController.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [navigationController presentViewController:navController
                                            animated:YES
                                          completion:nil];
@@ -97,6 +100,9 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
         loginController.completionHandler = completionHandler;
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
+
+        navController.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [navigationController presentViewController:navController
                                            animated:YES
                                          completion:nil];
