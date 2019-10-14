@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon Pinpoint
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.1
@@ -25,6 +14,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - Amazon EC2
   - Amazon Kinesis Firehose
   - Amazon Lex
+  - Amazon Pinpoint
 
 ## 2.12.0
 
