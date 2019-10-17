@@ -18,23 +18,33 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCopying.h>
+#import <FBSDKAccessToken.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
-  Extension protocol for NSMutableCopying that adds the mutableCopy method, which is implemented on NSObject.
-
- NSObject<NSCopying, NSMutableCopying> implicitly conforms to this protocol.
+/*!
+ @abstract Represents the results of the a device login flow.
+ @discussion This is used by `FBSDKDeviceLoginManager`.
  */
-NS_SWIFT_NAME(MutableCopying)
-@protocol FBSDKMutableCopying <FBSDKCopying, NSMutableCopying>
+NS_SWIFT_NAME(DeviceLoginManagerResult)
+@interface FBSDKDeviceLoginManagerResult : NSObject
 
-/**
-  Implemented by NSObject as a convenience to mutableCopyWithZone:.
- @return A mutable copy of the receiver.
+/*!
+ @abstract There is no public initializer.
  */
-- (id)mutableCopy;
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+/*!
+ @abstract The token.
+ */
+@property (nullable, nonatomic, strong, readonly) FBSDKAccessToken *accessToken;
+
+/*!
+ @abstract Indicates if the login was cancelled by the user, or if the device
+  login code has expired.
+ */
+@property (nonatomic, assign, readonly, getter=isCancelled) BOOL cancelled;
 
 @end
 

@@ -18,23 +18,22 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCopying.h>
+#import "FBSDKAppLinkResolving.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
-  Extension protocol for NSMutableCopying that adds the mutableCopy method, which is implemented on NSObject.
-
- NSObject<NSCopying, NSMutableCopying> implicitly conforms to this protocol.
+ A reference implementation for an App Link resolver that uses a hidden WKWebView
+ to parse the HTML containing App Link metadata.
  */
-NS_SWIFT_NAME(MutableCopying)
-@protocol FBSDKMutableCopying <FBSDKCopying, NSMutableCopying>
+NS_SWIFT_NAME(WebViewAppLinkResolver)
+@interface FBSDKWebViewAppLinkResolver : NSObject <FBSDKAppLinkResolving>
 
 /**
-  Implemented by NSObject as a convenience to mutableCopyWithZone:.
- @return A mutable copy of the receiver.
+ Gets the instance of a FBSDKWebViewAppLinkResolver.
  */
-- (id)mutableCopy;
+@property (class, nonatomic, readonly, strong) FBSDKWebViewAppLinkResolver *sharedInstance
+NS_SWIFT_NAME(shared);
 
 @end
 
