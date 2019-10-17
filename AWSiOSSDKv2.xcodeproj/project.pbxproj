@@ -4521,7 +4521,6 @@
 		FA7A44C52305D09C00F55D7A /* AWSNetworkingHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSNetworkingHelpers.m; sourceTree = "<group>"; };
 		FA7A44C82305DE0E00F55D7A /* SigV4TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCase.swift; sourceTree = "<group>"; };
 		FA7A57052308BEB10093A523 /* SigV4TestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4TestCases.swift; sourceTree = "<group>"; };
-		FA88357B23382DE100A0F950 /* AWSKinesisVideoTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA85EF8D234D081D00D4498C /* OTABlocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTABlocks.swift; sourceTree = "<group>"; };
 		FA85EF90234D2FCA00D4498C /* CBOREncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoder.swift; sourceTree = "<group>"; };
 		FA85EF91234D2FCA00D4498C /* FixedWidthInteger+Bytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FixedWidthInteger+Bytes.swift"; sourceTree = "<group>"; };
@@ -15110,7 +15109,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -15139,7 +15138,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
