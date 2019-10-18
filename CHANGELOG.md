@@ -1,5 +1,12 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.12.2
+
+### Bug Fixes
+-**AWSFacebookSignIn**
+-Fixes issues[#1516](https://github.com/aws-amplify/aws-sdk-ios/issues/1516) and [#1974](https://github.com/aws-amplify/aws-sdk-ios/issues/1974) from deprecated and old FBSDK. FBSDK has been updated to 5.8
+
+
 ## 2.12.1
 
 ### Bug Fixes

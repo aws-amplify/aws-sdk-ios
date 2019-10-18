@@ -89,35 +89,16 @@ static NSString* const AWSInfoFacebookSignInIdentifier = @"FacebookSignIn";
 - (AWSTask<NSString *> *)token {
     Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
     NSString *tokenString = [fbSDKAccessToken currentAccessToken].tokenString;
-    BOOL isTokenExpired = [fbSDKAccessToken currentAccessToken].dataAccessExpired;
+    NSDate *idTokenExpirationDate = [fbSDKAccessToken currentAccessToken].expirationDate;
     
     if (tokenString
         // If the cached token expires within 10 min, tries refreshing a token.
-        && !isTokenExpired) {
+        && [idTokenExpirationDate compare:[NSDate dateWithTimeIntervalSinceNow:AWSFacebookSignInProviderTokenRefreshBuffer]] == NSOrderedDescending) {
         return [AWSTask taskWithResult:tokenString];
     }
     
     self.taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
-
-    UIViewController *vc = [[UIViewController alloc] init];
-    if (!self.facebookLogin){
-        [self createFBSDKLoginManager];
-    }
-    
-    [self.facebookLogin reauthorizeDataAccess: vc
-                                      handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-        
-        if (error) {
-            self.taskCompletionSource.error = error;
-        } else {
-            Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
-            if (fbSDKAccessToken) {
-                self.taskCompletionSource.result = [fbSDKAccessToken currentAccessToken].tokenString;
-            } else {
-                AWSDDLogError(@"Error setting facebook token to result");
-            }
-        }
-    }];
+    self.taskCompletionSource.result = [fbSDKAccessToken currentAccessToken].tokenString;
     
     return self.taskCompletionSource.task;
     
@@ -153,6 +134,7 @@ static NSString* const AWSInfoFacebookSignInIdentifier = @"FacebookSignIn";
 }
 
 - (void)login:(AWSSignInManagerCompletionBlock) completionHandler {
+    
     self.completionHandler = completionHandler;
     Class fbSDKAccessToken = NSClassFromString(@"FBSDKAccessToken");
     if ([fbSDKAccessToken currentAccessToken]) {
@@ -165,21 +147,21 @@ static NSString* const AWSInfoFacebookSignInIdentifier = @"FacebookSignIn";
     }
     
     [self.facebookLogin logInWithPermissions:self.requestedPermissions
-                              fromViewController:self.signInViewController
-                                         handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-
-                                             if (error) {
-                                                    self.completionHandler(result, error);
-                                             } else if (result.isCancelled) {
-                                                 // Login canceled, allow completionhandler to know about it
-                                                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-                                                 userInfo[@"message"] = @"User Cancelled Login";
-                                                 NSError *resultError = [NSError errorWithDomain:@"com.facebook.sdk.login" code:FBSDKLoginErrorUnknown userInfo:userInfo];
-                                                 self.completionHandler(result, resultError);
-                                             } else {
-                                                 [self completeLogin];
-                                             }
-                                         }];
+                          fromViewController:self.signInViewController
+                                     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        
+        if (error) {
+            self.completionHandler(result, error);
+        } else if (result.isCancelled) {
+            // Login canceled, allow completionhandler to know about it
+            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+            userInfo[@"message"] = @"User Cancelled Login";
+            NSError *resultError = [NSError errorWithDomain:@"com.facebook.sdk.login" code:FBSDKLoginErrorUnknown userInfo:userInfo];
+            self.completionHandler(result, resultError);
+        } else {
+            [self completeLogin];
+        }
+    }];
 }
 
 - (void)logout {

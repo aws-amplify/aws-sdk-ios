@@ -131,44 +131,44 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
         
         print(signinstatelabelElement.label)
         
+        //declaring here for reuse below
+        let predicateLabelContainsSignedOut = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
+        let labelContainsSignedOut = expectation(for: predicateLabelContainsSignedOut, evaluatedWith: signinstatelabelElement)
+        
+        let predicateLabelContainsSignedIn = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
+        let labelContainsSignedIn = expectation(for: predicateLabelContainsSignedIn, evaluatedWith: signinstatelabelElement)
+        
         if signinstatelabelElement.label == "signedIn" {
+            
             app.buttons["SignOut"].tap()
-         
+            
             //in order to continue with alert properly have to call addUIInterruptionMonitor and then tap Continue.
             addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
                 alert.buttons["Continue"].tap()
-                //sleep(30) ///while the url loads
                 return true
             }
             
             app.tap()
-
-            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-            let expectation2 = self.expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                                  handler: nil)
-                   
-            let _ = XCTWaiter().wait(for: [expectation2], timeout: 15)
-           
+            
+            _ = XCTWaiter().wait(for: [labelContainsSignedOut], timeout: 15)
+            
         }
-        
-        XCTAssertEqual("signedOut", signinstatelabelElement.label)
         
         app.buttons["Launch CognitoAuth SignIn Facebook"].tap()
-     
-        addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
-           alert.buttons["Continue"].tap()
-          
-           return true
-        }
-         app.tap()
-
-        // set up an expectation predicate to test whether elements exist
-        let exists = NSPredicate(format: "exists == true")
         
+        addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+            alert.buttons["Continue"].tap()
+            return true
+        }
+        
+        app.tap()
+        
+        // set up an expectation predicate to test whether elements exist
+        let continueBtnExists = NSPredicate(format: "exists == true")
         
         // wait for the "Confirm" title at the top of facebook's sign in screen
         let continueButton = app.webViews.buttons["Continue"]
-        let continueButtonExpectation = expectation(for: exists, evaluatedWith: continueButton, handler: nil)
+        let continueButtonExpectation = expectation(for: continueBtnExists, evaluatedWith: continueButton, handler: nil)
         let buttonWaiter = XCTWaiter().wait(for: [continueButtonExpectation], timeout: 5)
         
         // Facebook user already logged in
@@ -179,52 +179,50 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
             if signinstatelabelElement.label == "signedIn" {
                 // break outside of else if
             } else {
-            
-        
-            // We will try to enter email and password here to log the user in.
-            let webViewsQuery = app.webViews
-            webViewsQuery.textFields["Mobile Number or Email"].tap()
-            webViewsQuery.textFields["Mobile Number or Email"].clearText()
-            webViewsQuery.textFields["Mobile Number or Email"].typeText(AWSAuthSDKTestAppUITests.FacebookUsername!)
-            webViewsQuery.secureTextFields["Facebook Password"].tap()
-            webViewsQuery.secureTextFields["Facebook Password"].typeText(AWSAuthSDKTestAppUITests.FacebookPassword!)
-            webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-            
-            let continueButton = app.webViews.buttons["Continue"]
-            let continueButtonExpectation = expectation(for: exists, evaluatedWith: continueButton, handler: nil)
-            let buttonWaiter = XCTWaiter().wait(for: [continueButtonExpectation], timeout: 10)
-            if buttonWaiter == .completed {
-                app.webViews.buttons["Continue"].tap()
-            } else if buttonWaiter == .timedOut {
-                XCTFail("Could not finish Facebook login.")
-                return
-            }
+                // We will try to enter email and password here to log the user in.
+                let webViewsQuery = app.webViews
+                
+                webViewsQuery.textFields["Mobile Number or Email"].tap()
+                webViewsQuery.textFields["Mobile Number or Email"].clearText()
+                webViewsQuery.textFields["Mobile Number or Email"].typeText(AWSAuthSDKTestAppUITests.FacebookUsername!)
+                
+                webViewsQuery.secureTextFields["Facebook Password"].tap()
+                webViewsQuery.secureTextFields["Facebook Password"].typeText(AWSAuthSDKTestAppUITests.FacebookPassword!)
+                
+                webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+                
+                let continueButton = app.webViews.buttons["Continue"]
+                
+                let continueButtonExpectation = expectation(for: continueBtnExists, evaluatedWith: continueButton)
+                
+                let buttonWaiter = XCTWaiter().wait(for: [continueButtonExpectation], timeout: 10)
+                
+                if buttonWaiter == .completed {
+                    
+                    app.webViews.buttons["Continue"].tap()
+                    
+                } else if buttonWaiter == .timedOut {
+                    
+                    XCTFail("Could not finish Facebook login.")
+                    return
+                }
             }
         }
         
-        
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                       handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+        _ = XCTWaiter().wait(for: [labelContainsSignedIn], timeout: 5)
         
         print(signinstatelabelElement.label)
         
         app.buttons["SignOut"].tap()
         
         addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
-                      alert.buttons["Continue"].tap()
-                      //sleep(30) ///while the url loads
-                      return true
-                  }
-                  
-        app.tap()
-        let predicate1 = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-        let expectation2 = expectation(for: predicate1, evaluatedWith: signinstatelabelElement,
-                                       handler: nil)
+            alert.buttons["Continue"].tap()
+            return true
+        }
         
-        let _ = XCTWaiter().wait(for: [expectation2], timeout: 5)
+        app.tap()
+        
+        _ = XCTWaiter().wait(for: [labelContainsSignedOut], timeout: 5)
         
         print(signinstatelabelElement.label)
         
