@@ -127,28 +127,41 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
     func testFacebookSignInHostedUI() {
         let app = XCUIApplication()
         
-        let signinstatelabelElement = XCUIApplication().otherElements["signInStateLabel"]
+        let signinstatelabelElement = app.staticTexts["signInStateLabel"]
         
         print(signinstatelabelElement.label)
         
         if signinstatelabelElement.label == "signedIn" {
             app.buttons["SignOut"].tap()
-            let statusBarsQuery = app.statusBars
-            statusBarsQuery.element.tap()
-            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-            let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                           handler: nil)
+         
+            //in order to continue with alert properly have to call addUIInterruptionMonitor and then tap Continue.
+            addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+                alert.buttons["Continue"].tap()
+                sleep(30) ///while the url loads
+                return true
+            }
             
-            let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+            app.tap()
+
+            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
+            let expectation2 = self.expectation(for: predicate, evaluatedWith: signinstatelabelElement,
+                                                  handler: nil)
+                   
+            let _ = XCTWaiter().wait(for: [expectation2], timeout: 15)
+           
         }
         
         XCTAssertEqual("signedOut", signinstatelabelElement.label)
         
         XCUIApplication().buttons["Launch CognitoAuth SignIn Facebook"].tap()
         
-        let statusBarsQuery = app.statusBars
+        let alertsQuery = app.alerts
         if #available(iOS 11.0, *) {
-            statusBarsQuery.element.tap()
+            addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+                           alert.buttons["Continue"].tap()
+                           sleep(30) ///while the url loads
+                           return true
+            }
         } else {
             // or use some work around
         }
@@ -204,7 +217,7 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
         
         app.buttons["SignOut"].tap()
         
-        statusBarsQuery.element.tap()
+        alertsQuery.element.tap()
         let predicate1 = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
         let expectation2 = expectation(for: predicate1, evaluatedWith: signinstatelabelElement,
                                        handler: nil)

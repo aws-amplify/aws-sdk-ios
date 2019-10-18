@@ -28,6 +28,46 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "177B8AE521E81B7D0051068F"
+               BuildableName = "AWSAuthSDKTestAppUITests.xctest"
+               BlueprintName = "AWSAuthSDKTestAppUITests"
+               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B412F5DE233445A500F1AC69"
+               BuildableName = "AWSMobileClientCustomAuthTests.xctest"
+               BlueprintName = "AWSMobileClientCustomAuthTests"
+               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "17CD4AA3218241AD00953483"
+               BuildableName = "AWSMobileClientTests.xctest"
+               BlueprintName = "AWSMobileClientTests"
+               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B92BA3C52318859D007C1175"
+               BuildableName = "AWSMobileClientUnitTests.xctest"
+               BlueprintName = "AWSMobileClientUnitTests"
+               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
