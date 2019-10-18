@@ -25,9 +25,9 @@ import Foundation
     @objc public init(canCancel: Bool = false,
                       logoImage: UIImage? = nil,
                       backgroundColor: UIColor? = nil,
-                      disableSignUpButton: Bool = false,
                       secondaryBackgroundColor: UIColor? = nil,
-                      primaryColor: UIColor? = .systemBlue) {
+                      primaryColor: UIColor? = .systemBlue,
+                      disableSignUpButton: Bool = false) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
