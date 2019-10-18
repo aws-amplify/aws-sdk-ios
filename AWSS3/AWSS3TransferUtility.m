@@ -1038,7 +1038,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 }
 
 
--(AWSTask<AWSS3TransferUtilityUploadTask *> *) createUploadTask: (AWSS3TransferUtilityUploadTask *) transferUtilityUploadTask startTransfer:(BOOL) startTransfer {
+-(AWSTask<AWSS3TransferUtilityUploadTask *> *) createUploadTask:(AWSS3TransferUtilityUploadTask *) transferUtilityUploadTask
+                                                  startTransfer:(BOOL) startTransfer {
     //Create PreSigned URL Request
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequest.bucket = transferUtilityUploadTask.bucket;
@@ -1071,9 +1072,29 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
         AWSDDLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
         
-        NSURLSessionUploadTask *uploadTask = [self.session uploadTaskWithRequest:request
-                                                                        fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]];
-        transferUtilityUploadTask.sessionTask = uploadTask;
+        NSURLSessionUploadTask *nsURLUploadTask = nil;
+        NSString *exceptionReason = @"";
+        @try {
+            nsURLUploadTask  = [self.session uploadTaskWithRequest:request
+            fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]];
+        }
+        @catch (NSException *exception) {
+            AWSDDLogDebug(@"Exception in upload task %@", exception.debugDescription);
+            exceptionReason = [exception.reason copy];
+            nsURLUploadTask = nil;
+        }
+        if (nsURLUploadTask == nil) {
+            NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
+            NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      errorMessage, @"Message", exceptionReason, @"Reason", nil];
+            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                        code:AWSS3TransferUtilityErrorUnknown
+                                    userInfo:userInfo];
+            AWSDDLogError(@"Error: %@", error);
+            return [AWSTask taskWithError:error];
+        }
+
+        transferUtilityUploadTask.sessionTask = nsURLUploadTask;
         if ( startTransfer) {
             transferUtilityUploadTask.status = AWSS3TransferUtilityTransferStatusInProgress;
         }
@@ -1095,7 +1116,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                           retry_count:transferUtilityUploadTask.retryCount
                                                         databaseQueue:self->_databaseQueue];
         if (startTransfer) {
-            [uploadTask resume];
+            [nsURLUploadTask resume];
         }
         
         return [AWSTask taskWithResult:transferUtilityUploadTask];
