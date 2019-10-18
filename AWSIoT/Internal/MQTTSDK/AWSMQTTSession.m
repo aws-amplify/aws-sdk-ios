@@ -301,6 +301,7 @@
 }
 
 # pragma mark Protocol Handlers
+
 - (void)encoder:(AWSMQTTEncoder*)sender handleEvent:(AWSMQTTEncoderEvent) eventCode {
     AWSDDLogVerbose(@"%s [Line %d], eventCode: %d", __PRETTY_FUNCTION__, __LINE__, eventCode);
     if(sender == encoder) {

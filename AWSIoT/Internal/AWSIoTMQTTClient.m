@@ -223,7 +223,19 @@
                              serviceName,
                              now];
 
-    return [self signWebSocketUrlForMethod:@"GET" scheme:@"wss://" hostName:hostName path:path  queryParams:queryParams accessKey:accessKey secretKey:secretKey regionName:regionName serviceName:serviceName payload:@"" today:today now:now sessionKey:sessionKey];
+    return [self signWebSocketUrlForMethod:@"GET"
+                                    scheme:@"wss://"
+                                  hostName:hostName
+                                      path:path
+                               queryParams:queryParams
+                                 accessKey:accessKey
+                                 secretKey:secretKey
+                                regionName:regionName
+                               serviceName:serviceName
+                                   payload:@""
+                                     today:today
+                                       now:now
+                                sessionKey:sessionKey];
 }
 
 #pragma mark connect lifecycle methods

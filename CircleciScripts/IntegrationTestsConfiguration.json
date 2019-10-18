@@ -84,6 +84,11 @@
       }
     }
   },
+  "IoTFreeRTOSOTATests": {
+    "test_list": {
+      "AWSIoTFreeRTOSOTATests": {}
+    }
+  },
   "KMS": {
     "test_list": {
       "AWSKMSTests": {
