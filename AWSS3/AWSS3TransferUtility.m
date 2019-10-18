@@ -1037,28 +1037,26 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     return [self createUploadTask:transferUtilityUploadTask startTransfer:YES];
 }
 
-- (NSURLSessionUploadTask *)getURLSessionUploadTaskWithRequest:(NSURLRequest *)request
-                                                      fromFile:(NSURL *)fileURL
-                                                         error:(NSError **)errorPtr {
-    NSURLSessionUploadTask *nsURLUploadTask = nil;
-    NSString *exceptionReason = @"";
+- (NSURLSessionUploadTask *)getURLSessionUploadTaskWithRequest:(NSURLRequest *) request
+                                                      fromFile:(NSURL *) fileURL
+                                                         error:(NSError **) errorPtr {
     @try {
-        nsURLUploadTask  = [self.session uploadTaskWithRequest:request
-                                                      fromFile:fileURL];
-    }
-    @catch (NSException *exception) {
-        AWSDDLogDebug(@"Exception in upload task %@", exception.debugDescription);
-        exceptionReason = [exception.reason copy];
+        return [self.session uploadTaskWithRequest:request
+                                          fromFile:fileURL];
+    } @catch (NSException *exception) {
+        AWSDDLogWarn(@"Exception in upload task %@", exception.debugDescription);
+        NSString *exceptionReason = [exception.reason copy];
         NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
         NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  errorMessage, @"Message", exceptionReason, @"Reason", nil];
+                                  errorMessage, @"Message",
+                                  exceptionReason, @"Reason", nil];
         if (errorPtr != NULL) {
             *errorPtr = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
-                                         code:AWSS3TransferUtilityErrorUnknown
-                                     userInfo:userInfo];
+                                            code:AWSS3TransferUtilityErrorUnknown
+                                        userInfo:userInfo];
         }
     }
-    return nsURLUploadTask;
+    return nil;
 }
 
 -(AWSTask<AWSS3TransferUtilityUploadTask *> *) createUploadTask:(AWSS3TransferUtilityUploadTask *) transferUtilityUploadTask
