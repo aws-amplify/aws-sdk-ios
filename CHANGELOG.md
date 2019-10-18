@@ -1,13 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.12.2
-
-### Bug Fixes
--**AWSFacebookSignIn**
--Fixes issues[#1516](https://github.com/aws-amplify/aws-sdk-ios/issues/1516) and [#1974](https://github.com/aws-amplify/aws-sdk-ios/issues/1974) from deprecated and old FBSDK. FBSDK has been updated to 5.8
-
-
-## 2.12.1
+## Unreleased
 
 ### New Features
 
@@ -24,6 +17,9 @@
   - Present sign-in modal fullscreen to avoid undesirable gap. See issue [#1963](https://github.com/aws-amplify/aws-sdk-ios/issues/1963). Thanks @BillBunting!
 - **AWS S3 TransferUtility**
   - Fix a bug where the SDK crashes during uploading data to S3. See iseeu [#1994](https://github.com/aws-amplify/aws-sdk-ios/issues/1994).
+- **AWSFacebookSignIn**
+  - Fixes issues[#1516](https://github.com/aws-amplify/aws-sdk-ios/issues/1516) and [#1974](https://github.com/aws-amplify/aws-sdk-ios/issues/1974) from deprecated and old FBSDK. FBSDK has been updated to 5.8
+
 
 ### Misc. Updates
 
