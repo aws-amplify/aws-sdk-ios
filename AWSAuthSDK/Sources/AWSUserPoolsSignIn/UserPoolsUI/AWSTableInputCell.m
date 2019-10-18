@@ -20,9 +20,36 @@
 // Handle event when user finishes inputting text into a text field
 - (IBAction)textEditingDidEnd:(id)sender {
     if ([self.inputBox.text isEqual: @""]) {
+        [self showHeaderLabel:NO];
+    }
+}
+
+- (IBAction)textEditingDidBegin:(id)sender {
+    [self showHeaderLabel:YES];
+}
+
+- (void)onTap {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showHeaderLabel:YES];
+        [self.inputBox becomeFirstResponder];
+    });
+}
+
+- (void)showHeaderLabel:(BOOL)visible {
+    if (visible && self.headerLabel.hidden) {
+        [UIView transitionWithView:self.placeHolderView
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.placeHolderView.hidden = YES;
+                            self.headerLabel.hidden = NO;
+                            self.inputBox.hidden = NO;
+                        }
+                        completion:nil];
+    } else if (!visible && self.placeHolderView.isHidden) {
         self.placeHolderView.alpha = 0;
         self.placeHolderView.hidden = NO;
-        [UIView animateWithDuration:0.5
+        [UIView animateWithDuration:0.3
                          animations:^{
                              self.placeHolderView.alpha = 1;
                              self.headerLabel.hidden = YES;
@@ -31,29 +58,8 @@
     }
 }
 
-- (IBAction)textEditingDidBegin:(id)sender {
-    if (!self.placeHolderView.isHidden) {
-        [self onTap];
-    }
-}
-    
-
-- (void)onTap {
-    dispatch_async(dispatch_get_main_queue(), ^{
-       [UIView transitionWithView:self.placeHolderView
-                         duration:0.5
-                          options:UIViewAnimationOptionTransitionCrossDissolve
-                       animations:^{
-                           self.placeHolderView.hidden = YES;
-                           self.headerLabel.hidden = NO;
-                           self.inputBox.hidden = NO;
-                       } completion:nil];
-        [self.inputBox becomeFirstResponder];
-    });
-}
-
 - (void)setAWSTableInputCellFont {
-    UIFont *font = [AWSUserPoolsUIHelper getFont:[AWSUserPoolsUIHelper getAWSUIConfiguration]];
+    UIFont *font = [AWSAuthUIHelper getFont:[AWSAuthUIHelper getAWSUIConfiguration]];
     if (font != nil) {
         [self.placeHolderLabel setFont:font];
         [self.headerLabel setFont:font];

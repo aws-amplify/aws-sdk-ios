@@ -32,6 +32,10 @@
 
 @synthesize backgroundColor;
 
+@synthesize secondaryBackgroundColor;
+
+@synthesize primaryColor;
+
 @synthesize registeredSignInButtonViews;
 
 @synthesize enableUserPoolsUI;

@@ -70,7 +70,7 @@ class AWSComprehendTests: XCTestCase {
         
         comprehendClient.detectEntities(detectEntitiesRequest!).continueWith{ (task) -> Any? in
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertFalse(true, "got error: \(String(describing: task.error))")
                 return nil
             }
             XCTAssertNotNil(result)

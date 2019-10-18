@@ -15,17 +15,12 @@
 
 #import "AWSAbstractKinesisRecorder.h"
 #import "AWSKinesis.h"
-#import "AWSBolts.h"
-#import "AWSCocoaLumberjack.h"
-#import "AWSCategory.h"
-#import "AWSFMDB.h"
-#import "AWSSynchronizedMutableDictionary.h"
 
 // Kinesis Abstract Client
 NSUInteger const AWSKinesisAbstractClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSKinesisAbstractClientAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
 NSString *const AWSKinesisAbstractClientUserAgent = @"recorder";
-NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024 * 1024;
+NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024; // 512KB
 NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 
 @protocol AWSKinesisRecorderHelper <NSObject>
@@ -91,7 +86,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
         // Creates a database for the identifier if it doesn't exist.
         AWSDDLogDebug(@"Database path: [%@]", _databasePath);
-        _databaseQueue = [AWSFMDatabaseQueue databaseQueueWithPath:_databasePath];
+        _databaseQueue = [AWSFMDatabaseQueue serialDatabaseQueueWithPath:_databasePath];
         [_databaseQueue inDatabase:^(AWSFMDatabase *db) {
             if (![db executeStatements:@"PRAGMA auto_vacuum = FULL"]) {
                 AWSDDLogError(@"Failed to enable 'auto_vacuum' to 'FULL'. %@", db.lastError);

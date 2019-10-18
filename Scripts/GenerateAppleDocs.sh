@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.9.3"
+VERSION="2.12.0"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -32,6 +32,7 @@ else
     cp -r AWSCognito ./docs_tmp/AWSCognito
     cp -r AWSCognitoIdentityProvider ./docs_tmp/AWSCognitoIdentityProvider
     cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
+    cp -r AWSConnect ./docs_tmp/AWSConnect
     cp -r AWSDynamoDB ./docs_tmp/AWSDynamoDB
     cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
     cp -r AWSIoT ./docs_tmp/AWSIoT
@@ -47,11 +48,13 @@ else
     cp -r AWSPinpoint ./docs_tmp/AWSPinpoint
     cp -r AWSPolly ./docs_tmp/AWSPolly
     cp -r AWSRekognition ./docs_tmp/AWSRekognition
+    cp -r AWSSageMakerRuntime ./docs_tmp/AWSSageMakerRuntime
     cp -r AWSS3 ./docs_tmp/AWSS3
     cp -r AWSSES ./docs_tmp/AWSSES
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
+    cp -r AWSTextract ./docs_tmp/AWSTextract
     cp -r AWSTranscribe ./docs_tmp/AWSTranscribe
     cp -r AWSTranslate ./docs_tmp/AWSTranslate
     cp -r AWSComprehend ./docs_tmp/AWSComprehend

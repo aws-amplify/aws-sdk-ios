@@ -50,7 +50,7 @@ def replacefiles(root, replaces):
         match = replaceaction["match"]
         replace = replaceaction["replace"]
         files = replaceaction["files"]
-        enclosemark = ","
+        enclosemark = "'"
         if "enclosemark" in replaceaction and replaceaction['enclosemark'] == "double" :
             enclosemark = '"'
         paramters = "-r -i''"

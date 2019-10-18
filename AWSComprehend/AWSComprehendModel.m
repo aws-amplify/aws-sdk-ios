@@ -489,6 +489,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"documentClassifierName" : @"DocumentClassifierName",
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
+             @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -537,6 +541,18 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     }];
 }
 
++ (NSValueTransformer *)outputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentClassifierOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
 @end
 
 @implementation AWSComprehendCreateDocumentClassifierResponse
@@ -558,6 +574,9 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"recognizerName" : @"RecognizerName",
+             @"tags" : @"Tags",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -604,6 +623,14 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -1242,6 +1269,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -1308,6 +1337,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -1396,6 +1429,17 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendDocumentClassifierOutputDataConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"kmsKeyId" : @"KmsKeyId",
+             @"s3Uri" : @"S3Uri",
+             };
+}
+
+@end
+
 @implementation AWSComprehendDocumentClassifierProperties
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1407,10 +1451,13 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"message" : @"Message",
+             @"outputDataConfig" : @"OutputDataConfig",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
              @"trainingStartTime" : @"TrainingStartTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -1469,6 +1516,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)outputDataConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentClassifierOutputDataConfig class]];
 }
 
 + (NSValueTransformer *)statusJSONTransformer {
@@ -1539,6 +1590,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -1637,6 +1692,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -1703,6 +1760,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -1792,6 +1853,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -1899,6 +1962,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -2143,8 +2210,14 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"evaluationMetrics" : @"EvaluationMetrics",
+             @"numberOfTrainMentions" : @"NumberOfTrainMentions",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)evaluationMetricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendEntityTypesEvaluationMetrics class]];
 }
 
 @end
@@ -2164,6 +2237,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"submitTime" : @"SubmitTime",
              @"trainingEndTime" : @"TrainingEndTime",
              @"trainingStartTime" : @"TrainingStartTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -2292,6 +2367,22 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendEntityTypesEvaluationMetrics
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"f1Score" : @"F1Score",
+             @"precision" : @"Precision",
+             @"recall" : @"Recall",
+             };
 }
 
 @end
@@ -2435,6 +2526,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -2542,6 +2635,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -2763,6 +2860,31 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendListTagsForResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
+@end
+
 @implementation AWSComprehendListTopicsDetectionJobsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2798,6 +2920,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"kmsKeyId" : @"KmsKeyId",
              @"s3Uri" : @"S3Uri",
              };
 }
@@ -3000,6 +3123,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"message" : @"Message",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3109,6 +3234,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     }];
 }
 
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
 @end
 
 @implementation AWSComprehendSentimentScore
@@ -3134,6 +3263,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3143,6 +3274,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -3208,6 +3343,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3217,6 +3354,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -3284,6 +3425,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3334,6 +3477,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -3400,6 +3547,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3450,6 +3599,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -3516,6 +3669,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3566,6 +3721,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -3632,6 +3791,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"numberOfTopics" : @"NumberOfTopics",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -3641,6 +3802,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
 
 @end
@@ -3991,6 +4156,36 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSComprehendTagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
+@end
+
+@implementation AWSComprehendTagResourceResponse
+
+@end
+
 @implementation AWSComprehendTopicsDetectionJobFilter
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4065,6 +4260,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
              @"jobId" : @"JobId",
@@ -4074,6 +4270,8 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"numberOfTopics" : @"NumberOfTopics",
              @"outputDataConfig" : @"OutputDataConfig",
              @"submitTime" : @"SubmitTime",
+             @"volumeKmsKeyId" : @"VolumeKmsKeyId",
+             @"vpcConfig" : @"VpcConfig",
              };
 }
 
@@ -4140,6 +4338,36 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)vpcConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendUntagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSComprehendUntagResourceResponse
+
+@end
+
+@implementation AWSComprehendVpcConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"securityGroupIds" : @"SecurityGroupIds",
+             @"subnets" : @"Subnets",
+             };
 }
 
 @end

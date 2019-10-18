@@ -14,7 +14,6 @@
 //
 
 #import "AWSPollyService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSPollyResources.h"
 
 static NSString *const AWSInfoPolly = @"Polly";
-NSString *const AWSPollySDKVersion = @"2.9.3";
+NSString *const AWSPollySDKVersion = @"2.12.0";
 
 
 @interface AWSPollyResponseSerializer : AWSJSONResponseSerializer
@@ -40,6 +39,7 @@ NSString *const AWSPollySDKVersion = @"2.9.3";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"EngineNotSupportedException" : @(AWSPollyErrorEngineNotSupported),
                             @"InvalidLexiconException" : @(AWSPollyErrorInvalidLexicon),
                             @"InvalidNextTokenException" : @(AWSPollyErrorInvalidNextToken),
                             @"InvalidS3BucketException" : @(AWSPollyErrorInvalidS3Bucket),

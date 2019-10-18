@@ -53,7 +53,7 @@
     AWSLambda *lambda = [AWSLambda defaultLambda];
 
     AWSLambdaGetFunctionRequest *getFunctionsRequest = [AWSLambdaGetFunctionRequest new];
-    getFunctionsRequest.functionName = @"helloWorldExample";
+    getFunctionsRequest.functionName = @"echo";
 
     [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
@@ -110,7 +110,7 @@
 - (void)testInvoke {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -142,7 +142,7 @@
     
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -170,23 +170,25 @@
 
 - (void)testInvoke2 {
     AWSLambda *lambda = [AWSLambda defaultLambda];
+
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"lambdaDebugging";
+    invocationRequest.functionName = @"echo-2";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
-    NSDictionary *parameters = @{@"firstName" : NSStringFromSelector(_cmd)};
+    NSDictionary *parameters = @{@"firstName" : @"testInvokeFunction2",
+                                 @"isError" : @NO};
     invocationRequest.payload = [NSJSONSerialization dataWithJSONObject:parameters
                                                                 options:kNilOptions
                                                                   error:nil];
+
     invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
-    
+
     [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         AWSLambdaInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
         NSDictionary *result = invocationResponse.payload;
-        NSString *expectedString = [NSString stringWithFormat:@"Hello %@",NSStringFromSelector(_cmd)];
-        XCTAssertEqualObjects(expectedString,result[@"message"]);
+        XCTAssertEqualObjects(@"testInvokeFunction2", result[@"firstName"]);
         return nil;
     }] waitUntilFinished];
 }
@@ -194,7 +196,7 @@
 - (void)testInvokeWithVersion {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
+    invocationRequest.functionName = @"echo";
     invocationRequest.qualifier = @"2";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
@@ -211,8 +213,7 @@
         XCTAssertNotNil(task.result);
         AWSLambdaInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        NSDictionary *result = invocationResponse.payload;
-        XCTAssertEqualObjects(result[@"version"], @"1");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
         return nil;
     }] waitUntilFinished];
 }
@@ -220,8 +221,8 @@
 - (void)testInvokeWithVersionAlias {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"helloWorldExample";
-    invocationRequest.qualifier = @"version2";
+    invocationRequest.functionName = @"echo";
+    invocationRequest.qualifier = @"Version2Alias";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -231,14 +232,13 @@
                                                                 options:kNilOptions
                                                                   error:nil];
     invocationRequest.clientContext = [[AWSClientContext new] base64EncodedJSONString];
-
+    
     [[[lambda invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
         AWSLambdaInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        NSDictionary *result = invocationResponse.payload;
-        XCTAssertEqualObjects(result[@"version"], @"1");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
         return nil;
     }] waitUntilFinished];
 }

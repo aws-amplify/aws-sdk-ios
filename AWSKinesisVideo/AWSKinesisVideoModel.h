@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoAPIName) {
     AWSKinesisVideoAPINameListFragments,
     AWSKinesisVideoAPINameGetMediaForFragmentList,
     AWSKinesisVideoAPINameGetHlsStreamingSessionUrl,
+    AWSKinesisVideoAPINameGetDashStreamingSessionUrl,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoComparisonOperator) {
@@ -109,7 +110,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p><p>Example valid values include "video/h264" and "video/h264,audio/aac".</p><p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
+ <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p><p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaType;
 

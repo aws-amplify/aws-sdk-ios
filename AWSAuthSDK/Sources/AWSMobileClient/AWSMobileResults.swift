@@ -66,7 +66,75 @@ public enum AWSMobileClientError: Error {
     case deviceNotRemembered(message: String)
 }
 
-extension AWSMobileClient {
+extension AWSMobileClientError {
+    /// Underlying error message of `AWSMobileClientError`
+    var message: String {
+        switch self {
+        case .aliasExists(let message),
+             .badRequest(let message),
+             .codeDeliveryFailure(let message),
+             .codeMismatch(let message),
+             .cognitoIdentityPoolNotConfigured(let message),
+             .deviceNotRemembered(let message),
+             .errorLoadingPage(let message),
+             .expiredCode(let message),
+             .expiredRefreshToken(let message),
+             .federationProviderExists(let message),
+             .groupExists(let message),
+             .guestAccessNotAllowed(let message),
+             .idTokenAndAcceessTokenNotIssued(let message),
+             .idTokenNotIssued(let message),
+             .identityIdUnavailable(let message),
+             .internalError(let message),
+             .invalidConfiguration(let message),
+             .invalidLambdaResponse(let message),
+             .invalidOAuthFlow(let message),
+             .invalidParameter(let message),
+             .invalidPassword(let message),
+             .invalidState(let message),
+             .invalidUserPoolConfiguration(let message),
+             .limitExceeded(let message),
+             .mfaMethodNotFound(let message),
+             .notAuthorized(let message),
+             .notSignedIn(let message),
+             .passwordResetRequired(let message),
+             .resourceNotFound(let message),
+             .scopeDoesNotExist(let message),
+             .securityFailed(let message),
+             .softwareTokenMFANotFound(let message),
+             .tooManyFailedAttempts(let message),
+             .tooManyRequests(let message),
+             .unableToSignIn(let message),
+             .unexpectedLambda(let message),
+             .unknown(let message),
+             .userCancelledSignIn(let message),
+             .userLambdaValidation(let message),
+             .userNotConfirmed(let message),
+             .userNotFound(let message),
+             .userPoolNotConfigured(let message),
+             .usernameExists(let message):
+            return message
+        }
+    }
+    
+    /// Utility class which maps a service error to `AWSMobileClientError`. If no mapping is available, returns the original error.
+    public static func makeMobileClientError(from error: Error) -> Error {
+        if error._domain == AWSCognitoIdentityProviderErrorDomain {
+            if error._code == -3000 {
+                return AWSMobileClientError.deviceNotRemembered(message: "This device does not have an id, either it was never tracked or previously forgotten.")
+            }
+            let message = (error as NSError).userInfo["message"] as? String ?? "Error information not available."
+            let type = (error as NSError).userInfo["__type"] as? String ?? "Error type not available."
+            let mobileError = ErrorMappingHelper(errorCode: type, message: message, error: error as NSError)
+            return mobileError
+        }
+        return error
+    }
+    
+    /// Utility class which maps a cognito error to `AWSMobileClientError`.
+    public static func makeMobileClientError(from cognitoAuthError: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
+        return CognitoAuthErrorMappingHelper(error: cognitoAuthError)
+    }
     
     static func CognitoAuthErrorMappingHelper(error: AWSCognitoAuthClientErrorType) -> AWSMobileClientError {
         switch error {
@@ -212,7 +280,6 @@ public struct SignUpResult {
     }
 }
 
-
 /// Describes the medium through which a code was sent to the user.
 public enum UserCodeDeliveryMedium {
     case sms, email, unknown
@@ -229,5 +296,17 @@ public struct UserCodeDeliveryDetails {
         self.deliveryMedium = deliveryMedium
         self.attributeName = attributeName
     }
+    
+    public static func getUserCodeDeliveryDetails(_ deliveryDetails: AWSCognitoIdentityProviderCodeDeliveryDetailsType) -> UserCodeDeliveryDetails {
+        var codeDeliveryDetails: UserCodeDeliveryDetails?
+        switch(deliveryDetails.deliveryMedium) {
+        case .email:
+            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .email, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+        case .sms:
+            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+        case .unknown:
+            codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+        }
+        return codeDeliveryDetails!
+    }
 }
-

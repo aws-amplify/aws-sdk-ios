@@ -163,6 +163,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"enabled" : @"Enabled",
              @"eventSourceArn" : @"EventSourceArn",
              @"functionName" : @"FunctionName",
+             @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              };
@@ -253,6 +254,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs810);
         }
+        if ([value caseInsensitiveCompare:@"nodejs10.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs10X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -297,6 +301,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs6.10";
             case AWSLambdaRuntimeNodejs810:
                 return @"nodejs8.10";
+            case AWSLambdaRuntimeNodejs10X:
+                return @"nodejs10.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:
@@ -443,6 +449,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"functionArn" : @"FunctionArn",
              @"lastModified" : @"LastModified",
              @"lastProcessingResult" : @"LastProcessingResult",
+             @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
              @"UUID" : @"UUID",
@@ -536,6 +543,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs810);
         }
+        if ([value caseInsensitiveCompare:@"nodejs10.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs10X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -580,6 +590,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs6.10";
             case AWSLambdaRuntimeNodejs810:
                 return @"nodejs8.10";
+            case AWSLambdaRuntimeNodejs10X:
+                return @"nodejs10.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:
@@ -705,6 +717,16 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)configurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+}
+
+@end
+
+@implementation AWSLambdaGetLayerVersionByArnRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             };
 }
 
 @end
@@ -1074,6 +1096,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs810);
         }
+        if ([value caseInsensitiveCompare:@"nodejs10.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs10X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -1118,6 +1143,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs6.10";
             case AWSLambdaRuntimeNodejs810:
                 return @"nodejs8.10";
+            case AWSLambdaRuntimeNodejs10X:
+                return @"nodejs10.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:
@@ -1187,6 +1214,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs810);
         }
+        if ([value caseInsensitiveCompare:@"nodejs10.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs10X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -1231,6 +1261,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs6.10";
             case AWSLambdaRuntimeNodejs810:
                 return @"nodejs8.10";
+            case AWSLambdaRuntimeNodejs10X:
+                return @"nodejs10.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:
@@ -1522,6 +1554,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"batchSize" : @"BatchSize",
              @"enabled" : @"Enabled",
              @"functionName" : @"FunctionName",
+             @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"UUID" : @"UUID",
              };
 }
@@ -1588,6 +1621,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs810);
         }
+        if ([value caseInsensitiveCompare:@"nodejs10.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs10X);
+        }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
@@ -1632,6 +1668,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs6.10";
             case AWSLambdaRuntimeNodejs810:
                 return @"nodejs8.10";
+            case AWSLambdaRuntimeNodejs10X:
+                return @"nodejs10.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
             case AWSLambdaRuntimePython27:

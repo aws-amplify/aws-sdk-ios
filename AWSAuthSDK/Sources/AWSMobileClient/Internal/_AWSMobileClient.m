@@ -64,14 +64,29 @@ Class AWSCognitoUserPoolsSignInProviderClass;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedMobileClient = [[_AWSMobileClient alloc] init];
-        _sharedMobileClient.isInitialized = NO;
-        _sharedMobileClient.signInProviderConfig = nil;
-        AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
-        AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
-        AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
     });
     
     return _sharedMobileClient;
+}
+
+#pragma initializers
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _isInitialized = NO;
+        _signInProviderConfig = nil;
+        AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
+        AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
+        AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
+    }
+    return self;
+}
+
+- (instancetype)initWithConfiguration:(NSDictionary<NSString *,id> *)config {
+    AWSDDLogDebug(@"AWSMobileClient initialized with custom configuration object...");
+    [AWSInfo configureDefaultAWSInfo:config];
+    return [self init];
 }
 
 #pragma mark AppDelegate Methods
@@ -130,6 +145,8 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
         NSMutableDictionary<NSString *, id> *parameters = [NSMutableDictionary new];
         parameters[@"logoImage"] = signInUIConfiguration.logoImage;
         parameters[@"backgroundColor"] = signInUIConfiguration.backgroundColor;
+        parameters[@"secondaryBackgroundColor"] = signInUIConfiguration.secondaryBackgroundColor;
+        parameters[@"primaryColor"] = signInUIConfiguration.primaryColor;
         parameters[@"navigationController"] = navController;
         parameters[@"canCancel"] = signInUIConfiguration.canCancel ? @"YES" : @"NO";
         parameters[@"disableSignUpButton"] = signInUIConfiguration.disableSignUpButton ? @"YES" : @"NO";

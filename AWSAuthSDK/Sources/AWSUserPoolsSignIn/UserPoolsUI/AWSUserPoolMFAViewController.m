@@ -17,7 +17,7 @@
 
 #import "AWSFormTableCell.h"
 #import "AWSFormTableDelegate.h"
-#import "AWSUserPoolsUIHelper.h"
+#import "AWSAuthUIHelper.h"
 #import <AWSAuthCore/AWSUIConfiguration.h>
 
 @interface AWSUserPoolMFAViewController () 
@@ -60,20 +60,24 @@
     self.tableView.delegate = self.tableDelegate;
     self.tableView.dataSource = self.tableDelegate;
     [self.tableView reloadData];
-    [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
+    [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
     [self setUpBackground];
+    
+    // setup button background
+    [AWSAuthUIHelper applyPrimaryColorFromConfig:self.config
+                                          toView:self.signInButton];
 }
 
 - (void)setUpBackground {
-    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
-        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    if ([AWSAuthUIHelper isBackgroundColorFullScreen:self.config]) {
+        self.view.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = [UIColor whiteColor];
+        self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
     }
     
     self.title = @"MFA";
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
-    backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view insertSubview:backgroundImageView atIndex:0];
 }

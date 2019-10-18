@@ -14,7 +14,6 @@
 //
 
 #import "AWSCognitoIdentityService.h"
-#import "AWSNetworking.h"
 #import "AWSCategory.h"
 #import "AWSNetworking.h"
 #import "AWSSignature.h"
@@ -550,6 +549,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityListTagsForResourceResponse *> *)listTagsForResource:(AWSCognitoIdentityListTagsForResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSCognitoIdentityListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSCognitoIdentityListTagsForResourceInput *)request
+     completionHandler:(void (^)(AWSCognitoIdentityListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityListTagsForResourceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityLookupDeveloperIdentityResponse *> *)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -618,6 +640,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityTagResourceResponse *> *)tagResource:(AWSCognitoIdentityTagResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"TagResource"
+                   outputClass:[AWSCognitoIdentityTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSCognitoIdentityTagResourceInput *)request
+     completionHandler:(void (^)(AWSCognitoIdentityTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityTagResourceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -656,6 +701,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityUntagResourceResponse *> *)untagResource:(AWSCognitoIdentityUntagResourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityService"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSCognitoIdentityUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSCognitoIdentityUntagResourceInput *)request
+     completionHandler:(void (^)(AWSCognitoIdentityUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUntagResourceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityUntagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

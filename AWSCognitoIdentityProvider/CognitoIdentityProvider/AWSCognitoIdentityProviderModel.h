@@ -161,6 +161,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDomainStatusType) {
     AWSCognitoIdentityProviderDomainStatusTypeFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderEmailSendingAccountType) {
+    AWSCognitoIdentityProviderEmailSendingAccountTypeUnknown,
+    AWSCognitoIdentityProviderEmailSendingAccountTypeCognitoDefault,
+    AWSCognitoIdentityProviderEmailSendingAccountTypeDeveloper,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderEventFilterType) {
     AWSCognitoIdentityProviderEventFilterTypeUnknown,
     AWSCognitoIdentityProviderEventFilterTypeSignIn,
@@ -325,6 +331,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse;
 @class AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest;
 @class AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse;
+@class AWSCognitoIdentityProviderAdminSetUserPasswordRequest;
+@class AWSCognitoIdentityProviderAdminSetUserPasswordResponse;
 @class AWSCognitoIdentityProviderAdminSetUserSettingsRequest;
 @class AWSCognitoIdentityProviderAdminSetUserSettingsResponse;
 @class AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest;
@@ -439,6 +447,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderListIdentityProvidersResponse;
 @class AWSCognitoIdentityProviderListResourceServersRequest;
 @class AWSCognitoIdentityProviderListResourceServersResponse;
+@class AWSCognitoIdentityProviderListTagsForResourceRequest;
+@class AWSCognitoIdentityProviderListTagsForResourceResponse;
 @class AWSCognitoIdentityProviderListUserImportJobsRequest;
 @class AWSCognitoIdentityProviderListUserImportJobsResponse;
 @class AWSCognitoIdentityProviderListUserPoolClientsRequest;
@@ -489,7 +499,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderStopUserImportJobRequest;
 @class AWSCognitoIdentityProviderStopUserImportJobResponse;
 @class AWSCognitoIdentityProviderStringAttributeConstraintsType;
+@class AWSCognitoIdentityProviderTagResourceRequest;
+@class AWSCognitoIdentityProviderTagResourceResponse;
 @class AWSCognitoIdentityProviderUICustomizationType;
+@class AWSCognitoIdentityProviderUntagResourceRequest;
+@class AWSCognitoIdentityProviderUntagResourceResponse;
 @class AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest;
 @class AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse;
 @class AWSCognitoIdentityProviderUpdateDeviceStatusRequest;
@@ -642,6 +656,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>If your user pool configuration includes triggers, the AdminConfirmSignUp API action invokes the AWS Lambda function that is specified for the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. In this payload, the <code>clientMetadata</code> attribute provides the data that you assigned to the ClientMetadata parameter in your AdminConfirmSignUp request. In your function code in AWS Lambda, you can process the ClientMetadata value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
+/**
  <p>The user pool ID for which you want to confirm user registration.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
@@ -673,12 +692,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable allowAdminCreateUserOnly;
 
 /**
- <p>The message template to be used for the welcome message to new users.</p><p>See also <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
+ <p>The message template to be used for the welcome message to new users.</p><p>See also <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization">Customizing User Invitation Messages</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderMessageTemplateType * _Nullable inviteMessageTemplate;
 
 /**
- <p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7.</p>
+ <p>The user account expiration limit, in days, after which the account is no longer usable. To reset the account after that time limit, you must call <code>AdminCreateUser</code> again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter. The default value for this parameter is 7. </p><note><p>If you set a value for <code>TemporaryPasswordValidityDays</code> in <code>PasswordPolicy</code>, that value will be used and <code>UnusedAccountValidityDays</code> will be deprecated for that user pool. </p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable unusedAccountValidityDays;
 
@@ -690,6 +709,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @interface AWSCognitoIdentityProviderAdminCreateUserRequest : AWSRequest
 
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminCreateUser API action, Amazon Cognito invokes the function that is assigned to the <i>pre sign-up</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminCreateUser request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>Specify <code>"EMAIL"</code> if email will be used to send the welcome message. Specify <code>"SMS"</code> if the phone number will be used. The default value is <code>"SMS"</code>. More than one value can be specified.</p>
@@ -971,7 +995,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>Specifies the options for MFA (e.g., email or phone number).</p>
+ <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use the <a>AdminGetUserResponse$UserMFASettingList</a> response instead.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
@@ -996,12 +1020,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable userLastModifiedDate;
 
 /**
- <p>The list of the user's MFA settings.</p>
+ <p>The MFA options that are enabled for the user. The possible values in this list are <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userMFASettingList;
 
 /**
- <p>The user status. Can be one of the following:</p><ul><li><p>UNCONFIRMED - User has been created but not confirmed.</p></li><li><p>CONFIRMED - User has been confirmed.</p></li><li><p>ARCHIVED - User is no longer active.</p></li><li><p>COMPROMISED - User is disabled due to a potential security threat.</p></li><li><p>UNKNOWN - User status is not known.</p></li></ul>
+ <p>The user status. Can be one of the following:</p><ul><li><p>UNCONFIRMED - User has been created but not confirmed.</p></li><li><p>CONFIRMED - User has been confirmed.</p></li><li><p>ARCHIVED - User is no longer active.</p></li><li><p>COMPROMISED - User is disabled due to a potential security threat.</p></li><li><p>UNKNOWN - User status is not known.</p></li><li><p>RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.</p></li><li><p>FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else. </p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus;
 
@@ -1040,7 +1064,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.</p>
+ <p>A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers.</p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminInitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:</p><ul><li><p>Pre signup</p></li><li><p>Pre authentication</p></li><li><p>User migration</p></li></ul><p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a <code>validationData</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminInitiateAuth request. In your function code in AWS Lambda, you can process the <code>validationData</code> value to enhance your workflow for your specific needs.</p><p>When you use the AdminInitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:</p><ul><li><p>Post authentication</p></li><li><p>Custom message</p></li><li><p>Pre token generation</p></li><li><p>Create auth challenge</p></li><li><p>Define auth challenge</p></li><li><p>Verify auth challenge</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
@@ -1285,6 +1309,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminResetUserPassword API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminResetUserPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
+/**
  <p>The user pool ID for the user pool where you want to reset the user's password.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
@@ -1330,6 +1359,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, <i>post authentication</i>, <i>user migration</i>, <i>pre token generation</i>, <i>define auth challenge</i>, <i>create auth challenge</i>, and <i>verify auth challenge response</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
@@ -1413,24 +1447,60 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>Represents the request to set user settings as an administrator.</p>
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminSetUserPasswordRequest : AWSRequest
+
+
+/**
+ <p>The password for the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable password;
+
+/**
+ <p><code>True</code> if the password is permanent, <code>False</code> if it is temporary.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable permanent;
+
+/**
+ <p>The user pool ID for the user pool where you want to set the user's password.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+/**
+ <p>The user name of the user whose password you wish to set.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderAdminSetUserPasswordResponse : AWSModel
+
+
+@end
+
+/**
+ <p>You can use this parameter to set an MFA configuration that uses the SMS delivery medium.</p>
  Required parameters: [UserPoolId, Username, MFAOptions]
  */
 @interface AWSCognitoIdentityProviderAdminSetUserSettingsRequest : AWSRequest
 
 
 /**
- <p>Specifies the options for MFA (e.g., email or phone number).</p>
+ <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
 /**
- <p>The user pool ID for the user pool where you want to set the user's settings, such as MFA options.</p>
+ <p>The ID of the user pool that contains the user that you are setting options for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The user name of the user for whom you wish to set user settings.</p>
+ <p>The user name of the user that you are setting options for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1523,6 +1593,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @interface AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest : AWSRequest
 
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminUpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminUpdateUserAttributes request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>An array of name-value pairs representing user attributes.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
@@ -1925,6 +2000,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmForgotPassword API action, Amazon Cognito invokes the functions that are assigned to the <i>post confirmation</i> and <i>pre mutation</i> triggers. When Amazon Cognito invokes either of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmForgotPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
+/**
  <p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see </p>
  */
 @property (nonatomic, strong) NSString * _Nullable confirmationCode;
@@ -1975,6 +2055,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The ID of the app client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmSignUp API action, Amazon Cognito invokes the function that is assigned to the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmSignUp request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>The confirmation code sent by a user's request to confirm registration.</p>
@@ -2238,7 +2323,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable allowedOAuthFlowsUserPoolClient;
 
 /**
- <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</p>
+ <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
@@ -2288,7 +2373,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable refreshTokenValidity;
 
 /**
- <p>A list of provider names for the identity providers that are supported on this client.</p>
+ <p>A list of provider names for the identity providers that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code> and <code>LoginWithAmazon</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
 
@@ -2298,7 +2383,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The user pool attributes that the app client can write to.</p><p>If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
+ <p>The user pool attributes that the app client can write to.</p><p>If your app client allows users to sign in through an identity provider, this array must include all attributes that are mapped to identity provider attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If your app client lacks write access to a mapped attribute, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable writeAttributes;
 
@@ -2324,7 +2409,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p><p>Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.</p><p>For more information about the hosted domain and custom domains, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">Configuring a User Pool Domain</a>.</p>
+ <p>The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.</p><p>Provide this parameter only if you want to use a custom domain for your user pool. Otherwise, you can exclude this parameter and use the Amazon Cognito hosted domain instead.</p><p>For more information about the hosted domain and custom domains, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">Configuring a User Pool Domain</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCustomDomainConfigType * _Nullable customDomainConfig;
 
@@ -2441,7 +2526,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
 /**
- <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
 
@@ -2972,12 +3057,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:</p><dl><dt>COGNITO_DEFAULT</dt><dd><p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p><p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p><p>The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p></dd><dt>DEVELOPER</dt><dd><p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.</p><p>If you use this option, you must provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p><p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p></dd></dl>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderEmailSendingAccountType emailSendingAccount;
+
+/**
  <p>The destination to which the receiver of the email should reply to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable replyToEmailAddress;
 
 /**
- <p>The Amazon Resource Name (ARN) of the email source.</p>
+ <p>The Amazon Resource Name (ARN) of a verified email address in Amazon SES. This email address is used in one of the following ways, depending on the value that you specify for the <code>EmailSendingAccount</code> parameter:</p><ul><li><p>If you specify <code>COGNITO_DEFAULT</code>, Amazon Cognito uses this address as the custom FROM address when it emails your users by using its built-in email account.</p></li><li><p>If you specify <code>DEVELOPER</code>, Amazon Cognito emails your users with this address by calling Amazon SES on your behalf.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
@@ -3093,6 +3183,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The ID of the client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ForgotPassword API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>user migration</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ForgotPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
@@ -3326,6 +3421,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the GetUserAttributeVerificationCode API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
 @end
 
 /**
@@ -3361,7 +3461,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The multi-factor (MFA) configuration.</p>
+ <p>The multi-factor (MFA) configuration. Valid values include:</p><ul><li><p><code>OFF</code> MFA will not be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor enabled.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
@@ -3399,7 +3499,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>Specifies the options for MFA (e.g., email or phone number).</p>
+ <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use the use the <a>GetUserResponse$UserMFASettingList</a> response instead.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
@@ -3414,7 +3514,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
 /**
- <p>The list of the user's MFA settings.</p>
+ <p>The MFA options that are enabled for the user. The possible values in this list are <code>SMS_MFA</code> and <code>SOFTWARE_TOKEN_MFA</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userMFASettingList;
 
@@ -3584,7 +3684,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- <p>This is a random key-value pair map which can contain any key and will be passed to your PreAuthentication Lambda trigger as-is. It can be used to implement additional validations around authentication.</p>
+ <p>A map of custom key-value pairs that you can provide as input for certain custom workflows that this action triggers.</p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the InitiateAuth API action, Amazon Cognito invokes the AWS Lambda functions that are specified for various triggers. The ClientMetadata value is passed as input to the functions for only the following triggers:</p><ul><li><p>Pre signup</p></li><li><p>Pre authentication</p></li><li><p>User migration</p></li></ul><p>When Amazon Cognito invokes the functions for these triggers, it passes a JSON payload, which the function receives as input. This payload contains a <code>validationData</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your InitiateAuth request. In your function code in AWS Lambda, you can process the <code>validationData</code> value to enhance your workflow for your specific needs.</p><p>When you use the InitiateAuth API action, Amazon Cognito also invokes the functions for the following triggers, but it does not provide the ClientMetadata value as input:</p><ul><li><p>Post authentication</p></li><li><p>Custom message</p></li><li><p>Pre token generation</p></li><li><p>Create auth challenge</p></li><li><p>Define auth challenge</p></li><li><p>Verify auth challenge</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
@@ -3847,6 +3947,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>The tags that are assigned to the user pool.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  <p>Represents the request to list the user import jobs.</p>
  Required parameters: [UserPoolId, MaxResults]
  */
@@ -4026,7 +4152,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributesToGet;
 
 /**
- <p>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "<code>family_name</code> = \"Reddy\"".</p><ul><li><p><i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p></li><li><p><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code> = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code> ^= \"Jon\"". </p></li><li><p><i>AttributeValue</i>: The attribute value that must be matched for each user.</p></li></ul><p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p><p>You can only search for the following standard attributes:</p><ul><li><p><code>username</code> (case-sensitive)</p></li><li><p><code>email</code></p></li><li><p><code>phone_number</code></p></li><li><p><code>name</code></p></li><li><p><code>given_name</code></p></li><li><p><code>family_name</code></p></li><li><p><code>preferred_username</code></p></li><li><p><code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p></li><li><p><code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code></p></li><li><p><code>sub</code></p></li></ul><p>Custom attributes are not searchable.</p><p>For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+ <p>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks within the filter string must be escaped using the backslash (\) character. For example, "<code>family_name</code> = \"Reddy\"".</p><ul><li><p><i>AttributeName</i>: The name of the attribute to search for. You can only search for one attribute at a time.</p></li><li><p><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code> = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code> ^= \"Jon\"". </p></li><li><p><i>AttributeValue</i>: The attribute value that must be matched for each user.</p></li></ul><p>If the filter string is empty, <code>ListUsers</code> returns all users in the user pool.</p><p>You can only search for the following standard attributes:</p><ul><li><p><code>username</code> (case-sensitive)</p></li><li><p><code>email</code></p></li><li><p><code>phone_number</code></p></li><li><p><code>name</code></p></li><li><p><code>given_name</code></p></li><li><p><code>family_name</code></p></li><li><p><code>preferred_username</code></p></li><li><p><code>cognito:user_status</code> (called <b>Status</b> in the Console) (case-insensitive)</p></li><li><p><code>status (called <b>Enabled</b> in the Console) (case-sensitive)</code></p></li><li><p><code>sub</code></p></li></ul><p>Custom attributes are not searchable.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching for Users Using the ListUsers API</a> and <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filter;
 
@@ -4066,18 +4192,18 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>Specifies the different settings for multi-factor authentication (MFA).</p>
+ <p><i>This data type is no longer supported.</i> You can use it only for SMS MFA configurations. You can't use it for TOTP software token MFA configurations.</p><p>To set either type of MFA configuration, use the <a>AdminSetUserMFAPreference</a> or <a>SetUserMFAPreference</a> actions.</p><p>To look up information about either type of MFA configuration, use the <a>AdminGetUserResponse$UserMFASettingList</a> or <a>GetUserResponse$UserMFASettingList</a> responses.</p>
  */
 @interface AWSCognitoIdentityProviderMFAOptionType : AWSModel
 
 
 /**
- <p>The attribute name of the MFA option type.</p>
+ <p>The attribute name of the MFA option type. The only valid value is <code>phone_number</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
- <p>The delivery medium (email message or SMS message) to send the MFA code.</p>
+ <p>The delivery medium to send the MFA code. You can use this parameter to set only the <code>SMS</code> delivery medium value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium;
 
@@ -4236,6 +4362,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @property (nonatomic, strong) NSNumber * _Nullable requireUppercase;
 
+/**
+ <p>In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.</p><note><p>When you set <code>TemporaryPasswordValidityDays</code> for a user pool, you will no longer be able to set the deprecated <code>UnusedAccountValidityDays</code> value for that user pool.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable temporaryPasswordValidityDays;
+
 @end
 
 /**
@@ -4305,6 +4436,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The ID of the client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ResendConfirmationCode API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ResendConfirmationCode request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.</p>
@@ -4401,7 +4537,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p><ul><li><p><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p></li><li><p><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret).</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app client is configured with client secret). </p></li></ul>
+ <p>The challenge responses. These are inputs corresponding to the value of <code>ChallengeName</code>, for example:</p><note><p><code>SECRET_HASH</code> (if app client is configured with client secret) applies to all inputs below (including <code>SOFTWARE_TOKEN_MFA</code>).</p></note><ul><li><p><code>SMS_MFA</code>: <code>SMS_MFA_CODE</code>, <code>USERNAME</code>.</p></li><li><p><code>PASSWORD_VERIFIER</code>: <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, <code>TIMESTAMP</code>, <code>USERNAME</code>.</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: <code>NEW_PASSWORD</code>, any other required attributes, <code>USERNAME</code>. </p></li><li><p><code>SOFTWARE_TOKEN_MFA</code>: <code>USERNAME</code> and <code>SOFTWARE_TOKEN_MFA_CODE</code> are required attributes.</p></li><li><p><code>DEVICE_SRP_AUTH</code> requires <code>USERNAME</code>, <code>DEVICE_KEY</code>, <code>SRP_A</code> (and <code>SECRET_HASH</code>).</p></li><li><p><code>DEVICE_PASSWORD_VERIFIER</code> requires everything that <code>PASSWORD_VERIFIER</code> requires plus <code>DEVICE_KEY</code>.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeResponses;
 
@@ -4409,6 +4545,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the RespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>post authentication</i>, <i>pre token generation</i>, <i>define auth challenge</i>, <i>create auth challenge</i>, and <i>verify auth challenge</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your RespondToAuthChallenge request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>The session which should be passed both ways in challenge-response calls to the service. If <code>InitiateAuth</code> or <code>RespondToAuthChallenge</code> API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
@@ -4507,7 +4648,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The SMS multi-factor authentication (MFA) settings type.</p>
+ <p>The type used for enabling SMS MFA at the user level.</p>
  */
 @interface AWSCognitoIdentityProviderSMSMfaSettingsType : AWSModel
 
@@ -4518,7 +4659,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The preferred MFA method.</p>
+ <p>Specifies whether SMS is the preferred MFA method.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable preferredMfa;
 
@@ -4541,7 +4682,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable developerOnlyAttribute;
 
 /**
- <p>Specifies whether the value of the attribute can be changed.</p><p>For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
+ <p>Specifies whether the value of the attribute can be changed.</p><p>For any user pool attribute that's mapped to an identity provider attribute, you must set this parameter to <code>true</code>. Amazon Cognito updates mapped attributes when users sign in to your application through an identity provider. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying Identity Provider Attribute Mappings for Your User Pool</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable varying;
 
@@ -4661,7 +4802,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The access token.</p>
+ <p>The access token for the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
@@ -4692,7 +4833,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The MFA configuration.</p>
+ <p>The MFA configuration. Valid values include:</p><ul><li><p><code>OFF</code> MFA will not be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor enabled.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
@@ -4720,7 +4861,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The MFA configuration.</p>
+ <p>The MFA configuration. Valid values include:</p><ul><li><p><code>OFF</code> MFA will not be used for any users.</p></li><li><p><code>ON</code> MFA is required for all users to sign in.</p></li><li><p><code>OPTIONAL</code> MFA will be required only for individual users who have an MFA factor enabled.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
@@ -4749,7 +4890,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- <p>Specifies the options for MFA (e.g., email or phone number).</p>
+ <p>You can use this parameter only to set an SMS configuration that uses SMS for delivery.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
@@ -4779,6 +4920,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The ID of the client associated with the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
+
+/**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the SignUp API action, Amazon Cognito invokes any functions that are assigned to the following triggers: <i>pre sign-up</i>, <i>custom message</i>, and <i>post confirmation</i>. When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your SignUp request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
  <p>The password of the user you wish to register.</p>
@@ -4837,19 +4983,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The SMS configuration type.</p>
+ <p>The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account. The Cognito User Pool makes the request to the Amazon SNS Service by using an AWS IAM role that you provide for your AWS account.</p>
  Required parameters: [SnsCallerArn]
  */
 @interface AWSCognitoIdentityProviderSmsConfigurationType : AWSModel
 
 
 /**
- <p>The external ID.</p>
+ <p>The external ID is a value that we recommend you use to add security to your IAM role which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an <code>ExternalId</code>, the Cognito User Pool will include it when attempting to assume your IAM role, so that you can set your roles trust policy to require the <code>ExternalID</code>. If you use the Cognito Management Console to create a role for SMS MFA, Cognito will create a role with the required permissions and a trust policy that demonstrates use of the <code>ExternalId</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable externalId;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snsCallerArn;
 
@@ -4862,7 +5008,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The SMS authentication message.</p>
+ <p>The SMS authentication message that will be sent to users with the code they need to sign in. The message must contain the ‘{####}’ placeholder, which will be replaced with the code. If the message is not included, and default message will be used.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsAuthenticationMessage;
 
@@ -4898,7 +5044,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The preferred MFA method.</p>
+ <p>Specifies whether software token MFA is the preferred MFA method.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable preferredMfa;
 
@@ -4987,6 +5133,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ 
+ */
+@interface AWSCognitoIdentityProviderTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The tags to assign to the user pool.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>A container for the UI customization information for a user pool's built-in app UI.</p>
  */
 @interface AWSCognitoIdentityProviderUICustomizationType : AWSModel
@@ -5026,6 +5198,32 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The user pool ID for the user pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUntagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The keys of the tags to remove from the user pool.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityProviderUntagResourceResponse : AWSModel
+
 
 @end
 
@@ -5248,6 +5446,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
+ <p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p><p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the functions that are assigned to the <i>custom message</i> and <i>pre mutation</i> triggers. When Amazon Cognito invokes either of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p><note><p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p><ul><li><p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p></li><li><p>Amazon Cognito does not validate the ClientMetadata value.</p></li><li><p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p></li></ul></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
+
+/**
  <p>An array of name-value pairs representing user attributes.</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
@@ -5275,7 +5478,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>
+ <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
 
@@ -5285,7 +5488,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable allowedOAuthFlowsUserPoolClient;
 
 /**
- <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</p>
+ <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
@@ -5479,7 +5682,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ <p>The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
 
@@ -5638,7 +5841,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable allowedOAuthFlowsUserPoolClient;
 
 /**
- <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</p>
+ <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
@@ -5802,7 +6005,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- 
+ <p>A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: <code>auth.example.com</code>.</p><p>For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customDomain;
 
@@ -5907,7 +6110,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
 /**
- <p>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding Cost Allocation Tags to Your User Pool</a></p>
+ <p>The tags that are assigned to the user pool. A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable userPoolTags;
 
@@ -5955,7 +6158,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable userLastModifiedDate;
 
 /**
- <p>The user status. Can be one of the following:</p><ul><li><p>UNCONFIRMED - User has been created but not confirmed.</p></li><li><p>CONFIRMED - User has been confirmed.</p></li><li><p>ARCHIVED - User is no longer active.</p></li><li><p>COMPROMISED - User is disabled due to a potential security threat.</p></li><li><p>UNKNOWN - User status is not known.</p></li></ul>
+ <p>The user status. Can be one of the following:</p><ul><li><p>UNCONFIRMED - User has been created but not confirmed.</p></li><li><p>CONFIRMED - User has been confirmed.</p></li><li><p>ARCHIVED - User is no longer active.</p></li><li><p>COMPROMISED - User is disabled due to a potential security threat.</p></li><li><p>UNKNOWN - User status is not known.</p></li><li><p>RESET_REQUIRED - User is confirmed, but the user must request a code and reset his or her password before he or she can sign in.</p></li><li><p>FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign in using a temporary password, but on first sign-in, the user must change his or her password to a new value before doing anything else. </p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus;
 

@@ -402,6 +402,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 	return @{
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
+             @"clusterEndpoint" : @"ClusterEndpoint",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -499,6 +500,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 	return @{
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
+             @"clusterEndpoint" : @"ClusterEndpoint",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",
@@ -596,6 +598,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 	return @{
              @"bufferingHints" : @"BufferingHints",
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
+             @"clusterEndpoint" : @"ClusterEndpoint",
              @"domainARN" : @"DomainARN",
              @"indexName" : @"IndexName",
              @"indexRotationPeriod" : @"IndexRotationPeriod",

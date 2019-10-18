@@ -248,7 +248,8 @@
         \"GET_MEDIA\",\
         \"LIST_FRAGMENTS\",\
         \"GET_MEDIA_FOR_FRAGMENT_LIST\",\
-        \"GET_HLS_STREAMING_SESSION_URL\"\
+        \"GET_HLS_STREAMING_SESSION_URL\",\
+        \"GET_DASH_STREAMING_SESSION_URL\"\
       ]\
     },\
     \"AccountStreamLimitExceededException\":{\
@@ -287,7 +288,7 @@
         },\
         \"MediaType\":{\
           \"shape\":\"MediaType\",\
-          \"documentation\":\"<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\\\"http://www.iana.org/assignments/media-types/media-types.xhtml\\\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\\\"https://tools.ietf.org/html/rfc6838#section-4.2\\\">Naming Requirements</a> for guidelines.</p> <p>Example valid values include \\\"video/h264\\\" and \\\"video/h264,audio/aac\\\".</p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>\"\
+          \"documentation\":\"<p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href=\\\"http://www.iana.org/assignments/media-types/media-types.xhtml\\\">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href=\\\"https://tools.ietf.org/html/rfc6838#section-4.2\\\">Naming Requirements</a> for guidelines.</p> <p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>\"\
         },\
         \"KmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\

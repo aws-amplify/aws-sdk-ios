@@ -21,15 +21,15 @@ commands:
   update_brew:
     description: >-
       update brew
-    steps:            
+    steps:
       - run:
           name: update brew
           command: |
             HOMEBREW_LOGS=~/homebrew-logs
-            HOMEBREW_TEMP=~/homebrew-temp          
+            HOMEBREW_TEMP=~/homebrew-temp
             brew update
 
-  set_enviroment_variables:
+  set_environment_variables:
     description: >-
       set environment variables
     steps:
@@ -38,9 +38,6 @@ commands:
           command: |
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
-
-            destination="platform=iOS Simulator,name=iPhone 8,OS=12.1"
-            echo "export destination='platform=iOS Simulator,name=iPhone 8,OS=12.1'" >> $BASH_ENV
 
             release_bucket=${S3_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
@@ -54,6 +51,10 @@ commands:
             sdkNameWithVersion="$sdkName-$release_version"
             echo "export sdkNameWithVersion=$sdkNameWithVersion" >> $BASH_ENV
 
+            pre_name=$(echo "${CIRCLE_SHA1}" | cut -c1-7)
+            override_test_variable_name=OVERRIDE_TEST_${pre_name}
+            echo "export override_test_variable_name=$override_test_variable_name" >> $BASH_ENV
+
   quit_for_nominorversion:
     description: >-
       If current release is not a minor version bump, stop executing the current job and return success.
@@ -61,7 +62,7 @@ commands:
       - run:
           name: skip left steps and return immediately from current job if current release is not a minor version bump
           command: |
-            echo $release_version            
+            echo $release_version
             maintenance=$(echo $release_version | sed "s/[0-9]*.[0-9]*.\([0-9]*\)/\1/")
             echo $maintenance
             if [ "$maintenance" != "0" ]; then
@@ -76,22 +77,27 @@ commands:
       - run:
           name: checkout repository for bump version
           command: |
+            if [ -z "$target_branch" ]
+            then
+              target_branch="master"
+            fi
+
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
             git clone "https://github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git"
             cd ${bumpversion_repo_name}
             git fetch
             branches=$(git branch)
-            if [[ $branches == *"bump_version"* ]]; then    
+            if [[ $branches == *"bump_version"* ]]; then
               echo "the branch is already pesent"
-              git checkout bump_version          
+              git checkout bump_version
             else
               echo "create new branch bump_version"
-              git checkout -b bump_version                 
-            fi  
-            git remote add upstream https://github.com/${bumpversion_repo_account}/${bumpversion_repo_name}
+              git checkout -b bump_version
+            fi
+            git remote add upstream https://github.com/${bumpversion_repo_user}/${bumpversion_repo_name}
             git remote -v
             git fetch upstream
-            git reset --hard upstream/master  
+            git reset --hard upstream/$target_branch
             echo "push update the branch"
             git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
 
@@ -99,32 +105,36 @@ commands:
     description: >-
       check in bump version change
     steps:
-      - run: 
+      - run:
           name: stage changes
           command: |
             cd ${bumpversion_repo_name}
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
             gitstatus=$(git status)
             echo $gitstatus
-            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then              
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then
               git add .
             else
               echo "No changes for sample application bump version"
-              circleci step halt             
-            fi                 
+              circleci step halt
+            fi
       - run:
           name: check in changes
           command: |
+            if [ -z "$target_branch" ]
+            then
+              target_branch="master"
+            fi
             cd ${bumpversion_repo_name}
             git status
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
-            git commit -m "${bump_version_message}"            
+            git commit -m "${bump_version_message}"
             git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
             title="${bump_version_pr_title}"
-            content="${bump_version_message}" 
+            content="${bump_version_message}"
             echo "title:$title"
             echo "content:$content"
-            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "master" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_account} ${bumpversion_repo_name}
+            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "$target_branch" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
   configure_aws:
     description: >-
       install aws cli and configure android aws release profile
@@ -132,7 +142,7 @@ commands:
       - run:
           name: install aws cli
           command: |
-            brew install awscli
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
           name: configure aws profile
           command: |
@@ -142,175 +152,310 @@ commands:
     description: >-
       pre start simulator, build may fail is simulator is not started
     steps:
-      - run:   
+      - run:
           name: pre-start simulator
-          command: xcrun instruments -w "iPhone X (12.1) [" -t "Blank" || true    
+          command: |
+            bash CircleciScripts/pre_start_simulator.sh
+  skip_test_job:
+    description: >-
+      check if the test job can be skipped
+    steps:
+      - run:
+          name: skip the test job if commit message require skipping tests
+          command: |
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            if [[ "$commitmessage" =~ .*"[skip test]".* ]]
+            then
+               echo "skip the test job required from commit message"
+               circleci step halt
+            fi
+      - run:
+          name: skip the test job if the release process is triggered by circleci
+          command: |
+            skipflag=$(echo "${SKIPTEST_FOR_RELEASE}") |  tr '[:upper:]' '[:lower:]'
+            if ! [ -z "${CIRCLE_TAG}" ]  && [ "$skipflag" == "true" ]
+            then
+              tagmessage="git show ${CIRCLE_TAG}"
+              echo $tagmessage
+              if [[ "$tagmessage" =~ .*"Trigger release from circleci".* ]]
+              then
+                 echo "The release is triggered by circleci. skip the job"
+                 circleci step halt
+              fi
+            fi
+      - run:
+          name: skip the test job if this is merged from develop by circleci
+          command: |
+            skipflag=$(echo "${SKIPTEST_FOR_MASTER}") |  tr '[:upper:]' '[:lower:]'
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            if [ "$skipflag" == "true" ] && [[ "$commitmessage" =~ .*"[Merge develop to master by circleci]".* ]]
+            then
+               echo "This is merged from develop by circleci. skip the test job"
+               circleci step halt
+            fi
+
+  override_test_job:
+    description: >-
+      skip the test job is project variable OVERRIDE_TEST is set with TRUE
+    steps:
+
+      - run:
+          name: skip test if the commit is already tested
+          command: |
+            echo "${TESTED_COMMITID}:${CIRCLE_SHA1}"
+            skipflag=$(echo "${SKIPTESTEDCHANGE}" |  tr '[:upper:]' '[:lower:]')
+            if [ "${TESTED_COMMITID}" == "${CIRCLE_SHA1}" ] && [ "${skipflag}" != "true" ]
+            then
+              echo "skip test as the change ${CIRCLE_SHA1} is already tested"
+              circleci step halt
+            fi
+      - run:
+          name: check_for_test_override
+          command: |
+              echo "override_test_variable_name=$override_test_variable_name"
+              override_test_value=$(eval "echo $"${override_test_variable_name}"")
+              override_test_value=$(echo "${override_test_value}" |  tr '[:upper:]' '[:lower:]')
+              if [ "${override_test_value}" == "true" ]; then
+                echo "project environment variable OVERRIDE_TEST is set with TRUE, skip all tests"
+                circleci step halt
+              fi
+  skip_job_unless_required:
+    description: >-
+      skip job unless required
+    steps:
+      - run:
+          name: skip_job_from_environment_variable
+          command: |
+              variable_name=SKIP_JOB_${CIRCLE_JOB}
+
+              skipjob_flag=$(eval "echo $"${variable_name}"")
+              skipjob_flag=$(echo "${skipjob_flag}" |  tr '[:upper:]' '[:lower:]')
+              if [ "${skipjob_flag}" == "true" ]
+              then
+                echo "skip current job as ${variable_name} is set in project environment variables"
+                circleci step halt
+              fi
+      - run:
+          name: checkifjobcanskip
+          command: |
+            echo "check if job can be skipped"
+            # # we can add script here to halt a job for circleci script test
+            # declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
+            # for i in "${jobs[@]}"
+            # do
+            #   echo "$i":"${CIRCLE_JOB}"
+            #   if [ "$i" == "${CIRCLE_JOB}" ]
+            #   then
+            #     echo "not skip job $i"
+            #     exit 0
+            #   fi
+            # done
+            # circleci step halt
+
 jobs:
   build:
-    macos: 
-      xcode: "10.1.0"
+    macos:
+      xcode: "11.0.0"
     steps:
+      - skip_job_unless_required
       - checkout
-      - set_enviroment_variables
+      - set_environment_variables
       - run:
           name: create credentials
           command: |
-            touch AWSCoreTests/Resources/credentials.json   
+            touch AWSCoreTests/Resources/credentials.json
             touch AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json    
-      - pre_start_simulator                 
+            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+      - pre_start_simulator
       - run:
           name: build sdk
           command: |
-            echo "${destination}"
-            xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
-            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"  
+            xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
+            xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
   unittest:
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
+      - set_environment_variables
+      - override_test_job
+      - skip_job_unless_required
       - checkout
+      - skip_test_job
       - run:
           name: create credentials
           command: |
-            touch AWSCoreTests/Resources/credentials.json 
-      - pre_start_simulator 
+            touch AWSCoreTests/Resources/credentials.json
+      - pre_start_simulator
       - run:
           name: build sdk
-          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'        
+          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
       - run :
           name: run unit tests
-          command: bash CircleciScripts/run_unittests.sh "test_result"
+          command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
       - run:
-          name : check unit test result 
-          command : bash CircleciScripts/check_test_result.sh  "test_result"         
+          name : check unit test result
+          command : bash CircleciScripts/check_test_result.sh "test_result"
       - store_artifacts:
           path: test_result
   pre_integrationtest:
-    macos: 
-      xcode: "10.1.0"
+    macos:
+      xcode: "11.0.0"
     steps:
+      - skip_job_unless_required
+      - set_environment_variables
+      - override_test_job
       - run:
-          name: check environment variabe 
+          name: get override test variable name
           command: |
-              if [ "${SKIP_INTEGRATIONTEST}" == "TRUE" ]; then
-                echo "project enviroment variabe SKIP_INTEGRATIONTEST should not be TRUE at the moment, this will skip all integration tests"
-                exit 1
-              fi    
+            echo "override_test_variable_name=$override_test_variable_name"
+      - run:
+          name: reset OVERRIDE_TEST environment variable
+          command: |
+            override_test_value=$(eval "echo $"${override_test_variable_name}"")
+            if ! [ -z "$override_test_value" ]
+            then
+               echo "reset  ${override_test_variable_name} value"
+              parameters='{"name":"'${override_test_variable_name}'","value":"FALSE"}'
+              curl -X POST \
+                -H "Content-type: application/json" \
+                -H "Accept: application/json" \
+                -d "$parameters" \
+                "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+            fi
       - checkout
-      - set_enviroment_variables
+      - set_environment_variables
       - configure_aws
       - run:
           name: create credentials
           command: |
-            echo "${destination}" 
-            aws s3 cp s3://ios-circleci-payload/credentials.json  AWSCoreTests/Resources/credentials.json 
+            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
             aws s3 cp s3://ios-circleci-payload/awsconfiguration.json  AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json     
-      - pre_start_simulator   
+            aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+      - pre_start_simulator
       - run:
           name: build sdk
           command: |
-            xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination  "${destination}"   -derivedDataPath  ./build_result/AWSiOSSDKv2        
-            xcodebuild  build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}"   -derivedDataPath  ./build_result/AWSAuthSDK  
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
+            xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
       - save_cache:
           key: build_result-{{ .Revision }}
           paths:
             - build_result
   post_integrationtest:
-    macos: 
-      xcode: "10.1.0"
+    macos:
+      xcode: "11.0.0"
     steps:
       #TODO need check why multiple key does not work here
+      - skip_job_unless_required
+      - override_test_job
+      - restore_cache:
+          key: test_result-{{ .Revision }}-APIGateway
       - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
-          key: test_result-{{ .Revision }}-SQS 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-MobileAnalytics 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Rekognition 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SES 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SNS 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-CloudWatch
-      - restore_cache:
           key: test_result-{{ .Revision }}-AutoScaling
       - restore_cache:
-          key: test_result-{{ .Revision }}-APIGateway 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Translate
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Transcribe
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Polly
+          key: test_result-{{ .Revision }}-CloudWatch
       - restore_cache:
           key: test_result-{{ .Revision }}-Cognito
       - restore_cache:
           key: test_result-{{ .Revision }}-Comprehend
       - restore_cache:
+          key: test_result-{{ .Revision }}-Connect  
+      - restore_cache:
           key: test_result-{{ .Revision }}-Core
       - restore_cache:
-          key: test_result-{{ .Revision }}-Kinesis 
+          key: test_result-{{ .Revision }}-DynamoDB
       - restore_cache:
-          key: test_result-{{ .Revision }}-KMS 
+          key: test_result-{{ .Revision }}-EC2
       - restore_cache:
           key: test_result-{{ .Revision }}-ElasticLoadBalancing
       - restore_cache:
-          key: test_result-{{ .Revision }}-EC2 
+          key: test_result-{{ .Revision }}-IoT
+      - restore_cache:
+          key: test_result-{{ .Revision }}-KMS
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Kinesis
       - restore_cache:
           key: test_result-{{ .Revision }}-Lambda
       - restore_cache:
-          key: test_result-{{ .Revision }}-Lex 
-      - restore_cache:
-          key: test_result-{{ .Revision }}-IoT
+          key: test_result-{{ .Revision }}-Lex
       - restore_cache:
           key: test_result-{{ .Revision }}-MachineLearning
       - restore_cache:
-          key: test_result-{{ .Revision }}-Pinpoint 
+          key: test_result-{{ .Revision }}-MobileAnalytics
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Pinpoint
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Polly
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Rekognition
       - restore_cache:
           key: test_result-{{ .Revision }}-S3
       - restore_cache:
-          key: test_result-{{ .Revision }}-DynamoDB
+          key: test_result-{{ .Revision }}-SES
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SNS
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SQS
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SageMakerRuntime
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Textract
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Transcribe
+      - restore_cache:
+          key: test_result-{{ .Revision }}-TranscribeStreaming
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Translate
       - store_artifacts:
-          path: integration_test_result          
+          path: integration_test_result
+      - run:
+          name: set environment variables
+          command: |
+            parameters='{"name":"TESTED_COMMITID","value":"'${CIRCLE_SHA1}'"}'
+            curl -X POST \
+              -H "Content-type: application/json" \
+              -H "Accept: application/json" \
+              -d "$parameters" \
+              "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+
 
   integrationtest:
     description: run integration tests
     parameters:
       groupname:
         default: stable_testList
-        type: string    
+        type: string
     macos:
-      xcode: "10.1.0"   
+      xcode: "11.0.0"
     steps:
+      - set_environment_variables
+      - override_test_job
+      - skip_job_unless_required
       - early_return_for_forked_prs
-      - set_enviroment_variables
-      - checkout 
+      - checkout
+      - skip_test_job
+      - pre_start_simulator
       - restore_cache:
-          key: build_result-{{ .Revision }}  
-      - run: 
+          key: build_result-{{ .Revision }}
+      - run:
           name: install json parser
           command: pip3 install demjson
       - run:
           name: create credentials
           command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json  
-      - run:   
-          name: pre-start simulator
-          command: xcrun instruments -w "iPhone 8 (10.2) [" || true   
+            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
       - run :
           name: run integration tests
           command: |
             mkdir integration_test_result
             python3 CircleciScripts/run_integrationtests.py  CircleciScripts/IntegrationTestsConfiguration.json  "integration_test_result" "<< parameters.groupname >>" "${destination}"  "./build_result"
       - run:
-          name : check integration test result 
+          name : check integration test result
           command : |
             echo "testresult=$testresult"
-            if [ "$testresult" == "0" ] 
+            if [ "$testresult" == "0" ]
             then
                 echo "test succeed!"
             else
@@ -322,87 +467,89 @@ jobs:
       - save_cache:
           key: test_result-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - integration_test_result       
+            - integration_test_result
 
   release_tag:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
-    steps: 
+      xcode: "11.0.0"
+    steps:
+      - skip_job_unless_required
       - checkout
       - update_brew
       - run:
           name: install github-release
-          command: brew install github-release                
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
           name: release the tag
           command: |
             tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p'  CHANGELOG.md | sed '1d' | sed '$d')
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
-            echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG}  --name  "$tagname" -d -         
+            echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG}  --name  "$tagname" -d -
 
   release_carthage:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
-    steps: 
+      xcode: "11.0.0"
+    steps:
+      - skip_job_unless_required
       - checkout
+      - pre_start_simulator
       - update_brew
       - run:
           name: install github-release
-          command: brew install github-release                
+          command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
           name: install aws cli
           command: |
-            brew install awscli
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
-          name: download custom carthage
+          name: install carthage
           command: |
-            aws s3 cp s3://custom-carthage/customcarthage.zip customcarthage.zip
-            unzip -a customcarthage.zip
-            ls customcarthage
-            chmod 111 customcarthage/carthage
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install carthage
       - run:
-          name: build 
+          name: build
           command: |
-            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.2' build     
+            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination "${destination}" build
       - run:
           name: Build Carthage
           command: |
-            customcarthage/carthage build --no-skip-current | tee buildout.txt
+            carthage build --no-skip-current | tee buildout.txt
           no_output_timeout: 100m
       - run:
           name: Create Carthage Archive
-          command: bash CreateCarthageArchive.sh   
+          command: bash ./CircleciScripts/CreateCarthageArchive.sh
       - run:
-          name: upload file to git release 
+          name: upload file to git release
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
   release_cocoapods:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
-      - checkout  
+      - skip_job_unless_required
+      - checkout
       - run:
           name: Release cocoapods
-          command : python3    cocoapods_release.py
+          command: python3 ./CircleciScripts/cocoapods_release.py
 
   release_appledoc:
     # Specify the Xcode version to use
     macos:
       xcode: "9.2.0"
     steps:
-      - checkout   
+      - skip_job_unless_required
+      - checkout
       - run:
-          name: Install appledoc 
+          name: Install appledoc
           command: |
             pwd
             pushd $TMPDIR
             git clone https://github.com/tomaz/appledoc
             cd appledoc
             bash install-appledoc.sh -t default
-            popd 
+            popd
             pwd
       - run:
           name: generate documents
@@ -418,14 +565,18 @@ jobs:
           command: |
             git add docs/reference
             git commit -m "Update appledoc documentation for ${CIRCLE_TAG}"
-            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git  
+            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
   release_jazzydoc:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.0"
+      # NOTE: As of 11-Oct-2019, Jazzy doesn't properly work with Xcode 11 on
+      # MacOS 10.14. Until and unless the CircleCI image uses MacOS 10.15, we
+      # must not use an image higher than 10.3.
+      xcode: "10.3.0"
     steps:
-      - checkout  
+      - skip_job_unless_required
+      - checkout
       - run:
           name: Install jazzy
           command: |
@@ -440,22 +591,27 @@ jobs:
           command: |
             git config --local user.name "AWS"
             git checkout  gh-pages
-            mkdir -p docs/reference/AWSMobileClient     
-            cp -R docs/api/* docs/reference/AWSMobileClient               
+            mkdir -p docs/reference/AWSMobileClient
+            cp -R docs/api/* docs/reference/AWSMobileClient
       - run:
           name: checkin jazzy documents
           command: |
             git add docs/reference/AWSMobileClient
             git commit -m "Update jazzy documentation for ${CIRCLE_TAG}"
-            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git  
+            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
   run_ui_test:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "11.0.0"
     steps:
+      - set_environment_variables
+      - override_test_job
+      - skip_job_unless_required
       - early_return_for_forked_prs
       - checkout
+      - skip_test_job
+      - pre_start_simulator
       - run:
           name: Run Sample UI Test
           command: |
@@ -465,31 +621,33 @@ jobs:
             echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
             echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_PODFILE} | base64 --decode > Podfile
             pod install
-            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' test | tee $rootDirectory/raw_ui_test.log
+            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination "${destination}" test | tee $rootDirectory/raw_ui_test.log
             cd $rootDirectory
             rm -rf aws-sdk-ios-samples
       - store_artifacts:
           path: raw_ui_test.log
   add_doc_tag:
     macos:
-      xcode: "10.1.0"  
+      xcode: "11.0.0"
     steps:
-      - checkout   
+      - skip_job_unless_required
+      - checkout
       - run:
           name: Add documentation tags to gh-pages
           command: |
             git config --local user.name "AWS"
             git checkout  gh-pages
             git tag -a ${CIRCLE_TAG}_api_docs  -m "Add documentation tags to version ${CIRCLE_TAG}"
-            git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git   
+            git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
 
   bump_ios_sampleapp_version:
-    macos: 
-      xcode: "10.1.0"
+    macos:
+      xcode: "11.0.0"
     steps:
-      - set_enviroment_variables
+      - skip_job_unless_required
+      - set_environment_variables
       - quit_for_nominorversion
-      - checkout  
+      - checkout
       - run:
           name: checkout repository for bump version
           command: |
@@ -503,38 +661,39 @@ jobs:
       - run:
           name: build projects
           command:
-            python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"        
-      - run: 
+            python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
+      - run:
           name: stage changes
           command: |
             cd aws-sdk-ios-samples
             git config --local user.name "AWS"
             gitstatus=$(git status)
             echo $gitstatus
-            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then              
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then
               git add .
             else
               echo "No changes for sample application bump version"
-              circleci step halt             
-            fi                 
+              circleci step halt
+            fi
       - run:
           name: check in changes
           command: |
             cd aws-sdk-ios-samples
             git status
             git config --local user.name "AWS"
-            git commit -m "Update sample app dependency to ${release_version}"            
+            git commit -m "Update sample app dependency to ${release_version}"
             git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git
 
   bump_ios_amplifydocs_version:
-    macos: 
-      xcode: "10.1.0"
+    macos:
+      xcode: "11.0.0"
     steps:
-      - set_enviroment_variables
+      - skip_job_unless_required
+      - set_environment_variables
       - quit_for_nominorversion
-      - checkout  
+      - checkout
       - run:
-          name: set_bumpversion_enviroment
+          name: set_bumpversion_environment
           command: |
             bumpversion_repo_account=aws-amplify
             bumpversion_repo_name=docs
@@ -556,17 +715,18 @@ jobs:
       - bump_version_post
 
   release_ios_s3:
-    macos: 
-      xcode: "10.1.0"
+    macos:
+      xcode: "11.0.0"
     steps:
+      - skip_job_unless_required
       - checkout
       - update_brew
+      - set_environment_variables
       - configure_aws
-      - set_enviroment_variables
       - run:
-          name: build libarary
+          name: Build library
           command: |
-            bash Scripts/package.sh
+            bash CircleciScripts/package.sh
       - run:
           name: Copy frameworks
           command: |
@@ -578,51 +738,190 @@ jobs:
             mkdir -p "$sdkNameWithVersion"
             python3 CircleciScripts/copy_resourcefiles.py "$(pwd)"  "$(pwd)/$sdkNameWithVersion"
       - run:
-          name: zip sdk folder
+          name: Zip SDK folder
           command: |
             zip -r "$sdkNameWithVersion.zip" "$sdkNameWithVersion"
 
       - run:
-          name: copy zip file
+          name: Copy zip file
           command: |
             mkdir -p sdkfiles
             cp "$sdkNameWithVersion.zip" "sdkfiles/$sdkNameWithVersion.zip"
       - store_artifacts:
           path: sdkfiles
       - run:
-          name: upload to s3
+          name: Upload to S3
           command: |
             aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
             aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
       - run:
-          name: invalidate cloudfront
+          name: Invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+  bump_sdk_version:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - set_environment_variables
+      - checkout
+      - run:
+          name: install python3-pip
+          command: |
+            echo "${newsdkversion}"
+            sudo apt-get update
+            sudo apt-get -y install python3-pip
+      - run:
+          name: Install json parser
+          command: sudo pip3 install demjson
+      - run:
+          name: Install lxml
+          command: sudo pip3 install lxml
+      - run:
+          name: set_bumpversion_environment
+          command: |
+            git config --local user.name AWS
+
+            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
+            echo "commitmessage=$commitmessage"
+            if [[ "$commitmessage" != *"bump version"* ]]
+            then
+               echo "To bump sdk version, the commit message should contain the words 'bump version'"
+               circleci step halt
+            fi
+
+            release_version=$(head version | grep -E "^[0-9]+.[0-9]+.[0-9]+" | sed "s/^\([0-9]*.[0-9]*.[0-9]*\).*/\1/")
+            if [ -z "release_version" ]
+            then
+              echo "version file does not have a correct version number"
+              exit 1
+            fi
+            echo "release_version=[$release_version]"
+            bumpversion_repo_user=${CIRCLE_PROJECT_USERNAME}
+            bumpversion_repo_name=${CIRCLE_PROJECT_REPONAME}
+            echo "bumpversion_repo_user:$bumpversion_repo_user"
+            echo "bumpversion_repo_name:$bumpversion_repo_name"
+
+            bump_version_message="[bump version $release_version]"
+            bump_version_pr_title="bump iOS sdk version to ${release_version}"
+            target_branch=test_develop
+            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
+            echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
+            echo "export release_version=$release_version" >> $BASH_ENV
+            echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
+            echo "export bump_version_pr_title='${bump_version_pr_title}'" >> $BASH_ENV
+            echo "export target_branch='${target_branch}'" >> $BASH_ENV
+            echo "bump_version_pr_title:$bump_version_pr_title"
+      - bump_version_pre
+      - run:
+          name: bump version
+          command: |
+            cp -R ${bumpversion_repo_name}/CircleciScripts/ CircleciScripts/
+            python3 CircleciScripts/bump_sdk_version.py "$(pwd)/${bumpversion_repo_name}" $release_version
+      - bump_version_post
+  merge_to_master:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - set_environment_variables
+      - run:
+          name: merge change to master
+          command: |
+            git config --local user.name AWS
+            git checkout master
+            git fetch origin
+            git reset origin/master
+            git checkout .
+            git clean -fd .
+            commitlog=$(git log master -20)
+            currentcommit="${CIRCLE_SHA1}"
+            echo "currentcommit=$currentcommit"
+            echo "$commitlog"
+            if [[ "$commitlog" =~ .*"commit $currentcommit".* ]]
+            then
+               echo "The change is already merged"
+            else
+              echo "merge change from devlop to master"
+              currentcommit="${CIRCLE_SHA1}"
+              lastcommitmessage=$(git log --format=%B -n 1 ${currentcommit})
+
+              git merge  develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"
+              echo "push change"
+              git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            fi
+  prepare_release_sdk:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - set_environment_variables
+      - run:
+          name: trigger release_sdk if curremt commit is a bump version
+          command: |
+            bash CircleciScripts/prepare_release_sdk.sh
+  create_pullrequest_for_modelupdate:
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - skip_job_unless_required
+      - set_environment_variables
+      - checkout
+      - run:
+          name: create pull request
+          command: |
+            target_branch="develop"
+            title=${CIRCLE_BRANCH}
+            content="${CIRCLE_BRANCH}"
+            python3 ./CircleciScripts/create_pullrequest.py  "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
+
 
 workflows:
   version: 2
-
+  bump_sdk_version:
+    jobs:
+      - bump_sdk_version:
+          filters:
+            branches:
+              only:
+                - bump_sdk_version
   build_and_test:
-    jobs: 
+    jobs:
       - build:
           filters:
             branches:
-              ignore: /gh-.*/
+              ignore: bump_sdk_version
       - unittest:
           requires:
             - build
           filters:
             branches:
-              ignore: /gh-.*/
+              ignore: bump_sdk_version
+      - create_pullrequest_for_modelupdate:
+          filters:
+            branches:
+              only:
+                - /^models-update-.+$/
       - pre_integrationtest:
           filters:
             branches:
               only:
                 - master
-                - develop 
+                - develop
+
       - integrationtest:
-          name: AWSMobileClient
-          groupname: AWSMobileClient
+          name: APIGateway
+          groupname: APIGateway
           requires:
             - pre_integrationtest
           filters:
@@ -630,66 +929,7 @@ workflows:
               only:
                 - master
                 - develop
-      - integrationtest:
-          name: SQS 
-          groupname: SQS 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: MobileAnalytics 
-          groupname: MobileAnalytics 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Rekognition 
-          groupname: Rekognition 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: SES 
-          groupname: SES 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: SNS 
-          groupname: SNS 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: CloudWatch
-          groupname: CloudWatch
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+
       - integrationtest:
           name: AutoScaling
           groupname: AutoScaling
@@ -700,9 +940,10 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
-          name: APIGateway 
-          groupname: APIGateway 
+          name: AWSMobileClient
+          groupname: AWSMobileClient
           requires:
             - pre_integrationtest
           filters:
@@ -710,9 +951,10 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
-          name: Translate
-          groupname: Translate
+          name: CloudWatch
+          groupname: CloudWatch
           requires:
             - pre_integrationtest
           filters:
@@ -720,26 +962,7 @@ workflows:
               only:
                 - master
                 - develop
-      - integrationtest:
-          name: Transcribe
-          groupname: Transcribe
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Polly
-          groupname: Polly
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+
       - integrationtest:
           name: Cognito
           groupname: Cognito
@@ -750,6 +973,7 @@ workflows:
               only:
                 - master
                 - develop
+
       - integrationtest:
           name: Comprehend
           groupname: Comprehend
@@ -760,6 +984,18 @@ workflows:
               only:
                 - master
                 - develop
+
+      - integrationtest:
+          name: Connect
+          groupname: Connect
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
       - integrationtest:
           name: Core
           groupname: Core
@@ -770,106 +1006,7 @@ workflows:
               only:
                 - master
                 - develop
-      - integrationtest:
-          name: Kinesis 
-          groupname: Kinesis 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: KMS 
-          groupname: KMS 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: ElasticLoadBalancing
-          groupname: ElasticLoadBalancing
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: EC2 
-          groupname: EC2 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Lambda
-          groupname: Lambda
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: Lex 
-          groupname: Lex 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: IoT
-          groupname: IoT
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      # - integrationtest:
-      #     name: MachineLearning
-      #     groupname: MachineLearning
-      #     requires:
-      #       - pre_integrationtest
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      #           - develop
-      - integrationtest:
-          name: Pinpoint 
-          groupname: Pinpoint 
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - integrationtest:
-          name: S3
-          groupname: S3
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
+
       - integrationtest:
           name: DynamoDB
           groupname: DynamoDB
@@ -880,39 +1017,263 @@ workflows:
               only:
                 - master
                 - develop
-      - post_integrationtest:
+
+      - integrationtest:
+          name: EC2
+          groupname: EC2
           requires:
-            - AWSMobileClient
-            - SQS 
-            - MobileAnalytics 
-            - Rekognition 
-            - SES 
-            - SNS 
-            - CloudWatch
-            - AutoScaling
-            - APIGateway 
-            - Translate
-            - Transcribe
-            - Polly
-            - Cognito
-            - Comprehend
-            - Core
-            - Kinesis 
-            - KMS 
-            - ElasticLoadBalancing
-            - EC2 
-            - Lambda
-            - Lex 
-            - IoT
-            # - MachineLearning
-            - Pinpoint 
-            - S3
-            - DynamoDB
+            - pre_integrationtest
           filters:
             branches:
               only:
                 - master
-                - develop                                                                                                    
+                - develop
+
+      - integrationtest:
+          name: ElasticLoadBalancing
+          groupname: ElasticLoadBalancing
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: IoT
+          groupname: IoT
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Kinesis
+          groupname: Kinesis
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: KMS
+          groupname: KMS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Lambda
+          groupname: Lambda
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Lex
+          groupname: Lex
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: MobileAnalytics
+          groupname: MobileAnalytics
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Pinpoint
+          groupname: Pinpoint
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Polly
+          groupname: Polly
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Rekognition
+          groupname: Rekognition
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: S3
+          groupname: S3
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SES
+          groupname: SES
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SNS
+          groupname: SNS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: SQS
+          groupname: SQS
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Transcribe
+          groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: TranscribeStreaming
+          groupname: TranscribeStreaming
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Translate
+          groupname: Translate
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - post_integrationtest:
+          requires:
+            - APIGateway
+            - AWSMobileClient
+            - AutoScaling
+            - CloudWatch
+            - Cognito
+            - Comprehend
+            - Connect
+            - Core
+            - DynamoDB
+            - EC2
+            - ElasticLoadBalancing
+            - IoT
+            - KMS
+            - Kinesis
+            - Lambda
+            - Lex
+            - MobileAnalytics
+            - Pinpoint
+            - Polly
+            - Rekognition
+            - S3
+            - SES
+            - SNS
+            - SQS
+            - SageMakerRuntime
+            - Textract
+            - Transcribe
+            - TranscribeStreaming
+            - Translate
+          filters:
+            branches:
+              only:
+                - master
+                - develop
       - run_ui_test:
           requires:
             - build
@@ -921,8 +1282,27 @@ workflows:
               only:
                 - master
                 - develop
+      - merge_to_master:
+          requires:
+            - build
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              only:
+                - develop
+      - prepare_release_sdk:
+          requires:
+            - build
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+
   release_sdk:
-    jobs: 
+    jobs:
       - build:
           filters:
             branches:
@@ -936,13 +1316,13 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/          
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - pre_integrationtest:
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: AWSMobileClient
           groupname: AWSMobileClient
@@ -952,57 +1332,57 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: SQS 
-          groupname: SQS 
+          name: SQS
+          groupname: SQS
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/                     
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: MobileAnalytics 
-          groupname: MobileAnalytics 
+          name: MobileAnalytics
+          groupname: MobileAnalytics
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: Rekognition 
-          groupname: Rekognition 
+          name: Rekognition
+          groupname: Rekognition
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: SES 
-          groupname: SES 
+          name: SES
+          groupname: SES
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: SNS 
-          groupname: SNS 
+          name: SNS
+          groupname: SNS
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: CloudWatch
           groupname: CloudWatch
@@ -1012,7 +1392,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: AutoScaling
           groupname: AutoScaling
@@ -1022,17 +1402,17 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: APIGateway 
-          groupname: APIGateway 
+          name: APIGateway
+          groupname: APIGateway
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Translate
           groupname: Translate
@@ -1042,7 +1422,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Transcribe
           groupname: Transcribe
@@ -1052,7 +1432,17 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: TranscribeStreaming
+          groupname: TranscribeStreaming
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Polly
           groupname: Polly
@@ -1062,7 +1452,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Cognito
           groupname: Cognito
@@ -1072,7 +1462,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Comprehend
           groupname: Comprehend
@@ -1082,7 +1472,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Core
           groupname: Core
@@ -1092,27 +1482,27 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: Kinesis 
-          groupname: Kinesis 
+          name: Kinesis
+          groupname: Kinesis
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: KMS 
-          groupname: KMS 
+          name: KMS
+          groupname: KMS
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: ElasticLoadBalancing
           groupname: ElasticLoadBalancing
@@ -1122,17 +1512,17 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: EC2 
-          groupname: EC2 
+          name: EC2
+          groupname: EC2
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Lambda
           groupname: Lambda
@@ -1142,17 +1532,17 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: Lex 
-          groupname: Lex 
+          name: Lex
+          groupname: Lex
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: IoT
           groupname: IoT
@@ -1162,7 +1552,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       # - integrationtest:
       #     name: MachineLearning
       #     groupname: MachineLearning
@@ -1172,17 +1562,17 @@ workflows:
       #       branches:
       #         ignore: /.*/
       #       tags:
-      #         only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      #         only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: Pinpoint 
-          groupname: Pinpoint 
+          name: Pinpoint
+          groupname: Pinpoint
           requires:
             - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: S3
           groupname: S3
@@ -1192,7 +1582,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: DynamoDB
           groupname: DynamoDB
@@ -1202,61 +1592,95 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Textract
+          groupname: Textract
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SageMakerRuntime
+          groupname: SageMakerRuntime
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: Connect
+          groupname: Connect
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
             - AWSMobileClient
-            - SQS 
-            - MobileAnalytics 
-            - Rekognition 
-            - SES 
-            - SNS 
+            - SQS
+            - MobileAnalytics
+            - Rekognition
+            - SES
+            - SNS
             - CloudWatch
             - AutoScaling
-            - APIGateway 
+            - APIGateway
             - Translate
             - Transcribe
+            - TranscribeStreaming
             - Polly
             - Cognito
             - Comprehend
             - Core
-            - Kinesis 
-            - KMS 
+            - Kinesis
+            - KMS
             - ElasticLoadBalancing
-            - EC2 
+            - EC2
             - Lambda
-            - Lex 
+            - Lex
             - IoT
             # - MachineLearning
-            - Pinpoint 
+            - Pinpoint
             - S3
             - DynamoDB
+            - Textract
+            - SageMakerRuntime
+            - Connect
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/          
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_ios_s3:
           requires:
-            - unittest          
+            - unittest
             - post_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/              
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_tag:
           requires:
-            - unittest  
+            - unittest
             - post_integrationtest
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/        
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_carthage:
           requires:
-            - release_tag  
+            - release_tag
             - release_ios_s3
           filters:
             branches:
@@ -1265,7 +1689,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - release_ios_s3    
+            - release_ios_s3
           filters:
             branches:
               ignore: /.*/
@@ -1273,7 +1697,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_appledoc:
           requires:
-            - release_carthage          
+            - release_carthage
             - release_cocoapods
           filters:
             branches:
@@ -1282,7 +1706,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_jazzydoc:
           requires:
-            - release_appledoc          
+            - release_appledoc
           filters:
             branches:
               ignore: /.*/
@@ -1290,7 +1714,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - add_doc_tag:
           requires:
-            - release_jazzydoc          
+            - release_jazzydoc
           filters:
             branches:
               ignore: /.*/
@@ -1298,7 +1722,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - bump_ios_amplifydocs_version:
           requires:
-            - release_carthage          
+            - release_carthage
             - release_cocoapods
           filters:
             branches:
@@ -1307,10 +1731,11 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - bump_ios_sampleapp_version:
           requires:
-            - release_carthage          
+            - release_carthage
             - release_cocoapods
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+

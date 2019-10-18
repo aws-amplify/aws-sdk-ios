@@ -14,11 +14,13 @@
  */
  
 
+
 #import "AWSLambdaMicroserviceClient.h"
 #import <AWSCore/AWSCore.h>
 #import <AWSCore/AWSSignature.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
+#import "AWSStringValue.h"
 
 @interface AWSAPIGatewayClient()
 
@@ -42,6 +44,12 @@
 
 @end
 
+@interface AWSLambdaMicroserviceClient()
+
+@property (nonatomic, strong) AWSServiceConfiguration *configuration;
+
+@end
+
 @interface AWSServiceConfiguration()
 
 @property (nonatomic, strong) AWSEndpoint *endpoint;
@@ -50,13 +58,19 @@
 
 @implementation AWSLambdaMicroserviceClient
 
+static NSString *const AWSInfoClientKey = @"AWSLambdaMicroserviceClient";
+
 @synthesize configuration = _configuration;
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultClient {
     AWSServiceConfiguration *serviceConfiguration = nil;
-    if ([AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+    AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoClientKey];
+    if (serviceInfo) {
+        serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                           credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+    } else if ([AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
         serviceConfiguration = AWSServiceManager.defaultServiceManager.defaultServiceConfiguration;
     } else {
         serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown
@@ -72,16 +86,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return _defaultClient;
 }
 
++ (void)registerClientWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceClients = [AWSSynchronizedMutableDictionary new];
+    });
+    [_serviceClients setObject:[[AWSLambdaMicroserviceClient alloc] initWithConfiguration:configuration]
+                        forKey:key];
+}
+
++ (instancetype)clientForKey:(NSString *)key {
+    @synchronized(self) {
+        AWSLambdaMicroserviceClient *serviceClient = [_serviceClients objectForKey:key];
+        if (serviceClient) {
+            return serviceClient;
+        }
+
+        AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoClientKey
+                                                                     forKey:key];
+        if (serviceInfo) {
+            AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                                                        credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+            [AWSLambdaMicroserviceClient registerClientWithConfiguration:serviceConfiguration
+                                                    forKey:key];
+        }
+
+        return [_serviceClients objectForKey:key];
+    }
+}
+
++ (void)removeClientForKey:(NSString *)key {
+    [_serviceClients removeObjectForKey:key];
+}
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultClient` or `+ clientForKey:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
 
-        NSString *URLString = credentialsJson[@"apiEndpoint"];
+        NSString *URLString = @"https://mykov6r7rh.execute-api.us-east-1.amazonaws.com/prod";
         if ([URLString hasSuffix:@"/"]) {
             URLString = [URLString substringToIndex:[URLString length] - 1];
         }
@@ -119,6 +168,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                   headerParameters:headerParameters
                               body:nil
                      responseClass:nil];
+}
+
+- (AWSTask *)testFunctionGet:(NSString *)key1 {
+    NSDictionary *headerParameters = @{
+                                       @"Content-Type": @"application/json",
+                                       @"Accept": @"application/json",
+                                       
+                                       };
+    NSDictionary *queryParameters = @{
+                                      @"key1": key1
+                                      };
+    NSDictionary *pathParameters = @{
+                                     
+                                     };
+    
+    return [self invokeHTTPRequest:@"GET"
+                         URLString:@"/TestFunction"
+                    pathParameters:pathParameters
+                   queryParameters:queryParameters
+                  headerParameters:headerParameters
+                              body:nil
+                     responseClass:[AWSStringValue class]];
 }
 
 - (AWSTask *)testFunctionPost {
@@ -162,29 +233,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:nil
-                     responseClass:nil];
+                     responseClass:[AWSStringValue class]];
 }
 
-- (AWSTask *)testFunctionGet:(NSString *)key1 {
-    NSDictionary *headerParameters = @{
-                                       @"Content-Type": @"application/json",
-                                       @"Accept": @"application/json",
-                                       
-                                       };
-    NSDictionary *queryParameters = @{
-                                      @"key1": key1
-                                      };
-    NSDictionary *pathParameters = @{
-                                     
-                                     };
-    
-    return [self invokeHTTPRequest:@"GET"
-                         URLString:@"/TestFunction"
-                    pathParameters:pathParameters
-                   queryParameters:queryParameters
-                  headerParameters:headerParameters
-                              body:nil
-                     responseClass:nil];
-}
+
 
 @end

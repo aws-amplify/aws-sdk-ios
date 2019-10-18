@@ -32,7 +32,7 @@ class AWSTranscribeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testList() {
+    func testListTranscriptionJobs() {
         let transcribeClient = AWSTranscribe.default()
         
         // We fetch the jobs we have in our account. This test checks basic request response from the service.
@@ -205,8 +205,13 @@ class AWSTranscribeTests: XCTestCase {
         
         // kick off transcribe job to transcribe a simple "Hello, world" file stored in above specified location
         transcribeClient.startTranscriptionJob(jobRequest!).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error, "Expected no error, got \(error)")
+                return nil
+            }
+            
             guard let result = task.result else {
-                XCTAssertTrue(false, "Expected to start a transcribe job, not get error")
+                XCTAssertTrue(false, "Result unexpectedly nil starting transcription job")
                 return nil
             }
             

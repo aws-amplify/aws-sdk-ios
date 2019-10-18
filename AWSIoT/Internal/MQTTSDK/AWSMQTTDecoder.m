@@ -29,6 +29,8 @@
 
 @implementation AWSMQTTDecoder
 
+int maxLengthMultiplier = 128 * 128 * 128;
+
 - (id)initWithStream:(NSInputStream*)aStream
 {
     _status = AWSMQTTDecoderStatusInitializing;
@@ -91,6 +93,12 @@
                 }
                 else {
                     lengthMultiplier *= 128;
+                    if (lengthMultiplier > maxLengthMultiplier){
+                        AWSDDLogWarn(@"Malformed Remaining Length");
+                        lengthMultiplier = 1;
+                        length = 0;
+                        break;
+                    }
                 }
             }
             if (_status == AWSMQTTDecoderStatusDecodingData) {

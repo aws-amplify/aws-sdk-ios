@@ -18,10 +18,6 @@
 
 @interface CognitoTestUtils : NSObject
 
-+ (void)createFBAccount;
-+ (void)createIdentityPool;
-+ (void)deleteFBAccount;
-+ (void)deleteIdentityPool;
 + (NSString *) accountId;
 + (NSString *) unauthRoleArn;
 + (NSString *) authRoleArn;

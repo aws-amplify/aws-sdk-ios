@@ -14,22 +14,26 @@ import Foundation
     @objc public let logoImage: UIImage?
     /// The background color of the sign-in screen.
     @objc public let backgroundColor: UIColor?
+    /// The secondary background color. It's applied to the bottom panel of the sign-in screen.
+    @objc public let secondaryBackgroundColor: UIColor?
+    /// The view primary color used for highlighted elements (button background, links).
+    @objc public let primaryColor: UIColor?
     /// If set to true the sign up button is hidden from the UI.
     @objc public let disableSignUpButton: Bool
     
-    
     /// Initializer for the drop-in UI configuration.
-    ///
-    /// - Parameters:
-    ///   - canCancel: If set to true, the end user can cancel the sign-in operation and go back to previous view controller.
-    ///   - logoImage: The logo image to be displayed on the sign-in screen.
-    ///   - backgroundColor: The background color of the sign-in screen.
-    ///   - disableSignUpButton: If set to true the sign up button is hidden from the UI.
-    @objc public init(canCancel: Bool = false,logoImage: UIImage? = nil, backgroundColor: UIColor? = nil, disableSignUpButton: Bool = false) {
+    @objc public init(canCancel: Bool = false,
+                      logoImage: UIImage? = nil,
+                      backgroundColor: UIColor? = nil,
+                      disableSignUpButton: Bool = false,
+                      secondaryBackgroundColor: UIColor? = nil,
+                      primaryColor: UIColor? = .systemBlue) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
-        self.disableSignUpButton = disableSignUpButton;
+        self.secondaryBackgroundColor = secondaryBackgroundColor
+        self.primaryColor = primaryColor
+        self.disableSignUpButton = disableSignUpButton
     }
 }
 
@@ -72,6 +76,9 @@ public struct FederatedSignInOptions {
 
 
 /// The options object for `showSignIn` API when using Hosted Auth solution like Amazon Cognito UserPools or AUth0.
+///
+/// NOTE: If specified, some of the values in this type will override the corresponding values in `awsconfiguration.json`. See
+/// the `init` method below.
 public struct HostedUIOptions {
     let scopes: [String]?
     

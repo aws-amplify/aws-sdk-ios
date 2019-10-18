@@ -68,7 +68,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.9.3";
+NSString *const AWSCognitoAuthSDKVersion = @"2.12.0";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -336,12 +336,16 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         if(expirationDate && scopes != nil && [scopes isEqualToString:[self normalizeScopes]]){
             NSDate *expiration = [self dateFromString:expirationDate];
             NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
+            NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserAccessToken];
+            NSString * accessToken = self.keychain[accessTokenKey];
 
             //if the session expires > 5 minutes return it.
-            if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending){
+            if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending && accessToken){
                 NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserIdToken];
-                NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserAccessToken];
-                AWSCognitoAuthUserSession * session = [[AWSCognitoAuthUserSession alloc] initWithIdToken:self.keychain[idTokenKey] accessToken:self.keychain[accessTokenKey] refreshToken:refreshToken expirationTime:expiration];
+                AWSCognitoAuthUserSession * session = [[AWSCognitoAuthUserSession alloc] initWithIdToken:self.keychain[idTokenKey]
+                                                                                             accessToken:accessToken
+                                                                                            refreshToken:refreshToken
+                                                                                          expirationTime:expiration];
                 [self dismissSafariViewControllerAndCompleteGetSession:session error:nil];
                 return;
             }
@@ -751,7 +755,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 //clean up vc
                 self.svc = nil;
             }];
-        }else {
+        } else {
             dismissBlock();
         }
     });

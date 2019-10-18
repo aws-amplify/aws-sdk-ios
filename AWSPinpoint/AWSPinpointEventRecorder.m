@@ -30,10 +30,17 @@ NSString *const AWSPinpointAnalyticsErrorDomain = @"com.amazonaws.AWSPinpointAna
 // Pinpoint Abstract Client
 NSUInteger const AWSPinpointClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSPinpointClientAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
-NSUInteger const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
+NSUInteger const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024; // 0.5MB
+NSUInteger const AWSPinpointClientBatchRecordByteLimitMax = 4 * 1024 * 1024; // 4MB
 NSString *const AWSPinpointClientRecorderDatabasePathPrefix = @"com/amazonaws/AWSPinpointRecorder";
 NSUInteger const AWSPinpointClientValidEvent = 0;
 NSUInteger const AWSPinpointClientInvalidEvent = 1;
+
+/**
+ * According to the limit "Maximum number events in a request"
+ * defined in https://docs.aws.amazon.com/pinpoint/latest/developerguide/limits.html
+ */
+NSUInteger const AWSPinpointServiceDefinedMaxEventsPerBatch = 100;
 
 // Constants
 NSString *const AWSPinpointEventByteThresholdReachedNotification = @"com.amazonaws.AWSPinpointEventByteThresholdReachedNotification";
@@ -41,6 +48,7 @@ NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey
 NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessionKey";
 NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
 NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
+
 @interface AWSPinpointEventRecorder()
 @property (nonatomic, strong) AWSFMDatabaseQueue *databaseQueue;
 @property (nonatomic, strong) NSString *databasePath;
@@ -394,7 +402,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 }
 
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEvents {
-    return [self getEventsWithLimit:@128];
+    return [self getEventsWithLimit:[NSNumber numberWithInteger:AWSPinpointServiceDefinedMaxEventsPerBatch]];
 }
 
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEventsWithLimit:(NSNumber *) limit {
@@ -441,7 +449,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 }
 
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getDirtyEvents {
-    return [self getDirtyEventsWithLimit:@128];
+    return [self getDirtyEventsWithLimit:[NSNumber numberWithInteger:AWSPinpointServiceDefinedMaxEventsPerBatch]];
 }
 
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getDirtyEventsWithLimit:(NSNumber *) limit {
@@ -582,7 +590,8 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                                @"FROM Event "
                                                @"WHERE dirty = %@ "
                                                @"ORDER BY timestamp ASC "
-                                               @"LIMIT 1000", [NSNumber numberWithInteger:AWSPinpointClientValidEvent]]];
+                                               @"LIMIT %@",
+                                               [NSNumber numberWithInteger:AWSPinpointClientValidEvent], [NSNumber numberWithInteger:AWSPinpointServiceDefinedMaxEventsPerBatch]]];
         if (!rs) {
             AWSDDLogError(@"SQLite error. Rolling back... [%@]", db.lastError);
             error = db.lastError;
@@ -741,8 +750,11 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 }
 
 - (void)setBatchRecordsByteLimit:(NSUInteger)batchRecordsByteLimit {
-    if (batchRecordsByteLimit > 4 * 1024 * 1024) {
-        _batchRecordsByteLimit = 4 * 1024 * 1024;
+    if (batchRecordsByteLimit > AWSPinpointClientBatchRecordByteLimitMax) {
+        AWSDDLogWarn(@"The batch byte limit is %@, cannot set to %@ (falling back to the limit)",
+                     [NSByteCountFormatter stringFromByteCount:AWSPinpointClientBatchRecordByteLimitMax countStyle:NSByteCountFormatterCountStyleFile],
+                     [NSByteCountFormatter stringFromByteCount:batchRecordsByteLimit countStyle:NSByteCountFormatterCountStyleFile]);
+        _batchRecordsByteLimit = AWSPinpointClientBatchRecordByteLimitMax;
     } else {
         _batchRecordsByteLimit = batchRecordsByteLimit;
     }

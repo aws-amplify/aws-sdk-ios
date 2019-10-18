@@ -81,6 +81,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs43,
     AWSLambdaRuntimeNodejs610,
     AWSLambdaRuntimeNodejs810,
+    AWSLambdaRuntimeNodejs10X,
     AWSLambdaRuntimeJava8,
     AWSLambdaRuntimePython27,
     AWSLambdaRuntimePython36,
@@ -141,6 +142,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetFunctionConfigurationRequest;
 @class AWSLambdaGetFunctionRequest;
 @class AWSLambdaGetFunctionResponse;
+@class AWSLambdaGetLayerVersionByArnRequest;
 @class AWSLambdaGetLayerVersionPolicyRequest;
 @class AWSLambdaGetLayerVersionPolicyResponse;
 @class AWSLambdaGetLayerVersionRequest;
@@ -489,6 +491,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
+
+/**
  <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
  */
 @property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition;
@@ -760,6 +767,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
  <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>, <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>, <code>Updating</code>, or <code>Deleting</code>.</p>
@@ -1050,6 +1062,19 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetLayerVersionByArnRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the layer version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
 
 @end
 
@@ -2018,6 +2043,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
  <p>The identifier of the event source mapping.</p>

@@ -23,11 +23,28 @@ FOUNDATION_EXPORT NSString *const AWSInfoDefault;
 @class AWSServiceInfo;
 @class AWSCognitoCredentialsProvider;
 
+/**
+ * The AWSInfo holds the configuration values for the various supported services.
+ */
 @interface AWSInfo : NSObject
 
 @property (nonatomic, readonly) NSDictionary <NSString *, id> *rootInfoDictionary;
 
+/**
+ * The reference to the single `AWSInfo` object. This method loads the configuration from the
+ * `awsconfiguration.json` by default. For custom configuration object, see `[AWSInfo configureDefaultAWSInfo]`.
+ */
 + (instancetype)defaultAWSInfo;
+
+/**
+ * This method allows the configuration as a `NSDictionary` as an alternative to the `awsconfiguration.json` file.
+ *
+ * **Notes:** This method must be called before `defaultAWSInfo` otherwise the configuration will be loaded from the
+ * JSON file. Once the configuration is set, it cannot be overridden and/or reloaded.
+ *
+ * @param config The dictionary containing the configuration
+ */
++ (void)configureDefaultAWSInfo:(NSDictionary<NSString *, id> *)config;
 
 - (nullable AWSServiceInfo *)serviceInfo:(NSString *)serviceName
                                   forKey:(NSString *)key;

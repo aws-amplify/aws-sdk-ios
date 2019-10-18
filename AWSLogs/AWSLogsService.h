@@ -219,7 +219,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
 
@@ -231,7 +231,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsCreateExportTaskResponse *> *)createExportTask:(AWSLogsCreateExportTaskRequest *)request;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -764,7 +764,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)getLogRecord:(AWSLogsGetLogRecordRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsGetLogRecordResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p>
+ <p>Returns the results from the specified query.</p><p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which is the identifier for the log record. You can use the value of <code>@ptr</code> in a operation to get the full log record.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p><p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status, you can retry the operation later to see the final results. </p>
  
  @param request A container for the necessary parameters to execute the GetQueryResults service method.
 
@@ -776,7 +776,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsGetQueryResultsResponse *> *)getQueryResults:(AWSLogsGetQueryResultsRequest *)request;
 
 /**
- <p>Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p>
+ <p>Returns the results from the specified query.</p><p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which is the identifier for the log record. You can use the value of <code>@ptr</code> in a operation to get the full log record.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p><p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status, you can retry the operation later to see the final results. </p>
  
  @param request A container for the necessary parameters to execute the GetQueryResults service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -814,7 +814,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsListTagsLogGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.</p><p>Through an access policy, a destination controls what is written to its Kinesis stream. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ <p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. A destination can be an Amazon Kinesis stream, Amazon Kinesis Data Firehose strea, or an AWS Lambda function.</p><p>Through an access policy, a destination controls what is written to it. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutDestination service method.
 
@@ -826,7 +826,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsPutDestinationResponse *> *)putDestination:(AWSLogsPutDestinationRequest *)request;
 
 /**
- <p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.</p><p>Through an access policy, a destination controls what is written to its Kinesis stream. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ <p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. A destination can be an Amazon Kinesis stream, Amazon Kinesis Data Firehose strea, or an AWS Lambda function.</p><p>Through an access policy, a destination controls what is written to it. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -839,7 +839,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)putDestination:(AWSLogsPutDestinationRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsPutDestinationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p>
+ <p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p>
  
  @param request A container for the necessary parameters to execute the PutDestinationPolicy service method.
 
@@ -850,7 +850,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)request;
 
 /**
- <p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p>
+ <p>Creates or updates an access policy associated with an existing destination. An access policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM policy document</a> that is used to authorize claims to register a subscription filter against a given destination.</p>
  
  @param request A container for the necessary parameters to execute the PutDestinationPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -861,7 +861,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
+ <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or older than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
  
  @param request A container for the necessary parameters to execute the PutLogEvents service method.
 
@@ -873,7 +873,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsPutLogEventsResponse *> *)putLogEvents:(AWSLogsPutLogEventsRequest *)request;
 
 /**
- <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
+ <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or older than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
  
  @param request A container for the necessary parameters to execute the PutLogEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -977,7 +977,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+ <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p><p>Queries time out after 15 minutes of execution. If your queries are timing out, reduce the time range being searched, or partition your query into a number of queries.</p>
  
  @param request A container for the necessary parameters to execute the StartQuery service method.
 
@@ -989,7 +989,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsStartQueryResponse *> *)startQuery:(AWSLogsStartQueryRequest *)request;
 
 /**
- <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p><p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+ <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p><p>Queries time out after 15 minutes of execution. If your queries are timing out, reduce the time range being searched, or partition your query into a number of queries.</p>
  
  @param request A container for the necessary parameters to execute the StartQuery service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1027,7 +1027,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)stopQuery:(AWSLogsStopQueryRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsStopQueryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p><p>For more information about tags, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
+ <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagLogGroup service method.
 
@@ -1038,7 +1038,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)tagLogGroup:(AWSLogsTagLogGroupRequest *)request;
 
 /**
- <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p><p>For more information about tags, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
+ <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
