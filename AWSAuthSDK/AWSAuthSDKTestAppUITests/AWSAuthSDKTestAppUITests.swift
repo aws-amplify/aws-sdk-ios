@@ -137,7 +137,7 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
             //in order to continue with alert properly have to call addUIInterruptionMonitor and then tap Continue.
             addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
                 alert.buttons["Continue"].tap()
-                sleep(30) ///while the url loads
+                //sleep(30) ///while the url loads
                 return true
             }
             
@@ -153,19 +153,15 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
         
         XCTAssertEqual("signedOut", signinstatelabelElement.label)
         
-        XCUIApplication().buttons["Launch CognitoAuth SignIn Facebook"].tap()
-        
-        let alertsQuery = app.alerts
-        if #available(iOS 11.0, *) {
-            addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
-                           alert.buttons["Continue"].tap()
-                           sleep(30) ///while the url loads
-                           return true
-            }
-        } else {
-            // or use some work around
+        app.buttons["Launch CognitoAuth SignIn Facebook"].tap()
+     
+        addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+           alert.buttons["Continue"].tap()
+          
+           return true
         }
-        
+         app.tap()
+
         // set up an expectation predicate to test whether elements exist
         let exists = NSPredicate(format: "exists == true")
         
@@ -184,7 +180,7 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
                 // break outside of else if
             } else {
             
-            
+        
             // We will try to enter email and password here to log the user in.
             let webViewsQuery = app.webViews
             webViewsQuery.textFields["Mobile Number or Email"].tap()
@@ -217,7 +213,13 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
         
         app.buttons["SignOut"].tap()
         
-        alertsQuery.element.tap()
+        addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+                      alert.buttons["Continue"].tap()
+                      //sleep(30) ///while the url loads
+                      return true
+                  }
+                  
+        app.tap()
         let predicate1 = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
         let expectation2 = expectation(for: predicate1, evaluatedWith: signinstatelabelElement,
                                        handler: nil)
