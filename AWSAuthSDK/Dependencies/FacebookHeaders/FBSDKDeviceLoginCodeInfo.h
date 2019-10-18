@@ -18,23 +18,45 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCopying.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
-/**
-  Extension protocol for NSMutableCopying that adds the mutableCopy method, which is implemented on NSObject.
-
- NSObject<NSCopying, NSMutableCopying> implicitly conforms to this protocol.
+/*!
+ @abstract Describes the initial response when starting the device login flow.
+ @discussion This is used by `FBSDKDeviceLoginManager`.
  */
-NS_SWIFT_NAME(MutableCopying)
-@protocol FBSDKMutableCopying <FBSDKCopying, NSMutableCopying>
+NS_SWIFT_NAME(DeviceLoginCodeInfo)
+@interface FBSDKDeviceLoginCodeInfo : NSObject
 
-/**
-  Implemented by NSObject as a convenience to mutableCopyWithZone:.
- @return A mutable copy of the receiver.
+/*!
+ @abstract There is no public initializer.
  */
-- (id)mutableCopy;
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+/*!
+ @abstract the unique id for this login flow.
+*/
+@property (nonatomic, copy, readonly) NSString *identifier;
+
+/*!
+ @abstract the short "user_code" that should be presented to the user.
+*/
+@property (nonatomic, copy, readonly) NSString *loginCode;
+
+/*!
+ @abstract the verification URL.
+*/
+@property (nonatomic, copy, readonly) NSURL *verificationURL;
+
+/*!
+ @abstract the expiration date.
+*/
+@property (nonatomic, copy, readonly) NSDate *expirationDate;
+
+/*!
+ @abstract the polling interval
+*/
+@property (nonatomic, assign, readonly) NSUInteger pollingInterval;
 
 @end
 
