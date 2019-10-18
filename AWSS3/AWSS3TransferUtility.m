@@ -1037,6 +1037,29 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     return [self createUploadTask:transferUtilityUploadTask startTransfer:YES];
 }
 
+- (NSURLSessionUploadTask *)getURLSessionUploadTaskWithRequest:(NSURLRequest *)request
+                                                      fromFile:(NSURL *)fileURL
+                                                         error:(NSError **)errorPtr {
+    NSURLSessionUploadTask *nsURLUploadTask = nil;
+    NSString *exceptionReason = @"";
+    @try {
+        nsURLUploadTask  = [self.session uploadTaskWithRequest:request
+                                                      fromFile:fileURL];
+    }
+    @catch (NSException *exception) {
+        AWSDDLogDebug(@"Exception in upload task %@", exception.debugDescription);
+        exceptionReason = [exception.reason copy];
+        NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  errorMessage, @"Message", exceptionReason, @"Reason", nil];
+        if (errorPtr != NULL) {
+            *errorPtr = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                         code:AWSS3TransferUtilityErrorUnknown
+                                     userInfo:userInfo];
+        }
+    }
+    return nsURLUploadTask;
+}
 
 -(AWSTask<AWSS3TransferUtilityUploadTask *> *) createUploadTask:(AWSS3TransferUtilityUploadTask *) transferUtilityUploadTask
                                                   startTransfer:(BOOL) startTransfer {
@@ -1071,25 +1094,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             [request setValue: transferUtilityUploadTask.expression.requestHeaders[key] forHTTPHeaderField:key];
         }
         AWSDDLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
-        
-        NSURLSessionUploadTask *nsURLUploadTask = nil;
-        NSString *exceptionReason = @"";
-        @try {
-            nsURLUploadTask  = [self.session uploadTaskWithRequest:request
-            fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]];
-        }
-        @catch (NSException *exception) {
-            AWSDDLogDebug(@"Exception in upload task %@", exception.debugDescription);
-            exceptionReason = [exception.reason copy];
-            nsURLUploadTask = nil;
-        }
+        NSURLSessionUploadTask *nsURLUploadTask = [self getURLSessionUploadTaskWithRequest:request
+                                                                                  fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]
+                                                                                     error:&error];
+
         if (nsURLUploadTask == nil) {
-            NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      errorMessage, @"Message", exceptionReason, @"Reason", nil];
-            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
-                                        code:AWSS3TransferUtilityErrorUnknown
-                                    userInfo:userInfo];
             AWSDDLogError(@"Error: %@", error);
             return [AWSTask taskWithError:error];
         }
@@ -1523,27 +1532,15 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
         [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders
               getPresignedURLRequest:nil URLRequest: urlRequest];
         [ urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
-        NSURLSessionUploadTask *nsURLUploadTask = nil;
-        NSString *exceptionReason = @"";
-        @try {
-            nsURLUploadTask  = [self->_session uploadTaskWithRequest:urlRequest
-                                                            fromFile:[NSURL fileURLWithPath:subTask.file]];
-        }
-        @catch (NSException *exception) {
-            AWSDDLogDebug(@"Exception in upload task %@", exception.debugDescription);
-            exceptionReason = [exception.reason copy];
-            nsURLUploadTask = nil;
-        }
+        NSURLSessionUploadTask *nsURLUploadTask = [self getURLSessionUploadTaskWithRequest:urlRequest
+                                                                                  fromFile:[NSURL fileURLWithPath:subTask.file]
+                                                                                     error:&error];
+
         if (nsURLUploadTask == nil) {
-            NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
-            NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      errorMessage, @"Message", exceptionReason, @"Reason", nil];
-            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
-                                        code:AWSS3TransferUtilityErrorUnknown
-                                    userInfo:userInfo];
+            AWSDDLogError(@"Error: %@", error);
             return nil;
-            
         }
+
         //Create subtask to track this upload
         subTask.sessionTask = nsURLUploadTask;
         subTask.taskIdentifier = nsURLUploadTask.taskIdentifier;
