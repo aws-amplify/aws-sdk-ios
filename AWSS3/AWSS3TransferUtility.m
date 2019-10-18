@@ -1092,16 +1092,16 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             [request setValue: transferUtilityUploadTask.expression.requestHeaders[key] forHTTPHeaderField:key];
         }
         AWSDDLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
-        NSURLSessionUploadTask *nsURLUploadTask = [self getURLSessionUploadTaskWithRequest:request
+        NSURLSessionUploadTask *uploadTask = [self getURLSessionUploadTaskWithRequest:request
                                                                                   fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]
                                                                                      error:&error];
 
-        if (nsURLUploadTask == nil) {
+        if (uploadTask == nil) {
             AWSDDLogError(@"Error: %@", error);
             return [AWSTask taskWithError:error];
         }
 
-        transferUtilityUploadTask.sessionTask = nsURLUploadTask;
+        transferUtilityUploadTask.sessionTask = uploadTask;
         if ( startTransfer) {
             transferUtilityUploadTask.status = AWSS3TransferUtilityTransferStatusInProgress;
         }
@@ -1123,7 +1123,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                           retry_count:transferUtilityUploadTask.retryCount
                                                         databaseQueue:self->_databaseQueue];
         if (startTransfer) {
-            [nsURLUploadTask resume];
+            [uploadTask resume];
         }
         
         return [AWSTask taskWithResult:transferUtilityUploadTask];
