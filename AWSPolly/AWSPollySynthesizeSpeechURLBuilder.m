@@ -35,6 +35,7 @@ NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
 
 @interface AWSPollyStartSpeechSynthesisTaskInput()
 
++ (NSValueTransformer *)engineJSONTransformer;
 + (NSValueTransformer *)languageCodeJSONTransformer;
 + (NSValueTransformer *)outputFormatJSONTransformer;
 + (NSValueTransformer *)textTypeJSONTransformer;
@@ -58,7 +59,7 @@ NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
 
 + (void)initialize {
     [super initialize];
-    
+
     if (![AWSiOSSDKVersion isEqualToString:AWSPollySDKVersion]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:[NSString stringWithFormat:@"AWSCore and AWSPolly versions need to match. Check your SDK installation. AWSCore: %@ AWSPolly: %@", AWSiOSSDKVersion, AWSPollySDKVersion]
@@ -80,11 +81,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
         }
-        
+
         if (!serviceConfiguration) {
             serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
         }
-        
+
         if (!serviceConfiguration) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
@@ -92,7 +93,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
         _defaultPolly = [[AWSPollySynthesizeSpeechURLBuilder alloc] initWithConfiguration:serviceConfiguration];
     });
-    
+
     return _defaultPolly;
 }
 
@@ -112,16 +113,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (serviceClient) {
             return serviceClient;
         }
-        
+
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoPollySynthesizeSpeechURLBuilder
                                                                      forKey:key];
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSPollySynthesizeSpeechURLBuilder registerPollySynthesizeSpeechURLBuilder:serviceConfiguration
-                                                                                   forKey:key];
+                                                                                 forKey:key];
         }
-        
+
         return [_serviceClients objectForKey:key];
     }
 }
@@ -142,11 +143,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
-       	_configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServicePolly
                                                          useUnsafeURL:NO];
     }
-    
+
     return self;
 }
 
@@ -154,50 +155,56 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id _Nullable(AWSTask *task) {
         id<AWSCredentialsProvider> credentialProvider = self.configuration.credentialsProvider;
         AWSEndpoint *endpoint = self.configuration.endpoint;
-        
+
         //validate expires Date
         if (!preSignedURLRequest.expires) {
             //set default expiry to 15 mins from now.
             [preSignedURLRequest setExpires:[NSDate dateWithTimeIntervalSinceNow:15*60]];
         }
-        
+
         if ([preSignedURLRequest.expires timeIntervalSinceNow] < 0.0) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSPollySynthesizeSpeechURLBuilderErrorDomain
                                                               code:AWSPollySynthesizeSpeechURLBuilderInvalidExpiresDate
                                                           userInfo:@{NSLocalizedDescriptionKey: @"expires can not be in past"}]
                     ];
         }
-        
+
         int32_t expireDuration = [preSignedURLRequest.expires timeIntervalSinceNow];
-        
+
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
         [parameters setObject:[self stringFromOutputFormat:preSignedURLRequest.outputFormat] forKey:@"OutputFormat"];
-        
-        if(preSignedURLRequest.sampleRate)
+
+        if (preSignedURLRequest.sampleRate) {
             [parameters setObject:preSignedURLRequest.sampleRate forKey:@"SampleRate"];
-        
+        }
+
         [parameters setObject:preSignedURLRequest.text forKey:@"Text"];
-        
-        if(preSignedURLRequest.textType)
+
+        if (preSignedURLRequest.textType) {
             [parameters setObject:[self stringFromTextType:preSignedURLRequest.textType] forKey:@"TextType"];
-        
+        }
+
         [parameters setObject:[self stringFromVoiceId:preSignedURLRequest.voiceId] forKey:@"VoiceId"];
-        
-        if(preSignedURLRequest.lexiconNames && [preSignedURLRequest.lexiconNames count] >= 1) {
+
+        if (preSignedURLRequest.lexiconNames && [preSignedURLRequest.lexiconNames count] >= 1) {
             [parameters setObject:preSignedURLRequest.lexiconNames forKey:@"LexiconNames"];
         }
-        
-        if(preSignedURLRequest.speechMarkTypes && [preSignedURLRequest.speechMarkTypes count] >= 1) {
+
+        if (preSignedURLRequest.speechMarkTypes && [preSignedURLRequest.speechMarkTypes count] >= 1) {
             [parameters setObject:preSignedURLRequest.speechMarkTypes forKey:@"SpeechMarkTypes"];
         }
-        
+
         if (preSignedURLRequest.languageCode) {
             [parameters setObject:[self stringFromLanguageCode:preSignedURLRequest.languageCode] forKey:@"LanguageCode"];
         }
-        
+
+        if (preSignedURLRequest.engine) {
+            [parameters setObject:[self stringFromEngine:preSignedURLRequest.engine] forKey:@"Engine"];
+        }
+
         NSMutableDictionary *headers = [NSMutableDictionary new];
         [headers setObject:endpoint.hostName forKey:@"host"];
-        
+
         return [AWSSignatureV4Signer generateQueryStringForSignatureV4WithCredentialProvider:credentialProvider
                                                                                   httpMethod:AWSHTTPMethodGET
                                                                               expireDuration:expireDuration
@@ -209,27 +216,33 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (NSString *)stringFromOutputFormat:(AWSPollyOutputFormat)format{
+- (NSString *)stringFromOutputFormat:(AWSPollyOutputFormat)format {
     NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput outputFormatJSONTransformer];
     NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(format)];
     return transformedValue;
 }
 
-- (NSString *)stringFromTextType:(AWSPollyTextType)textType{
+- (NSString *)stringFromTextType:(AWSPollyTextType)textType {
     NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput textTypeJSONTransformer];
     NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(textType)];
     return transformedValue;
 }
 
-- (NSString *)stringFromLanguageCode: (AWSPollyLanguageCode)languageCode {
+- (NSString *)stringFromLanguageCode:(AWSPollyLanguageCode)languageCode {
     NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput languageCodeJSONTransformer];
     NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(languageCode)];
     return transformedValue;
 }
 
-- (NSString *)stringFromVoiceId:(AWSPollyVoiceId)voiceId{
+- (NSString *)stringFromVoiceId:(AWSPollyVoiceId)voiceId {
     NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput voiceIdJSONTransformer];
     NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(voiceId)];
+    return transformedValue;
+}
+
+- (NSString *)stringFromEngine:(AWSPollyEngine)engine {
+    NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput engineJSONTransformer];
+    NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(engine)];
     return transformedValue;
 }
 
