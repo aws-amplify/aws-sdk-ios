@@ -18,18 +18,22 @@ import Foundation
     @objc public let secondaryBackgroundColor: UIColor?
     /// The view primary color used for highlighted elements (button background, links).
     @objc public let primaryColor: UIColor?
+    /// If set to true the sign up button is hidden from the UI.
+    @objc public let disableSignUpButton: Bool
     
     /// Initializer for the drop-in UI configuration.
     @objc public init(canCancel: Bool = false,
                       logoImage: UIImage? = nil,
                       backgroundColor: UIColor? = nil,
                       secondaryBackgroundColor: UIColor? = nil,
-                      primaryColor: UIColor? = .systemBlue) {
+                      primaryColor: UIColor? = .systemBlue,
+                      disableSignUpButton: Bool = false) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
         self.secondaryBackgroundColor = secondaryBackgroundColor
         self.primaryColor = primaryColor
+        self.disableSignUpButton = disableSignUpButton
     }
 }
 

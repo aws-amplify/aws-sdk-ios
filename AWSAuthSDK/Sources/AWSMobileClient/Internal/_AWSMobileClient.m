@@ -149,6 +149,7 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
         parameters[@"primaryColor"] = signInUIConfiguration.primaryColor;
         parameters[@"navigationController"] = navController;
         parameters[@"canCancel"] = signInUIConfiguration.canCancel ? @"YES" : @"NO";
+        parameters[@"disableSignUpButton"] = signInUIConfiguration.disableSignUpButton ? @"YES" : @"NO";
         
         [NSClassFromString(@"AWSAuthUIViewController") performSelector:@selector(presentViewControllerWithConfig:completionHandler:)
                                                             withObject:(id)parameters
