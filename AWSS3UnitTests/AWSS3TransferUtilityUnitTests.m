@@ -81,9 +81,14 @@ static id urlSession = nil;
     XCTAssertEqual(configuration.endpoint.regionType, AWSRegionAPEast1, @"Endpoint region should AWSRegionAPEast1");
 }
 
-/**
- Test the successfull execution of data upload.
- **/
+/// Test if upload data is sucessful
+///
+/// - Given: Transferutility configured with mock dependencies
+/// - When:
+///    - I try to call uploadData:
+/// - Then:
+///    - I should get a non nil value for result and nil value for error
+///
 - (void)testDataUpload {
     NSString *key = @"testDataUpload";
     NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
@@ -121,9 +126,15 @@ static id urlSession = nil;
     [AWSS3TransferUtility removeS3TransferUtilityForKey:key];
 }
 
-/**
- Test the successfull execution of data upload.
- **/
+/// Test if upload data gives error on NSURLException
+///
+/// - Given: Transferutility configured with mock dependencies. And NSURLSession is uploadTask
+/// is mocked to throw an exception always
+/// - When:
+///    - I try to call uploadData:
+/// - Then:
+///    - I should get a non nil value for error and nil value for result
+///
 - (void)testDataUploadWithURLSessionException {
     NSString *key = @"testDataUpload";
     NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
