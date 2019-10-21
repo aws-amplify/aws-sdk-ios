@@ -600,32 +600,6 @@ jobs:
             git commit -m "Update jazzy documentation for ${CIRCLE_TAG}"
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
-  run_ui_test:
-    # Specify the Xcode version to use
-    macos:
-      xcode: "11.0.0"
-    steps:
-      - set_environment_variables
-      - override_test_job
-      - skip_job_unless_required
-      - early_return_for_forked_prs
-      - checkout
-      - skip_test_job
-      - pre_start_simulator
-      - run:
-          name: Run Sample UI Test
-          command: |
-            git clone https://github.com/awslabs/aws-sdk-ios-samples.git
-            rootDirectory=$(pwd)
-            cd aws-sdk-ios-samples/S3TransferUtility-Sample/Swift/
-            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
-            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_PODFILE} | base64 --decode > Podfile
-            pod install
-            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination "${destination}" test | tee $rootDirectory/raw_ui_test.log
-            cd $rootDirectory
-            rm -rf aws-sdk-ios-samples
-      - store_artifacts:
-          path: raw_ui_test.log
   add_doc_tag:
     macos:
       xcode: "11.0.0"
@@ -1269,14 +1243,6 @@ workflows:
             - Transcribe
             - TranscribeStreaming
             - Translate
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - run_ui_test:
-          requires:
-            - build
           filters:
             branches:
               only:
