@@ -7980,6 +7980,18 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FA9BEBD52358C3FF00B05EAC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FA85EF8F234D2FCA00D4498C /* SwiftCBOR */,
+				FA39AF32234CEC060006050D /* AtomicValue.swift */,
+				FA39AF1C234B95330006050D /* IoTTesTHelpers.swift */,
+				FA85EF8D234D081D00D4498C /* OTABlocks.swift */,
+				FA39AF30234CEBCB0006050D /* OTAJobResponse.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		FAB1E00C23103BEB0097396E /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -8023,16 +8035,12 @@
 		FAFE10B0234D3CF200BD2DCA /* AWSIoTFreeRTOSOTATests */ = {
 			isa = PBXGroup;
 			children = (
+				FA39AF1723478DD90006050D /* README.md */,
 				FAFE10C1234D3DCE00BD2DCA /* AWSIoTFreeRTOSOTATests-Bridging-Header.h */,
 				FA85EFB8234D302500D4498C /* Resources */,
-				FA85EF8F234D2FCA00D4498C /* SwiftCBOR */,
-				FA39AF32234CEC060006050D /* AtomicValue.swift */,
+				FA9BEBD52358C3FF00B05EAC /* Support */,
 				FAFE10B3234D3CF200BD2DCA /* Info.plist */,
-				FA39AF1C234B95330006050D /* IoTTesTHelpers.swift */,
-				FA85EF8D234D081D00D4498C /* OTABlocks.swift */,
-				FA39AF30234CEBCB0006050D /* OTAJobResponse.swift */,
 				FA39AF1A234B94B70006050D /* OTATests.swift */,
-				FA39AF1723478DD90006050D /* README.md */,
 				FA39AF182347E3EF0006050D /* StreamTests.swift */,
 			);
 			path = AWSIoTFreeRTOSOTATests;

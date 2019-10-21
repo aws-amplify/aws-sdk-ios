@@ -19,6 +19,8 @@
   - Fix a bug where the SDK crashes during uploading data to S3. See iseeu [#1994](https://github.com/aws-amplify/aws-sdk-ios/issues/1994).
 - **AWSFacebookSignIn**
   - Fixes issues[#1516](https://github.com/aws-amplify/aws-sdk-ios/issues/1516) and [#1974](https://github.com/aws-amplify/aws-sdk-ios/issues/1974) from deprecated and old FBSDK. FBSDK has been updated to 5.8
+- **AWS IoT**
+  - IoT now propagates errors properly if it encounters a situation where the MQTT header is malformed
 
 
 ### Misc. Updates
