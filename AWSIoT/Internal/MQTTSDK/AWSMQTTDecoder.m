@@ -54,13 +54,23 @@ int maxLengthMultiplier = 128 * 128 * 128;
 }
 
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
-    AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, stream: %@, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, sender, [NSThread currentThread]);
+    AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, status:%lu, stream: %@, Thread: %@",
+                    __PRETTY_FUNCTION__,
+                    __LINE__,
+                    (unsigned long)eventCode,
+                    (unsigned long)_status,
+                    sender,
+                    [NSThread currentThread]);
 
-    if(stream == nil)
+    if (stream == nil) {
         return;
+    }
+
     switch (eventCode) {
         case NSStreamEventOpenCompleted:
             _status = AWSMQTTDecoderStatusDecodingHeader;
+            length = 0;
+            lengthMultiplier = 1;
             break;
         case NSStreamEventHasBytesAvailable:
             if (_status == AWSMQTTDecoderStatusDecodingHeader) {
@@ -93,10 +103,12 @@ int maxLengthMultiplier = 128 * 128 * 128;
                 }
                 else {
                     lengthMultiplier *= 128;
-                    if (lengthMultiplier > maxLengthMultiplier){
-                        AWSDDLogWarn(@"Malformed Remaining Length");
+                    if (lengthMultiplier > maxLengthMultiplier) {
+                        AWSDDLogError(@"Malformed Remaining Length");
+                        _status = AWSMQTTDecoderStatusConnectionError;
                         lengthMultiplier = 1;
                         length = 0;
+                        [_delegate decoder:self handleEvent:AWSMQTTDecoderEventConnectionError];
                         break;
                     }
                 }
@@ -134,10 +146,10 @@ int maxLengthMultiplier = 128 * 128 * 128;
                         retainFlag = YES;
                     }
                     msg = [[AWSMQTTMessage alloc] initWithType:type
-                                                        qos:qos
-                                                 retainFlag:retainFlag
-                                                    dupFlag:isDuplicate
-                                                       data:dataBuffer];
+                                                           qos:qos
+                                                    retainFlag:retainFlag
+                                                       dupFlag:isDuplicate
+                                                          data:dataBuffer];
                     [_delegate decoder:self newMessage:msg];
                     dataBuffer = nil;
                     _status = AWSMQTTDecoderStatusDecodingHeader;
