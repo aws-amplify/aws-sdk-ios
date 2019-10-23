@@ -81,6 +81,101 @@ static id urlSession = nil;
     XCTAssertEqual(configuration.endpoint.regionType, AWSRegionAPEast1, @"Endpoint region should AWSRegionAPEast1");
 }
 
+/// Test if upload data is sucessful
+///
+/// - Given: Transferutility configured with mock dependencies
+/// - When:
+///    - I try to call uploadData:
+/// - Then:
+///    - I should get a non nil value for result and nil value for error
+///
+- (void)testDataUpload {
+    NSString *key = @"testDataUpload";
+    NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:key];
+    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
+
+    [awss3client setValue:mockNetworking forKey:@"networking"];
+    [transferUtility setValue:awss3client forKey:@"s3"];
+    [transferUtility setValue:awss3PresignedUrlBuilder forKey:@"preSignedURLBuilder"];
+    [transferUtility setValue:urlSession forKey:@"session"];
+
+    NSURL *preSignedURL = [NSURL URLWithString:@"http://asd.com/"];
+    AWSTask *getPreSignedURLResultTask = [AWSTask taskWithResult:preSignedURL];
+    OCMStub([awss3PresignedUrlBuilder getPreSignedURL:[OCMArg isKindOfClass:[AWSS3GetPreSignedURLRequest class]]]).andReturn(getPreSignedURLResultTask);
+
+    MockUploadTask *uploadTask = [[MockUploadTask alloc] init];
+    OCMStub([urlSession uploadTaskWithRequest:[OCMArg isKindOfClass:[NSURLRequest class]]
+                                     fromFile:[OCMArg isKindOfClass:[NSURL class]]]).andReturn(uploadTask);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+    [[[transferUtility uploadData:uploadData
+                           bucket:@"unittestBucket"
+                              key:@"unittestKey.txt"
+                      contentType:@"text/plain"
+                       expression:[AWSS3TransferUtilityUploadExpression new]
+                completionHandler:nil] continueWithBlock:^id (AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        dispatch_semaphore_signal(semaphore);
+        return nil;
+    }] waitUntilFinished];
+
+    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    [AWSS3TransferUtility removeS3TransferUtilityForKey:key];
+}
+
+/// Test if upload data gives error on NSURLException
+///
+/// - Given: Transferutility configured with mock dependencies. And NSURLSession is uploadTask
+/// is mocked to throw an exception always
+/// - When:
+///    - I try to call uploadData:
+/// - Then:
+///    - I should get a non nil value for error and nil value for result
+///
+- (void)testDataUploadWithURLSessionException {
+    NSString *key = @"testDataUpload";
+    NSData *uploadData = [@"1234343454" dataUsingEncoding:NSUTF8StringEncoding];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:key];
+    AWSS3TransferUtility *transferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:key];
+
+    [awss3client setValue:mockNetworking forKey:@"networking"];
+    [transferUtility setValue:awss3client forKey:@"s3"];
+    [transferUtility setValue:awss3PresignedUrlBuilder forKey:@"preSignedURLBuilder"];
+    [transferUtility setValue:urlSession forKey:@"session"];
+
+    NSURL *preSignedURL = [NSURL URLWithString:@"http://asd.com/"];
+    AWSTask *getPreSignedURLResultTask = [AWSTask taskWithResult:preSignedURL];
+    OCMStub([awss3PresignedUrlBuilder getPreSignedURL:[OCMArg isKindOfClass:[AWSS3GetPreSignedURLRequest class]]]).andReturn(getPreSignedURLResultTask);
+
+    NSException *exp = [[NSException alloc] initWithName:@"S3exception" reason:NULL userInfo:NULL];
+    OCMStub([urlSession uploadTaskWithRequest:[OCMArg isKindOfClass:[NSURLRequest class]]
+                                     fromFile:[OCMArg isKindOfClass:[NSURL class]]]).andThrow(exp);
+
+    MockUploadTask *uploadTask = [[MockUploadTask alloc] init];
+    OCMStub([urlSession uploadTaskWithRequest:[OCMArg isKindOfClass:[NSURLRequest class]]
+                                     fromFile:[OCMArg isKindOfClass:[NSURL class]]]).andReturn(uploadTask);
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+    [[[transferUtility uploadData:uploadData
+                           bucket:@"unittestBucket"
+                              key:@"unittestKey.txt"
+                      contentType:@"text/plain"
+                       expression:[AWSS3TransferUtilityUploadExpression new]
+                completionHandler:nil] continueWithBlock:^id (AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertNil(task.result);
+        dispatch_semaphore_signal(semaphore);
+        return nil;
+    }] waitUntilFinished];
+
+    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    [AWSS3TransferUtility removeS3TransferUtilityForKey:key];
+}
+
 /**
  Test the successfull execution of multipart data upload.
  **/

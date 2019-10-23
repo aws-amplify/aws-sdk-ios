@@ -79,6 +79,12 @@ typedef NS_ENUM(NSInteger, AWSPollySynthesizeSpeechURLBuilderErrorType) {
  */
 @property (nonatomic, strong) NSDate *expires;
 
+/**
+ Specifies the engine (standard or neural) for Amazon Polly to use when processing input text for speech synthesis.
+ Using a voice that is not supported for the engine selected will result in an error.
+ */
+@property (nonatomic, assign) AWSPollyEngine engine;
+
 @end
 
 

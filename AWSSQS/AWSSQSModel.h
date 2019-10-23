@@ -50,6 +50,12 @@ typedef NS_ENUM(NSInteger, AWSSQSMessageSystemAttributeName) {
     AWSSQSMessageSystemAttributeNameSequenceNumber,
     AWSSQSMessageSystemAttributeNameMessageDeduplicationId,
     AWSSQSMessageSystemAttributeNameMessageGroupId,
+    AWSSQSMessageSystemAttributeNameAWSTraceHeader,
+};
+
+typedef NS_ENUM(NSInteger, AWSSQSMessageSystemAttributeNameForSends) {
+    AWSSQSMessageSystemAttributeNameForSendsUnknown,
+    AWSSQSMessageSystemAttributeNameForSendsAWSTraceHeader,
 };
 
 typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
@@ -101,6 +107,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @class AWSSQSListQueuesResult;
 @class AWSSQSMessage;
 @class AWSSQSMessageAttributeValue;
+@class AWSSQSMessageSystemAttributeValue;
 @class AWSSQSPurgeQueueRequest;
 @class AWSSQSReceiveMessageRequest;
 @class AWSSQSReceiveMessageResult;
@@ -288,6 +295,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  <p>The name of the new queue. The following limits apply to this name:</p><ul><li><p>A queue name can have up to 80 characters.</p></li><li><p>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p></li><li><p>A FIFO queue name must end with the <code>.fifo</code> suffix.</p></li></ul><p>Queue URLs and names are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueName;
+
+/**
+ <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p><p>When you use queue tags, keep the following guidelines in mind:</p><ul><li><p>Adding more than 50 tags to a queue isn't recommended.</p></li><li><p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p></li><li><p>Tags are case-sensitive.</p></li><li><p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li></ul><p>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Limits Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p><note><p>To be able to tag a queue on creation, you must have the <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p><p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p></note>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -630,6 +642,40 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @end
 
 /**
+ <p>The user-specified message system attribute value. For string data types, the <code>Value</code> attribute has the same restrictions on the content as the message body. For more information, see <code><a>SendMessage</a>.</code></p><p><code>Name</code>, <code>type</code>, <code>value</code> and the message body must not be empty or null.</p>
+ Required parameters: [DataType]
+ */
+@interface AWSSQSMessageSystemAttributeValue : AWSModel
+
+
+/**
+ <p>Not implemented. Reserved for future use.</p>
+ */
+@property (nonatomic, strong) NSArray<NSData *> * _Nullable binaryListValues;
+
+/**
+ <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable binaryValue;
+
+/**
+ <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p><p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataType;
+
+/**
+ <p>Not implemented. Reserved for future use.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable stringListValues;
+
+/**
+ <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stringValue;
+
+@end
+
+/**
  <p/>
  Required parameters: [QueueUrl]
  */
@@ -651,7 +697,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- <p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> - Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> - Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> - Returns the number of times a message has been received from the queue but not deleted.</p></li><li><p><code>SenderId</code></p><ul><li><p>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> - Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>MessageDeduplicationId</code> - Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> - Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code> are returned in sequence.</p></li><li><p><code>SequenceNumber</code> - Returns the value provided by Amazon SQS.</p></li></ul>
+ <p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> - Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> - Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> - Returns the number of times a message has been received from the queue but not deleted.</p></li><li><p><code>AWSTraceHeader</code> - Returns the AWS X-Ray trace header string. </p></li><li><p><code>SenderId</code></p><ul><li><p>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> - Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>MessageDeduplicationId</code> - Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> - Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code> are returned in sequence.</p></li><li><p><code>SequenceNumber</code> - Returns the value provided by Amazon SQS.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
@@ -775,6 +821,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  */
 @property (nonatomic, strong) NSString * _Nullable messageGroupId;
 
+/**
+ <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p><important><ul><li><p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>. Its type must be <code>String</code> and its value must be a correctly formatted AWS X-Ray trace string.</p></li><li><p>The size of a message system attribute doesn't count towards the total size of a message.</p></li></ul></important>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageSystemAttributeValue *> * _Nullable messageSystemAttributes;
+
 @end
 
 /**
@@ -817,6 +868,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable MD5OfMessageBody;
+
+/**
+ <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable MD5OfMessageSystemAttributes;
 
 /**
  <p>An identifier for the message.</p>
@@ -863,6 +919,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable messageGroupId;
 
 /**
+ <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p><important><ul><li><p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>. Its type must be <code>String</code> and its value must be a correctly formatted AWS X-Ray trace string.</p></li><li><p>The size of a message system attribute doesn't count towards the total size of a message.</p></li></ul></important>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageSystemAttributeValue *> * _Nullable messageSystemAttributes;
+
+/**
  <p>The URL of the Amazon SQS queue to which a message is sent.</p><p>Queue URLs and names are case-sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueUrl;
@@ -884,6 +945,11 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
  <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable MD5OfMessageBody;
+
+/**
+ <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable MD5OfMessageSystemAttributes;
 
 /**
  <p>An attribute containing the <code>MessageId</code> of the message sent to the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue and Message Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. </p>

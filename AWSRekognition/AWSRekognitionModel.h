@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionEmotionName) {
     AWSRekognitionEmotionNameDisgusted,
     AWSRekognitionEmotionNameSurprised,
     AWSRekognitionEmotionNameCalm,
+    AWSRekognitionEmotionNameFear,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionFaceAttributes) {
@@ -577,18 +578,18 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about a moderation label detection in a stored video.</p>
+ <p>Information about an unsafe content label detection in a stored video.</p>
  */
 @interface AWSRekognitionContentModerationDetection : AWSModel
 
 
 /**
- <p>The moderation label detected by in the stored video.</p>
+ <p>The unsafe content label detected by in the stored video.</p>
  */
 @property (nonatomic, strong) AWSRekognitionModerationLabel * _Nullable moderationLabel;
 
 /**
- <p>Time, in milliseconds from the beginning of the video, that the moderation label was detected.</p>
+ <p>Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
@@ -973,7 +974,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Array of detected Moderation labels and the time, in millseconds from the start of the video, they were detected.</p>
+ <p>Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionModerationLabel *> * _Nullable moderationLabels;
 
@@ -1011,7 +1012,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY.</p>
+ <p>The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.</p>
  */
 @interface AWSRekognitionEmotion : AWSModel
 
@@ -1124,7 +1125,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 /**
- <p>The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY. </p>
+ <p>The emotions that appear to be expressed on the face, and the confidence level in the determination. The API is only making a determination of the physical appearance of a person's face. It is not a determination of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have a sad face might not be sad emotionally.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionEmotion *> * _Nullable emotions;
 
@@ -1387,7 +1388,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The identifier for the content moderation job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
+ <p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -1397,7 +1398,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of content moderation labels.</p>
+ <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of unsafe content labels.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1415,12 +1416,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The current status of the content moderation job.</p>
+ <p>The current status of the unsafe content analysis job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
 
 /**
- <p>The detected moderation labels and the time(s) they were detected.</p>
+ <p>The detected unsafe content labels and the time(s) they were detected.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionContentModerationDetection *> * _Nullable moderationLabels;
 
@@ -1430,7 +1431,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable moderationModelVersion;
 
 /**
- <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of moderation labels. </p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of unsafe content labels. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -2029,7 +2030,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides information about a single type of moderated content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+ <p>Provides information about a single type of unsafe content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionModerationLabel : AWSModel
 
@@ -2040,7 +2041,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 /**
- <p>The label name for the type of content detected in the image.</p>
+ <p>The label name for the type of unsafe content detected in the image.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -2295,7 +2296,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
 /**
- <p>(Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.</p>
+ <p>(Optional) Specifies the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable faceMatchThreshold;
 
@@ -2356,7 +2357,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable faceId;
 
 /**
- <p>Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%.</p>
+ <p>Optional value specifying the minimum confidence in the face match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable faceMatchThreshold;
 
@@ -2420,7 +2421,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -2461,7 +2462,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -2471,12 +2472,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the content moderation analysis to.</p>
+ <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
 /**
- <p>The video in which you want to moderate content. The video must be stored in an Amazon S3 bucket.</p>
+ <p>The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
@@ -2489,7 +2490,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The identifier for the content moderation analysis job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
+ <p>The identifier for the unsafe content analysis job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -2512,7 +2513,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, assign) AWSRekognitionFaceAttributes faceAttributes;
 
 /**
- <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -2558,12 +2559,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
 /**
- <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. </p>
+ <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. The default value is 80%.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable faceMatchThreshold;
 
 /**
- <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -2604,7 +2605,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -2650,7 +2651,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 

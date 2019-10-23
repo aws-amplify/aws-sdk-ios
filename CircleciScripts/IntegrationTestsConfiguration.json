@@ -84,6 +84,11 @@
       }
     }
   },
+  "IoTFreeRTOSOTATests": {
+    "test_list": {
+      "AWSIoTFreeRTOSOTATests": {}
+    }
+  },
   "KMS": {
     "test_list": {
       "AWSKMSTests": {
@@ -257,6 +262,11 @@
   "Transcribe": {
     "test_list": {
       "AWSTranscribeTests": {}
+    }
+  },
+  "TranscribeStreaming": {
+    "test_list": {
+      "AWSTranscribeStreamingTests": {}
     }
   },
   "Translate": {

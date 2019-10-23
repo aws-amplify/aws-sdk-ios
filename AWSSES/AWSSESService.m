@@ -14,7 +14,6 @@
 //
 
 #import "AWSSESService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSSESResources.h"
 
 static NSString *const AWSInfoSES = @"SES";
-NSString *const AWSSESSDKVersion = @"2.10.2";
+NSString *const AWSSESSDKVersion = @"2.12.0";
 
 
 @interface AWSSESResponseSerializer : AWSXMLResponseSerializer

@@ -111,7 +111,7 @@
                                        @"header-B3":@"VALUE3",
                                        @"Header-a2":@"VALUE2",
                                        @"header-A1":@"VALUE1",
-                                     };
+                                       };
     NSString *expectedResultThree = @"header-a1:VALUE1\nheader-a2:VALUE2\nheader-b3:VALUE3\nheader-b4:VALUE4\n";
     NSString *resultThree = [AWSSignatureV4Signer getCanonicalizedHeaderString:testHeadersThree];
     
@@ -132,7 +132,6 @@
     NSString *expectedResultOne = @"key1;key2";
     NSString *resultOne = [AWSSignatureV4Signer getSignedHeadersString:testHeadersOne];
     XCTAssertEqualObjects(expectedResultOne, resultOne);
-
     
     //test sorting
     NSDictionary *testHeadersThree = @{@"Header-b4":@"VALUE4",
@@ -145,8 +144,6 @@
     NSString *resultThree = [AWSSignatureV4Signer getSignedHeadersString:testHeadersThree];
     
     XCTAssertEqualObjects(expectedResultThree, resultThree);
-    
-    
 }
 
 @end

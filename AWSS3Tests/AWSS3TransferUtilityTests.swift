@@ -2310,6 +2310,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         for i in 1...25 {
+            let key = "testDataForConcurrentDownloads\(i).txt"
             let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
                 XCTAssertNil(error)
                 if ( error != nil ) {
@@ -2322,7 +2323,16 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 
                 if let HTTPResponse = task.response {
                     XCTAssertEqual(HTTPResponse.statusCode, 200)
-                    
+
+                    let timeout = DispatchTime.now() + .seconds(30)
+                    while(!AWSS3TestHelper.checkIfObjectIsPresent(key, bucket: generalTestBucket)) {
+                        if (DispatchTime.now() > timeout )  {
+                            XCTFail("Could not verify uploaded key \(key)")
+                            return;
+                        }
+                        sleep(1)
+                    }
+
                     let downloadExpression = AWSS3TransferUtilityDownloadExpression()
                     downloadExpression.progressBlock = {(task, progress) in
                         print("Download progress: ", progress.fractionCompleted)
@@ -2345,7 +2355,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertNotNil(transferUtility)
                     transferUtility?.download(to: url!,
                                             bucket: generalTestBucket,
-                                            key: "testDataForConcurrentDownloads\(i).txt",
+                                            key: key,
                                      expression: downloadExpression,
                               completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
                                         XCTAssertNil(task.error)
@@ -2357,7 +2367,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 transferUtility?.uploadData(
                     testData.data(using: String.Encoding.utf8)!,
                     bucket: generalTestBucket,
-                    key: "testDataForConcurrentDownloads\(i).txt",
+                    key: key,
                     contentType: "text/plain",
                     expression: uploadExpression,
                     completionHandler: uploadCompletionHandler
@@ -2775,7 +2785,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 let data = file.readData(ofLength: bufferSize)
                 if data.count > 0 {
                     data.withUnsafeBytes {
-                        _ = CC_SHA256_Update(&context, $0, numericCast(data.count))
+                        _ = CC_SHA256_Update(&context, $0.baseAddress, numericCast(data.count))
                     }
                     // Continue
                     return true
@@ -2788,7 +2798,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
             // Compute the SHA256 digest:
             var digest = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
             digest.withUnsafeMutableBytes {
-                _ = CC_SHA256_Final($0, &context)
+                let d = $0.bindMemory(to: UInt8.self)
+                _ = CC_SHA256_Final(d.baseAddress, &context)
             }
             
             return digest

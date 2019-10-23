@@ -87,6 +87,7 @@ modulelist = [
     "AWSSimpleDB",
     "AWSTextract",
     "AWSTranscribe",
+    "AWSTranscribeStreaming",
     "AWSTranslate",
     'AWSAutoScaling',
     'AWSAuthSDK/Sources/AWSAuthCore',

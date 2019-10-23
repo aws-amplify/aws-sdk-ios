@@ -164,13 +164,16 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 }
 
 - (void)testPresignedGetUrl{
-    
     AWSPollySynthesizeSpeechURLBuilderRequest *request = [[AWSPollySynthesizeSpeechURLBuilderRequest alloc]init];
     [request setText:@"I agree with W3C and W2C."];
     [request setOutputFormat:AWSPollyOutputFormatMp3];
     [request setVoiceId:AWSPollyVoiceIdSalli];
     [request setLexiconNames:@[w3cLexiconName, w2cLexiconName]]; // W3C will be spoken as World Wide Web Consortium.
     [request setExpires:[NSDate dateWithTimeIntervalSinceNow:10*60]];
+
+    // Note: Specifying an engine for an unsupported language will cause an error.
+    // https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine
+    [request setEngine:AWSPollyEngineNeural];
     
     AWSPollySynthesizeSpeechURLBuilder *builder = [AWSPollySynthesizeSpeechURLBuilder defaultPollySynthesizeSpeechURLBuilder];
     __block NSString *filePath;

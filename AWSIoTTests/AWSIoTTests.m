@@ -33,6 +33,7 @@ static NSString *certificateID = nil;
 
     [AWSTestUtility setupCognitoCredentialsProvider];
 }
+
 - (void)setUp {
     [super setUp];
 }

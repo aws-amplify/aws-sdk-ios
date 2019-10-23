@@ -18,6 +18,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  FBSDKTooltipViewArrowDirection enum
 
@@ -29,7 +31,7 @@ typedef NS_ENUM(NSUInteger, FBSDKTooltipViewArrowDirection)
   FBSDKTooltipViewArrowDirectionDown = 0,
   /** View is located below given point, arrow is pointing up. */
   FBSDKTooltipViewArrowDirectionUp = 1,
-};
+} NS_SWIFT_NAME(FBTooltipView.ArrowDirection);
 
 /**
  FBSDKTooltipColorStyle enum
@@ -42,7 +44,7 @@ typedef NS_ENUM(NSUInteger, FBSDKTooltipColorStyle)
   FBSDKTooltipColorStyleFriendlyBlue = 0,
   /** Dark gray background, white text, light gray close button. */
   FBSDKTooltipColorStyleNeutralGray = 1,
-};
+} NS_SWIFT_NAME(FBTooltipView.ColorStyle);
 
 /**
 
@@ -53,6 +55,7 @@ typedef NS_ENUM(NSUInteger, FBSDKTooltipColorStyle)
 
  The tooltip fades in and will automatically fade out. See `displayDuration`.
  */
+NS_SWIFT_NAME(FBTooltipView)
 @interface FBSDKTooltipView : UIView
 
 /**
@@ -71,36 +74,38 @@ typedef NS_ENUM(NSUInteger, FBSDKTooltipColorStyle)
 /**
   Gets or sets the message.
  */
-@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy, nullable) NSString *message;
 
 /**
   Gets or sets the optional phrase that comprises the first part of the label (and is highlighted differently).
  */
-@property (nonatomic, copy) NSString *tagline;
+@property (nonatomic, copy, nullable) NSString *tagline;
 
 /**
   Designated initializer.
 
- - Parameter tagline: First part of the label, that will be highlighted with different color. Can be nil.
+ @param tagline First part of the label, that will be highlighted with different color. Can be nil.
 
- - Parameter message: Main message to display.
+ @param message Main message to display.
 
- - Parameter colorStyle: Color style to use for tooltip.
+ @param colorStyle Color style to use for tooltip.
 
 
 
  If you need to show a tooltip for login, consider using the `FBSDKLoginTooltipView` view.
 
 
-- See:FBSDKLoginTooltipView
+ @see FBSDKLoginTooltipView
  */
-- (instancetype)initWithTagline:(NSString *)tagline message:(NSString *)message colorStyle:(FBSDKTooltipColorStyle)colorStyle;
+- (instancetype)initWithTagline:(nullable NSString *)tagline
+                        message:(nullable NSString *)message
+                     colorStyle:(FBSDKTooltipColorStyle)colorStyle;
 
 /**
   Show tooltip at the top or at the bottom of given view.
  Tooltip will be added to anchorView.window.rootViewController.view
 
- - Parameter anchorView: view to show at, must be already added to window view hierarchy, in order to decide
+ @param anchorView view to show at, must be already added to window view hierarchy, in order to decide
  where tooltip will be shown. (If there's not enough space at the top of the anchorView in window bounds -
  tooltip will be shown at the bottom of it)
 
@@ -115,14 +120,17 @@ typedef NS_ENUM(NSUInteger, FBSDKTooltipColorStyle)
 /**
   Adds tooltip to given view, with given position and arrow direction.
 
- - Parameter view: View to be used as superview.
+ @param view View to be used as superview.
 
- - Parameter arrowPosition: Point in view's cordinates, where arrow will be pointing
+ @param arrowPosition Point in view's cordinates, where arrow will be pointing
 
- - Parameter arrowDirection: whenever arrow should be pointing up (message bubble is below the arrow) or
+ @param arrowDirection whenever arrow should be pointing up (message bubble is below the arrow) or
  down (message bubble is above the arrow).
  */
-- (void)presentInView:(UIView *)view withArrowPosition:(CGPoint)arrowPosition direction:(FBSDKTooltipViewArrowDirection)arrowDirection;
+- (void)presentInView:(UIView *)view
+    withArrowPosition:(CGPoint)arrowPosition
+            direction:(FBSDKTooltipViewArrowDirection)arrowDirection
+NS_SWIFT_NAME(present(in:arrowPosition:direction:));
 
 /**
   Remove tooltip manually.
@@ -134,3 +142,5 @@ typedef NS_ENUM(NSUInteger, FBSDKTooltipColorStyle)
 - (void)dismiss;
 
 @end
+
+NS_ASSUME_NONNULL_END

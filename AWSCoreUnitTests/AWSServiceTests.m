@@ -85,27 +85,13 @@
 }
 
 - (void)testEndpointInit {
-    @try {
-        AWSEndpoint *endpoint = [AWSEndpoint new];
-        XCTFail(@"An exception should have been thrown. %@", endpoint);
-    } @catch (NSException *exception) {
-        XCTAssertEqualObjects(exception.name, NSInternalInconsistencyException);
-    }
+    XCTAssertThrows([AWSEndpoint new]);
 }
 
 - (void)testEndpointWithException {
-    __block BOOL didThrowException = NO;
-    @try {
-        [[AWSEndpoint alloc] initWithRegion:AWSRegionUnknown
-                                    service:AWSServiceUnknown
-                               useUnsafeURL:NO];
-    }
-    @catch (NSException *exception) {
-        didThrowException = YES;
-    }
-    @finally {
-        XCTAssertTrue(didThrowException);
-    }
+    XCTAssertThrows([[AWSEndpoint alloc] initWithRegion:AWSRegionUnknown
+                                                service:AWSServiceUnknown
+                                           useUnsafeURL:NO]);
 }
 
 - (void)verifyServiceEndpointWith:(AWSEndpoint *)endpoint
@@ -321,15 +307,6 @@
                           serviceHostName:@"sqs.us-east-1.amazonaws.com"];
 }
 
-- (void)testEndpointForTranscribe {
-    [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
-                                  service:AWSServiceTranscribe
-                               regionName:@"us-east-1"
-                              serviceName:@"transcribe"
-                               serviceURL:[NSURL URLWithString:@"https://transcribe.us-east-1.amazonaws.com"]
-                          serviceHostName:@"transcribe.us-east-1.amazonaws.com"];
-}
-
 - (void)testEndpointForSTS {
     [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
                                   service:AWSServiceSTS
@@ -407,6 +384,24 @@
                               serviceName:@"mobiletargeting"
                                serviceURL:[NSURL URLWithString:@"https://pinpoint.us-east-1.amazonaws.com"]
                           serviceHostName:@"pinpoint.us-east-1.amazonaws.com"];
+}
+
+- (void)testEndpointForTextract {
+    [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
+                                  service:AWSServiceTextract
+                               regionName:@"us-east-1"
+                              serviceName:@"textract"
+                               serviceURL:[NSURL URLWithString:@"https://textract.us-east-1.amazonaws.com"]
+                          serviceHostName:@"textract.us-east-1.amazonaws.com"];
+}
+
+- (void)testEndpointForTranscribe {
+    [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
+                                  service:AWSServiceTranscribe
+                               regionName:@"us-east-1"
+                              serviceName:@"transcribe"
+                               serviceURL:[NSURL URLWithString:@"https://transcribe.us-east-1.amazonaws.com"]
+                          serviceHostName:@"transcribe.us-east-1.amazonaws.com"];
 }
 
 - (void)testServiceConfiguration {

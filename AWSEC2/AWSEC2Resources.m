@@ -492,7 +492,7 @@
       },\
       \"input\":{\"shape\":\"CreateCustomerGatewayRequest\"},\
       \"output\":{\"shape\":\"CreateCustomerGatewayResult\"},\
-      \"documentation\":\"<p>Provides information to AWS about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the AWS side of the VPN connection is the virtual private gateway.) You must provide the Internet-routable IP address of the customer gateway's external interface. The IP address must be static and may be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534 range).</p> <note> <p>Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534, with the exception of 7224, which is reserved in the <code>us-east-1</code> Region, and 9059, which is reserved in the <code>eu-west-1</code> Region.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p> <important> <p>You cannot create more than one customer gateway with the same VPN type, IP address, and BGP ASN parameter values. If you run an identical request more than one time, the first request creates the customer gateway, and subsequent requests return information about the existing customer gateway. The subsequent requests do not create new customer gateway resources.</p> </important>\"\
+      \"documentation\":\"<p>Provides information to AWS about your VPN customer gateway device. The customer gateway is the appliance at your end of the VPN connection. (The device on the AWS side of the VPN connection is the virtual private gateway.) You must provide the Internet-routable IP address of the customer gateway's external interface. The IP address must be static and can be behind a device performing network address translation (NAT).</p> <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network. If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534 range).</p> <note> <p>Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534, with the exception of 7224, which is reserved in the <code>us-east-1</code> Region, and 9059, which is reserved in the <code>eu-west-1</code> Region.</p> </note> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p> <important> <p>You cannot create more than one customer gateway with the same VPN type, IP address, and BGP ASN parameter values. If you run an identical request more than one time, the first request creates the customer gateway, and subsequent requests return information about the existing customer gateway. The subsequent requests do not create new customer gateway resources.</p> </important>\"\
     },\
     \"CreateDefaultSubnet\":{\
       \"name\":\"CreateDefaultSubnet\",\
@@ -919,7 +919,7 @@
       },\
       \"input\":{\"shape\":\"CreateVpnConnectionRequest\"},\
       \"output\":{\"shape\":\"CreateVpnConnectionResult\"},\
-      \"documentation\":\"<p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection types is <code>ipsec.1</code>.</p> <p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p> <important> <p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p> </important> <p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection type is <code>ipsec.1</code>.</p> <p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p> <important> <p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p> </important> <p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>\"\
     },\
     \"CreateVpnConnectionRoute\":{\
       \"name\":\"CreateVpnConnectionRoute\",\
@@ -1111,6 +1111,16 @@
       },\
       \"input\":{\"shape\":\"DeletePlacementGroupRequest\"},\
       \"documentation\":\"<p>Deletes the specified placement group. You must terminate all instances in the placement group before you can delete the placement group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\\\">Placement Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+    },\
+    \"DeleteQueuedReservedInstances\":{\
+      \"name\":\"DeleteQueuedReservedInstances\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteQueuedReservedInstancesRequest\"},\
+      \"output\":{\"shape\":\"DeleteQueuedReservedInstancesResult\"},\
+      \"documentation\":\"<p>Deletes the queued purchases for the specified Reserved Instances.</p>\"\
     },\
     \"DeleteRoute\":{\
       \"name\":\"DeleteRoute\",\
@@ -1539,6 +1549,16 @@
       \"output\":{\"shape\":\"DescribeElasticGpusResult\"},\
       \"documentation\":\"<p>Describes the Elastic Graphics accelerator associated with your instances. For more information about Elastic Graphics, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html\\\">Amazon Elastic Graphics</a>.</p>\"\
     },\
+    \"DescribeExportImageTasks\":{\
+      \"name\":\"DescribeExportImageTasks\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeExportImageTasksRequest\"},\
+      \"output\":{\"shape\":\"DescribeExportImageTasksResult\"},\
+      \"documentation\":\"<p>Describes the specified export image tasks or all your export image tasks.</p>\"\
+    },\
     \"DescribeExportTasks\":{\
       \"name\":\"DescribeExportTasks\",\
       \"http\":{\
@@ -1547,7 +1567,7 @@
       },\
       \"input\":{\"shape\":\"DescribeExportTasksRequest\"},\
       \"output\":{\"shape\":\"DescribeExportTasksResult\"},\
-      \"documentation\":\"<p>Describes the specified export tasks or all your export tasks.</p>\"\
+      \"documentation\":\"<p>Describes the specified export instance tasks or all your export instance tasks.</p>\"\
     },\
     \"DescribeFleetHistory\":{\
       \"name\":\"DescribeFleetHistory\",\
@@ -2581,6 +2601,16 @@
       \"output\":{\"shape\":\"ExportClientVpnClientConfigurationResult\"},\
       \"documentation\":\"<p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration file includes the Client VPN endpoint and certificate information clients need to establish a connection with the Client VPN endpoint.</p>\"\
     },\
+    \"ExportImage\":{\
+      \"name\":\"ExportImage\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ExportImageRequest\"},\
+      \"output\":{\"shape\":\"ExportImageResult\"},\
+      \"documentation\":\"<p>Exports an Amazon Machine Image (AMI) to a VM file. For more information, see <a href=\\\"https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport_image.html\\\">Exporting a VM Directory from an Amazon Machine Image (AMI)</a> in the <i>VM Import/Export User Guide</i>.</p>\"\
+    },\
     \"ExportTransitGatewayRoutes\":{\
       \"name\":\"ExportTransitGatewayRoutes\",\
       \"http\":{\
@@ -2598,7 +2628,8 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"GetCapacityReservationUsageRequest\"},\
-      \"output\":{\"shape\":\"GetCapacityReservationUsageResult\"}\
+      \"output\":{\"shape\":\"GetCapacityReservationUsageResult\"},\
+      \"documentation\":\"<p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner and each AWS account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>\"\
     },\
     \"GetConsoleOutput\":{\
       \"name\":\"GetConsoleOutput\",\
@@ -2808,7 +2839,7 @@
       },\
       \"input\":{\"shape\":\"ModifyFleetRequest\"},\
       \"output\":{\"shape\":\"ModifyFleetResult\"},\
-      \"documentation\":\"<p>Modifies the specified EC2 Fleet.</p> <p>While the EC2 Fleet is being modified, it is in the <code>modifying</code> state.</p>\"\
+      \"documentation\":\"<p>Modifies the specified EC2 Fleet.</p> <p>You can only modify an EC2 Fleet request of type <code>maintain</code>.</p> <p>While the EC2 Fleet is being modified, it is in the <code>modifying</code> state.</p> <p>To scale up your EC2 Fleet, increase its target capacity. The EC2 Fleet launches the additional Spot Instances according to the allocation strategy for the EC2 Fleet request. If the allocation strategy is <code>lowestPrice</code>, the EC2 Fleet launches instances using the Spot Instance pool with the lowest price. If the allocation strategy is <code>diversified</code>, the EC2 Fleet distributes the instances across the Spot Instance pools. If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p> <p>To scale down your EC2 Fleet, decrease its target capacity. First, the EC2 Fleet cancels any open requests that exceed the new target capacity. You can request that the EC2 Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the EC2 Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>capacityOptimized</code>, the EC2 Fleet terminates the instances in the Spot Instance pools that have the least available Spot Instance capacity. If the allocation strategy is <code>diversified</code>, the EC2 Fleet terminates instances across the Spot Instance pools. Alternatively, you can request that the EC2 Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p> <p>If you are finished with your EC2 Fleet for now, but will use it again later, you can set the target capacity to 0.</p>\"\
     },\
     \"ModifyFpgaImageAttribute\":{\
       \"name\":\"ModifyFpgaImageAttribute\",\
@@ -2942,7 +2973,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"ModifySnapshotAttributeRequest\"},\
-      \"documentation\":\"<p>Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single operation. If you need to both add and remove account IDs for a snapshot, you must use multiple operations.</p> <p>Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.</p> <p>For more information about modifying snapshot permissions, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html\\\">Sharing Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds or removes permission settings for the specified snapshot. You may add or remove specified AWS account IDs from a snapshot's list of create volume permissions, but you cannot do both in a single operation. If you need to both add and remove account IDs for a snapshot, you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p> <p>Encrypted snapshots and snapshots with AWS Marketplace product codes cannot be made public. Snapshots encrypted with your default CMK cannot be shared with other accounts.</p> <p>For more information about modifying snapshot permissions, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html\\\">Sharing Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"ModifySpotFleetRequest\":{\
       \"name\":\"ModifySpotFleetRequest\",\
@@ -2952,7 +2983,7 @@
       },\
       \"input\":{\"shape\":\"ModifySpotFleetRequestRequest\"},\
       \"output\":{\"shape\":\"ModifySpotFleetRequestResponse\"},\
-      \"documentation\":\"<p>Modifies the specified Spot Fleet request.</p> <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p> <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p> <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot pools.</p> <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p> <p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>\"\
+      \"documentation\":\"<p>Modifies the specified Spot Fleet request.</p> <p>You can only modify a Spot Fleet request of type <code>maintain</code>.</p> <p>While the Spot Fleet request is being modified, it is in the <code>modifying</code> state.</p> <p>To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches the additional Spot Instances according to the allocation strategy for the Spot Fleet request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches instances using the Spot Instance pool with the lowest price. If the allocation strategy is <code>diversified</code>, the Spot Fleet distributes the instances across the Spot Instance pools. If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p> <p>To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is <code>capacityOptimized</code>, the Spot Fleet terminates the instances in the Spot Instance pools that have the least available Spot Instance capacity. If the allocation strategy is <code>diversified</code>, the Spot Fleet terminates instances across the Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.</p> <p>If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.</p>\"\
     },\
     \"ModifySubnetAttribute\":{\
       \"name\":\"ModifySubnetAttribute\",\
@@ -3099,7 +3130,27 @@
       },\
       \"input\":{\"shape\":\"ModifyVpnConnectionRequest\"},\
       \"output\":{\"shape\":\"ModifyVpnConnectionResult\"},\
-      \"documentation\":\"<p>Modifies the target gateway of a AWS Site-to-Site VPN connection. The following migration options are available:</p> <ul> <li> <p>An existing virtual private gateway to a new virtual private gateway</p> </li> <li> <p>An existing virtual private gateway to a transit gateway</p> </li> <li> <p>An existing transit gateway to a new transit gateway</p> </li> <li> <p>An existing transit gateway to a virtual private gateway</p> </li> </ul> <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p> <p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p> <p>You must delete the static routes before you migrate to the new gateway.</p> <p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p> <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing\\\">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p> <p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p> <p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p> <p>After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side and the tunnel options remain intact. Your s2slong; connection will be temporarily unavailable for approximately 10 minutes while we provision the new endpoints </p>\"\
+      \"documentation\":\"<p>Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration options are available:</p> <ul> <li> <p>An existing virtual private gateway to a new virtual private gateway</p> </li> <li> <p>An existing virtual private gateway to a transit gateway</p> </li> <li> <p>An existing transit gateway to a new transit gateway</p> </li> <li> <p>An existing transit gateway to a virtual private gateway</p> </li> </ul> <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p> <p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p> <p>You must delete the static routes before you migrate to the new gateway.</p> <p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p> <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing\\\">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p> <p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p> <p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p> <p>After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side and the tunnel options remain intact. Your s2slong; connection will be temporarily unavailable for approximately 10 minutes while we provision the new endpoints </p>\"\
+    },\
+    \"ModifyVpnTunnelCertificate\":{\
+      \"name\":\"ModifyVpnTunnelCertificate\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyVpnTunnelCertificateRequest\"},\
+      \"output\":{\"shape\":\"ModifyVpnTunnelCertificateResult\"},\
+      \"documentation\":\"<p>Modifies the VPN tunnel endpoint certificate.</p>\"\
+    },\
+    \"ModifyVpnTunnelOptions\":{\
+      \"name\":\"ModifyVpnTunnelOptions\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ModifyVpnTunnelOptionsRequest\"},\
+      \"output\":{\"shape\":\"ModifyVpnTunnelOptionsResult\"},\
+      \"documentation\":\"<p>Modifies the options for a VPN tunnel in an AWS Site-to-Site VPN connection. You can modify multiple options for a tunnel in a single request, but you can only modify one tunnel at a time. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPNTunnels.html\\\">Site-to-Site VPN Tunnel Options for Your Site-to-Site VPN Connection</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>\"\
     },\
     \"MonitorInstances\":{\
       \"name\":\"MonitorInstances\",\
@@ -3149,7 +3200,7 @@
       },\
       \"input\":{\"shape\":\"PurchaseReservedInstancesOfferingRequest\"},\
       \"output\":{\"shape\":\"PurchaseReservedInstancesOfferingResult\"},\
-      \"documentation\":\"<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower hourly rate compared to On-Demand instance pricing.</p> <p>Use <a>DescribeReservedInstancesOfferings</a> to get a list of Reserved Instance offerings that match your specifications. After you've purchased a Reserved Instance, you can check for your new Reserved Instance with <a>DescribeReservedInstances</a>.</p> <p>To queue a purchase for a future date and time, specify a purchase time. If you do not specify a purchase time, the default is the current time.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\\\">Reserved Instances</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\\\">Reserved Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"PurchaseScheduledInstances\":{\
       \"name\":\"PurchaseScheduledInstances\",\
@@ -3304,7 +3355,7 @@
       },\
       \"input\":{\"shape\":\"RequestSpotFleetRequest\"},\
       \"output\":{\"shape\":\"RequestSpotFleetResponse\"},\
-      \"documentation\":\"<p>Creates a Spot Fleet request.</p> <p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p> <p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>By default, the Spot Fleet requests Spot Instances in the Spot pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p> <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p> <p>You can specify tags for the Spot Instances. You cannot tag other resource types in a Spot Fleet request because only the <code>instance</code> resource type is supported.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html\\\">Spot Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\"\
+      \"documentation\":\"<p>Creates a Spot Fleet request.</p> <p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p> <p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p> <p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p> <p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p> <p>You can specify tags for the Spot Instances. You cannot tag other resource types in a Spot Fleet request because only the <code>instance</code> resource type is supported.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html\\\">Spot Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\"\
     },\
     \"RequestSpotInstances\":{\
       \"name\":\"RequestSpotInstances\",\
@@ -3439,6 +3490,15 @@
       \"input\":{\"shape\":\"SearchTransitGatewayRoutesRequest\"},\
       \"output\":{\"shape\":\"SearchTransitGatewayRoutesResult\"},\
       \"documentation\":\"<p>Searches for routes in the specified transit gateway route table.</p>\"\
+    },\
+    \"SendDiagnosticInterrupt\":{\
+      \"name\":\"SendDiagnosticInterrupt\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"SendDiagnosticInterruptRequest\"},\
+      \"documentation\":\"<p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a <i>kernel panic</i> (on Linux instances), or a <i>blue screen</i>/<i>stop error</i> (on Windows instances). For instances based on Intel and AMD processors, the interrupt is received as a <i>non-maskable interrupt</i> (NMI).</p> <p>In general, the operating system crashes and reboots when a kernel panic or stop error is triggered. The operating system can also be configured to perform diagnostic tasks, such as generating a memory dump file, loading a secondary kernel, or obtaining a call trace.</p> <p>Before sending a diagnostic interrupt to your instance, ensure that its operating system is configured to perform the required diagnostic tasks.</p> <p>For more information about configuring your operating system to generate a crash dump when a kernel panic or stop error occurs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html\\\">Send a Diagnostic Interrupt</a> (Linux instances) or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html\\\">Send a Diagnostic Interrupt</a> (Windows instances).</p>\"\
     },\
     \"StartInstances\":{\
       \"name\":\"StartInstances\",\
@@ -3969,7 +4029,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"lowestPrice\",\
-        \"diversified\"\
+        \"diversified\",\
+        \"capacityOptimized\"\
       ]\
     },\
     \"AllowedPrincipal\":{\
@@ -5529,14 +5590,17 @@
         },\
         \"OwnerId\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the AWS account that owns the Capacity Reservation.</p>\",\
           \"locationName\":\"ownerId\"\
         },\
         \"CapacityReservationArn\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Capacity Reservation.</p>\",\
           \"locationName\":\"capacityReservationArn\"\
         },\
         \"AvailabilityZoneId\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The Availability Zone ID of the Capacity Reservation.</p>\",\
           \"locationName\":\"availabilityZoneId\"\
         },\
         \"InstanceType\":{\
@@ -5561,7 +5625,7 @@
         },\
         \"TotalInstanceCount\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of instances for which the Capacity Reservation reserves capacity.</p>\",\
+          \"documentation\":\"<p>The total number of instances for which the Capacity Reservation reserves capacity.</p>\",\
           \"locationName\":\"totalInstanceCount\"\
         },\
         \"AvailableInstanceCount\":{\
@@ -5581,7 +5645,7 @@
         },\
         \"State\":{\
           \"shape\":\"CapacityReservationState\",\
-          \"documentation\":\"<p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p> <ul> <li> <p> <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p> </li> <li> <p> <code>cancelled</code> - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>expired</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p> </li> <li> <p> <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p> <ul> <li> <p> <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p> </li> <li> <p> <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>cancelled</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p> </li> <li> <p> <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p> </li> </ul>\",\
           \"locationName\":\"state\"\
         },\
         \"EndDate\":{\
@@ -6136,7 +6200,7 @@
         },\
         \"SplitTunnel\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint endpoint.</p> <p>For information about split-tunnel VPN endpoints, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\\\">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\",\
+          \"documentation\":\"<p>Indicates whether split-tunnel is enabled in the AWS Client VPN endpoint.</p> <p>For information about split-tunnel VPN endpoints, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\\\">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\",\
           \"locationName\":\"splitTunnel\"\
         },\
         \"VpnProtocol\":{\
@@ -6664,7 +6728,7 @@
         },\
         \"ThreadsPerCore\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>\"\
+          \"documentation\":\"<p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The CPU options for the instance. Both the core count and threads per core must be specified in the request.</p>\"\
@@ -6693,7 +6757,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Availability Zone in which to create the Capacity Reservation.</p>\"\
         },\
-        \"AvailabilityZoneId\":{\"shape\":\"String\"},\
+        \"AvailabilityZoneId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Availability Zone in which to create the Capacity Reservation.</p>\"\
+        },\
         \"Tenancy\":{\
           \"shape\":\"CapacityReservationTenancy\",\
           \"documentation\":\"<p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p> <ul> <li> <p> <code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p> </li> <li> <p> <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p> </li> </ul>\"\
@@ -6770,7 +6837,7 @@
         },\
         \"DnsServers\":{\
           \"shape\":\"ValueStringList\",\
-          \"documentation\":\"<p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.</p>\"\
+          \"documentation\":\"<p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>\"\
         },\
         \"TransportProtocol\":{\
           \"shape\":\"TransportProtocol\",\
@@ -6782,7 +6849,7 @@
         },\
         \"SplitTunnel\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint endpoint.</p> <p>By default, split-tunnel on a VPN endpoint is disabled.</p> <p>For information about split-tunnel VPN endpoints, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\\\">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
+          \"documentation\":\"<p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</p> <p>By default, split-tunnel on a VPN endpoint is disabled.</p> <p>For information about split-tunnel VPN endpoints, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html\\\">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -6869,7 +6936,6 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"BgpAsn\",\
-        \"PublicIp\",\
         \"Type\"\
       ],\
       \"members\":{\
@@ -6881,6 +6947,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>\",\
           \"locationName\":\"IpAddress\"\
+        },\
+        \"CertificateArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>\"\
         },\
         \"Type\":{\
           \"shape\":\"GatewayType\",\
@@ -7204,6 +7274,10 @@
         \"LogDestination\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for <code>LogDestinationType</code>.</p> <p>If LogDestinationType is not specified or <code>cloud-watch-logs</code>, specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group.</p> <p>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You cannot use <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>\"\
+        },\
+        \"LogFormat\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\\\">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p> <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p> <p>Only applicable to flow logs that are published to an Amazon S3 bucket.</p>\"\
         }\
       }\
     },\
@@ -7458,7 +7532,7 @@
         },\
         \"SourceVersion\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in LaunchTemplateData.</p>\"\
+          \"documentation\":\"<p>The version number of the launch template version on which to base the new version. The new version inherits the same launch parameters as the source version, except for parameters that you specify in <code>LaunchTemplateData</code>. Snapshots applied to the block device mapping are ignored when creating a new version unless they are explicitly included.</p>\"\
         },\
         \"VersionDescription\":{\
           \"shape\":\"VersionDescription\",\
@@ -8529,7 +8603,7 @@
         },\
         \"VolumeType\":{\
           \"shape\":\"VolumeType\",\
-          \"documentation\":\"<p>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions, EBS defaults to <code>gp2</code>.</p>\"\
+          \"documentation\":\"<p>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -8916,6 +8990,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Internet-routable IP address of the customer gateway's outside interface.</p>\",\
           \"locationName\":\"ipAddress\"\
+        },\
+        \"CertificateArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>\",\
+          \"locationName\":\"certificateArn\"\
         },\
         \"State\":{\
           \"shape\":\"String\",\
@@ -9537,6 +9616,69 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The name of the placement group.</p>\",\
           \"locationName\":\"groupName\"\
+        }\
+      }\
+    },\
+    \"DeleteQueuedReservedInstancesError\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Code\":{\
+          \"shape\":\"DeleteQueuedReservedInstancesErrorCode\",\
+          \"documentation\":\"<p>The error code.</p>\",\
+          \"locationName\":\"code\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The error message.</p>\",\
+          \"locationName\":\"message\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>\"\
+    },\
+    \"DeleteQueuedReservedInstancesErrorCode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"reserved-instances-id-invalid\",\
+        \"reserved-instances-not-in-queued-state\",\
+        \"unexpected-error\"\
+      ]\
+    },\
+    \"DeleteQueuedReservedInstancesIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"String\",\
+        \"locationName\":\"item\"\
+      },\
+      \"max\":100,\
+      \"min\":1\
+    },\
+    \"DeleteQueuedReservedInstancesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"ReservedInstancesIds\"],\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"ReservedInstancesIds\":{\
+          \"shape\":\"DeleteQueuedReservedInstancesIdList\",\
+          \"documentation\":\"<p>The IDs of the Reserved Instances.</p>\",\
+          \"locationName\":\"ReservedInstancesId\"\
+        }\
+      }\
+    },\
+    \"DeleteQueuedReservedInstancesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SuccessfulQueuedPurchaseDeletions\":{\
+          \"shape\":\"SuccessfulQueuedPurchaseDeletionSet\",\
+          \"documentation\":\"<p>Information about the queued purchases that were successfully deleted.</p>\",\
+          \"locationName\":\"successfulQueuedPurchaseDeletionSet\"\
+        },\
+        \"FailedQueuedPurchaseDeletions\":{\
+          \"shape\":\"FailedQueuedPurchaseDeletionSet\",\
+          \"documentation\":\"<p>Information about the queued purchases that could not be deleted.</p>\",\
+          \"locationName\":\"failedQueuedPurchaseDeletionSet\"\
         }\
       }\
     },\
@@ -10815,6 +10957,53 @@
         }\
       }\
     },\
+    \"DescribeExportImageTasksMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":500,\
+      \"min\":1\
+    },\
+    \"DescribeExportImageTasksRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>, <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"ExportImageTaskIds\":{\
+          \"shape\":\"ExportImageTaskIdList\",\
+          \"documentation\":\"<p>The IDs of the export image tasks.</p>\",\
+          \"locationName\":\"ExportImageTaskId\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"DescribeExportImageTasksMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return in a single call.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token that indicates the next page of results.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeExportImageTasksResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ExportImageTasks\":{\
+          \"shape\":\"ExportImageTaskList\",\
+          \"documentation\":\"<p>Information about the export image tasks.</p>\",\
+          \"locationName\":\"exportImageTaskSet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
     \"DescribeExportTasksRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11467,16 +11656,16 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>Filter tasks using the <code>task-state</code> filter and one of the following values: active, completed, deleting, deleted.</p>\"\
+          \"documentation\":\"<p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>, <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>\"\
         },\
         \"ImportTaskIds\":{\
           \"shape\":\"ImportTaskIdList\",\
-          \"documentation\":\"<p>A list of import image task IDs.</p>\",\
+          \"documentation\":\"<p>The IDs of the import image tasks.</p>\",\
           \"locationName\":\"ImportTaskId\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>\"\
+          \"documentation\":\"<p>The maximum number of results to return in a single call.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
@@ -12332,7 +12521,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p> </li> <li> <p> <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>endpoint</code> - The endpoint of the Region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</p> </li> <li> <p> <code>opt-in-status</code> - The opt-in status of the Region (<code>opt-in-not-required</code> | <code>opted-in</code> | <code>not-opted-in</code>).</p> </li> <li> <p> <code>region-name</code> - The name of the Region (for example, <code>us-east-1</code>).</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"RegionNames\":{\
@@ -14140,7 +14329,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of the endpoint. (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -14404,7 +14593,7 @@
         },\
         \"Force\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Specifies whether to force a detachment.</p>\",\
+          \"documentation\":\"<p>Specifies whether to force a detachment.</p> <note> <ul> <li> <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p> </li> <li> <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p> </li> <li> <p>If you force the detachment of a network interface, the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html\\\">instance metadata</a> might not get updated. This means that the attributes associated with the detached network interface might still be visible. The instance metadata will get updated when you stop and start the instance.</p> </li> </ul> </note>\",\
           \"locationName\":\"force\"\
         }\
       },\
@@ -15005,7 +15194,7 @@
       \"members\":{\
         \"DeleteOnTermination\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Indicates whether the EBS volume is deleted on instance termination.</p>\",\
+          \"documentation\":\"<p>Indicates whether the EBS volume is deleted on instance termination. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination\\\">Preserving Amazon EBS Volumes on Instance Termination</a> in the Amazon Elastic Compute Cloud User Guide.</p>\",\
           \"locationName\":\"deleteOnTermination\"\
         },\
         \"Iops\":{\
@@ -15025,7 +15214,7 @@
         },\
         \"VolumeType\":{\
           \"shape\":\"VolumeType\",\
-          \"documentation\":\"<p>The volume type. If you set the type to <code>io1</code>, you must also set the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>\",\
+          \"documentation\":\"<p>The volume type. If you set the type to <code>io1</code>, you must also specify the IOPS that the volume supports.</p> <p>Default: <code>gp2</code> </p>\",\
           \"locationName\":\"volumeType\"\
         },\
         \"Encrypted\":{\
@@ -15571,6 +15760,150 @@
         \"microsoft\"\
       ]\
     },\
+    \"ExportImageRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"DiskImageFormat\",\
+        \"ImageId\",\
+        \"S3ExportLocation\"\
+      ],\
+      \"members\":{\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Token to enable idempotency for export image requests.</p>\",\
+          \"idempotencyToken\":true\
+        },\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A description of the image being exported. The maximum length is 255 bytes.</p>\"\
+        },\
+        \"DiskImageFormat\":{\
+          \"shape\":\"DiskImageFormat\",\
+          \"documentation\":\"<p>The disk image format.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"ImageId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the image.</p>\"\
+        },\
+        \"S3ExportLocation\":{\
+          \"shape\":\"ExportTaskS3LocationRequest\",\
+          \"documentation\":\"<p>Information about the destination S3 bucket. The bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.</p>\"\
+        },\
+        \"RoleName\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the role that grants VM Import/Export permission to export images to your S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>\"\
+        }\
+      }\
+    },\
+    \"ExportImageResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A description of the image being exported.</p>\",\
+          \"locationName\":\"description\"\
+        },\
+        \"DiskImageFormat\":{\
+          \"shape\":\"DiskImageFormat\",\
+          \"documentation\":\"<p>The disk image format for the exported image.</p>\",\
+          \"locationName\":\"diskImageFormat\"\
+        },\
+        \"ExportImageTaskId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the export image task.</p>\",\
+          \"locationName\":\"exportImageTaskId\"\
+        },\
+        \"ImageId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the image.</p>\",\
+          \"locationName\":\"imageId\"\
+        },\
+        \"RoleName\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the role that grants VM Import/Export permission to export images to your S3 bucket.</p>\",\
+          \"locationName\":\"roleName\"\
+        },\
+        \"Progress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The percent complete of the export image task.</p>\",\
+          \"locationName\":\"progress\"\
+        },\
+        \"S3ExportLocation\":{\
+          \"shape\":\"ExportTaskS3Location\",\
+          \"documentation\":\"<p>Information about the destination S3 bucket.</p>\",\
+          \"locationName\":\"s3ExportLocation\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>, <code>deleting</code>, and <code>deleted</code>.</p>\",\
+          \"locationName\":\"status\"\
+        },\
+        \"StatusMessage\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The status message for the export image task.</p>\",\
+          \"locationName\":\"statusMessage\"\
+        }\
+      }\
+    },\
+    \"ExportImageTask\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Description\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A description of the image being exported.</p>\",\
+          \"locationName\":\"description\"\
+        },\
+        \"ExportImageTaskId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the export image task.</p>\",\
+          \"locationName\":\"exportImageTaskId\"\
+        },\
+        \"ImageId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the image.</p>\",\
+          \"locationName\":\"imageId\"\
+        },\
+        \"Progress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The percent complete of the export image task.</p>\",\
+          \"locationName\":\"progress\"\
+        },\
+        \"S3ExportLocation\":{\
+          \"shape\":\"ExportTaskS3Location\",\
+          \"documentation\":\"<p>Information about the destination S3 bucket.</p>\",\
+          \"locationName\":\"s3ExportLocation\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>, <code>deleting</code>, and <code>deleted</code>.</p>\",\
+          \"locationName\":\"status\"\
+        },\
+        \"StatusMessage\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The status message for the export image task.</p>\",\
+          \"locationName\":\"statusMessage\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes an export image task.</p>\"\
+    },\
+    \"ExportImageTaskIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"String\",\
+        \"locationName\":\"ExportImageTaskId\"\
+      }\
+    },\
+    \"ExportImageTaskList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"ExportImageTask\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"ExportTask\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -15620,6 +15953,37 @@
         \"shape\":\"ExportTask\",\
         \"locationName\":\"item\"\
       }\
+    },\
+    \"ExportTaskS3Location\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"S3Bucket\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The destination S3 bucket.</p>\",\
+          \"locationName\":\"s3Bucket\"\
+        },\
+        \"S3Prefix\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The prefix (logical hierarchy) in the bucket.</p>\",\
+          \"locationName\":\"s3Prefix\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the destination for an export image task.</p>\"\
+    },\
+    \"ExportTaskS3LocationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"S3Bucket\"],\
+      \"members\":{\
+        \"S3Bucket\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The destination S3 bucket.</p>\"\
+        },\
+        \"S3Prefix\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The prefix (logical hierarchy) in the bucket.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the destination for an export image task.</p>\"\
     },\
     \"ExportTaskState\":{\
       \"type\":\"string\",\
@@ -15718,6 +16082,29 @@
         }\
       }\
     },\
+    \"FailedQueuedPurchaseDeletion\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Error\":{\
+          \"shape\":\"DeleteQueuedReservedInstancesError\",\
+          \"documentation\":\"<p>The error.</p>\",\
+          \"locationName\":\"error\"\
+        },\
+        \"ReservedInstancesId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Reserved Instance.</p>\",\
+          \"locationName\":\"reservedInstancesId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a Reserved Instance whose queued purchase was not deleted.</p>\"\
+    },\
+    \"FailedQueuedPurchaseDeletionSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"FailedQueuedPurchaseDeletion\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"Filter\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -15744,8 +16131,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"error\",\
-        \"pending-fulfillment\",\
-        \"pending-termination\",\
+        \"pending_fulfillment\",\
+        \"pending_termination\",\
         \"fulfilled\"\
       ]\
     },\
@@ -16070,8 +16457,8 @@
         \"active\",\
         \"deleted\",\
         \"failed\",\
-        \"deleted-running\",\
-        \"deleted-terminating\",\
+        \"deleted_running\",\
+        \"deleted_terminating\",\
         \"modifying\"\
       ]\
     },\
@@ -16141,6 +16528,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.</p>\",\
           \"locationName\":\"logDestination\"\
+        },\
+        \"LogFormat\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The format of the flow log record.</p>\",\
+          \"locationName\":\"logFormat\"\
         }\
       },\
       \"documentation\":\"<p>Describes a flow log.</p>\"\
@@ -16328,10 +16720,22 @@
       \"type\":\"structure\",\
       \"required\":[\"CapacityReservationId\"],\
       \"members\":{\
-        \"CapacityReservationId\":{\"shape\":\"String\"},\
-        \"NextToken\":{\"shape\":\"String\"},\
-        \"MaxResults\":{\"shape\":\"GetCapacityReservationUsageRequestMaxResults\"},\
-        \"DryRun\":{\"shape\":\"Boolean\"}\
+        \"CapacityReservationId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"GetCapacityReservationUsageRequestMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p> <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
       }\
     },\
     \"GetCapacityReservationUsageRequestMaxResults\":{\
@@ -16344,30 +16748,37 @@
       \"members\":{\
         \"NextToken\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
           \"locationName\":\"nextToken\"\
         },\
         \"CapacityReservationId\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\",\
           \"locationName\":\"capacityReservationId\"\
         },\
         \"InstanceType\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The type of instance for which the Capacity Reservation reserves capacity.</p>\",\
           \"locationName\":\"instanceType\"\
         },\
         \"TotalInstanceCount\":{\
           \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of instances for which the Capacity Reservation reserves capacity.</p>\",\
           \"locationName\":\"totalInstanceCount\"\
         },\
         \"AvailableInstanceCount\":{\
           \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>\",\
           \"locationName\":\"availableInstanceCount\"\
         },\
         \"State\":{\
           \"shape\":\"CapacityReservationState\",\
+          \"documentation\":\"<p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p> <ul> <li> <p> <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p> </li> <li> <p> <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>cancelled</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p> </li> <li> <p> <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p> </li> </ul>\",\
           \"locationName\":\"state\"\
         },\
         \"InstanceUsages\":{\
           \"shape\":\"InstanceUsageSet\",\
+          \"documentation\":\"<p>Information about the Capacity Reservation usage.</p>\",\
           \"locationName\":\"instanceUsageSet\"\
         }\
       }\
@@ -17194,6 +17605,41 @@
         \"ovm\",\
         \"xen\"\
       ]\
+    },\
+    \"IKEVersionsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"IKEVersionsListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"IKEVersionsListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The IKE version.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>\"\
+    },\
+    \"IKEVersionsRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"IKEVersionsRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"IKEVersionsRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The IKE version.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The IKE version that is permitted for the VPN tunnel.</p>\"\
     },\
     \"IamInstanceProfile\":{\
       \"type\":\"structure\",\
@@ -19025,7 +19471,7 @@
         },\
         \"SubnetId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the subnet associated with the network string. Applies only if creating a network interface when launching an instance.</p>\",\
+          \"documentation\":\"<p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>\",\
           \"locationName\":\"subnetId\"\
         },\
         \"InterfaceType\":{\
@@ -19388,6 +19834,7 @@
         \"i3en.6xlarge\",\
         \"i3en.12xlarge\",\
         \"i3en.24xlarge\",\
+        \"i3en.metal\",\
         \"hi1.4xlarge\",\
         \"hs1.8xlarge\",\
         \"c1.medium\",\
@@ -19431,6 +19878,12 @@
         \"g3.8xlarge\",\
         \"g3.16xlarge\",\
         \"g3s.xlarge\",\
+        \"g4dn.xlarge\",\
+        \"g4dn.2xlarge\",\
+        \"g4dn.4xlarge\",\
+        \"g4dn.8xlarge\",\
+        \"g4dn.12xlarge\",\
+        \"g4dn.16xlarge\",\
         \"cg1.4xlarge\",\
         \"p2.xlarge\",\
         \"p2.8xlarge\",\
@@ -19498,7 +19951,40 @@
         \"a1.large\",\
         \"a1.xlarge\",\
         \"a1.2xlarge\",\
-        \"a1.4xlarge\"\
+        \"a1.4xlarge\",\
+        \"a1.metal\",\
+        \"m5dn.large\",\
+        \"m5dn.xlarge\",\
+        \"m5dn.2xlarge\",\
+        \"m5dn.4xlarge\",\
+        \"m5dn.8xlarge\",\
+        \"m5dn.12xlarge\",\
+        \"m5dn.16xlarge\",\
+        \"m5dn.24xlarge\",\
+        \"m5n.large\",\
+        \"m5n.xlarge\",\
+        \"m5n.2xlarge\",\
+        \"m5n.4xlarge\",\
+        \"m5n.8xlarge\",\
+        \"m5n.12xlarge\",\
+        \"m5n.16xlarge\",\
+        \"m5n.24xlarge\",\
+        \"r5dn.large\",\
+        \"r5dn.xlarge\",\
+        \"r5dn.2xlarge\",\
+        \"r5dn.4xlarge\",\
+        \"r5dn.8xlarge\",\
+        \"r5dn.12xlarge\",\
+        \"r5dn.16xlarge\",\
+        \"r5dn.24xlarge\",\
+        \"r5n.large\",\
+        \"r5n.xlarge\",\
+        \"r5n.2xlarge\",\
+        \"r5n.4xlarge\",\
+        \"r5n.8xlarge\",\
+        \"r5n.12xlarge\",\
+        \"r5n.16xlarge\",\
+        \"r5n.24xlarge\"\
       ]\
     },\
     \"InstanceTypeList\":{\
@@ -19510,13 +19996,16 @@
       \"members\":{\
         \"AccountId\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the AWS account that is making use of the Capacity Reservation.</p>\",\
           \"locationName\":\"accountId\"\
         },\
         \"UsedInstanceCount\":{\
           \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of instances the AWS account currently has in the Capacity Reservation.</p>\",\
           \"locationName\":\"usedInstanceCount\"\
         }\
-      }\
+      },\
+      \"documentation\":\"<p>Information about the Capacity Reservation usage.</p>\"\
     },\
     \"InstanceUsageSet\":{\
       \"type\":\"list\",\
@@ -20095,7 +20584,7 @@
         },\
         \"ThreadsPerCore\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>\"\
+          \"documentation\":\"<p>The number of threads per CPU core. To disable multithreading for the instance, specify a value of 1. Otherwise, specify the default value of 2.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The CPU options for the instance. Both the core count and threads per core must be specified in the request.</p>\"\
@@ -20976,7 +21465,7 @@
       \"members\":{\
         \"Return\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Information about the Capacity Reservation.</p>\",\
+          \"documentation\":\"<p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>\",\
           \"locationName\":\"return\"\
         }\
       }\
@@ -22030,7 +22519,7 @@
         },\
         \"PolicyDocument\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.</p>\"\
+          \"documentation\":\"<p>A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.</p>\"\
         },\
         \"AddRouteTableIds\":{\
           \"shape\":\"ValueStringList\",\
@@ -22229,6 +22718,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
+        \"CustomerGatewayId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the customer gateway at your end of the VPN connection.</p>\"\
+        },\
         \"VpnGatewayId\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the virtual private gateway at the AWS side of the VPN connection.</p>\"\
@@ -22247,6 +22740,144 @@
           \"locationName\":\"vpnConnection\"\
         }\
       }\
+    },\
+    \"ModifyVpnTunnelCertificateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"VpnConnectionId\",\
+        \"VpnTunnelOutsideIpAddress\"\
+      ],\
+      \"members\":{\
+        \"VpnConnectionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the AWS Site-to-Site VPN connection.</p>\"\
+        },\
+        \"VpnTunnelOutsideIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The external IP address of the VPN tunnel.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ModifyVpnTunnelCertificateResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"VpnConnection\":{\
+          \"shape\":\"VpnConnection\",\
+          \"locationName\":\"vpnConnection\"\
+        }\
+      }\
+    },\
+    \"ModifyVpnTunnelOptionsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"VpnConnectionId\",\
+        \"VpnTunnelOutsideIpAddress\",\
+        \"TunnelOptions\"\
+      ],\
+      \"members\":{\
+        \"VpnConnectionId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the AWS Site-to-Site VPN connection.</p>\"\
+        },\
+        \"VpnTunnelOutsideIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The external IP address of the VPN tunnel.</p>\"\
+        },\
+        \"TunnelOptions\":{\
+          \"shape\":\"ModifyVpnTunnelOptionsSpecification\",\
+          \"documentation\":\"<p>The tunnel options to modify.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"ModifyVpnTunnelOptionsResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"VpnConnection\":{\
+          \"shape\":\"VpnConnection\",\
+          \"locationName\":\"vpnConnection\"\
+        }\
+      }\
+    },\
+    \"ModifyVpnTunnelOptionsSpecification\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TunnelInsideCidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p> <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p> <ul> <li> <p> <code>169.254.0.0/30</code> </p> </li> <li> <p> <code>169.254.1.0/30</code> </p> </li> <li> <p> <code>169.254.2.0/30</code> </p> </li> <li> <p> <code>169.254.3.0/30</code> </p> </li> <li> <p> <code>169.254.4.0/30</code> </p> </li> <li> <p> <code>169.254.5.0/30</code> </p> </li> <li> <p> <code>169.254.169.252/30</code> </p> </li> </ul>\"\
+        },\
+        \"PreSharedKey\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and the customer gateway.</p> <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).</p>\"\
+        },\
+        \"Phase1LifetimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p> <p>Constraints: A value between 900 and 28,800.</p> <p>Default: <code>28800</code> </p>\"\
+        },\
+        \"Phase2LifetimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p> <p>Constraints: A value between 900 and 3,600. The value must be less than the value for <code>Phase1LifetimeSeconds</code>.</p> <p>Default: <code>3600</code> </p>\"\
+        },\
+        \"RekeyMarginTimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</p> <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p> <p>Default: <code>540</code> </p>\"\
+        },\
+        \"RekeyFuzzPercentage\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>) during which the rekey time is randomly selected.</p> <p>Constraints: A value between 0 and 100.</p> <p>Default: <code>100</code> </p>\"\
+        },\
+        \"ReplayWindowSize\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of packets in an IKE replay window.</p> <p>Constraints: A value between 64 and 2048.</p> <p>Default: <code>1024</code> </p>\"\
+        },\
+        \"DPDTimeoutSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of seconds after which a DPD timeout occurs.</p> <p>Constraints: A value between 0 and 30.</p> <p>Default: <code>30</code> </p>\"\
+        },\
+        \"Phase1EncryptionAlgorithms\":{\
+          \"shape\":\"Phase1EncryptionAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"locationName\":\"Phase1EncryptionAlgorithm\"\
+        },\
+        \"Phase2EncryptionAlgorithms\":{\
+          \"shape\":\"Phase2EncryptionAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"locationName\":\"Phase2EncryptionAlgorithm\"\
+        },\
+        \"Phase1IntegrityAlgorithms\":{\
+          \"shape\":\"Phase1IntegrityAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"locationName\":\"Phase1IntegrityAlgorithm\"\
+        },\
+        \"Phase2IntegrityAlgorithms\":{\
+          \"shape\":\"Phase2IntegrityAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"locationName\":\"Phase2IntegrityAlgorithm\"\
+        },\
+        \"Phase1DHGroupNumbers\":{\
+          \"shape\":\"Phase1DHGroupNumbersRequestList\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"locationName\":\"Phase1DHGroupNumber\"\
+        },\
+        \"Phase2DHGroupNumbers\":{\
+          \"shape\":\"Phase2DHGroupNumbersRequestList\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"locationName\":\"Phase2DHGroupNumber\"\
+        },\
+        \"IKEVersions\":{\
+          \"shape\":\"IKEVersionsRequestList\",\
+          \"documentation\":\"<p>The IKE versions that are permitted for the VPN tunnel.</p> <p>Valid values: <code>ikev1</code> | <code>ikev2</code> </p>\",\
+          \"locationName\":\"IKEVersion\"\
+        }\
+      },\
+      \"documentation\":\"<p>The AWS Site-to-Site VPN tunnel options to modify.</p>\"\
     },\
     \"MonitorInstancesRequest\":{\
       \"type\":\"structure\",\
@@ -23161,6 +23792,216 @@
       \"type\":\"string\",\
       \"enum\":[\"all\"]\
     },\
+    \"Phase1DHGroupNumbersList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase1DHGroupNumbersListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase1DHGroupNumbersListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The Diffie-Hellmann group number.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>\"\
+    },\
+    \"Phase1DHGroupNumbersRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase1DHGroupNumbersRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase1DHGroupNumbersRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The Diffie-Hellmann group number.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.</p>\"\
+    },\
+    \"Phase1EncryptionAlgorithmsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase1EncryptionAlgorithmsListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase1EncryptionAlgorithmsListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value for the encryption algorithm.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The encryption algorithm for phase 1 IKE negotiations.</p>\"\
+    },\
+    \"Phase1EncryptionAlgorithmsRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase1EncryptionAlgorithmsRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase1EncryptionAlgorithmsRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value for the encryption algorithm.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.</p>\"\
+    },\
+    \"Phase1IntegrityAlgorithmsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase1IntegrityAlgorithmsListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase1IntegrityAlgorithmsListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value for the integrity algorithm.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The integrity algorithm for phase 1 IKE negotiations.</p>\"\
+    },\
+    \"Phase1IntegrityAlgorithmsRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase1IntegrityAlgorithmsRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase1IntegrityAlgorithmsRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The value for the integrity algorithm.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.</p>\"\
+    },\
+    \"Phase2DHGroupNumbersList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase2DHGroupNumbersListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase2DHGroupNumbersListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The Diffie-Hellmann group number.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>\"\
+    },\
+    \"Phase2DHGroupNumbersRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase2DHGroupNumbersRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase2DHGroupNumbersRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The Diffie-Hellmann group number.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.</p>\"\
+    },\
+    \"Phase2EncryptionAlgorithmsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase2EncryptionAlgorithmsListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase2EncryptionAlgorithmsListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The encryption algorithm.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The encryption algorithm for phase 2 IKE negotiations.</p>\"\
+    },\
+    \"Phase2EncryptionAlgorithmsRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase2EncryptionAlgorithmsRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase2EncryptionAlgorithmsRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The encryption algorithm.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.</p>\"\
+    },\
+    \"Phase2IntegrityAlgorithmsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase2IntegrityAlgorithmsListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase2IntegrityAlgorithmsListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The integrity algorithm.</p>\",\
+          \"locationName\":\"value\"\
+        }\
+      },\
+      \"documentation\":\"<p>The integrity algorithm for phase 2 IKE negotiations.</p>\"\
+    },\
+    \"Phase2IntegrityAlgorithmsRequestList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Phase2IntegrityAlgorithmsRequestListValue\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"Phase2IntegrityAlgorithmsRequestListValue\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The integrity algorithm.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.</p>\"\
+    },\
     \"Placement\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -23860,6 +24701,10 @@
           \"shape\":\"ReservedInstanceLimitPrice\",\
           \"documentation\":\"<p>Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.</p>\",\
           \"locationName\":\"limitPrice\"\
+        },\
+        \"PurchaseTime\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>The time at which to purchase the Reserved Instance.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for PurchaseReservedInstancesOffering.</p>\"\
@@ -24750,7 +25595,7 @@
         },\
         \"ValidFrom\":{\
           \"shape\":\"DateTime\",\
-          \"documentation\":\"<p>The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.</p>\",\
+          \"documentation\":\"<p>The start date of the request. If this is a one-time request, the request becomes active at this date and time and remains active until all instances launch, the request expires, or the request is canceled. If the request is persistent, the request becomes active at this date and time and remains active until it expires or is canceled.</p> <p>The specified start date and time cannot be equal to the current date and time. You must specify a start date and time that occurs after the current date and time.</p>\",\
           \"locationName\":\"validFrom\"\
         },\
         \"ValidUntil\":{\
@@ -24851,7 +25696,7 @@
         },\
         \"SubnetId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the subnet in which to launch the instance.</p>\",\
+          \"documentation\":\"<p>The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, \\\"subnet-1234abcdeexample1, subnet-0987cdef6example2\\\".</p>\",\
           \"locationName\":\"subnetId\"\
         },\
         \"UserData\":{\
@@ -24982,7 +25827,9 @@
         \"payment-pending\",\
         \"active\",\
         \"payment-failed\",\
-        \"retired\"\
+        \"retired\",\
+        \"queued\",\
+        \"queued-deleted\"\
       ]\
     },\
     \"ReservedInstances\":{\
@@ -26636,7 +27483,7 @@
         },\
         \"VolumeType\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The volume type. <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, Throughput Optimized HDD for <code>st1</code>, Cold HDD for <code>sc1</code>, or <code>standard</code> for Magnetic.</p> <p>Default: <code>standard</code> </p>\"\
+          \"documentation\":\"<p>The volume type. <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, Throughput Optimized HDD for <code>st1</code>, Cold HDD for <code>sc1</code>, or <code>standard</code> for Magnetic.</p> <p>Default: <code>gp2</code> </p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an EBS volume for a Scheduled Instance.</p>\"\
@@ -26860,7 +27707,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p> </li> <li> <p> <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p> </li> <li> <p> <code>attachment.resource-type</code> - The attachment resource type (<code>vpc</code> | <code>vpn</code>).</p> </li> <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> <li> <p> <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p> </li> <li> <p> <code>type</code> - The type of roue (<code>propagated</code> | <code>static</code>).</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p> </li> <li> <p> <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p> </li> <li> <p> <code>attachment.resource-type</code> - The attachment resource type (<code>vpc</code> | <code>vpn</code>).</p> </li> <li> <p> <code>route-search.exact-match</code> - The exact match of the specified filter.</p> </li> <li> <p> <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p> </li> <li> <p> <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p> </li> <li> <p> <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p> </li> <li> <p> <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p> </li> <li> <p> <code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -26997,6 +27844,20 @@
       \"member\":{\
         \"shape\":\"String\",\
         \"locationName\":\"SecurityGroup\"\
+      }\
+    },\
+    \"SendDiagnosticInterruptRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the instance.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
       }\
     },\
     \"ServiceConfiguration\":{\
@@ -27527,7 +28388,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"lowest-price\",\
-        \"diversified\"\
+        \"diversified\",\
+        \"capacity-optimized\"\
       ]\
     },\
     \"SpotDatafeedSubscription\":{\
@@ -27576,7 +28438,7 @@
         },\
         \"BlockDeviceMappings\":{\
           \"shape\":\"BlockDeviceMappingList\",\
-          \"documentation\":\"<p>One or more block devices that are mapped to the Spot instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.</p>\",\
+          \"documentation\":\"<p>One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.</p>\",\
           \"locationName\":\"blockDeviceMapping\"\
         },\
         \"EbsOptimized\":{\
@@ -27636,7 +28498,7 @@
         },\
         \"SubnetId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the subnet in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \\\"subnet-a61dafcf, subnet-65ea5f08\\\".</p>\",\
+          \"documentation\":\"<p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, \\\"subnet-1234abcdeexample1, subnet-0987cdef6example2\\\".</p>\",\
           \"locationName\":\"subnetId\"\
         },\
         \"UserData\":{\
@@ -27708,7 +28570,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"AllocationStrategy\",\
-          \"documentation\":\"<p>Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>\",\
+          \"documentation\":\"<p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the Spot Fleet request.</p> <p>If the allocation strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot Fleet launches instances from all the Spot Instance pools that you specify.</p> <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p>\",\
           \"locationName\":\"allocationStrategy\"\
         },\
         \"OnDemandAllocationStrategy\":{\
@@ -28057,7 +28919,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"SpotAllocationStrategy\",\
-          \"documentation\":\"<p>Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is <code>lowest-price</code>.</p>\",\
+          \"documentation\":\"<p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p> <p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all the Spot Instance pools that you specify.</p> <p>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p>\",\
           \"locationName\":\"allocationStrategy\"\
         },\
         \"InstanceInterruptionBehavior\":{\
@@ -28098,7 +28960,7 @@
       \"members\":{\
         \"AllocationStrategy\":{\
           \"shape\":\"SpotAllocationStrategy\",\
-          \"documentation\":\"<p>Indicates how to allocate the target capacity across the Spot pools specified by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>\"\
+          \"documentation\":\"<p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances from the Spot Instance pools with the lowest price. This is the default allocation strategy.</p> <p>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances from all the Spot Instance pools that you specify.</p> <p>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances from Spot Instance pools with optimal capacity for the number of instances that are launching.</p>\"\
         },\
         \"InstanceInterruptionBehavior\":{\
           \"shape\":\"SpotInstanceInterruptionBehavior\",\
@@ -28580,6 +29442,24 @@
       \"type\":\"list\",\
       \"member\":{\
         \"shape\":\"SuccessfulInstanceCreditSpecificationItem\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"SuccessfulQueuedPurchaseDeletion\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ReservedInstancesId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the Reserved Instance.</p>\",\
+          \"locationName\":\"reservedInstancesId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>\"\
+    },\
+    \"SuccessfulQueuedPurchaseDeletionSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SuccessfulQueuedPurchaseDeletion\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -29939,10 +30819,96 @@
         \"udp\"\
       ]\
     },\
+    \"TunnelOption\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"OutsideIpAddress\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The external IP address of the VPN tunnel.</p>\",\
+          \"locationName\":\"outsideIpAddress\"\
+        },\
+        \"TunnelInsideCidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The range of inside IP addresses for the tunnel.</p>\",\
+          \"locationName\":\"tunnelInsideCidr\"\
+        },\
+        \"PreSharedKey\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and the customer gateway.</p>\",\
+          \"locationName\":\"preSharedKey\"\
+        },\
+        \"Phase1LifetimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>\",\
+          \"locationName\":\"phase1LifetimeSeconds\"\
+        },\
+        \"Phase2LifetimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>\",\
+          \"locationName\":\"phase2LifetimeSeconds\"\
+        },\
+        \"RekeyMarginTimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey.</p>\",\
+          \"locationName\":\"rekeyMarginTimeSeconds\"\
+        },\
+        \"RekeyFuzzPercentage\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code> during which the rekey time is randomly selected.</p>\",\
+          \"locationName\":\"rekeyFuzzPercentage\"\
+        },\
+        \"ReplayWindowSize\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of packets in an IKE replay window.</p>\",\
+          \"locationName\":\"replayWindowSize\"\
+        },\
+        \"DpdTimeoutSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of seconds after which a DPD timeout occurs.</p>\",\
+          \"locationName\":\"dpdTimeoutSeconds\"\
+        },\
+        \"Phase1EncryptionAlgorithms\":{\
+          \"shape\":\"Phase1EncryptionAlgorithmsList\",\
+          \"documentation\":\"<p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE negotiations.</p>\",\
+          \"locationName\":\"phase1EncryptionAlgorithmSet\"\
+        },\
+        \"Phase2EncryptionAlgorithms\":{\
+          \"shape\":\"Phase2EncryptionAlgorithmsList\",\
+          \"documentation\":\"<p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE negotiations.</p>\",\
+          \"locationName\":\"phase2EncryptionAlgorithmSet\"\
+        },\
+        \"Phase1IntegrityAlgorithms\":{\
+          \"shape\":\"Phase1IntegrityAlgorithmsList\",\
+          \"documentation\":\"<p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE negotiations.</p>\",\
+          \"locationName\":\"phase1IntegrityAlgorithmSet\"\
+        },\
+        \"Phase2IntegrityAlgorithms\":{\
+          \"shape\":\"Phase2IntegrityAlgorithmsList\",\
+          \"documentation\":\"<p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE negotiations.</p>\",\
+          \"locationName\":\"phase2IntegrityAlgorithmSet\"\
+        },\
+        \"Phase1DHGroupNumbers\":{\
+          \"shape\":\"Phase1DHGroupNumbersList\",\
+          \"documentation\":\"<p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE negotiations.</p>\",\
+          \"locationName\":\"phase1DHGroupNumberSet\"\
+        },\
+        \"Phase2DHGroupNumbers\":{\
+          \"shape\":\"Phase2DHGroupNumbersList\",\
+          \"documentation\":\"<p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE negotiations.</p>\",\
+          \"locationName\":\"phase2DHGroupNumberSet\"\
+        },\
+        \"IkeVersions\":{\
+          \"shape\":\"IKEVersionsList\",\
+          \"documentation\":\"<p>The IKE versions that are permitted for the VPN tunnel.</p>\",\
+          \"locationName\":\"ikeVersionSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>The VPN tunnel options.</p>\"\
+    },\
     \"TunnelOptionsList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"VpnTunnelOptionsSpecification\",\
+        \"shape\":\"TunnelOption\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -30339,6 +31305,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>If an error occurs, a description of the error.</p>\",\
           \"locationName\":\"statusMessage\"\
+        },\
+        \"CertificateArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.</p>\",\
+          \"locationName\":\"certificateArn\"\
         }\
       },\
       \"documentation\":\"<p>Describes telemetry for a VPN tunnel.</p>\"\
@@ -31374,6 +32345,11 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.</p>\",\
           \"locationName\":\"staticRoutesOnly\"\
+        },\
+        \"TunnelOptions\":{\
+          \"shape\":\"TunnelOptionsList\",\
+          \"documentation\":\"<p>Indicates the VPN tunnel options.</p>\",\
+          \"locationName\":\"tunnelOptionSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes VPN connection options.</p>\"\
@@ -31387,7 +32363,7 @@
           \"locationName\":\"staticRoutesOnly\"\
         },\
         \"TunnelOptions\":{\
-          \"shape\":\"TunnelOptionsList\",\
+          \"shape\":\"VpnTunnelOptionsSpecificationsList\",\
           \"documentation\":\"<p>The tunnel options for the VPN connection.</p>\"\
         }\
       },\
@@ -31509,10 +32485,73 @@
         },\
         \"PreSharedKey\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.</p> <p>Constraints: Allowed characters are alphanumeric characters and ._. Must be between 8 and 64 characters in length and cannot start with zero (0).</p>\"\
+          \"documentation\":\"<p>The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.</p> <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).</p>\"\
+        },\
+        \"Phase1LifetimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p> <p>Constraints: A value between 900 and 28,800.</p> <p>Default: <code>28800</code> </p>\"\
+        },\
+        \"Phase2LifetimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p> <p>Constraints: A value between 900 and 3,600. The value must be less than the value for <code>Phase1LifetimeSeconds</code>.</p> <p>Default: <code>3600</code> </p>\"\
+        },\
+        \"RekeyMarginTimeSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for <code>RekeyFuzzPercentage</code>.</p> <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p> <p>Default: <code>540</code> </p>\"\
+        },\
+        \"RekeyFuzzPercentage\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>) during which the rekey time is randomly selected.</p> <p>Constraints: A value between 0 and 100.</p> <p>Default: <code>100</code> </p>\"\
+        },\
+        \"ReplayWindowSize\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of packets in an IKE replay window.</p> <p>Constraints: A value between 64 and 2048.</p> <p>Default: <code>1024</code> </p>\"\
+        },\
+        \"DPDTimeoutSeconds\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The number of seconds after which a DPD timeout occurs.</p> <p>Constraints: A value between 0 and 30.</p> <p>Default: <code>30</code> </p>\"\
+        },\
+        \"Phase1EncryptionAlgorithms\":{\
+          \"shape\":\"Phase1EncryptionAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"locationName\":\"Phase1EncryptionAlgorithm\"\
+        },\
+        \"Phase2EncryptionAlgorithms\":{\
+          \"shape\":\"Phase2EncryptionAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"locationName\":\"Phase2EncryptionAlgorithm\"\
+        },\
+        \"Phase1IntegrityAlgorithms\":{\
+          \"shape\":\"Phase1IntegrityAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"locationName\":\"Phase1IntegrityAlgorithm\"\
+        },\
+        \"Phase2IntegrityAlgorithms\":{\
+          \"shape\":\"Phase2IntegrityAlgorithmsRequestList\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"locationName\":\"Phase2IntegrityAlgorithm\"\
+        },\
+        \"Phase1DHGroupNumbers\":{\
+          \"shape\":\"Phase1DHGroupNumbersRequestList\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"locationName\":\"Phase1DHGroupNumber\"\
+        },\
+        \"Phase2DHGroupNumbers\":{\
+          \"shape\":\"Phase2DHGroupNumbersRequestList\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"locationName\":\"Phase2DHGroupNumber\"\
+        },\
+        \"IKEVersions\":{\
+          \"shape\":\"IKEVersionsRequestList\",\
+          \"documentation\":\"<p>The IKE versions that are permitted for the VPN tunnel.</p> <p>Valid values: <code>ikev1</code> | <code>ikev2</code> </p>\",\
+          \"locationName\":\"IKEVersion\"\
         }\
       },\
       \"documentation\":\"<p>The tunnel options for a VPN connection.</p>\"\
+    },\
+    \"VpnTunnelOptionsSpecificationsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"VpnTunnelOptionsSpecification\"}\
     },\
     \"WithdrawByoipCidrRequest\":{\
       \"type\":\"structure\",\
@@ -31560,7 +32599,7 @@
       ]\
     }\
   },\
-  \"documentation\":\"<fullname>Amazon Elastic Compute Cloud</fullname> <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster.</p> <p>To learn more, see the following resources:</p> <ul> <li> <p>Amazon EC2: <a href=\\\"http://aws.amazon.com/ec2\\\">Amazon EC2 product page</a>, <a href=\\\"http://aws.amazon.com/documentation/ec2\\\">Amazon EC2 documentation</a> </p> </li> <li> <p>Amazon EBS: <a href=\\\"http://aws.amazon.com/ebs\\\">Amazon EBS product page</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html\\\">Amazon EBS documentation</a> </p> </li> <li> <p>Amazon VPC: <a href=\\\"http://aws.amazon.com/vpc\\\">Amazon VPC product page</a>, <a href=\\\"http://aws.amazon.com/documentation/vpc\\\">Amazon VPC documentation</a> </p> </li> <li> <p>AWS VPN: <a href=\\\"http://aws.amazon.com/vpn\\\">AWS VPN product page</a>, <a href=\\\"http://aws.amazon.com/documentation/vpn\\\">AWS VPN documentation</a> </p> </li> </ul>\"\
+  \"documentation\":\"<fullname>Amazon Elastic Compute Cloud</fullname> <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS cloud. Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications faster.</p> <p>To learn more, see the following resources:</p> <ul> <li> <p>Amazon EC2: <a href=\\\"http://aws.amazon.com/ec2\\\">AmazonEC2 product page</a>, <a href=\\\"http://aws.amazon.com/documentation/ec2\\\">Amazon EC2 documentation</a> </p> </li> <li> <p>Amazon EBS: <a href=\\\"http://aws.amazon.com/ebs\\\">Amazon EBS product page</a>, <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html\\\">Amazon EBS documentation</a> </p> </li> <li> <p>Amazon VPC: <a href=\\\"http://aws.amazon.com/vpc\\\">Amazon VPC product page</a>, <a href=\\\"http://aws.amazon.com/documentation/vpc\\\">Amazon VPC documentation</a> </p> </li> <li> <p>AWS VPN: <a href=\\\"http://aws.amazon.com/vpn\\\">AWS VPN product page</a>, <a href=\\\"http://aws.amazon.com/documentation/vpn\\\">AWS VPN documentation</a> </p> </li> </ul>\"\
 }\
 ";
 }

@@ -18,7 +18,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FBSDKTooltipView.h"
+#import <FBSDKTooltipView.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @protocol FBSDKLoginTooltipViewDelegate;
 
@@ -37,6 +39,7 @@
   (e.g., to test the UI layout) by implementing the delegate or setting `forceDisplay` to YES.
 
  */
+NS_SWIFT_NAME(FBLoginTooltipView)
 @interface FBSDKLoginTooltipView : FBSDKTooltipView
 
 /**  the delegate */
@@ -44,7 +47,7 @@
 
 /**  if set to YES, the view will always be displayed and the delegate's
   `loginTooltipView:shouldAppear:` will NOT be called. */
-@property (nonatomic, assign) BOOL forceDisplay;
+@property (nonatomic, assign, getter=shouldForceDisplay) BOOL forceDisplay;
 
 @end
 
@@ -54,6 +57,7 @@
   The `FBSDKLoginTooltipViewDelegate` protocol defines the methods used to receive event
  notifications from `FBSDKLoginTooltipView` objects.
  */
+NS_SWIFT_NAME(LoginTooltipViewDelegate)
 @protocol FBSDKLoginTooltipViewDelegate <NSObject>
 
 @optional
@@ -61,8 +65,8 @@
 /**
   Asks the delegate if the tooltip view should appear
 
- - Parameter view: The tooltip view.
- - Parameter appIsEligible: The value fetched from the server identifying if the app
+ @param view The tooltip view.
+ @param appIsEligible The value fetched from the server identifying if the app
  is eligible for the new login experience.
 
 
@@ -74,7 +78,7 @@
   Tells the delegate the tooltip view will appear, specifically after it's been
  added to the super view but before the fade in animation.
 
- - Parameter view: The tooltip view.
+ @param view The tooltip view.
  */
 - (void)loginTooltipViewWillAppear:(FBSDKLoginTooltipView *)view;
 
@@ -82,9 +86,11 @@
   Tells the delegate the tooltip view will not appear (i.e., was not
  added to the super view).
 
- - Parameter view: The tooltip view.
+ @param view The tooltip view.
  */
 - (void)loginTooltipViewWillNotAppear:(FBSDKLoginTooltipView *)view;
 
 
 @end
+
+NS_ASSUME_NONNULL_END

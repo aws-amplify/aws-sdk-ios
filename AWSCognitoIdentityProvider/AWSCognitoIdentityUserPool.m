@@ -22,6 +22,8 @@ static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 @property (nonatomic, strong) AWSCognitoIdentityUserPoolConfiguration *userPoolConfiguration;
 @property (nonatomic, strong) NSString * pinpointEndpointId;
+@property (nonatomic, assign) BOOL isCustomAuth;
+
 @end
 
 @interface AWSCognitoIdentityProvider()
@@ -149,7 +151,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
             }
             _configuration = [[AWSServiceManager defaultServiceManager].defaultServiceConfiguration copy];
         }
-
+        _isCustomAuth = NO;
         _userPoolConfiguration = [userPoolConfiguration copy];
 
         _client = [[AWSCognitoIdentityProvider alloc] initWithConfiguration:_configuration];
@@ -198,9 +200,9 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
     
     return [[self.client signUp:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
         AWSCognitoIdentityUser * user = [[AWSCognitoIdentityUser alloc] initWithUsername:username pool:self];
-        if([task.result.userConfirmed intValue] == AWSCognitoIdentityProviderUserStatusTypeConfirmed){
+        if([task.result.userConfirmed boolValue]) {
             user.confirmedStatus = AWSCognitoIdentityUserStatusConfirmed;
-        }else if([task.result.userConfirmed intValue] == AWSCognitoIdentityProviderUserStatusTypeUnconfirmed) {
+        } else {
             user.confirmedStatus = AWSCognitoIdentityUserStatusUnconfirmed;
         }
         AWSCognitoIdentityUserPoolSignUpResponse *signupResponse = [AWSCognitoIdentityUserPoolSignUpResponse new];

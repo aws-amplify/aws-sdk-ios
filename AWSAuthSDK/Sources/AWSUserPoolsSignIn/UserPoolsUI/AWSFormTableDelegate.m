@@ -61,8 +61,8 @@
 }
 
 - (void)setButtonFont:(UIButton *)button {
-    if ([AWSUserPoolsUIHelper getAWSUIConfiguration].font != nil) {
-        button.titleLabel.font = [AWSUserPoolsUIHelper getAWSUIConfiguration].font;
+    if ([AWSAuthUIHelper getAWSUIConfiguration].font != nil) {
+        button.titleLabel.font = [AWSAuthUIHelper getAWSUIConfiguration].font;
     } else {
         button.titleLabel.font = [UIFont systemFontOfSize:14.0];
     }
@@ -92,7 +92,7 @@
                          forState:UIControlStateNormal];
     }
     if (formCell.inputType == InputTypeStaticText) {
-        inputCell.placeHolderView.hidden = YES;
+        [inputCell showHeaderLabel:YES];
         inputCell.inputBox.text = formCell.staticText;
     }
     
