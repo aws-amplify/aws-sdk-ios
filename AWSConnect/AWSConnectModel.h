@@ -46,6 +46,19 @@ typedef NS_ENUM(NSInteger, AWSConnectComparison) {
     AWSConnectComparisonLT,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectContactFlowType) {
+    AWSConnectContactFlowTypeUnknown,
+    AWSConnectContactFlowTypeContactFlow,
+    AWSConnectContactFlowTypeCustomerQueue,
+    AWSConnectContactFlowTypeCustomerHold,
+    AWSConnectContactFlowTypeCustomerWhisper,
+    AWSConnectContactFlowTypeAgentHold,
+    AWSConnectContactFlowTypeAgentWhisper,
+    AWSConnectContactFlowTypeOutboundWhisper,
+    AWSConnectContactFlowTypeAgentTransfer,
+    AWSConnectContactFlowTypeQueueTransfer,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectCurrentMetricName) {
     AWSConnectCurrentMetricNameUnknown,
     AWSConnectCurrentMetricNameAgentsOnline,
@@ -95,10 +108,263 @@ typedef NS_ENUM(NSInteger, AWSConnectHistoricalMetricName) {
     AWSConnectHistoricalMetricNameServiceLevel,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberCountryCode) {
+    AWSConnectPhoneNumberCountryCodeUnknown,
+    AWSConnectPhoneNumberCountryCodeAf,
+    AWSConnectPhoneNumberCountryCodeAl,
+    AWSConnectPhoneNumberCountryCodeDz,
+    AWSConnectPhoneNumberCountryCodeAs,
+    AWSConnectPhoneNumberCountryCodeAd,
+    AWSConnectPhoneNumberCountryCodeAo,
+    AWSConnectPhoneNumberCountryCodeAi,
+    AWSConnectPhoneNumberCountryCodeAq,
+    AWSConnectPhoneNumberCountryCodeAg,
+    AWSConnectPhoneNumberCountryCodeAr,
+    AWSConnectPhoneNumberCountryCodeAm,
+    AWSConnectPhoneNumberCountryCodeAw,
+    AWSConnectPhoneNumberCountryCodeAu,
+    AWSConnectPhoneNumberCountryCodeAt,
+    AWSConnectPhoneNumberCountryCodeAz,
+    AWSConnectPhoneNumberCountryCodeBs,
+    AWSConnectPhoneNumberCountryCodeBh,
+    AWSConnectPhoneNumberCountryCodeBd,
+    AWSConnectPhoneNumberCountryCodeBb,
+    AWSConnectPhoneNumberCountryCodeBy,
+    AWSConnectPhoneNumberCountryCodeBe,
+    AWSConnectPhoneNumberCountryCodeBz,
+    AWSConnectPhoneNumberCountryCodeBj,
+    AWSConnectPhoneNumberCountryCodeBm,
+    AWSConnectPhoneNumberCountryCodeBt,
+    AWSConnectPhoneNumberCountryCodeBo,
+    AWSConnectPhoneNumberCountryCodeBa,
+    AWSConnectPhoneNumberCountryCodeBw,
+    AWSConnectPhoneNumberCountryCodeBr,
+    AWSConnectPhoneNumberCountryCodeIo,
+    AWSConnectPhoneNumberCountryCodeVg,
+    AWSConnectPhoneNumberCountryCodeBn,
+    AWSConnectPhoneNumberCountryCodeBg,
+    AWSConnectPhoneNumberCountryCodeBf,
+    AWSConnectPhoneNumberCountryCodeBi,
+    AWSConnectPhoneNumberCountryCodeKh,
+    AWSConnectPhoneNumberCountryCodeCm,
+    AWSConnectPhoneNumberCountryCodeCa,
+    AWSConnectPhoneNumberCountryCodeCv,
+    AWSConnectPhoneNumberCountryCodeKy,
+    AWSConnectPhoneNumberCountryCodeCf,
+    AWSConnectPhoneNumberCountryCodeTd,
+    AWSConnectPhoneNumberCountryCodeCl,
+    AWSConnectPhoneNumberCountryCodeCn,
+    AWSConnectPhoneNumberCountryCodeCx,
+    AWSConnectPhoneNumberCountryCodeCc,
+    AWSConnectPhoneNumberCountryCodeCo,
+    AWSConnectPhoneNumberCountryCodeKm,
+    AWSConnectPhoneNumberCountryCodeCk,
+    AWSConnectPhoneNumberCountryCodeCr,
+    AWSConnectPhoneNumberCountryCodeHr,
+    AWSConnectPhoneNumberCountryCodeCu,
+    AWSConnectPhoneNumberCountryCodeCw,
+    AWSConnectPhoneNumberCountryCodeCy,
+    AWSConnectPhoneNumberCountryCodeCz,
+    AWSConnectPhoneNumberCountryCodeCd,
+    AWSConnectPhoneNumberCountryCodeDk,
+    AWSConnectPhoneNumberCountryCodeDj,
+    AWSConnectPhoneNumberCountryCodeDm,
+    AWSConnectPhoneNumberCountryCodeDo,
+    AWSConnectPhoneNumberCountryCodeTl,
+    AWSConnectPhoneNumberCountryCodeEc,
+    AWSConnectPhoneNumberCountryCodeEg,
+    AWSConnectPhoneNumberCountryCodeSv,
+    AWSConnectPhoneNumberCountryCodeGq,
+    AWSConnectPhoneNumberCountryCodeEr,
+    AWSConnectPhoneNumberCountryCodeEe,
+    AWSConnectPhoneNumberCountryCodeEt,
+    AWSConnectPhoneNumberCountryCodeFk,
+    AWSConnectPhoneNumberCountryCodeFo,
+    AWSConnectPhoneNumberCountryCodeFj,
+    AWSConnectPhoneNumberCountryCodeFi,
+    AWSConnectPhoneNumberCountryCodeFr,
+    AWSConnectPhoneNumberCountryCodePf,
+    AWSConnectPhoneNumberCountryCodeGa,
+    AWSConnectPhoneNumberCountryCodeGm,
+    AWSConnectPhoneNumberCountryCodeGE,
+    AWSConnectPhoneNumberCountryCodeDe,
+    AWSConnectPhoneNumberCountryCodeGh,
+    AWSConnectPhoneNumberCountryCodeGi,
+    AWSConnectPhoneNumberCountryCodeGr,
+    AWSConnectPhoneNumberCountryCodeGl,
+    AWSConnectPhoneNumberCountryCodeGd,
+    AWSConnectPhoneNumberCountryCodeGu,
+    AWSConnectPhoneNumberCountryCodeGT,
+    AWSConnectPhoneNumberCountryCodeGg,
+    AWSConnectPhoneNumberCountryCodeGn,
+    AWSConnectPhoneNumberCountryCodeGw,
+    AWSConnectPhoneNumberCountryCodeGy,
+    AWSConnectPhoneNumberCountryCodeHt,
+    AWSConnectPhoneNumberCountryCodeHn,
+    AWSConnectPhoneNumberCountryCodeHk,
+    AWSConnectPhoneNumberCountryCodeHu,
+    AWSConnectPhoneNumberCountryCodeIs,
+    AWSConnectPhoneNumberCountryCodeIN,
+    AWSConnectPhoneNumberCountryCodeId,
+    AWSConnectPhoneNumberCountryCodeIr,
+    AWSConnectPhoneNumberCountryCodeIq,
+    AWSConnectPhoneNumberCountryCodeIe,
+    AWSConnectPhoneNumberCountryCodeIm,
+    AWSConnectPhoneNumberCountryCodeIl,
+    AWSConnectPhoneNumberCountryCodeIt,
+    AWSConnectPhoneNumberCountryCodeCi,
+    AWSConnectPhoneNumberCountryCodeJm,
+    AWSConnectPhoneNumberCountryCodeJp,
+    AWSConnectPhoneNumberCountryCodeJe,
+    AWSConnectPhoneNumberCountryCodeJo,
+    AWSConnectPhoneNumberCountryCodeKz,
+    AWSConnectPhoneNumberCountryCodeKe,
+    AWSConnectPhoneNumberCountryCodeKi,
+    AWSConnectPhoneNumberCountryCodeKw,
+    AWSConnectPhoneNumberCountryCodeKg,
+    AWSConnectPhoneNumberCountryCodeLa,
+    AWSConnectPhoneNumberCountryCodeLv,
+    AWSConnectPhoneNumberCountryCodeLb,
+    AWSConnectPhoneNumberCountryCodeLs,
+    AWSConnectPhoneNumberCountryCodeLr,
+    AWSConnectPhoneNumberCountryCodeLy,
+    AWSConnectPhoneNumberCountryCodeLi,
+    AWSConnectPhoneNumberCountryCodeLT,
+    AWSConnectPhoneNumberCountryCodeLu,
+    AWSConnectPhoneNumberCountryCodeMo,
+    AWSConnectPhoneNumberCountryCodeMk,
+    AWSConnectPhoneNumberCountryCodeMg,
+    AWSConnectPhoneNumberCountryCodeMw,
+    AWSConnectPhoneNumberCountryCodeMy,
+    AWSConnectPhoneNumberCountryCodeMv,
+    AWSConnectPhoneNumberCountryCodeMl,
+    AWSConnectPhoneNumberCountryCodeMt,
+    AWSConnectPhoneNumberCountryCodeMh,
+    AWSConnectPhoneNumberCountryCodeMr,
+    AWSConnectPhoneNumberCountryCodeMu,
+    AWSConnectPhoneNumberCountryCodeYt,
+    AWSConnectPhoneNumberCountryCodeMx,
+    AWSConnectPhoneNumberCountryCodeFm,
+    AWSConnectPhoneNumberCountryCodeMd,
+    AWSConnectPhoneNumberCountryCodeMc,
+    AWSConnectPhoneNumberCountryCodeMn,
+    AWSConnectPhoneNumberCountryCodeMe,
+    AWSConnectPhoneNumberCountryCodeMs,
+    AWSConnectPhoneNumberCountryCodeMa,
+    AWSConnectPhoneNumberCountryCodeMz,
+    AWSConnectPhoneNumberCountryCodeMm,
+    AWSConnectPhoneNumberCountryCodeNa,
+    AWSConnectPhoneNumberCountryCodeNr,
+    AWSConnectPhoneNumberCountryCodeNp,
+    AWSConnectPhoneNumberCountryCodeNl,
+    AWSConnectPhoneNumberCountryCodeAn,
+    AWSConnectPhoneNumberCountryCodeNc,
+    AWSConnectPhoneNumberCountryCodeNz,
+    AWSConnectPhoneNumberCountryCodeNi,
+    AWSConnectPhoneNumberCountryCodeNE,
+    AWSConnectPhoneNumberCountryCodeNg,
+    AWSConnectPhoneNumberCountryCodeNu,
+    AWSConnectPhoneNumberCountryCodeKp,
+    AWSConnectPhoneNumberCountryCodeMp,
+    AWSConnectPhoneNumberCountryCodeNo,
+    AWSConnectPhoneNumberCountryCodeOm,
+    AWSConnectPhoneNumberCountryCodePk,
+    AWSConnectPhoneNumberCountryCodePw,
+    AWSConnectPhoneNumberCountryCodePa,
+    AWSConnectPhoneNumberCountryCodePg,
+    AWSConnectPhoneNumberCountryCodePy,
+    AWSConnectPhoneNumberCountryCodePe,
+    AWSConnectPhoneNumberCountryCodePh,
+    AWSConnectPhoneNumberCountryCodePn,
+    AWSConnectPhoneNumberCountryCodePl,
+    AWSConnectPhoneNumberCountryCodePt,
+    AWSConnectPhoneNumberCountryCodePr,
+    AWSConnectPhoneNumberCountryCodeQa,
+    AWSConnectPhoneNumberCountryCodeCg,
+    AWSConnectPhoneNumberCountryCodeRe,
+    AWSConnectPhoneNumberCountryCodeRo,
+    AWSConnectPhoneNumberCountryCodeRu,
+    AWSConnectPhoneNumberCountryCodeRw,
+    AWSConnectPhoneNumberCountryCodeBl,
+    AWSConnectPhoneNumberCountryCodeSh,
+    AWSConnectPhoneNumberCountryCodeKn,
+    AWSConnectPhoneNumberCountryCodeLc,
+    AWSConnectPhoneNumberCountryCodeMf,
+    AWSConnectPhoneNumberCountryCodePm,
+    AWSConnectPhoneNumberCountryCodeVc,
+    AWSConnectPhoneNumberCountryCodeWs,
+    AWSConnectPhoneNumberCountryCodeSm,
+    AWSConnectPhoneNumberCountryCodeSt,
+    AWSConnectPhoneNumberCountryCodeSa,
+    AWSConnectPhoneNumberCountryCodeSn,
+    AWSConnectPhoneNumberCountryCodeRs,
+    AWSConnectPhoneNumberCountryCodeSc,
+    AWSConnectPhoneNumberCountryCodeSl,
+    AWSConnectPhoneNumberCountryCodeSg,
+    AWSConnectPhoneNumberCountryCodeSx,
+    AWSConnectPhoneNumberCountryCodeSk,
+    AWSConnectPhoneNumberCountryCodeSi,
+    AWSConnectPhoneNumberCountryCodeSb,
+    AWSConnectPhoneNumberCountryCodeSo,
+    AWSConnectPhoneNumberCountryCodeZa,
+    AWSConnectPhoneNumberCountryCodeKr,
+    AWSConnectPhoneNumberCountryCodeEs,
+    AWSConnectPhoneNumberCountryCodeLk,
+    AWSConnectPhoneNumberCountryCodeSd,
+    AWSConnectPhoneNumberCountryCodeSr,
+    AWSConnectPhoneNumberCountryCodeSj,
+    AWSConnectPhoneNumberCountryCodeSz,
+    AWSConnectPhoneNumberCountryCodeSe,
+    AWSConnectPhoneNumberCountryCodeCh,
+    AWSConnectPhoneNumberCountryCodeSy,
+    AWSConnectPhoneNumberCountryCodeTw,
+    AWSConnectPhoneNumberCountryCodeTj,
+    AWSConnectPhoneNumberCountryCodeTz,
+    AWSConnectPhoneNumberCountryCodeTh,
+    AWSConnectPhoneNumberCountryCodeTg,
+    AWSConnectPhoneNumberCountryCodeTk,
+    AWSConnectPhoneNumberCountryCodeTo,
+    AWSConnectPhoneNumberCountryCodeTt,
+    AWSConnectPhoneNumberCountryCodeTn,
+    AWSConnectPhoneNumberCountryCodeTr,
+    AWSConnectPhoneNumberCountryCodeTm,
+    AWSConnectPhoneNumberCountryCodeTc,
+    AWSConnectPhoneNumberCountryCodeTv,
+    AWSConnectPhoneNumberCountryCodeVi,
+    AWSConnectPhoneNumberCountryCodeUg,
+    AWSConnectPhoneNumberCountryCodeUa,
+    AWSConnectPhoneNumberCountryCodeAe,
+    AWSConnectPhoneNumberCountryCodeGb,
+    AWSConnectPhoneNumberCountryCodeUs,
+    AWSConnectPhoneNumberCountryCodeUy,
+    AWSConnectPhoneNumberCountryCodeUz,
+    AWSConnectPhoneNumberCountryCodeVu,
+    AWSConnectPhoneNumberCountryCodeVa,
+    AWSConnectPhoneNumberCountryCodeVe,
+    AWSConnectPhoneNumberCountryCodeVn,
+    AWSConnectPhoneNumberCountryCodeWf,
+    AWSConnectPhoneNumberCountryCodeEh,
+    AWSConnectPhoneNumberCountryCodeYe,
+    AWSConnectPhoneNumberCountryCodeZm,
+    AWSConnectPhoneNumberCountryCodeZw,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberType) {
+    AWSConnectPhoneNumberTypeUnknown,
+    AWSConnectPhoneNumberTypeTollFree,
+    AWSConnectPhoneNumberTypeDid,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectPhoneType) {
     AWSConnectPhoneTypeUnknown,
     AWSConnectPhoneTypeSoftPhone,
     AWSConnectPhoneTypeDeskPhone,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectQueueType) {
+    AWSConnectQueueTypeUnknown,
+    AWSConnectQueueTypeStandard,
+    AWSConnectQueueTypeAgent,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectStatistic) {
@@ -115,6 +381,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
     AWSConnectUnitPercent,
 };
 
+@class AWSConnectContactFlowSummary;
 @class AWSConnectCreateUserRequest;
 @class AWSConnectCreateUserResponse;
 @class AWSConnectCredentials;
@@ -146,6 +413,15 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectHistoricalMetric;
 @class AWSConnectHistoricalMetricData;
 @class AWSConnectHistoricalMetricResult;
+@class AWSConnectHoursOfOperationSummary;
+@class AWSConnectListContactFlowsRequest;
+@class AWSConnectListContactFlowsResponse;
+@class AWSConnectListHoursOfOperationsRequest;
+@class AWSConnectListHoursOfOperationsResponse;
+@class AWSConnectListPhoneNumbersRequest;
+@class AWSConnectListPhoneNumbersResponse;
+@class AWSConnectListQueuesRequest;
+@class AWSConnectListQueuesResponse;
 @class AWSConnectListRoutingProfilesRequest;
 @class AWSConnectListRoutingProfilesResponse;
 @class AWSConnectListSecurityProfilesRequest;
@@ -154,7 +430,9 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectListUserHierarchyGroupsResponse;
 @class AWSConnectListUsersRequest;
 @class AWSConnectListUsersResponse;
+@class AWSConnectPhoneNumberSummary;
 @class AWSConnectQueueReference;
+@class AWSConnectQueueSummary;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectStartOutboundVoiceContactRequest;
@@ -175,53 +453,81 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectUserSummary;
 
 /**
+ <p>Contains summary information about a contact flow.</p>
+ */
+@interface AWSConnectContactFlowSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The type of contact flow.</p>
+ */
+@property (nonatomic, assign) AWSConnectContactFlowType contactFlowType;
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
  
  */
 @interface AWSConnectCreateUserRequest : AWSRequest
 
 
 /**
- <p>The unique identifier for the user account in the directory service directory used for identity management. If Amazon Connect is unable to access the existing directory, you can use the <code>DirectoryUserId</code> to authenticate users. If you include the parameter, it is assumed that Amazon Connect cannot access the directory. If the parameter is not included, the <code>UserIdentityInfo</code> is used to authenticate users from your existing directory.</p><p>This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an <code>InvalidRequestException</code> is returned.</p>
+ <p>The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory.</p><p>This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable directoryUserId;
 
 /**
- <p>The unique identifier for the hierarchy group to assign to the user created.</p>
+ <p>The identifier of the hierarchy group for the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>Information about the user, including email address, first name, and last name.</p>
+ <p>The information about the identity of the user.</p>
  */
 @property (nonatomic, strong) AWSConnectUserIdentityInfo * _Nullable identityInfo;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The password for the user account to create. This is required if you are using Amazon Connect for identity management. If you are using SAML for identity management and include this parameter, an <code>InvalidRequestException</code> is returned.</p>
+ <p>The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable password;
 
 /**
- <p>Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>, <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.</p>
+ <p>The phone settings for the user.</p>
  */
 @property (nonatomic, strong) AWSConnectUserPhoneConfig * _Nullable phoneConfig;
 
 /**
- <p>The unique identifier for the routing profile to assign to the user created.</p>
+ <p>The identifier of the routing profile for the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 /**
- <p>The unique identifier of the security profile to assign to the user created.</p>
+ <p>The identifier of the security profile for the user.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
 
 /**
- <p>The user name in Amazon Connect for the account to create. If you are using SAML for identity management in your Amazon Connect, the value for <code>Username</code> can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
+ <p>The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -234,30 +540,30 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the user account created.</p>
+ <p>The Amazon Resource Name (ARN) of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userArn;
 
 /**
- <p>The unique identifier for the user account in Amazon Connect</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
 @end
 
 /**
- <p>The credentials to use for federation.</p>
+ <p>Contains credentials to use for federation.</p>
  */
 @interface AWSConnectCredentials : AWSModel
 
 
 /**
- <p>An access token generated for a federated user to access Amazon Connect</p>
+ <p>An access token generated for a federated user to access Amazon Connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- <p>A token generated with an expiration time for the session a user is logged in to Amazon Connect</p>
+ <p>A token generated with an expiration time for the session a user is logged in to Amazon Connect.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable accessTokenExpiration;
 
@@ -274,7 +580,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>CurrentMetric</code> object that contains the Name and Unit for the metric.</p>
+ <p>Contains information about a real-time metric.</p>
  */
 @interface AWSConnectCurrentMetric : AWSModel
 
@@ -292,36 +598,36 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>CurrentMetricData</code> object.</p>
+ <p>Contains the data for a real-time metric.</p>
  */
 @interface AWSConnectCurrentMetricData : AWSModel
 
 
 /**
- <p>The metric in a <code>CurrentMetricData</code> object.</p>
+ <p>Information about the metric.</p>
  */
 @property (nonatomic, strong) AWSConnectCurrentMetric * _Nullable metric;
 
 /**
- <p>The value of the metric in the CurrentMetricData object.</p>
+ <p>The value of the metric.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
 
 @end
 
 /**
- <p>A <code>CurrentMetricResult</code> object.</p>
+ <p>Contains information about a set of real-time metrics.</p>
  */
 @interface AWSConnectCurrentMetricResult : AWSModel
 
 
 /**
- <p>The <code>Collections</code> for the <code>CurrentMetricResult</code> object.</p>
+ <p>The set of metrics.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetricData *> * _Nullable collections;
 
 /**
- <p>The <code>Dimensions</code> for the <code>CurrentMetricResult</code> object.</p>
+ <p>The dimensions for the metrics.</p>
  */
 @property (nonatomic, strong) AWSConnectDimensions * _Nullable dimensions;
 
@@ -334,12 +640,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The unique identifier of the user to delete.</p>
+ <p>The identifier of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -352,12 +658,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for the hierarchy group to return.</p>
+ <p>The identifier of the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -370,7 +676,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>Returns a <code>HierarchyGroup</code> object.</p>
+ <p>Information about the hierarchy group.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyGroup * _Nullable hierarchyGroup;
 
@@ -383,7 +689,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -396,7 +702,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A <code>HierarchyStructure</code> object.</p>
+ <p>Information about the hierarchy structure.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyStructure * _Nullable hierarchyStructure;
 
@@ -409,12 +715,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>Unique identifier for the user account to return.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -427,43 +733,43 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A <code>User</code> object that contains information about the user account and configuration settings.</p>
+ <p>Information about the user account and configuration settings.</p>
  */
 @property (nonatomic, strong) AWSConnectUser * _Nullable user;
 
 @end
 
 /**
- <p>A <code>Dimensions</code> object that includes the Channel and Queue for the metric.</p>
+ <p>Contains information about the dimensions for a set of metrics.</p>
  */
 @interface AWSConnectDimensions : AWSModel
 
 
 /**
- <p>The channel used for grouping and filters. Only VOICE is supported.</p>
+ <p>The channel used for grouping and filters.</p>
  */
 @property (nonatomic, assign) AWSConnectChannel channel;
 
 /**
- <p>A <code>QueueReference</code> object used as one part of dimension for the metrics results.</p>
+ <p>Information about the queue for which metrics are returned.</p>
  */
 @property (nonatomic, strong) AWSConnectQueueReference * _Nullable queue;
 
 @end
 
 /**
- <p>The filter, either channel or queues, to apply to the metric results retrieved.</p>
+ <p>Contains the filter to apply when retrieving metrics.</p>
  */
 @interface AWSConnectFilters : AWSModel
 
 
 /**
- <p>The Channel to use as a filter for the metrics returned. Only VOICE is supported.</p>
+ <p>The channel to use to filter the metrics.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable channels;
 
 /**
- <p>A list of up to 100 queue IDs or queue ARNs to use to filter the metrics retrieved. You can include both IDs and ARNs in a request.</p>
+ <p>The queues to use to filter the metrics. You can specify up to 100 queues per request.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
 
@@ -476,12 +782,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The ID for the initial contact in Amazon Connect associated with the attributes to update.</p>
+ <p>The identifier of the initial contact.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The instance ID for the instance from which to retrieve contact attributes.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -494,7 +800,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The attributes to update.</p>
+ <p>Information about the attributes.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -507,32 +813,32 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code> includes a name of a metric to retrieve and the unit to use for it. You must list each metric to retrieve data for in the request.</p><p>The following metrics are available:</p><dl><dt>AGENTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ONLINE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CALL</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_STAFFED</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ERROR</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_IN_QUEUE</dt><dd><p>Unit: COUNT</p></dd><dt>OLDEST_CONTACT_AGE</dt><dd><p>Unit: SECONDS</p></dd><dt>CONTACTS_SCHEDULED</dt><dd><p>Unit: COUNT</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available:</p><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ERROR</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CALL</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ONLINE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_STAFFED</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_IN_QUEUE</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_SCHEDULED</dt><dd><p>Unit: COUNT</p></dd><dt>OLDEST_CONTACT_AGE</dt><dd><p>Unit: SECONDS</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetric *> * _Nullable currentMetrics;
 
 /**
- <p>A <code>Filters</code> object that contains a list of queue IDs or queue ARNs, up to 100, or list of Channels to use to filter the metrics returned in the response. Metric data is retrieved only for the resources associated with the queue IDs, ARNs, or Channels included in the filter. You can include both IDs and ARNs in the same request. To retrieve metrics for all queues, add the queue ID or ARN for each queue in your instance. Only VOICE is supported for Channels.</p><p>To find the ARN for a queue, open the queue you want to use in the Amazon Connect Queue editor. The ARN for the queue is displayed in the address bar as part of the URL. For example, the queue ARN is the set of characters at the end of the URL, after 'id=' such as <code>arn:aws:connect:us-east-1:270923740243:instance/78fb859d-1b7d-44b1-8aa3-12f0835c5855/queue/1d1a4575-9618-40ab-bbeb-81e45795fe61</code>. The queue ID is also included in the URL, and is the string after 'queue/'.</p>
+ <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. The only supported channel is <code>VOICE</code>.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
 /**
- <p>The grouping applied to the metrics returned. For example, when grouped by QUEUE, the metrics returned apply to each queue rather than aggregated for all queues. If you group by CHANNEL, you should include a Channels filter. The only supported channel is VOICE.</p><p>If no <code>Grouping</code> is included in the request, a summary of <code>CurrentMetrics</code> is returned.</p>
+ <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. The only supported channel is <code>VOICE</code>.</p><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p><code>MaxResults</code> indicates the maximum number of results to return per page in the response, between 1 and 100.</p>
+ <p>The maximimum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p><p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the <a href="">NextToken</a> must use the same request parameters as the request that generated the token.</p>
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p><p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -545,17 +851,17 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The time at which <code>CurrentMetricData</code> was retrieved and cached for pagination.</p>
+ <p>The time at which the metrics were retrieved and cached for pagination.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable dataSnapshotTime;
 
 /**
- <p>A list of <code>CurrentMetricResult</code> objects organized by <code>Dimensions</code> combining with <code>CurrentMetricDataCollections</code>.</p><p><code>Dimensions</code> is the resourceId specified in the <code>Filters</code> of the request. </p><p><code>Collections</code> is a list of <code>CurrentMetricData</code> objects with corresponding values to the <code>CurrentMetrics</code> specified in the request.</p><p>If no <code>Grouping</code> is specified in the request, <code>Collections</code> is a summary for the <code>CurrentMetric</code> returned.</p>
+ <p>Information about the real-time metrics.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetricResult *> * _Nullable metricResults;
 
 /**
- <p>A string returned in the response. Use the value returned in the response as the value of the NextToken in a subsequent request to retrieve the next set of results.</p><p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the NextToken must use the same request parameters as the request that generated the token. </p>
+ <p>If there are additional results, this is the token for the next set of results.</p><p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -568,7 +874,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -594,32 +900,32 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be specified using an interval of 5 minutes, such as 11:00, 11:05, 11:10, and must be later than the <code>StartTime</code> timestamp.</p><p>The time range between <code>StartTime</code> and <code>EndTime</code> must be less than 24 hours.</p>
+ <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the retrieval of historical metrics data. The time must be specified using an interval of 5 minutes, such as 11:00, 11:05, 11:10, and must be later than the start time timestamp.</p><p>The time range between the start and end time must be less than 24 hours.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>A <code>Filters</code> object that contains a list of queue IDs or queue ARNs, up to 100, or a list of Channels to use to filter the metrics returned in the response. Metric data is retrieved only for the resources associated with the IDs, ARNs, or Channels included in the filter. You can use both IDs and ARNs together in a request. Only VOICE is supported for Channel.</p><p>To find the ARN for a queue, open the queue you want to use in the Amazon Connect Queue editor. The ARN for the queue is displayed in the address bar as part of the URL. For example, the queue ARN is the set of characters at the end of the URL, after 'id=' such as <code>arn:aws:connect:us-east-1:270923740243:instance/78fb859d-1b7d-44b1-8aa3-12f0835c5855/queue/1d1a4575-9618-40ab-bbeb-81e45795fe61</code>. The queue ID is also included in the URL, and is the string after 'queue/'.</p>
+ <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. The only supported channel is <code>VOICE</code>.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
 /**
- <p>The grouping applied to the metrics returned. For example, when results are grouped by queueId, the metrics returned are grouped by queue. The values returned apply to the metrics for each queue rather than aggregated for all queues.</p><p>The current version supports grouping by Queue</p><p>If no <code>Grouping</code> is included in the request, a summary of <code>HistoricalMetrics</code> for all queues is returned.</p>
+ <p>The grouping applied to the metrics returned. For example, when results are grouped by queue, the metrics returned are grouped by queue. The values returned apply to the metrics for each queue rather than aggregated for all queues.</p><p>The only supported grouping is <code>QUEUE</code>.</p><p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
 /**
- <p>A list of <code>HistoricalMetric</code> objects that contain the metrics to retrieve with the request.</p><p>A <code>HistoricalMetric</code> object contains: <code>HistoricalMetricName</code>, <code>Statistic</code>, <code>Threshold</code>, and <code>Unit</code>.</p><p>You must list each metric to retrieve data for in the request. For each historical metric you include in the request, you must include a <code>Unit</code> and a <code>Statistic</code>. </p><p>The following historical metrics are available:</p><dl><dt>CONTACTS_QUEUED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_CONSULTED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_HANDLED_INCOMING</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_HANDLED_OUTBOUND</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>API_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>CONTACTS_MISSED</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>OCCUPANCY</dt><dd><p>Unit: PERCENT</p><p>Statistics: AVG</p></dd><dt>HANDLE_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: AVG</p></dd><dt>AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: AVG</p></dd><dt>QUEUED_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: MAX</p></dd><dt>ABANDON_TIME</dt><dd><p>Unit: COUNT</p><p>Statistics: SUM</p></dd><dt>QUEUE_ANSWER_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: AVG</p></dd><dt>HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: AVG</p></dd><dt>INTERACTION_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: AVG</p></dd><dt>INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistics: AVG</p></dd><dt>SERVICE_LEVEL</dt><dd><p>Unit: PERCENT</p><p>Statistics: AVG</p><p>Threshold: Only "Less than" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available:</p><dl><dt>ABANDON_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>API_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_CONSULTED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED_INCOMING</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED_OUTBOUND</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_MISSED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>HANDLE_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>INTERACTION_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>OCCUPANCY</dt><dd><p>Unit: PERCENT</p><p>Statistic: AVG</p></dd><dt>QUEUE_ANSWER_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>QUEUED_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: MAX</p></dd><dt>SERVICE_LEVEL</dt><dd><p>Unit: PERCENT</p><p>Statistic: AVG</p><p>Threshold: Only "Less than" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectHistoricalMetric *> * _Nullable historicalMetrics;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>Indicates the maximum number of results to return per page in the response, between 1-100.</p>
+ <p>The maximimum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -629,7 +935,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be specified using a multiple of 5 minutes, such as 10:05, 10:10, 10:15.</p><p><code>StartTime</code> cannot be earlier than 24 hours before the time of the request. Historical metrics are available in Amazon Connect only for 24 hours.</p>
+ <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the retrieval of historical metrics data. The time must be specified using a multiple of 5 minutes, such as 10:05, 10:10, 10:15.</p><p>The start time cannot be earlier than 24 hours before the time of the request. Historical metrics are available only for 24 hours.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
@@ -642,58 +948,58 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A list of <code>HistoricalMetricResult</code> objects, organized by <code>Dimensions</code>, which is the ID of the resource specified in the <code>Filters</code> used for the request. The metrics are combined with the metrics included in <code>Collections</code>, which is a list of <code>HisotricalMetricData</code> objects.</p><p>If no <code>Grouping</code> is specified in the request, <code>Collections</code> includes summary data for the <code>HistoricalMetrics</code>.</p>
+ <p>Information about the historical metrics.</p><p>If no grouping is specified, a summary of metric data is returned.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectHistoricalMetricResult *> * _Nullable metricResults;
 
 /**
- <p>A string returned in the response. Use the value returned in the response as the value of the NextToken in a subsequent request to retrieve the next set of results.</p><p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the NextToken must use the same request parameters as the request that generated the token. </p>
+ <p>If there are additional results, this is the token for the next set of results.</p><p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>A <code>HierarchyGroup</code> object that contains information about a hierarchy group in your Amazon Connect instance.</p>
+ <p>Contains information about a hierarchy group.</p>
  */
 @interface AWSConnectHierarchyGroup : AWSModel
 
 
 /**
- <p>The Amazon Resource Name (ARN) for the hierarchy group.</p>
+ <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>A <code>HierarchyPath</code> object that contains information about the levels in the hierarchy group.</p>
+ <p>Information about the levels in the hierarchy group.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyPath * _Nullable hierarchyPath;
 
 /**
- <p>The identifier for the hierarchy group.</p>
+ <p>The identifier of the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The identifier for the level in the hierarchy group.</p>
+ <p>The identifier of the level in the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable levelId;
 
 /**
- <p>The name of the hierarchy group in your instance.</p>
+ <p>The name of the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
 /**
- <p>A <code>HierarchyGroupSummary</code> object that contains information about the hierarchy group, including ARN, Id, and Name.</p>
+ <p>Contains summary information about a hierarchy group.</p>
  */
 @interface AWSConnectHierarchyGroupSummary : AWSModel
 
 
 /**
- <p>The ARN for the hierarchy group.</p>
+ <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -710,102 +1016,102 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>HierarchyLevel</code> object that contains information about the levels in a hierarchy group, including ARN, Id, and Name.</p>
+ <p>Contains information about a hierarchy level.</p>
  */
 @interface AWSConnectHierarchyLevel : AWSModel
 
 
 /**
- <p>The ARN for the hierarchy group level.</p>
+ <p>The Amazon Resource Name (ARN) of the hierarchy level.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The identifier for the hierarchy group level.</p>
+ <p>The identifier of the hierarchy level.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The name of the hierarchy group level.</p>
+ <p>The name of the hierarchy level.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
 /**
- <p>A <code>HierarchyPath</code> object that contains information about the levels of the hierarchy group.</p>
+ <p>Contains information about the levels of a hierarchy group.</p>
  */
 @interface AWSConnectHierarchyPath : AWSModel
 
 
 /**
- <p>A <code>HierarchyGroupSummary</code> object that contains information about the level of the hierarchy group, including ARN, Id, and Name.</p>
+ <p>Information about level five.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyGroupSummary * _Nullable levelFive;
 
 /**
- <p>A <code>HierarchyGroupSummary</code> object that contains information about the level of the hierarchy group, including ARN, Id, and Name.</p>
+ <p>Information about level four.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyGroupSummary * _Nullable levelFour;
 
 /**
- <p>A <code>HierarchyGroupSummary</code> object that contains information about the level of the hierarchy group, including ARN, Id, and Name.</p>
+ <p>Information about level one.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyGroupSummary * _Nullable levelOne;
 
 /**
- <p>A <code>HierarchyGroupSummary</code> object that contains information about the level of the hierarchy group, including ARN, Id, and Name.</p>
+ <p>Information about level three.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyGroupSummary * _Nullable levelThree;
 
 /**
- <p>A <code>HierarchyGroupSummary</code> object that contains information about the level of the hierarchy group, including ARN, Id, and Name.</p>
+ <p>Information about level two.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyGroupSummary * _Nullable levelTwo;
 
 @end
 
 /**
- <p>A <code>HierarchyStructure</code> object that contains information about the hierarchy group structure.</p>
+ <p>Contains information about a hierarchy structure.</p>
  */
 @interface AWSConnectHierarchyStructure : AWSModel
 
 
 /**
- <p>A <code>HierarchyLevel</code> object that contains information about the hierarchy group level.</p>
+ <p>Information about level five.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyLevel * _Nullable levelFive;
 
 /**
- <p>A <code>HierarchyLevel</code> object that contains information about the hierarchy group level.</p>
+ <p>Information about level four.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyLevel * _Nullable levelFour;
 
 /**
- <p>A <code>HierarchyLevel</code> object that contains information about the hierarchy group level.</p>
+ <p>Information about level one.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyLevel * _Nullable levelOne;
 
 /**
- <p>A <code>HierarchyLevel</code> object that contains information about the hierarchy group level.</p>
+ <p>Information about level three.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyLevel * _Nullable levelThree;
 
 /**
- <p>A <code>HierarchyLevel</code> object that contains information about the hierarchy group level.</p>
+ <p>Information about level two.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyLevel * _Nullable levelTwo;
 
 @end
 
 /**
- <p>A <code>HistoricalMetric</code> object that contains the Name, Unit, Statistic, and Threshold for the metric.</p>
+ <p>Contains information about a historical metric.</p>
  */
 @interface AWSConnectHistoricalMetric : AWSModel
 
 
 /**
- <p>The name of the historical metric.</p>
+ <p>The name of the metric.</p>
  */
 @property (nonatomic, assign) AWSConnectHistoricalMetricName name;
 
@@ -827,38 +1133,245 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>HistoricalMetricData</code> object than contains a <code>Metric</code> and a <code>Value</code>.</p>
+ <p>Contains the data for a historical metric.</p>
  */
 @interface AWSConnectHistoricalMetricData : AWSModel
 
 
 /**
- <p>A <code>HistoricalMetric</code> object.</p>
+ <p>Information about the metric.</p>
  */
 @property (nonatomic, strong) AWSConnectHistoricalMetric * _Nullable metric;
 
 /**
- <p>The <code>Value</code> of the metric.</p>
+ <p>The value of the metric.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
 
 @end
 
 /**
- <p>The metrics data returned from a <code>GetMetricData</code> operation.</p>
+ <p>Contains information about the historical metrics retrieved.</p>
  */
 @interface AWSConnectHistoricalMetricResult : AWSModel
 
 
 /**
- <p>A list of <code>HistoricalMetricData</code> objects.</p>
+ <p>The set of metrics.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectHistoricalMetricData *> * _Nullable collections;
 
 /**
- <p>The <code>Dimensions</code> for the metrics.</p>
+ <p>The dimension for the metrics.</p>
  */
 @property (nonatomic, strong) AWSConnectDimensions * _Nullable dimensions;
+
+@end
+
+/**
+ <p>Contains summary information about hours of operation for a contact center.</p>
+ */
+@interface AWSConnectHoursOfOperationSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListContactFlowsRequest : AWSRequest
+
+
+/**
+ <p>The type of contact flow.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable contactFlowTypes;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListContactFlowsResponse : AWSModel
+
+
+/**
+ <p>Information about the contact flows.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectContactFlowSummary *> * _Nullable contactFlowSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListHoursOfOperationsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListHoursOfOperationsResponse : AWSModel
+
+
+/**
+ <p>Information about the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperationSummary *> * _Nullable hoursOfOperationSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListPhoneNumbersRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberCountryCodes;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable phoneNumberTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListPhoneNumbersResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the phone numbers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectPhoneNumberSummary *> * _Nullable phoneNumberSummaryList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListQueuesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The type of queue.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable queueTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListQueuesResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the queues.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQueueSummary *> * _Nullable queueSummaryList;
 
 @end
 
@@ -869,12 +1382,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximum number of routing profiles to return in the response.</p>
+ <p>The maximimum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -892,12 +1405,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A string returned in the response. Use the value returned in the response as the value of the NextToken in a subsequent request to retrieve the next set of results.</p>
+ <p>If there are additional results, this is the token for the next set of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>An array of <code>RoutingProfileSummary</code> objects that include the ARN, Id, and Name of the routing profile.</p>
+ <p>Information about the routing profiles.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileSummary *> * _Nullable routingProfileSummaryList;
 
@@ -910,12 +1423,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximum number of security profiles to return.</p>
+ <p>The maximimum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -933,12 +1446,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A string returned in the response. Use the value returned in the response as the value of the NextToken in a subsequent request to retrieve the next set of results.</p>
+ <p>If there are additional results, this is the token for the next set of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>An array of <code>SecurityProfileSummary</code> objects.</p>
+ <p>Information about the security profiles.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectSecurityProfileSummary *> * _Nullable securityProfileSummaryList;
 
@@ -951,12 +1464,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximum number of hierarchy groups to return.</p>
+ <p>The maximimum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -974,12 +1487,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A string returned in the response. Use the value returned in the response as the value of the NextToken in a subsequent request to retrieve the next set of results.</p>
+ <p>If there are additional results, this is the token for the next set of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>An array of <code>HierarchyGroupSummary</code> objects.</p>
+ <p>Information about the hierarchy groups.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectHierarchyGroupSummary *> * _Nullable userHierarchyGroupSummaryList;
 
@@ -992,12 +1505,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximum number of results to return in the response.</p>
+ <p>The maximimum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1015,43 +1528,104 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A string returned in the response. Use the value returned in the response as the value of the NextToken in a subsequent request to retrieve the next set of results.</p>
+ <p>If there are additional results, this is the token for the next set of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>An array of <code>UserSummary</code> objects that contain information about the users in your instance.</p>
+ <p>Information about the users.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectUserSummary *> * _Nullable userSummaryList;
 
 @end
 
 /**
- <p>A QueueReference object that contains the the QueueId and ARN for the queue resource for which metrics are returned.</p>
+ <p>Contains summary information about a phone number for a contact center.</p>
+ */
+@interface AWSConnectPhoneNumberSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The ISO country code.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberCountryCode phoneNumberCountryCode;
+
+/**
+ <p>The type of phone number.</p>
+ */
+@property (nonatomic, assign) AWSConnectPhoneNumberType phoneNumberType;
+
+@end
+
+/**
+ <p>Contains information about a queue resource for which metrics are returned.</p>
  */
 @interface AWSConnectQueueReference : AWSModel
 
 
 /**
- <p>The Amazon Resource Name (ARN) of queue.</p>
+ <p>The Amazon Resource Name (ARN) of the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The ID of the queue associated with the metrics returned.</p>
+ <p>The identifier of the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 @end
 
 /**
- <p>A <code>RoutingProfileSummary</code> object that contains information about a routing profile, including ARN, Id, and Name.</p>
+ <p>Contains summary information about a queue.</p>
+ */
+@interface AWSConnectQueueSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The type of queue.</p>
+ */
+@property (nonatomic, assign) AWSConnectQueueType queueType;
+
+@end
+
+/**
+ <p>Contains summary information about a routing profile.</p>
  */
 @interface AWSConnectRoutingProfileSummary : AWSModel
 
 
 /**
- <p>The ARN of the routing profile.</p>
+ <p>The Amazon Resource Name (ARN) of the routing profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -1068,13 +1642,13 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>SecurityProfileSummary</code> object that contains information about a security profile, including ARN, Id, Name.</p>
+ <p>Contains information about a security profile.</p>
  */
 @interface AWSConnectSecurityProfileSummary : AWSModel
 
 
 /**
- <p>The ARN of the security profile.</p>
+ <p>The Amazon Resource Name (ARN) of the security profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -1097,7 +1671,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>Specify a custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p><p>For example, if you want play a greeting when the customer answers the call, you can pass the customer name in attributes similar to the following:</p>
+ <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -1107,27 +1681,27 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The identifier for the contact flow to connect the outbound call to.</p><p>To find the <code>ContactFlowId</code>, open the contact flow you want to use in the Amazon Connect contact flow editor. The ID for the contact flow is displayed in the address bar as part of the URL. For example, the contact flow ID is the set of characters at the end of the URL, after 'contact-flow/' such as <code>78ea8fd5-2659-4f2b-b528-699760ccfc1b</code>.</p>
+ <p>The identifier of the contact flow for the outbound call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
 /**
- <p>The phone number of the customer in E.164 format.</p>
+ <p>The phone number of the customer, in E.164 format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationPhoneNumber;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The queue to add the call to. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue used will be the queue defined in the contact flow.</p><p>To find the <code>QueueId</code>, open the queue you want to use in the Amazon Connect Queue editor. The ID for the queue is displayed in the address bar as part of the URL. For example, the queue ID is the set of characters at the end of the URL, after 'queue/' such as <code>queue/aeg40574-2d01-51c3-73d6-bf8624d2168c</code>.</p>
+ <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueId;
 
 /**
- <p>The phone number, in E.164 format, associated with your Amazon Connect instance to use for the outbound call.</p>
+ <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourcePhoneNumber;
 
@@ -1140,7 +1714,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The unique identifier of this contact within your Amazon Connect instance.</p>
+ <p>The identifier of this contact within the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
@@ -1153,12 +1727,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The unique identifier of the contact to end.</p>
+ <p>The ID of the contact.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactId;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1173,18 +1747,18 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>Threshold</code> object that includes a comparison and <code>ThresholdValue</code> to compare to. Used with service level metrics.</p>
+ <p>Contains information about the threshold for service level metrics.</p>
  */
 @interface AWSConnectThreshold : AWSModel
 
 
 /**
- <p>The Threshold to use to compare service level metrics to. Only "Less than" (LT) comparisons are supported.</p>
+ <p>The type of comparison. Only "less than" (LT) comparisons are supported.</p>
  */
 @property (nonatomic, assign) AWSConnectComparison comparison;
 
 /**
- <p>The value of the threshold to compare the metric to. Only "Less than" (LT) comparisons are supported.</p>
+ <p>The threshold value to compare.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable thresholdValue;
 
@@ -1197,17 +1771,17 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>Specify a custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
+ <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other contact attributes.</p><p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
 /**
- <p>The unique identifier of the contact for which to update attributes. This is the identifier for the contact associated with the first interaction with the contact center.</p>
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable initialContactId;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -1228,17 +1802,17 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for the hierarchy group to assign to the user.</p>
+ <p>The identifier of the hierarchy group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The identifier of the user account to assign the hierarchy group to.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -1251,17 +1825,17 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>A <code>UserIdentityInfo</code> object.</p>
+ <p>The identity information for the user.</p>
  */
 @property (nonatomic, strong) AWSConnectUserIdentityInfo * _Nullable identityInfo;
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The identifier for the user account to update identity information for.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -1274,17 +1848,17 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>A <code>UserPhoneConfig</code> object that contains settings for <code>AfterContactWorkTimeLimit</code>, <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code> to assign to the user.</p>
+ <p>Information about phone configuration settings for the user.</p>
  */
 @property (nonatomic, strong) AWSConnectUserPhoneConfig * _Nullable phoneConfig;
 
 /**
- <p>The identifier for the user account to change phone settings for.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -1297,17 +1871,17 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The identifier of the routing profile to assign to the user.</p>
+ <p>The identifier of the routing profile for the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 /**
- <p>The identifier for the user account to assign the routing profile to.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -1320,40 +1894,40 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The identifier for your Amazon Connect instance. To find the ID of your instance, open the AWS console and select Amazon Connect. Select the alias of the instance in the Instance alias column. The instance ID is displayed in the Overview section of your instance settings. For example, the instance ID is the set of characters at the end of the instance ARN, after instance/, such as 10a4c4eb-f57e-4d4c-b602-bf39176ced07.</p>
+ <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The identifiers for the security profiles to assign to the user.</p>
+ <p>The identifiers of the security profiles for the user.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
 
 /**
- <p>The identifier of the user account to assign the security profiles.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
 @end
 
 /**
- <p>A <code>User</code> object that contains information about a user account in your Amazon Connect instance, including configuration settings.</p>
+ <p>Contains information about a user account for a Amazon Connect instance.</p>
  */
 @interface AWSConnectUser : AWSModel
 
 
 /**
- <p>The ARN of the user account.</p>
+ <p>The Amazon Resource Name (ARN) of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The directory Id for the user account in the existing directory used for identity management.</p>
+ <p>The identifier of the user account in the directory used for identity management.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable directoryUserId;
 
 /**
- <p>The identifier for the hierarchy group assigned to the user.</p>
+ <p>The identifier of the hierarchy group for the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
 
@@ -1363,22 +1937,22 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>A <code>UserIdentityInfo</code> object.</p>
+ <p>Information about the user identity.</p>
  */
 @property (nonatomic, strong) AWSConnectUserIdentityInfo * _Nullable identityInfo;
 
 /**
- <p>A <code>UserPhoneConfig</code> object.</p>
+ <p>Information about the phone configuration for the user.</p>
  */
 @property (nonatomic, strong) AWSConnectUserPhoneConfig * _Nullable phoneConfig;
 
 /**
- <p>The identifier of the routing profile assigned to the user.</p>
+ <p>The identifier of the routing profile for the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 /**
- <p>The identifier(s) for the security profile assigned to the user.</p>
+ <p>The identifiers of the security profiles for the user.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
 
@@ -1390,42 +1964,42 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>A <code>UserIdentityInfo</code> object that contains information about the user's identity, including email address, first name, and last name.</p>
+ <p>Contains information about the identity of a user.</p>
  */
 @interface AWSConnectUserIdentityInfo : AWSModel
 
 
 /**
- <p>The email address added to the user account. If you are using SAML for identity management and include this parameter, an <code>InvalidRequestException</code> is returned.</p>
+ <p>The email address. If you are using SAML for identity management and include this parameter, an error is returned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable email;
 
 /**
- <p>The first name used in the user account. This is required if you are using Amazon Connect or SAML for identity management.</p>
+ <p>The first name. This is required if you are using Amazon Connect or SAML for identity management.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable firstName;
 
 /**
- <p>The last name used in the user account. This is required if you are using Amazon Connect or SAML for identity management.</p>
+ <p>The last name. This is required if you are using Amazon Connect or SAML for identity management.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastName;
 
 @end
 
 /**
- <p>A <code>UserPhoneConfig</code> object that contains information about the user phone configuration settings.</p>
+ <p>Contains information about the phone configuration settings for a user.</p>
  Required parameters: [PhoneType]
  */
 @interface AWSConnectUserPhoneConfig : AWSModel
 
 
 /**
- <p>The After Call Work (ACW) timeout setting, in seconds, for the user.</p>
+ <p>The After Call Work (ACW) timeout setting, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable afterContactWorkTimeLimit;
 
 /**
- <p>The Auto accept setting for the user, Yes or No.</p>
+ <p>The Auto accept setting.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable autoAccept;
 
@@ -1435,30 +2009,30 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSString * _Nullable deskPhoneNumber;
 
 /**
- <p>The phone type selected for the user, either Soft phone or Desk phone.</p>
+ <p>The phone type.</p>
  */
 @property (nonatomic, assign) AWSConnectPhoneType phoneType;
 
 @end
 
 /**
- <p>A <code>UserSummary</code> object that contains Information about a user, including ARN, Id, and user name.</p>
+ <p>Contains summary information about a user.</p>
  */
 @interface AWSConnectUserSummary : AWSModel
 
 
 /**
- <p>The ARN for the user account.</p>
+ <p>The Amazon Resource Name (ARN) of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The identifier for the user account.</p>
+ <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The Amazon Connect user name for the user account.</p>
+ <p>The Amazon Connect user name of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
