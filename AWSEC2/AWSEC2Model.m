@@ -4860,6 +4860,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"inputStorageLocation" : @"InputStorageLocation",
              @"logsStorageLocation" : @"LogsStorageLocation",
              @"name" : @"Name",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
@@ -4869,6 +4870,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)logsStorageLocationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2StorageLocation class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
