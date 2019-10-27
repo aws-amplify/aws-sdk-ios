@@ -1,3 +1,17 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Connect
+ - Amazon EC2
+ - Amazon Polly
+ - Amazon Security Token Service (STS)
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.1
