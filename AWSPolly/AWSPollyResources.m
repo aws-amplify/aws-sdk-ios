@@ -1068,6 +1068,7 @@
         \"Astrid\",\
         \"Bianca\",\
         \"Brian\",\
+        \"Camila\",\
         \"Carla\",\
         \"Carmen\",\
         \"Celine\",\
@@ -1097,6 +1098,7 @@
         \"Liv\",\
         \"Lotte\",\
         \"Lucia\",\
+        \"Lupe\",\
         \"Mads\",\
         \"Maja\",\
         \"Marlene\",\
