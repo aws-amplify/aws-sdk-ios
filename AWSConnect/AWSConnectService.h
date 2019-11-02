@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 
 /**
- <p>The Amazon Connect API Reference provides descriptions, syntax, and usage examples for each of the Amazon Connect actions, data types, parameters, and errors. Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Throttling limits for the Amazon Connect API operations:</p><p>For the <code>GetMetricData</code> and <code>GetCurrentMetricData</code> operations, a RateLimit of 5 per second, and a BurstLimit of 8 per second.</p><p>For all other operations, a RateLimit of 2 per second, and a BurstLimit of 5 per second.</p><p>You can request an increase to the throttling limits by submitting a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">Amazon Connect service limits increase form</a>. You must be signed in to your AWS account to access the form.</p>
+ <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact routing. You can also resolve customer issues more efficiently by putting customers in touch with the right agents.</p><p>There are limits to the number of Amazon Connect resources that you can create and limits to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Limits</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @interface AWSConnect : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 + (void)removeConnectForKey:(NSString *)key;
 
 /**
- <p>Creates a new user account in your Amazon Connect instance.</p>
+ <p>Creates a user account for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateUser service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateUserResponse *> *)createUser:(AWSConnectCreateUserRequest *)request;
 
 /**
- <p>Creates a new user account in your Amazon Connect instance.</p>
+ <p>Creates a user account for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createUser:(AWSConnectCreateUserRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a user account from Amazon Connect.</p>
+ <p>Deletes a user account from the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DeleteUser service method.
 
@@ -211,7 +211,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteUser:(AWSConnectDeleteUserRequest *)request;
 
 /**
- <p>Deletes a user account from Amazon Connect.</p>
+ <p>Deletes a user account from the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DeleteUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -222,7 +222,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteUser:(AWSConnectDeleteUserRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a <code>User</code> object that contains information about the user account specified by the <code>UserId</code>.</p>
+ <p>Describes the specified user account.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUser service method.
 
@@ -234,7 +234,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeUserResponse *> *)describeUser:(AWSConnectDescribeUserRequest *)request;
 
 /**
- <p>Returns a <code>User</code> object that contains information about the user account specified by the <code>UserId</code>.</p>
+ <p>Describes the specified user account.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -247,7 +247,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeUser:(AWSConnectDescribeUserRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a <code>HierarchyGroup</code> object that includes information about a hierarchy group in your instance.</p>
+ <p>Describes the specified hierarchy group.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUserHierarchyGroup service method.
 
@@ -259,7 +259,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeUserHierarchyGroupResponse *> *)describeUserHierarchyGroup:(AWSConnectDescribeUserHierarchyGroupRequest *)request;
 
 /**
- <p>Returns a <code>HierarchyGroup</code> object that includes information about a hierarchy group in your instance.</p>
+ <p>Describes the specified hierarchy group.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUserHierarchyGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeUserHierarchyGroup:(AWSConnectDescribeUserHierarchyGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeUserHierarchyGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a <code>HiearchyGroupStructure</code> object, which contains data about the levels in the agent hierarchy.</p>
+ <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUserHierarchyStructure service method.
 
@@ -284,7 +284,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeUserHierarchyStructureResponse *> *)describeUserHierarchyStructure:(AWSConnectDescribeUserHierarchyStructureRequest *)request;
 
 /**
- <p>Returns a <code>HiearchyGroupStructure</code> object, which contains data about the levels in the agent hierarchy.</p>
+ <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUserHierarchyStructure service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -297,7 +297,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeUserHierarchyStructure:(AWSConnectDescribeUserHierarchyStructureRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeUserHierarchyStructureResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the contact attributes associated with a contact.</p>
+ <p>Retrieves the contact attributes for the specified contact.</p>
  
  @param request A container for the necessary parameters to execute the GetContactAttributes service method.
 
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectGetContactAttributesResponse *> *)getContactAttributes:(AWSConnectGetContactAttributesRequest *)request;
 
 /**
- <p>Retrieves the contact attributes associated with a contact.</p>
+ <p>Retrieves the contact attributes for the specified contact.</p>
  
  @param request A container for the necessary parameters to execute the GetContactAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -322,7 +322,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)getContactAttributes:(AWSConnectGetContactAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetContactAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>The <code>GetCurrentMetricData</code> operation retrieves current metric data from your Amazon Connect instance.</p><p>If you are using an IAM account, it must have permission to the <code>connect:GetCurrentMetricData</code> action.</p>
+ <p>Gets the real-time metric data from the specified Amazon Connect instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html">Real-time Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetCurrentMetricData service method.
 
@@ -334,7 +334,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectGetCurrentMetricDataResponse *> *)getCurrentMetricData:(AWSConnectGetCurrentMetricDataRequest *)request;
 
 /**
- <p>The <code>GetCurrentMetricData</code> operation retrieves current metric data from your Amazon Connect instance.</p><p>If you are using an IAM account, it must have permission to the <code>connect:GetCurrentMetricData</code> action.</p>
+ <p>Gets the real-time metric data from the specified Amazon Connect instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html">Real-time Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetCurrentMetricData service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -372,7 +372,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)getFederationToken:(AWSConnectGetFederationTokenRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetFederationTokenResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>The <code>GetMetricData</code> operation retrieves historical metrics data from your Amazon Connect instance.</p><p>If you are using an IAM account, it must have permission to the <code>connect:GetMetricData</code> action.</p>
+ <p>Gets historical metric data from the specified Amazon Connect instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html">Historical Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetMetricData service method.
 
@@ -384,7 +384,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectGetMetricDataResponse *> *)getMetricData:(AWSConnectGetMetricDataRequest *)request;
 
 /**
- <p>The <code>GetMetricData</code> operation retrieves historical metrics data from your Amazon Connect instance.</p><p>If you are using an IAM account, it must have permission to the <code>connect:GetMetricData</code> action.</p>
+ <p>Gets historical metric data from the specified Amazon Connect instance.</p><p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html">Historical Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetMetricData service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -397,7 +397,107 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)getMetricData:(AWSConnectGetMetricDataRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetMetricDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns an array of <code>RoutingProfileSummary</code> objects that includes information about the routing profiles in your instance.</p>
+ <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListContactFlows service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListContactFlowsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListContactFlowsRequest
+ @see AWSConnectListContactFlowsResponse
+ */
+- (AWSTask<AWSConnectListContactFlowsResponse *> *)listContactFlows:(AWSConnectListContactFlowsRequest *)request;
+
+/**
+ <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListContactFlows service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListContactFlowsRequest
+ @see AWSConnectListContactFlowsResponse
+ */
+- (void)listContactFlows:(AWSConnectListContactFlowsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListContactFlowsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListHoursOfOperations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListHoursOfOperationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListHoursOfOperationsRequest
+ @see AWSConnectListHoursOfOperationsResponse
+ */
+- (AWSTask<AWSConnectListHoursOfOperationsResponse *> *)listHoursOfOperations:(AWSConnectListHoursOfOperationsRequest *)request;
+
+/**
+ <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListHoursOfOperations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListHoursOfOperationsRequest
+ @see AWSConnectListHoursOfOperationsResponse
+ */
+- (void)listHoursOfOperations:(AWSConnectListHoursOfOperationsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListHoursOfOperationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPhoneNumbers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListPhoneNumbersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListPhoneNumbersRequest
+ @see AWSConnectListPhoneNumbersResponse
+ */
+- (AWSTask<AWSConnectListPhoneNumbersResponse *> *)listPhoneNumbers:(AWSConnectListPhoneNumbersRequest *)request;
+
+/**
+ <p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPhoneNumbers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListPhoneNumbersRequest
+ @see AWSConnectListPhoneNumbersResponse
+ */
+- (void)listPhoneNumbers:(AWSConnectListPhoneNumbersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListPhoneNumbersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides information about the queues for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListQueues service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListQueuesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListQueuesRequest
+ @see AWSConnectListQueuesResponse
+ */
+- (AWSTask<AWSConnectListQueuesResponse *> *)listQueues:(AWSConnectListQueuesRequest *)request;
+
+/**
+ <p>Provides information about the queues for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListQueues service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListQueuesRequest
+ @see AWSConnectListQueuesResponse
+ */
+- (void)listQueues:(AWSConnectListQueuesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListQueuesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListRoutingProfiles service method.
 
@@ -409,7 +509,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListRoutingProfilesResponse *> *)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)request;
 
 /**
- <p>Returns an array of <code>RoutingProfileSummary</code> objects that includes information about the routing profiles in your instance.</p>
+ <p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListRoutingProfiles service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -422,7 +522,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listRoutingProfiles:(AWSConnectListRoutingProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListRoutingProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns an array of SecurityProfileSummary objects that contain information about the security profiles in your instance, including the ARN, Id, and Name of the security profile.</p>
+ <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfiles service method.
 
@@ -434,7 +534,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListSecurityProfilesResponse *> *)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)request;
 
 /**
- <p>Returns an array of SecurityProfileSummary objects that contain information about the security profiles in your instance, including the ARN, Id, and Name of the security profile.</p>
+ <p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListSecurityProfiles service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -447,7 +547,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListSecurityProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a <code>UserHierarchyGroupSummaryList</code>, which is an array of <code>HierarchyGroupSummary</code> objects that contain information about the hierarchy groups in your instance.</p>
+ <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListUserHierarchyGroups service method.
 
@@ -459,7 +559,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListUserHierarchyGroupsResponse *> *)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)request;
 
 /**
- <p>Returns a <code>UserHierarchyGroupSummaryList</code>, which is an array of <code>HierarchyGroupSummary</code> objects that contain information about the hierarchy groups in your instance.</p>
+ <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListUserHierarchyGroups service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -472,7 +572,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUserHierarchyGroupsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a <code>UserSummaryList</code>, which is an array of <code>UserSummary</code> objects.</p>
+ <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListUsers service method.
 
@@ -484,7 +584,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListUsersResponse *> *)listUsers:(AWSConnectListUsersRequest *)request;
 
 /**
- <p>Returns a <code>UserSummaryList</code>, which is an array of <code>UserSummary</code> objects.</p>
+ <p>Provides summary information about the users for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListUsers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -497,7 +597,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listUsers:(AWSConnectListUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>The <code>StartOutboundVoiceContact</code> operation initiates a contact flow to place an outbound call to a customer.</p><p>If you are using an IAM account, it must have permission to the <code>connect:StartOutboundVoiceContact</code> action.</p><p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, the call fails.</p>
+ <p>Initiates a contact flow to place an outbound call to a customer.</p><p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p>
  
  @param request A container for the necessary parameters to execute the StartOutboundVoiceContact service method.
 
@@ -509,7 +609,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectStartOutboundVoiceContactResponse *> *)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request;
 
 /**
- <p>The <code>StartOutboundVoiceContact</code> operation initiates a contact flow to place an outbound call to a customer.</p><p>If you are using an IAM account, it must have permission to the <code>connect:StartOutboundVoiceContact</code> action.</p><p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, the call fails.</p>
+ <p>Initiates a contact flow to place an outbound call to a customer.</p><p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p>
  
  @param request A container for the necessary parameters to execute the StartOutboundVoiceContact service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -522,7 +622,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartOutboundVoiceContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Ends the contact initiated by the <code>StartOutboundVoiceContact</code> operation.</p><p>If you are using an IAM account, it must have permission to the <code>connect:StopContact</code> action.</p>
+ <p>Ends the specified contact.</p>
  
  @param request A container for the necessary parameters to execute the StopContact service method.
 
@@ -534,7 +634,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectStopContactResponse *> *)stopContact:(AWSConnectStopContactRequest *)request;
 
 /**
- <p>Ends the contact initiated by the <code>StartOutboundVoiceContact</code> operation.</p><p>If you are using an IAM account, it must have permission to the <code>connect:StopContact</code> action.</p>
+ <p>Ends the specified contact.</p>
  
  @param request A container for the necessary parameters to execute the StopContact service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -547,7 +647,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)stopContact:(AWSConnectStopContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStopContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>The <code>UpdateContactAttributes</code> operation lets you programmatically create new, or update existing, contact attributes associated with a contact. You can use the operation to add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also use the <code>UpdateContactAttributes</code> operation to update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p><p><i>Important:</i></p><p>You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
+ <p>Creates or updates the contact attributes associated with the specified contact.</p><p>You can add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p><p><b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactAttributes service method.
 
@@ -559,7 +659,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectUpdateContactAttributesResponse *> *)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)request;
 
 /**
- <p>The <code>UpdateContactAttributes</code> operation lets you programmatically create new, or update existing, contact attributes associated with a contact. You can use the operation to add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also use the <code>UpdateContactAttributes</code> operation to update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p><p><i>Important:</i></p><p>You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
+ <p>Creates or updates the contact attributes associated with the specified contact.</p><p>You can add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p><p><b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
  
  @param request A container for the necessary parameters to execute the UpdateContactAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -572,7 +672,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateContactAttributes:(AWSConnectUpdateContactAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectUpdateContactAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Assigns the specified hierarchy group to the user.</p>
+ <p>Assigns the specified hierarchy group to the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserHierarchy service method.
 
@@ -583,7 +683,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)request;
 
 /**
- <p>Assigns the specified hierarchy group to the user.</p>
+ <p>Assigns the specified hierarchy group to the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserHierarchy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -594,7 +694,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the identity information for the specified user in a <code>UserIdentityInfo</code> object, including email, first name, and last name.</p>
+ <p>Updates the identity information for the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserIdentityInfo service method.
 
@@ -605,7 +705,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateUserIdentityInfo:(AWSConnectUpdateUserIdentityInfoRequest *)request;
 
 /**
- <p>Updates the identity information for the specified user in a <code>UserIdentityInfo</code> object, including email, first name, and last name.</p>
+ <p>Updates the identity information for the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserIdentityInfo service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -616,7 +716,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateUserIdentityInfo:(AWSConnectUpdateUserIdentityInfoRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the phone configuration settings in the <code>UserPhoneConfig</code> object for the specified user.</p>
+ <p>Updates the phone configuration settings for the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserPhoneConfig service method.
 
@@ -627,7 +727,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateUserPhoneConfig:(AWSConnectUpdateUserPhoneConfigRequest *)request;
 
 /**
- <p>Updates the phone configuration settings in the <code>UserPhoneConfig</code> object for the specified user.</p>
+ <p>Updates the phone configuration settings for the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserPhoneConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -638,7 +738,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateUserPhoneConfig:(AWSConnectUpdateUserPhoneConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Assigns the specified routing profile to a user.</p>
+ <p>Assigns the specified routing profile to the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserRoutingProfile service method.
 
@@ -649,7 +749,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateUserRoutingProfile:(AWSConnectUpdateUserRoutingProfileRequest *)request;
 
 /**
- <p>Assigns the specified routing profile to a user.</p>
+ <p>Assigns the specified routing profile to the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserRoutingProfile service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -660,7 +760,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateUserRoutingProfile:(AWSConnectUpdateUserRoutingProfileRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the security profiles assigned to the user.</p>
+ <p>Assigns the specified security profiles to the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserSecurityProfiles service method.
 
@@ -671,7 +771,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateUserSecurityProfiles:(AWSConnectUpdateUserSecurityProfilesRequest *)request;
 
 /**
- <p>Updates the security profiles assigned to the user.</p>
+ <p>Assigns the specified security profiles to the specified user.</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserSecurityProfiles service method.
  @param completionHandler The completion handler to call when the load request is complete.
