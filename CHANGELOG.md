@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.12.2
+## Unreleased
 
 ### New Features
 
@@ -14,7 +14,6 @@
  - Amazon EC2
  - Amazon Polly
  - Amazon Security Token Service (STS)
-
 
 ## 2.12.1
 
