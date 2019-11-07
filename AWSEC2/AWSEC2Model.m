@@ -3927,6 +3927,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -4492,6 +4498,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -8875,6 +8885,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -9440,6 +9456,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -11556,6 +11576,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -12121,6 +12147,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -16057,6 +16087,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -16622,6 +16658,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -17398,6 +17438,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -17963,6 +18009,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -20425,6 +20475,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -20990,6 +21046,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -22151,6 +22211,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -22716,6 +22782,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -24604,6 +24674,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -25169,6 +25245,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -26458,6 +26538,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -27023,6 +27109,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -32082,6 +32172,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -32647,6 +32743,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -33583,6 +33683,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -34148,6 +34254,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -35069,6 +35179,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -35634,6 +35750,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -36575,6 +36695,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -37140,6 +37266,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -38136,6 +38266,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -38701,6 +38837,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -39946,6 +40086,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -40511,6 +40657,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -41633,6 +41783,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -42198,6 +42354,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -43839,6 +43999,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -44404,6 +44570,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
@@ -46128,6 +46298,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"u-12tb1.metal"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeU_12tb1_metal);
         }
+        if ([value caseInsensitiveCompare:@"u-18tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_18tb1_metal);
+        }
+        if ([value caseInsensitiveCompare:@"u-24tb1.metal"] == NSOrderedSame) {
+            return @(AWSEC2InstanceTypeU_24tb1_metal);
+        }
         if ([value caseInsensitiveCompare:@"a1.medium"] == NSOrderedSame) {
             return @(AWSEC2InstanceTypeA1_medium);
         }
@@ -46693,6 +46869,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"u-9tb1.metal";
             case AWSEC2InstanceTypeU_12tb1_metal:
                 return @"u-12tb1.metal";
+            case AWSEC2InstanceTypeU_18tb1_metal:
+                return @"u-18tb1.metal";
+            case AWSEC2InstanceTypeU_24tb1_metal:
+                return @"u-24tb1.metal";
             case AWSEC2InstanceTypeA1_medium:
                 return @"a1.medium";
             case AWSEC2InstanceTypeA1_large:
