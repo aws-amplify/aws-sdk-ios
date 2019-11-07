@@ -1,18 +1,6 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon EC2
- - Amazon Pinpoint
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.12.2
+## Unreleased
 
 ### New Features
 
@@ -26,7 +14,6 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
  - Amazon EC2
  - Amazon Polly
  - Amazon Security Token Service (STS)
-
 
 ## 2.12.1
 
