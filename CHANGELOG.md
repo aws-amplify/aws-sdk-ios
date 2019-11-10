@@ -1,16 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon Cognito Identity
- - Amazon Comprehend
- - Amazon Pinpoint
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -23,10 +10,12 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 
- - Amazon Connect
- - Amazon EC2
- - Amazon Polly
- - Amazon Security Token Service (STS)
+  - Amazon Cognito Identity
+  - Amazon Comprehend
+  - Amazon Connect
+  - Amazon EC2
+  - Amazon Polly
+  - Amazon Security Token Service (STS)
 
 ## 2.12.1
 
