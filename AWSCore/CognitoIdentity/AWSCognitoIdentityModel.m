@@ -34,6 +34,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowClassicFlow" : @"AllowClassicFlow",
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
              @"cognitoIdentityProviders" : @"CognitoIdentityProviders",
              @"developerProviderName" : @"DeveloperProviderName",
@@ -284,6 +285,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"allowClassicFlow" : @"AllowClassicFlow",
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
              @"cognitoIdentityProviders" : @"CognitoIdentityProviders",
              @"developerProviderName" : @"DeveloperProviderName",
