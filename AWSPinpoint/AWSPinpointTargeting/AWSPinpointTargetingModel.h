@@ -126,8 +126,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingInclude) {
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingJobStatus) {
     AWSPinpointTargetingJobStatusUnknown,
     AWSPinpointTargetingJobStatusCreated,
+    AWSPinpointTargetingJobStatusPreparingForInitialization,
     AWSPinpointTargetingJobStatusInitializing,
     AWSPinpointTargetingJobStatusProcessing,
+    AWSPinpointTargetingJobStatusPendingJob,
     AWSPinpointTargetingJobStatusCompleting,
     AWSPinpointTargetingJobStatusCompleted,
     AWSPinpointTargetingJobStatusFailing,
@@ -144,6 +146,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingMode) {
     AWSPinpointTargetingModeUnknown,
     AWSPinpointTargetingModeDelivery,
     AWSPinpointTargetingModeFilter,
+};
+
+typedef NS_ENUM(NSInteger, AWSPinpointTargetingOperator) {
+    AWSPinpointTargetingOperatorUnknown,
+    AWSPinpointTargetingOperatorAll,
+    AWSPinpointTargetingOperatorAny,
 };
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingRecencyType) {
@@ -165,10 +173,20 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSourceType) {
     AWSPinpointTargetingSourceTypeNone,
 };
 
+typedef NS_ENUM(NSInteger, AWSPinpointTargetingState) {
+    AWSPinpointTargetingStateUnknown,
+    AWSPinpointTargetingStateDraft,
+    AWSPinpointTargetingStateActive,
+    AWSPinpointTargetingStateCompleted,
+    AWSPinpointTargetingStateCancelled,
+    AWSPinpointTargetingStateClosed,
+};
+
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingTemplateType) {
     AWSPinpointTargetingTemplateTypeUnknown,
     AWSPinpointTargetingTemplateTypeEmail,
     AWSPinpointTargetingTemplateTypeSms,
+    AWSPinpointTargetingTemplateTypeVoice,
     AWSPinpointTargetingTemplateTypePush,
 };
 
@@ -193,6 +211,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingAPNSVoipSandboxChannelRequest;
 @class AWSPinpointTargetingAPNSVoipSandboxChannelResponse;
 @class AWSPinpointTargetingActivitiesResponse;
+@class AWSPinpointTargetingActivity;
 @class AWSPinpointTargetingActivityResponse;
 @class AWSPinpointTargetingAddressConfiguration;
 @class AWSPinpointTargetingAndroidPushNotificationTemplate;
@@ -217,6 +236,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingCampaignsResponse;
 @class AWSPinpointTargetingChannelResponse;
 @class AWSPinpointTargetingChannelsResponse;
+@class AWSPinpointTargetingCondition;
+@class AWSPinpointTargetingConditionalSplitActivity;
 @class AWSPinpointTargetingCreateAppRequest;
 @class AWSPinpointTargetingCreateAppResponse;
 @class AWSPinpointTargetingCreateApplicationRequest;
@@ -228,6 +249,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingCreateExportJobResponse;
 @class AWSPinpointTargetingCreateImportJobRequest;
 @class AWSPinpointTargetingCreateImportJobResponse;
+@class AWSPinpointTargetingCreateJourneyRequest;
+@class AWSPinpointTargetingCreateJourneyResponse;
 @class AWSPinpointTargetingCreatePushTemplateRequest;
 @class AWSPinpointTargetingCreatePushTemplateResponse;
 @class AWSPinpointTargetingCreateSegmentRequest;
@@ -264,6 +287,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingDeleteEventStreamResponse;
 @class AWSPinpointTargetingDeleteGcmChannelRequest;
 @class AWSPinpointTargetingDeleteGcmChannelResponse;
+@class AWSPinpointTargetingDeleteJourneyRequest;
+@class AWSPinpointTargetingDeleteJourneyResponse;
 @class AWSPinpointTargetingDeletePushTemplateRequest;
 @class AWSPinpointTargetingDeletePushTemplateResponse;
 @class AWSPinpointTargetingDeleteSegmentRequest;
@@ -280,6 +305,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingEmailChannelRequest;
 @class AWSPinpointTargetingEmailChannelResponse;
 @class AWSPinpointTargetingEmailMessage;
+@class AWSPinpointTargetingEmailMessageActivity;
 @class AWSPinpointTargetingEmailTemplateRequest;
 @class AWSPinpointTargetingEmailTemplateResponse;
 @class AWSPinpointTargetingEndpointBatchItem;
@@ -294,6 +320,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingEndpointUser;
 @class AWSPinpointTargetingEndpointsResponse;
 @class AWSPinpointTargetingEvent;
+@class AWSPinpointTargetingEventCondition;
 @class AWSPinpointTargetingEventDimensions;
 @class AWSPinpointTargetingEventItemResponse;
 @class AWSPinpointTargetingEventStream;
@@ -361,6 +388,14 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingGetImportJobResponse;
 @class AWSPinpointTargetingGetImportJobsRequest;
 @class AWSPinpointTargetingGetImportJobsResponse;
+@class AWSPinpointTargetingGetJourneyDateRangeKpiRequest;
+@class AWSPinpointTargetingGetJourneyDateRangeKpiResponse;
+@class AWSPinpointTargetingGetJourneyExecutionActivityMetricsRequest;
+@class AWSPinpointTargetingGetJourneyExecutionActivityMetricsResponse;
+@class AWSPinpointTargetingGetJourneyExecutionMetricsRequest;
+@class AWSPinpointTargetingGetJourneyExecutionMetricsResponse;
+@class AWSPinpointTargetingGetJourneyRequest;
+@class AWSPinpointTargetingGetJourneyResponse;
 @class AWSPinpointTargetingGetPushTemplateRequest;
 @class AWSPinpointTargetingGetPushTemplateResponse;
 @class AWSPinpointTargetingGetSegmentExportJobsRequest;
@@ -383,11 +418,23 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingGetUserEndpointsResponse;
 @class AWSPinpointTargetingGetVoiceChannelRequest;
 @class AWSPinpointTargetingGetVoiceChannelResponse;
+@class AWSPinpointTargetingHoldoutActivity;
 @class AWSPinpointTargetingImportJobRequest;
 @class AWSPinpointTargetingImportJobResource;
 @class AWSPinpointTargetingImportJobResponse;
 @class AWSPinpointTargetingImportJobsResponse;
 @class AWSPinpointTargetingItemResponse;
+@class AWSPinpointTargetingJourneyDateRangeKpiResponse;
+@class AWSPinpointTargetingJourneyEmailMessage;
+@class AWSPinpointTargetingJourneyExecutionActivityMetricsResponse;
+@class AWSPinpointTargetingJourneyExecutionMetricsResponse;
+@class AWSPinpointTargetingJourneyLimits;
+@class AWSPinpointTargetingJourneyResponse;
+@class AWSPinpointTargetingJourneySchedule;
+@class AWSPinpointTargetingJourneyStateRequest;
+@class AWSPinpointTargetingJourneysResponse;
+@class AWSPinpointTargetingListJourneysRequest;
+@class AWSPinpointTargetingListJourneysResponse;
 @class AWSPinpointTargetingListTagsForResourceRequest;
 @class AWSPinpointTargetingListTagsForResourceResponse;
 @class AWSPinpointTargetingListTemplatesRequest;
@@ -399,6 +446,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingMessageResponse;
 @class AWSPinpointTargetingMessageResult;
 @class AWSPinpointTargetingMetricDimension;
+@class AWSPinpointTargetingMultiConditionalBranch;
+@class AWSPinpointTargetingMultiConditionalSplitActivity;
 @class AWSPinpointTargetingNumberValidateRequest;
 @class AWSPinpointTargetingNumberValidateResponse;
 @class AWSPinpointTargetingPhoneNumberValidateRequest;
@@ -411,6 +460,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingPutEventsRequest;
 @class AWSPinpointTargetingPutEventsResponse;
 @class AWSPinpointTargetingQuietTime;
+@class AWSPinpointTargetingRandomSplitActivity;
+@class AWSPinpointTargetingRandomSplitEntry;
 @class AWSPinpointTargetingRawEmail;
 @class AWSPinpointTargetingRecencyDimension;
 @class AWSPinpointTargetingRemoveAttributesRequest;
@@ -424,6 +475,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingSMSTemplateResponse;
 @class AWSPinpointTargetingSchedule;
 @class AWSPinpointTargetingSegmentBehaviors;
+@class AWSPinpointTargetingSegmentCondition;
 @class AWSPinpointTargetingSegmentDemographics;
 @class AWSPinpointTargetingSegmentDimensions;
 @class AWSPinpointTargetingSegmentGroup;
@@ -441,8 +493,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingSendUsersMessagesResponse;
 @class AWSPinpointTargetingSession;
 @class AWSPinpointTargetingSetDimension;
+@class AWSPinpointTargetingSimpleCondition;
 @class AWSPinpointTargetingSimpleEmail;
 @class AWSPinpointTargetingSimpleEmailPart;
+@class AWSPinpointTargetingStartCondition;
 @class AWSPinpointTargetingTagResourceRequest;
 @class AWSPinpointTargetingTagsModel;
 @class AWSPinpointTargetingTemplate;
@@ -478,6 +532,10 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingUpdateEndpointsBatchResponse;
 @class AWSPinpointTargetingUpdateGcmChannelRequest;
 @class AWSPinpointTargetingUpdateGcmChannelResponse;
+@class AWSPinpointTargetingUpdateJourneyRequest;
+@class AWSPinpointTargetingUpdateJourneyResponse;
+@class AWSPinpointTargetingUpdateJourneyStateRequest;
+@class AWSPinpointTargetingUpdateJourneyStateResponse;
 @class AWSPinpointTargetingUpdatePushTemplateRequest;
 @class AWSPinpointTargetingUpdatePushTemplateResponse;
 @class AWSPinpointTargetingUpdateSegmentRequest;
@@ -491,9 +549,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingVoiceChannelRequest;
 @class AWSPinpointTargetingVoiceChannelResponse;
 @class AWSPinpointTargetingVoiceMessage;
+@class AWSPinpointTargetingWaitActivity;
+@class AWSPinpointTargetingWaitTime;
 @class AWSPinpointTargetingWriteApplicationSettingsRequest;
 @class AWSPinpointTargetingWriteCampaignRequest;
 @class AWSPinpointTargetingWriteEventStream;
+@class AWSPinpointTargetingWriteJourneyRequest;
 @class AWSPinpointTargetingWriteSegmentRequest;
 @class AWSPinpointTargetingWriteTreatmentResource;
 
@@ -792,6 +853,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
+ <p>The type of push notification to send. Valid values are:</p><ul><li><p>alert - For a standard notification that's displayed on recipients' devices and prompts a recipient to interact with the notification.</p></li><li><p>background - For a silent notification that delivers content in the background and isn't displayed on recipients' devices.</p></li><li><p>complication - For a notification that contains update information for an app’s complication timeline.</p></li><li><p>fileprovider - For a notification that signals changes to a File Provider extension.</p></li><li><p>mdm - For a notification that tells managed devices to contact the MDM server.</p></li><li><p>voip - For a notification that provides information about an incoming VoIP call.</p></li></ul><p>Amazon Pinpoint specifies this value in the apns-push-type request header when it sends the notification message to APNs. If you don't specify a value for this property, Amazon Pinpoint sets the value to alert or background automatically, based on the value that you specify for the SilentPush or RawContent property of the message.</p><p>For more information about the apns-push-type request header, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns">Sending Notification Requests to APNs</a> on the Apple Developer website.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable APNSPushType;
+
+/**
  <p>The action to occur if the recipient taps the push notification. Valid values are:</p><ul><li><p>OPEN_APP - Your app opens or it becomes the foreground app if it was sent to the background. This is the default action.</p></li><li><p>DEEP_LINK - Your app opens and displays a designated user interface in the app. This setting uses the deep-linking features of the iOS platform.</p></li><li><p>URL - The default mobile browser on the recipient's device opens and loads the web page at a URL that you specify.</p></li></ul>
  */
 @property (nonatomic, assign) AWSPinpointTargetingAction action;
@@ -827,7 +893,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable mediaUrl;
 
 /**
- <p>The authentication method that you want Amazon Pinpoint to use when authenticating with Apple Push Notification service (APNs), CERTIFICATE or TOKEN.</p>
+ <p>The authentication method that you want Amazon Pinpoint to use when authenticating with APNs, CERTIFICATE or TOKEN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable preferredAuthenticationMethod;
 
@@ -837,7 +903,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable priority;
 
 /**
- <p>The raw, JSON-formatted string to use as the payload for the notification message. This value overrides the message.</p><note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. The value of the content-available key has to be an integer, and can only be 0 or 1. If you're sending a standard notification, set the value of content-available to 0. If you're sending a silent (background) notification, set the value of content-available to 1. Additionally, silent notification payloads can't include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p></note>
+ <p>The raw, JSON-formatted string to use as the payload for the notification message. This value overrides all other content for the message.</p><note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. The value of the content-available key has to be an integer, and can only be 0 or 1. If you're sending a standard notification, set the value of content-available to 0. If you're sending a silent (background) notification, set the value of content-available to 1. Additionally, silent notification payloads can't include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable rawContent;
 
@@ -879,7 +945,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.</p>
+ <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the APNs (Apple Push Notification service) channel.</p>
  */
 @interface AWSPinpointTargetingAPNSPushNotificationTemplate : AWSModel
 
@@ -1287,6 +1353,49 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Specifies the configuration and other settings for an activity in a journey.</p>
+ */
+@interface AWSPinpointTargetingActivity : AWSModel
+
+
+/**
+ <p>The settings for a yes/no split activity. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingConditionalSplitActivity * _Nullable conditionalSplit;
+
+/**
+ <p>The custom description of the activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The settings for an email activity. This type of activity sends an email message to participants.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEmailMessageActivity * _Nullable EMAIL;
+
+/**
+ <p>The settings for a holdout activity. This type of activity stops a journey for a specified percentage of participants.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingHoldoutActivity * _Nullable holdout;
+
+/**
+ <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingMultiConditionalSplitActivity * _Nullable multiCondition;
+
+/**
+ <p>The settings for a random split activity. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingRandomSplitActivity * _Nullable randomSplit;
+
+/**
+ <p>The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWaitActivity * _Nullable wait;
+
+@end
+
+/**
  <p>Provides information about an activity that was performed by a campaign.</p>
  Required parameters: [CampaignId, Id, ApplicationId]
  */
@@ -1329,7 +1438,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable start;
 
 /**
- <p>The state of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.</p>
+ <p>The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable state;
 
@@ -1399,7 +1508,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the content and settings for a message template can be used in push notifications that are sent through the ADM (Amazon Device Messaging), GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging), or Baidu (Baidu Cloud Push) channel.</p>
+ <p>Specifies channel-specific content and settings for a message template that can be used in push notifications that are sent through the ADM (Amazon Device Messaging), Baidu (Baidu Cloud Push), or GCM (Firebase Cloud Messaging, formerly Google Cloud Messaging) channel.</p>
  */
 @interface AWSPinpointTargetingAndroidPushNotificationTemplate : AWSModel
 
@@ -1464,7 +1573,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kpiName;
 
@@ -1474,7 +1583,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingBaseKpiResult * _Nullable kpiResult;
 
 /**
- <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Application Metrics resource. The Application Metrics resource returns all results in a single page.</p>
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Application Metrics resource because the resource returns all results in a single page.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1542,7 +1651,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingCampaignLimits * _Nullable limits;
 
 /**
- <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when campaigns don't send messages to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.</p>
+ <p>The default quiet time for campaigns and journeys in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
 
@@ -1598,7 +1707,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The type of attribute or attributes that were removed from the endpoints. Valid values are:</p><ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints.</p></li><li><p>endpoint-custom-metrics - Custom metrics that your app reports to Amazon Pinpoint for endpoints.</p></li><li><p>endpoint-user-attributes - Custom attributes that describe users.</p></li></ul>
+ <p>The type of attribute or attributes that were removed from the endpoints. Valid values are:</p><ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints.</p></li><li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints.</p></li><li><p>endpoint-user-attributes - Custom attributes that describe users.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeType;
 
@@ -1776,14 +1885,14 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application or campaign.</p>
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  Required parameters: [Rows]
  */
 @interface AWSPinpointTargetingBaseKpiResult : AWSModel
 
 
 /**
- <p>An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application or campaign.</p>
+ <p>An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingResultRow *> * _Nullable rows;
 
@@ -1812,7 +1921,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kpiName;
 
@@ -1822,7 +1931,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingBaseKpiResult * _Nullable kpiResult;
 
 /**
- <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Campaign Metrics resource. The Campaign Metrics resource returns all results in a single page.</p>
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Campaign Metrics resource because the resource returns all results in a single page.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1875,7 +1984,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingEventDimensions * _Nullable dimensions;
 
 /**
- <p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<linklinkend="apps-application-id-events">Events</link> resource) occurs.</p>
+ <p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<linklinkend="apps-application-id-events">Events resource</link>) occurs.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingFilterType filterType;
 
@@ -2030,7 +2139,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingCampaignState * _Nullable state;
 
 /**
- <p>Specifies the message template to use for the message, for each type of channel.</p>
+ <p>The message template that’s used for the campaign.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingTemplateConfiguration * _Nullable templateConfiguration;
 
@@ -2086,7 +2195,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The status of the campaign, or the status of a treatment that belongs to an A/B test campaign. If a campaign uses A/B testing, the campaign has a status of COMPLETED only when all campaign treatments have a status of COMPLETED.</p>
+ <p>The current status of the campaign, or the current status of a treatment that belongs to an A/B test campaign. If a campaign uses A/B testing, the campaign has a status of COMPLETED only if all campaign treatments have a status of COMPLETED.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingCampaignStatus campaignStatus;
 
@@ -2175,6 +2284,52 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>A map that contains a multipart response for each channel. For each item in this object, the ChannelType is the key and the Channel is the value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingChannelResponse *> * _Nullable channels;
+
+@end
+
+/**
+ <p>Specifies the conditions to evaluate for an activity in a journey, and how to evaluate those conditions.</p>
+ */
+@interface AWSPinpointTargetingCondition : AWSModel
+
+
+/**
+ <p>The conditions to evaluate for the activity.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingSimpleCondition *> * _Nullable conditions;
+
+/**
+ <p>Specifies how to handle multiple conditions for the activity. For example, if you specify two conditions for an activity, whether both or only one of the conditions must be met for the activity to be performed.</p>
+ */
+@property (nonatomic, assign) AWSPinpointTargetingOperator operator;
+
+@end
+
+/**
+ <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
+ */
+@interface AWSPinpointTargetingConditionalSplitActivity : AWSModel
+
+
+/**
+ <p>The conditions that define the paths for the activity, and the relationship between the conditions.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingCondition * _Nullable condition;
+
+/**
+ <p>The amount of time to wait before determining whether the conditions are met, or the date and time when Amazon Pinpoint determines whether the conditions are met.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWaitTime * _Nullable evaluationWaitTime;
+
+/**
+ <p>The unique identifier for the activity to perform if the condition isn't met.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable falseActivity;
+
+/**
+ <p>The unique identifier for the activity to perform if the condition is met.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trueActivity;
 
 @end
 
@@ -2279,7 +2434,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Provides information about an API request or response.</p>
+ <p>Provides information about a request to create a message template.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingCreateTemplateMessageBody * _Nullable createTemplateMessageBody;
 
@@ -2350,6 +2505,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 /**
  
  */
+@interface AWSPinpointTargetingCreateJourneyRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>Specifies the configuration and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWriteJourneyRequest * _Nullable writeJourneyRequest;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingCreateJourneyResponse : AWSModel
+
+
+/**
+ <p>Provides information about the status, configuration, and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyResponse * _Nullable journeyResponse;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPinpointTargetingCreatePushTemplateRequest : AWSRequest
 
 
@@ -2372,7 +2558,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Provides information about an API request or response.</p>
+ <p>Provides information about a request to create a message template.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingCreateTemplateMessageBody * _Nullable createTemplateMessageBody;
 
@@ -2434,30 +2620,30 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Provides information about an API request or response.</p>
+ <p>Provides information about a request to create a message template.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingCreateTemplateMessageBody * _Nullable createTemplateMessageBody;
 
 @end
 
 /**
- <p>Provides information about an API request or response.</p>
+ <p>Provides information about a request to create a message template.</p>
  */
 @interface AWSPinpointTargetingCreateTemplateMessageBody : AWSModel
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the message template.</p>
+ <p>The Amazon Resource Name (ARN) of the message template that was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The message that's returned from the API.</p>
+ <p>The message that's returned from the API for the request to create the message template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- <p>The unique identifier for the request or response.</p>
+ <p>The unique identifier for the request to create the message template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable requestID;
 
@@ -2525,7 +2711,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the settings and content for the default message template that's used in messages that are sent through a push notification channel.</p>
+ <p>Specifies the default settings and content for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 @interface AWSPinpointTargetingDefaultPushNotificationTemplate : AWSModel
 
@@ -2908,6 +3094,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 /**
  
  */
+@interface AWSPinpointTargetingDeleteJourneyRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingDeleteJourneyResponse : AWSModel
+
+
+/**
+ <p>Provides information about the status, configuration, and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyResponse * _Nullable journeyResponse;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPinpointTargetingDeletePushTemplateRequest : AWSRequest
 
 
@@ -3282,6 +3499,29 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The default message variables to use in the email message. You can override the default variables with individual address variables.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+@end
+
+/**
+ <p>Specifies the settings for an email activity in a journey. This type of activity sends an email message to participants.</p>
+ */
+@interface AWSPinpointTargetingEmailMessageActivity : AWSModel
+
+
+/**
+ <p>The "From" address to use for the message.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyEmailMessage * _Nullable messageConfig;
+
+/**
+ <p>The unique identifier for the next activity to perform, after the message is sent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextActivity;
+
+/**
+ <p>The name of the email template to use for the message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateName;
 
 @end
 
@@ -3863,23 +4103,42 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the dimensions for an event filter that determines when a campaign is sent.</p>
+ <p>Specifies the conditions to evaluate for an event that applies to an activity in a journey.</p>
+ Required parameters: [Dimensions]
+ */
+@interface AWSPinpointTargetingEventCondition : AWSModel
+
+
+/**
+ <p>The dimensions for the event filter to use for the activity.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventDimensions * _Nullable dimensions;
+
+/**
+ <p>The message identifier (message_id) for the message to use when determining whether message events meet the condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable messageActivity;
+
+@end
+
+/**
+ <p>Specifies the dimensions for an event filter that determines when a campaign is sent or a journey activity is performed.</p>
  */
 @interface AWSPinpointTargetingEventDimensions : AWSModel
 
 
 /**
- <p>One or more custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.</p>
+ <p>One or more custom attributes that your application reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create an event filter.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingAttributeDimension *> * _Nullable attributes;
 
 /**
- <p>The name of the event that causes the campaign to be sent. This can be a standard type of event that Amazon Pinpoint generates, such as _session.start, or a custom event that's specific to your app.</p>
+ <p>The name of the event that causes the campaign to be sent or the journey activity to be performed. This can be a standard type of event that Amazon Pinpoint generates, such as _email.delivered, or a custom event that's specific to your application.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingSetDimension * _Nullable eventType;
 
 /**
- <p>One or more custom metrics that your app reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.</p>
+ <p>One or more custom metrics that your application reports to Amazon Pinpoint. You can use these metrics as selection criteria when you create an event filter.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingMetricDimension *> * _Nullable metrics;
 
@@ -4526,17 +4785,17 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</p>
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kpiName;
 
 /**
- <p>The NextToken string that specifies which page of results to return in a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4593,7 +4852,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4660,7 +4919,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4706,17 +4965,17 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</p>
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kpiName;
 
 /**
- <p>The NextToken string that specifies which page of results to return in a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4824,7 +5083,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -4860,7 +5119,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5062,7 +5321,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5155,7 +5414,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5176,6 +5435,180 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingImportJobsResponse * _Nullable importJobsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyDateRangeKpiRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-19T00:00:00Z for July 19, 2019 and 2019-07-19T20:00:00Z for 8:00 PM July 19, 2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kpiName;
+
+/**
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-15T00:00:00Z for July 15, 2019 and 2019-07-15T16:00:00Z for 4:00 PM July 15, 2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyDateRangeKpiResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyDateRangeKpiResponse * _Nullable journeyDateRangeKpiResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyExecutionActivityMetricsRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyActivityId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyExecutionActivityMetricsResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyExecutionActivityMetricsResponse * _Nullable journeyExecutionActivityMetricsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyExecutionMetricsRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyExecutionMetricsResponse : AWSModel
+
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyExecutionMetricsResponse * _Nullable journeyExecutionMetricsResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingGetJourneyResponse : AWSModel
+
+
+/**
+ <p>Provides information about the status, configuration, and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyResponse * _Nullable journeyResponse;
 
 @end
 
@@ -5217,7 +5650,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5258,7 +5691,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5366,7 +5799,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5407,7 +5840,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -5537,6 +5970,25 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>Provides information about the status and settings of the voice channel for an application.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingVoiceChannelResponse * _Nullable voiceChannelResponse;
+
+@end
+
+/**
+ <p>Specifies the settings for a holdout activity in a journey. This type of activity stops a journey for a specified percentage of participants.</p>
+ Required parameters: [Percentage]
+ */
+@interface AWSPinpointTargetingHoldoutActivity : AWSModel
+
+
+/**
+ <p>The unique identifier for the next activity to perform, after performing the holdout activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextActivity;
+
+/**
+ <p>The percentage of participants who shouldn't continue the journey.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable percentage;
 
 @end
 
@@ -5750,13 +6202,336 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
+ Required parameters: [KpiResult, KpiName, JourneyId, EndTime, StartTime, ApplicationId]
+ */
+@interface AWSPinpointTargetingJourneyDateRangeKpiResponse : AWSModel
+
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The last date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The unique identifier for the journey that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The name of the metric, also referred to as a <i>key performance indicator (KPI)</i>, that the data was retrieved for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. For a list of possible values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kpiName;
+
+/**
+ <p>An array of objects that contains the results of the query. Each object contains the value for the metric and metadata about that value.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingBaseKpiResult * _Nullable kpiResult;
+
+/**
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null for the Journey Engagement Metrics resource because the resource returns all results in a single page.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The first date and time of the date range that was used to filter the query results, in extended ISO 8601 format. The date range is inclusive.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ <p>Specifies the "From" address for an email message that's sent to participants in a journey.</p>
+ */
+@interface AWSPinpointTargetingJourneyEmailMessage : AWSModel
+
+
+/**
+ <p>The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable fromAddress;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
+ Required parameters: [Metrics, JourneyId, LastEvaluatedTime, JourneyActivityId, ActivityType, ApplicationId]
+ */
+@interface AWSPinpointTargetingJourneyExecutionActivityMetricsResponse : AWSModel
+
+
+/**
+ <p>The type of activity that the metric applies to. Possible values are:</p><ul><li><p>CONDITIONAL_SPLIT - For a yes/no split activity, which is an activity that sends participants down one of two paths in a journey.</p></li><li><p>HOLDOUT - For a holdout activity, which is an activity that stops a journey for a specified percentage of participants.</p></li><li><p>MESSAGE - For an email activity, which is an activity that sends an email message to participants.</p></li><li><p>MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which is an activity that sends participants down one of as many as five paths in a journey.</p></li><li><p>RANDOM_SPLIT - For a random split activity, which is an activity that sends specified percentages of participants down one of as many as five paths in a journey.</p></li><li><p>WAIT - For a wait activity, which is an activity that waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable activityType;
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the activity that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyActivityId;
+
+/**
+ <p>The unique identifier for the journey that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the execution status of the activity and updated the data for the metric.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastEvaluatedTime;
+
+/**
+ <p>A JSON object that contains the results of the query. The results vary depending on the type of activity (ActivityType). For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metrics;
+
+@end
+
+/**
+ <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey.</p>
+ Required parameters: [Metrics, JourneyId, LastEvaluatedTime, ApplicationId]
+ */
+@interface AWSPinpointTargetingJourneyExecutionMetricsResponse : AWSModel
+
+
+/**
+ <p>The unique identifier for the application that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey that the metric applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastEvaluatedTime;
+
+/**
+ <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon Pinpoint Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metrics;
+
+@end
+
+/**
+ <p>Specifies limits on the messages that a journey can send and the number of times participants can enter a journey.</p>
+ */
+@interface AWSPinpointTargetingJourneyLimits : AWSModel
+
+
+/**
+ <p>The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dailyCap;
+
+/**
+ <p>The maximum number of times that a participant can enter the journey. The maximum value is 100. To allow participants to enter the journey an unlimited number of times, set this value to 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endpointReentryCap;
+
+/**
+ <p>The maximum number of messages that the journey can send each second.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable messagesPerSecond;
+
+@end
+
+/**
+ <p>Provides information about the status, configuration, and other settings for a journey.</p>
+ Required parameters: [Name, Id, ApplicationId]
+ */
+@interface AWSPinpointTargetingJourneyResponse : AWSModel
+
+
+/**
+ <p>The configuration and other settings for the activities that comprise the journey.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingActivity *> * _Nullable activities;
+
+/**
+ <p>The unique identifier for the application that the journey applies to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The date, in ISO 8601 format, when the journey was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The date, in ISO 8601 format, when the journey was last modified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ <p>The messaging and entry limits for the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyLimits * _Nullable limits;
+
+/**
+ <p>Specifies whether the journey's scheduled start and end times use each participant's local time. If this value is true, the schedule uses each participant's local time.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable localTime;
+
+/**
+ <p>The name of the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li><li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li><li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul><p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
+
+/**
+ <p>The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable refreshFrequency;
+
+/**
+ <p>The schedule settings for the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
+
+/**
+ <p>The unique identifier for the first activity in the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable startActivity;
+
+/**
+ <p>The segment that defines which users are participants in the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingStartCondition * _Nullable startCondition;
+
+/**
+ <p>The current status of the journey. Possible values are:</p><ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li><li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li><li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li><li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li><li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may resume the journey.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSPinpointTargetingState state;
+
+/**
+ <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the journey. Each tag consists of a required tag key and an associated tag value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Specifies the schedule settings for a journey.</p>
+ */
+@interface AWSPinpointTargetingJourneySchedule : AWSModel
+
+
+/**
+ <p>The scheduled time, in ISO 8601 format, when the journey ended or will end.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The scheduled time, in ISO 8601 format, when the journey began or will begin.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>The starting UTC offset for the journey schedule, if the value of the journey's LocalTime property is true. Valid values are: UTC, UTC+01, UTC+02, UTC+03, UTC+03:30, UTC+04, UTC+04:30, UTC+05, UTC+05:30, UTC+05:45, UTC+06, UTC+06:30, UTC+07, UTC+08, UTC+08:45, UTC+09, UTC+09:30, UTC+10, UTC+10:30, UTC+11, UTC+12, UTC+12:45, UTC+13, UTC+13:45, UTC-02, UTC-02:30, UTC-03, UTC-03:30, UTC-04, UTC-05, UTC-06, UTC-07, UTC-08, UTC-09, UTC-09:30, UTC-10, and UTC-11.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timezone;
+
+@end
+
+/**
+ <p>Changes the status of a journey.</p>
+ */
+@interface AWSPinpointTargetingJourneyStateRequest : AWSModel
+
+
+/**
+ <p>The status of the journey. Currently, the only supported value is CANCELLED.</p><p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p><p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p>
+ */
+@property (nonatomic, assign) AWSPinpointTargetingState state;
+
+@end
+
+/**
+ <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
+ Required parameters: [Item]
+ */
+@interface AWSPinpointTargetingJourneysResponse : AWSModel
+
+
+/**
+ <p>An array of responses, one for each journey that's associated with the application.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingJourneyResponse *> * _Nullable item;
+
+/**
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingListJourneysRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable token;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingListJourneysResponse : AWSModel
+
+
+/**
+ <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneysResponse * _Nullable journeysResponse;
+
+@end
+
+/**
  
  */
 @interface AWSPinpointTargetingListTagsForResourceRequest : AWSRequest
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the application, campaign, message template, or segment.</p>
+ <p>The Amazon Resource Name (ARN) of the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
@@ -5769,7 +6544,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
+ <p>Specifies the tags (keys and values) for an application, campaign, journey, message template, or segment.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingTagsModel * _Nullable tagsModel;
 
@@ -5782,12 +6557,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The NextToken string that specifies which page of results to return in a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported by the Application Metrics and Campaign Metrics resources.</p>
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
@@ -6063,6 +6838,47 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The value to compare.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
+
+@end
+
+/**
+ <p>Specifies a condition to evaluate for an activity path in a journey.</p>
+ */
+@interface AWSPinpointTargetingMultiConditionalBranch : AWSModel
+
+
+/**
+ <p>The condition to evaluate for the activity path.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSimpleCondition * _Nullable condition;
+
+/**
+ <p>The unique identifier for the next activity to perform, after completing the activity for the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextActivity;
+
+@end
+
+/**
+ <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+ */
+@interface AWSPinpointTargetingMultiConditionalSplitActivity : AWSModel
+
+
+/**
+ <p>The paths for the activity, including the conditions for entering each path and the activity to perform for each path.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingMultiConditionalBranch *> * _Nullable branches;
+
+/**
+ <p>The activity to perform by default for any path in the activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultActivity;
+
+/**
+ <p>The amount of time to wait or the date and time when Amazon Pinpoint determines whether the conditions are met.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWaitTime * _Nullable evaluationWaitTime;
 
 @end
 
@@ -6434,6 +7250,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Specifies the settings for a random split activity in a journey. This type of activity randomly sends specified percentages of participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+ */
+@interface AWSPinpointTargetingRandomSplitActivity : AWSModel
+
+
+/**
+ <p>The paths for the activity, including the percentage of participants to enter each path and the activity to perform for each path.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingRandomSplitEntry *> * _Nullable branches;
+
+@end
+
+/**
+ <p>Specifies the settings for a path in a random split activity in a journey.</p>
+ */
+@interface AWSPinpointTargetingRandomSplitEntry : AWSModel
+
+
+/**
+ <p>The unique identifier for the next activity to perform, after completing the activity for the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextActivity;
+
+/**
+ <p>The percentage of participants to send down the activity path.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable percentage;
+
+@end
+
+/**
  <p>Specifies the contents of an email message, represented as a raw MIME message.</p>
  */
 @interface AWSPinpointTargetingRawEmail : AWSModel
@@ -6477,7 +7324,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
-  <p>The type of attribute or attributes to remove. Valid values are:</p><ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li><li><p>endpoint-custom-metrics - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li><li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li></ul>
+  <p>The type of attribute or attributes to remove. Valid values are:</p><ul><li><p>endpoint-custom-attributes - Custom attributes that describe endpoints, such as the date when an associated user opted in or out of receiving communications from you through a specific type of channel.</p></li><li><p>endpoint-metric-attributes - Custom metrics that your app reports to Amazon Pinpoint for endpoints, such as the number of app sessions or the number of items left in a cart.</p></li><li><p>endpoint-user-attributes - Custom attributes that describe users, such as first name, last name, and age.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeType;
 
@@ -6502,7 +7349,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application or campaign.</p>
+ <p>Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>
  Required parameters: [GroupedBys, Values]
  */
 @interface AWSPinpointTargetingResultRow : AWSModel
@@ -6514,26 +7361,26 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingResultRowValue *> * _Nullable groupedBys;
 
 /**
- <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application or campaign.</p>
+ <p>An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.</p>
  */
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingResultRowValue *> * _Nullable values;
 
 @end
 
 /**
- <p>Provides a single value and metadata about that value as part of an array of query results for a standard metric that applies to an application or campaign.</p>
+ <p>Provides a single value and metadata about that value as part of an array of query results for a standard metric that applies to an application, campaign, or journey.</p>
  Required parameters: [Type, Value, Key]
  */
 @interface AWSPinpointTargetingResultRowValue : AWSModel
 
 
 /**
- <p>The name of the field that Amazon Pinpoint uses to store the value specified by the Value property.</p>
+ <p>The friendly name of the metric whose value is specified by the Value property.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
 /**
-  <p>The data type of the value specified by the Value property.</p>
+ <p>The data type of the value specified by the Value property.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
 
@@ -6754,7 +7601,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The scheduled time, in ISO 8601 format, for the campaign to end.</p>
+ <p>The scheduled time, in ISO 8601 format, when the campaign ended or will end.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable endTime;
 
@@ -6779,7 +7626,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
 
 /**
- <p>The scheduled time, in ISO 8601 format, for the campaign to begin.</p>
+ <p>The scheduled time, in ISO 8601 format, when the campaign began or will begin.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable startTime;
 
@@ -6800,6 +7647,20 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The dimension settings that are based on how recently an endpoint was active.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingRecencyDimension * _Nullable recency;
+
+@end
+
+/**
+ <p>Specifies a segment to associate with an activity in a journey.</p>
+ Required parameters: [SegmentId]
+ */
+@interface AWSPinpointTargetingSegmentCondition : AWSModel
+
+
+/**
+ <p>The unique identifier for the segment to associate with the activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable segmentId;
 
 @end
 
@@ -7258,6 +8119,29 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Specifies a condition to evaluate for an activity in a journey.</p>
+ */
+@interface AWSPinpointTargetingSimpleCondition : AWSModel
+
+
+/**
+ <p>The dimension settings for the event that's associated with the activity.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventCondition * _Nullable eventCondition;
+
+/**
+ <p>The segment that's associated with the activity.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSegmentCondition * _Nullable segmentCondition;
+
+/**
+ <p>The dimension settings for the segment that's associated with the activity.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSegmentDimensions * _Nullable segmentDimensions;
+
+@end
+
+/**
  <p>Specifies the contents of an email message, composed of a subject, a text part, and an HTML part.</p>
  */
 @interface AWSPinpointTargetingSimpleEmail : AWSModel
@@ -7299,32 +8183,50 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Specifies the conditions for the first activity in a journey. This activity and its conditions determine which users are participants in a journey.</p>
+ */
+@interface AWSPinpointTargetingStartCondition : AWSModel
+
+
+/**
+ <p>The custom description of the condition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSegmentCondition * _Nullable segmentStartCondition;
+
+@end
+
+/**
  
  */
 @interface AWSPinpointTargetingTagResourceRequest : AWSRequest
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the application, campaign, message template, or segment.</p>
+ <p>The Amazon Resource Name (ARN) of the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 /**
- <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
+ <p>Specifies the tags (keys and values) for an application, campaign, journey, message template, or segment.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingTagsModel * _Nullable tagsModel;
 
 @end
 
 /**
- <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
+ <p>Specifies the tags (keys and values) for an application, campaign, journey, message template, or segment.</p>
  Required parameters: [tags]
  */
 @interface AWSPinpointTargetingTagsModel : AWSModel
 
 
 /**
- <p>A string-to-string map of key-value pairs that defines the tags for an application, campaign, message template, or segment. Each project, campaign, message template, or segment can have a maximum of 50 tags.</p><p>Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+ <p>A string-to-string map of key-value pairs that defines the tags for an application, campaign, journey, message template, or segment. Each of these resources can have a maximum of 50 tags.</p><p>Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -7344,7 +8246,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the message template to use for the message, for each type of channel.</p>
+ <p>Specifies the message template for each type of channel.</p>
  */
 @interface AWSPinpointTargetingTemplateConfiguration : AWSModel
 
@@ -7452,12 +8354,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSNumber * _Nullable sizePercent;
 
 /**
- <p>The status of the treatment.</p>
+ <p>The current status of the treatment.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignState * _Nullable state;
 
 /**
- <p>Specifies the message template to use for the message, for each type of channel.</p>
+ <p>The message template to use for the treatment.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingTemplateConfiguration * _Nullable templateConfiguration;
 
@@ -7480,12 +8382,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the application, campaign, message template, or segment.</p>
+ <p>The Amazon Resource Name (ARN) of the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 /**
- <p>The key of the tag to remove from the application, campaign, message template, or segment. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).</p>
+ <p>The key of the tag to remove from the resource. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
@@ -7920,6 +8822,78 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 /**
  
  */
+@interface AWSPinpointTargetingUpdateJourneyRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>Specifies the configuration and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWriteJourneyRequest * _Nullable writeJourneyRequest;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateJourneyResponse : AWSModel
+
+
+/**
+ <p>Provides information about the status, configuration, and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyResponse * _Nullable journeyResponse;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateJourneyStateRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ <p>The unique identifier for the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable journeyId;
+
+/**
+ <p>Changes the status of a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyStateRequest * _Nullable journeyStateRequest;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateJourneyStateResponse : AWSModel
+
+
+/**
+ <p>Provides information about the status, configuration, and other settings for a journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyResponse * _Nullable journeyResponse;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPinpointTargetingUpdatePushTemplateRequest : AWSRequest
 
 
@@ -8183,6 +9157,42 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
+ <p>Specifies the settings for a wait activity in a journey. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
+ */
+@interface AWSPinpointTargetingWaitActivity : AWSModel
+
+
+/**
+ <p>The unique identifier for the next activity to perform, after performing the wait activity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextActivity;
+
+/**
+ <p>The amount of time to wait or the date and time when the activity moves participants to the next activity in the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingWaitTime * _Nullable waitTime;
+
+@end
+
+/**
+ <p>Specifies a duration or a date and time that indicates when Amazon Pinpoint determines whether an activity's conditions have been met or an activity moves participants to the next activity in a journey.</p>
+ */
+@interface AWSPinpointTargetingWaitTime : AWSModel
+
+
+/**
+ <p>The amount of time, as a duration in ISO 8601 format, to wait before determining whether the activity's conditions have been met or moving participants to the next activity in the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable waitFor;
+
+/**
+ <p>The date and time, in ISO 8601 format, when Amazon Pinpoint determines whether the activity's conditions have been met or the activity moves participants to the next activity in the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable waitUntil;
+
+@end
+
+/**
  <p>Specifies the default settings for an application.</p>
  */
 @interface AWSPinpointTargetingWriteApplicationSettingsRequest : AWSModel
@@ -8204,7 +9214,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingCampaignLimits * _Nullable limits;
 
 /**
- <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when campaigns don't send messages to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign, even if quiet time is enabled.</p><p>To override the default quiet time settings for a specific campaign, use the <linklinkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource to define a custom quiet time for the campaign.</p>
+ <p>The default quiet time for campaigns and journeys in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p><p>To override the default quiet time settings for a specific campaign or journey, use the <linklinkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <linklinkend="apps-application-id-journeys-journey-id">Journey</link> resource to define a custom quiet time for the campaign or journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
 
@@ -8272,7 +9282,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSNumber * _Nullable segmentVersion;
 
 /**
- <p>Specifies the message template to use for the message, for each type of channel.</p>
+ <p>The message template to use for the campaign.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingTemplateConfiguration * _Nullable templateConfiguration;
 
@@ -8309,6 +9319,75 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to publish event data to the stream in your AWS account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ <p>Specifies the configuration and other settings for a journey.</p>
+ Required parameters: [Name]
+ */
+@interface AWSPinpointTargetingWriteJourneyRequest : AWSModel
+
+
+/**
+ <p>The configuration and other settings for the activities that comprise the journey.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingActivity *> * _Nullable activities;
+
+/**
+ <p>The date, in ISO 8601 format, when the journey was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ <p>The date, in ISO 8601 format, when the journey was last modified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ <p>The messaging and entry limits for the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneyLimits * _Nullable limits;
+
+/**
+ <p>Specifies whether the journey's scheduled start and end times use each participant's local time. To base the schedule on each participant's local time, set this value to true.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable localTime;
+
+/**
+ <p>The name of the journey. A journey name can contain a maximum of 150 characters. The characters can be alphanumeric characters or symbols, such as underscores (_) or hyphens (-). A journey name can't contain any spaces.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The quiet time settings for the journey. Quiet time is a specific time range when a journey doesn't send messages to participants, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint for the participant is set to a valid value.</p></li><li><p>The current time in the participant's time zone is later than or equal to the time specified by the QuietTime.Start property for the journey.</p></li><li><p>The current time in the participant's time zone is earlier than or equal to the time specified by the QuietTime.End property for the journey.</p></li></ul><p>If any of the preceding conditions isn't met, the participant will receive messages from the journey, even if quiet time is enabled.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
+
+/**
+ <p>The frequency with which Amazon Pinpoint evaluates segment and event data for the journey, as a duration in ISO 8601 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable refreshFrequency;
+
+/**
+ <p>The schedule settings for the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
+
+/**
+ <p>The unique identifier for the first activity in the journey.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable startActivity;
+
+/**
+ <p>The segment that defines which users are participants in the journey.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingStartCondition * _Nullable startCondition;
+
+/**
+ <p>The status of the journey. Valid values are:</p><ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li><li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul><p>The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <linklinkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
+ */
+@property (nonatomic, assign) AWSPinpointTargetingState state;
 
 @end
 
@@ -8363,7 +9442,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSNumber * _Nullable sizePercent;
 
 /**
- <p>Specifies the message template to use for the message, for each type of channel.</p>
+ <p>The message template to use for the treatment.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingTemplateConfiguration * _Nullable templateConfiguration;
 
