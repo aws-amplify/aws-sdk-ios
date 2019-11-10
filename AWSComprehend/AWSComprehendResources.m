@@ -1135,7 +1135,7 @@
     \"ComprehendArnName\":{\
       \"type\":\"string\",\
       \"max\":63,\
-      \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*$\"\
     },\
     \"ConcurrentModificationException\":{\
       \"type\":\"structure\",\
@@ -2098,7 +2098,7 @@
         },\
         \"NumberOfTrainMentions\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>indicates the number of times the given entity name was seen in the training data. </p>\"\
+          \"documentation\":\"<p>Indicates the number of times the given entity type was seen in the training data. </p>\"\
         }\
       },\
       \"documentation\":\"<p>Individual item from the list of entity types in the metadata of an entity recognizer.</p>\"\
@@ -2425,7 +2425,13 @@
         \"fr\",\
         \"de\",\
         \"it\",\
-        \"pt\"\
+        \"pt\",\
+        \"ar\",\
+        \"hi\",\
+        \"ja\",\
+        \"ko\",\
+        \"zh\",\
+        \"zh-TW\"\
       ]\
     },\
     \"ListDocumentClassificationJobsRequest\":{\
