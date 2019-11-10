@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Cognito Identity
+ - Amazon Comprehend
+ - Amazon Pinpoint
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
