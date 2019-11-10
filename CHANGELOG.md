@@ -10,10 +10,12 @@
 
 - Model updates for the following services
 
- - Amazon Connect
- - Amazon EC2
- - Amazon Polly
- - Amazon Security Token Service (STS)
+  - Amazon Cognito Identity
+  - Amazon Comprehend
+  - Amazon Connect
+  - Amazon EC2
+  - Amazon Polly
+  - Amazon Security Token Service (STS)
 
 ## 2.12.1
 
