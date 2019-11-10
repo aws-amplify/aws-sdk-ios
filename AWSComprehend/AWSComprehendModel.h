@@ -78,6 +78,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendLanguageCode) {
     AWSComprehendLanguageCodeDe,
     AWSComprehendLanguageCodeIt,
     AWSComprehendLanguageCodePt,
+    AWSComprehendLanguageCodeAr,
+    AWSComprehendLanguageCodeHi,
+    AWSComprehendLanguageCodeJa,
+    AWSComprehendLanguageCodeKo,
+    AWSComprehendLanguageCodeZh,
+    AWSComprehendLanguageCodeZhTW,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendModelStatus) {
@@ -1777,7 +1783,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendEntityTypesEvaluationMetrics * _Nullable evaluationMetrics;
 
 /**
- <p>indicates the number of times the given entity name was seen in the training data. </p>
+ <p>Indicates the number of times the given entity type was seen in the training data. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable numberOfTrainMentions;
 
