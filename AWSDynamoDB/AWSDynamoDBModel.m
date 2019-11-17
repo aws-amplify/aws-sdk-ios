@@ -3048,8 +3048,45 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"backupArn" : @"BackupArn",
+             @"billingModeOverride" : @"BillingModeOverride",
+             @"globalSecondaryIndexOverride" : @"GlobalSecondaryIndexOverride",
+             @"localSecondaryIndexOverride" : @"LocalSecondaryIndexOverride",
+             @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"targetTableName" : @"TargetTableName",
              };
+}
+
++ (NSValueTransformer *)billingModeOverrideJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PROVISIONED"] == NSOrderedSame) {
+            return @(AWSDynamoDBBillingModeProvisioned);
+        }
+        if ([value caseInsensitiveCompare:@"PAY_PER_REQUEST"] == NSOrderedSame) {
+            return @(AWSDynamoDBBillingModePayPerRequest);
+        }
+        return @(AWSDynamoDBBillingModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBillingModeProvisioned:
+                return @"PROVISIONED";
+            case AWSDynamoDBBillingModePayPerRequest:
+                return @"PAY_PER_REQUEST";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)globalSecondaryIndexOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)localSecondaryIndexOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 @end
@@ -3072,11 +3109,48 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billingModeOverride" : @"BillingModeOverride",
+             @"globalSecondaryIndexOverride" : @"GlobalSecondaryIndexOverride",
+             @"localSecondaryIndexOverride" : @"LocalSecondaryIndexOverride",
+             @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"restoreDateTime" : @"RestoreDateTime",
              @"sourceTableName" : @"SourceTableName",
              @"targetTableName" : @"TargetTableName",
              @"useLatestRestorableTime" : @"UseLatestRestorableTime",
              };
+}
+
++ (NSValueTransformer *)billingModeOverrideJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PROVISIONED"] == NSOrderedSame) {
+            return @(AWSDynamoDBBillingModeProvisioned);
+        }
+        if ([value caseInsensitiveCompare:@"PAY_PER_REQUEST"] == NSOrderedSame) {
+            return @(AWSDynamoDBBillingModePayPerRequest);
+        }
+        return @(AWSDynamoDBBillingModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBillingModeProvisioned:
+                return @"PROVISIONED";
+            case AWSDynamoDBBillingModePayPerRequest:
+                return @"PAY_PER_REQUEST";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)globalSecondaryIndexOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)localSecondaryIndexOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndex class]];
+}
+
++ (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
 + (NSValueTransformer *)restoreDateTimeJSONTransformer {
