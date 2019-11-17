@@ -478,6 +478,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"USER_PASSWORD_AUTH"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth);
         }
+        if ([value caseInsensitiveCompare:@"ADMIN_USER_PASSWORD_AUTH"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderAuthFlowTypeAdminUserPasswordAuth);
+        }
         return @(AWSCognitoIdentityProviderAuthFlowTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -493,6 +496,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"ADMIN_NO_SRP_AUTH";
             case AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth:
                 return @"USER_PASSWORD_AUTH";
+            case AWSCognitoIdentityProviderAuthFlowTypeAdminUserPasswordAuth:
+                return @"ADMIN_USER_PASSWORD_AUTH";
             default:
                 return nil;
         }
@@ -1635,6 +1640,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"generateSecret" : @"GenerateSecret",
              @"logoutURLs" : @"LogoutURLs",
+             @"preventUserExistenceErrors" : @"PreventUserExistenceErrors",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
              @"supportedIdentityProviders" : @"SupportedIdentityProviders",
@@ -1645,6 +1651,27 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)analyticsConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsConfigurationType class]];
+}
+
++ (NSValueTransformer *)preventUserExistenceErrorsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LEGACY"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy);
+        }
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled);
+        }
+        return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy:
+                return @"LEGACY";
+            case AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled:
+                return @"ENABLED";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2195,7 +2222,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"configurationSet" : @"ConfigurationSet",
              @"emailSendingAccount" : @"EmailSendingAccount",
+             @"from" : @"From",
              @"replyToEmailAddress" : @"ReplyToEmailAddress",
              @"sourceArn" : @"SourceArn",
              };
@@ -2808,6 +2837,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"USER_PASSWORD_AUTH"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth);
         }
+        if ([value caseInsensitiveCompare:@"ADMIN_USER_PASSWORD_AUTH"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderAuthFlowTypeAdminUserPasswordAuth);
+        }
         return @(AWSCognitoIdentityProviderAuthFlowTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2823,6 +2855,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"ADMIN_NO_SRP_AUTH";
             case AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth:
                 return @"USER_PASSWORD_AUTH";
+            case AWSCognitoIdentityProviderAuthFlowTypeAdminUserPasswordAuth:
+                return @"ADMIN_USER_PASSWORD_AUTH";
             default:
                 return nil;
         }
@@ -4364,6 +4398,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"logoutURLs" : @"LogoutURLs",
+             @"preventUserExistenceErrors" : @"PreventUserExistenceErrors",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
              @"supportedIdentityProviders" : @"SupportedIdentityProviders",
@@ -4374,6 +4409,27 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)analyticsConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderAnalyticsConfigurationType class]];
+}
+
++ (NSValueTransformer *)preventUserExistenceErrorsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LEGACY"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy);
+        }
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled);
+        }
+        return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy:
+                return @"LEGACY";
+            case AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled:
+                return @"ENABLED";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -4677,6 +4733,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"logoutURLs" : @"LogoutURLs",
+             @"preventUserExistenceErrors" : @"PreventUserExistenceErrors",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
              @"supportedIdentityProviders" : @"SupportedIdentityProviders",
@@ -4702,6 +4759,27 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)preventUserExistenceErrorsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"LEGACY"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy);
+        }
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled);
+        }
+        return @(AWSCognitoIdentityProviderPreventUserExistenceErrorTypesUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy:
+                return @"LEGACY";
+            case AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled:
+                return @"ENABLED";
+            default:
+                return nil;
+        }
     }];
 }
 

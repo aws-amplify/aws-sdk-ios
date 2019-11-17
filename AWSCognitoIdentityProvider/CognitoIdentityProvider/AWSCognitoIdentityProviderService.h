@@ -2417,7 +2417,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateDeviceStatus:(AWSCognitoIdentityProviderUpdateDeviceStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateDeviceStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p>
+ <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateGroup service method.
 
@@ -2429,7 +2429,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateGroupResponse *> *)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)request;
 
 /**
- <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p>
+ <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2467,7 +2467,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateIdentityProvider:(AWSCognitoIdentityProviderUpdateIdentityProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateIdentityProviderResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+ <p>Updates the name and scopes of resource server. All other fields are read-only.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateResourceServer service method.
 
@@ -2479,7 +2479,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateResourceServerResponse *> *)updateResourceServer:(AWSCognitoIdentityProviderUpdateResourceServerRequest *)request;
 
 /**
- <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+ <p>Updates the name and scopes of resource server. All other fields are read-only.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateResourceServer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2517,7 +2517,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateUserAttributes:(AWSCognitoIdentityProviderUpdateUserAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>
+ <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPool service method.
 
@@ -2529,7 +2529,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolResponse *> *)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)request;
 
 /**
- <p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>
+ <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2542,7 +2542,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserPoolResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>
+ <p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPoolClient service method.
 
@@ -2554,7 +2554,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolClientResponse *> *)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)request;
 
 /**
- <p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>
+ <p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPoolClient service method.
  @param completionHandler The completion handler to call when the load request is complete.
