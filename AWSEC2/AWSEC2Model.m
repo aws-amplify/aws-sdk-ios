@@ -2741,7 +2741,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"presignedUrl" : @"PresignedUrl",
              @"sourceRegion" : @"SourceRegion",
              @"sourceSnapshotId" : @"SourceSnapshotId",
+             @"tagSpecifications" : @"TagSpecifications",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -2751,7 +2756,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"snapshotId" : @"SnapshotId",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
