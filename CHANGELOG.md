@@ -10,12 +10,17 @@
 
 - Model updates for the following services
 
+  - Amazon CloudWatch Logs
   - Amazon Cognito Identity
+  - Amazon Cognito Identity Provider
   - Amazon Comprehend
   - Amazon Connect
+  - Amazon DynamoDB
   - Amazon EC2
+  - Amazon IoT
   - Amazon Polly
   - Amazon Security Token Service (STS)
+  - Amazon Transcribe
 
 ## 2.12.1
 
