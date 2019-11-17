@@ -426,6 +426,8 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectListRoutingProfilesResponse;
 @class AWSConnectListSecurityProfilesRequest;
 @class AWSConnectListSecurityProfilesResponse;
+@class AWSConnectListTagsForResourceRequest;
+@class AWSConnectListTagsForResourceResponse;
 @class AWSConnectListUserHierarchyGroupsRequest;
 @class AWSConnectListUserHierarchyGroupsResponse;
 @class AWSConnectListUsersRequest;
@@ -439,7 +441,9 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectStartOutboundVoiceContactResponse;
 @class AWSConnectStopContactRequest;
 @class AWSConnectStopContactResponse;
+@class AWSConnectTagResourceRequest;
 @class AWSConnectThreshold;
+@class AWSConnectUntagResourceRequest;
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
 @class AWSConnectUpdateUserHierarchyRequest;
@@ -525,6 +529,11 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The identifier of the security profile for the user.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
  <p>The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
@@ -1460,6 +1469,32 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 /**
  
  */
+@interface AWSConnectListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p>Information about the tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListUserHierarchyGroupsRequest : AWSRequest
 
 
@@ -1747,6 +1782,24 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectTagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>One or more tags. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  <p>Contains information about the threshold for service level metrics.</p>
  */
 @interface AWSConnectThreshold : AWSModel
@@ -1761,6 +1814,24 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The threshold value to compare.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable thresholdValue;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUntagResourceRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p>The tag keys.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
 @end
 
@@ -1955,6 +2026,11 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The identifiers of the security profiles for the user.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityProfileIds;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
  <p>The user name assigned to the user account.</p>
