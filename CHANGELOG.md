@@ -1,3 +1,21 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Cognito Identity Provider
+ - Amazon Connect
+ - Amazon DynamoDB
+ - Amazon EC2
+ - Amazon IoT
+ - Amazon CloudWatch Logs
+ - Amazon Pinpoint
+ - Amazon Transcribe
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
