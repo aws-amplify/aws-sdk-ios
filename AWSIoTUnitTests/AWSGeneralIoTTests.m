@@ -4072,6 +4072,54 @@ static id mockNetworking = nil;
     [AWSIoT removeIoTForKey:key];
 }
 
+- (void)testGetCardinality {
+    NSString *key = @"testGetCardinality";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] getCardinality:[AWSIoTGetCardinalityRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testGetCardinalityCompletionHandler {
+    NSString *key = @"testGetCardinality";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] getCardinality:[AWSIoTGetCardinalityRequest new] completionHandler:^(AWSIoTGetCardinalityResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
 - (void)testGetEffectivePolicies {
     NSString *key = @"testGetEffectivePolicies";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -4299,6 +4347,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSIoT IoTForKey:key] getOTAUpdate:[AWSIoTGetOTAUpdateRequest new] completionHandler:^(AWSIoTGetOTAUpdateResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testGetPercentiles {
+    NSString *key = @"testGetPercentiles";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] getPercentiles:[AWSIoTGetPercentilesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testGetPercentilesCompletionHandler {
+    NSString *key = @"testGetPercentiles";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] getPercentiles:[AWSIoTGetPercentilesRequest new] completionHandler:^(AWSIoTGetPercentilesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

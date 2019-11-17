@@ -562,7 +562,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream. The total size of a file associated with the stream cannot exceed more than 2 MB. The stream will be created with version 0. If a stream is created with the same streamID as a stream that existed and was deleted within last 90 days, we will resurrect that old stream by incrementing the version by 1.</p>\"\
+      \"documentation\":\"<p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p>\"\
     },\
     \"CreateThing\":{\
       \"name\":\"CreateThing\",\
@@ -1514,6 +1514,27 @@
       ],\
       \"documentation\":\"<p>Enables the rule.</p>\"\
     },\
+    \"GetCardinality\":{\
+      \"name\":\"GetCardinality\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/indices/cardinality\"\
+      },\
+      \"input\":{\"shape\":\"GetCardinalityRequest\"},\
+      \"output\":{\"shape\":\"GetCardinalityResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidQueryException\"},\
+        {\"shape\":\"InvalidAggregationException\"},\
+        {\"shape\":\"IndexNotReadyException\"}\
+      ],\
+      \"documentation\":\"<p>Returns the number of things with distinct values for the aggregation field. </p>\"\
+    },\
     \"GetEffectivePolicies\":{\
       \"name\":\"GetEffectivePolicies\",\
       \"http\":{\
@@ -1599,6 +1620,27 @@
       ],\
       \"documentation\":\"<p>Gets an OTA update.</p>\"\
     },\
+    \"GetPercentiles\":{\
+      \"name\":\"GetPercentiles\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/indices/percentiles\"\
+      },\
+      \"input\":{\"shape\":\"GetPercentilesRequest\"},\
+      \"output\":{\"shape\":\"GetPercentilesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidQueryException\"},\
+        {\"shape\":\"InvalidAggregationException\"},\
+        {\"shape\":\"IndexNotReadyException\"}\
+      ],\
+      \"documentation\":\"<p>Returns the percentile values for the aggregation field. The results from GetPercentiles is an approximation. The default percentile groupings are: 1,5,25,50,75,95,99. You can specify custom percentile grouping using the percents argument to the GetPercentiles API.</p>\"\
+    },\
     \"GetPolicy\":{\
       \"name\":\"GetPolicy\",\
       \"http\":{\
@@ -1671,7 +1713,7 @@
         {\"shape\":\"InvalidAggregationException\"},\
         {\"shape\":\"IndexNotReadyException\"}\
       ],\
-      \"documentation\":\"<p>Gets statistics about things that match the specified query.</p>\"\
+      \"documentation\":\"<p>Gets statistics returns the count, average, sum, minimum, maximum, sumOfSquares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type String, only the count statistic is returned.</p>\"\
     },\
     \"GetTopicRule\":{\
       \"name\":\"GetTopicRule\",\
@@ -2469,7 +2511,7 @@
         {\"shape\":\"ConflictingResourceUpdateException\"},\
         {\"shape\":\"ResourceRegistrationFailureException\"}\
       ],\
-      \"documentation\":\"<p>Provisions a thing.</p>\"\
+      \"documentation\":\"<p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control plane APIs. These calls might exceed your account level <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot\\\"> AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href=\\\"https://console.aws.amazon.com/support/home\\\">AWS Customer Support</a> to raise your throttling limits if necessary.</p>\"\
     },\
     \"RejectCertificateTransfer\":{\
       \"name\":\"RejectCertificateTransfer\",\
@@ -3542,7 +3584,7 @@
         },\
         \"principal\":{\
           \"shape\":\"Principal\",\
-          \"documentation\":\"<p>The principal, such as a certificate or other credential.</p>\",\
+          \"documentation\":\"<p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amzn-principal\"\
         }\
@@ -4057,6 +4099,7 @@
         \"DISABLE\"\
       ]\
     },\
+    \"Average\":{\"type\":\"double\"},\
     \"AwsAccountId\":{\
       \"type\":\"string\",\
       \"max\":12,\
@@ -7330,6 +7373,33 @@
     \"FailedChecksCount\":{\"type\":\"integer\"},\
     \"FailedFindingsCount\":{\"type\":\"long\"},\
     \"FailedThings\":{\"type\":\"integer\"},\
+    \"Field\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"name\":{\
+          \"shape\":\"FieldName\",\
+          \"documentation\":\"<p>The name of the field.</p>\"\
+        },\
+        \"type\":{\
+          \"shape\":\"FieldType\",\
+          \"documentation\":\"<p>The datatype of the field.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the name and data type at a field.</p>\"\
+    },\
+    \"FieldName\":{\"type\":\"string\"},\
+    \"FieldType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"Number\",\
+        \"String\",\
+        \"Boolean\"\
+      ]\
+    },\
+    \"Fields\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Field\"}\
+    },\
     \"FileId\":{\
       \"type\":\"integer\",\
       \"max\":255,\
@@ -7400,6 +7470,37 @@
       \"min\":1\
     },\
     \"GenerationId\":{\"type\":\"string\"},\
+    \"GetCardinalityRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"queryString\"],\
+      \"members\":{\
+        \"indexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the index to search.</p>\"\
+        },\
+        \"queryString\":{\
+          \"shape\":\"QueryString\",\
+          \"documentation\":\"<p>The search query.</p>\"\
+        },\
+        \"aggregationField\":{\
+          \"shape\":\"AggregationField\",\
+          \"documentation\":\"<p>The field to aggregate.</p>\"\
+        },\
+        \"queryVersion\":{\
+          \"shape\":\"QueryVersion\",\
+          \"documentation\":\"<p>The query version.</p>\"\
+        }\
+      }\
+    },\
+    \"GetCardinalityResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"cardinality\":{\
+          \"shape\":\"Count\",\
+          \"documentation\":\"<p>The number of things that match the query.</p>\"\
+        }\
+      }\
+    },\
     \"GetEffectivePoliciesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -7508,6 +7609,41 @@
         }\
       }\
     },\
+    \"GetPercentilesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"queryString\"],\
+      \"members\":{\
+        \"indexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the index to search.</p>\"\
+        },\
+        \"queryString\":{\
+          \"shape\":\"QueryString\",\
+          \"documentation\":\"<p>The query string.</p>\"\
+        },\
+        \"aggregationField\":{\
+          \"shape\":\"AggregationField\",\
+          \"documentation\":\"<p>The field to aggregate.</p>\"\
+        },\
+        \"queryVersion\":{\
+          \"shape\":\"QueryVersion\",\
+          \"documentation\":\"<p>The query version.</p>\"\
+        },\
+        \"percents\":{\
+          \"shape\":\"PercentList\",\
+          \"documentation\":\"<p>The percentile groups returned.</p>\"\
+        }\
+      }\
+    },\
+    \"GetPercentilesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"percentiles\":{\
+          \"shape\":\"Percentiles\",\
+          \"documentation\":\"<p>The percentile values of the aggregated fields.</p>\"\
+        }\
+      }\
+    },\
     \"GetPolicyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"policyName\"],\
@@ -7602,11 +7738,11 @@
         },\
         \"creationDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date the policy version was created.</p>\"\
+          \"documentation\":\"<p>The date the policy was created.</p>\"\
         },\
         \"lastModifiedDate\":{\
           \"shape\":\"DateType\",\
-          \"documentation\":\"<p>The date the policy version was last modified.</p>\"\
+          \"documentation\":\"<p>The date the policy was last modified.</p>\"\
         },\
         \"generationId\":{\
           \"shape\":\"GenerationId\",\
@@ -7645,7 +7781,7 @@
         },\
         \"aggregationField\":{\
           \"shape\":\"AggregationField\",\
-          \"documentation\":\"<p>The aggregation field name. Currently not supported.</p>\"\
+          \"documentation\":\"<p>The aggregation field name.</p>\"\
         },\
         \"queryVersion\":{\
           \"shape\":\"QueryVersion\",\
@@ -10182,6 +10318,7 @@
       \"max\":250,\
       \"min\":1\
     },\
+    \"Maximum\":{\"type\":\"double\"},\
     \"MaximumPerMinute\":{\
       \"type\":\"integer\",\
       \"max\":1000,\
@@ -10220,6 +10357,7 @@
       },\
       \"documentation\":\"<p>The value to be compared with the <code>metric</code>.</p>\"\
     },\
+    \"Minimum\":{\"type\":\"double\"},\
     \"MinimumNumberOfExecutedThings\":{\
       \"type\":\"integer\",\
       \"min\":1\
@@ -10556,10 +10694,38 @@
     },\
     \"PartitionKey\":{\"type\":\"string\"},\
     \"PayloadField\":{\"type\":\"string\"},\
+    \"Percent\":{\
+      \"type\":\"double\",\
+      \"max\":100,\
+      \"min\":0\
+    },\
+    \"PercentList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Percent\"}\
+    },\
+    \"PercentPair\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"percent\":{\
+          \"shape\":\"Percent\",\
+          \"documentation\":\"<p>The percentile.</p>\"\
+        },\
+        \"value\":{\
+          \"shape\":\"PercentValue\",\
+          \"documentation\":\"<p>The value.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the percentile and percentile value.</p>\"\
+    },\
+    \"PercentValue\":{\"type\":\"double\"},\
     \"Percentage\":{\
       \"type\":\"integer\",\
       \"max\":100,\
       \"min\":0\
+    },\
+    \"Percentiles\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PercentPair\"}\
     },\
     \"Platform\":{\"type\":\"string\"},\
     \"Policies\":{\
@@ -11085,7 +11251,7 @@
         },\
         \"qos\":{\
           \"shape\":\"Qos\",\
-          \"documentation\":\"<p>The Quality of Service (QoS) level to use when republishing messages.</p>\"\
+          \"documentation\":\"<p>The Quality of Service (QoS) level to use when republishing messages. The default value is 0.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action to republish to another topic.</p>\"\
@@ -11832,6 +11998,41 @@
         \"count\":{\
           \"shape\":\"Count\",\
           \"documentation\":\"<p>The count of things that match the query.</p>\"\
+        },\
+        \"average\":{\
+          \"shape\":\"Average\",\
+          \"documentation\":\"<p>The average of the aggregated field values.</p>\",\
+          \"box\":true\
+        },\
+        \"sum\":{\
+          \"shape\":\"Sum\",\
+          \"documentation\":\"<p>The sum of the aggregated field values.</p>\",\
+          \"box\":true\
+        },\
+        \"minimum\":{\
+          \"shape\":\"Minimum\",\
+          \"documentation\":\"<p>The minimum aggregated field value.</p>\",\
+          \"box\":true\
+        },\
+        \"maximum\":{\
+          \"shape\":\"Maximum\",\
+          \"documentation\":\"<p>The maximum aggregated field value.</p>\",\
+          \"box\":true\
+        },\
+        \"sumOfSquares\":{\
+          \"shape\":\"SumOfSquares\",\
+          \"documentation\":\"<p>The sum of the squares of the aggregated field values.</p>\",\
+          \"box\":true\
+        },\
+        \"variance\":{\
+          \"shape\":\"Variance\",\
+          \"documentation\":\"<p>The variance of the aggregated field values.</p>\",\
+          \"box\":true\
+        },\
+        \"stdDeviation\":{\
+          \"shape\":\"StdDeviation\",\
+          \"documentation\":\"<p>The standard deviation of the aggregated field valuesl</p>\",\
+          \"box\":true\
         }\
       },\
       \"documentation\":\"<p>A map of key-value pairs for all supported statistics. Currently, only count is supported.</p>\"\
@@ -11846,6 +12047,7 @@
         \"Cancelling\"\
       ]\
     },\
+    \"StdDeviation\":{\"type\":\"double\"},\
     \"StepFunctionsAction\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -12009,6 +12211,8 @@
     },\
     \"SucceededFindingsCount\":{\"type\":\"long\"},\
     \"SucceededThings\":{\"type\":\"integer\"},\
+    \"Sum\":{\"type\":\"double\"},\
+    \"SumOfSquares\":{\"type\":\"double\"},\
     \"TableName\":{\"type\":\"string\"},\
     \"Tag\":{\
       \"type\":\"structure\",\
@@ -12381,6 +12585,14 @@
         \"thingGroupIndexingMode\":{\
           \"shape\":\"ThingGroupIndexingMode\",\
           \"documentation\":\"<p>Thing group indexing mode.</p>\"\
+        },\
+        \"managedFields\":{\
+          \"shape\":\"Fields\",\
+          \"documentation\":\"<p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>\"\
+        },\
+        \"customFields\":{\
+          \"shape\":\"Fields\",\
+          \"documentation\":\"<p>Contains custom field names and their data type.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Thing group indexing configuration.</p>\"\
@@ -12460,6 +12672,14 @@
         \"thingConnectivityIndexingMode\":{\
           \"shape\":\"ThingConnectivityIndexingMode\",\
           \"documentation\":\"<p>Thing connectivity indexing mode. Valid values are: </p> <ul> <li> <p>STATUS â Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.</p> </li> <li> <p>OFF - Thing connectivity status indexing is disabled.</p> </li> </ul>\"\
+        },\
+        \"managedFields\":{\
+          \"shape\":\"Fields\",\
+          \"documentation\":\"<p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>\"\
+        },\
+        \"customFields\":{\
+          \"shape\":\"Fields\",\
+          \"documentation\":\"<p>Contains custom field names and their data type.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The thing indexing configuration. For more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html\\\">Managing Thing Indexing</a>.</p>\"\
@@ -13474,6 +13694,7 @@
       \"member\":{\"shape\":\"ValidationError\"}\
     },\
     \"Value\":{\"type\":\"string\"},\
+    \"Variance\":{\"type\":\"double\"},\
     \"Version\":{\"type\":\"long\"},\
     \"VersionConflictException\":{\
       \"type\":\"structure\",\

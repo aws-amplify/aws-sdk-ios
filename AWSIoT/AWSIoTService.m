@@ -2219,6 +2219,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTGetCardinalityResponse *> *)getCardinality:(AWSIoTGetCardinalityRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/indices/cardinality"
+                  targetPrefix:@""
+                 operationName:@"GetCardinality"
+                   outputClass:[AWSIoTGetCardinalityResponse class]];
+}
+
+- (void)getCardinality:(AWSIoTGetCardinalityRequest *)request
+     completionHandler:(void (^)(AWSIoTGetCardinalityResponse *response, NSError *error))completionHandler {
+    [[self getCardinality:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetCardinalityResponse *> * _Nonnull task) {
+        AWSIoTGetCardinalityResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTGetEffectivePoliciesResponse *> *)getEffectivePolicies:(AWSIoTGetEffectivePoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2324,6 +2347,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTGetOTAUpdateResponse *response, NSError *error))completionHandler {
     [[self getOTAUpdate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetOTAUpdateResponse *> * _Nonnull task) {
         AWSIoTGetOTAUpdateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetPercentilesResponse *> *)getPercentiles:(AWSIoTGetPercentilesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/indices/percentiles"
+                  targetPrefix:@""
+                 operationName:@"GetPercentiles"
+                   outputClass:[AWSIoTGetPercentilesResponse class]];
+}
+
+- (void)getPercentiles:(AWSIoTGetPercentilesRequest *)request
+     completionHandler:(void (^)(AWSIoTGetPercentilesResponse *response, NSError *error))completionHandler {
+    [[self getPercentiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPercentilesResponse *> * _Nonnull task) {
+        AWSIoTGetPercentilesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
