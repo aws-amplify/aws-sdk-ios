@@ -3895,6 +3895,43 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTField
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"name",
+             @"types" : @"type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Number"] == NSOrderedSame) {
+            return @(AWSIoTFieldTypeNumber);
+        }
+        if ([value caseInsensitiveCompare:@"String"] == NSOrderedSame) {
+            return @(AWSIoTFieldTypeString);
+        }
+        if ([value caseInsensitiveCompare:@"Boolean"] == NSOrderedSame) {
+            return @(AWSIoTFieldTypeBoolean);
+        }
+        return @(AWSIoTFieldTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSIoTFieldTypeNumber:
+                return @"Number";
+            case AWSIoTFieldTypeString:
+                return @"String";
+            case AWSIoTFieldTypeBoolean:
+                return @"Boolean";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSIoTFileLocation
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3921,6 +3958,29 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"deliveryStreamName" : @"deliveryStreamName",
              @"roleArn" : @"roleArn",
              @"separator" : @"separator",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetCardinalityRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"indexName" : @"indexName",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetCardinalityResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cardinality" : @"cardinality",
              };
 }
 
@@ -4066,6 +4126,34 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)otaUpdateInfoJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTOTAUpdateInfo class]];
+}
+
+@end
+
+@implementation AWSIoTGetPercentilesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aggregationField" : @"aggregationField",
+             @"indexName" : @"indexName",
+             @"percents" : @"percents",
+             @"queryString" : @"queryString",
+             @"queryVersion" : @"queryVersion",
+             };
+}
+
+@end
+
+@implementation AWSIoTGetPercentilesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"percentiles" : @"percentiles",
+             };
+}
+
++ (NSValueTransformer *)percentilesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTPercentPair class]];
 }
 
 @end
@@ -6968,6 +7056,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTPercentPair
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"percent" : @"percent",
+             @"value" : @"value",
+             };
+}
+
+@end
+
 @implementation AWSIoTPolicy
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -7954,7 +8053,14 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"average" : @"average",
              @"count" : @"count",
+             @"maximum" : @"maximum",
+             @"minimum" : @"minimum",
+             @"stdDeviation" : @"stdDeviation",
+             @"sum" : @"sum",
+             @"sumOfSquares" : @"sumOfSquares",
+             @"variance" : @"variance",
              };
 }
 
@@ -8244,8 +8350,18 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customFields" : @"customFields",
+             @"managedFields" : @"managedFields",
              @"thingGroupIndexingMode" : @"thingGroupIndexingMode",
              };
+}
+
++ (NSValueTransformer *)customFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
+}
+
++ (NSValueTransformer *)managedFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
 }
 
 + (NSValueTransformer *)thingGroupIndexingModeJSONTransformer {
@@ -8314,9 +8430,19 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customFields" : @"customFields",
+             @"managedFields" : @"managedFields",
              @"thingConnectivityIndexingMode" : @"thingConnectivityIndexingMode",
              @"thingIndexingMode" : @"thingIndexingMode",
              };
+}
+
++ (NSValueTransformer *)customFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
+}
+
++ (NSValueTransformer *)managedFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSIoTField class]];
 }
 
 + (NSValueTransformer *)thingConnectivityIndexingModeJSONTransformer {

@@ -835,7 +835,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createSecurityProfile:(AWSIoTCreateSecurityProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateSecurityProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream. The total size of a file associated with the stream cannot exceed more than 2 MB. The stream will be created with version 0. If a stream is created with the same streamID as a stream that existed and was deleted within last 90 days, we will resurrect that old stream by incrementing the version by 1.</p>
+ <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p>
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
 
@@ -847,7 +847,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateStreamResponse *> *)createStream:(AWSIoTCreateStreamRequest *)request;
 
 /**
- <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream. The total size of a file associated with the stream cannot exceed more than 2 MB. The stream will be created with version 0. If a stream is created with the same streamID as a stream that existed and was deleted within last 90 days, we will resurrect that old stream by incrementing the version by 1.</p>
+ <p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream.</p>
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2224,6 +2224,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)enableTopicRule:(AWSIoTEnableTopicRuleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns the number of things with distinct values for the aggregation field. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetCardinality service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTGetCardinalityResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTGetCardinalityRequest
+ @see AWSIoTGetCardinalityResponse
+ */
+- (AWSTask<AWSIoTGetCardinalityResponse *> *)getCardinality:(AWSIoTGetCardinalityRequest *)request;
+
+/**
+ <p>Returns the number of things with distinct values for the aggregation field. </p>
+ 
+ @param request A container for the necessary parameters to execute the GetCardinality service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTGetCardinalityRequest
+ @see AWSIoTGetCardinalityResponse
+ */
+- (void)getCardinality:(AWSIoTGetCardinalityRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetCardinalityResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the AWS IoT device gateway.</p>
  
  @param request A container for the necessary parameters to execute the GetEffectivePolicies service method.
@@ -2349,6 +2374,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getOTAUpdate:(AWSIoTGetOTAUpdateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetOTAUpdateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns the percentile values for the aggregation field. The results from GetPercentiles is an approximation. The default percentile groupings are: 1,5,25,50,75,95,99. You can specify custom percentile grouping using the percents argument to the GetPercentiles API.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPercentiles service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTGetPercentilesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTGetPercentilesRequest
+ @see AWSIoTGetPercentilesResponse
+ */
+- (AWSTask<AWSIoTGetPercentilesResponse *> *)getPercentiles:(AWSIoTGetPercentilesRequest *)request;
+
+/**
+ <p>Returns the percentile values for the aggregation field. The results from GetPercentiles is an approximation. The default percentile groupings are: 1,5,25,50,75,95,99. You can specify custom percentile grouping using the percents argument to the GetPercentiles API.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPercentiles service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorUnauthorized`, `AWSIoTErrorServiceUnavailable`, `AWSIoTErrorInternalFailure`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorInvalidQuery`, `AWSIoTErrorInvalidAggregation`, `AWSIoTErrorIndexNotReady`.
+ 
+ @see AWSIoTGetPercentilesRequest
+ @see AWSIoTGetPercentilesResponse
+ */
+- (void)getPercentiles:(AWSIoTGetPercentilesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetPercentilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets information about the specified policy with the policy document of the default version.</p>
  
  @param request A container for the necessary parameters to execute the GetPolicy service method.
@@ -2424,7 +2474,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)getRegistrationCode:(AWSIoTGetRegistrationCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTGetRegistrationCodeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets statistics about things that match the specified query.</p>
+ <p>Gets statistics returns the count, average, sum, minimum, maximum, sumOfSquares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type String, only the count statistic is returned.</p>
  
  @param request A container for the necessary parameters to execute the GetStatistics service method.
 
@@ -2436,7 +2486,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTGetStatisticsResponse *> *)getStatistics:(AWSIoTGetStatisticsRequest *)request;
 
 /**
- <p>Gets statistics about things that match the specified query.</p>
+ <p>Gets statistics returns the count, average, sum, minimum, maximum, sumOfSquares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type String, only the count statistic is returned.</p>
  
  @param request A container for the necessary parameters to execute the GetStatistics service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3624,7 +3674,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)registerCertificate:(AWSIoTRegisterCertificateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTRegisterCertificateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Provisions a thing.</p>
+ <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise your throttling limits if necessary.</p>
  
  @param request A container for the necessary parameters to execute the RegisterThing service method.
 
@@ -3636,7 +3686,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTRegisterThingResponse *> *)registerThing:(AWSIoTRegisterThingRequest *)request;
 
 /**
- <p>Provisions a thing.</p>
+ <p>Provisions a thing in the device registry. RegisterThing calls other AWS IoT control plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot"> AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise your throttling limits if necessary.</p>
  
  @param request A container for the necessary parameters to execute the RegisterThing service method.
  @param completionHandler The completion handler to call when the load request is complete.

@@ -243,6 +243,13 @@ typedef NS_ENUM(NSInteger, AWSIoTEventType) {
     AWSIoTEventTypeCaCertificate,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTFieldType) {
+    AWSIoTFieldTypeUnknown,
+    AWSIoTFieldTypeNumber,
+    AWSIoTFieldTypeString,
+    AWSIoTFieldTypeBoolean,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTIndexStatus) {
     AWSIoTIndexStatusUnknown,
     AWSIoTIndexStatusActive,
@@ -577,8 +584,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTErrorInfo;
 @class AWSIoTExplicitDeny;
 @class AWSIoTExponentialRolloutRate;
+@class AWSIoTField;
 @class AWSIoTFileLocation;
 @class AWSIoTFirehoseAction;
+@class AWSIoTGetCardinalityRequest;
+@class AWSIoTGetCardinalityResponse;
 @class AWSIoTGetEffectivePoliciesRequest;
 @class AWSIoTGetEffectivePoliciesResponse;
 @class AWSIoTGetIndexingConfigurationRequest;
@@ -589,6 +599,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTGetLoggingOptionsResponse;
 @class AWSIoTGetOTAUpdateRequest;
 @class AWSIoTGetOTAUpdateResponse;
+@class AWSIoTGetPercentilesRequest;
+@class AWSIoTGetPercentilesResponse;
 @class AWSIoTGetPolicyRequest;
 @class AWSIoTGetPolicyResponse;
 @class AWSIoTGetPolicyVersionRequest;
@@ -715,6 +727,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTOTAUpdateInfo;
 @class AWSIoTOTAUpdateSummary;
 @class AWSIoTOutgoingCertificate;
+@class AWSIoTPercentPair;
 @class AWSIoTPolicy;
 @class AWSIoTPolicyVersion;
 @class AWSIoTPolicyVersionIdentifier;
@@ -1280,7 +1293,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The principal, such as a certificate or other credential.</p>
+ <p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable principal;
 
@@ -5110,6 +5123,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>Describes the name and data type at a field.</p>
+ */
+@interface AWSIoTField : AWSModel
+
+
+/**
+ <p>The name of the field.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The datatype of the field.</p>
+ */
+@property (nonatomic, assign) AWSIoTFieldType types;
+
+@end
+
+/**
  <p>The location of the OTA update.</p>
  */
 @interface AWSIoTFileLocation : AWSModel
@@ -5148,6 +5179,47 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable separator;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTGetCardinalityRequest : AWSRequest
+
+
+/**
+ <p>The field to aggregate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable aggregationField;
+
+/**
+ <p>The name of the index to search.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The search query.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queryString;
+
+/**
+ <p>The query version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queryVersion;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTGetCardinalityResponse : AWSModel
+
+
+/**
+ <p>The number of things that match the query.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable cardinality;
 
 @end
 
@@ -5292,6 +5364,52 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ 
+ */
+@interface AWSIoTGetPercentilesRequest : AWSRequest
+
+
+/**
+ <p>The field to aggregate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable aggregationField;
+
+/**
+ <p>The name of the index to search.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The percentile groups returned.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable percents;
+
+/**
+ <p>The query string.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queryString;
+
+/**
+ <p>The query version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queryVersion;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTGetPercentilesResponse : AWSModel
+
+
+/**
+ <p>The percentile values of the aggregated fields.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTPercentPair *> * _Nullable percentiles;
+
+@end
+
+/**
  <p>The input for the GetPolicy operation.</p>
  Required parameters: [policyName]
  */
@@ -5374,7 +5492,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The date the policy version was created.</p>
+ <p>The date the policy was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
@@ -5389,7 +5507,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable isDefaultVersion;
 
 /**
- <p>The date the policy version was last modified.</p>
+ <p>The date the policy was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
@@ -5443,7 +5561,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The aggregation field name. Currently not supported.</p>
+ <p>The aggregation field name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable aggregationField;
 
@@ -8294,6 +8412,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>Describes the percentile and percentile value.</p>
+ */
+@interface AWSIoTPercentPair : AWSModel
+
+
+/**
+ <p>The percentile.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable percent;
+
+/**
+ <p>The value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable value;
+
+@end
+
+/**
  <p>Describes an AWS IoT policy.</p>
  */
 @interface AWSIoTPolicy : AWSModel
@@ -8724,7 +8860,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The Quality of Service (QoS) level to use when republishing messages.</p>
+ <p>The Quality of Service (QoS) level to use when republishing messages. The default value is 0.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable qos;
 
@@ -9377,9 +9513,44 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
+ <p>The average of the aggregated field values.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable average;
+
+/**
  <p>The count of things that match the query.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
+ <p>The maximum aggregated field value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximum;
+
+/**
+ <p>The minimum aggregated field value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minimum;
+
+/**
+ <p>The standard deviation of the aggregated field valuesl</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable stdDeviation;
+
+/**
+ <p>The sum of the aggregated field values.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sum;
+
+/**
+ <p>The sum of the squares of the aggregated field values.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sumOfSquares;
+
+/**
+ <p>The variance of the aggregated field values.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable variance;
 
 @end
 
@@ -9902,6 +10073,16 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
+ <p>Contains custom field names and their data type.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable customFields;
+
+/**
+ <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
+
+/**
  <p>Thing group indexing mode.</p>
  */
 @property (nonatomic, assign) AWSIoTThingGroupIndexingMode thingGroupIndexingMode;
@@ -9955,6 +10136,16 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  */
 @interface AWSIoTThingIndexingConfiguration : AWSModel
 
+
+/**
+ <p>Contains custom field names and their data type.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable customFields;
+
+/**
+ <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing service.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTField *> * _Nullable managedFields;
 
 /**
  <p>Thing connectivity indexing mode. Valid values are: </p><ul><li><p>STATUS – Your thing index contains connectivity status. To enable thing connectivity indexing, thingIndexMode must not be set to OFF.</p></li><li><p>OFF - Thing connectivity status indexing is disabled.</p></li></ul>
