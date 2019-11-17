@@ -99,6 +99,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"phoneConfig" : @"PhoneConfig",
              @"routingProfileId" : @"RoutingProfileId",
              @"securityProfileIds" : @"SecurityProfileIds",
+             @"tags" : @"Tags",
              @"username" : @"Username",
              };
 }
@@ -1083,6 +1084,26 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)securityProfileSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectSecurityProfileSummary class]];
+}
+
+@end
+
+@implementation AWSConnectListTagsForResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             };
+}
+
+@end
+
+@implementation AWSConnectListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"tags",
+             };
 }
 
 @end
@@ -2482,6 +2503,17 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectTagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSConnectThreshold
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2505,6 +2537,17 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectUntagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tagKeys" : @"tagKeys",
+             };
 }
 
 @end
@@ -2605,6 +2648,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"phoneConfig" : @"PhoneConfig",
              @"routingProfileId" : @"RoutingProfileId",
              @"securityProfileIds" : @"SecurityProfileIds",
+             @"tags" : @"Tags",
              @"username" : @"Username",
              };
 }
