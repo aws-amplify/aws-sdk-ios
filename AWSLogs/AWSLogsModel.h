@@ -1028,7 +1028,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
 
 /**
- <p>The token for the next set of items to return. (You received this token from a previous call.)</p>
+ <p>The token for the next set of items to return. (You received this token from a previous call.)</p><p>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1303,7 +1303,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
 
 /**
- <p>The number of bytes stored.</p><p><b>IMPORTANT:</b> Starting on June 17, 2019, this parameter will be deprecated for log streams, and will be reported as zero. This change applies only to log streams. The <code>storedBytes</code> parameter for log groups is not affected.</p>
+ <p>The number of bytes stored.</p><p><b>IMPORTANT:</b>On June 17, 2019, this parameter was deprecated for log streams, and is always reported as zero. This change applies only to log streams. The <code>storedBytes</code> parameter for log groups is not affected.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable storedBytes;
 
@@ -1823,7 +1823,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
 /**
- <p>The maximum number of log events to return in the query. If the query string uses the <code>fields</code> command, only the specified fields and their values are returned.</p>
+ <p>The maximum number of log events to return in the query. If the query string uses the <code>fields</code> command, only the specified fields and their values are returned. The default is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
