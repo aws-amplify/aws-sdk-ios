@@ -622,6 +622,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listUsers:(AWSConnectListUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p><p>When a new chat contact is successfully created, clients need to subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartChatContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectStartChatContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorLimitExceeded`.
+ 
+ @see AWSConnectStartChatContactRequest
+ @see AWSConnectStartChatContactResponse
+ */
+- (AWSTask<AWSConnectStartChatContactResponse *> *)startChatContact:(AWSConnectStartChatContactRequest *)request;
+
+/**
+ <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p><p>When a new chat contact is successfully created, clients need to subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartChatContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorLimitExceeded`.
+ 
+ @see AWSConnectStartChatContactRequest
+ @see AWSConnectStartChatContactResponse
+ */
+- (void)startChatContact:(AWSConnectStartChatContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartChatContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Initiates a contact flow to place an outbound call to a customer.</p><p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p>
  
  @param request A container for the necessary parameters to execute the StartOutboundVoiceContact service method.

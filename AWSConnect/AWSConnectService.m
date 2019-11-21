@@ -699,6 +699,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectStartChatContactResponse *> *)startChatContact:(AWSConnectStartChatContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/contact/chat"
+                  targetPrefix:@""
+                 operationName:@"StartChatContact"
+                   outputClass:[AWSConnectStartChatContactResponse class]];
+}
+
+- (void)startChatContact:(AWSConnectStartChatContactRequest *)request
+     completionHandler:(void (^)(AWSConnectStartChatContactResponse *response, NSError *error))completionHandler {
+    [[self startChatContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStartChatContactResponse *> * _Nonnull task) {
+        AWSConnectStartChatContactResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectStartOutboundVoiceContactResponse *> *)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
