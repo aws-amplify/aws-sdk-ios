@@ -30,6 +30,14 @@ Pod::Spec.new do |s|
   	cloudwatch.dependency 'AWSCloudWatch', '2.12.1'
   end
 
+  s.subspec 'AWSConnect' do |subspec|
+  	subspec.dependency 'AWSConnect', '2.12.1'
+  end
+
+  s.subspec 'AWSConnectParticipant' do |subspec|
+  	subspec.dependency 'AWSConnectParticipant', '2.12.1'
+  end
+
   s.subspec 'Pinpoint' do |pp|
         pp.dependency 'AWSPinpoint', '2.12.1'
   end

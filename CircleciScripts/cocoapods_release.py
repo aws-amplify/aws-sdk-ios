@@ -16,6 +16,7 @@ podpackages = [
     'AWSCognitoSync.podspec',
     'AWSComprehend.podspec',
     'AWSConnect.podspec',
+    'AWSConnectParticipant.podspec',
     'AWSDynamoDB.podspec',
     'AWSEC2.podspec',
     'AWSElasticLoadBalancing.podspec',
