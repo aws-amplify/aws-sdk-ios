@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
 typedef NS_ENUM(NSInteger, AWSConnectChannel) {
     AWSConnectChannelUnknown,
     AWSConnectChannelVoice,
+    AWSConnectChannelChat,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectComparison) {
@@ -71,6 +72,9 @@ typedef NS_ENUM(NSInteger, AWSConnectCurrentMetricName) {
     AWSConnectCurrentMetricNameContactsInQueue,
     AWSConnectCurrentMetricNameOldestContactAge,
     AWSConnectCurrentMetricNameContactsScheduled,
+    AWSConnectCurrentMetricNameAgentsOnContact,
+    AWSConnectCurrentMetricNameSlotsActive,
+    AWSConnectCurrentMetricNameSlotsAvailable,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectGrouping) {
@@ -381,6 +385,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
     AWSConnectUnitPercent,
 };
 
+@class AWSConnectChatMessage;
 @class AWSConnectContactFlowSummary;
 @class AWSConnectCreateUserRequest;
 @class AWSConnectCreateUserResponse;
@@ -432,11 +437,14 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectListUserHierarchyGroupsResponse;
 @class AWSConnectListUsersRequest;
 @class AWSConnectListUsersResponse;
+@class AWSConnectParticipantDetails;
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectSecurityProfileSummary;
+@class AWSConnectStartChatContactRequest;
+@class AWSConnectStartChatContactResponse;
 @class AWSConnectStartOutboundVoiceContactRequest;
 @class AWSConnectStartOutboundVoiceContactResponse;
 @class AWSConnectStopContactRequest;
@@ -455,6 +463,25 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectUserIdentityInfo;
 @class AWSConnectUserPhoneConfig;
 @class AWSConnectUserSummary;
+
+/**
+ <p>A chat message.</p>
+ Required parameters: [ContentType, Content]
+ */
+@interface AWSConnectChatMessage : AWSModel
+
+
+/**
+ <p>The content of the chat message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>The type of the content. Supported types are text/plain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
 
 /**
  <p>Contains summary information about a contact flow.</p>
@@ -822,7 +849,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available:</p><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ERROR</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CALL</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ONLINE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_STAFFED</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_IN_QUEUE</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_SCHEDULED</dt><dd><p>Unit: COUNT</p></dd><dt>OLDEST_CONTACT_AGE</dt><dd><p>Unit: SECONDS</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available:</p><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ERROR</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CALL</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CONTACT</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ONLINE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_STAFFED</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_IN_QUEUE</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_SCHEDULED</dt><dd><p>Unit: COUNT</p></dd><dt>OLDEST_CONTACT_AGE</dt><dd><p>Unit: SECONDS</p></dd><dt>SLOTS_ACTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>SLOTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetric *> * _Nullable currentMetrics;
 
@@ -1575,6 +1602,20 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
+ <p>The customer's details.</p>
+ Required parameters: [DisplayName]
+ */
+@interface AWSConnectParticipantDetails : AWSModel
+
+
+/**
+ <p>Display name of the participant.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+@end
+
+/**
  <p>Contains summary information about a phone number for a contact center.</p>
  */
 @interface AWSConnectPhoneNumberSummary : AWSModel
@@ -1696,6 +1737,67 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The name of the security profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartChatContactRequest : AWSRequest
+
+
+/**
+ <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes. </p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact flow for the chat.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The initial message to be sent to the newly created chat.</p>
+ */
+@property (nonatomic, strong) AWSConnectChatMessage * _Nullable initialMessage;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Information identifying the participant.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantDetails * _Nullable participantDetails;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartChatContactResponse : AWSModel
+
+
+/**
+ <p>The identifier of this contact within the Amazon Connect instance. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier for a chat participant. The participantId for a chat participant is the same throughout the chat lifecycle.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable participantId;
+
+/**
+ <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable participantToken;
 
 @end
 
