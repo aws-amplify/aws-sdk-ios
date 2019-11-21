@@ -18,7 +18,7 @@ Amazon Connect is a cloud-based contact center solution that makes it easy to se
   - Amazon Cognito Identity Provider
   - Amazon Comprehend
   - Amazon Connect
-   - Added a new api to support `CHAT` media in Connect. See [API reference](https://docs.aws.amazon.com/connect/latest/APIReference) for more details.
+    - Added a new api to support `CHAT` media in Connect. See [API reference](https://docs.aws.amazon.com/connect/latest/APIReference) for more details.
   - Amazon DynamoDB
   - Amazon EC2
   - Amazon IoT
