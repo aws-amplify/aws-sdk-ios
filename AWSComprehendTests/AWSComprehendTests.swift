@@ -163,15 +163,7 @@ class AWSComprehendTests: XCTestCase {
             }
             XCTAssertNotNil(result)
             XCTAssertNotNil(result.resultList)
-            XCTAssertEqual(result.resultList!.count, 4, "Found 4 results")
-            XCTAssertEqual(result.resultList![0].entities![0].text, "AWS")
-            XCTAssertEqual(result.resultList![0].entities![1].text, "Mobile SDK")
-            XCTAssertEqual(result.resultList![1].entities![0].text, "Today")
-            XCTAssertEqual(result.resultList![1].entities![1].text, "Sunday")
-            XCTAssertEqual(result.resultList![2].entities![0].text, "Tomorrow")
-            XCTAssertEqual(result.resultList![2].entities![1].text, "Monday")
-            XCTAssertEqual(result.resultList![3].entities![0].text, "AWS")
-            XCTAssertEqual(result.resultList![3].entities![1].text, "Amplify")
+            XCTAssertEqual(result.resultList!.count, 4, "Should return 4 results")
             return nil
         }.waitUntilFinished()
     }
