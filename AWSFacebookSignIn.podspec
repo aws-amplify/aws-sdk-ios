@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
    s.name         = 'AWSFacebookSignIn'
-   s.version      = '2.12.1'
+   s.version      = '2.12.2'
    s.summary      = 'Amazon Web Services SDK for iOS.'
  
    s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
    s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                       :tag => s.version}
    s.requires_arc = true
-   s.dependency 'AWSAuthCore', '2.12.1'
+   s.dependency 'AWSAuthCore', '2.12.2'
    s.dependency 'FBSDKLoginKit', '5.8'
    s.dependency 'FBSDKCoreKit', '5.8'
    s.source_files = 'AWSAuthSDK/Sources/AWSFacebookSignIn/*.{h,m}'
