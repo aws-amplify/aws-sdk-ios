@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'amplify-tools'
-    s.version          = '3.17.1'
+    s.version          = '2.12.2'
     s.summary          = 'Installs Amplify CLI'
   
   # This description is used to generate tags and improve search results.
@@ -24,8 +24,8 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/aws-amplify/amplify-cli'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
-    s.author           = { 'Nikhil Lingireddy' => 'nlingireddy@gmail.com' }
-    s.source           = { :git => 'https://github.com/nikhname/amplify-cli.git', :tag => s.version.to_s, :branch => 'podspec' }
+    s.author           = { 'Amplify CLI' => 'amplify-cli@amazon.com' }
+    s.source           = { :git => 'https://github.com/nikhname/aws-sdk-ios.git', :tag => s.version.to_s, :branch => 'podspec' }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   
     s.ios.deployment_target = '9.0'
