@@ -374,7 +374,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
            identityProvider:(id<AWSCognitoCredentialsProviderHelper>)identityProvider
               unauthRoleArn:(NSString *)unauthRoleArn
                 authRoleArn:(NSString *)authRoleArn {
-    _refreshExecutor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
+    NSOperationQueue *queue = [NSOperationQueue new];
+    queue.maxConcurrentOperationCount = 8;
+    queue.name = @"com.amazonaws.AWSCognitoCredentialsProvider";
+    _refreshExecutor = [AWSExecutor executorWithOperationQueue:queue];
     _refreshingCredentials = NO;
     _semaphore = dispatch_semaphore_create(0);
 

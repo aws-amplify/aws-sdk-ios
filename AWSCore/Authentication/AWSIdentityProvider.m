@@ -127,7 +127,10 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
                    useEnhancedFlow:(BOOL)useEnhancedFlow
            identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager {
     if (self = [super init]) {
-        _executor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
+        NSOperationQueue *queue = [NSOperationQueue new];
+        queue.maxConcurrentOperationCount = 8;
+        queue.name = @"com.amazonaws.services.cognitoidentity";
+        _executor = [AWSExecutor executorWithOperationQueue:queue];
         _count = 0;
         _semaphore = dispatch_semaphore_create(0);
         _useEnhancedFlow = useEnhancedFlow;
