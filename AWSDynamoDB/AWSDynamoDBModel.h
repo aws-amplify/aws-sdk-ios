@@ -114,6 +114,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBContinuousBackupsStatus) {
     AWSDynamoDBContinuousBackupsStatusDisabled,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBContributorInsightsAction) {
+    AWSDynamoDBContributorInsightsActionUnknown,
+    AWSDynamoDBContributorInsightsActionEnable,
+    AWSDynamoDBContributorInsightsActionDisable,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBContributorInsightsStatus) {
+    AWSDynamoDBContributorInsightsStatusUnknown,
+    AWSDynamoDBContributorInsightsStatusEnabling,
+    AWSDynamoDBContributorInsightsStatusEnabled,
+    AWSDynamoDBContributorInsightsStatusDisabling,
+    AWSDynamoDBContributorInsightsStatusDisabled,
+    AWSDynamoDBContributorInsightsStatusFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBGlobalTableStatus) {
     AWSDynamoDBGlobalTableStatusUnknown,
     AWSDynamoDBGlobalTableStatusCreating,
@@ -152,6 +167,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBProjectionType) {
 typedef NS_ENUM(NSInteger, AWSDynamoDBReplicaStatus) {
     AWSDynamoDBReplicaStatusUnknown,
     AWSDynamoDBReplicaStatusCreating,
+    AWSDynamoDBReplicaStatusCreationFailed,
     AWSDynamoDBReplicaStatusUpdating,
     AWSDynamoDBReplicaStatusDeleting,
     AWSDynamoDBReplicaStatusActive,
@@ -229,6 +245,9 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTableStatus) {
     AWSDynamoDBTableStatusUpdating,
     AWSDynamoDBTableStatusDeleting,
     AWSDynamoDBTableStatusActive,
+    AWSDynamoDBTableStatusInaccessibleEncryptionCredentials,
+    AWSDynamoDBTableStatusArchiving,
+    AWSDynamoDBTableStatusArchived,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
@@ -239,6 +258,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
     AWSDynamoDBTimeToLiveStatusDisabled,
 };
 
+@class AWSDynamoDBArchivalSummary;
 @class AWSDynamoDBAttributeDefinition;
 @class AWSDynamoDBAttributeValue;
 @class AWSDynamoDBAttributeValueUpdate;
@@ -262,12 +282,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBConditionCheck;
 @class AWSDynamoDBConsumedCapacity;
 @class AWSDynamoDBContinuousBackupsDescription;
+@class AWSDynamoDBContributorInsightsSummary;
 @class AWSDynamoDBCreateBackupInput;
 @class AWSDynamoDBCreateBackupOutput;
 @class AWSDynamoDBCreateGlobalSecondaryIndexAction;
 @class AWSDynamoDBCreateGlobalTableInput;
 @class AWSDynamoDBCreateGlobalTableOutput;
 @class AWSDynamoDBCreateReplicaAction;
+@class AWSDynamoDBCreateReplicationGroupMemberAction;
 @class AWSDynamoDBCreateTableInput;
 @class AWSDynamoDBCreateTableOutput;
 @class AWSDynamoDBRemove;
@@ -277,6 +299,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDeleteItemInput;
 @class AWSDynamoDBDeleteItemOutput;
 @class AWSDynamoDBDeleteReplicaAction;
+@class AWSDynamoDBDeleteReplicationGroupMemberAction;
 @class AWSDynamoDBDeleteRequest;
 @class AWSDynamoDBDeleteTableInput;
 @class AWSDynamoDBDeleteTableOutput;
@@ -284,6 +307,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeBackupOutput;
 @class AWSDynamoDBDescribeContinuousBackupsInput;
 @class AWSDynamoDBDescribeContinuousBackupsOutput;
+@class AWSDynamoDBDescribeContributorInsightsInput;
+@class AWSDynamoDBDescribeContributorInsightsOutput;
 @class AWSDynamoDBDescribeEndpointsRequest;
 @class AWSDynamoDBDescribeEndpointsResponse;
 @class AWSDynamoDBDescribeGlobalTableInput;
@@ -294,14 +319,18 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeLimitsOutput;
 @class AWSDynamoDBDescribeTableInput;
 @class AWSDynamoDBDescribeTableOutput;
+@class AWSDynamoDBDescribeTableReplicaAutoScalingInput;
+@class AWSDynamoDBDescribeTableReplicaAutoScalingOutput;
 @class AWSDynamoDBDescribeTimeToLiveInput;
 @class AWSDynamoDBDescribeTimeToLiveOutput;
 @class AWSDynamoDBEndpoint;
 @class AWSDynamoDBExpectedAttributeValue;
+@class AWSDynamoDBFailureException;
 @class AWSDynamoDBGet;
 @class AWSDynamoDBGetItemInput;
 @class AWSDynamoDBGetItemOutput;
 @class AWSDynamoDBGlobalSecondaryIndex;
+@class AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate;
 @class AWSDynamoDBGlobalSecondaryIndexDescription;
 @class AWSDynamoDBGlobalSecondaryIndexInfo;
 @class AWSDynamoDBGlobalSecondaryIndexUpdate;
@@ -314,6 +343,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBKeysAndAttributes;
 @class AWSDynamoDBListBackupsInput;
 @class AWSDynamoDBListBackupsOutput;
+@class AWSDynamoDBListContributorInsightsInput;
+@class AWSDynamoDBListContributorInsightsOutput;
 @class AWSDynamoDBListGlobalTablesInput;
 @class AWSDynamoDBListGlobalTablesOutput;
 @class AWSDynamoDBListTablesInput;
@@ -328,6 +359,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBProjection;
 @class AWSDynamoDBProvisionedThroughput;
 @class AWSDynamoDBProvisionedThroughputDescription;
+@class AWSDynamoDBProvisionedThroughputOverride;
 @class AWSDynamoDBPut;
 @class AWSDynamoDBPutItemInput;
 @class AWSDynamoDBPutItemOutput;
@@ -335,12 +367,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBQueryInput;
 @class AWSDynamoDBQueryOutput;
 @class AWSDynamoDBReplica;
+@class AWSDynamoDBReplicaAutoScalingDescription;
+@class AWSDynamoDBReplicaAutoScalingUpdate;
 @class AWSDynamoDBReplicaDescription;
+@class AWSDynamoDBReplicaGlobalSecondaryIndex;
+@class AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingDescription;
+@class AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingUpdate;
+@class AWSDynamoDBReplicaGlobalSecondaryIndexDescription;
 @class AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription;
 @class AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate;
 @class AWSDynamoDBReplicaSettingsDescription;
 @class AWSDynamoDBReplicaSettingsUpdate;
 @class AWSDynamoDBReplicaUpdate;
+@class AWSDynamoDBReplicationGroupUpdate;
 @class AWSDynamoDBRestoreSummary;
 @class AWSDynamoDBRestoreTableFromBackupInput;
 @class AWSDynamoDBRestoreTableFromBackupOutput;
@@ -353,6 +392,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBSourceTableDetails;
 @class AWSDynamoDBSourceTableFeatureDetails;
 @class AWSDynamoDBStreamSpecification;
+@class AWSDynamoDBTableAutoScalingDescription;
 @class AWSDynamoDBTableDescription;
 @class AWSDynamoDBTag;
 @class AWSDynamoDBTagResourceInput;
@@ -368,6 +408,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBUpdate;
 @class AWSDynamoDBUpdateContinuousBackupsInput;
 @class AWSDynamoDBUpdateContinuousBackupsOutput;
+@class AWSDynamoDBUpdateContributorInsightsInput;
+@class AWSDynamoDBUpdateContributorInsightsOutput;
 @class AWSDynamoDBUpdateGlobalSecondaryIndexAction;
 @class AWSDynamoDBUpdateGlobalTableInput;
 @class AWSDynamoDBUpdateGlobalTableOutput;
@@ -375,11 +417,37 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBUpdateGlobalTableSettingsOutput;
 @class AWSDynamoDBUpdateItemInput;
 @class AWSDynamoDBUpdateItemOutput;
+@class AWSDynamoDBUpdateReplicationGroupMemberAction;
 @class AWSDynamoDBUpdateTableInput;
 @class AWSDynamoDBUpdateTableOutput;
+@class AWSDynamoDBUpdateTableReplicaAutoScalingInput;
+@class AWSDynamoDBUpdateTableReplicaAutoScalingOutput;
 @class AWSDynamoDBUpdateTimeToLiveInput;
 @class AWSDynamoDBUpdateTimeToLiveOutput;
 @class AWSDynamoDBWriteRequest;
+
+/**
+ <p>Contains details of a table archival operation.</p>
+ */
+@interface AWSDynamoDBArchivalSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable archivalBackupArn;
+
+/**
+ <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable archivalDateTime;
+
+/**
+ <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p><ul><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's AWS KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable archivalReason;
+
+@end
 
 /**
  <p>Represents an attribute for describing the key schema for the table and indexes.</p>
@@ -1036,6 +1104,29 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents a Contributor Insights summary entry..</p>
+ */
+@interface AWSDynamoDBContributorInsightsSummary : AWSModel
+
+
+/**
+ <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
+
+/**
+ <p>Name of the index associated with the summary, if any.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Name of the table associated with the summary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  
  */
 @interface AWSDynamoDBCreateBackupInput : AWSRequest
@@ -1135,6 +1226,35 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>The Region of the replica to be added.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
+ <p>Represents a replica to be created.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBCreateReplicationGroupMemberAction : AWSModel
+
+
+/**
+ <p>Replica-specific global secondary index settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The AWS KMS customer master key (CMK) that should be used for AWS KMS encryption in the new replica. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+/**
+ <p>The Region where the new replica will be created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
@@ -1388,6 +1508,20 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents a replica to be deleted.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBDeleteReplicationGroupMemberAction : AWSModel
+
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
  <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
  Required parameters: [Key]
  */
@@ -1477,6 +1611,62 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the continuous backups and point in time recovery settings on the table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBContinuousBackupsDescription * _Nullable continuousBackupsDescription;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeContributorInsightsInput : AWSRequest
+
+
+/**
+ <p>The name of the global secondary index to describe, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The name of the table to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeContributorInsightsOutput : AWSModel
+
+
+/**
+ <p>List of names of the associated Alpine rules.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable contributorInsightsRuleList;
+
+/**
+ <p>Current Status contributor insights.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
+
+/**
+ <p>Returns information about the last failure that encountered.</p><p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSDynamoDBFailureException * _Nullable failureException;
+
+/**
+ <p>The name of the global secondary index being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Timestamp of the last time the status was changed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdateDateTime;
+
+/**
+ <p>The name of the table being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -1624,6 +1814,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 /**
  
  */
+@interface AWSDynamoDBDescribeTableReplicaAutoScalingInput : AWSRequest
+
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeTableReplicaAutoScalingOutput : AWSModel
+
+
+/**
+ <p>Represents the auto scaling properties of the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableAutoScalingDescription * _Nullable tableAutoScalingDescription;
+
+@end
+
+/**
+ 
+ */
 @interface AWSDynamoDBDescribeTimeToLiveInput : AWSRequest
 
 
@@ -1691,6 +1907,24 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the data for the expected attribute.</p><p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAttributeValue * _Nullable value;
+
+@end
+
+/**
+ <p>Represents a failure a contributor insights operation.</p>
+ */
+@interface AWSDynamoDBFailureException : AWSModel
+
+
+/**
+ <p>Description of the failure.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exceptionDescription;
+
+/**
+ <p>Exception name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exceptionName;
 
 @end
 
@@ -1811,6 +2045,24 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of a global secondary index for a global table that will be modified.</p>
+ */
+@interface AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedWriteCapacityAutoScalingUpdate;
 
 @end
 
@@ -2136,6 +2388,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 /**
  
  */
+@interface AWSDynamoDBListContributorInsightsInput : AWSRequest
+
+
+/**
+ <p>Maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A token to for the desired page, if there is one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListContributorInsightsOutput : AWSModel
+
+
+/**
+ <p>A list of ContributorInsightsSummary.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBContributorInsightsSummary *> * _Nullable contributorInsightsSummaries;
+
+/**
+ <p>A token to go to the next page if there is one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSDynamoDBListGlobalTablesInput : AWSRequest
 
 
@@ -2439,6 +2732,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Replica-specific provisioned throughput settings. If not specified, uses the source table's provisioned throughput settings.</p>
+ */
+@interface AWSDynamoDBProvisionedThroughputOverride : AWSModel
+
+
+/**
+ <p>Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable readCapacityUnits;
+
+@end
+
+/**
  <p>Represents a request to perform a <code>PutItem</code> operation.</p>
  Required parameters: [Item, TableName]
  */
@@ -2714,15 +3020,185 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents the auto scaling settings of the replica.</p>
+ */
+@interface AWSDynamoDBReplicaAutoScalingDescription : AWSModel
+
+
+/**
+ <p>Replica-specific global secondary index auto scaling settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingDescription *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedReadCapacityAutoScalingSettings;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedWriteCapacityAutoScalingSettings;
+
+/**
+ <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of a replica that will be modified.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBReplicaAutoScalingUpdate : AWSModel
+
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+/**
+ <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingUpdate *> * _Nullable replicaGlobalSecondaryIndexUpdates;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable replicaProvisionedReadCapacityAutoScalingUpdate;
+
+@end
+
+/**
  <p>Contains the details of the replica.</p>
  */
 @interface AWSDynamoDBReplicaDescription : AWSModel
 
 
 /**
+ <p>Replica-specific global secondary index settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexDescription *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+/**
  <p>The name of the Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
+
+/**
+ <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus;
+
+/**
+ <p>Detailed information about the replica status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicaStatusDescription;
+
+/**
+ <p>Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicaStatusPercentProgress;
+
+@end
+
+/**
+ <p>Represents the properties of a replica global secondary index.</p>
+ Required parameters: [IndexName]
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndex : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+@end
+
+/**
+ <p>Represents the auto scaling configuration for a replica global secondary index.</p>
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingDescription : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBIndexStatus indexStatus;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedReadCapacityAutoScalingSettings;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedWriteCapacityAutoScalingSettings;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of a global secondary index for a replica that will be modified.</p>
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingUpdate : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedReadCapacityAutoScalingUpdate;
+
+@end
+
+/**
+ <p>Represents the properties of a replica global secondary index.</p>
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndexDescription : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>If not described, uses the source table GSI's read capacity settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
 
 @end
 
@@ -2886,6 +3362,29 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents one of the following:</p><ul><li><p>A new replica to be added to an existing regional table or global table. This request invokes the <code>CreateTableReplica</code> action in the destination Region.</p></li><li><p>New parameters for an existing replica. This request invokes the <code>UpdateTable</code> action in the destination Region.</p></li><li><p>An existing replica to be deleted. The request invokes the <code>DeleteTableReplica</code> action in the destination Region, deleting the replica and all if its items in the destination Region.</p></li></ul>
+ */
+@interface AWSDynamoDBReplicationGroupUpdate : AWSModel
+
+
+/**
+ <p>The parameters required for creating a replica for the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBCreateReplicationGroupMemberAction * _Nullable create;
+
+/**
+ <p>The parameters required for deleting a replica for the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBDeleteReplicationGroupMemberAction * _Nullable remove;
+
+/**
+ <p>The parameters required for updating a replica for the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBUpdateReplicationGroupMemberAction * _Nullable update;
+
+@end
+
+/**
  <p>Contains details for the restore.</p>
  Required parameters: [RestoreDateTime, RestoreInProgress]
  */
@@ -3033,7 +3532,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>
+ <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's AWS KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's AWS KMS key is accessible again. DynamoDB will initiate the table archival process when table's AWS KMS key remains inaccessible for more than seven days from this date.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable inaccessibleEncryptionDateTime;
+
+/**
+ <p>The AWS KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyArn;
 
@@ -3061,7 +3565,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.</p>
+ <p>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
@@ -3283,6 +3787,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
+ Required parameters: [StreamEnabled]
  */
 @interface AWSDynamoDBStreamSpecification : AWSModel
 
@@ -3300,10 +3805,38 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents the auto scaling configuration for a global table.</p>
+ */
+@interface AWSDynamoDBTableAutoScalingDescription : AWSModel
+
+
+/**
+ <p>Represents replicas of the global table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaAutoScalingDescription *> * _Nullable replicas;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+/**
+ <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBTableStatus tableStatus;
+
+@end
+
+/**
  <p>Represents the properties of a table.</p>
  */
 @interface AWSDynamoDBTableDescription : AWSModel
 
+
+/**
+ <p>Contains information about the table archive.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBArchivalSummary * _Nullable archivalSummary;
 
 /**
  <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p><p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
@@ -3324,6 +3857,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.) </p><p> You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases. </p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexDescription *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across AWS Regions.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable globalTableVersion;
 
 /**
  <p>The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -3354,6 +3892,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughputDescription * _Nullable provisionedThroughput;
+
+/**
+ <p>Represents replicas of the table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaDescription *> * _Nullable replicas;
 
 /**
  <p>Contains details for the restore.</p>
@@ -3391,7 +3934,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable tableSizeBytes;
 
 /**
- <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+ <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days. </p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBTableStatus tableStatus;
 
@@ -3689,6 +4232,52 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBUpdateContributorInsightsInput : AWSRequest
+
+
+/**
+ <p>Represents the contributor insights action.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsAction contributorInsightsAction;
+
+/**
+ <p>The global secondary index name, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateContributorInsightsOutput : AWSModel
+
+
+/**
+ <p>The status of contributor insights</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
+
+/**
+ <p>The name of the global secondary index, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  <p>Represents the new provisioned throughput settings to be applied to a global secondary index.</p>
  Required parameters: [IndexName, ProvisionedThroughput]
  */
@@ -3887,6 +4476,35 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents a replica to be modified.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBUpdateReplicationGroupMemberAction : AWSModel
+
+
+/**
+ <p>Replica-specific global secondary index settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
  <p>Represents the input of an <code>UpdateTable</code> operation.</p>
  Required parameters: [TableName]
  */
@@ -3912,6 +4530,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The new provisioned throughput settings for the specified table or index.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
+
+/**
+ <p>A list of replica update actions (create, delete, or update) for the table.</p><note><p>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p></note>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicationGroupUpdate *> * _Nullable replicaUpdates;
 
 /**
  <p>The new server-side encryption settings for the specified table.</p>
@@ -3940,6 +4563,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the properties of the table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBTableDescription * _Nullable tableDescription;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateTableReplicaAutoScalingInput : AWSRequest
+
+
+/**
+ <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate *> * _Nullable globalSecondaryIndexUpdates;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedWriteCapacityAutoScalingUpdate;
+
+/**
+ <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaAutoScalingUpdate *> * _Nullable replicaUpdates;
+
+/**
+ <p>The name of the global table to be updated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateTableReplicaAutoScalingOutput : AWSModel
+
+
+/**
+ <p>Returns information about the auto scaling settings of a table with replicas.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableAutoScalingDescription * _Nullable tableAutoScalingDescription;
 
 @end
 
