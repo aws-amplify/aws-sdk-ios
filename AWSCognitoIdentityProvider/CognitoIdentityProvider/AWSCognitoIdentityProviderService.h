@@ -813,7 +813,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminUpdateUserAttributes:(AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Signs out users from all devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
+ <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUserGlobalSignOut service method.
 
@@ -825,7 +825,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *> *)adminUserGlobalSignOut:(AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest *)request;
 
 /**
- <p>Signs out users from all devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
+ <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUserGlobalSignOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1767,7 +1767,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Signs out users from all devices.</p>
+ <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
  
  @param request A container for the necessary parameters to execute the GlobalSignOut service method.
 
@@ -1779,7 +1779,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderGlobalSignOutResponse *> *)globalSignOut:(AWSCognitoIdentityProviderGlobalSignOutRequest *)request;
 
 /**
- <p>Signs out users from all devices.</p>
+ <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
  
  @param request A container for the necessary parameters to execute the GlobalSignOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
