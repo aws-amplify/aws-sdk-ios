@@ -97,6 +97,7 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @class AWSLexPutSessionRequest;
 @class AWSLexPutSessionResponse;
 @class AWSLexResponseCard;
+@class AWSLexSentimentResponse;
 
 /**
  <p>Represents an option to be shown on the client platform (Facebook, Slack, etc.)</p>
@@ -435,9 +436,19 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, assign) AWSLexMessageFormatType messageFormat;
 
 /**
+ <p>The sentiment expressed in and utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sentimentResponse;
+
+/**
  <p> Map of key/value pairs representing the session-specific context information. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable sessionAttributes;
+
+/**
+ <p>The unique identifier for the session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
 
 /**
  <p> If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the slot for which Amazon Lex is eliciting a value. </p>
@@ -521,9 +532,19 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, strong) AWSLexResponseCard * _Nullable responseCard;
 
 /**
+ <p>The sentiment expressed in and utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
+ */
+@property (nonatomic, strong) AWSLexSentimentResponse * _Nullable sentimentResponse;
+
+/**
  <p>A map of key-value pairs representing the session-specific context information.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable sessionAttributes;
+
+/**
+ <p>A unique identifier for the session.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sessionId;
 
 /**
  <p>If the <code>dialogState</code> value is <code>ElicitSlot</code>, returns the name of the slot for which Amazon Lex is eliciting a value. </p>
@@ -658,6 +679,24 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
  <p>The version of the response card format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
+ <p>The sentiment expressed in an utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field structure contains the result of the analysis.</p>
+ */
+@interface AWSLexSentimentResponse : AWSModel
+
+
+/**
+ <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sentimentLabel;
+
+/**
+ <p>The likelihood that the sentiment was correctly inferred.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sentimentScore;
 
 @end
 
