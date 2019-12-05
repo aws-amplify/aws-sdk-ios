@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable accept;
 
 /**
- <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p><p>For information about the format of the request body, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats—Inference</a>.</p>
+ <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p><p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats—Inference</a>.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable body;
 
@@ -54,14 +54,19 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p/>
+ <p>Provides additional information about a request for an inference submitted to a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to provide an ID that you can use to track a request or to provide other metadata that a service endpoint was programmed to process. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customAttributes;
 
 /**
- <p>The name of the endpoint that you specified when you created the endpoint using the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
+ <p>The name of the endpoint that you specified when you created the endpoint using the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable endpointName;
+
+/**
+ <p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetModel;
 
 @end
 
@@ -72,7 +77,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 
 
 /**
- <p>Includes the inference provided by the model.</p><p>For information about the format of the response body, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats—Inference</a>.</p>
+ <p>Includes the inference provided by the model.</p><p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats—Inference</a>.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable body;
 
@@ -82,7 +87,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
 /**
- <p/>
+ <p>Provides additional information in the response about the inference returned by a model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is forwarded verbatim. You could use this value, for example, to return an ID received in the <code>CustomAttributes</code> header of a request or other metadata that a service endpoint was programmed to produce. The value must consist of no more than 1024 visible US-ASCII characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). If the customer wants the custom attribute returned, the model must set the custom attribute to be included on the way back. </p><p>This feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python SDK.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customAttributes;
 
