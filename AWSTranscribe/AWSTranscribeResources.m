@@ -401,7 +401,14 @@
         \"en-IE\",\
         \"en-AB\",\
         \"en-WL\",\
-        \"pt-PT\"\
+        \"pt-PT\",\
+        \"te-IN\",\
+        \"tr-TR\",\
+        \"de-CH\",\
+        \"he-IL\",\
+        \"ms-MY\",\
+        \"ja-JP\",\
+        \"ar-AE\"\
       ]\
     },\
     \"LimitExceededException\":{\
@@ -487,6 +494,11 @@
           \"documentation\":\"<p>A list of objects that describe the vocabularies that match the search criteria in the request.</p>\"\
         }\
       }\
+    },\
+    \"MaxAlternatives\":{\
+      \"type\":\"integer\",\
+      \"max\":10,\
+      \"min\":2\
     },\
     \"MaxResults\":{\
       \"type\":\"integer\",\
@@ -575,6 +587,14 @@
         \"ChannelIdentification\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription. </p> <p>Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.</p> <p>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>\"\
+        },\
+        \"ShowAlternatives\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Determines whether the transcription contains alternative transcriptions. If you set the <code>ShowAlternatives</code> field to true, you must also set the maximum number of alternatives to return in the <code>MaxAlternatives</code> field.</p>\"\
+        },\
+        \"MaxAlternatives\":{\
+          \"shape\":\"MaxAlternatives\",\
+          \"documentation\":\"<p>The number of alternative transcriptions that the service should return. If you specify the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code> field to true.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides optional settings for the <code>StartTranscriptionJob</code> operation.</p>\"\
