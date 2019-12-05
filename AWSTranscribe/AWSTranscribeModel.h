@@ -56,6 +56,13 @@ typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
     AWSTranscribeLanguageCodeEnAB,
     AWSTranscribeLanguageCodeEnWL,
     AWSTranscribeLanguageCodePtPT,
+    AWSTranscribeLanguageCodeTeIN,
+    AWSTranscribeLanguageCodeTrTR,
+    AWSTranscribeLanguageCodeDeCH,
+    AWSTranscribeLanguageCodeHeIL,
+    AWSTranscribeLanguageCodeMsMY,
+    AWSTranscribeLanguageCodeJaJP,
+    AWSTranscribeLanguageCodeArAE,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
@@ -400,9 +407,19 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable channelIdentification;
 
 /**
+ <p>The number of alternative transcriptions that the service should return. If you specify the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code> field to true.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxAlternatives;
+
+/**
  <p>The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code> field to true.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxSpeakerLabels;
+
+/**
+ <p>Determines whether the transcription contains alternative transcriptions. If you set the <code>ShowAlternatives</code> field to true, you must also set the maximum number of alternatives to return in the <code>MaxAlternatives</code> field.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable showAlternatives;
 
 /**
  <p>Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must also set the maximum number of speaker labels <code>MaxSpeakerLabels</code> field.</p><p>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
