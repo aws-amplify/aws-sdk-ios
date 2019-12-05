@@ -40,10 +40,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorKMSNotFound,
     AWSLambdaErrorPolicyLengthExceeded,
     AWSLambdaErrorPreconditionFailed,
+    AWSLambdaErrorProvisionedConcurrencyConfigNotFound,
     AWSLambdaErrorRequestTooLarge,
     AWSLambdaErrorResourceConflict,
     AWSLambdaErrorResourceInUse,
     AWSLambdaErrorResourceNotFound,
+    AWSLambdaErrorResourceNotReady,
     AWSLambdaErrorService,
     AWSLambdaErrorSubnetIPAddressLimitReached,
     AWSLambdaErrorTooManyRequests,
@@ -69,10 +71,32 @@ typedef NS_ENUM(NSInteger, AWSLambdaInvocationType) {
     AWSLambdaInvocationTypeDryRun,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaLastUpdateStatus) {
+    AWSLambdaLastUpdateStatusUnknown,
+    AWSLambdaLastUpdateStatusSuccessful,
+    AWSLambdaLastUpdateStatusFailed,
+    AWSLambdaLastUpdateStatusInProgress,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaLastUpdateStatusReasonCode) {
+    AWSLambdaLastUpdateStatusReasonCodeUnknown,
+    AWSLambdaLastUpdateStatusReasonCodeEniLimitExceeded,
+    AWSLambdaLastUpdateStatusReasonCodeInsufficientRolePermissions,
+    AWSLambdaLastUpdateStatusReasonCodeInvalidConfiguration,
+    AWSLambdaLastUpdateStatusReasonCodeInternalError,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
     AWSLambdaLogTypeUnknown,
     AWSLambdaLogTypeNone,
     AWSLambdaLogTypeTail,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaProvisionedConcurrencyStatusEnum) {
+    AWSLambdaProvisionedConcurrencyStatusEnumUnknown,
+    AWSLambdaProvisionedConcurrencyStatusEnumInProgress,
+    AWSLambdaProvisionedConcurrencyStatusEnumReady,
+    AWSLambdaProvisionedConcurrencyStatusEnumFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
@@ -82,10 +106,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs610,
     AWSLambdaRuntimeNodejs810,
     AWSLambdaRuntimeNodejs10X,
+    AWSLambdaRuntimeNodejs12X,
     AWSLambdaRuntimeJava8,
+    AWSLambdaRuntimeJava11,
     AWSLambdaRuntimePython27,
     AWSLambdaRuntimePython36,
     AWSLambdaRuntimePython37,
+    AWSLambdaRuntimePython38,
     AWSLambdaRuntimeDotnetcore10,
     AWSLambdaRuntimeDotnetcore20,
     AWSLambdaRuntimeDotnetcore21,
@@ -93,6 +120,26 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeGo1X,
     AWSLambdaRuntimeRuby25,
     AWSLambdaRuntimeProvided,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaState) {
+    AWSLambdaStateUnknown,
+    AWSLambdaStatePending,
+    AWSLambdaStateActive,
+    AWSLambdaStateInactive,
+    AWSLambdaStateFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaStateReasonCode) {
+    AWSLambdaStateReasonCodeUnknown,
+    AWSLambdaStateReasonCodeIdle,
+    AWSLambdaStateReasonCodeCreating,
+    AWSLambdaStateReasonCodeRestoring,
+    AWSLambdaStateReasonCodeEniLimitExceeded,
+    AWSLambdaStateReasonCodeInsufficientRolePermissions,
+    AWSLambdaStateReasonCodeInvalidConfiguration,
+    AWSLambdaStateReasonCodeInternalError,
+    AWSLambdaStateReasonCodeSubnetOutOfIPAddresses,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaThrottleReason) {
@@ -126,8 +173,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaDeleteAliasRequest;
 @class AWSLambdaDeleteEventSourceMappingRequest;
 @class AWSLambdaDeleteFunctionConcurrencyRequest;
+@class AWSLambdaDeleteFunctionEventInvokeConfigRequest;
 @class AWSLambdaDeleteFunctionRequest;
 @class AWSLambdaDeleteLayerVersionRequest;
+@class AWSLambdaDeleteProvisionedConcurrencyConfigRequest;
+@class AWSLambdaDestinationConfig;
 @class AWSLambdaEnvironment;
 @class AWSLambdaEnvironmentError;
 @class AWSLambdaEnvironmentResponse;
@@ -135,11 +185,15 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaFunctionCode;
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
+@class AWSLambdaFunctionEventInvokeConfig;
 @class AWSLambdaGetAccountSettingsRequest;
 @class AWSLambdaGetAccountSettingsResponse;
 @class AWSLambdaGetAliasRequest;
 @class AWSLambdaGetEventSourceMappingRequest;
+@class AWSLambdaGetFunctionConcurrencyRequest;
+@class AWSLambdaGetFunctionConcurrencyResponse;
 @class AWSLambdaGetFunctionConfigurationRequest;
+@class AWSLambdaGetFunctionEventInvokeConfigRequest;
 @class AWSLambdaGetFunctionRequest;
 @class AWSLambdaGetFunctionResponse;
 @class AWSLambdaGetLayerVersionByArnRequest;
@@ -149,6 +203,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetLayerVersionResponse;
 @class AWSLambdaGetPolicyRequest;
 @class AWSLambdaGetPolicyResponse;
+@class AWSLambdaGetProvisionedConcurrencyConfigRequest;
+@class AWSLambdaGetProvisionedConcurrencyConfigResponse;
 @class AWSLambdaInvocationRequest;
 @class AWSLambdaInvocationResponse;
 @class AWSLambdaInvokeAsyncRequest;
@@ -162,20 +218,30 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaListAliasesResponse;
 @class AWSLambdaListEventSourceMappingsRequest;
 @class AWSLambdaListEventSourceMappingsResponse;
+@class AWSLambdaListFunctionEventInvokeConfigsRequest;
+@class AWSLambdaListFunctionEventInvokeConfigsResponse;
 @class AWSLambdaListFunctionsRequest;
 @class AWSLambdaListFunctionsResponse;
 @class AWSLambdaListLayerVersionsRequest;
 @class AWSLambdaListLayerVersionsResponse;
 @class AWSLambdaListLayersRequest;
 @class AWSLambdaListLayersResponse;
+@class AWSLambdaListProvisionedConcurrencyConfigsRequest;
+@class AWSLambdaListProvisionedConcurrencyConfigsResponse;
 @class AWSLambdaListTagsRequest;
 @class AWSLambdaListTagsResponse;
 @class AWSLambdaListVersionsByFunctionRequest;
 @class AWSLambdaListVersionsByFunctionResponse;
+@class AWSLambdaOnFailure;
+@class AWSLambdaOnSuccess;
+@class AWSLambdaProvisionedConcurrencyConfigListItem;
 @class AWSLambdaPublishLayerVersionRequest;
 @class AWSLambdaPublishLayerVersionResponse;
 @class AWSLambdaPublishVersionRequest;
 @class AWSLambdaPutFunctionConcurrencyRequest;
+@class AWSLambdaPutFunctionEventInvokeConfigRequest;
+@class AWSLambdaPutProvisionedConcurrencyConfigRequest;
+@class AWSLambdaPutProvisionedConcurrencyConfigResponse;
 @class AWSLambdaRemoveLayerVersionPermissionRequest;
 @class AWSLambdaRemovePermissionRequest;
 @class AWSLambdaTagResourceRequest;
@@ -186,17 +252,18 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaUpdateEventSourceMappingRequest;
 @class AWSLambdaUpdateFunctionCodeRequest;
 @class AWSLambdaUpdateFunctionConfigurationRequest;
+@class AWSLambdaUpdateFunctionEventInvokeConfigRequest;
 @class AWSLambdaVpcConfig;
 @class AWSLambdaVpcConfigResponse;
 
 /**
- <p>Limits that are related to concurrency and code storage. All file and storage sizes are in bytes.</p>
+ <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
  */
 @interface AWSLambdaAccountLimit : AWSModel
 
 
 /**
- <p>The maximum size of your function's code and layers when they're extracted.</p>
+ <p>The maximum size of a function's deployment package and layers when they're extracted.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable codeSizeUnzipped;
 
@@ -476,6 +543,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
+ <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
+
+/**
+ <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+ */
+@property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
  <p>Disables the event source mapping to pause polling and invocation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
@@ -491,9 +568,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- 
+ <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
+
+/**
+ <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
+
+/**
+ <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
+
+/**
+ <p>(Streams) The number of batches to process from each shard concurrently.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
  <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
@@ -519,7 +611,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaFunctionCode * _Nullable code;
 
 /**
- <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">Dead Letter Queues</a>.</p>
+ <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaDeadLetterConfig * _Nullable deadLetterConfig;
 
@@ -589,14 +681,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaTracingConfig * _Nullable tracingConfig;
 
 /**
- <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/vpc.html">VPC Settings</a>.</p>
+ <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
 
 @end
 
 /**
- <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">dead letter queue</a> for failed asynchronous invocations.</p>
+ <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for failed asynchronous invocations.</p>
  */
 @interface AWSLambdaDeadLetterConfig : AWSModel
 
@@ -655,6 +747,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaDeleteFunctionEventInvokeConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>A version number or alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaDeleteFunctionRequest : AWSRequest
 
 
@@ -685,6 +795,42 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The version number.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable versionNumber;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaDeleteProvisionedConcurrencyConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The version number or alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ <p>A configuration object that specifies the destination of an event after Lambda processes it.</p>
+ */
+@interface AWSLambdaDestinationConfig : AWSModel
+
+
+/**
+ <p>The destination configuration for failed invocations.</p>
+ */
+@property (nonatomic, strong) AWSLambdaOnFailure * _Nullable onFailure;
+
+/**
+ <p>The destination configuration for successful invocations.</p>
+ */
+@property (nonatomic, strong) AWSLambdaOnSuccess * _Nullable onSuccess;
 
 @end
 
@@ -720,7 +866,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The results of a configuration update that applied environment variables.</p>
+ <p>The results of an operation to update or read environment variables. If the operation is successful, the response contains the environment variables. If it failed, the response contains details about the error.</p>
  */
 @interface AWSLambdaEnvironmentResponse : AWSModel
 
@@ -749,6 +895,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
+ <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
+
+/**
+ <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+ */
+@property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
  <p>The Amazon Resource Name (ARN) of the event source.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
@@ -759,7 +915,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
- <p>The date that the event source mapping was last updated.</p>
+ <p>The date that the event source mapping was last updated, or its state changed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModified;
 
@@ -769,9 +925,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
 /**
- 
+ <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
+
+/**
+ <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
+
+/**
+ <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
+
+/**
+ <p>(Streams) The number of batches to process from each shard concurrently.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
  <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>, <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>, <code>Updating</code>, or <code>Deleting</code>.</p>
@@ -779,7 +950,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable state;
 
 /**
- <p>The cause of the last state change, either <code>User initiated</code> or <code>Lambda initiated</code>.</p>
+ <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stateTransitionReason;
 
@@ -883,7 +1054,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
- <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer-managed CMK.</p>
+ <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -891,6 +1062,21 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The date and time that the function was last updated, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastModified;
+
+/**
+ <p>The status of the last update that was performed on the function.</p>
+ */
+@property (nonatomic, assign) AWSLambdaLastUpdateStatus lastUpdateStatus;
+
+/**
+ <p>The reason for the last update that was performed on the function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastUpdateStatusReason;
+
+/**
+ <p>The reason code for the last update that was performed on the function.</p>
+ */
+@property (nonatomic, assign) AWSLambdaLastUpdateStatusReasonCode lastUpdateStatusReasonCode;
 
 /**
  <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html"> layers</a>.</p>
@@ -923,6 +1109,21 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
+ <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
+ */
+@property (nonatomic, assign) AWSLambdaState state;
+
+/**
+ <p>The reason for the function's current state.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable stateReason;
+
+/**
+ <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or modify the function.</p>
+ */
+@property (nonatomic, assign) AWSLambdaStateReasonCode stateReasonCode;
+
+/**
  <p>The amount of time that Lambda allows a function to run before stopping it.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
@@ -941,6 +1142,39 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's networking configuration.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfigResponse * _Nullable vpcConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaFunctionEventInvokeConfig : AWSModel
+
+
+/**
+ <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of an SQS queue.</p></li><li><p><b>Topic</b> - The ARN of an SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The date and time that the configuration was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModified;
+
+/**
+ <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumEventAgeInSeconds;
+
+/**
+ <p>The maximum number of times to retry when the function returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
 @end
 
@@ -1004,6 +1238,32 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaGetFunctionConcurrencyRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionConcurrencyResponse : AWSModel
+
+
+/**
+ <p>The number of simultaneous executions that are reserved for the function.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable reservedConcurrentExecutions;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaGetFunctionConfigurationRequest : AWSRequest
 
 
@@ -1014,6 +1274,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 /**
  <p>Specify a version or alias to get details about a published version of the function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionEventInvokeConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>A version number or alias name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable qualifier;
 
@@ -1213,6 +1491,62 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A unique identifier for the current revision of the policy.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable revisionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetProvisionedConcurrencyConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The version number or alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetProvisionedConcurrencyConfigResponse : AWSModel
+
+
+/**
+ <p>The amount of provisioned concurrency allocated.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allocatedProvisionedConcurrentExecutions;
+
+/**
+ <p>The amount of provisioned concurrency available.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable availableProvisionedConcurrentExecutions;
+
+/**
+ <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModified;
+
+/**
+ <p>The amount of provisioned concurrency requested.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable requestedProvisionedConcurrentExecutions;
+
+/**
+ <p>The status of the allocation process.</p>
+ */
+@property (nonatomic, assign) AWSLambdaProvisionedConcurrencyStatusEnum status;
+
+/**
+ <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusReason;
 
 @end
 
@@ -1543,6 +1877,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaListFunctionEventInvokeConfigsRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>The maximum number of configurations to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionEventInvokeConfigsResponse : AWSModel
+
+
+/**
+ <p>A list of configurations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFunctionEventInvokeConfig *> * _Nullable functionEventInvokeConfigs;
+
+/**
+ <p>The pagination token that's included if more results are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaListFunctionsRequest : AWSRequest
 
 
@@ -1676,6 +2051,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaListProvisionedConcurrencyConfigsRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>Specify a number to limit the number of configurations returned.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListProvisionedConcurrencyConfigsResponse : AWSModel
+
+
+/**
+ <p>The pagination token that's included if more results are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+/**
+ <p>A list of provisioned concurrency configurations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaProvisionedConcurrencyConfigListItem *> * _Nullable provisionedConcurrencyConfigs;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaListTagsRequest : AWSRequest
 
 
@@ -1737,6 +2153,75 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A list of Lambda function versions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaFunctionConfiguration *> * _Nullable versions;
+
+@end
+
+/**
+ <p>A destination for events that failed processing.</p>
+ */
+@interface AWSLambdaOnFailure : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the destination resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destination;
+
+@end
+
+/**
+ <p>A destination for events that were processed successfully.</p>
+ */
+@interface AWSLambdaOnSuccess : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the destination resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destination;
+
+@end
+
+/**
+ <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
+ */
+@interface AWSLambdaProvisionedConcurrencyConfigListItem : AWSModel
+
+
+/**
+ <p>The amount of provisioned concurrency allocated.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allocatedProvisionedConcurrentExecutions;
+
+/**
+ <p>The amount of provisioned concurrency available.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable availableProvisionedConcurrentExecutions;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the alias or version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModified;
+
+/**
+ <p>The amount of provisioned concurrency requested.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable requestedProvisionedConcurrentExecutions;
+
+/**
+ <p>The status of the allocation process.</p>
+ */
+@property (nonatomic, assign) AWSLambdaProvisionedConcurrencyStatusEnum status;
+
+/**
+ <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusReason;
 
 @end
 
@@ -1864,6 +2349,100 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The number of simultaneous executions to reserve for the function.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable reservedConcurrentExecutions;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaPutFunctionEventInvokeConfigRequest : AWSRequest
+
+
+/**
+ <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of an SQS queue.</p></li><li><p><b>Topic</b> - The ARN of an SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumEventAgeInSeconds;
+
+/**
+ <p>The maximum number of times to retry when the function returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
+
+/**
+ <p>A version number or alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaPutProvisionedConcurrencyConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The amount of provisioned concurrency to allocate for the version or alias.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable provisionedConcurrentExecutions;
+
+/**
+ <p>The version number or alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaPutProvisionedConcurrencyConfigResponse : AWSModel
+
+
+/**
+ <p>The amount of provisioned concurrency allocated.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allocatedProvisionedConcurrentExecutions;
+
+/**
+ <p>The amount of provisioned concurrency available.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable availableProvisionedConcurrentExecutions;
+
+/**
+ <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModified;
+
+/**
+ <p>The amount of provisioned concurrency requested.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable requestedProvisionedConcurrentExecutions;
+
+/**
+ <p>The status of the allocation process.</p>
+ */
+@property (nonatomic, assign) AWSLambdaProvisionedConcurrencyStatusEnum status;
+
+/**
+ <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusReason;
 
 @end
 
@@ -2035,6 +2614,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
+ <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
+
+/**
+ <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+ */
+@property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
  <p>Disables the event source mapping to pause polling and invocation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
@@ -2045,9 +2634,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- 
+ <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
+
+/**
+ <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
+
+/**
+ <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
+
+/**
+ <p>(Streams) The number of batches to process from each shard concurrently.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
  <p>The identifier of the event source mapping.</p>
@@ -2111,7 +2715,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/dlq.html">Dead Letter Queues</a>.</p>
+ <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaDeadLetterConfig * _Nullable deadLetterConfig;
 
@@ -2176,14 +2780,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaTracingConfig * _Nullable tracingConfig;
 
 /**
- <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/vpc.html">VPC Settings</a>.</p>
+ <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
 
 @end
 
 /**
- <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
+ 
+ */
+@interface AWSLambdaUpdateFunctionEventInvokeConfigRequest : AWSRequest
+
+
+/**
+ <p>A destination for events after they have been sent to a function for processing.</p><p class="title"><b>Destinations</b></p><ul><li><p><b>Function</b> - The Amazon Resource Name (ARN) of a Lambda function.</p></li><li><p><b>Queue</b> - The ARN of an SQS queue.</p></li><li><p><b>Topic</b> - The ARN of an SNS topic.</p></li><li><p><b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
+
+/**
+ <p>The name of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+/**
+ <p>The maximum age of a request that Lambda sends to a function for processing.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumEventAgeInSeconds;
+
+/**
+ <p>The maximum number of times to retry when the function returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
+
+/**
+ <p>A version number or alias name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable qualifier;
+
+@end
+
+/**
+ <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 @interface AWSLambdaVpcConfig : AWSModel
 
