@@ -201,6 +201,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceKinesisVideoArchivedMedia NS_SWIFT_NAME(KinesisVideoArchivedMedia),
     /**
+     *  Amazon Kinesis Video Signaling
+     */
+    AWSServiceKinesisVideoSignaling NS_SWIFT_NAME(KinesisVideoSignaling),
+    /**
      *  AWS Key Management Service (KMS)
      */
     AWSServiceKMS NS_SWIFT_NAME(KMS),
