@@ -14,6 +14,7 @@
 //
 
 import XCTest
+import AWSKinesisVideo
 import AWSKinesisVideoSignaling
 
 class AWSKinesisVideoSignalingIntegrationTests: XCTestCase {
@@ -24,16 +25,12 @@ class AWSKinesisVideoSignalingIntegrationTests: XCTestCase {
         AWSTestUtility.setupCognitoCredentialsProvider()
     }
 
-    override func setUp() {
-        super.setUp()
-    }
-
     override func tearDown() {
         super.tearDown()
-        let kvsClient = AWSKinesisVideoSignaling.default()
     }
 
-    func testExample() {
-        let kvsClient = AWSKinesisVideoSignaling.default()
+    func testAWSKinesisVideoSignaling() {
+        // TODO: Create Signaling Channel with AWSKinesisVideo
+        // TODO: Use AWSKinesisVideoSignaling
     }
 }
