@@ -1,5 +1,31 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.12.3
+
+### New Features
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Autoscaling
+ - Amazon Cognito Identity Provider
+ - Amazon Comprehend
+ - Amazon DynamoDB
+ - Amazon EC2
+ - Amazon Kinesis Firehose
+ - Amazon IoT
+ - Amazon Kinesis Video Streams
+ - AWS KMS
+ - AWS Lambda
+ - Amazon Pinpoint
+ - Amazon Rekognition
+ - Amazon Lex
+ - Amazon SageMaker
+ - Amazon Simple Notification Service (SNS)
+ - Amazon Security Token Service (STS)
+ - Amazon Transcribe
+
 ## 2.12.2
 
 ### New Features
