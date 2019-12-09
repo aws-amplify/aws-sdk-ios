@@ -293,6 +293,7 @@ static NSString *const AWSServiceNameTranslate = @"translate";
 static NSString *const AWSServiceNameComprehend = @"comprehend";
 static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
 static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
 static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
 
@@ -517,6 +518,8 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSServiceNameKinesisVideo;
         case AWSServiceKinesisVideoArchivedMedia:
             return AWSServiceNameKinesisVideoArchivedMedia;
+        case AWSServiceKinesisVideoSignaling:
+            return AWSServiceNameKinesisVideoSignaling;
         case AWSServiceLambda:
             return AWSServiceNameLambda;
         case AWSServiceLexRuntime:

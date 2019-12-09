@@ -1,30 +1,31 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.12.3
+### 2.12.3
 
 ### New Features
+- *** Amazon Kinesis Video Signaling ***
+  - Amazon Kinesis Video Signaling Channels supports GetIceServerConfig and SendAlexaOfferToMaster. See [Amazon Kinese Video Signaling Channels Documentation](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Signaling_Channels.html) for more details
   
 ### Misc. Updates
 
-- Model updates for the following services
-
-- Amazon Autoscaling
- - Amazon Cognito Identity Provider
- - Amazon Comprehend
- - Amazon DynamoDB
- - Amazon EC2
- - Amazon Kinesis Firehose
- - Amazon IoT
- - Amazon Kinesis Video Streams
- - AWS KMS
- - AWS Lambda
- - Amazon Pinpoint
- - Amazon Rekognition
- - Amazon Lex
- - Amazon SageMaker
- - Amazon Simple Notification Service (SNS)
- - Amazon Security Token Service (STS)
- - Amazon Transcribe
+- Model updates for the following services:
+  - Amazon Autoscaling
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon DynamoDB
+  - Amazon EC2
+  - Amazon Kinesis Firehose
+  - Amazon IoT
+  - Amazon Kinesis Video Streams
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Rekognition
+  - Amazon Lex
+  - Amazon SageMaker
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Security Token Service (STS)
+  - Amazon Transcribe
 
 ## 2.12.2
 

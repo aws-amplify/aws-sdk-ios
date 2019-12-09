@@ -74,6 +74,10 @@ Pod::Spec.new do |s|
     kinesis.dependency 'AWSKinesis', '2.12.2'
   end
 
+  s.subspec 'KinesisVideoSignaling' do |kinesis|
+    kinesis.dependency 'AWSKinesisVideoSignaling', '2.12.2'
+  end
+
   s.subspec 'AWSKMS' do |kms|
     kms.dependency 'AWSKMS', '2.12.2'
   end
