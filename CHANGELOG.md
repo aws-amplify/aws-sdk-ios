@@ -1,6 +1,8 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## 2.12.3
+
+### New Features
 
 ### Misc. Updates
 
@@ -23,9 +25,6 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
  - Amazon Simple Notification Service (SNS)
  - Amazon Security Token Service (STS)
  - Amazon Transcribe
-
----
-# AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.2
 
