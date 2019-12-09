@@ -212,6 +212,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderIdentityProviderTypeType) {
     AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook,
     AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle,
     AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeSignInWithApple,
     AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc,
 };
 
@@ -232,6 +233,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderPreventUserExistenceErrorTy
     AWSCognitoIdentityProviderPreventUserExistenceErrorTypesUnknown,
     AWSCognitoIdentityProviderPreventUserExistenceErrorTypesLegacy,
     AWSCognitoIdentityProviderPreventUserExistenceErrorTypesEnabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderRecoveryOptionNameType) {
+    AWSCognitoIdentityProviderRecoveryOptionNameTypeUnknown,
+    AWSCognitoIdentityProviderRecoveryOptionNameTypeVerifiedEmail,
+    AWSCognitoIdentityProviderRecoveryOptionNameTypeVerifiedPhoneNumber,
+    AWSCognitoIdentityProviderRecoveryOptionNameTypeAdminOnly,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderRiskDecisionType) {
@@ -301,6 +309,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
     AWSCognitoIdentityProviderVerifySoftwareTokenResponseTypeError,
 };
 
+@class AWSCognitoIdentityProviderAccountRecoverySettingType;
 @class AWSCognitoIdentityProviderAccountTakeoverActionType;
 @class AWSCognitoIdentityProviderAccountTakeoverActionsType;
 @class AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType;
@@ -480,6 +489,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderPasswordPolicyType;
 @class AWSCognitoIdentityProviderProviderDescription;
 @class AWSCognitoIdentityProviderProviderUserIdentifierType;
+@class AWSCognitoIdentityProviderRecoveryOptionType;
 @class AWSCognitoIdentityProviderResendConfirmationCodeRequest;
 @class AWSCognitoIdentityProviderResendConfirmationCodeResponse;
 @class AWSCognitoIdentityProviderResourceServerScopeType;
@@ -548,6 +558,19 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderVerifySoftwareTokenResponse;
 @class AWSCognitoIdentityProviderVerifyUserAttributeRequest;
 @class AWSCognitoIdentityProviderVerifyUserAttributeResponse;
+
+/**
+ <p>The data type for <code>AccountRecoverySetting</code>.</p>
+ */
+@interface AWSCognitoIdentityProviderAccountRecoverySettingType : AWSModel
+
+
+/**
+ <p>The list of <code>RecoveryOptionTypes</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderRecoveryOptionType *> * _Nullable recoveryMechanisms;
+
+@end
 
 /**
  <p>Account takeover action type.</p>
@@ -2461,6 +2484,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @interface AWSCognitoIdentityProviderCreateUserPoolRequest : AWSRequest
 
+
+/**
+ <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p><note><p>Starting February 1, 2020, the value of <code>AccountRecoverySetting</code> will default to <code>verified_email</code> first and <code>verified_phone_number</code> as the second option for newly created user pools if no value is provided.</p></note>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAccountRecoverySettingType * _Nullable accountRecoverySetting;
 
 /**
  <p>The configuration for <code>AdminCreateUser</code> requests.</p>
@@ -4448,6 +4476,25 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ <p>A map containing a priority as a key, and recovery method name as a value.</p>
+ Required parameters: [Priority, Name]
+ */
+@interface AWSCognitoIdentityProviderRecoveryOptionType : AWSModel
+
+
+/**
+ <p>Specifies the recovery method for a user.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderRecoveryOptionNameType name;
+
+/**
+ <p>A positive integer specifying priority of a method with 1 being the highest priority.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable priority;
+
+@end
+
+/**
  <p>Represents the request to resend the confirmation code.</p>
  Required parameters: [ClientId, Username]
  */
@@ -5644,6 +5691,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAccountRecoverySettingType * _Nullable accountRecoverySetting;
+
+/**
  <p>The configuration for <code>AdminCreateUser</code> requests.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAdminCreateUserConfigType * _Nullable adminCreateUserConfig;
@@ -6015,6 +6067,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @interface AWSCognitoIdentityProviderUserPoolType : AWSModel
 
+
+/**
+ <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderAccountRecoverySettingType * _Nullable accountRecoverySetting;
 
 /**
  <p>The configuration for <code>AdminCreateUser</code> requests.</p>

@@ -41,6 +41,15 @@ typedef NS_ENUM(NSInteger, AWSComprehendErrorType) {
     AWSComprehendErrorUnsupportedLanguage,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendEndpointStatus) {
+    AWSComprehendEndpointStatusUnknown,
+    AWSComprehendEndpointStatusCreating,
+    AWSComprehendEndpointStatusDeleting,
+    AWSComprehendEndpointStatusFailed,
+    AWSComprehendEndpointStatusInService,
+    AWSComprehendEndpointStatusUpdating,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendEntityType) {
     AWSComprehendEntityTypeUnknown,
     AWSComprehendEntityTypePerson,
@@ -155,12 +164,18 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendBatchItemError;
 @class AWSComprehendClassifierEvaluationMetrics;
 @class AWSComprehendClassifierMetadata;
+@class AWSComprehendClassifyDocumentRequest;
+@class AWSComprehendClassifyDocumentResponse;
 @class AWSComprehendCreateDocumentClassifierRequest;
 @class AWSComprehendCreateDocumentClassifierResponse;
+@class AWSComprehendCreateEndpointRequest;
+@class AWSComprehendCreateEndpointResponse;
 @class AWSComprehendCreateEntityRecognizerRequest;
 @class AWSComprehendCreateEntityRecognizerResponse;
 @class AWSComprehendDeleteDocumentClassifierRequest;
 @class AWSComprehendDeleteDocumentClassifierResponse;
+@class AWSComprehendDeleteEndpointRequest;
+@class AWSComprehendDeleteEndpointResponse;
 @class AWSComprehendDeleteEntityRecognizerRequest;
 @class AWSComprehendDeleteEntityRecognizerResponse;
 @class AWSComprehendDescribeDocumentClassificationJobRequest;
@@ -169,6 +184,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDescribeDocumentClassifierResponse;
 @class AWSComprehendDescribeDominantLanguageDetectionJobRequest;
 @class AWSComprehendDescribeDominantLanguageDetectionJobResponse;
+@class AWSComprehendDescribeEndpointRequest;
+@class AWSComprehendDescribeEndpointResponse;
 @class AWSComprehendDescribeEntitiesDetectionJobRequest;
 @class AWSComprehendDescribeEntitiesDetectionJobResponse;
 @class AWSComprehendDescribeEntityRecognizerRequest;
@@ -189,6 +206,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDetectSentimentResponse;
 @class AWSComprehendDetectSyntaxRequest;
 @class AWSComprehendDetectSyntaxResponse;
+@class AWSComprehendDocumentClass;
 @class AWSComprehendDocumentClassificationJobFilter;
 @class AWSComprehendDocumentClassificationJobProperties;
 @class AWSComprehendDocumentClassifierFilter;
@@ -198,6 +216,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDominantLanguage;
 @class AWSComprehendDominantLanguageDetectionJobFilter;
 @class AWSComprehendDominantLanguageDetectionJobProperties;
+@class AWSComprehendEndpointFilter;
+@class AWSComprehendEndpointProperties;
 @class AWSComprehendEntitiesDetectionJobFilter;
 @class AWSComprehendEntitiesDetectionJobProperties;
 @class AWSComprehendEntity;
@@ -222,6 +242,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListDocumentClassifiersResponse;
 @class AWSComprehendListDominantLanguageDetectionJobsRequest;
 @class AWSComprehendListDominantLanguageDetectionJobsResponse;
+@class AWSComprehendListEndpointsRequest;
+@class AWSComprehendListEndpointsResponse;
 @class AWSComprehendListEntitiesDetectionJobsRequest;
 @class AWSComprehendListEntitiesDetectionJobsResponse;
 @class AWSComprehendListEntityRecognizersRequest;
@@ -271,6 +293,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendTopicsDetectionJobProperties;
 @class AWSComprehendUntagResourceRequest;
 @class AWSComprehendUntagResourceResponse;
+@class AWSComprehendUpdateEndpointRequest;
+@class AWSComprehendUpdateEndpointResponse;
 @class AWSComprehendVpcConfig;
 
 /**
@@ -347,7 +371,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -401,7 +425,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -460,7 +484,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -514,7 +538,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendSyntaxLanguageCode languageCode;
 
@@ -625,6 +649,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendClassifyDocumentRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Number (ARN) of the endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointArn;
+
+/**
+ <p>The document text to be analyzed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendClassifyDocumentResponse : AWSModel
+
+
+/**
+ <p>The classes used by the document being analyzed. These are used for multi-class trained models. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendDocumentClass *> * _Nullable classes;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendCreateDocumentClassifierRequest : AWSRequest
 
 
@@ -649,7 +704,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendDocumentClassifierInputDataConfig * _Nullable inputDataConfig;
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -685,6 +740,52 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The Amazon Resource Name (ARN) that identifies the document classifier.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable documentClassifierArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendCreateEndpointRequest : AWSRequest
+
+
+/**
+ <p>An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a <code>ResourceInUseException</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable desiredInferenceUnits;
+
+/**
+ <p>This is the descriptive suffix that becomes part of the <code>EndpointArn</code> used for all subsequent requests to this resource. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointName;
+
+/**
+ <p>The Amazon Resource Number (ARN) of the model to which the endpoint will be attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelArn;
+
+/**
+ <p>Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendCreateEndpointResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Number (ARN) of the endpoint being created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointArn;
 
 @end
 
@@ -766,6 +867,27 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  
  */
 @interface AWSComprehendDeleteDocumentClassifierResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDeleteEndpointRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Number (ARN) of the endpoint being deleted.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDeleteEndpointResponse : AWSModel
 
 
 @end
@@ -866,6 +988,32 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>An object that contains the properties associated with a dominant language detection job.</p>
  */
 @property (nonatomic, strong) AWSComprehendDominantLanguageDetectionJobProperties * _Nullable dominantLanguageDetectionJobProperties;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribeEndpointRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Number (ARN) of the endpoint being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribeEndpointResponse : AWSModel
+
+
+/**
+ <p>Describes information associated with the specific endpoint.</p>
+ */
+@property (nonatomic, strong) AWSComprehendEndpointProperties * _Nullable endpointProperties;
 
 @end
 
@@ -1032,7 +1180,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -1063,7 +1211,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -1094,7 +1242,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -1130,7 +1278,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>The language code of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
+ <p>The language code of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
  */
 @property (nonatomic, assign) AWSComprehendSyntaxLanguageCode languageCode;
 
@@ -1151,6 +1299,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendSyntaxToken *> * _Nullable syntaxTokens;
+
+@end
+
+/**
+ <p>Specifies the class that categorizes the document being analyzed</p>
+ */
+@interface AWSComprehendDocumentClass : AWSModel
+
+
+/**
+ <p>The name of the class.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The confidence score that Amazon Comprehend has this class correctly attributed.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
 
 @end
 
@@ -1489,6 +1655,82 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
+
+@end
+
+/**
+ <p>The filter used to determine which endpoints are are returned. You can filter jobs on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
+ */
+@interface AWSComprehendEndpointFilter : AWSModel
+
+
+/**
+ <p>Specifies a date after which the returned endpoint or endpoints were created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimeAfter;
+
+/**
+ <p>Specifies a date before which the returned endpoint or endpoints were created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimeBefore;
+
+/**
+ <p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelArn;
+
+/**
+ <p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready, Updating, Deleting, Failed.</p>
+ */
+@property (nonatomic, assign) AWSComprehendEndpointStatus status;
+
+@end
+
+/**
+ <p>Specifies information about the specified endpoint.</p>
+ */
+@interface AWSComprehendEndpointProperties : AWSModel
+
+
+/**
+ <p>The creation date and time of the endpoint.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The number of inference units currently used by the model using this endpoint.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable currentInferenceUnits;
+
+/**
+ <p>The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable desiredInferenceUnits;
+
+/**
+ <p>The Amazon Resource Number (ARN) of the endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointArn;
+
+/**
+ <p>The date and time that the endpoint was last modified.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>Specifies a reason for failure in cases of <code>Failed</code> status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The Amazon Resource Number (ARN) of the model to which the endpoint is attached.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelArn;
+
+/**
+ <p>Specifies the status of the endpoint. Because the endpoint updates and creation are asynchronous, so customers will need to wait for the endpoint to be <code>Ready</code> status before making inference requests.</p>
+ */
+@property (nonatomic, assign) AWSComprehendEndpointStatus status;
 
 @end
 
@@ -2173,6 +2415,47 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendListEndpointsRequest : AWSRequest
+
+
+/**
+ <p>Filters the endpoints that are returned. You can filter endpoints on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
+ */
+@property (nonatomic, strong) AWSComprehendEndpointFilter * _Nullable filter;
+
+/**
+ <p>The maximum number of results to return in each page. The default is 100.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListEndpointsResponse : AWSModel
+
+
+/**
+ <p>Displays a list of endpoint properties being retrieved by the service in response to the request.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendEndpointProperties *> * _Nullable endpointPropertiesList;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendListEntitiesDetectionJobsRequest : AWSRequest
 
 
@@ -2726,7 +3009,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents. All documents must be in the same language. You can specify any of the languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian ("it"), or Portuguese ("pt"). If custom entities recognition is used, this parameter is ignored and the language used for training the model is used instead.</p>
+ <p>The language of the input documents. All documents must be in the same language. You can specify any of the languages supported by Amazon Comprehend. If custom entities recognition is used, this parameter is ignored and the language used for training the model is used instead.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -2792,7 +3075,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -2858,7 +3141,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable jobName;
 
 /**
- <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
+ <p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
 
@@ -3325,6 +3608,32 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  
  */
 @interface AWSComprehendUntagResourceResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendUpdateEndpointRequest : AWSRequest
+
+
+/**
+ <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable desiredInferenceUnits;
+
+/**
+ <p>The Amazon Resource Number (ARN) of the endpoint being updated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendUpdateEndpointResponse : AWSModel
 
 
 @end

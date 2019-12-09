@@ -347,7 +347,9 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"intentName" : @"intentName",
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",
+             @"sentimentResponse" : @"sentimentResponse",
              @"sessionAttributes" : @"sessionAttributes",
+             @"sessionId" : @"sessionId",
              @"slotToElicit" : @"slotToElicit",
              @"slots" : @"slots",
              };
@@ -451,7 +453,9 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",
              @"responseCard" : @"responseCard",
+             @"sentimentResponse" : @"sentimentResponse",
              @"sessionAttributes" : @"sessionAttributes",
+             @"sessionId" : @"sessionId",
              @"slotToElicit" : @"slotToElicit",
              @"slots" : @"slots",
              };
@@ -531,6 +535,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSValueTransformer *)responseCardJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexResponseCard class]];
+}
+
++ (NSValueTransformer *)sentimentResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexSentimentResponse class]];
 }
 
 @end
@@ -678,6 +686,17 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSValueTransformer *)genericAttachmentsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLexGenericAttachment class]];
+}
+
+@end
+
+@implementation AWSLexSentimentResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sentimentLabel" : @"sentimentLabel",
+             @"sentimentScore" : @"sentimentScore",
+             };
 }
 
 @end
