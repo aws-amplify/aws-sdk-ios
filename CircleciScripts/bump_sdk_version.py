@@ -71,6 +71,7 @@ modulelist = [
     "AWSKinesis",
     "AWSKinesisVideo",
     "AWSKinesisVideoArchivedMedia",
+    "AWSKinesisVideoSignaling",
     "AWSLambda",
     "AWSLex",
     "AWSLogs",

@@ -25,6 +25,7 @@ podpackages = [
     'AWSKinesis.podspec',
     'AWSKinesisVideo.podspec',
     'AWSKinesisVideoArchivedMedia.podspec',
+    'AWSKinesisVideoSignaling.podspec',
     'AWSLambda.podspec',
     'AWSLex.podspec',
     'AWSLogs.podspec',
