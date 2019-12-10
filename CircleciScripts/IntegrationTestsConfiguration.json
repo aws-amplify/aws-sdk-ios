@@ -112,8 +112,7 @@
   },
   "KinesisVideoSignaling": {
     "test_list": {
-      "AWSKinesisVideoSignalingTests": {},
-      "AWSKinesisVideoSignalingUnitTests": {}
+      "AWSKinesisVideoSignalingTests": {}
     }
   },
   "Lambda": {
