@@ -41,6 +41,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
     CircleciScripts/package_sdk.sh AWSKinesis
     CircleciScripts/package_sdk.sh AWSKinesisVideo
     CircleciScripts/package_sdk.sh AWSKinesisVideoArchivedMedia
+    CircleciScripts/package_sdk.sh AWSKinesisVideoSignaling
     CircleciScripts/package_sdk.sh AWSLambda
     CircleciScripts/package_sdk.sh AWSLex
     CircleciScripts/package_sdk.sh AWSLogs

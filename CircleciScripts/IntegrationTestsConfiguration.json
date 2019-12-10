@@ -110,6 +110,11 @@
       "AWSKinesisVideoTests": {}
     }
   },
+  "KinesisVideoSignaling": {
+    "test_list": {
+      "AWSKinesisVideoSignalingTests": {}
+    }
+  },
   "Lambda": {
     "test_list": {
       "AWSLambdaTests": {}
