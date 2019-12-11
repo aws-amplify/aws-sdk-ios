@@ -1,3 +1,41 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Autoscaling
+ - Amazon Cognito Identity
+ - Amazon Cognito Identity Provider
+ - Amazon Comprehend
+ - Amazon Connect
+ - Amazon Connect Participant
+ - Amazon DynamoDB
+ - Amazon EC2
+ - Amazon Elastic Load Balancing
+ - Amazon Simple Email Service (SES)
+ - Amazon Kinesis Firehose
+ - Amazon IoT
+ - Amazon IoT
+ - Amazon Kinesis Video Streams
+ - Amazon Kinesis Video Signaling
+ - AWS KMS
+ - AWS Lambda
+ - Amazon CloudWatch Logs
+ - Amazon Pinpoint
+ - Amazon Polly
+ - Amazon Rekognition
+ - Amazon Lex
+ - Amazon SageMaker
+ - Amazon Simple DB (SDB)
+ - Amazon Simple Notification Service (SNS)
+ - Amazon Simple Queue Service (SQS)
+ - Amazon Transcribe
+ - Amazon Translate
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ### 2.12.3
