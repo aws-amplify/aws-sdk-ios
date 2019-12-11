@@ -25,7 +25,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.12.2";
+NSString *const AWSKMSSDKVersion = @"2.12.3";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
@@ -64,6 +64,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidKeyUsageException" : @(AWSKMSErrorInvalidKeyUsage),
                             @"InvalidMarkerException" : @(AWSKMSErrorInvalidMarker),
                             @"KMSInternalException" : @(AWSKMSErrorKMSInternal),
+                            @"KMSInvalidSignatureException" : @(AWSKMSErrorKMSInvalidSignature),
                             @"KMSInvalidStateException" : @(AWSKMSErrorKMSInvalidState),
                             @"KeyUnavailableException" : @(AWSKMSErrorKeyUnavailable),
                             @"LimitExceededException" : @(AWSKMSErrorLimitExceeded),

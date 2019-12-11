@@ -48,6 +48,7 @@ typedef NS_ENUM(NSInteger, AWSKMSErrorType) {
     AWSKMSErrorInvalidKeyUsage,
     AWSKMSErrorInvalidMarker,
     AWSKMSErrorKMSInternal,
+    AWSKMSErrorKMSInvalidSignature,
     AWSKMSErrorKMSInvalidState,
     AWSKMSErrorKeyUnavailable,
     AWSKMSErrorLimitExceeded,
@@ -2165,12 +2166,12 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
 
 /**
- <p>Identifies the asymmetric CMK that will be used to verify the signature. This must be the same CMK that was used to generate the signature. If you specify a different CMK, the value of the <code>SignatureValid</code> field in the response will be <code>False</code>.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ <p>Identifies the asymmetric CMK that will be used to verify the signature. This must be the same CMK that was used to generate the signature. If you specify a different CMK, the signature verification fails.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>Specifies the message that was signed, or a hash digest of that message. Messages can be 0-4096 bytes. To verify a larger message, provide a hash digest of the message.</p><p>If the digest of the message specified here is different from the message digest that was signed, the <code>SignatureValid</code> value in the response will be <code>False</code>.</p>
+ <p>Specifies the message that was signed, or a hash digest of that message. Messages can be 0-4096 bytes. To verify a larger message, provide a hash digest of the message.</p><p>If the digest of the message specified here is different from the message digest that was signed, the signature verification fails.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable message;
 
@@ -2185,7 +2186,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSData * _Nullable signature;
 
 /**
- <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the value of the <code>SignatureValid</code> field in the response will be <code>False</code>.</p>
+ <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
  */
 @property (nonatomic, assign) AWSKMSSigningAlgorithmSpec signingAlgorithm;
 
@@ -2203,7 +2204,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>A Boolean value that indicates whether the signature was verified. A value of True indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified KeyID and <code>SigningAlgorithm.</code> A value of False indicates that the message, the algorithm, or the key changed since the message was signed.</p>
+ <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable signatureValid;
 
