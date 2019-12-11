@@ -1,4 +1,4 @@
-customcarthage/carthage archive | tee "carthageout.txt"
+carthage archive | tee "carthageout.txt"
 frameworkfilename=$(cat carthageout.txt |  grep -o 'Created .*\.zip$'  | grep -o   '\S*\.zip$')
 
 if [ -z  "$frameworkfilename" ];then
