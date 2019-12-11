@@ -32,6 +32,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
     CircleciScripts/package_sdk.sh AWSCognitoIdentityProviderASF
     CircleciScripts/package_sdk.sh AWSComprehend
     CircleciScripts/package_sdk.sh AWSConnect
+    CircleciScripts/package_sdk.sh AWSConnectParticipant
     CircleciScripts/package_sdk.sh AWSCore
     CircleciScripts/package_sdk.sh AWSDynamoDB
     CircleciScripts/package_sdk.sh AWSEC2
