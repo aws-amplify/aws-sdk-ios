@@ -17,11 +17,12 @@
   - Amazon Kinesis Firehose
   - Amazon IoT
   - Amazon Kinesis Video Streams
+  - Amazon Kinesis Video Signaling
   - AWS KMS
   - AWS Lambda
+  - Amazon Lex
   - Amazon Pinpoint
   - Amazon Rekognition
-  - Amazon Lex
   - Amazon SageMaker
   - Amazon Simple Notification Service (SNS)
   - Amazon Security Token Service (STS)
