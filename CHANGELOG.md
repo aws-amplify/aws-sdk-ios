@@ -1,15 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon Kinesis Video Signaling
- - AWS KMS
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ### 2.12.3
@@ -29,11 +17,12 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - Amazon Kinesis Firehose
   - Amazon IoT
   - Amazon Kinesis Video Streams
+  - Amazon Kinesis Video Signaling
   - AWS KMS
   - AWS Lambda
+  - Amazon Lex
   - Amazon Pinpoint
   - Amazon Rekognition
-  - Amazon Lex
   - Amazon SageMaker
   - Amazon Simple Notification Service (SNS)
   - Amazon Security Token Service (STS)
