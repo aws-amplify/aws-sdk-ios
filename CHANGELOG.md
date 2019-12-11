@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Kinesis Video Signaling
+ - AWS KMS
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ### 2.12.3
