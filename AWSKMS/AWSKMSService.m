@@ -64,6 +64,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidKeyUsageException" : @(AWSKMSErrorInvalidKeyUsage),
                             @"InvalidMarkerException" : @(AWSKMSErrorInvalidMarker),
                             @"KMSInternalException" : @(AWSKMSErrorKMSInternal),
+                            @"KMSInvalidSignatureException" : @(AWSKMSErrorKMSInvalidSignature),
                             @"KMSInvalidStateException" : @(AWSKMSErrorKMSInvalidState),
                             @"KeyUnavailableException" : @(AWSKMSErrorKeyUnavailable),
                             @"LimitExceededException" : @(AWSKMSErrorLimitExceeded),
