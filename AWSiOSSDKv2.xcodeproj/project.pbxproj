@@ -3043,6 +3043,13 @@
 			remoteGlobalIDString = EFDE85BA1FC5DD3D00D281A2;
 			remoteInfo = AWSCognitoIdentityProviderASF;
 		};
+		FA1DC22823A1467000E43AA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
+			remoteInfo = AWSCore;
+		};
 		FA53333522D4D48700BD88AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -9535,6 +9542,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA1DC22923A1467000E43AA4 /* PBXTargetDependency */,
 			);
 			name = AWSKinesisVideoSignaling;
 			productName = AWSKinesisVideoSignaling;
@@ -11793,6 +11801,9 @@
 				1778556720F9A7CD00D083BB /* AWSKinesisVideoArchivedMedia */,
 				1778556F20F9A7CE00D083BB /* AWSKinesisVideoArchivedMediaTests */,
 				1778559A20F9A8DA00D083BB /* AWSKinesisVideoArchivedMediaUnitTests */,
+				211166F52399C24900902FC1 /* AWSKinesisVideoSignaling */,
+				211166FD2399C24900902FC1 /* AWSKinesisVideoSignalingTests */,
+				211167272399C83600902FC1 /* AWSKinesisVideoSignalingUnitTests */,
 				CE9DE6D81C6A79DF0060793F /* AWSLambda */,
 				CE9DE6E11C6A79DF0060793F /* AWSLambdaTests */,
 				CE5604711C6BC93C00B4E00B /* AWSLambdaUnitTests */,
@@ -11847,9 +11858,6 @@
 				9A7ACC1F20B0E85000DDBEC1 /* AWSTranslate */,
 				9A7ACCF420B11CDD00DDBEC1 /* AWSTranslateTests */,
 				9A7ACC4D20B0FF1000DDBEC1 /* AWSTranslateUnitTests */,
-				211166F52399C24900902FC1 /* AWSKinesisVideoSignaling */,
-				211166FD2399C24900902FC1 /* AWSKinesisVideoSignalingTests */,
-				211167272399C83600902FC1 /* AWSKinesisVideoSignalingUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -15335,6 +15343,11 @@
 			isa = PBXTargetDependency;
 			target = EFDE85BA1FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF */;
 			targetProxy = EFDE86071FC65A9100D281A2 /* PBXContainerItemProxy */;
+		};
+		FA1DC22923A1467000E43AA4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
+			targetProxy = FA1DC22823A1467000E43AA4 /* PBXContainerItemProxy */;
 		};
 		FA53333622D4D48700BD88AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
