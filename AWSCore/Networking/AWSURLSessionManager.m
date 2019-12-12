@@ -323,7 +323,12 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                                                                                                         data:delegate.responseData
                                                                                                        error:&error];
                     if (error) {
-                        delegate.error = error;
+                        if ([delegate.responseObject isKindOfClass:[NSDictionary class]]) {
+                            delegate.error = [NSError errorWithDomain:[error domain] code:[error code] userInfo: ((NSDictionary *)delegate.responseObject)[@"Error"]];
+                        }
+                        else {
+                            delegate.error = error;
+                        }
                     }
                 }
                 else {
