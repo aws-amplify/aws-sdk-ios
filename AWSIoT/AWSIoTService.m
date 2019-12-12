@@ -25,7 +25,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.12.1";
+NSString *const AWSIoTSDKVersion = @"2.12.3";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -621,6 +621,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTConfirmTopicRuleDestinationResponse *> *)confirmTopicRuleDestination:(AWSIoTConfirmTopicRuleDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/confirmdestination/{confirmationToken+}"
+                  targetPrefix:@""
+                 operationName:@"ConfirmTopicRuleDestination"
+                   outputClass:[AWSIoTConfirmTopicRuleDestinationResponse class]];
+}
+
+- (void)confirmTopicRuleDestination:(AWSIoTConfirmTopicRuleDestinationRequest *)request
+     completionHandler:(void (^)(AWSIoTConfirmTopicRuleDestinationResponse *response, NSError *error))completionHandler {
+    [[self confirmTopicRuleDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTConfirmTopicRuleDestinationResponse *> * _Nonnull task) {
+        AWSIoTConfirmTopicRuleDestinationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCreateAuthorizerResponse *> *)createAuthorizer:(AWSIoTCreateAuthorizerRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -680,6 +703,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreateCertificateFromCsrResponse *response, NSError *error))completionHandler {
     [[self createCertificateFromCsr:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCertificateFromCsrResponse *> * _Nonnull task) {
         AWSIoTCreateCertificateFromCsrResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateDomainConfigurationResponse *> *)createDomainConfiguration:(AWSIoTCreateDomainConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/domainConfigurations/{domainConfigurationName}"
+                  targetPrefix:@""
+                 operationName:@"CreateDomainConfiguration"
+                   outputClass:[AWSIoTCreateDomainConfigurationResponse class]];
+}
+
+- (void)createDomainConfiguration:(AWSIoTCreateDomainConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateDomainConfigurationResponse *response, NSError *error))completionHandler {
+    [[self createDomainConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateDomainConfigurationResponse *> * _Nonnull task) {
+        AWSIoTCreateDomainConfigurationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -841,6 +887,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreatePolicyVersionResponse *response, NSError *error))completionHandler {
     [[self createPolicyVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreatePolicyVersionResponse *> * _Nonnull task) {
         AWSIoTCreatePolicyVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateProvisioningClaimResponse *> *)createProvisioningClaim:(AWSIoTCreateProvisioningClaimRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/provisioning-templates/{templateName}/provisioning-claim"
+                  targetPrefix:@""
+                 operationName:@"CreateProvisioningClaim"
+                   outputClass:[AWSIoTCreateProvisioningClaimResponse class]];
+}
+
+- (void)createProvisioningClaim:(AWSIoTCreateProvisioningClaimRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateProvisioningClaimResponse *response, NSError *error))completionHandler {
+    [[self createProvisioningClaim:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateProvisioningClaimResponse *> * _Nonnull task) {
+        AWSIoTCreateProvisioningClaimResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateProvisioningTemplateResponse *> *)createProvisioningTemplate:(AWSIoTCreateProvisioningTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/provisioning-templates"
+                  targetPrefix:@""
+                 operationName:@"CreateProvisioningTemplate"
+                   outputClass:[AWSIoTCreateProvisioningTemplateResponse class]];
+}
+
+- (void)createProvisioningTemplate:(AWSIoTCreateProvisioningTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateProvisioningTemplateResponse *response, NSError *error))completionHandler {
+    [[self createProvisioningTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateProvisioningTemplateResponse *> * _Nonnull task) {
+        AWSIoTCreateProvisioningTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateProvisioningTemplateVersionResponse *> *)createProvisioningTemplateVersion:(AWSIoTCreateProvisioningTemplateVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/provisioning-templates/{templateName}/versions"
+                  targetPrefix:@""
+                 operationName:@"CreateProvisioningTemplateVersion"
+                   outputClass:[AWSIoTCreateProvisioningTemplateVersionResponse class]];
+}
+
+- (void)createProvisioningTemplateVersion:(AWSIoTCreateProvisioningTemplateVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateProvisioningTemplateVersionResponse *response, NSError *error))completionHandler {
+    [[self createProvisioningTemplateVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateProvisioningTemplateVersionResponse *> * _Nonnull task) {
+        AWSIoTCreateProvisioningTemplateVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1034,6 +1149,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreateTopicRuleDestinationResponse *> *)createTopicRuleDestination:(AWSIoTCreateTopicRuleDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/destinations"
+                  targetPrefix:@""
+                 operationName:@"CreateTopicRuleDestination"
+                   outputClass:[AWSIoTCreateTopicRuleDestinationResponse class]];
+}
+
+- (void)createTopicRuleDestination:(AWSIoTCreateTopicRuleDestinationRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateTopicRuleDestinationResponse *response, NSError *error))completionHandler {
+    [[self createTopicRuleDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateTopicRuleDestinationResponse *> * _Nonnull task) {
+        AWSIoTCreateTopicRuleDestinationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDeleteAccountAuditConfigurationResponse *> *)deleteAccountAuditConfiguration:(AWSIoTDeleteAccountAuditConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1142,6 +1280,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteDomainConfigurationResponse *> *)deleteDomainConfiguration:(AWSIoTDeleteDomainConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/domainConfigurations/{domainConfigurationName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteDomainConfiguration"
+                   outputClass:[AWSIoTDeleteDomainConfigurationResponse class]];
+}
+
+- (void)deleteDomainConfiguration:(AWSIoTDeleteDomainConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteDomainConfigurationResponse *response, NSError *error))completionHandler {
+    [[self deleteDomainConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteDomainConfigurationResponse *> * _Nonnull task) {
+        AWSIoTDeleteDomainConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1299,6 +1460,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteProvisioningTemplateResponse *> *)deleteProvisioningTemplate:(AWSIoTDeleteProvisioningTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/provisioning-templates/{templateName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteProvisioningTemplate"
+                   outputClass:[AWSIoTDeleteProvisioningTemplateResponse class]];
+}
+
+- (void)deleteProvisioningTemplate:(AWSIoTDeleteProvisioningTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteProvisioningTemplateResponse *response, NSError *error))completionHandler {
+    [[self deleteProvisioningTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteProvisioningTemplateResponse *> * _Nonnull task) {
+        AWSIoTDeleteProvisioningTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteProvisioningTemplateVersionResponse *> *)deleteProvisioningTemplateVersion:(AWSIoTDeleteProvisioningTemplateVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/provisioning-templates/{templateName}/versions/{versionId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteProvisioningTemplateVersion"
+                   outputClass:[AWSIoTDeleteProvisioningTemplateVersionResponse class]];
+}
+
+- (void)deleteProvisioningTemplateVersion:(AWSIoTDeleteProvisioningTemplateVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteProvisioningTemplateVersionResponse *response, NSError *error))completionHandler {
+    [[self deleteProvisioningTemplateVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteProvisioningTemplateVersionResponse *> * _Nonnull task) {
+        AWSIoTDeleteProvisioningTemplateVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1505,6 +1712,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteTopicRuleDestinationResponse *> *)deleteTopicRuleDestination:(AWSIoTDeleteTopicRuleDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/destinations/{arn+}"
+                  targetPrefix:@""
+                 operationName:@"DeleteTopicRuleDestination"
+                   outputClass:[AWSIoTDeleteTopicRuleDestinationResponse class]];
+}
+
+- (void)deleteTopicRuleDestination:(AWSIoTDeleteTopicRuleDestinationRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteTopicRuleDestinationResponse *response, NSError *error))completionHandler {
+    [[self deleteTopicRuleDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteTopicRuleDestinationResponse *> * _Nonnull task) {
+        AWSIoTDeleteTopicRuleDestinationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1763,6 +1993,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeDomainConfigurationResponse *> *)describeDomainConfiguration:(AWSIoTDescribeDomainConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/domainConfigurations/{domainConfigurationName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeDomainConfiguration"
+                   outputClass:[AWSIoTDescribeDomainConfigurationResponse class]];
+}
+
+- (void)describeDomainConfiguration:(AWSIoTDescribeDomainConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeDomainConfigurationResponse *response, NSError *error))completionHandler {
+    [[self describeDomainConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeDomainConfigurationResponse *> * _Nonnull task) {
+        AWSIoTDescribeDomainConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeEndpointResponse *> *)describeEndpoint:(AWSIoTDescribeEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1891,6 +2144,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeMitigationActionResponse *response, NSError *error))completionHandler {
     [[self describeMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeMitigationActionResponse *> * _Nonnull task) {
         AWSIoTDescribeMitigationActionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeProvisioningTemplateResponse *> *)describeProvisioningTemplate:(AWSIoTDescribeProvisioningTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/provisioning-templates/{templateName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeProvisioningTemplate"
+                   outputClass:[AWSIoTDescribeProvisioningTemplateResponse class]];
+}
+
+- (void)describeProvisioningTemplate:(AWSIoTDescribeProvisioningTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeProvisioningTemplateResponse *response, NSError *error))completionHandler {
+    [[self describeProvisioningTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeProvisioningTemplateResponse *> * _Nonnull task) {
+        AWSIoTDescribeProvisioningTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeProvisioningTemplateVersionResponse *> *)describeProvisioningTemplateVersion:(AWSIoTDescribeProvisioningTemplateVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/provisioning-templates/{templateName}/versions/{versionId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeProvisioningTemplateVersion"
+                   outputClass:[AWSIoTDescribeProvisioningTemplateVersionResponse class]];
+}
+
+- (void)describeProvisioningTemplateVersion:(AWSIoTDescribeProvisioningTemplateVersionRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeProvisioningTemplateVersionResponse *response, NSError *error))completionHandler {
+    [[self describeProvisioningTemplateVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeProvisioningTemplateVersionResponse *> * _Nonnull task) {
+        AWSIoTDescribeProvisioningTemplateVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2219,6 +2518,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTGetCardinalityResponse *> *)getCardinality:(AWSIoTGetCardinalityRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/indices/cardinality"
+                  targetPrefix:@""
+                 operationName:@"GetCardinality"
+                   outputClass:[AWSIoTGetCardinalityResponse class]];
+}
+
+- (void)getCardinality:(AWSIoTGetCardinalityRequest *)request
+     completionHandler:(void (^)(AWSIoTGetCardinalityResponse *response, NSError *error))completionHandler {
+    [[self getCardinality:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetCardinalityResponse *> * _Nonnull task) {
+        AWSIoTGetCardinalityResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTGetEffectivePoliciesResponse *> *)getEffectivePolicies:(AWSIoTGetEffectivePoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2334,6 +2656,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTGetPercentilesResponse *> *)getPercentiles:(AWSIoTGetPercentilesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/indices/percentiles"
+                  targetPrefix:@""
+                 operationName:@"GetPercentiles"
+                   outputClass:[AWSIoTGetPercentilesResponse class]];
+}
+
+- (void)getPercentiles:(AWSIoTGetPercentilesRequest *)request
+     completionHandler:(void (^)(AWSIoTGetPercentilesResponse *response, NSError *error))completionHandler {
+    [[self getPercentiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetPercentilesResponse *> * _Nonnull task) {
+        AWSIoTGetPercentilesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTGetPolicyResponse *> *)getPolicy:(AWSIoTGetPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2439,6 +2784,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTGetTopicRuleResponse *response, NSError *error))completionHandler {
     [[self getTopicRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetTopicRuleResponse *> * _Nonnull task) {
         AWSIoTGetTopicRuleResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetTopicRuleDestinationResponse *> *)getTopicRuleDestination:(AWSIoTGetTopicRuleDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/destinations/{arn+}"
+                  targetPrefix:@""
+                 operationName:@"GetTopicRuleDestination"
+                   outputClass:[AWSIoTGetTopicRuleDestinationResponse class]];
+}
+
+- (void)getTopicRuleDestination:(AWSIoTGetTopicRuleDestinationRequest *)request
+     completionHandler:(void (^)(AWSIoTGetTopicRuleDestinationResponse *response, NSError *error))completionHandler {
+    [[self getTopicRuleDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetTopicRuleDestinationResponse *> * _Nonnull task) {
+        AWSIoTGetTopicRuleDestinationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2725,6 +3093,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListDomainConfigurationsResponse *> *)listDomainConfigurations:(AWSIoTListDomainConfigurationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/domainConfigurations"
+                  targetPrefix:@""
+                 operationName:@"ListDomainConfigurations"
+                   outputClass:[AWSIoTListDomainConfigurationsResponse class]];
+}
+
+- (void)listDomainConfigurations:(AWSIoTListDomainConfigurationsRequest *)request
+     completionHandler:(void (^)(AWSIoTListDomainConfigurationsResponse *response, NSError *error))completionHandler {
+    [[self listDomainConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListDomainConfigurationsResponse *> * _Nonnull task) {
+        AWSIoTListDomainConfigurationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListIndicesResponse *> *)listIndices:(AWSIoTListIndicesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2991,6 +3382,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListPrincipalThingsResponse *response, NSError *error))completionHandler {
     [[self listPrincipalThings:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListPrincipalThingsResponse *> * _Nonnull task) {
         AWSIoTListPrincipalThingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListProvisioningTemplateVersionsResponse *> *)listProvisioningTemplateVersions:(AWSIoTListProvisioningTemplateVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/provisioning-templates/{templateName}/versions"
+                  targetPrefix:@""
+                 operationName:@"ListProvisioningTemplateVersions"
+                   outputClass:[AWSIoTListProvisioningTemplateVersionsResponse class]];
+}
+
+- (void)listProvisioningTemplateVersions:(AWSIoTListProvisioningTemplateVersionsRequest *)request
+     completionHandler:(void (^)(AWSIoTListProvisioningTemplateVersionsResponse *response, NSError *error))completionHandler {
+    [[self listProvisioningTemplateVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListProvisioningTemplateVersionsResponse *> * _Nonnull task) {
+        AWSIoTListProvisioningTemplateVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListProvisioningTemplatesResponse *> *)listProvisioningTemplates:(AWSIoTListProvisioningTemplatesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/provisioning-templates"
+                  targetPrefix:@""
+                 operationName:@"ListProvisioningTemplates"
+                   outputClass:[AWSIoTListProvisioningTemplatesResponse class]];
+}
+
+- (void)listProvisioningTemplates:(AWSIoTListProvisioningTemplatesRequest *)request
+     completionHandler:(void (^)(AWSIoTListProvisioningTemplatesResponse *response, NSError *error))completionHandler {
+    [[self listProvisioningTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListProvisioningTemplatesResponse *> * _Nonnull task) {
+        AWSIoTListProvisioningTemplatesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3382,6 +3819,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListThingsInThingGroupResponse *response, NSError *error))completionHandler {
     [[self listThingsInThingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListThingsInThingGroupResponse *> * _Nonnull task) {
         AWSIoTListThingsInThingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListTopicRuleDestinationsResponse *> *)listTopicRuleDestinations:(AWSIoTListTopicRuleDestinationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/destinations"
+                  targetPrefix:@""
+                 operationName:@"ListTopicRuleDestinations"
+                   outputClass:[AWSIoTListTopicRuleDestinationsResponse class]];
+}
+
+- (void)listTopicRuleDestinations:(AWSIoTListTopicRuleDestinationsRequest *)request
+     completionHandler:(void (^)(AWSIoTListTopicRuleDestinationsResponse *response, NSError *error))completionHandler {
+    [[self listTopicRuleDestinations:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListTopicRuleDestinationsResponse *> * _Nonnull task) {
+        AWSIoTListTopicRuleDestinationsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4074,6 +4534,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTUpdateDomainConfigurationResponse *> *)updateDomainConfiguration:(AWSIoTUpdateDomainConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/domainConfigurations/{domainConfigurationName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateDomainConfiguration"
+                   outputClass:[AWSIoTUpdateDomainConfigurationResponse class]];
+}
+
+- (void)updateDomainConfiguration:(AWSIoTUpdateDomainConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateDomainConfigurationResponse *response, NSError *error))completionHandler {
+    [[self updateDomainConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateDomainConfigurationResponse *> * _Nonnull task) {
+        AWSIoTUpdateDomainConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTUpdateDynamicThingGroupResponse *> *)updateDynamicThingGroup:(AWSIoTUpdateDynamicThingGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPATCH
@@ -4178,6 +4661,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTUpdateMitigationActionResponse *response, NSError *error))completionHandler {
     [[self updateMitigationAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateMitigationActionResponse *> * _Nonnull task) {
         AWSIoTUpdateMitigationActionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateProvisioningTemplateResponse *> *)updateProvisioningTemplate:(AWSIoTUpdateProvisioningTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/provisioning-templates/{templateName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateProvisioningTemplate"
+                   outputClass:[AWSIoTUpdateProvisioningTemplateResponse class]];
+}
+
+- (void)updateProvisioningTemplate:(AWSIoTUpdateProvisioningTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateProvisioningTemplateResponse *response, NSError *error))completionHandler {
+    [[self updateProvisioningTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateProvisioningTemplateResponse *> * _Nonnull task) {
+        AWSIoTUpdateProvisioningTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4339,6 +4845,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTUpdateThingGroupsForThingResponse *response, NSError *error))completionHandler {
     [[self updateThingGroupsForThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateThingGroupsForThingResponse *> * _Nonnull task) {
         AWSIoTUpdateThingGroupsForThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateTopicRuleDestinationResponse *> *)updateTopicRuleDestination:(AWSIoTUpdateTopicRuleDestinationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/destinations"
+                  targetPrefix:@""
+                 operationName:@"UpdateTopicRuleDestination"
+                   outputClass:[AWSIoTUpdateTopicRuleDestinationResponse class]];
+}
+
+- (void)updateTopicRuleDestination:(AWSIoTUpdateTopicRuleDestinationRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateTopicRuleDestinationResponse *response, NSError *error))completionHandler {
+    [[self updateTopicRuleDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateTopicRuleDestinationResponse *> * _Nonnull task) {
+        AWSIoTUpdateTopicRuleDestinationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

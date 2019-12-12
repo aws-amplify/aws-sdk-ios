@@ -153,6 +153,102 @@ static id mockNetworking = nil;
     [AWSRekognition removeRekognitionForKey:key];
 }
 
+- (void)testCreateProject {
+    NSString *key = @"testCreateProject";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] createProject:[AWSRekognitionCreateProjectRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testCreateProjectCompletionHandler {
+    NSString *key = @"testCreateProject";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] createProject:[AWSRekognitionCreateProjectRequest new] completionHandler:^(AWSRekognitionCreateProjectResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testCreateProjectVersion {
+    NSString *key = @"testCreateProjectVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] createProjectVersion:[AWSRekognitionCreateProjectVersionRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testCreateProjectVersionCompletionHandler {
+    NSString *key = @"testCreateProjectVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] createProjectVersion:[AWSRekognitionCreateProjectVersionRequest new] completionHandler:^(AWSRekognitionCreateProjectVersionResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
 - (void)testCreateStreamProcessor {
     NSString *key = @"testCreateStreamProcessor";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -393,6 +489,102 @@ static id mockNetworking = nil;
     [AWSRekognition removeRekognitionForKey:key];
 }
 
+- (void)testDescribeProjectVersions {
+    NSString *key = @"testDescribeProjectVersions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] describeProjectVersions:[AWSRekognitionDescribeProjectVersionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testDescribeProjectVersionsCompletionHandler {
+    NSString *key = @"testDescribeProjectVersions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] describeProjectVersions:[AWSRekognitionDescribeProjectVersionsRequest new] completionHandler:^(AWSRekognitionDescribeProjectVersionsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testDescribeProjects {
+    NSString *key = @"testDescribeProjects";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] describeProjects:[AWSRekognitionDescribeProjectsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testDescribeProjectsCompletionHandler {
+    NSString *key = @"testDescribeProjects";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] describeProjects:[AWSRekognitionDescribeProjectsRequest new] completionHandler:^(AWSRekognitionDescribeProjectsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
 - (void)testDescribeStreamProcessor {
     NSString *key = @"testDescribeStreamProcessor";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -428,6 +620,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSRekognition RekognitionForKey:key] describeStreamProcessor:[AWSRekognitionDescribeStreamProcessorRequest new] completionHandler:^(AWSRekognitionDescribeStreamProcessorResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testDetectCustomLabels {
+    NSString *key = @"testDetectCustomLabels";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] detectCustomLabels:[AWSRekognitionDetectCustomLabelsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testDetectCustomLabelsCompletionHandler {
+    NSString *key = @"testDetectCustomLabels";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] detectCustomLabels:[AWSRekognitionDetectCustomLabelsRequest new] completionHandler:^(AWSRekognitionDetectCustomLabelsResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1593,6 +1833,54 @@ static id mockNetworking = nil;
     [AWSRekognition removeRekognitionForKey:key];
 }
 
+- (void)testStartProjectVersion {
+    NSString *key = @"testStartProjectVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] startProjectVersion:[AWSRekognitionStartProjectVersionRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testStartProjectVersionCompletionHandler {
+    NSString *key = @"testStartProjectVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] startProjectVersion:[AWSRekognitionStartProjectVersionRequest new] completionHandler:^(AWSRekognitionStartProjectVersionResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
 - (void)testStartStreamProcessor {
     NSString *key = @"testStartStreamProcessor";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1628,6 +1916,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSRekognition RekognitionForKey:key] startStreamProcessor:[AWSRekognitionStartStreamProcessorRequest new] completionHandler:^(AWSRekognitionStartStreamProcessorResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testStopProjectVersion {
+    NSString *key = @"testStopProjectVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSRekognition RekognitionForKey:key] stopProjectVersion:[AWSRekognitionStopProjectVersionRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSRekognition removeRekognitionForKey:key];
+}
+
+- (void)testStopProjectVersionCompletionHandler {
+    NSString *key = @"testStopProjectVersion";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSRekognition registerRekognitionWithConfiguration:configuration forKey:key];
+
+    AWSRekognition *awsClient = [AWSRekognition RekognitionForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSRekognition RekognitionForKey:key] stopProjectVersion:[AWSRekognitionStopProjectVersionRequest new] completionHandler:^(AWSRekognitionStopProjectVersionResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

@@ -47,6 +47,16 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211166FD2399C24900902FC1"
+               BuildableName = "AWSKinesisVideoSignalingTests.xctest"
+               BlueprintName = "AWSKinesisVideoSignalingTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

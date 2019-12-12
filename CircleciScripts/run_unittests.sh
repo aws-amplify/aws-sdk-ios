@@ -13,6 +13,8 @@ bash CircleciScripts/run_unittest_bundle.sh AWSCognitoAuthUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCognitoIdentityProviderUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCognitoUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSComprehendUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSConnectUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSConnectParticipantUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCoreUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSCoreConfigurationTest
 bash CircleciScripts/run_unittest_bundle.sh AWSCoreServiceConfigurationTest
@@ -24,6 +26,7 @@ bash CircleciScripts/run_unittest_bundle.sh AWSKMSUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSKinesisUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSKinesisVideoUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSKinesisVideoArchivedMediaUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSKinesisVideoSignalingUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSLambdaUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSLexUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSLogsUnitTests

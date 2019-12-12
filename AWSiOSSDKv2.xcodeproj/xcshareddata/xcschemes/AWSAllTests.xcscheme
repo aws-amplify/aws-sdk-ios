@@ -226,6 +226,86 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EFDE85E71ED2050C008841EC"
+               BuildableName = "AWSCognitoAuthTests.xctest"
+               BlueprintName = "AWSCognitoAuthTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EFDE85F81ED20517008841EC"
+               BuildableName = "AWSCognitoAuthUnitTests.xctest"
+               BlueprintName = "AWSCognitoAuthUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9A7ACCD220B11B5200DDBEC1"
+               BuildableName = "AWSComprehendTests.xctest"
+               BlueprintName = "AWSComprehendTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9A7ACCA320B115BC00DDBEC1"
+               BuildableName = "AWSComprehendUnitTests.xctest"
+               BlueprintName = "AWSComprehendUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5DD450B22C9B17C003871AE"
+               BuildableName = "AWSConnectTests.xctest"
+               BlueprintName = "AWSConnectTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5DD454D22CA6474003871AE"
+               BuildableName = "AWSConnectUnitTests.xctest"
+               BlueprintName = "AWSConnectUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4D61CF723286651007E7A12"
+               BuildableName = "AWSConnectParticipantTests.xctest"
+               BlueprintName = "AWSConnectParticipantTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4D61CE223285F98007E7A12"
+               BuildableName = "AWSConnectParticipantUnitTests.xctest"
+               BlueprintName = "AWSConnectParticipantUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE0D41751C6A66E5006B91B5"
                BuildableName = "AWSCoreTests.xctest"
                BlueprintName = "AWSCoreTests"
@@ -366,6 +446,66 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "177855D820F9B3D000D083BB"
+               BuildableName = "AWSKinesisVideoTests.xctest"
+               BlueprintName = "AWSKinesisVideoTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1778556F20F9A7CE00D083BB"
+               BuildableName = "AWSKinesisVideoArchivedMediaTests.xctest"
+               BlueprintName = "AWSKinesisVideoArchivedMediaTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1778559A20F9A8DA00D083BB"
+               BuildableName = "AWSKinesisVideoArchivedMediaUnitTests.xctest"
+               BlueprintName = "AWSKinesisVideoArchivedMediaUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1778558B20F9A8C500D083BB"
+               BuildableName = "AWSKinesisVideoUnitTests.xctest"
+               BlueprintName = "AWSKinesisVideoUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E4E1DA291E5F4EBC0080F769"
+               BuildableName = "AWSKMSUnitTests.xctest"
+               BlueprintName = "AWSKMSUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E4E1DA4E1E5F5BBD0080F769"
+               BuildableName = "AWSKMSTests.xctest"
+               BlueprintName = "AWSKMSTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE9DE6E11C6A79DF0060793F"
                BuildableName = "AWSLambdaTests.xctest"
                BlueprintName = "AWSLambdaTests"
@@ -379,6 +519,36 @@
                BlueprintIdentifier = "CE5604711C6BC93C00B4E00B"
                BuildableName = "AWSLambdaUnitTests.xctest"
                BlueprintName = "AWSLambdaUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "185111D31D78F03B0009F5C3"
+               BuildableName = "AWSLexTests.xctest"
+               BlueprintName = "AWSLexTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "18F572501D8A08FB0068546F"
+               BuildableName = "AWSLexUnitTests.xctest"
+               BlueprintName = "AWSLexUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "181270C81E8EB53A00174785"
+               BuildableName = "AWSLogsUnitTests.xctest"
+               BlueprintName = "AWSLogsUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -436,6 +606,66 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "18E2F5691DED307500BD4608"
+               BuildableName = "AWSPollyTests.xctest"
+               BlueprintName = "AWSPollyTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "18E2F58D1DED31D300BD4608"
+               BuildableName = "AWSPollyUnitTests.xctest"
+               BlueprintName = "AWSPollyUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "18798F861DEF9EA900BC419B"
+               BuildableName = "AWSPinpointTests.xctest"
+               BlueprintName = "AWSPinpointTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "18798F981DEF9EF800BC419B"
+               BuildableName = "AWSPinpointUnitTests.xctest"
+               BlueprintName = "AWSPinpointUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1883210A1DFF11B9003FBE9F"
+               BuildableName = "AWSRekognitionUnitTests.xctest"
+               BlueprintName = "AWSRekognitionUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9AC4C4DE20F4803900B1ECF4"
+               BuildableName = "AWSRekognitionTests.xctest"
+               BlueprintName = "AWSRekognitionTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE9DE9C51C6A7C2E0060793F"
                BuildableName = "AWSS3Tests.xctest"
                BlueprintName = "AWSS3Tests"
@@ -449,6 +679,26 @@
                BlueprintIdentifier = "CE56049E1C6BC97600B4E00B"
                BuildableName = "AWSS3UnitTests.xctest"
                BlueprintName = "AWSS3UnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4A4DFFC22B4201400379396"
+               BuildableName = "AWSSageMakerRuntimeTests.xctest"
+               BlueprintName = "AWSSageMakerRuntimeTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4A4E02622B4233B00379396"
+               BuildableName = "AWSSageMakerRuntimeUnitTests.xctest"
+               BlueprintName = "AWSSageMakerRuntimeUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -536,276 +786,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "185111D31D78F03B0009F5C3"
-               BuildableName = "AWSLexTests.xctest"
-               BlueprintName = "AWSLexTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18F572501D8A08FB0068546F"
-               BuildableName = "AWSLexUnitTests.xctest"
-               BlueprintName = "AWSLexUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18E2F5691DED307500BD4608"
-               BuildableName = "AWSPollyTests.xctest"
-               BlueprintName = "AWSPollyTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18E2F58D1DED31D300BD4608"
-               BuildableName = "AWSPollyUnitTests.xctest"
-               BlueprintName = "AWSPollyUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18798F861DEF9EA900BC419B"
-               BuildableName = "AWSPinpointTests.xctest"
-               BlueprintName = "AWSPinpointTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "18798F981DEF9EF800BC419B"
-               BuildableName = "AWSPinpointUnitTests.xctest"
-               BlueprintName = "AWSPinpointUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1883210A1DFF11B9003FBE9F"
-               BuildableName = "AWSRekognitionUnitTests.xctest"
-               BlueprintName = "AWSRekognitionUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4E1DA291E5F4EBC0080F769"
-               BuildableName = "AWSKMSUnitTests.xctest"
-               BlueprintName = "AWSKMSUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4E1DA4E1E5F5BBD0080F769"
-               BuildableName = "AWSKMSTests.xctest"
-               BlueprintName = "AWSKMSTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "181270C81E8EB53A00174785"
-               BuildableName = "AWSLogsUnitTests.xctest"
-               BlueprintName = "AWSLogsUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17ADAE94209BD11E00FF7598"
-               BuildableName = "AWSTranscribeTests.xctest"
-               BlueprintName = "AWSTranscribeTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "177855D820F9B3D000D083BB"
-               BuildableName = "AWSKinesisVideoTests.xctest"
-               BlueprintName = "AWSKinesisVideoTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1778556F20F9A7CE00D083BB"
-               BuildableName = "AWSKinesisVideoArchivedMediaTests.xctest"
-               BlueprintName = "AWSKinesisVideoArchivedMediaTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EFDE85E71ED2050C008841EC"
-               BuildableName = "AWSCognitoAuthTests.xctest"
-               BlueprintName = "AWSCognitoAuthTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EFDE85F81ED20517008841EC"
-               BuildableName = "AWSCognitoAuthUnitTests.xctest"
-               BlueprintName = "AWSCognitoAuthUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A7ACCD220B11B5200DDBEC1"
-               BuildableName = "AWSComprehendTests.xctest"
-               BlueprintName = "AWSComprehendTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A7ACCA320B115BC00DDBEC1"
-               BuildableName = "AWSComprehendUnitTests.xctest"
-               BlueprintName = "AWSComprehendUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1778559A20F9A8DA00D083BB"
-               BuildableName = "AWSKinesisVideoArchivedMediaUnitTests.xctest"
-               BlueprintName = "AWSKinesisVideoArchivedMediaUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1778558B20F9A8C500D083BB"
-               BuildableName = "AWSKinesisVideoUnitTests.xctest"
-               BlueprintName = "AWSKinesisVideoUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9AC4C4DE20F4803900B1ECF4"
-               BuildableName = "AWSRekognitionTests.xctest"
-               BlueprintName = "AWSRekognitionTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "17E6B456209BB7C90079B286"
-               BuildableName = "AWSTranscribeUnitTests.xctest"
-               BlueprintName = "AWSTranscribeUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A7ACCF420B11CDD00DDBEC1"
-               BuildableName = "AWSTranslateTests.xctest"
-               BlueprintName = "AWSTranslateTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9A7ACC4D20B0FF1000DDBEC1"
-               BuildableName = "AWSTranslateUnitTests.xctest"
-               BlueprintName = "AWSTranslateUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4A4DFFC22B4201400379396"
-               BuildableName = "AWSSageMakerRuntimeTests.xctest"
-               BlueprintName = "AWSSageMakerRuntimeTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4A4E02622B4233B00379396"
-               BuildableName = "AWSSageMakerRuntimeUnitTests.xctest"
-               BlueprintName = "AWSSageMakerRuntimeUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5DD450B22C9B17C003871AE"
-               BuildableName = "AWSConnectTests.xctest"
-               BlueprintName = "AWSConnectTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5DD454D22CA6474003871AE"
-               BuildableName = "AWSConnectUnitTests.xctest"
-               BlueprintName = "AWSConnectUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5C01AFB22EB7F00000F2877"
                BuildableName = "AWSTextractTests.xctest"
                BlueprintName = "AWSTextractTests"
@@ -826,6 +806,26 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "17ADAE94209BD11E00FF7598"
+               BuildableName = "AWSTranscribeTests.xctest"
+               BlueprintName = "AWSTranscribeTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "17E6B456209BB7C90079B286"
+               BuildableName = "AWSTranscribeUnitTests.xctest"
+               BlueprintName = "AWSTranscribeUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "178A804C22B097B900B167D6"
                BuildableName = "AWSTranscribeStreamingTests.xctest"
                BlueprintName = "AWSTranscribeStreamingTests"
@@ -836,9 +836,49 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9A7ACCF420B11CDD00DDBEC1"
+               BuildableName = "AWSTranslateTests.xctest"
+               BlueprintName = "AWSTranslateTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "FA53332A22D4D47D00BD88AF"
                BuildableName = "AWSTranscribeStreamingUnitTests.xctest"
                BlueprintName = "AWSTranscribeStreamingUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9A7ACC4D20B0FF1000DDBEC1"
+               BuildableName = "AWSTranslateUnitTests.xctest"
+               BlueprintName = "AWSTranslateUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211166FD2399C24900902FC1"
+               BuildableName = "AWSKinesisVideoSignalingTests.xctest"
+               BlueprintName = "AWSKinesisVideoSignalingTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211167272399C83600902FC1"
+               BuildableName = "AWSKinesisVideoSignalingUnitTests.xctest"
+               BlueprintName = "AWSKinesisVideoSignalingUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>

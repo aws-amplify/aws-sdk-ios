@@ -25,7 +25,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-NSString *const AWSRekognitionSDKVersion = @"2.12.1";
+NSString *const AWSRekognitionSDKVersion = @"2.12.3";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -40,6 +40,7 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"AccessDeniedException" : @(AWSRekognitionErrorAccessDenied),
+                            @"HumanLoopQuotaExceededException" : @(AWSRekognitionErrorHumanLoopQuotaExceeded),
                             @"IdempotentParameterMismatchException" : @(AWSRekognitionErrorIdempotentParameterMismatch),
                             @"ImageTooLargeException" : @(AWSRekognitionErrorImageTooLarge),
                             @"InternalServerError" : @(AWSRekognitionErrorInternalServer),
@@ -52,6 +53,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceAlreadyExistsException" : @(AWSRekognitionErrorResourceAlreadyExists),
                             @"ResourceInUseException" : @(AWSRekognitionErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSRekognitionErrorResourceNotFound),
+                            @"ResourceNotReadyException" : @(AWSRekognitionErrorResourceNotReady),
                             @"ThrottlingException" : @(AWSRekognitionErrorThrottling),
                             @"VideoTooLargeException" : @(AWSRekognitionErrorVideoTooLarge),
                             };
@@ -334,6 +336,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionCreateProjectResponse *> *)createProject:(AWSRekognitionCreateProjectRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"CreateProject"
+                   outputClass:[AWSRekognitionCreateProjectResponse class]];
+}
+
+- (void)createProject:(AWSRekognitionCreateProjectRequest *)request
+     completionHandler:(void (^)(AWSRekognitionCreateProjectResponse *response, NSError *error))completionHandler {
+    [[self createProject:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionCreateProjectResponse *> * _Nonnull task) {
+        AWSRekognitionCreateProjectResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionCreateProjectVersionResponse *> *)createProjectVersion:(AWSRekognitionCreateProjectVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"CreateProjectVersion"
+                   outputClass:[AWSRekognitionCreateProjectVersionResponse class]];
+}
+
+- (void)createProjectVersion:(AWSRekognitionCreateProjectVersionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionCreateProjectVersionResponse *response, NSError *error))completionHandler {
+    [[self createProjectVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionCreateProjectVersionResponse *> * _Nonnull task) {
+        AWSRekognitionCreateProjectVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionCreateStreamProcessorResponse *> *)createStreamProcessor:(AWSRekognitionCreateStreamProcessorRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -449,6 +497,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionDescribeProjectVersionsResponse *> *)describeProjectVersions:(AWSRekognitionDescribeProjectVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DescribeProjectVersions"
+                   outputClass:[AWSRekognitionDescribeProjectVersionsResponse class]];
+}
+
+- (void)describeProjectVersions:(AWSRekognitionDescribeProjectVersionsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDescribeProjectVersionsResponse *response, NSError *error))completionHandler {
+    [[self describeProjectVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDescribeProjectVersionsResponse *> * _Nonnull task) {
+        AWSRekognitionDescribeProjectVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDescribeProjectsResponse *> *)describeProjects:(AWSRekognitionDescribeProjectsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DescribeProjects"
+                   outputClass:[AWSRekognitionDescribeProjectsResponse class]];
+}
+
+- (void)describeProjects:(AWSRekognitionDescribeProjectsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDescribeProjectsResponse *response, NSError *error))completionHandler {
+    [[self describeProjects:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDescribeProjectsResponse *> * _Nonnull task) {
+        AWSRekognitionDescribeProjectsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionDescribeStreamProcessorResponse *> *)describeStreamProcessor:(AWSRekognitionDescribeStreamProcessorRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -462,6 +556,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionDescribeStreamProcessorResponse *response, NSError *error))completionHandler {
     [[self describeStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDescribeStreamProcessorResponse *> * _Nonnull task) {
         AWSRekognitionDescribeStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDetectCustomLabelsResponse *> *)detectCustomLabels:(AWSRekognitionDetectCustomLabelsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DetectCustomLabels"
+                   outputClass:[AWSRekognitionDetectCustomLabelsResponse class]];
+}
+
+- (void)detectCustomLabels:(AWSRekognitionDetectCustomLabelsRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDetectCustomLabelsResponse *response, NSError *error))completionHandler {
+    [[self detectCustomLabels:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDetectCustomLabelsResponse *> * _Nonnull task) {
+        AWSRekognitionDetectCustomLabelsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1024,6 +1141,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionStartProjectVersionResponse *> *)startProjectVersion:(AWSRekognitionStartProjectVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartProjectVersion"
+                   outputClass:[AWSRekognitionStartProjectVersionResponse class]];
+}
+
+- (void)startProjectVersion:(AWSRekognitionStartProjectVersionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartProjectVersionResponse *response, NSError *error))completionHandler {
+    [[self startProjectVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartProjectVersionResponse *> * _Nonnull task) {
+        AWSRekognitionStartProjectVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionStartStreamProcessorResponse *> *)startStreamProcessor:(AWSRekognitionStartStreamProcessorRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1037,6 +1177,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionStartStreamProcessorResponse *response, NSError *error))completionHandler {
     [[self startStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartStreamProcessorResponse *> * _Nonnull task) {
         AWSRekognitionStartStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStopProjectVersionResponse *> *)stopProjectVersion:(AWSRekognitionStopProjectVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StopProjectVersion"
+                   outputClass:[AWSRekognitionStopProjectVersionResponse class]];
+}
+
+- (void)stopProjectVersion:(AWSRekognitionStopProjectVersionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStopProjectVersionResponse *response, NSError *error))completionHandler {
+    [[self stopProjectVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStopProjectVersionResponse *> * _Nonnull task) {
+        AWSRekognitionStopProjectVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

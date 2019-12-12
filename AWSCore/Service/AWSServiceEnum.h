@@ -161,6 +161,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceConnect NS_SWIFT_NAME(Connect),
     /**
+     *  Amazon Connect Participant
+     */
+    AWSServiceConnectParticipant NS_SWIFT_NAME(ConnectParticipant),
+    /**
      *  Amazon DynamoDB
      */
     AWSServiceDynamoDB NS_SWIFT_NAME(DynamoDB),
@@ -196,6 +200,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Kinesis Video Archived Media
      */
     AWSServiceKinesisVideoArchivedMedia NS_SWIFT_NAME(KinesisVideoArchivedMedia),
+    /**
+     *  Amazon Kinesis Video Signaling
+     */
+    AWSServiceKinesisVideoSignaling NS_SWIFT_NAME(KinesisVideoSignaling),
     /**
      *  AWS Key Management Service (KMS)
      */

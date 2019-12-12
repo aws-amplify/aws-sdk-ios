@@ -363,6 +363,8 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Connect  
       - restore_cache:
+          key: test_result-{{ .Revision }}-ConnectParticipant
+      - restore_cache:
           key: test_result-{{ .Revision }}-Core
       - restore_cache:
           key: test_result-{{ .Revision }}-DynamoDB
@@ -376,6 +378,8 @@ jobs:
           key: test_result-{{ .Revision }}-KMS
       - restore_cache:
           key: test_result-{{ .Revision }}-Kinesis
+      - restore_cache:
+          key: test_result-{{ .Revision }}-KinesisVideoSignaling
       - restore_cache:
           key: test_result-{{ .Revision }}-Lambda
       - restore_cache:
@@ -971,6 +975,17 @@ workflows:
                 - develop
 
       - integrationtest:
+          name: ConnectParticipant
+          groupname: ConnectParticipant
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
           name: Core
           groupname: Core
           requires:
@@ -1028,6 +1043,17 @@ workflows:
       - integrationtest:
           name: Kinesis
           groupname: Kinesis
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: KinesisVideoSignaling
+          groupname: KinesisVideoSignaling
           requires:
             - pre_integrationtest
           filters:
@@ -1211,7 +1237,6 @@ workflows:
               only:
                 - master
                 - develop
-
       - post_integrationtest:
           requires:
             - APIGateway
@@ -1221,6 +1246,7 @@ workflows:
             - Cognito
             - Comprehend
             - Connect
+            - ConnectParticipant
             - Core
             - DynamoDB
             - EC2
@@ -1228,6 +1254,7 @@ workflows:
             - IoT
             - KMS
             - Kinesis
+            - KinesisVideoSignaling
             - Lambda
             - Lex
             - MobileAnalytics
@@ -1460,6 +1487,16 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
+          name: KinesisVideoSignaling
+          groupname: KinesisVideoSignaling
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
           name: KMS
           groupname: KMS
           requires:
@@ -1589,6 +1626,16 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: ConnectParticipant
+          groupname: ConnectParticipant
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
             - AWSMobileClient
@@ -1608,6 +1655,7 @@ workflows:
             - Comprehend
             - Core
             - Kinesis
+            - KinesisVideoSignaling
             - KMS
             - ElasticLoadBalancing
             - EC2
@@ -1621,6 +1669,7 @@ workflows:
             - Textract
             - SageMakerRuntime
             - Connect
+            - ConnectParticipant
           filters:
             branches:
               ignore: /.*/

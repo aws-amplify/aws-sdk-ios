@@ -26,7 +26,7 @@
 #import "AWSFirehoseSerializer.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-NSString *const AWSFirehoseSDKVersion = @"2.12.1";
+NSString *const AWSFirehoseSDKVersion = @"2.12.3";
 
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
@@ -42,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"ConcurrentModificationException" : @(AWSFirehoseErrorConcurrentModification),
                             @"InvalidArgumentException" : @(AWSFirehoseErrorInvalidArgument),
+                            @"InvalidKMSResourceException" : @(AWSFirehoseErrorInvalidKMSResource),
                             @"LimitExceededException" : @(AWSFirehoseErrorLimitExceeded),
                             @"ResourceInUseException" : @(AWSFirehoseErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSFirehoseErrorResourceNotFound),

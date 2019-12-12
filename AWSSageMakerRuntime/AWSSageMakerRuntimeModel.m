@@ -27,6 +27,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
              @"contentType" : @"ContentType",
              @"customAttributes" : @"CustomAttributes",
              @"endpointName" : @"EndpointName",
+             @"targetModel" : @"TargetModel",
              };
 }
 

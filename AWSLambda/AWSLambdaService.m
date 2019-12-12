@@ -26,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.12.1";
+NSString *const AWSLambdaSDKVersion = @"2.12.3";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -57,10 +57,12 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"KMSNotFoundException" : @(AWSLambdaErrorKMSNotFound),
                             @"PolicyLengthExceededException" : @(AWSLambdaErrorPolicyLengthExceeded),
                             @"PreconditionFailedException" : @(AWSLambdaErrorPreconditionFailed),
+                            @"ProvisionedConcurrencyConfigNotFoundException" : @(AWSLambdaErrorProvisionedConcurrencyConfigNotFound),
                             @"RequestTooLargeException" : @(AWSLambdaErrorRequestTooLarge),
                             @"ResourceConflictException" : @(AWSLambdaErrorResourceConflict),
                             @"ResourceInUseException" : @(AWSLambdaErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSLambdaErrorResourceNotFound),
+                            @"ResourceNotReadyException" : @(AWSLambdaErrorResourceNotReady),
                             @"ServiceException" : @(AWSLambdaErrorService),
                             @"SubnetIPAddressLimitReachedException" : @(AWSLambdaErrorSubnetIPAddressLimitReached),
                             @"TooManyRequestsException" : @(AWSLambdaErrorTooManyRequests),
@@ -533,6 +535,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteFunctionEventInvokeConfig:(AWSLambdaDeleteFunctionEventInvokeConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2019-09-25/functions/{FunctionName}/event-invoke-config"
+                  targetPrefix:@""
+                 operationName:@"DeleteFunctionEventInvokeConfig"
+                   outputClass:nil];
+}
+
+- (void)deleteFunctionEventInvokeConfig:(AWSLambdaDeleteFunctionEventInvokeConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteFunctionEventInvokeConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteLayerVersion:(AWSLambdaDeleteLayerVersionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -545,6 +569,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteLayerVersion:(AWSLambdaDeleteLayerVersionRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteLayerVersion:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteProvisionedConcurrencyConfig:(AWSLambdaDeleteProvisionedConcurrencyConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2019-09-30/functions/{FunctionName}/provisioned-concurrency"
+                  targetPrefix:@""
+                 operationName:@"DeleteProvisionedConcurrencyConfig"
+                   outputClass:nil];
+}
+
+- (void)deleteProvisionedConcurrencyConfig:(AWSLambdaDeleteProvisionedConcurrencyConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteProvisionedConcurrencyConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -647,6 +693,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetFunctionConcurrencyResponse *> *)getFunctionConcurrency:(AWSLambdaGetFunctionConcurrencyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2019-09-30/functions/{FunctionName}/concurrency"
+                  targetPrefix:@""
+                 operationName:@"GetFunctionConcurrency"
+                   outputClass:[AWSLambdaGetFunctionConcurrencyResponse class]];
+}
+
+- (void)getFunctionConcurrency:(AWSLambdaGetFunctionConcurrencyRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetFunctionConcurrencyResponse *response, NSError *error))completionHandler {
+    [[self getFunctionConcurrency:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetFunctionConcurrencyResponse *> * _Nonnull task) {
+        AWSLambdaGetFunctionConcurrencyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaFunctionConfiguration *> *)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -660,6 +729,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
     [[self getFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
         AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionEventInvokeConfig *> *)getFunctionEventInvokeConfig:(AWSLambdaGetFunctionEventInvokeConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2019-09-25/functions/{FunctionName}/event-invoke-config"
+                  targetPrefix:@""
+                 operationName:@"GetFunctionEventInvokeConfig"
+                   outputClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+- (void)getFunctionEventInvokeConfig:(AWSLambdaGetFunctionEventInvokeConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaFunctionEventInvokeConfig *response, NSError *error))completionHandler {
+    [[self getFunctionEventInvokeConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionEventInvokeConfig *> * _Nonnull task) {
+        AWSLambdaFunctionEventInvokeConfig *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -762,6 +854,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetProvisionedConcurrencyConfigResponse *> *)getProvisionedConcurrencyConfig:(AWSLambdaGetProvisionedConcurrencyConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2019-09-30/functions/{FunctionName}/provisioned-concurrency"
+                  targetPrefix:@""
+                 operationName:@"GetProvisionedConcurrencyConfig"
+                   outputClass:[AWSLambdaGetProvisionedConcurrencyConfigResponse class]];
+}
+
+- (void)getProvisionedConcurrencyConfig:(AWSLambdaGetProvisionedConcurrencyConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetProvisionedConcurrencyConfigResponse *response, NSError *error))completionHandler {
+    [[self getProvisionedConcurrencyConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetProvisionedConcurrencyConfigResponse *> * _Nonnull task) {
+        AWSLambdaGetProvisionedConcurrencyConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaInvocationResponse *> *)invoke:(AWSLambdaInvocationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -854,6 +969,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaListFunctionEventInvokeConfigsResponse *> *)listFunctionEventInvokeConfigs:(AWSLambdaListFunctionEventInvokeConfigsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2019-09-25/functions/{FunctionName}/event-invoke-config/list"
+                  targetPrefix:@""
+                 operationName:@"ListFunctionEventInvokeConfigs"
+                   outputClass:[AWSLambdaListFunctionEventInvokeConfigsResponse class]];
+}
+
+- (void)listFunctionEventInvokeConfigs:(AWSLambdaListFunctionEventInvokeConfigsRequest *)request
+     completionHandler:(void (^)(AWSLambdaListFunctionEventInvokeConfigsResponse *response, NSError *error))completionHandler {
+    [[self listFunctionEventInvokeConfigs:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionEventInvokeConfigsResponse *> * _Nonnull task) {
+        AWSLambdaListFunctionEventInvokeConfigsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaListFunctionsResponse *> *)listFunctions:(AWSLambdaListFunctionsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -913,6 +1051,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaListLayersResponse *response, NSError *error))completionHandler {
     [[self listLayers:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListLayersResponse *> * _Nonnull task) {
         AWSLambdaListLayersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListProvisionedConcurrencyConfigsResponse *> *)listProvisionedConcurrencyConfigs:(AWSLambdaListProvisionedConcurrencyConfigsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2019-09-30/functions/{FunctionName}/provisioned-concurrency?List=ALL"
+                  targetPrefix:@""
+                 operationName:@"ListProvisionedConcurrencyConfigs"
+                   outputClass:[AWSLambdaListProvisionedConcurrencyConfigsResponse class]];
+}
+
+- (void)listProvisionedConcurrencyConfigs:(AWSLambdaListProvisionedConcurrencyConfigsRequest *)request
+     completionHandler:(void (^)(AWSLambdaListProvisionedConcurrencyConfigsResponse *response, NSError *error))completionHandler {
+    [[self listProvisionedConcurrencyConfigs:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListProvisionedConcurrencyConfigsResponse *> * _Nonnull task) {
+        AWSLambdaListProvisionedConcurrencyConfigsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1028,6 +1189,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaConcurrency *response, NSError *error))completionHandler {
     [[self putFunctionConcurrency:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaConcurrency *> * _Nonnull task) {
         AWSLambdaConcurrency *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionEventInvokeConfig *> *)putFunctionEventInvokeConfig:(AWSLambdaPutFunctionEventInvokeConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2019-09-25/functions/{FunctionName}/event-invoke-config"
+                  targetPrefix:@""
+                 operationName:@"PutFunctionEventInvokeConfig"
+                   outputClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+- (void)putFunctionEventInvokeConfig:(AWSLambdaPutFunctionEventInvokeConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaFunctionEventInvokeConfig *response, NSError *error))completionHandler {
+    [[self putFunctionEventInvokeConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionEventInvokeConfig *> * _Nonnull task) {
+        AWSLambdaFunctionEventInvokeConfig *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaPutProvisionedConcurrencyConfigResponse *> *)putProvisionedConcurrencyConfig:(AWSLambdaPutProvisionedConcurrencyConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2019-09-30/functions/{FunctionName}/provisioned-concurrency"
+                  targetPrefix:@""
+                 operationName:@"PutProvisionedConcurrencyConfig"
+                   outputClass:[AWSLambdaPutProvisionedConcurrencyConfigResponse class]];
+}
+
+- (void)putProvisionedConcurrencyConfig:(AWSLambdaPutProvisionedConcurrencyConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaPutProvisionedConcurrencyConfigResponse *response, NSError *error))completionHandler {
+    [[self putProvisionedConcurrencyConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPutProvisionedConcurrencyConfigResponse *> * _Nonnull task) {
+        AWSLambdaPutProvisionedConcurrencyConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1208,6 +1415,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
     [[self updateFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
         AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaFunctionEventInvokeConfig *> *)updateFunctionEventInvokeConfig:(AWSLambdaUpdateFunctionEventInvokeConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2019-09-25/functions/{FunctionName}/event-invoke-config"
+                  targetPrefix:@""
+                 operationName:@"UpdateFunctionEventInvokeConfig"
+                   outputClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+- (void)updateFunctionEventInvokeConfig:(AWSLambdaUpdateFunctionEventInvokeConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaFunctionEventInvokeConfig *response, NSError *error))completionHandler {
+    [[self updateFunctionEventInvokeConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionEventInvokeConfig *> * _Nonnull task) {
+        AWSLambdaFunctionEventInvokeConfig *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

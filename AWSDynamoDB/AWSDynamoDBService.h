@@ -250,7 +250,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)createBackup:(AWSDynamoDBCreateBackupInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBCreateBackupOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided Regions. </p><p>If you want to add a new replica table to a global table, each of the following conditions must be true:</p><ul><li><p>The table must have the same primary key as all of the other replicas.</p></li><li><p>The table must have the same name as all of the other replicas.</p></li><li><p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.</p></li><li><p>None of the replica tables in the global table can contain any data.</p></li></ul><p> If global secondary indexes are specified, then the following conditions must also be met: </p><ul><li><p> The global secondary indexes must have the same name. </p></li><li><p> The global secondary indexes must have the same hash key and sort key (if present). </p></li></ul><important><p> Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes. </p><p> If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table. </p></important>
+ <p>Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided Regions. </p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note><p>If you want to add a new replica table to a global table, each of the following conditions must be true:</p><ul><li><p>The table must have the same primary key as all of the other replicas.</p></li><li><p>The table must have the same name as all of the other replicas.</p></li><li><p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.</p></li><li><p>None of the replica tables in the global table can contain any data.</p></li></ul><p> If global secondary indexes are specified, then the following conditions must also be met: </p><ul><li><p> The global secondary indexes must have the same name. </p></li><li><p> The global secondary indexes must have the same hash key and sort key (if present). </p></li></ul><important><p> Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes. </p><p> If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table. </p></important>
  
  @param request A container for the necessary parameters to execute the CreateGlobalTable service method.
 
@@ -262,7 +262,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBCreateGlobalTableOutput *> *)createGlobalTable:(AWSDynamoDBCreateGlobalTableInput *)request;
 
 /**
- <p>Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided Regions. </p><p>If you want to add a new replica table to a global table, each of the following conditions must be true:</p><ul><li><p>The table must have the same primary key as all of the other replicas.</p></li><li><p>The table must have the same name as all of the other replicas.</p></li><li><p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.</p></li><li><p>None of the replica tables in the global table can contain any data.</p></li></ul><p> If global secondary indexes are specified, then the following conditions must also be met: </p><ul><li><p> The global secondary indexes must have the same name. </p></li><li><p> The global secondary indexes must have the same hash key and sort key (if present). </p></li></ul><important><p> Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes. </p><p> If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table. </p></important>
+ <p>Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided Regions. </p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note><p>If you want to add a new replica table to a global table, each of the following conditions must be true:</p><ul><li><p>The table must have the same primary key as all of the other replicas.</p></li><li><p>The table must have the same name as all of the other replicas.</p></li><li><p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.</p></li><li><p>None of the replica tables in the global table can contain any data.</p></li></ul><p> If global secondary indexes are specified, then the following conditions must also be met: </p><ul><li><p> The global secondary indexes must have the same name. </p></li><li><p> The global secondary indexes must have the same hash key and sort key (if present). </p></li></ul><important><p> Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes. </p><p> If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table. </p></important>
  
  @param request A container for the necessary parameters to execute the CreateGlobalTable service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -425,6 +425,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeContinuousBackups:(AWSDynamoDBDescribeContinuousBackupsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeContinuousBackupsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns information about contributor insights, for a given table or global secondary index.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeContributorInsights service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeContributorInsightsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeContributorInsightsInput
+ @see AWSDynamoDBDescribeContributorInsightsOutput
+ */
+- (AWSTask<AWSDynamoDBDescribeContributorInsightsOutput *> *)describeContributorInsights:(AWSDynamoDBDescribeContributorInsightsInput *)request;
+
+/**
+ <p>Returns information about contributor insights, for a given table or global secondary index.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeContributorInsights service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeContributorInsightsInput
+ @see AWSDynamoDBDescribeContributorInsightsOutput
+ */
+- (void)describeContributorInsights:(AWSDynamoDBDescribeContributorInsightsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeContributorInsightsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the regional endpoint information.</p>
  
  @param request A container for the necessary parameters to execute the DescribeEndpoints service method.
@@ -450,7 +475,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeEndpointsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about the specified global table.</p>
+ <p>Returns information about the specified global table.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeGlobalTable service method.
 
@@ -462,7 +487,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBDescribeGlobalTableOutput *> *)describeGlobalTable:(AWSDynamoDBDescribeGlobalTableInput *)request;
 
 /**
- <p>Returns information about the specified global table.</p>
+ <p>Returns information about the specified global table.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeGlobalTable service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -475,7 +500,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeGlobalTable:(AWSDynamoDBDescribeGlobalTableInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeGlobalTableOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes Region-specific settings for a global table.</p>
+ <p>Describes Region-specific settings for a global table.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeGlobalTableSettings service method.
 
@@ -487,7 +512,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBDescribeGlobalTableSettingsOutput *> *)describeGlobalTableSettings:(AWSDynamoDBDescribeGlobalTableSettingsInput *)request;
 
 /**
- <p>Describes Region-specific settings for a global table.</p>
+ <p>Describes Region-specific settings for a global table.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeGlobalTableSettings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -548,6 +573,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBDescribeTableOutput
  */
 - (void)describeTable:(AWSDynamoDBDescribeTableInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeTableOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes auto scaling settings across replicas of the global table at once.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTableReplicaAutoScaling service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeTableReplicaAutoScalingOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeTableReplicaAutoScalingInput
+ @see AWSDynamoDBDescribeTableReplicaAutoScalingOutput
+ */
+- (AWSTask<AWSDynamoDBDescribeTableReplicaAutoScalingOutput *> *)describeTableReplicaAutoScaling:(AWSDynamoDBDescribeTableReplicaAutoScalingInput *)request;
+
+/**
+ <p>Describes auto scaling settings across replicas of the global table at once.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTableReplicaAutoScaling service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeTableReplicaAutoScalingInput
+ @see AWSDynamoDBDescribeTableReplicaAutoScalingOutput
+ */
+- (void)describeTableReplicaAutoScaling:(AWSDynamoDBDescribeTableReplicaAutoScalingInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeTableReplicaAutoScalingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
@@ -625,7 +675,32 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)listBackups:(AWSDynamoDBListBackupsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBListBackupsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists all global tables that have a replica in the specified Region.</p>
+ <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListContributorInsights service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBListContributorInsightsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBListContributorInsightsInput
+ @see AWSDynamoDBListContributorInsightsOutput
+ */
+- (AWSTask<AWSDynamoDBListContributorInsightsOutput *> *)listContributorInsights:(AWSDynamoDBListContributorInsightsInput *)request;
+
+/**
+ <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListContributorInsights service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBListContributorInsightsInput
+ @see AWSDynamoDBListContributorInsightsOutput
+ */
+- (void)listContributorInsights:(AWSDynamoDBListContributorInsightsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBListContributorInsightsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists all global tables that have a replica in the specified Region.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
  
  @param request A container for the necessary parameters to execute the ListGlobalTables service method.
 
@@ -637,7 +712,7 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBListGlobalTablesOutput *> *)listGlobalTables:(AWSDynamoDBListGlobalTablesInput *)request;
 
 /**
- <p>Lists all global tables that have a replica in the specified Region.</p>
+ <p>Lists all global tables that have a replica in the specified Region.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
  
  @param request A container for the necessary parameters to execute the ListGlobalTables service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -847,11 +922,11 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)tagResource:(AWSDynamoDBTagResourceInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or Region. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><note><p>All AWS Regions and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of data, except the following AWS Regions: </p><ul><li><p>China (Beijing)</p></li><li><p>China (Ningxia)</p></li></ul><p>The China (Beijing) and China (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of data. </p></note><p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p><ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li><li><p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p></li></ul>
+ <p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or Region. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p><ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li><li><p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the TransactGetItems service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBTransactGetItemsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBTransactGetItemsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBTransactGetItemsInput
  @see AWSDynamoDBTransactGetItemsOutput
@@ -859,12 +934,12 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBTransactGetItemsOutput *> *)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)request;
 
 /**
- <p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or Region. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><note><p>All AWS Regions and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of data, except the following AWS Regions: </p><ul><li><p>China (Beijing)</p></li><li><p>China (Ningxia)</p></li></ul><p>The China (Beijing) and China (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of data. </p></note><p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p><ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li><li><p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p></li></ul>
+ <p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and Region. A <code>TransactGetItems</code> call can contain up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and Region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or Region. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p><ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li><li><p>The aggregate size of the items in the transaction cannot exceed 4 MB.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the TransactGetItems service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBTransactGetItemsInput
  @see AWSDynamoDBTransactGetItemsOutput
@@ -872,11 +947,11 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBTransactGetItemsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 25 action requests. These actions can target items in different tables, but not in different AWS accounts or Regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><note><p>All AWS Regions and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of data, except the following AWS Regions: </p><ul><li><p>China (Beijing)</p></li><li><p>China (Ningxia)</p></li></ul><p>The China (Beijing) and China (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of data. </p></note><p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p><ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li></ul><p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p><ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>An ongoing operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>The aggregate size of the items in the transaction exceeds 4 MB.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+ <p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 25 action requests. These actions can target items in different tables, but not in different AWS accounts or Regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p><ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li></ul><p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p><ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>An ongoing operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>The aggregate size of the items in the transaction exceeds 4 MB.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the TransactWriteItems service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBTransactWriteItemsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBTransactWriteItemsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBTransactWriteItemsInput
  @see AWSDynamoDBTransactWriteItemsOutput
@@ -884,12 +959,12 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (AWSTask<AWSDynamoDBTransactWriteItemsOutput *> *)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)request;
 
 /**
- <p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 25 action requests. These actions can target items in different tables, but not in different AWS accounts or Regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><note><p>All AWS Regions and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of data, except the following AWS Regions: </p><ul><li><p>China (Beijing)</p></li><li><p>China (Ningxia)</p></li></ul><p>The China (Beijing) and China (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of data. </p></note><p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p><ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li></ul><p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p><ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>An ongoing operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>The aggregate size of the items in the transaction exceeds 4 MB.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+ <p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 25 action requests. These actions can target items in different tables, but not in different AWS accounts or Regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item. The aggregate size of the items in the transaction cannot exceed 4 MB.</p><p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p><ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether to retrieve the item's attributes if the condition is not met.</p></li></ul><p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p><ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>An ongoing operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>The aggregate size of the items in the transaction exceeds 4 MB.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the TransactWriteItems service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
  
  @see AWSDynamoDBTransactWriteItemsInput
  @see AWSDynamoDBTransactWriteItemsOutput
@@ -942,6 +1017,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBUpdateContinuousBackupsOutput
  */
 - (void)updateContinuousBackups:(AWSDynamoDBUpdateContinuousBackupsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBUpdateContinuousBackupsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the status for contributor insights for a specific table or index.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContributorInsights service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateContributorInsightsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBUpdateContributorInsightsInput
+ @see AWSDynamoDBUpdateContributorInsightsOutput
+ */
+- (AWSTask<AWSDynamoDBUpdateContributorInsightsOutput *> *)updateContributorInsights:(AWSDynamoDBUpdateContributorInsightsInput *)request;
+
+/**
+ <p>Updates the status for contributor insights for a specific table or index.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateContributorInsights service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBUpdateContributorInsightsInput
+ @see AWSDynamoDBUpdateContributorInsightsOutput
+ */
+- (void)updateContributorInsights:(AWSDynamoDBUpdateContributorInsightsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBUpdateContributorInsightsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Adds or removes replicas in the specified global table. The global table must already exist to be able to use this operation. Any replica to be added must be empty, have the same name as the global table, have the same key schema, have DynamoDB Streams enabled, and have the same provisioned and maximum write capacity units.</p><note><p>Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas in a single request, for simplicity we recommend that you issue separate requests for adding or removing replicas.</p></note><p> If global secondary indexes are specified, then the following conditions must also be met: </p><ul><li><p> The global secondary indexes must have the same name. </p></li><li><p> The global secondary indexes must have the same hash key and sort key (if present). </p></li><li><p> The global secondary indexes must have the same provisioned and maximum write capacity units. </p></li></ul>
@@ -1042,6 +1142,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBUpdateTableOutput
  */
 - (void)updateTable:(AWSDynamoDBUpdateTableInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBUpdateTableOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates auto scaling settings on your global tables at once.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTableReplicaAutoScaling service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBUpdateTableReplicaAutoScalingOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBUpdateTableReplicaAutoScalingInput
+ @see AWSDynamoDBUpdateTableReplicaAutoScalingOutput
+ */
+- (AWSTask<AWSDynamoDBUpdateTableReplicaAutoScalingOutput *> *)updateTableReplicaAutoScaling:(AWSDynamoDBUpdateTableReplicaAutoScalingInput *)request;
+
+/**
+ <p>Updates auto scaling settings on your global tables at once.</p><note><p>This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTableReplicaAutoScaling service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBUpdateTableReplicaAutoScalingInput
+ @see AWSDynamoDBUpdateTableReplicaAutoScalingOutput
+ */
+- (void)updateTableReplicaAutoScaling:(AWSDynamoDBUpdateTableReplicaAutoScalingInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBUpdateTableReplicaAutoScalingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for the specified table. A successful <code>UpdateTimeToLive</code> call returns the current <code>TimeToLiveSpecification</code>. It can take up to one hour for the change to fully process. Any additional <code>UpdateTimeToLive</code> calls for the same table during this one hour duration result in a <code>ValidationException</code>. </p><p>TTL compares the current time in epoch time format to the time stored in the TTL attribute of an item. If the epoch time value stored in the attribute is less than the current time, the item is marked as expired and subsequently deleted.</p><note><p> The epoch time format is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC. </p></note><p>DynamoDB deletes expired items on a best-effort basis to ensure availability of throughput for other data operations. </p><important><p>DynamoDB typically deletes expired items within two days of expiration. The exact duration within which an item gets deleted after expiration is specific to the nature of the workload. Items that have expired and not been deleted will still show up in reads, queries, and scans.</p></important><p>As items are deleted, they are removed from any local secondary index and global secondary index immediately in the same eventually consistent way as a standard delete operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the Amazon DynamoDB Developer Guide. </p>

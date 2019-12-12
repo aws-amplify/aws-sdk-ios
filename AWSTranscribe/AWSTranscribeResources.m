@@ -227,7 +227,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>When you are using the <code>StartTranscriptionJob</code> operation, the <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with a different name.</p> <p>When you are using the <code>UpdateVocabulary</code> operation, there are two jobs running at the same time. Resend the second request later.</p>\",\
+      \"documentation\":\"<p>When you are using the <code>CreateVocabulary</code> operation, the <code>JobName</code> field is a duplicate of a previously entered job name. Resend your request with a different name.</p> <p>When you are using the <code>UpdateVocabulary</code> operation, there are two jobs running at the same time. Resend the second request later.</p>\",\
       \"exception\":true\
     },\
     \"CreateVocabularyRequest\":{\
@@ -251,7 +251,7 @@
         },\
         \"VocabularyFileUri\":{\
           \"shape\":\"Uri\",\
-          \"documentation\":\"<p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p> <p> <code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p> <p>For more information about custom vocabularies, see <a href=\\\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\\\">Custom Vocabularies</a>.</p>\"\
+          \"documentation\":\"<p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p> <p> <code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p> <p>For more information about custom vocabularies, see <a href=\\\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\\\">Custom Vocabularies</a>.</p>\"\
         }\
       }\
     },\
@@ -393,7 +393,22 @@
         \"hi-IN\",\
         \"ar-SA\",\
         \"ru-RU\",\
-        \"zh-CN\"\
+        \"zh-CN\",\
+        \"nl-NL\",\
+        \"id-ID\",\
+        \"ta-IN\",\
+        \"fa-IR\",\
+        \"en-IE\",\
+        \"en-AB\",\
+        \"en-WL\",\
+        \"pt-PT\",\
+        \"te-IN\",\
+        \"tr-TR\",\
+        \"de-CH\",\
+        \"he-IL\",\
+        \"ms-MY\",\
+        \"ja-JP\",\
+        \"ar-AE\"\
       ]\
     },\
     \"LimitExceededException\":{\
@@ -480,6 +495,11 @@
         }\
       }\
     },\
+    \"MaxAlternatives\":{\
+      \"type\":\"integer\",\
+      \"max\":10,\
+      \"min\":2\
+    },\
     \"MaxResults\":{\
       \"type\":\"integer\",\
       \"max\":100,\
@@ -495,7 +515,7 @@
       \"members\":{\
         \"MediaFileUri\":{\
           \"shape\":\"Uri\",\
-          \"documentation\":\"<p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p> <p> <code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\"\
+          \"documentation\":\"<p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p> <p> <code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3.us-east-1.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3.us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the input media file in a transcription request.</p>\"\
@@ -567,6 +587,14 @@
         \"ChannelIdentification\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription. </p> <p>Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.</p> <p>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>\"\
+        },\
+        \"ShowAlternatives\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Determines whether the transcription contains alternative transcriptions. If you set the <code>ShowAlternatives</code> field to true, you must also set the maximum number of alternatives to return in the <code>MaxAlternatives</code> field.</p>\"\
+        },\
+        \"MaxAlternatives\":{\
+          \"shape\":\"MaxAlternatives\",\
+          \"documentation\":\"<p>The number of alternative transcriptions that the service should return. If you specify the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code> field to true.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides optional settings for the <code>StartTranscriptionJob</code> operation.</p>\"\
@@ -601,9 +629,12 @@
         },\
         \"OutputBucketName\":{\
           \"shape\":\"OutputBucketName\",\
-          \"documentation\":\"<p>The location where the transcription is stored.</p> <p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation, the operation returns this location in the <code>TranscriptFileUri</code> field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <a href=\\\"https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user\\\">Permissions Required for IAM User Roles</a>.</p> <p>Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket. You can't specify your own encryption key.</p> <p>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download the transcription.</p>\"\
+          \"documentation\":\"<p>The location where the transcription is stored.</p> <p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation, the operation returns this location in the <code>TranscriptFileUri</code> field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <a href=\\\"https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user\\\">Permissions Required for IAM User Roles</a>.</p> <p>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</p> <p>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download the transcription.</p>\"\
         },\
-        \"OutputEncryptionKMSKeyId\":{\"shape\":\"KMSKeyId\"},\
+        \"OutputEncryptionKMSKeyId\":{\
+          \"shape\":\"KMSKeyId\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code> operation must have permission to use the specified KMS key.</p> <p>You can use either of the following to identify a KMS key in the current account:</p> <ul> <li> <p>KMS Key ID: \\\"1234abcd-12ab-34cd-56ef-1234567890ab\\\"</p> </li> <li> <p>KMS Key Alias: \\\"alias/ExampleAlias\\\"</p> </li> </ul> <p>You can use either of the following to identify a KMS key in the current account or another account:</p> <ul> <li> <p>Amazon Resource Name (ARN) of a KMS Key: \\\"arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab\\\"</p> </li> <li> <p>ARN of a KMS Key Alias: \\\"arn:aws:kms:region:account ID:alias/ExampleAlias\\\"</p> </li> </ul> <p>If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3). </p> <p>If you specify a KMS key to encrypt your output, you must also specify an output location in the <code>OutputBucketName</code> parameter.</p>\"\
+        },\
         \"Settings\":{\
           \"shape\":\"Settings\",\
           \"documentation\":\"<p>A <code>Settings</code> object that provides optional settings for a transcription job.</p>\"\
@@ -753,7 +784,7 @@
         },\
         \"VocabularyFileUri\":{\
           \"shape\":\"Uri\",\
-          \"documentation\":\"<p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p> <p> <code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p> <p>For more information about custom vocabularies, see <a href=\\\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\\\">Custom Vocabularies</a>.</p>\"\
+          \"documentation\":\"<p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p> <p> <code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p> <p>For more information about custom vocabularies, see <a href=\\\"http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary\\\">Custom Vocabularies</a>.</p>\"\
         }\
       }\
     },\

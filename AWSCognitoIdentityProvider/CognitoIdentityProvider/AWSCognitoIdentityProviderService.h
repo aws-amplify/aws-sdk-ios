@@ -813,7 +813,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)adminUpdateUserAttributes:(AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Signs out users from all devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
+ <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUserGlobalSignOut service method.
 
@@ -825,7 +825,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *> *)adminUserGlobalSignOut:(AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest *)request;
 
 /**
- <p>Signs out users from all devices, as an administrator.</p><p>Calling this action requires developer credentials.</p>
+ <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminUserGlobalSignOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1767,7 +1767,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Signs out users from all devices.</p>
+ <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
  
  @param request A container for the necessary parameters to execute the GlobalSignOut service method.
 
@@ -1779,7 +1779,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderGlobalSignOutResponse *> *)globalSignOut:(AWSCognitoIdentityProviderGlobalSignOutRequest *)request;
 
 /**
- <p>Signs out users from all devices.</p>
+ <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>
  
  @param request A container for the necessary parameters to execute the GlobalSignOut service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2417,7 +2417,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateDeviceStatus:(AWSCognitoIdentityProviderUpdateDeviceStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateDeviceStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p>
+ <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateGroup service method.
 
@@ -2429,7 +2429,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateGroupResponse *> *)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)request;
 
 /**
- <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p>
+ <p>Updates the specified group with the specified attributes.</p><p>Calling this action requires developer credentials.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2467,7 +2467,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateIdentityProvider:(AWSCognitoIdentityProviderUpdateIdentityProviderRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateIdentityProviderResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+ <p>Updates the name and scopes of resource server. All other fields are read-only.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateResourceServer service method.
 
@@ -2479,7 +2479,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateResourceServerResponse *> *)updateResourceServer:(AWSCognitoIdentityProviderUpdateResourceServerRequest *)request;
 
 /**
- <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
+ <p>Updates the name and scopes of resource server. All other fields are read-only.</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateResourceServer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2517,7 +2517,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateUserAttributes:(AWSCognitoIdentityProviderUpdateUserAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>
+ <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPool service method.
 
@@ -2529,7 +2529,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolResponse *> *)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)request;
 
 /**
- <p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>
+ <p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2542,7 +2542,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserPoolResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>
+ <p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPoolClient service method.
 
@@ -2554,7 +2554,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolClientResponse *> *)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)request;
 
 /**
- <p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>
+ <p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p><important><p>If you don't provide a value for an attribute, it will be set to the default value.</p></important>
  
  @param request A container for the necessary parameters to execute the UpdateUserPoolClient service method.
  @param completionHandler The completion handler to call when the load request is complete.

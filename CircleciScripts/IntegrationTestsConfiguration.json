@@ -48,6 +48,11 @@
       "AWSConnectTests": {}
     }
   },
+  "ConnectParticipant": {
+    "test_list": {
+      "AWSConnectParticipantTests": {}
+    }
+  },
   "Core": {
     "test_list": {
       "AWSCoreTests": {}
@@ -103,6 +108,11 @@
       "AWSKinesisTests": {},
       "AWSKinesisVideoArchivedMediaTests": {},
       "AWSKinesisVideoTests": {}
+    }
+  },
+  "KinesisVideoSignaling": {
+    "test_list": {
+      "AWSKinesisVideoSignalingTests": {}
     }
   },
   "Lambda": {

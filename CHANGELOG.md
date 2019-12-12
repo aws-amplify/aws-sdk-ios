@@ -1,21 +1,56 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+### 2.12.3
+
+### New Features
+- **Amazon Kinesis Video Signaling**
+  - Amazon Kinesis Video Signaling Channels supports GetIceServerConfig and SendAlexaOfferToMaster. See [Amazon Kinesis Video Signaling Channels Documentation](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Signaling_Channels.html) for more details
+  
+### Misc. Updates
+
+- Model updates for the following services:
+  - Amazon Autoscaling
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon DynamoDB
+  - Amazon EC2
+  - Amazon Kinesis Firehose
+  - Amazon IoT
+  - Amazon Kinesis Video Streams
+  - Amazon Kinesis Video Signaling
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Lex
+  - Amazon Pinpoint
+  - Amazon Rekognition
+  - Amazon SageMaker
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Security Token Service (STS)
+  - Amazon Transcribe
+
+## 2.12.2
 
 ### New Features
 
-### Bug Fixes
+- **Amazon Connect Participant Service**
+  - Amazon Connect Participant Service Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale. Amazon Connect enables customer contacts through voice or chat. The Amazon Connect Participant Service is used by chat participants, such as agents and customers. See [Amazon Connect Participant Service Documentation](https://aws.amazon.com/connect/) for more details.
 
 ### Misc. Updates
 
 - Model updates for the following services
 
+  - Amazon CloudWatch Logs
   - Amazon Cognito Identity
+  - Amazon Cognito Identity Provider
   - Amazon Comprehend
   - Amazon Connect
+    - Added a new api to support `CHAT` media in Connect. See [API reference](https://docs.aws.amazon.com/connect/latest/APIReference) for more details.
+  - Amazon DynamoDB
   - Amazon EC2
+  - Amazon IoT
   - Amazon Polly
   - Amazon Security Token Service (STS)
+  - Amazon Transcribe
 
 ## 2.12.1
 

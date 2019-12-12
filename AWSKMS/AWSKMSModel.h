@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, AWSKMSErrorType) {
     AWSKMSErrorDependencyTimeout,
     AWSKMSErrorDisabled,
     AWSKMSErrorExpiredImportToken,
+    AWSKMSErrorIncorrectKey,
     AWSKMSErrorIncorrectKeyMaterial,
     AWSKMSErrorIncorrectTrustAnchor,
     AWSKMSErrorInvalidAliasName,
@@ -47,6 +48,7 @@ typedef NS_ENUM(NSInteger, AWSKMSErrorType) {
     AWSKMSErrorInvalidKeyUsage,
     AWSKMSErrorInvalidMarker,
     AWSKMSErrorKMSInternal,
+    AWSKMSErrorKMSInvalidSignature,
     AWSKMSErrorKMSInvalidState,
     AWSKMSErrorKeyUnavailable,
     AWSKMSErrorLimitExceeded,
@@ -82,10 +84,40 @@ typedef NS_ENUM(NSInteger, AWSKMSConnectionStateType) {
     AWSKMSConnectionStateTypeDisconnecting,
 };
 
+typedef NS_ENUM(NSInteger, AWSKMSCustomerMasterKeySpec) {
+    AWSKMSCustomerMasterKeySpecUnknown,
+    AWSKMSCustomerMasterKeySpecRsa2048,
+    AWSKMSCustomerMasterKeySpecRsa3072,
+    AWSKMSCustomerMasterKeySpecRsa4096,
+    AWSKMSCustomerMasterKeySpecEccNistP256,
+    AWSKMSCustomerMasterKeySpecEccNistP384,
+    AWSKMSCustomerMasterKeySpecEccNistP521,
+    AWSKMSCustomerMasterKeySpecEccSecgP256k1,
+    AWSKMSCustomerMasterKeySpecSymmetricDefault,
+};
+
+typedef NS_ENUM(NSInteger, AWSKMSDataKeyPairSpec) {
+    AWSKMSDataKeyPairSpecUnknown,
+    AWSKMSDataKeyPairSpecRsa2048,
+    AWSKMSDataKeyPairSpecRsa3072,
+    AWSKMSDataKeyPairSpecRsa4096,
+    AWSKMSDataKeyPairSpecEccNistP256,
+    AWSKMSDataKeyPairSpecEccNistP384,
+    AWSKMSDataKeyPairSpecEccNistP521,
+    AWSKMSDataKeyPairSpecEccSecgP256k1,
+};
+
 typedef NS_ENUM(NSInteger, AWSKMSDataKeySpec) {
     AWSKMSDataKeySpecUnknown,
     AWSKMSDataKeySpecAes256,
     AWSKMSDataKeySpecAes128,
+};
+
+typedef NS_ENUM(NSInteger, AWSKMSEncryptionAlgorithmSpec) {
+    AWSKMSEncryptionAlgorithmSpecUnknown,
+    AWSKMSEncryptionAlgorithmSpecSymmetricDefault,
+    AWSKMSEncryptionAlgorithmSpecRsaesOaepSha1,
+    AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSExpirationModelType) {
@@ -102,9 +134,14 @@ typedef NS_ENUM(NSInteger, AWSKMSGrantOperation) {
     AWSKMSGrantOperationGenerateDataKeyWithoutPlaintext,
     AWSKMSGrantOperationReEncryptFrom,
     AWSKMSGrantOperationReEncryptTo,
+    AWSKMSGrantOperationSign,
+    AWSKMSGrantOperationVerify,
+    AWSKMSGrantOperationGetPublicKey,
     AWSKMSGrantOperationCreateGrant,
     AWSKMSGrantOperationRetireGrant,
     AWSKMSGrantOperationDescribeKey,
+    AWSKMSGrantOperationGenerateDataKeyPair,
+    AWSKMSGrantOperationGenerateDataKeyPairWithoutPlaintext,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSKeyManagerType) {
@@ -124,7 +161,14 @@ typedef NS_ENUM(NSInteger, AWSKMSKeyState) {
 
 typedef NS_ENUM(NSInteger, AWSKMSKeyUsageType) {
     AWSKMSKeyUsageTypeUnknown,
+    AWSKMSKeyUsageTypeSignVerify,
     AWSKMSKeyUsageTypeEncryptDecrypt,
+};
+
+typedef NS_ENUM(NSInteger, AWSKMSMessageType) {
+    AWSKMSMessageTypeUnknown,
+    AWSKMSMessageTypeRAW,
+    AWSKMSMessageTypeDigest,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSOriginType) {
@@ -132,6 +176,19 @@ typedef NS_ENUM(NSInteger, AWSKMSOriginType) {
     AWSKMSOriginTypeAwsKms,
     AWSKMSOriginTypeExternal,
     AWSKMSOriginTypeAwsCloudhsm,
+};
+
+typedef NS_ENUM(NSInteger, AWSKMSSigningAlgorithmSpec) {
+    AWSKMSSigningAlgorithmSpecUnknown,
+    AWSKMSSigningAlgorithmSpecRsassaPssSha256,
+    AWSKMSSigningAlgorithmSpecRsassaPssSha384,
+    AWSKMSSigningAlgorithmSpecRsassaPssSha512,
+    AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha256,
+    AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha384,
+    AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha512,
+    AWSKMSSigningAlgorithmSpecEcdsaSha256,
+    AWSKMSSigningAlgorithmSpecEcdsaSha384,
+    AWSKMSSigningAlgorithmSpecEcdsaSha512,
 };
 
 typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
@@ -170,6 +227,10 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @class AWSKMSEnableKeyRotationRequest;
 @class AWSKMSEncryptRequest;
 @class AWSKMSEncryptResponse;
+@class AWSKMSGenerateDataKeyPairRequest;
+@class AWSKMSGenerateDataKeyPairResponse;
+@class AWSKMSGenerateDataKeyPairWithoutPlaintextRequest;
+@class AWSKMSGenerateDataKeyPairWithoutPlaintextResponse;
 @class AWSKMSGenerateDataKeyRequest;
 @class AWSKMSGenerateDataKeyResponse;
 @class AWSKMSGenerateDataKeyWithoutPlaintextRequest;
@@ -182,6 +243,8 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @class AWSKMSGetKeyRotationStatusResponse;
 @class AWSKMSGetParametersForImportRequest;
 @class AWSKMSGetParametersForImportResponse;
+@class AWSKMSGetPublicKeyRequest;
+@class AWSKMSGetPublicKeyResponse;
 @class AWSKMSGrantConstraints;
 @class AWSKMSGrantListEntry;
 @class AWSKMSImportKeyMaterialRequest;
@@ -206,6 +269,8 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @class AWSKMSRevokeGrantRequest;
 @class AWSKMSScheduleKeyDeletionRequest;
 @class AWSKMSScheduleKeyDeletionResponse;
+@class AWSKMSSignRequest;
+@class AWSKMSSignResponse;
 @class AWSKMSTag;
 @class AWSKMSTagResourceRequest;
 @class AWSKMSUntagResourceRequest;
@@ -213,6 +278,8 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @class AWSKMSUpdateCustomKeyStoreRequest;
 @class AWSKMSUpdateCustomKeyStoreResponse;
 @class AWSKMSUpdateKeyDescriptionRequest;
+@class AWSKMSVerifyRequest;
+@class AWSKMSVerifyResponse;
 
 /**
  <p>Contains information about an alias.</p>
@@ -416,9 +483,14 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSNumber * _Nullable bypassPolicyLockoutSafetyCheck;
 
 /**
- <p>Creates the CMK in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.</p><p>To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p><p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p><p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.</p>
+ <p>Creates the CMK in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.</p><p>This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.</p><p>To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p><p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p><p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customKeyStoreId;
+
+/**
+ <p>Specifies the type of CMK to create. The <code>CustomerMasterKeySpec</code> determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can't change the <code>CustomerMasterKeySpec</code> after the CMK is created. To further restrict the algorithms that can be used with the CMK, use its key policy or IAM policy.</p><p>For help with choosing a key spec for your CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#cmk-key-spec">Selecting a Customer Master Key Spec</a> in the <i>AWS Key Management Service Developer Guide</i>.</p><p>The default value, <code>SYMMETRIC_DEFAULT</code>, creates a CMK with a 256-bit symmetric key.</p><p>AWS KMS supports the following key specs for CMKs:</p><ul><li><p>Symmetric key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code> (AES-256-GCM)</p></li></ul></li><li><p>Asymmetric RSA key pairs</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-recommended elliptic curve key pairs</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li></ul></li><li><p>Other asymmetric elliptic curve key pairs</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li></ul>
+ */
+@property (nonatomic, assign) AWSKMSCustomerMasterKeySpec customerMasterKeySpec;
 
 /**
  <p>A description of the CMK.</p><p>Use a description that helps you decide whether the CMK is appropriate for a task.</p>
@@ -426,12 +498,12 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The cryptographic operations for which you can use the CMK. The only valid value is <code>ENCRYPT_DECRYPT</code>, which means you can use the CMK to encrypt and decrypt data.</p>
+ <p>Determines the cryptographic operations for which you can use the CMK. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is required only for asymmetric CMKs. You can't change the <code>KeyUsage</code> value after the CMK is created.</p><p>Select only one valid value.</p><ul><li><p>For symmetric CMKs, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For asymmetric CMKs with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric CMKs with ECC key material, specify <code>SIGN_VERIFY</code>.</p></li></ul>
  */
 @property (nonatomic, assign) AWSKMSKeyUsageType keyUsage;
 
 /**
- <p>The source of the key material for the CMK. You cannot change the origin after you create the CMK.</p><p>The default is <code>AWS_KMS</code>, which means AWS KMS creates the key material in its own key store.</p><p>When the parameter value is <code>EXTERNAL</code>, AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</p><p>When the parameter value is <code>AWS_CLOUDHSM</code>, AWS KMS creates the CMK in an AWS KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and creates its key material in the associated AWS CloudHSM cluster. You must also use the <code>CustomKeyStoreId</code> parameter to identify the custom key store.</p>
+ <p>The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is <code>AWS_KMS</code>, which means AWS KMS creates the key material.</p><p>When the parameter value is <code>EXTERNAL</code>, AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>. This value is valid only for symmetric CMKs.</p><p>When the parameter value is <code>AWS_CLOUDHSM</code>, AWS KMS creates the CMK in an AWS KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and creates its key material in the associated AWS CloudHSM cluster. You must also use the <code>CustomKeyStoreId</code> parameter to identify the custom key store. This value is valid only for symmetric CMKs.</p>
  */
 @property (nonatomic, assign) AWSKMSOriginType origin;
 
@@ -441,7 +513,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSString * _Nullable policy;
 
 /**
- <p>One or more tags. Each tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p><p>Use this parameter to tag the CMK when it is created. Alternately, you can omit this parameter and instead tag the CMK after it is created using <a>TagResource</a>.</p>
+ <p>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.</p><p>When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p><p>Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the <a>TagResource</a> operation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKMSTag *> * _Nullable tags;
 
@@ -515,7 +587,12 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSData * _Nullable ciphertextBlob;
 
 /**
- <p>The encryption context. If this was specified in the <a>Encrypt</a> function, it must be specified here or the decryption operation will fail. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a>.</p>
+ <p>Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify the same algorithm that was used to encrypt the data. If you specify a different algorithm, the <code>Decrypt</code> operation fails.</p><p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported algorithm that is valid for symmetric CMKs.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec encryptionAlgorithm;
+
+/**
+ <p>Specifies the encryption context to use when decrypting the data. An encryption context is valid only for cryptographic operations with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable encryptionContext;
 
@@ -523,6 +600,11 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
  <p>A list of grant tokens.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Specifies the customer master key (CMK) that AWS KMS will use to decrypt the ciphertext. Enter a key ID of the CMK that was used to encrypt the ciphertext.</p><p>If you specify a <code>KeyId</code> value, the <code>Decrypt</code> operation succeeds only if the specified CMK was used to encrypt the ciphertext.</p><p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. Otherwise, AWS KMS uses the metadata that it adds to the ciphertext blob to determine which CMK was used to encrypt the ciphertext. However, you can use this parameter to ensure that a particular CMK (of any kind) is used to decrypt the ciphertext.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
 
 @end
 
@@ -533,12 +615,17 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.</p>
+ <p>The encryption algorithm that was used to decrypt the ciphertext.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec encryptionAlgorithm;
+
+/**
+ <p>The ARN of the customer master key that was used to perform the decryption.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
+ <p>Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable plaintext;
 
@@ -693,7 +780,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>A unique identifier for the customer master key (CMK).</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ <p>Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric CMKs</a>, CMKs with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
@@ -740,7 +827,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>A unique identifier for the customer master key (CMK).</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ <p>Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
@@ -753,7 +840,12 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>Name-value pair that specifies the encryption context to be used for authenticated encryption. If used here, the same value must be supplied to the <code>Decrypt</code> API or decryption will fail. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a>.</p>
+ <p>Specifies the encryption algorithm that AWS KMS will use to encrypt the plaintext message. The algorithm must be compatible with the CMK that you specify.</p><p>This parameter is required only for asymmetric CMKs. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric CMKs. If you are using an asymmetric CMK, we recommend RSAES_OAEP_SHA_256.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec encryptionAlgorithm;
+
+/**
+ <p>Specifies the encryption context that will be used to encrypt the data. An encryption context is valid only for cryptographic operations with a symmetric CMK. The standard asymmetric encryption algorithms that AWS KMS uses do not support an encryption context. </p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable encryptionContext;
 
@@ -781,9 +873,14 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
+ <p>The encrypted plaintext. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable ciphertextBlob;
+
+/**
+ <p>The encryption algorithm that was used to encrypt the plaintext.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec encryptionAlgorithm;
 
 /**
  <p>The ID of the key used during encryption.</p>
@@ -795,11 +892,11 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 /**
  
  */
-@interface AWSKMSGenerateDataKeyRequest : AWSRequest
+@interface AWSKMSGenerateDataKeyPairRequest : AWSRequest
 
 
 /**
- <p>A set of key-value pairs that represents additional authenticated data.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ <p>Specifies the encryption context that will be used when encrypting the private key in the data key pair.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable encryptionContext;
 
@@ -809,17 +906,134 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
 
 /**
- <p>An identifier for the CMK that encrypts the data key.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ <p>Specifies the symmetric CMK that encrypts the private key in the data key pair. You cannot specify an asymmetric CMKs.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
+ <p>Determines the type of data key pair that is generated. </p><p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
+ */
+@property (nonatomic, assign) AWSKMSDataKeyPairSpec keyPairSpec;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSGenerateDataKeyPairResponse : AWSModel
+
+
+/**
+ <p>The identifier of the CMK that encrypted the private key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>The type of data key pair that was generated.</p>
+ */
+@property (nonatomic, assign) AWSKMSDataKeyPairSpec keyPairSpec;
+
+/**
+ <p>The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable privateKeyCiphertextBlob;
+
+/**
+ <p>The plaintext copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable privateKeyPlaintext;
+
+/**
+ <p>The public key (in plaintext).</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable publicKey;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSGenerateDataKeyPairWithoutPlaintextRequest : AWSRequest
+
+
+/**
+ <p>Specifies the encryption context that will be used when encrypting the private key in the data key pair.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable encryptionContext;
+
+/**
+ <p>A list of grant tokens.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Specifies the CMK that encrypts the private key in the data key pair. You must specify a symmetric CMK. You cannot use an asymmetric CMK. </p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Determines the type of data key pair that is generated.</p><p>The AWS KMS rule that restricts the use of asymmetric RSA CMKs to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC CMKs only to sign and verify, are not effective outside of AWS KMS.</p>
+ */
+@property (nonatomic, assign) AWSKMSDataKeyPairSpec keyPairSpec;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSGenerateDataKeyPairWithoutPlaintextResponse : AWSModel
+
+
+/**
+ <p>Specifies the CMK that encrypted the private key in the data key pair. You must specify a symmetric CMK. You cannot use an asymmetric CMK. </p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>The type of data key pair that was generated.</p>
+ */
+@property (nonatomic, assign) AWSKMSDataKeyPairSpec keyPairSpec;
+
+/**
+ <p>The encrypted copy of the private key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable privateKeyCiphertextBlob;
+
+/**
+ <p>The public key (in plaintext).</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable publicKey;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSGenerateDataKeyRequest : AWSRequest
+
+
+/**
+ <p>Specifies the encryption context that will be used when encrypting the data key.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable encryptionContext;
+
+/**
+ <p>A list of grant tokens.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Identifies the symmetric CMK that encrypts the data key.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p><p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
  */
 @property (nonatomic, assign) AWSKMSDataKeySpec keySpec;
 
 /**
- <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
+ <p>Specifies the length of the data key in bytes. For example, use the value 64 to generate a 512-bit data key (64 bytes is 512 bits). For 128-bit (16-byte) and 256-bit (32-byte) data keys, use the <code>KeySpec</code> parameter.</p><p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code> parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable numberOfBytes;
 
@@ -832,7 +1046,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The encrypted copy of the data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
+ <p>The encrypted copy of the data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable ciphertextBlob;
 
@@ -842,7 +1056,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
 /**
- <p>The plaintext data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded. Use this data key to encrypt your data outside of KMS. Then, remove it from memory as soon as possible.</p>
+ <p>The plaintext data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded. Use this data key to encrypt your data outside of KMS. Then, remove it from memory as soon as possible.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable plaintext;
 
@@ -855,7 +1069,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>A set of key-value pairs that represents additional authenticated data.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ <p>Specifies the encryption context that will be used when encrypting the data key.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable encryptionContext;
 
@@ -865,7 +1079,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
 
 /**
- <p>The identifier of the customer master key (CMK) that encrypts the data key.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ <p>The identifier of the symmetric customer master key (CMK) that encrypts the data key.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
@@ -888,7 +1102,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
+ <p>The encrypted data key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable ciphertextBlob;
 
@@ -924,7 +1138,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
+ <p>The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable plaintext;
 
@@ -994,7 +1208,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The identifier of the CMK into which you will import key material. The CMK's <code>Origin</code> must be <code>EXTERNAL</code>.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ <p>The identifier of the symmetric CMK into which you will import key material. The <code>Origin</code> of the CMK must be <code>EXTERNAL</code>.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
@@ -1035,6 +1249,62 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
  <p>The public key to use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable publicKey;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSGetPublicKeyRequest : AWSRequest
+
+
+/**
+ <p>A list of grant tokens.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Identifies the asymmetric CMK that includes the public key.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSGetPublicKeyResponse : AWSModel
+
+
+/**
+ <p>The type of the of the public key that was downloaded.</p>
+ */
+@property (nonatomic, assign) AWSKMSCustomerMasterKeySpec customerMasterKeySpec;
+
+/**
+ <p>The encryption algorithms that AWS KMS supports for this key. </p><p>This information is critical. If a public key encrypts data outside of AWS KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted. </p><p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable encryptionAlgorithms;
+
+/**
+ <p>The identifier of the asymmetric CMK from which the public key was downloaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>The permitted use of the public key. Valid values are <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>. </p><p>This information is critical. If a public key with <code>SIGN_VERIFY</code> key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted. </p>
+ */
+@property (nonatomic, assign) AWSKMSKeyUsageType keyUsage;
+
+/**
+ <p>The exported public key. </p><p>This value is returned as a binary <a href="https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf">Distinguished Encoding Rules</a> (DER)-encoded object. To decode it, use an ASN.1 parsing tool, such as <a href="https://www.openssl.org/docs/man1.0.2/man1/asn1parse.html">OpenSSL asn1parse</a>.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable publicKey;
+
+/**
+ <p>The signing algorithms that AWS KMS supports for this key.</p><p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>SIGN_VERIFY</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable signingAlgorithms;
 
 @end
 
@@ -1116,7 +1386,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The encrypted key material to import. It must be encrypted with the public key that you received in the response to a previous <a>GetParametersForImport</a> request, using the wrapping algorithm that you specified in that request.</p>
+ <p>The encrypted key material to import. The key material must be encrypted with the public wrapping key that <a>GetParametersForImport</a> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable encryptedKeyMaterial;
 
@@ -1131,7 +1401,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSData * _Nullable importToken;
 
 /**
- <p>The identifier of the CMK to import the key material into. The CMK's <code>Origin</code> must be <code>EXTERNAL</code>.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ <p>The identifier of the symmetric CMK that receives the imported key material. The CMK's <code>Origin</code> must be <code>EXTERNAL</code>. This must be the same CMK specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a> request.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
@@ -1201,6 +1471,11 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSString * _Nullable customKeyStoreId;
 
 /**
+ <p>Describes the type of key material in the CMK.</p>
+ */
+@property (nonatomic, assign) AWSKMSCustomerMasterKeySpec customerMasterKeySpec;
+
+/**
  <p>The date and time after which AWS KMS deletes the CMK. This value is present only when <code>KeyState</code> is <code>PendingDeletion</code>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable deletionDate;
@@ -1214,6 +1489,11 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
  <p>Specifies whether the CMK is enabled. When <code>KeyState</code> is <code>Enabled</code> this value is true, otherwise it is false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>A list of encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.</p><p>This field appears only when the <code>KeyUsage</code> of the CMK is <code>ENCRYPT_DECRYPT</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable encryptionAlgorithms;
 
 /**
  <p>Specifies whether the CMK's key material expires. This value is present only when <code>Origin</code> is <code>EXTERNAL</code>, otherwise this value is omitted.</p>
@@ -1236,7 +1516,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, assign) AWSKMSKeyState keyState;
 
 /**
- <p>The cryptographic operations for which you can use the CMK. The only valid value is <code>ENCRYPT_DECRYPT</code>, which means you can use the CMK to encrypt and decrypt data.</p>
+ <p>The cryptographic operations for which you can use the CMK.</p>
  */
 @property (nonatomic, assign) AWSKMSKeyUsageType keyUsage;
 
@@ -1244,6 +1524,11 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
  <p>The source of the CMK's key material. When this value is <code>AWS_KMS</code>, AWS KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS CloudHSM cluster associated with a custom key store.</p>
  */
 @property (nonatomic, assign) AWSKMSOriginType origin;
+
+/**
+ <p>A list of signing algorithms that the CMK supports. You cannot use the CMK with other signing algorithms within AWS KMS.</p><p>This field appears only when the <code>KeyUsage</code> of the CMK is <code>SIGN_VERIFY</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable signingAlgorithms;
 
 /**
  <p>The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. This value is present only for CMKs whose <code>Origin</code> is <code>EXTERNAL</code> and whose <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, otherwise this value is omitted.</p>
@@ -1540,12 +1825,17 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSData * _Nullable ciphertextBlob;
 
 /**
- <p>Encryption context to use when the data is reencrypted.</p>
+ <p>Specifies the encryption algorithm that AWS KMS will use to reecrypt the data after it has decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption algorithm used for symmetric CMKs.</p><p>This parameter is required only when the destination CMK is an asymmetric CMK.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec destinationEncryptionAlgorithm;
+
+/**
+ <p>Specifies that encryption context to use when the reencrypting the data.</p><p>A destination encryption context is valid only when the destination CMK is a symmetric CMK. The standard ciphertext format for asymmetric CMKs does not include fields for metadata.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable destinationEncryptionContext;
 
 /**
- <p>A unique identifier for the CMK that is used to reencrypt the data.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ <p>A unique identifier for the CMK that is used to reencrypt the data. Specify a symmetric or asymmetric CMK with a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a CMK, use the <a>DescribeKey</a> operation.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationKeyId;
 
@@ -1555,9 +1845,19 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
 
 /**
- <p>Encryption context used to encrypt and decrypt the data specified in the <code>CiphertextBlob</code> parameter.</p>
+ <p>Specifies the encryption algorithm that AWS KMS will use to decrypt the ciphertext before it is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm used for symmetric CMKs.</p><p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a different algorithm, the decrypt attempt fails.</p><p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec sourceEncryptionAlgorithm;
+
+/**
+ <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same encryption context that was used to encrypt the ciphertext.</p><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is optional when encrypting with a symmetric CMK, but it is highly recommended.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable sourceEncryptionContext;
+
+/**
+ <p>A unique identifier for the CMK that is used to decrypt the ciphertext before it reencrypts it using the destination CMK.</p><p>This parameter is required only when the ciphertext was encrypted under an asymmetric CMK. Otherwise, AWS KMS uses the metadata that it adds to the ciphertext blob to determine which CMK was used to encrypt the ciphertext. However, you can use this parameter to ensure that a particular CMK (of any kind) is used to decrypt the ciphertext before it is reencrypted.</p><p>If you specify a <code>KeyId</code> value, the decrypt part of the <code>ReEncrypt</code> operation succeeds only if the specified CMK was used to encrypt the ciphertext.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceKeyId;
 
 @end
 
@@ -1568,14 +1868,24 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
+ <p>The reencrypted data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable ciphertextBlob;
+
+/**
+ <p>The encryption algorithm that was used to reencrypt the data.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec destinationEncryptionAlgorithm;
 
 /**
  <p>Unique identifier of the CMK used to reencrypt the data.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>The encryption algorithm that was used to decrypt the ciphertext before it was reencrypted.</p>
+ */
+@property (nonatomic, assign) AWSKMSEncryptionAlgorithmSpec sourceEncryptionAlgorithm;
 
 /**
  <p>Unique identifier of the CMK used to originally encrypt the data.</p>
@@ -1662,6 +1972,62 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @end
 
 /**
+ 
+ */
+@interface AWSKMSSignRequest : AWSRequest
+
+
+/**
+ <p>A list of grant tokens.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Identifies an asymmetric CMK. AWS KMS uses the private key in the asymmetric CMK to sign the message. The <code>KeyUsage</code> type of the CMK must be <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a CMK, use the <a>DescribeKey</a> operation.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a larger message, provide the message digest.</p><p>If you provide a message, AWS KMS generates a hash digest of the message and then signs it.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable message;
+
+/**
+ <p>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message or message digest. To indicate a message, enter <code>RAW</code>. To indicate a message digest, enter <code>DIGEST</code>.</p>
+ */
+@property (nonatomic, assign) AWSKMSMessageType messageType;
+
+/**
+ <p>Specifies the signing algorithm to use when signing the message. </p><p>Choose an algorithm that is compatible with the type and size of the specified asymmetric CMK.</p>
+ */
+@property (nonatomic, assign) AWSKMSSigningAlgorithmSpec signingAlgorithm;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSSignResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the asymmetric CMK that was used to sign the message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>The cryptographic signature that was generated for the message.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable signature;
+
+/**
+ <p>The signing algorithm that was used to sign the message.</p>
+ */
+@property (nonatomic, assign) AWSKMSSigningAlgorithmSpec signingAlgorithm;
+
+@end
+
+/**
  <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p><p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.</p>
  Required parameters: [TagKey, TagValue]
  */
@@ -1723,12 +2089,12 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>Specifies the name of the alias to change. This value must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>.</p>
+ <p>Identifies the alias that is changing its CMK. This value must begin with <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You cannot use UpdateAlias to change the alias name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable aliasName;
 
 /**
- <p>Unique identifier of the customer master key (CMK) to be mapped to the alias. When the update operation completes, the alias will point to this CMK.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><p>To verify that the alias is mapped to the correct CMK, use <a>ListAliases</a>.</p>
+ <p>Identifies the CMK to associate with the alias. When the update operation completes, the alias will point to this CMK. </p><p>The CMK must be in the same AWS account and Region as the alias. Also, the new target CMK must be the same type as the current target CMK (both symmetric or both asymmetric) and they must have the same key usage. </p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p><p>To verify that the alias is mapped to the correct CMK, use <a>ListAliases</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetKeyId;
 
@@ -1785,6 +2151,67 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
  <p>A unique identifier for the customer master key (CMK).</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSVerifyRequest : AWSRequest
+
+
+/**
+ <p>A list of grant tokens.</p><p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable grantTokens;
+
+/**
+ <p>Identifies the asymmetric CMK that will be used to verify the signature. This must be the same CMK that was used to generate the signature. If you specify a different CMK, the signature verification fails.</p><p>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>Specifies the message that was signed, or a hash digest of that message. Messages can be 0-4096 bytes. To verify a larger message, provide a hash digest of the message.</p><p>If the digest of the message specified here is different from the message digest that was signed, the signature verification fails.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable message;
+
+/**
+ <p>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message or message digest. To indicate a message, enter <code>RAW</code>. To indicate a message digest, enter <code>DIGEST</code>.</p>
+ */
+@property (nonatomic, assign) AWSKMSMessageType messageType;
+
+/**
+ <p>The signature that the <code>Sign</code> operation generated.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable signature;
+
+/**
+ <p>The signing algorithm that was used to sign the message. If you submit a different algorithm, the signature verification fails.</p>
+ */
+@property (nonatomic, assign) AWSKMSSigningAlgorithmSpec signingAlgorithm;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKMSVerifyResponse : AWSModel
+
+
+/**
+ <p>The unique identifier for the asymmetric CMK that was used to verify the signature.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyId;
+
+/**
+ <p>A Boolean value that indicates whether the signature was verified. A value of <code>True</code> indicates that the <code>Signature</code> was produced by signing the <code>Message</code> with the specified <code>KeyID</code> and <code>SigningAlgorithm.</code> If the signature is not verified, the <code>Verify</code> operation fails with a <code>KMSInvalidSignatureException</code> exception. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable signatureValid;
+
+/**
+ <p>The signing algorithm that was used to verify the signature.</p>
+ */
+@property (nonatomic, assign) AWSKMSSigningAlgorithmSpec signingAlgorithm;
 
 @end
 

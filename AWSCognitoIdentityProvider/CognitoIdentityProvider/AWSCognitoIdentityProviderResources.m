@@ -609,7 +609,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Signs out users from all devices, as an administrator.</p> <p>Calling this action requires developer credentials.</p>\"\
+      \"documentation\":\"<p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p> <p>Calling this action requires developer credentials.</p>\"\
     },\
     \"AssociateSoftwareToken\":{\
       \"name\":\"AssociateSoftwareToken\",\
@@ -1358,7 +1358,7 @@
         {\"shape\":\"UserNotConfirmedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Signs out users from all devices.</p>\"\
+      \"documentation\":\"<p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>\"\
     },\
     \"InitiateAuth\":{\
       \"name\":\"InitiateAuth\",\
@@ -1865,7 +1865,7 @@
         {\"shape\":\"NotAuthorizedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Updates the specified group with the specified attributes.</p> <p>Calling this action requires developer credentials.</p>\"\
+      \"documentation\":\"<p>Updates the specified group with the specified attributes.</p> <p>Calling this action requires developer credentials.</p> <important> <p>If you don't provide a value for an attribute, it will be set to the default value.</p> </important>\"\
     },\
     \"UpdateIdentityProvider\":{\
       \"name\":\"UpdateIdentityProvider\",\
@@ -1900,7 +1900,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Updates the name and scopes of resource server. All other fields are read-only.</p>\"\
+      \"documentation\":\"<p>Updates the name and scopes of resource server. All other fields are read-only.</p> <important> <p>If you don't provide a value for an attribute, it will be set to the default value.</p> </important>\"\
     },\
     \"UpdateUserAttributes\":{\
       \"name\":\"UpdateUserAttributes\",\
@@ -1954,7 +1954,7 @@
         {\"shape\":\"UserPoolTaggingException\"},\
         {\"shape\":\"InvalidEmailRoleAccessPolicyException\"}\
       ],\
-      \"documentation\":\"<p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>\"\
+      \"documentation\":\"<p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p> <important> <p>If you don't provide a value for an attribute, it will be set to the default value.</p> </important>\"\
     },\
     \"UpdateUserPoolClient\":{\
       \"name\":\"UpdateUserPoolClient\",\
@@ -1974,7 +1974,7 @@
         {\"shape\":\"InvalidOAuthFlowException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>\"\
+      \"documentation\":\"<p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p> <important> <p>If you don't provide a value for an attribute, it will be set to the default value.</p> </important>\"\
     },\
     \"UpdateUserPoolDomain\":{\
       \"name\":\"UpdateUserPoolDomain\",\
@@ -2045,6 +2045,16 @@
   },\
   \"shapes\":{\
     \"AWSAccountIdType\":{\"type\":\"string\"},\
+    \"AccountRecoverySettingType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RecoveryMechanisms\":{\
+          \"shape\":\"RecoveryMechanismsType\",\
+          \"documentation\":\"<p>The list of <code>RecoveryOptionTypes</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The data type for <code>AccountRecoverySetting</code>.</p>\"\
+    },\
     \"AccountTakeoverActionNotifyType\":{\"type\":\"boolean\"},\
     \"AccountTakeoverActionType\":{\
       \"type\":\"structure\",\
@@ -2512,7 +2522,7 @@
         },\
         \"AuthFlow\":{\
           \"shape\":\"AuthFlowType\",\
-          \"documentation\":\"<p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> </ul>\"\
+          \"documentation\":\"<p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> <li> <p> <code>ADMIN_USER_PASSWORD_AUTH</code>: Admin-based user password authentication. This replaces the <code>ADMIN_NO_SRP_AUTH</code> authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords.</p> </li> </ul>\"\
         },\
         \"AuthParameters\":{\
           \"shape\":\"AuthParametersType\",\
@@ -3228,7 +3238,8 @@
         \"REFRESH_TOKEN\",\
         \"CUSTOM_AUTH\",\
         \"ADMIN_NO_SRP_AUTH\",\
-        \"USER_PASSWORD_AUTH\"\
+        \"USER_PASSWORD_AUTH\",\
+        \"ADMIN_USER_PASSWORD_AUTH\"\
       ]\
     },\
     \"AuthParametersType\":{\
@@ -3569,7 +3580,7 @@
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
-          \"documentation\":\"<p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmForgotPassword API action, Amazon Cognito invokes the functions that are assigned to the <i>post confirmation</i> and <i>pre mutation</i> triggers. When Amazon Cognito invokes either of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmForgotPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html\\\">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p> </li> </ul> </note>\"\
+          \"documentation\":\"<p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the ConfirmForgotPassword API action, Amazon Cognito invokes the function that is assigned to the <i>post confirmation</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your ConfirmForgotPassword request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html\\\">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p> </li> </ul> </note>\"\
         }\
       },\
       \"documentation\":\"<p>The request representing the confirmation for a password reset.</p>\"\
@@ -3852,7 +3863,7 @@
         },\
         \"ExplicitAuthFlows\":{\
           \"shape\":\"ExplicitAuthFlowsListType\",\
-          \"documentation\":\"<p>The explicit authentication flows.</p>\"\
+          \"documentation\":\"<p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are deprecated in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix cannot be used along with values without <code>ALLOW_</code> prefix.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP based authentication.</p> </li> <li> <p> <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul>\"\
         },\
         \"SupportedIdentityProviders\":{\
           \"shape\":\"SupportedIdentityProvidersListType\",\
@@ -3885,6 +3896,10 @@
         \"AnalyticsConfiguration\":{\
           \"shape\":\"AnalyticsConfigurationType\",\
           \"documentation\":\"<p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p>\"\
+        },\
+        \"PreventUserExistenceErrors\":{\
+          \"shape\":\"PreventUserExistenceErrorTypes\",\
+          \"documentation\":\"<p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ENABLED</code> - This prevents user existence-related errors.</p> </li> <li> <p> <code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p> </li> </ul> <p>This setting affects the behavior of following APIs:</p> <ul> <li> <p> <a>AdminInitiateAuth</a> </p> </li> <li> <p> <a>AdminRespondToAuthChallenge</a> </p> </li> <li> <p> <a>InitiateAuth</a> </p> </li> <li> <p> <a>RespondToAuthChallenge</a> </p> </li> <li> <p> <a>ForgotPassword</a> </p> </li> <li> <p> <a>ConfirmForgotPassword</a> </p> </li> <li> <p> <a>ConfirmSignUp</a> </p> </li> <li> <p> <a>ResendConfirmationCode</a> </p> </li> </ul> <note> <p>After January 1st 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to create a user pool client.</p>\"\
@@ -4008,6 +4023,10 @@
         \"UserPoolAddOns\":{\
           \"shape\":\"UserPoolAddOnsType\",\
           \"documentation\":\"<p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \\\"AUDIT\\\".</p>\"\
+        },\
+        \"AccountRecoverySetting\":{\
+          \"shape\":\"AccountRecoverySettingType\",\
+          \"documentation\":\"<p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p> <note> <p>Starting February 1, 2020, the value of <code>AccountRecoverySetting</code> will default to <code>verified_email</code> first and <code>verified_phone_number</code> as the second option for newly created user pools if no value is provided.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to create a user pool.</p>\"\
@@ -4540,6 +4559,14 @@
         \"EmailSendingAccount\":{\
           \"shape\":\"EmailSendingAccountType\",\
           \"documentation\":\"<p>Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:</p> <dl> <dt>COGNITO_DEFAULT</dt> <dd> <p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p> <p>To look up the email delivery limit for the default option, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html\\\">Limits in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <p>The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p> </dd> <dt>DEVELOPER</dt> <dd> <p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.</p> <p>If you use this option, you must provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p> <p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html\\\">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p> </dd> </dl>\"\
+        },\
+        \"From\":{\
+          \"shape\":\"StringType\",\
+          \"documentation\":\"<p>Identifies either the senderâs email address or the senderâs name with their email address. For example, <code>testuser@example.com</code> or <code>Test User &lt;testuser@example.com&gt;</code>. This address will appear before the body of the email.</p>\"\
+        },\
+        \"ConfigurationSet\":{\
+          \"shape\":\"SESConfigurationSet\",\
+          \"documentation\":\"<p>The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails: </p> <ul> <li> <p>Event publishing â Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.</p> </li> <li> <p>IP pool management â When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.</p> </li> </ul>\"\
         }\
       },\
       \"documentation\":\"<p>The email configuration type.</p>\"\
@@ -4710,7 +4737,12 @@
       \"enum\":[\
         \"ADMIN_NO_SRP_AUTH\",\
         \"CUSTOM_AUTH_FLOW_ONLY\",\
-        \"USER_PASSWORD_AUTH\"\
+        \"USER_PASSWORD_AUTH\",\
+        \"ALLOW_ADMIN_USER_PASSWORD_AUTH\",\
+        \"ALLOW_CUSTOM_AUTH\",\
+        \"ALLOW_USER_PASSWORD_AUTH\",\
+        \"ALLOW_USER_SRP_AUTH\",\
+        \"ALLOW_REFRESH_TOKEN_AUTH\"\
       ]\
     },\
     \"FeedbackValueType\":{\
@@ -5166,6 +5198,7 @@
         \"Facebook\",\
         \"Google\",\
         \"LoginWithAmazon\",\
+        \"SignInWithApple\",\
         \"OIDC\"\
       ]\
     },\
@@ -5192,7 +5225,7 @@
       \"members\":{\
         \"AuthFlow\":{\
           \"shape\":\"AuthFlowType\",\
-          \"documentation\":\"<p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>\"\
+          \"documentation\":\"<p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p> <ul> <li> <p> <code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p> </li> <li> <p> <code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p> </li> </ul> <p>Valid values include:</p> <ul> <li> <p> <code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p> </li> <li> <p> <code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p> </li> <li> <p> <code>CUSTOM_AUTH</code>: Custom authentication flow.</p> </li> <li> <p> <code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p> </li> <li> <p> <code>ADMIN_USER_PASSWORD_AUTH</code>: Admin-based user password authentication. This replaces the <code>ADMIN_NO_SRP_AUTH</code> authentication flow. In this flow, Cognito receives the password in the request instead of using the SRP process to verify passwords.</p> </li> </ul> <p> <code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>\"\
         },\
         \"AuthParameters\":{\
           \"shape\":\"AuthParametersType\",\
@@ -5985,6 +6018,18 @@
       \"documentation\":\"<p>This exception is thrown when a precondition is not met.</p>\",\
       \"exception\":true\
     },\
+    \"PreventUserExistenceErrorTypes\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"LEGACY\",\
+        \"ENABLED\"\
+      ]\
+    },\
+    \"PriorityType\":{\
+      \"type\":\"integer\",\
+      \"max\":2,\
+      \"min\":1\
+    },\
     \"ProviderDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6057,6 +6102,38 @@
       \"type\":\"integer\",\
       \"max\":60,\
       \"min\":0\
+    },\
+    \"RecoveryMechanismsType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RecoveryOptionType\"},\
+      \"max\":2,\
+      \"min\":1\
+    },\
+    \"RecoveryOptionNameType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"verified_email\",\
+        \"verified_phone_number\",\
+        \"admin_only\"\
+      ]\
+    },\
+    \"RecoveryOptionType\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Priority\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"Priority\":{\
+          \"shape\":\"PriorityType\",\
+          \"documentation\":\"<p>A positive integer specifying priority of a method with 1 being the highest priority.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"RecoveryOptionNameType\",\
+          \"documentation\":\"<p>Specifies the recovery method for a user.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A map containing a priority as a key, and recovery method name as a value.</p>\"\
     },\
     \"RedirectUrlType\":{\
       \"type\":\"string\",\
@@ -6321,6 +6398,12 @@
       \"max\":1024,\
       \"min\":3,\
       \"pattern\":\"^[0-9A-Za-z\\\\.\\\\-_]*(?<!\\\\.)$\"\
+    },\
+    \"SESConfigurationSet\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"^[a-zA-Z0-9_-]+$\"\
     },\
     \"SMSMfaSettingsType\":{\
       \"type\":\"structure\",\
@@ -7153,7 +7236,7 @@
         },\
         \"ClientMetadata\":{\
           \"shape\":\"ClientMetadataType\",\
-          \"documentation\":\"<p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the functions that are assigned to the <i>custom message</i> and <i>pre mutation</i> triggers. When Amazon Cognito invokes either of these functions, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html\\\">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p> </li> </ul> </note>\"\
+          \"documentation\":\"<p>A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers. </p> <p>You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the UpdateUserAttributes API action, Amazon Cognito invokes the function that is assigned to the <i>custom message</i> trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a <code>clientMetadata</code> attribute, which provides the data that you assigned to the ClientMetadata parameter in your UpdateUserAttributes request. In your function code in AWS Lambda, you can process the <code>clientMetadata</code> value to enhance your workflow for your specific needs.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html\\\">Customizing User Pool Workflows with Lambda Triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p> <note> <p>Take the following limitations into consideration when you use the ClientMetadata parameter:</p> <ul> <li> <p>Amazon Cognito does not store the ClientMetadata value. This data is available only to AWS Lambda triggers that are assigned to a user pool to support custom workflows. If your user pool configuration does not include triggers, the ClientMetadata parameter serves no purpose.</p> </li> <li> <p>Amazon Cognito does not validate the ClientMetadata value.</p> </li> <li> <p>Amazon Cognito does not encrypt the the ClientMetadata value, so don't use it to provide sensitive information.</p> </li> </ul> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update user attributes.</p>\"\
@@ -7201,7 +7284,7 @@
         },\
         \"ExplicitAuthFlows\":{\
           \"shape\":\"ExplicitAuthFlowsListType\",\
-          \"documentation\":\"<p>Explicit authentication flows.</p>\"\
+          \"documentation\":\"<p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are deprecated in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix cannot be used along with values without <code>ALLOW_</code> prefix.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP based authentication.</p> </li> <li> <p> <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul>\"\
         },\
         \"SupportedIdentityProviders\":{\
           \"shape\":\"SupportedIdentityProvidersListType\",\
@@ -7234,6 +7317,10 @@
         \"AnalyticsConfiguration\":{\
           \"shape\":\"AnalyticsConfigurationType\",\
           \"documentation\":\"<p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p>\"\
+        },\
+        \"PreventUserExistenceErrors\":{\
+          \"shape\":\"PreventUserExistenceErrorTypes\",\
+          \"documentation\":\"<p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ENABLED</code> - This prevents user existence-related errors.</p> </li> <li> <p> <code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p> </li> </ul> <p>This setting affects the behavior of following APIs:</p> <ul> <li> <p> <a>AdminInitiateAuth</a> </p> </li> <li> <p> <a>AdminRespondToAuthChallenge</a> </p> </li> <li> <p> <a>InitiateAuth</a> </p> </li> <li> <p> <a>RespondToAuthChallenge</a> </p> </li> <li> <p> <a>ForgotPassword</a> </p> </li> <li> <p> <a>ConfirmForgotPassword</a> </p> </li> <li> <p> <a>ConfirmSignUp</a> </p> </li> <li> <p> <a>ResendConfirmationCode</a> </p> </li> </ul> <note> <p>After January 1st 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update the user pool client.</p>\"\
@@ -7348,6 +7435,10 @@
         \"UserPoolAddOns\":{\
           \"shape\":\"UserPoolAddOnsType\",\
           \"documentation\":\"<p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \\\"AUDIT\\\".</p>\"\
+        },\
+        \"AccountRecoverySetting\":{\
+          \"shape\":\"AccountRecoverySettingType\",\
+          \"documentation\":\"<p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update the user pool.</p>\"\
@@ -7591,7 +7682,7 @@
         },\
         \"ExplicitAuthFlows\":{\
           \"shape\":\"ExplicitAuthFlowsListType\",\
-          \"documentation\":\"<p>The explicit authentication flows.</p>\"\
+          \"documentation\":\"<p>The authentication flows that are supported by the user pool clients. Flow names without the <code>ALLOW_</code> prefix are deprecated in favor of new names with the <code>ALLOW_</code> prefix. Note that values with <code>ALLOW_</code> prefix cannot be used along with values without <code>ALLOW_</code> prefix.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, Cognito receives the password in the request instead of using the SRP (Secure Remote Password protocol) protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p> </li> <li> <p> <code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p> </li> <li> <p> <code>ALLOW_USER_SRP_AUTH</code>: Enable SRP based authentication.</p> </li> <li> <p> <code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p> </li> </ul>\"\
         },\
         \"SupportedIdentityProviders\":{\
           \"shape\":\"SupportedIdentityProvidersListType\",\
@@ -7625,6 +7716,10 @@
         \"AnalyticsConfiguration\":{\
           \"shape\":\"AnalyticsConfigurationType\",\
           \"documentation\":\"<p>The Amazon Pinpoint analytics configuration for the user pool client.</p>\"\
+        },\
+        \"PreventUserExistenceErrors\":{\
+          \"shape\":\"PreventUserExistenceErrorTypes\",\
+          \"documentation\":\"<p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p> <p>Valid values include:</p> <ul> <li> <p> <code>ENABLED</code> - This prevents user existence-related errors.</p> </li> <li> <p> <code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p> </li> </ul> <p>This setting affects the behavior of following APIs:</p> <ul> <li> <p> <a>AdminInitiateAuth</a> </p> </li> <li> <p> <a>AdminRespondToAuthChallenge</a> </p> </li> <li> <p> <a>InitiateAuth</a> </p> </li> <li> <p> <a>RespondToAuthChallenge</a> </p> </li> <li> <p> <a>ForgotPassword</a> </p> </li> <li> <p> <a>ConfirmForgotPassword</a> </p> </li> <li> <p> <a>ConfirmSignUp</a> </p> </li> <li> <p> <a>ResendConfirmationCode</a> </p> </li> </ul> <note> <p>After January 1st 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about a user pool client.</p>\"\
@@ -7828,6 +7923,10 @@
         \"Arn\":{\
           \"shape\":\"ArnType\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) for the user pool.</p>\"\
+        },\
+        \"AccountRecoverySetting\":{\
+          \"shape\":\"AccountRecoverySettingType\",\
+          \"documentation\":\"<p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A container for information about the user pool.</p>\"\

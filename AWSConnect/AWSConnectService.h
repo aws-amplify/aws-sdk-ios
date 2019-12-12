@@ -222,7 +222,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteUser:(AWSConnectDeleteUserRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified user account.</p>
+ <p>Describes the specified user account. You can find the instance ID in the console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUser service method.
 
@@ -234,7 +234,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeUserResponse *> *)describeUser:(AWSConnectDescribeUserRequest *)request;
 
 /**
- <p>Describes the specified user account.</p>
+ <p>Describes the specified user account. You can find the instance ID in the console (it’s the final part of the ARN). The console does not display the user IDs. Instead, list the users and note the IDs provided in the output.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -547,6 +547,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listSecurityProfiles:(AWSConnectListSecurityProfilesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListSecurityProfilesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists the tags for the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListTagsForResourceRequest
+ @see AWSConnectListTagsForResourceResponse
+ */
+- (AWSTask<AWSConnectListTagsForResourceResponse *> *)listTagsForResource:(AWSConnectListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists the tags for the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListTagsForResourceRequest
+ @see AWSConnectListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSConnectListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the ListUserHierarchyGroups service method.
@@ -597,6 +622,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listUsers:(AWSConnectListUsersRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUsersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p><p>When a new chat contact is successfully created, clients need to subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartChatContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectStartChatContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorLimitExceeded`.
+ 
+ @see AWSConnectStartChatContactRequest
+ @see AWSConnectStartChatContactResponse
+ */
+- (AWSTask<AWSConnectStartChatContactResponse *> *)startChatContact:(AWSConnectStartChatContactRequest *)request;
+
+/**
+ <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p><p>When a new chat contact is successfully created, clients need to subscribe to the participant’s connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartChatContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorLimitExceeded`.
+ 
+ @see AWSConnectStartChatContactRequest
+ @see AWSConnectStartChatContactResponse
+ */
+- (void)startChatContact:(AWSConnectStartChatContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartChatContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Initiates a contact flow to place an outbound call to a customer.</p><p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p>
  
  @param request A container for the necessary parameters to execute the StartOutboundVoiceContact service method.
@@ -645,6 +695,50 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectStopContactResponse
  */
 - (void)stopContact:(AWSConnectStopContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStopContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource type is users.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectTagResourceRequest
+ */
+- (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request;
+
+/**
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource type is users.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectTagResourceRequest
+ */
+- (void)tagResource:(AWSConnectTagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the specified tags from the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectUntagResourceRequest
+ */
+- (AWSTask *)untagResource:(AWSConnectUntagResourceRequest *)request;
+
+/**
+ <p>Removes the specified tags from the specified resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorInternalService`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectUntagResourceRequest
+ */
+- (void)untagResource:(AWSConnectUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates or updates the contact attributes associated with the specified contact.</p><p>You can add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p><p><b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>

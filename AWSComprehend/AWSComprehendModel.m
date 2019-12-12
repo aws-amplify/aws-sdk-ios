@@ -570,6 +570,31 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendClassifyDocumentRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointArn" : @"EndpointArn",
+             @"text" : @"Text",
+             };
+}
+
+@end
+
+@implementation AWSComprehendClassifyDocumentResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"classes" : @"Classes",
+             };
+}
+
++ (NSValueTransformer *)classesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentClass class]];
+}
+
+@end
+
 @implementation AWSComprehendCreateDocumentClassifierRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -680,6 +705,34 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"documentClassifierArn" : @"DocumentClassifierArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendCreateEndpointRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"desiredInferenceUnits" : @"DesiredInferenceUnits",
+             @"endpointName" : @"EndpointName",
+             @"modelArn" : @"ModelArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
+@end
+
+@implementation AWSComprehendCreateEndpointResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointArn" : @"EndpointArn",
              };
 }
 
@@ -809,6 +862,20 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 @end
 
+@implementation AWSComprehendDeleteEndpointRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointArn" : @"EndpointArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDeleteEndpointResponse
+
+@end
+
 @implementation AWSComprehendDeleteEntityRecognizerRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -891,6 +958,30 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)dominantLanguageDetectionJobPropertiesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDominantLanguageDetectionJobProperties class]];
+}
+
+@end
+
+@implementation AWSComprehendDescribeEndpointRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointArn" : @"EndpointArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendDescribeEndpointResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointProperties" : @"EndpointProperties",
+             };
+}
+
++ (NSValueTransformer *)endpointPropertiesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendEndpointProperties class]];
 }
 
 @end
@@ -1421,6 +1512,17 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)syntaxTokensJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendSyntaxToken class]];
+}
+
+@end
+
+@implementation AWSComprehendDocumentClass
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"score" : @"Score",
+             };
 }
 
 @end
@@ -2034,6 +2136,140 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendEndpointFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTimeAfter" : @"CreationTimeAfter",
+             @"creationTimeBefore" : @"CreationTimeBefore",
+             @"modelArn" : @"ModelArn",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)creationTimeAfterJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)creationTimeBeforeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"IN_SERVICE"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusInService);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusUpdating);
+        }
+        return @(AWSComprehendEndpointStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendEndpointStatusCreating:
+                return @"CREATING";
+            case AWSComprehendEndpointStatusDeleting:
+                return @"DELETING";
+            case AWSComprehendEndpointStatusFailed:
+                return @"FAILED";
+            case AWSComprehendEndpointStatusInService:
+                return @"IN_SERVICE";
+            case AWSComprehendEndpointStatusUpdating:
+                return @"UPDATING";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendEndpointProperties
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTime" : @"CreationTime",
+             @"currentInferenceUnits" : @"CurrentInferenceUnits",
+             @"desiredInferenceUnits" : @"DesiredInferenceUnits",
+             @"endpointArn" : @"EndpointArn",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"message" : @"Message",
+             @"modelArn" : @"ModelArn",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"IN_SERVICE"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusInService);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSComprehendEndpointStatusUpdating);
+        }
+        return @(AWSComprehendEndpointStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendEndpointStatusCreating:
+                return @"CREATING";
+            case AWSComprehendEndpointStatusDeleting:
+                return @"DELETING";
+            case AWSComprehendEndpointStatusFailed:
+                return @"FAILED";
+            case AWSComprehendEndpointStatusInService:
+                return @"IN_SERVICE";
+            case AWSComprehendEndpointStatusUpdating:
+                return @"UPDATING";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -3092,6 +3328,37 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)dominantLanguageDetectionJobPropertiesListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDominantLanguageDetectionJobProperties class]];
+}
+
+@end
+
+@implementation AWSComprehendListEndpointsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filter" : @"Filter",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendEndpointFilter class]];
+}
+
+@end
+
+@implementation AWSComprehendListEndpointsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointPropertiesList" : @"EndpointPropertiesList",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)endpointPropertiesListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendEndpointProperties class]];
 }
 
 @end
@@ -4838,6 +5105,21 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 @end
 
 @implementation AWSComprehendUntagResourceResponse
+
+@end
+
+@implementation AWSComprehendUpdateEndpointRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"desiredInferenceUnits" : @"DesiredInferenceUnits",
+             @"endpointArn" : @"EndpointArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendUpdateEndpointResponse
 
 @end
 

@@ -18,6 +18,17 @@
 
 NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
+@implementation AWSConnectChatMessage
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"content" : @"Content",
+             @"contentType" : @"ContentType",
+             };
+}
+
+@end
+
 @implementation AWSConnectContactFlowSummary
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -99,6 +110,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"phoneConfig" : @"PhoneConfig",
              @"routingProfileId" : @"RoutingProfileId",
              @"securityProfileIds" : @"SecurityProfileIds",
+             @"tags" : @"Tags",
              @"username" : @"Username",
              };
 }
@@ -194,6 +206,15 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"CONTACTS_SCHEDULED"] == NSOrderedSame) {
             return @(AWSConnectCurrentMetricNameContactsScheduled);
         }
+        if ([value caseInsensitiveCompare:@"AGENTS_ON_CONTACT"] == NSOrderedSame) {
+            return @(AWSConnectCurrentMetricNameAgentsOnContact);
+        }
+        if ([value caseInsensitiveCompare:@"SLOTS_ACTIVE"] == NSOrderedSame) {
+            return @(AWSConnectCurrentMetricNameSlotsActive);
+        }
+        if ([value caseInsensitiveCompare:@"SLOTS_AVAILABLE"] == NSOrderedSame) {
+            return @(AWSConnectCurrentMetricNameSlotsAvailable);
+        }
         return @(AWSConnectCurrentMetricNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -217,6 +238,12 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"OLDEST_CONTACT_AGE";
             case AWSConnectCurrentMetricNameContactsScheduled:
                 return @"CONTACTS_SCHEDULED";
+            case AWSConnectCurrentMetricNameAgentsOnContact:
+                return @"AGENTS_ON_CONTACT";
+            case AWSConnectCurrentMetricNameSlotsActive:
+                return @"SLOTS_ACTIVE";
+            case AWSConnectCurrentMetricNameSlotsAvailable:
+                return @"SLOTS_AVAILABLE";
             default:
                 return nil;
         }
@@ -384,11 +411,16 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
         if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
             return @(AWSConnectChannelVoice);
         }
+        if ([value caseInsensitiveCompare:@"CHAT"] == NSOrderedSame) {
+            return @(AWSConnectChannelChat);
+        }
         return @(AWSConnectChannelUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSConnectChannelVoice:
                 return @"VOICE";
+            case AWSConnectChannelChat:
+                return @"CHAT";
             default:
                 return nil;
         }
@@ -1087,6 +1119,26 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListTagsForResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             };
+}
+
+@end
+
+@implementation AWSConnectListTagsForResourceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSConnectListUserHierarchyGroupsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1137,6 +1189,16 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)userSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectUserSummary class]];
+}
+
+@end
+
+@implementation AWSConnectParticipantDetails
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"displayName" : @"DisplayName",
+             };
 }
 
 @end
@@ -2441,6 +2503,41 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectStartChatContactRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"clientToken" : @"ClientToken",
+             @"contactFlowId" : @"ContactFlowId",
+             @"initialMessage" : @"InitialMessage",
+             @"instanceId" : @"InstanceId",
+             @"participantDetails" : @"ParticipantDetails",
+             };
+}
+
++ (NSValueTransformer *)initialMessageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectChatMessage class]];
+}
+
++ (NSValueTransformer *)participantDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectParticipantDetails class]];
+}
+
+@end
+
+@implementation AWSConnectStartChatContactResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"participantId" : @"ParticipantId",
+             @"participantToken" : @"ParticipantToken",
+             };
+}
+
+@end
+
 @implementation AWSConnectStartOutboundVoiceContactRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2482,6 +2579,17 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectTagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
 @implementation AWSConnectThreshold
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2505,6 +2613,17 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectUntagResourceRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"resourceArn",
+             @"tagKeys" : @"tagKeys",
+             };
 }
 
 @end
@@ -2605,6 +2724,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"phoneConfig" : @"PhoneConfig",
              @"routingProfileId" : @"RoutingProfileId",
              @"securityProfileIds" : @"SecurityProfileIds",
+             @"tags" : @"Tags",
              @"username" : @"Username",
              };
 }

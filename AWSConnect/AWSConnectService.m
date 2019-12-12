@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.12.1";
+NSString *const AWSConnectSDKVersion = @"2.12.3";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
@@ -630,6 +630,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListTagsForResourceResponse *> *)listTagsForResource:(AWSConnectListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/tags/{resourceArn}"
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSConnectListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSConnectListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSConnectListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListTagsForResourceResponse *> * _Nonnull task) {
+        AWSConnectListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListUserHierarchyGroupsResponse *> *)listUserHierarchyGroups:(AWSConnectListUserHierarchyGroupsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -666,6 +689,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListUsersResponse *response, NSError *error))completionHandler {
     [[self listUsers:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListUsersResponse *> * _Nonnull task) {
         AWSConnectListUsersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectStartChatContactResponse *> *)startChatContact:(AWSConnectStartChatContactRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/contact/chat"
+                  targetPrefix:@""
+                 operationName:@"StartChatContact"
+                   outputClass:[AWSConnectStartChatContactResponse class]];
+}
+
+- (void)startChatContact:(AWSConnectStartChatContactRequest *)request
+     completionHandler:(void (^)(AWSConnectStartChatContactResponse *response, NSError *error))completionHandler {
+    [[self startChatContact:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectStartChatContactResponse *> * _Nonnull task) {
+        AWSConnectStartChatContactResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -716,6 +762,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tags/{resourceArn}"
+                  targetPrefix:@""
+                 operationName:@"TagResource"
+                   outputClass:nil];
+}
+
+- (void)tagResource:(AWSConnectTagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)untagResource:(AWSConnectUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/tags/{resourceArn}"
+                  targetPrefix:@""
+                 operationName:@"UntagResource"
+                   outputClass:nil];
+}
+
+- (void)untagResource:(AWSConnectUntagResourceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
