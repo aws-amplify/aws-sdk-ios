@@ -32,6 +32,9 @@ typedef NS_ENUM(NSInteger, AWSNetworkingRetryType) {
     AWSNetworkingRetryTypeResetStreamAndRetry
 };
 
+/** UserInfo dictionary key for response errors */
+FOUNDATION_EXPORT NSString *const AWSResponseObjectErrorUserInfoKey;
+
 @class AWSNetworkingConfiguration;
 @class AWSNetworkingRequest;
 @class AWSTask<__covariant ResultType>;
