@@ -1,0 +1,3430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSFMResultSet Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSFMResultSet" class="dashAnchor"></a>
+    <a title="AWSFMResultSet Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCore 2.12.3 Docs</a> (47% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCore Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSFMResultSet Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/NSArray%28AWSMTLManipulationAdditions%29.html">NSArray(AWSMTLManipulationAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSData%28AWSGZIP%29.html">NSData(AWSGZIP)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDate%28AWS%29.html">NSDate(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWS%29.html">NSDictionary(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWSMTLManipulationAdditions%29.html">NSDictionary(AWSMTLManipulationAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWSXMLDictionary%29.html">NSDictionary(AWSXMLDictionary)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSFileManager%28AWS%29.html">NSFileManager(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSJSONSerialization%28AWS%29.html">NSJSONSerialization(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSNumber%28AWS%29.html">NSNumber(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSObject%28AWS%29.html">NSObject(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSObject%28AWSFMDatabasePoolDelegate%29.html">NSObject(AWSFMDatabasePoolDelegate)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWS%29.html">NSString(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWSHTTPMethod%29.html">NSString(AWSHTTPMethod)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWSXMLDictionary%29.html">NSString(AWSXMLDictionary)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28AWSMTLInversionAdditions%29.html">NSValueTransformer(AWSMTLInversionAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28AWSMTLPredefinedTransformerAdditions%29.html">NSValueTransformer(AWSMTLPredefinedTransformerAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28UnavailableAWSMTLPredefinedTransformerAdditions%29.html">NSValueTransformer(UnavailableAWSMTLPredefinedTransformerAdditions)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAbstractCognitoCredentialsProviderHelper.html">AWSAbstractCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAnonymousCredentialsProvider">AWSAnonymousCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSBasicSessionCredentialsProvider.html">AWSBasicSessionCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationToken.html">AWSCancellationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationTokenRegistration.html">AWSCancellationTokenRegistration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationTokenSource.html">AWSCancellationTokenSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSClientContext.html">AWSClientContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoCredentialsProvider.html">AWSCognitoCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoCredentialsProviderHelper.html">AWSCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentity.html">AWSCognitoIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCognitoIdentityProvider.html">AWSCognitoIdentityCognitoIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCreateIdentityPoolInput.html">AWSCognitoIdentityCreateIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCredentials.html">AWSCognitoIdentityCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentitiesInput.html">AWSCognitoIdentityDeleteIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentitiesResponse.html">AWSCognitoIdentityDeleteIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentityPoolInput.html">AWSCognitoIdentityDeleteIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDescribeIdentityInput.html">AWSCognitoIdentityDescribeIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDescribeIdentityPoolInput.html">AWSCognitoIdentityDescribeIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityInput.html">AWSCognitoIdentityGetCredentialsForIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityResponse.html">AWSCognitoIdentityGetCredentialsForIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdInput.html">AWSCognitoIdentityGetIdInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdResponse.html">AWSCognitoIdentityGetIdResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesInput.html">AWSCognitoIdentityGetIdentityPoolRolesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesResponse.html">AWSCognitoIdentityGetIdentityPoolRolesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenInput.html">AWSCognitoIdentityGetOpenIdTokenInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenResponse.html">AWSCognitoIdentityGetOpenIdTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityDescription.html">AWSCognitoIdentityIdentityDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityPoolShortDescription.html">AWSCognitoIdentityIdentityPoolShortDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentitiesInput.html">AWSCognitoIdentityListIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentitiesResponse.html">AWSCognitoIdentityListIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentityPoolsInput.html">AWSCognitoIdentityListIdentityPoolsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentityPoolsResponse.html">AWSCognitoIdentityListIdentityPoolsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListTagsForResourceInput.html">AWSCognitoIdentityListTagsForResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListTagsForResourceResponse.html">AWSCognitoIdentityListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityInput.html">AWSCognitoIdentityLookupDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityResponse.html">AWSCognitoIdentityLookupDeveloperIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMappingRule.html">AWSCognitoIdentityMappingRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesInput.html">AWSCognitoIdentityMergeDeveloperIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesResponse.html">AWSCognitoIdentityMergeDeveloperIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityResources.html">AWSCognitoIdentityResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityRoleMapping.html">AWSCognitoIdentityRoleMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityRulesConfigurationType.html">AWSCognitoIdentityRulesConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySetIdentityPoolRolesInput.html">AWSCognitoIdentitySetIdentityPoolRolesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityTagResourceInput.html">AWSCognitoIdentityTagResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityTagResourceResponse">AWSCognitoIdentityTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnlinkDeveloperIdentityInput.html">AWSCognitoIdentityUnlinkDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnlinkIdentityInput.html">AWSCognitoIdentityUnlinkIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnprocessedIdentityId.html">AWSCognitoIdentityUnprocessedIdentityId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUntagResourceInput.html">AWSCognitoIdentityUntagResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUntagResourceResponse">AWSCognitoIdentityUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCredentials.html">AWSCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDASLLogCapture.html">AWSDDASLLogCapture</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDASLLogger.html">AWSDDASLLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDAbstractLogger.html">AWSDDAbstractLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDFileLogger.html">AWSDDFileLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLog.html">AWSDDLog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileFormatterDefault.html">AWSDDLogFileFormatterDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileInfo.html">AWSDDLogFileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileManagerDefault.html">AWSDDLogFileManagerDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogMessage.html">AWSDDLogMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLoggerInformation.html">AWSDDLoggerInformation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDOSLogger.html">AWSDDOSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDTTYLogger.html">AWSDDTTYLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ParamBuilder.html">AWSEC2ParamBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEndpoint.html">AWSEndpoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSExecutor.html">AWSExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabasePool.html">AWSFMDatabasePool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabaseQueue.html">AWSFMDatabaseQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMResultSet.html">AWSFMResultSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMStatement.html">AWSFMStatement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSInfo.html">AWSInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONBuilder.html">AWSJSONBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONDictionary.html">AWSJSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONParser.html">AWSJSONParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONRequestSerializer.html">AWSJSONRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONResponseSerializer.html">AWSJSONResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKSReachability.html">AWSKSReachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKSReachableOperation.html">AWSKSReachableOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogger.html">AWSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLJSONAdapter.html">AWSMTLJSONAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLManagedObjectAdapter.html">AWSMTLManagedObjectAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLModel.html">AWSMTLModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLValueTransformer.html">AWSMTLValueTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSModelUtility.html">AWSModelUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworking.html">AWSNetworking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingConfiguration.html">AWSNetworkingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingHelpers.html">AWSNetworkingHelpers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingRequest.html">AWSNetworkingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSQueryParamBuilder.html">AWSQueryParamBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSQueryStringRequestSerializer.html">AWSQueryStringRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRequest.html">AWSRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSS3ChunkedEncodingInputStream.html">AWSS3ChunkedEncodingInputStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTS.html">AWSSTS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleRequest.html">AWSSTSAssumeRoleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleResponse.html">AWSSTSAssumeRoleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithSAMLRequest.html">AWSSTSAssumeRoleWithSAMLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithSAMLResponse.html">AWSSTSAssumeRoleWithSAMLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithWebIdentityRequest.html">AWSSTSAssumeRoleWithWebIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithWebIdentityResponse.html">AWSSTSAssumeRoleWithWebIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumedRoleUser.html">AWSSTSAssumedRoleUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSCredentials.html">AWSSTSCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSDecodeAuthorizationMessageRequest.html">AWSSTSDecodeAuthorizationMessageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSDecodeAuthorizationMessageResponse.html">AWSSTSDecodeAuthorizationMessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSFederatedUser.html">AWSSTSFederatedUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetAccessKeyInfoRequest.html">AWSSTSGetAccessKeyInfoRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetAccessKeyInfoResponse.html">AWSSTSGetAccessKeyInfoResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSTSGetCallerIdentityRequest">AWSSTSGetCallerIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetCallerIdentityResponse.html">AWSSTSGetCallerIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetFederationTokenRequest.html">AWSSTSGetFederationTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetFederationTokenResponse.html">AWSSTSGetFederationTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetSessionTokenRequest.html">AWSSTSGetSessionTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetSessionTokenResponse.html">AWSSTSGetSessionTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSPolicyDescriptorType.html">AWSSTSPolicyDescriptorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSResources.html">AWSSTSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSTag.html">AWSSTSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSService.html">AWSService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceConfiguration.html">AWSServiceConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceInfo.html">AWSServiceInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceManager.html">AWSServiceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureSignerUtility.html">AWSSignatureSignerUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureV2Signer.html">AWSSignatureV2Signer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureV4Signer.html">AWSSignatureV4Signer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSStaticCredentialsProvider.html">AWSStaticCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSynchronizedMutableDictionary.html">AWSSynchronizedMutableDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMCache.html">AWSTMCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMDiskCache.html">AWSTMDiskCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTask.html">AWSTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTaskCompletionSource.html">AWSTaskCompletionSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSUICKeyChainStore.html">AWSUICKeyChainStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSURLRequestRetryHandler.html">AWSURLRequestRetryHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSURLSessionManager.html">AWSURLSessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSWebIdentityCredentialsProvider.html">AWSWebIdentityCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLBuilder.html">AWSXMLBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLDictionaryParser.html">AWSXMLDictionaryParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLParser.html">AWSXMLParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLRequestSerializer.html">AWSXMLRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLResponseSerializer.html">AWSXMLResponseSerializer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSBoltsFrameworkVersionString">AWSBoltsFrameworkVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextHeader">AWSClientContextHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextHeaderEncoding">AWSClientContextHeaderEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextVersion">AWSClientContextVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoCredentialsProviderErrorDomain">AWSCognitoCredentialsProviderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoCredentialsProviderHelperErrorDomain">AWSCognitoCredentialsProviderHelperErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityErrorDomain">AWSCognitoIdentityErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityIdChangedNotification">AWSCognitoIdentityIdChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoNotificationNewId">AWSCognitoNotificationNewId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoNotificationPreviousId">AWSCognitoNotificationPreviousId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCoreVersionNumber">AWSCoreVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCoreVersionString">AWSCoreVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat1">AWSDateISO8601DateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat2">AWSDateISO8601DateFormat2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat3">AWSDateISO8601DateFormat3</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateRFC822DateFormat1">AWSDateRFC822DateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateShortDateFormat1">AWSDateShortDateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateShortDateFormat2">AWSDateShortDateFormat2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSEC2ParamBuilderErrorDomain">AWSEC2ParamBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderAmazonCognitoIdentity">AWSIdentityProviderAmazonCognitoIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderDigits">AWSIdentityProviderDigits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderFacebook">AWSIdentityProviderFacebook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderGoogle">AWSIdentityProviderGoogle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderLoginWithAmazon">AWSIdentityProviderLoginWithAmazon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderTwitter">AWSIdentityProviderTwitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInfoDefault">AWSInfoDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSJSONBuilderErrorDomain">AWSJSONBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSJSONParserErrorDomain">AWSJSONParserErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLBooleanValueTransformerName">AWSMTLBooleanValueTransformerName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorDomain">AWSMTLJSONAdapterErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorInvalidJSONDictionary">AWSMTLJSONAdapterErrorInvalidJSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorInvalidJSONMapping">AWSMTLJSONAdapterErrorInvalidJSONMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorNoClassFound">AWSMTLJSONAdapterErrorNoClassFound</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorDomain">AWSMTLManagedObjectAdapterErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInitializationFailed">AWSMTLManagedObjectAdapterErrorInitializationFailed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInvalidManagedObjectKey">AWSMTLManagedObjectAdapterErrorInvalidManagedObjectKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping">AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorNoClassFound">AWSMTLManagedObjectAdapterErrorNoClassFound</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUniqueFetchRequestFailed">AWSMTLManagedObjectAdapterErrorUniqueFetchRequestFailed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUnsupportedManagedObjectPropertyType">AWSMTLManagedObjectAdapterErrorUnsupportedManagedObjectPropertyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUnsupportedRelationshipClass">AWSMTLManagedObjectAdapterErrorUnsupportedRelationshipClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLURLValueTransformerName">AWSMTLURLValueTransformerName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMantleVersionNumber">AWSMantleVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMantleVersionString">AWSMantleVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSNetworkingErrorDomain">AWSNetworkingErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSQueryParamBuilderErrorDomain">AWSQueryParamBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSTSErrorDomain">AWSSTSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSServiceErrorDomain">AWSServiceErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSignatureV4Algorithm">AWSSignatureV4Algorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSignatureV4Terminator">AWSSignatureV4Terminator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTaskErrorDomain">AWSTaskErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTaskMultipleErrorsUserInfoKey">AWSTaskMultipleErrorsUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSUICKeyChainStoreErrorDomain">AWSUICKeyChainStoreErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSValidationErrorDomain">AWSValidationErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSXMLBuilderErrorDomain">AWSXMLBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryAttributePrefix">AWSXMLDictionaryAttributePrefix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryAttributesKey">AWSXMLDictionaryAttributesKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryCommentsKey">AWSXMLDictionaryCommentsKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryNodeNameKey">AWSXMLDictionaryNodeNameKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryTextKey">AWSXMLDictionaryTextKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSXMLParserErrorDomain">AWSXMLParserErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSiOSSDKVersion">AWSiOSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDASLAWSDDLogValue">kAWSDDASLAWSDDLogValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDASLKeyAWSDDLog">kAWSDDASLKeyAWSDDLog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogFilesDiskQuota">kAWSDDDefaultLogFilesDiskQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogMaxFileSize">kAWSDDDefaultLogMaxFileSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogMaxNumLogFiles">kAWSDDDefaultLogMaxNumLogFiles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogRollingFrequency">kAWSDDDefaultLogRollingFrequency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSMultipleErrorsError">kAWSMultipleErrorsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoCredentialsProviderErrorType.html">AWSCognitoCredentialsProviderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoCredentialsProviderHelperErrorType.html">AWSCognitoCredentialsProviderHelperErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityAmbiguousRoleResolutionType.html">AWSCognitoIdentityAmbiguousRoleResolutionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityErrorCode.html">AWSCognitoIdentityErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityErrorType.html">AWSCognitoIdentityErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityMappingRuleMatchType.html">AWSCognitoIdentityMappingRuleMatchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityRoleMappingType.html">AWSCognitoIdentityRoleMappingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogFlag.html">AWSDDLogFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogLevel.html">AWSDDLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogMessageOptions.html">AWSDDLogMessageOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2ParamBuilderErrorType.html">AWSEC2ParamBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSJSONBuilderErrorType.html">AWSJSONBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSJSONParserErrorType.html">AWSJSONParserErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLogLevel.html">AWSLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSNetworkingErrorType.html">AWSNetworkingErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSNetworkingRetryType.html">AWSNetworkingRetryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSQueryParamBuilderErrorType.html">AWSQueryParamBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRegionType.html">AWSRegionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSTSErrorType.html">AWSSTSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSServiceErrorType.html">AWSServiceErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSServiceType.html">AWSServiceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAccessibility.html">AWSUICKeyChainStoreAccessibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAuthenticationPolicy.html">AWSUICKeyChainStoreAuthenticationPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAuthenticationType.html">AWSUICKeyChainStoreAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreErrorCode.html">AWSUICKeyChainStoreErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreItemClass.html">AWSUICKeyChainStoreItemClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreProtocolType.html">AWSUICKeyChainStoreProtocolType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSValidationErrorType.html">AWSValidationErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLBuilderErrorType.html">AWSXMLBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLDictionaryAttributesMode.html">AWSXMLDictionaryAttributesMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLDictionaryNodeNameMode.html">AWSXMLDictionaryNodeNameMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLParserErrorType.html">AWSXMLParserErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoCredentialsProviderHelper.html">AWSCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogFileManager.html">AWSDDLogFileManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogFormatter.html">AWSDDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogger.html">AWSDDLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDRegisteredDynamicLogging.html">AWSDDRegisteredDynamicLogging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSHTTPURLResponseSerializer.html">AWSHTTPURLResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSIdentityProvider.html">AWSIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSIdentityProviderManager.html">AWSIdentityProviderManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSNetworkingHTTPResponseInterceptor.html">AWSNetworkingHTTPResponseInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSURLRequestRetryHandler.html">AWSURLRequestRetryHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSURLRequestSerializer.html">AWSURLRequestSerializer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSCancellationToken.h@T@AWSCancellationBlock">AWSCancellationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTask.h@T@AWSContinuationBlock">AWSContinuationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSDDTTYLogger.h@T@AWSDDColor">AWSDDColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSFMDatabase.h@T@AWSFMDBExecuteStatementsCallbackBlock">AWSFMDBExecuteStatementsCallbackBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSKSReachability.h@T@AWSKSReachabilityCallback">AWSKSReachabilityCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions/AWSMTLModelEncodingBehavior.html">AWSMTLModelEncodingBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingDownloadProgressBlock">AWSNetworkingDownloadProgressBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingUploadProgressBlock">AWSNetworkingUploadProgressBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheObjectBlock">AWSTMCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSGeneric.h@T@AWSVoid">AWSVoid</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@AWSDDExtractFileNameWithoutExtension">AWSDDExtractFileNameWithoutExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:AWSDDTTYLogger.h@F@AWSDDMakeColor">AWSDDMakeColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@AWSMTLEqualObjects">AWSMTLEqualObjects</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsgzip_loadGZIP">awsgzip_loadGZIP</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsmtl_loadMTLNSCoding">awsmtl_loadMTLNSCoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsmtl_loadMTLPredefinedTransformerAdditions">awsmtl_loadMTLPredefinedTransformerAdditions</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSFMResultSet</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFMResultSet</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>
+  <span class="n"><a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a></span> <span class="o">*</span><span class="n">_parentDB</span><span class="p">;</span>
+  <span class="n"><a href="../Classes/AWSFMStatement.html">AWSFMStatement</a></span> <span class="o">*</span><span class="n">_statement</span><span class="p">;</span>
+  <span class="n">NSString</span> <span class="o">*</span><span class="n">_query</span><span class="p">;</span>
+  <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="n">_columnNameToIndexMap</span><span class="p">;</span>
+<span class="p">}</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents the results of executing a query on an <code>&lt;FMDatabase&gt;</code>.</p>
+
+<p>### See also</p>
+
+<ul>
+<li><code>&lt;FMDatabase&gt;</code></li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet@_parentDB"></a>
+                    <a name="//apple_ref/objc/Ivar/_parentDB" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet@_parentDB">_parentDB</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a></span>          <span class="o">*</span><span class="n">_parentDB</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet@_statement"></a>
+                    <a name="//apple_ref/objc/Ivar/_statement" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet@_statement">_statement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n"><a href="../Classes/AWSFMStatement.html">AWSFMStatement</a></span>         <span class="o">*</span><span class="n">_statement</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet@_query"></a>
+                    <a name="//apple_ref/objc/Ivar/_query" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet@_query">_query</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NSString</span>            <span class="o">*</span><span class="n">_query</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet@_columnNameToIndexMap"></a>
+                    <a name="//apple_ref/objc/Ivar/_columnNameToIndexMap" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet@_columnNameToIndexMap">_columnNameToIndexMap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="n">_columnNameToIndexMap</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Properties"></a>
+                <a name="//apple_ref/objc/Section/Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Properties"></a>
+                  <h3 class="section-name"><p>Properties</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(py)query"></a>
+                    <a name="//apple_ref/objc/Property/query" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(py)query">query</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Executed query</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">query</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(py)columnNameToIndexMap"></a>
+                    <a name="//apple_ref/objc/Property/columnNameToIndexMap" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(py)columnNameToIndexMap">columnNameToIndexMap</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>NSMutableDictionary</code> mapping column names to numeric index</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="n">columnNameToIndexMap</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">columnNameToIndexMap</span><span class="p">:</span> <span class="kt">NSMutableDictionary</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(py)statement"></a>
+                    <a name="//apple_ref/objc/Property/statement" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(py)statement">statement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>FMStatement</code> used by result set.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">retain</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSFMStatement.html">AWSFMStatement</a></span> <span class="o">*</span><span class="n">statement</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">statement</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSFMStatement.html">AWSFMStatement</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Creating%20and%20closing%20database"></a>
+                <a name="//apple_ref/objc/Section/Creating and closing database" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Creating%20and%20closing%20database"></a>
+                  <h3 class="section-name"><p>Creating and closing database</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(cm)resultSetWithStatement:usingParentDatabase:"></a>
+                    <a name="//apple_ref/objc/Method/+resultSetWithStatement:usingParentDatabase:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(cm)resultSetWithStatement:usingParentDatabase:">+resultSetWithStatement:usingParentDatabase:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create result set from <code>&lt;FMStatement&gt;</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">resultSetWithStatement</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSFMStatement.html">AWSFMStatement</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">statement</span>
+                   <span class="nf">usingParentDatabase</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">aDB</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">statement</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSFMStatement.html">AWSFMStatement</a></span><span class="o">!</span><span class="p">,</span> <span class="n">usingParentDatabase</span> <span class="nv">aDB</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>statement</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>&lt;FMStatement&gt;</code> to be performed</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>aDB</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>&lt;FMDatabase&gt;</code> to be used</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>FMResultSet</code> on success; <code>nil</code> on failure</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)close"></a>
+                    <a name="//apple_ref/objc/Method/-close" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)close">-close</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Close result set</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">close</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">close</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)setParentDB:"></a>
+                    <a name="//apple_ref/objc/Method/-setParentDB:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)setParentDB:">-setParentDB:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setParentDB</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">newDb</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setParentDB</span><span class="p">(</span><span class="n">_</span> <span class="nv">newDb</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Iterating%20through%20the%20result%20set"></a>
+                <a name="//apple_ref/objc/Section/Iterating through the result set" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Iterating%20through%20the%20result%20set"></a>
+                  <h3 class="section-name"><p>Iterating through the result set</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)next"></a>
+                    <a name="//apple_ref/objc/Method/-next" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)next">-next</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve next row for result set.</p>
+
+<p>You must always invoke <code>next</code> or <code>nextWithError</code> before attempting to access the values returned in a query, even if you&rsquo;re only expecting one.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>hasAnotherRow</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">next</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">next</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>YES</code> if row successfully retrieved; <code>NO</code> if end of result set reached</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)nextWithError:"></a>
+                    <a name="//apple_ref/objc/Method/-nextWithError:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)nextWithError:">-nextWithError:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve next row for result set.</p>
+
+<p>You must always invoke <code>next</code> or <code>nextWithError</code> before attempting to access the values returned in a query, even if you&rsquo;re only expecting one.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>hasAnotherRow</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">nextWithError</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">outErr</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">nextWithError</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>outErr</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A &lsquo;NSError&rsquo; object to receive any error object (if any).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>&lsquo;YES&rsquo; if row successfully retrieved; &lsquo;NO&rsquo; if end of result set reached</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)hasAnotherRow"></a>
+                    <a name="//apple_ref/objc/Method/-hasAnotherRow" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)hasAnotherRow">-hasAnotherRow</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Did the last call to <code>&lt;next&gt;</code> succeed in retrieving another row?</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>next</p>
+
+</div><div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The <code>hasAnotherRow</code> method must follow a call to <code>&lt;next&gt;</code>. If the previous database interaction was something other than a call to <code>next</code>, then this method may return <code>NO</code>, whether there is another row of data or not.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">hasAnotherRow</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">hasAnotherRow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>YES</code> if the last call to <code>&lt;next&gt;</code> succeeded in retrieving another record; <code>NO</code> if not.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Retrieving%20information%20from%20result%20set"></a>
+                <a name="//apple_ref/objc/Section/Retrieving information from result set" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Retrieving%20information%20from%20result%20set"></a>
+                  <h3 class="section-name"><p>Retrieving information from result set</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)columnCount"></a>
+                    <a name="//apple_ref/objc/Method/-columnCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)columnCount">-columnCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>How many columns in result set</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">columnCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">columnCount</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Integer value of the number of columns.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)columnIndexForName:"></a>
+                    <a name="//apple_ref/objc/Method/-columnIndexForName:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)columnIndexForName:">-columnIndexForName:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Column index for column name</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nf">columnIndexForName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">columnIndex</span><span class="p">(</span><span class="n">forName</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Zero-based index for column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)columnNameForIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-columnNameForIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)columnNameForIndex:">-columnNameForIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Column name for column index</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">columnNameForIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">columnName</span><span class="p">(</span><span class="k">for</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>columnName <code>NSString</code> value of the name of the column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)intForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-intForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)intForColumn:">-intForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set integer value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nf">intForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">int</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>int</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)intForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-intForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)intForColumnIndex:">-intForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set integer value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nf">intForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">int</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int32</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>int</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)longForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-longForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)longForColumn:">-longForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>long</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="nf">longForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">long</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>long</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)longForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-longForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)longForColumnIndex:">-longForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set long value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">long</span><span class="p">)</span><span class="nf">longForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">long</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>long</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)longLongIntForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-longLongIntForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)longLongIntForColumn:">-longLongIntForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>long long int</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nf">longLongIntForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">longLongInt</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int64</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>long long int</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)longLongIntForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-longLongIntForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)longLongIntForColumnIndex:">-longLongIntForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>long long int</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nf">longLongIntForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">longLongInt</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int64</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>long long int</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)unsignedLongLongIntForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-unsignedLongLongIntForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)unsignedLongLongIntForColumn:">-unsignedLongLongIntForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>unsigned long long int</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nf">unsignedLongLongIntForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">unsignedLongLongInt</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UInt64</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>unsigned long long int</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)unsignedLongLongIntForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-unsignedLongLongIntForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)unsignedLongLongIntForColumnIndex:">-unsignedLongLongIntForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>unsigned long long int</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="kt">long</span><span class="p">)</span><span class="nf">unsignedLongLongIntForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">unsignedLongLongInt</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UInt64</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>unsigned long long int</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)boolForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-boolForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)boolForColumn:">-boolForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>BOOL</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">boolForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">bool</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>BOOL</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)boolForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-boolForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)boolForColumnIndex:">-boolForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>BOOL</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">boolForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">bool</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>BOOL</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)doubleForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-doubleForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)doubleForColumn:">-doubleForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>double</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="nf">doubleForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">double</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>double</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)doubleForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-doubleForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)doubleForColumnIndex:">-doubleForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>double</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="nf">doubleForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">double</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>double</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)stringForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-stringForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)stringForColumn:">-stringForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSString</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSString</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)stringForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-stringForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)stringForColumnIndex:">-stringForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSString</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">stringForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">string</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSString</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)dateForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-dateForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)dateForColumn:">-dateForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSDate</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nf">dateForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">date</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSDate</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)dateForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-dateForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)dateForColumnIndex:">-dateForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSDate</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nf">dateForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">date</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Date</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSDate</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)dataForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-dataForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)dataForColumn:">-dataForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSData</code> value for column.</p>
+
+<p>This is useful when storing binary data in table (such as image or the like).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">dataForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">data</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSData</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)dataForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-dataForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)dataForColumnIndex:">-dataForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSData</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">dataForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">data</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSData</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)UTF8StringForColumnName:"></a>
+                    <a name="//apple_ref/objc/Method/-UTF8StringForColumnName:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)UTF8StringForColumnName:">-UTF8StringForColumnName:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>(const unsigned char *)</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">UTF8StringForColumnName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">utf8String</span><span class="p">(</span><span class="n">forColumnName</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>(const unsigned char *)</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)UTF8StringForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-UTF8StringForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)UTF8StringForColumnIndex:">-UTF8StringForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>(const unsigned char *)</code> value for column.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="nf">UTF8StringForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">utf8String</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">UInt8</span><span class="o">&gt;!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>(const unsigned char *)</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)objectForColumnName:"></a>
+                    <a name="//apple_ref/objc/Method/-objectForColumnName:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)objectForColumnName:">-objectForColumnName:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set object for column.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>objectForKeyedSubscript:</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">objectForColumnName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">object</span><span class="p">(</span><span class="n">forColumnName</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Either <code>NSNumber</code>, <code>NSString</code>, <code>NSData</code>, or <code>NSNull</code>. If the column was <code>NULL</code>, this returns <code>[NSNull null]</code> object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)objectForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-objectForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)objectForColumnIndex:">-objectForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set object for column.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>objectAtIndexedSubscript:</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">objectForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">object</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Either <code>NSNumber</code>, <code>NSString</code>, <code>NSData</code>, or <code>NSNull</code>. If the column was <code>NULL</code>, this returns <code>[NSNull null]</code> object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)objectForKeyedSubscript:"></a>
+                    <a name="//apple_ref/objc/Method/-objectForKeyedSubscript:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)objectForKeyedSubscript:">-objectForKeyedSubscript:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set object for column.</p>
+
+<p>This method allows the use of the &ldquo;boxed&rdquo; syntax supported in Modern Objective-C. For example, by defining this method, the following syntax is now supported:</p>
+<pre class="highlight objective_c"><code><span class="n">id</span> <span class="n">result</span> <span class="o">=</span> <span class="n">rs</span><span class="p">[</span><span class="s">@"employee_name"</span><span class="p">];</span>
+</code></pre>
+
+<p>This simplified syntax is equivalent to calling:</p>
+<pre class="highlight objective_c"><code><span class="n">id</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">rs</span> <span class="nf">objectForKeyedSubscript</span><span class="p">:</span><span class="s">@"employee_name"</span><span class="p">];</span>
+</code></pre>
+
+<p>which is, it turns out, equivalent to calling:</p>
+<pre class="highlight objective_c"><code><span class="n">id</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">rs</span> <span class="nf">objectForColumnName</span><span class="p">:</span><span class="s">@"employee_name"</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">objectForKeyedSubscript</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">subscript</span><span class="p">(</span><span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Either <code>NSNumber</code>, <code>NSString</code>, <code>NSData</code>, or <code>NSNull</code>. If the column was <code>NULL</code>, this returns <code>[NSNull null]</code> object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)objectAtIndexedSubscript:"></a>
+                    <a name="//apple_ref/objc/Method/-objectAtIndexedSubscript:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)objectAtIndexedSubscript:">-objectAtIndexedSubscript:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set object for column.</p>
+
+<p>This method allows the use of the &ldquo;boxed&rdquo; syntax supported in Modern Objective-C. For example, by defining this method, the following syntax is now supported:</p>
+<pre class="highlight objective_c"><code><span class="n">id</span> <span class="n">result</span> <span class="o">=</span> <span class="n">rs</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</code></pre>
+
+<p>This simplified syntax is equivalent to calling:</p>
+<pre class="highlight objective_c"><code><span class="n">id</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">rs</span> <span class="nf">objectForKeyedSubscript</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</code></pre>
+
+<p>which is, it turns out, equivalent to calling:</p>
+<pre class="highlight objective_c"><code><span class="n">id</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">rs</span> <span class="nf">objectForColumnName</span><span class="p">:</span><span class="mi">0</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">objectAtIndexedSubscript</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">subscript</span><span class="p">(</span><span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Either <code>NSNumber</code>, <code>NSString</code>, <code>NSData</code>, or <code>NSNull</code>. If the column was <code>NULL</code>, this returns <code>[NSNull null]</code> object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)dataNoCopyForColumn:"></a>
+                    <a name="//apple_ref/objc/Method/-dataNoCopyForColumn:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)dataNoCopyForColumn:">-dataNoCopyForColumn:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSData</code> value for column.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>If you are going to use this data after you iterate over the next row, or after you close the
+result set, make sure to make a copy of the data first (or just use <code>&lt;dataForColumn:&gt;</code>/<code>&lt;dataForColumnIndex:&gt;</code>)
+If you don&rsquo;t, you&rsquo;re going to be in a world of hurt when you try and use the data.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">dataNoCopyForColumn</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dataNoCopy</span><span class="p">(</span><span class="n">forColumn</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSData</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)dataNoCopyForColumnIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-dataNoCopyForColumnIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)dataNoCopyForColumnIndex:">-dataNoCopyForColumnIndex:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Result set <code>NSData</code> value for column.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>If you are going to use this data after you iterate over the next row, or after you close the
+result set, make sure to make a copy of the data first (or just use <code>&lt;dataForColumn:&gt;</code>/<code>&lt;dataForColumnIndex:&gt;</code>)
+If you don&rsquo;t, you&rsquo;re going to be in a world of hurt when you try and use the data.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">dataNoCopyForColumnIndex</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dataNoCopy</span><span class="p">(</span><span class="n">forColumnIndex</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSData</code> value of the result set&rsquo;s column.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)columnIndexIsNull:"></a>
+                    <a name="//apple_ref/objc/Method/-columnIndexIsNull:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)columnIndexIsNull:">-columnIndexIsNull:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Is the column <code>NULL</code>?</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">columnIndexIsNull</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">columnIdx</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">columnIndexIsNull</span><span class="p">(</span><span class="n">_</span> <span class="nv">columnIdx</span><span class="p">:</span> <span class="kt">Int32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnIdx</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Zero-based index for column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>YES</code> if column is <code>NULL</code>; <code>NO</code> if not <code>NULL</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)columnIsNull:"></a>
+                    <a name="//apple_ref/objc/Method/-columnIsNull:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)columnIsNull:">-columnIsNull:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Is the column <code>NULL</code>?</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">columnIsNull</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">columnName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">columnIsNull</span><span class="p">(</span><span class="n">_</span> <span class="nv">columnName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>columnName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>NSString</code> value of the name of the column.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>YES</code> if column is <code>NULL</code>; <code>NO</code> if not <code>NULL</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)resultDictionary"></a>
+                    <a name="//apple_ref/objc/Method/-resultDictionary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)resultDictionary">-resultDictionary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a dictionary of the row results mapped to case sensitive keys of the column names. </p>
+
+<p>@returns <code>NSDictionary</code> of the row results.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    The keys to the dictionary are case sensitive of the column names.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">resultDictionary</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resultDictionary</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)resultDict"></a>
+                    <a name="//apple_ref/objc/Method/-resultDict" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSFMResultSet(im)resultDict">-resultDict</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        
+                      </div>
+                      <div class="abstract">
+                        <p>Returns a dictionary of the row results</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>resultDictionary</p>
+
+</div><div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p><strong>Deprecated</strong>: Please use <code>&lt;resultDictionary&gt;</code> instead.  Also, beware that <code>&lt;resultDictionary&gt;</code> is case sensitive!</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">resultDict</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resultDict</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Key%20value%20coding%20magic"></a>
+                <a name="//apple_ref/objc/Section/Key value coding magic" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Key%20value%20coding%20magic"></a>
+                  <h3 class="section-name"><p>Key value coding magic</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFMResultSet(im)kvcMagic:"></a>
+                    <a name="//apple_ref/objc/Method/-kvcMagic:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFMResultSet(im)kvcMagic:">-kvcMagic:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Performs <code>setValue</code> to yield support for key value observing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">kvcMagic</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">kvcMagic</span><span class="p">(</span><span class="n">_</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object for which the values will be set. This is the key-value-coding compliant object that you might, for example, observe.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,3132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSTMDiskCache Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSTMDiskCache" class="dashAnchor"></a>
+    <a title="AWSTMDiskCache Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCore 2.12.3 Docs</a> (47% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCore Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSTMDiskCache Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/NSArray%28AWSMTLManipulationAdditions%29.html">NSArray(AWSMTLManipulationAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSData%28AWSGZIP%29.html">NSData(AWSGZIP)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDate%28AWS%29.html">NSDate(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWS%29.html">NSDictionary(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWSMTLManipulationAdditions%29.html">NSDictionary(AWSMTLManipulationAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWSXMLDictionary%29.html">NSDictionary(AWSXMLDictionary)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSFileManager%28AWS%29.html">NSFileManager(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSJSONSerialization%28AWS%29.html">NSJSONSerialization(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSNumber%28AWS%29.html">NSNumber(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSObject%28AWS%29.html">NSObject(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSObject%28AWSFMDatabasePoolDelegate%29.html">NSObject(AWSFMDatabasePoolDelegate)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWS%29.html">NSString(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWSHTTPMethod%29.html">NSString(AWSHTTPMethod)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWSXMLDictionary%29.html">NSString(AWSXMLDictionary)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28AWSMTLInversionAdditions%29.html">NSValueTransformer(AWSMTLInversionAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28AWSMTLPredefinedTransformerAdditions%29.html">NSValueTransformer(AWSMTLPredefinedTransformerAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28UnavailableAWSMTLPredefinedTransformerAdditions%29.html">NSValueTransformer(UnavailableAWSMTLPredefinedTransformerAdditions)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAbstractCognitoCredentialsProviderHelper.html">AWSAbstractCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAnonymousCredentialsProvider">AWSAnonymousCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSBasicSessionCredentialsProvider.html">AWSBasicSessionCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationToken.html">AWSCancellationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationTokenRegistration.html">AWSCancellationTokenRegistration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationTokenSource.html">AWSCancellationTokenSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSClientContext.html">AWSClientContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoCredentialsProvider.html">AWSCognitoCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoCredentialsProviderHelper.html">AWSCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentity.html">AWSCognitoIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCognitoIdentityProvider.html">AWSCognitoIdentityCognitoIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCreateIdentityPoolInput.html">AWSCognitoIdentityCreateIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCredentials.html">AWSCognitoIdentityCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentitiesInput.html">AWSCognitoIdentityDeleteIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentitiesResponse.html">AWSCognitoIdentityDeleteIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentityPoolInput.html">AWSCognitoIdentityDeleteIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDescribeIdentityInput.html">AWSCognitoIdentityDescribeIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDescribeIdentityPoolInput.html">AWSCognitoIdentityDescribeIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityInput.html">AWSCognitoIdentityGetCredentialsForIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityResponse.html">AWSCognitoIdentityGetCredentialsForIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdInput.html">AWSCognitoIdentityGetIdInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdResponse.html">AWSCognitoIdentityGetIdResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesInput.html">AWSCognitoIdentityGetIdentityPoolRolesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesResponse.html">AWSCognitoIdentityGetIdentityPoolRolesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenInput.html">AWSCognitoIdentityGetOpenIdTokenInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenResponse.html">AWSCognitoIdentityGetOpenIdTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityDescription.html">AWSCognitoIdentityIdentityDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityPoolShortDescription.html">AWSCognitoIdentityIdentityPoolShortDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentitiesInput.html">AWSCognitoIdentityListIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentitiesResponse.html">AWSCognitoIdentityListIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentityPoolsInput.html">AWSCognitoIdentityListIdentityPoolsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentityPoolsResponse.html">AWSCognitoIdentityListIdentityPoolsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListTagsForResourceInput.html">AWSCognitoIdentityListTagsForResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListTagsForResourceResponse.html">AWSCognitoIdentityListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityInput.html">AWSCognitoIdentityLookupDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityResponse.html">AWSCognitoIdentityLookupDeveloperIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMappingRule.html">AWSCognitoIdentityMappingRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesInput.html">AWSCognitoIdentityMergeDeveloperIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesResponse.html">AWSCognitoIdentityMergeDeveloperIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityResources.html">AWSCognitoIdentityResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityRoleMapping.html">AWSCognitoIdentityRoleMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityRulesConfigurationType.html">AWSCognitoIdentityRulesConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySetIdentityPoolRolesInput.html">AWSCognitoIdentitySetIdentityPoolRolesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityTagResourceInput.html">AWSCognitoIdentityTagResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityTagResourceResponse">AWSCognitoIdentityTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnlinkDeveloperIdentityInput.html">AWSCognitoIdentityUnlinkDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnlinkIdentityInput.html">AWSCognitoIdentityUnlinkIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnprocessedIdentityId.html">AWSCognitoIdentityUnprocessedIdentityId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUntagResourceInput.html">AWSCognitoIdentityUntagResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUntagResourceResponse">AWSCognitoIdentityUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCredentials.html">AWSCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDASLLogCapture.html">AWSDDASLLogCapture</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDASLLogger.html">AWSDDASLLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDAbstractLogger.html">AWSDDAbstractLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDFileLogger.html">AWSDDFileLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLog.html">AWSDDLog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileFormatterDefault.html">AWSDDLogFileFormatterDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileInfo.html">AWSDDLogFileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileManagerDefault.html">AWSDDLogFileManagerDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogMessage.html">AWSDDLogMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLoggerInformation.html">AWSDDLoggerInformation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDOSLogger.html">AWSDDOSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDTTYLogger.html">AWSDDTTYLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ParamBuilder.html">AWSEC2ParamBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEndpoint.html">AWSEndpoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSExecutor.html">AWSExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabasePool.html">AWSFMDatabasePool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabaseQueue.html">AWSFMDatabaseQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMResultSet.html">AWSFMResultSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMStatement.html">AWSFMStatement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSInfo.html">AWSInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONBuilder.html">AWSJSONBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONDictionary.html">AWSJSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONParser.html">AWSJSONParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONRequestSerializer.html">AWSJSONRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONResponseSerializer.html">AWSJSONResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKSReachability.html">AWSKSReachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKSReachableOperation.html">AWSKSReachableOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogger.html">AWSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLJSONAdapter.html">AWSMTLJSONAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLManagedObjectAdapter.html">AWSMTLManagedObjectAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLModel.html">AWSMTLModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLValueTransformer.html">AWSMTLValueTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSModelUtility.html">AWSModelUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworking.html">AWSNetworking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingConfiguration.html">AWSNetworkingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingHelpers.html">AWSNetworkingHelpers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingRequest.html">AWSNetworkingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSQueryParamBuilder.html">AWSQueryParamBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSQueryStringRequestSerializer.html">AWSQueryStringRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRequest.html">AWSRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSS3ChunkedEncodingInputStream.html">AWSS3ChunkedEncodingInputStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTS.html">AWSSTS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleRequest.html">AWSSTSAssumeRoleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleResponse.html">AWSSTSAssumeRoleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithSAMLRequest.html">AWSSTSAssumeRoleWithSAMLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithSAMLResponse.html">AWSSTSAssumeRoleWithSAMLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithWebIdentityRequest.html">AWSSTSAssumeRoleWithWebIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithWebIdentityResponse.html">AWSSTSAssumeRoleWithWebIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumedRoleUser.html">AWSSTSAssumedRoleUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSCredentials.html">AWSSTSCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSDecodeAuthorizationMessageRequest.html">AWSSTSDecodeAuthorizationMessageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSDecodeAuthorizationMessageResponse.html">AWSSTSDecodeAuthorizationMessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSFederatedUser.html">AWSSTSFederatedUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetAccessKeyInfoRequest.html">AWSSTSGetAccessKeyInfoRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetAccessKeyInfoResponse.html">AWSSTSGetAccessKeyInfoResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSTSGetCallerIdentityRequest">AWSSTSGetCallerIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetCallerIdentityResponse.html">AWSSTSGetCallerIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetFederationTokenRequest.html">AWSSTSGetFederationTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetFederationTokenResponse.html">AWSSTSGetFederationTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetSessionTokenRequest.html">AWSSTSGetSessionTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetSessionTokenResponse.html">AWSSTSGetSessionTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSPolicyDescriptorType.html">AWSSTSPolicyDescriptorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSResources.html">AWSSTSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSTag.html">AWSSTSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSService.html">AWSService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceConfiguration.html">AWSServiceConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceInfo.html">AWSServiceInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceManager.html">AWSServiceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureSignerUtility.html">AWSSignatureSignerUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureV2Signer.html">AWSSignatureV2Signer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureV4Signer.html">AWSSignatureV4Signer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSStaticCredentialsProvider.html">AWSStaticCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSynchronizedMutableDictionary.html">AWSSynchronizedMutableDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMCache.html">AWSTMCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMDiskCache.html">AWSTMDiskCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTask.html">AWSTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTaskCompletionSource.html">AWSTaskCompletionSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSUICKeyChainStore.html">AWSUICKeyChainStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSURLRequestRetryHandler.html">AWSURLRequestRetryHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSURLSessionManager.html">AWSURLSessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSWebIdentityCredentialsProvider.html">AWSWebIdentityCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLBuilder.html">AWSXMLBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLDictionaryParser.html">AWSXMLDictionaryParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLParser.html">AWSXMLParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLRequestSerializer.html">AWSXMLRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLResponseSerializer.html">AWSXMLResponseSerializer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSBoltsFrameworkVersionString">AWSBoltsFrameworkVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextHeader">AWSClientContextHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextHeaderEncoding">AWSClientContextHeaderEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextVersion">AWSClientContextVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoCredentialsProviderErrorDomain">AWSCognitoCredentialsProviderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoCredentialsProviderHelperErrorDomain">AWSCognitoCredentialsProviderHelperErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityErrorDomain">AWSCognitoIdentityErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityIdChangedNotification">AWSCognitoIdentityIdChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoNotificationNewId">AWSCognitoNotificationNewId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoNotificationPreviousId">AWSCognitoNotificationPreviousId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCoreVersionNumber">AWSCoreVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCoreVersionString">AWSCoreVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat1">AWSDateISO8601DateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat2">AWSDateISO8601DateFormat2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat3">AWSDateISO8601DateFormat3</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateRFC822DateFormat1">AWSDateRFC822DateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateShortDateFormat1">AWSDateShortDateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateShortDateFormat2">AWSDateShortDateFormat2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSEC2ParamBuilderErrorDomain">AWSEC2ParamBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderAmazonCognitoIdentity">AWSIdentityProviderAmazonCognitoIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderDigits">AWSIdentityProviderDigits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderFacebook">AWSIdentityProviderFacebook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderGoogle">AWSIdentityProviderGoogle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderLoginWithAmazon">AWSIdentityProviderLoginWithAmazon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderTwitter">AWSIdentityProviderTwitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInfoDefault">AWSInfoDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSJSONBuilderErrorDomain">AWSJSONBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSJSONParserErrorDomain">AWSJSONParserErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLBooleanValueTransformerName">AWSMTLBooleanValueTransformerName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorDomain">AWSMTLJSONAdapterErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorInvalidJSONDictionary">AWSMTLJSONAdapterErrorInvalidJSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorInvalidJSONMapping">AWSMTLJSONAdapterErrorInvalidJSONMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorNoClassFound">AWSMTLJSONAdapterErrorNoClassFound</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorDomain">AWSMTLManagedObjectAdapterErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInitializationFailed">AWSMTLManagedObjectAdapterErrorInitializationFailed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInvalidManagedObjectKey">AWSMTLManagedObjectAdapterErrorInvalidManagedObjectKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping">AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorNoClassFound">AWSMTLManagedObjectAdapterErrorNoClassFound</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUniqueFetchRequestFailed">AWSMTLManagedObjectAdapterErrorUniqueFetchRequestFailed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUnsupportedManagedObjectPropertyType">AWSMTLManagedObjectAdapterErrorUnsupportedManagedObjectPropertyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUnsupportedRelationshipClass">AWSMTLManagedObjectAdapterErrorUnsupportedRelationshipClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLURLValueTransformerName">AWSMTLURLValueTransformerName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMantleVersionNumber">AWSMantleVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMantleVersionString">AWSMantleVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSNetworkingErrorDomain">AWSNetworkingErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSQueryParamBuilderErrorDomain">AWSQueryParamBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSTSErrorDomain">AWSSTSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSServiceErrorDomain">AWSServiceErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSignatureV4Algorithm">AWSSignatureV4Algorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSignatureV4Terminator">AWSSignatureV4Terminator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTaskErrorDomain">AWSTaskErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTaskMultipleErrorsUserInfoKey">AWSTaskMultipleErrorsUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSUICKeyChainStoreErrorDomain">AWSUICKeyChainStoreErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSValidationErrorDomain">AWSValidationErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSXMLBuilderErrorDomain">AWSXMLBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryAttributePrefix">AWSXMLDictionaryAttributePrefix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryAttributesKey">AWSXMLDictionaryAttributesKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryCommentsKey">AWSXMLDictionaryCommentsKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryNodeNameKey">AWSXMLDictionaryNodeNameKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryTextKey">AWSXMLDictionaryTextKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSXMLParserErrorDomain">AWSXMLParserErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSiOSSDKVersion">AWSiOSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDASLAWSDDLogValue">kAWSDDASLAWSDDLogValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDASLKeyAWSDDLog">kAWSDDASLKeyAWSDDLog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogFilesDiskQuota">kAWSDDDefaultLogFilesDiskQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogMaxFileSize">kAWSDDDefaultLogMaxFileSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogMaxNumLogFiles">kAWSDDDefaultLogMaxNumLogFiles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogRollingFrequency">kAWSDDDefaultLogRollingFrequency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSMultipleErrorsError">kAWSMultipleErrorsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoCredentialsProviderErrorType.html">AWSCognitoCredentialsProviderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoCredentialsProviderHelperErrorType.html">AWSCognitoCredentialsProviderHelperErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityAmbiguousRoleResolutionType.html">AWSCognitoIdentityAmbiguousRoleResolutionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityErrorCode.html">AWSCognitoIdentityErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityErrorType.html">AWSCognitoIdentityErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityMappingRuleMatchType.html">AWSCognitoIdentityMappingRuleMatchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityRoleMappingType.html">AWSCognitoIdentityRoleMappingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogFlag.html">AWSDDLogFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogLevel.html">AWSDDLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogMessageOptions.html">AWSDDLogMessageOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2ParamBuilderErrorType.html">AWSEC2ParamBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSJSONBuilderErrorType.html">AWSJSONBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSJSONParserErrorType.html">AWSJSONParserErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLogLevel.html">AWSLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSNetworkingErrorType.html">AWSNetworkingErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSNetworkingRetryType.html">AWSNetworkingRetryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSQueryParamBuilderErrorType.html">AWSQueryParamBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRegionType.html">AWSRegionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSTSErrorType.html">AWSSTSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSServiceErrorType.html">AWSServiceErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSServiceType.html">AWSServiceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAccessibility.html">AWSUICKeyChainStoreAccessibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAuthenticationPolicy.html">AWSUICKeyChainStoreAuthenticationPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAuthenticationType.html">AWSUICKeyChainStoreAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreErrorCode.html">AWSUICKeyChainStoreErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreItemClass.html">AWSUICKeyChainStoreItemClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreProtocolType.html">AWSUICKeyChainStoreProtocolType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSValidationErrorType.html">AWSValidationErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLBuilderErrorType.html">AWSXMLBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLDictionaryAttributesMode.html">AWSXMLDictionaryAttributesMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLDictionaryNodeNameMode.html">AWSXMLDictionaryNodeNameMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLParserErrorType.html">AWSXMLParserErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoCredentialsProviderHelper.html">AWSCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogFileManager.html">AWSDDLogFileManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogFormatter.html">AWSDDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogger.html">AWSDDLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDRegisteredDynamicLogging.html">AWSDDRegisteredDynamicLogging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSHTTPURLResponseSerializer.html">AWSHTTPURLResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSIdentityProvider.html">AWSIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSIdentityProviderManager.html">AWSIdentityProviderManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSNetworkingHTTPResponseInterceptor.html">AWSNetworkingHTTPResponseInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSURLRequestRetryHandler.html">AWSURLRequestRetryHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSURLRequestSerializer.html">AWSURLRequestSerializer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSCancellationToken.h@T@AWSCancellationBlock">AWSCancellationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTask.h@T@AWSContinuationBlock">AWSContinuationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSDDTTYLogger.h@T@AWSDDColor">AWSDDColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSFMDatabase.h@T@AWSFMDBExecuteStatementsCallbackBlock">AWSFMDBExecuteStatementsCallbackBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSKSReachability.h@T@AWSKSReachabilityCallback">AWSKSReachabilityCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions/AWSMTLModelEncodingBehavior.html">AWSMTLModelEncodingBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingDownloadProgressBlock">AWSNetworkingDownloadProgressBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingUploadProgressBlock">AWSNetworkingUploadProgressBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheObjectBlock">AWSTMCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSGeneric.h@T@AWSVoid">AWSVoid</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@AWSDDExtractFileNameWithoutExtension">AWSDDExtractFileNameWithoutExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:AWSDDTTYLogger.h@F@AWSDDMakeColor">AWSDDMakeColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@AWSMTLEqualObjects">AWSMTLEqualObjects</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsgzip_loadGZIP">awsgzip_loadGZIP</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsmtl_loadMTLNSCoding">awsmtl_loadMTLNSCoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsmtl_loadMTLPredefinedTransformerAdditions">awsmtl_loadMTLPredefinedTransformerAdditions</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSTMDiskCache</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTMDiskCache</span> <span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cp">#pragma mark -
+</span><span class="c1">/// @name Core</span>
+
+<span class="cm">/**
+ The name of this cache, used to create a directory under Library/Caches and also appearing in stack traces.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span>
+
+<span class="cm">/**
+ The URL of the directory used by this cache, usually `Library/Caches/com.tumblr.TMDiskCache.(name)`
+ 
+ @warning Do not interact with files under this URL except on the &lt;sharedQueue&gt;.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">cacheURL</span><span class="p">;</span>
+
+<span class="cm">/**
+ The total number of bytes used on disk, as reported by `NSURLTotalFileAllocatedSizeKey`.
+ 
+ @warning This property is technically safe to access from any thread, but it reflects the value *right now*,
+ not taking into account any pending operations. In most cases this value should only be read from a block on the
+ &lt;sharedQueue&gt;, which will ensure its accuracy and prevent it from changing during the lifetime of the block.
+ 
+ For example:
+ 
+    // some background thread, not a block already running on the shared queue
+
+    dispatch_sync([TMDiskCache sharedQueue], ^{
+        NSLog(@"accurate, unchanging byte count: %d", [[TMDiskCache sharedCache] byteCount]);
+    });
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteCount</span><span class="p">;</span>
+
+<span class="cm">/**
+ The maximum number of bytes allowed on disk. This value is checked every time an object is set, if the written
+ size exceeds the limit a trim call is queued. Defaults to `0.0`, meaning no practical limit.
+ 
+ @warning Do not read this property on the &lt;sharedQueue&gt; (including asynchronous method blocks).
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteLimit</span><span class="p">;</span>
+
+<span class="cm">/**
+ The maximum number of seconds an object is allowed to exist in the cache. Setting this to a value
+ greater than `0.0` will start a recurring GCD timer with the same period that calls &lt;trimToDate:&gt;.
+ Setting it back to `0.0` will stop the timer. Defaults to `0.0`, meaning no limit.
+ 
+ @warning Do not read this property on the &lt;sharedQueue&gt; (including asynchronous method blocks).
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span>
+
+<span class="cp">#pragma mark -
+</span><span class="c1">/// @name Event Blocks</span>
+
+<span class="cm">/**
+ A block to be executed just before an object is added to the cache. The queue waits during execution.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willAddObjectBlock</span><span class="p">;</span>
+
+<span class="cm">/**
+ A block to be executed just before an object is removed from the cache. The queue waits during execution.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willRemoveObjectBlock</span><span class="p">;</span>
+
+<span class="cm">/**
+ A block to be executed just before all objects are removed from the cache as a result of &lt;removeAllObjects:&gt;.
+ The queue waits during execution.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">willRemoveAllObjectsBlock</span><span class="p">;</span>
+
+<span class="cm">/**
+ A block to be executed just after an object is added to the cache. The queue waits during execution.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didAddObjectBlock</span><span class="p">;</span>
+
+<span class="cm">/**
+ A block to be executed just after an object is removed from the cache. The queue waits during execution.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didRemoveObjectBlock</span><span class="p">;</span>
+
+<span class="cm">/**
+ A block to be executed just after all objects are removed from the cache as a result of &lt;removeAllObjects:&gt;.
+ The queue waits during execution.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span>
+
+<span class="cp">#pragma mark -
+</span><span class="c1">/// @name Initialization</span>
+
+<span class="cm">/**
+ A shared cache.
+ 
+ @result The shared singleton cache instance.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">sharedCache</span><span class="p">;</span>
+
+<span class="cm">/**
+ A shared serial queue, used by all instances of this class. Use `dispatch_set_target_queue` to integrate
+ this queue with an exisiting serial I/O queue.
+ 
+ @result The shared singleton queue instance.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">dispatch_queue_t</span><span class="p">)</span><span class="n">sharedQueue</span><span class="p">;</span>
+
+<span class="cm">/**
+ Empties the trash with `DISPATCH_QUEUE_PRIORITY_BACKGROUND`. Does not block the &lt;sharedQueue&gt;.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">emptyTrash</span><span class="p">;</span>
+
+
+<span class="cm">/**
+ Multiple instances with the same name are allowed and can safely access
+ the same data on disk thanks to the magic of seriality.
+ 
+ @see name
+ @param name The name of the cache.
+ @result A new cache with the specified name.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">;</span>
+
+<span class="cm">/**
+ The designated initializer. Multiple instances with the same name are allowed and can safely access
+ the same data on disk thanks to the magic of seriality.
+ 
+ @see name
+ @param name The name of the cache.
+ @param rootPath The path of the cache.
+ @result A new cache with the specified name.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">rootPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">rootPath</span><span class="p">;</span>
+
+<span class="cp">#pragma mark -
+</span><span class="c1">/// @name Asynchronous Methods</span>
+
+<span class="cm">/**
+ Retrieves the object for the specified key. This method returns immediately and executes the passed
+ block as soon as the object is available on the serial &lt;sharedQueue&gt;.
+ 
+ @warning The fileURL is only valid for the duration of this block, do not use it after the block ends.
+ 
+ @param key The key associated with the requested object.
+ @param block A block to be executed serially when the object is available.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">objectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Retrieves the fileURL for the specified key without actually reading the data from disk. This method
+ returns immediately and executes the passed block as soon as the object is available on the serial
+ &lt;sharedQueue&gt;.
+ 
+ @warning Access is protected for the duration of the block, but to maintain safe disk access do not
+ access this fileURL after the block has ended. Do all work on the &lt;sharedQueue&gt;.
+ 
+ @param key The key associated with the requested object.
+ @param block A block to be executed serially when the file URL is available.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">fileURLForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Stores an object in the cache for the specified key. This method returns immediately and executes the
+ passed block as soon as the object has been stored.
+ 
+ @param object An object to store in the cache.
+ @param key A key to associate with the object. This string will be copied.
+ @param block A block to be executed serially after the object has been stored, or nil.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setObject</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">object</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes the object for the specified key. This method returns immediately and executes the passed block
+ as soon as the object has been removed.
+ 
+ @param key The key associated with the object to be removed.
+ @param block A block to be executed serially after the object has been removed, or nil.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeObjectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes all objects from the cache that have not been used since the specified date.
+ This method returns immediately and executes the passed block as soon as the cache has been trimmed.
+
+ @param date Objects that haven't been accessed since this date are removed from the cache.
+ @param block A block to be executed serially after the cache has been trimmed, or nil.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">date</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes objects from the cache, largest first, until the cache is equal to or smaller than the specified byteCount.
+ This method returns immediately and executes the passed block as soon as the cache has been trimmed.
+ 
+ @param byteCount The cache will be trimmed equal to or smaller than this size.
+ @param block A block to be executed serially after the cache has been trimmed, or nil.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSize</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes objects from the cache, ordered by date (least recently used first), until the cache is equal to or smaller
+ than the specified byteCount. This method returns immediately and executes the passed block as soon as the cache has
+ been trimmed.
+
+ @param byteCount The cache will be trimmed equal to or smaller than this size.
+ @param block A block to be executed serially after the cache has been trimmed, or nil.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSizeByDate</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes all objects from the cache. This method returns immediately and executes the passed block as soon as the
+ cache has been cleared.
+ 
+ @param block A block to be executed serially after the cache has been cleared, or nil.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeAllObjects</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cm">/**
+ Loops through all objects in the cache (reads and writes are suspended during the enumeration). Data is not actually
+ read from disk, the `object` parameter of the block will be `nil` but the `fileURL` will be available.
+ This method returns immediately.
+
+ @param block A block to be executed for every object in the cache.
+ @param completionBlock An optional block to be executed after the enumeration is complete.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span> <span class="nf">completionBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
+
+<span class="cp">#pragma mark -
+</span><span class="c1">/// @name Synchronous Methods</span>
+
+<span class="cm">/**
+ Retrieves the object for the specified key. This method blocks the calling thread until the
+ object is available.
+ 
+ @see objectForKey:block:
+ @param key The key associated with the object.
+ @result The object for the specified key.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span><span class="p">)</span><span class="nf">objectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Retrieves the file URL for the specified key. This method blocks the calling thread until the
+ url is available. Do not use this URL anywhere but on the &lt;sharedQueue&gt;. This method probably
+ shouldn't even exist, just use the asynchronous one.
+ 
+ @see fileURLForKey:block:
+ @param key The key associated with the object.
+ @result The file URL for the specified key.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nf">fileURLForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Stores an object in the cache for the specified key. This method blocks the calling thread until
+ the object has been stored.
+ 
+ @see setObject:forKey:block:
+ @param object An object to store in the cache.
+ @param key A key to associate with the object. This string will be copied.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setObject</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">object</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes the object for the specified key. This method blocks the calling thread until the object
+ has been removed.
+ 
+ @param key The key associated with the object to be removed.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeObjectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes all objects from the cache that have not been used since the specified date.
+ This method blocks the calling thread until the cache has been trimmed.
+
+ @param date Objects that haven't been accessed since this date are removed from the cache.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">date</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes objects from the cache, largest first, until the cache is equal to or smaller than the
+ specified byteCount. This method blocks the calling thread until the cache has been trimmed.
+ 
+ @param byteCount The cache will be trimmed equal to or smaller than this size.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSize</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes objects from the cache, ordered by date (least recently used first), until the cache is equal to or
+ smaller than the specified byteCount. This method blocks the calling thread until the cache has been trimmed.
+
+ @param byteCount The cache will be trimmed equal to or smaller than this size.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSizeByDate</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes all objects from the cache. This method blocks the calling thread until the cache has been cleared.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">removeAllObjects</span><span class="p">;</span>
+
+<span class="cm">/**
+ Loops through all objects in the cache (reads and writes are suspended during the enumeration). Data is not actually
+ read from disk, the `object` parameter of the block will be `nil` but the `fileURL` will be available.
+ This method blocks the calling thread until all objects have been enumerated.
+
+ @param block A block to be executed for every object in the cache.
+
+ @warning Do not call this method within the event blocks (&lt;didRemoveObjectBlock&gt;, etc.)
+ Instead use the asynchronous version, &lt;enumerateObjectsWithBlock:completionBlock:&gt;.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
+
+<span class="cp">#pragma mark -
+</span><span class="c1">/// @name Background Tasks</span>
+
+<span class="cm">/**
+ Set a global manager to be used for setting up/tearing down any background tasks needed by TMCache.
+ 
+ @param backgroundTaskManager Background task manager.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setBackgroundTaskManager</span><span class="p">:(</span><span class="n">id</span> <span class="o">&lt;</span><span class="n">AWSTMCacheBackgroundTaskManager</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">backgroundTaskManager</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Core"></a>
+                <a name="//apple_ref/objc/Section/Core" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Core"></a>
+                  <h3 class="section-name"><p>Core</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)name"></a>
+                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)name">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of this cache, used to create a directory under Library/Caches and also appearing in stack traces.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)cacheURL"></a>
+                    <a name="//apple_ref/objc/Property/cacheURL" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)cacheURL">cacheURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The URL of the directory used by this cache, usually <code>Library/Caches/com.tumblr.TMDiskCache.(name)</code></p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Do not interact with files under this URL except on the <sharedQueue>.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">cacheURL</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">cacheURL</span><span class="p">:</span> <span class="kt">URL</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)byteCount"></a>
+                    <a name="//apple_ref/objc/Property/byteCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)byteCount">byteCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The total number of bytes used on disk, as reported by <code>NSURLTotalFileAllocatedSizeKey</code>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    This property is technically safe to access from any thread, but it reflects the value <em>right now</em>,
+not taking into account any pending operations. In most cases this value should only be read from a block on the
+<sharedQueue>, which will ensure its accuracy and prevent it from changing during the lifetime of the block.
+
+</div>
+
+<p>For example:</p>
+
+<p>// some background thread, not a block already running on the shared queue</p>
+
+<p>dispatch_sync([TMDiskCache sharedQueue], ^{
+       NSLog(@&ldquo;accurate, unchanging byte count: %d&rdquo;, [[TMDiskCache sharedCache] byteCount]);
+   });</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">byteCount</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)byteLimit"></a>
+                    <a name="//apple_ref/objc/Property/byteLimit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)byteLimit">byteLimit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum number of bytes allowed on disk. This value is checked every time an object is set, if the written
+size exceeds the limit a trim call is queued. Defaults to <code>0.0</code>, meaning no practical limit.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Do not read this property on the <sharedQueue> (including asynchronous method blocks).
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteLimit</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">byteLimit</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)ageLimit"></a>
+                    <a name="//apple_ref/objc/Property/ageLimit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)ageLimit">ageLimit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum number of seconds an object is allowed to exist in the cache. Setting this to a value
+greater than <code>0.0</code> will start a recurring GCD timer with the same period that calls <trimToDate:>.
+Setting it back to <code>0.0</code> will stop the timer. Defaults to <code>0.0</code>, meaning no limit.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Do not read this property on the <sharedQueue> (including asynchronous method blocks).
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">ageLimit</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Event%20Blocks"></a>
+                <a name="//apple_ref/objc/Section/Event Blocks" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Event%20Blocks"></a>
+                  <h3 class="section-name"><p>Event Blocks</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)willAddObjectBlock"></a>
+                    <a name="//apple_ref/objc/Property/willAddObjectBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)willAddObjectBlock">willAddObjectBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A block to be executed just before an object is added to the cache. The queue waits during execution.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willAddObjectBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">willAddObjectBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)willRemoveObjectBlock"></a>
+                    <a name="//apple_ref/objc/Property/willRemoveObjectBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)willRemoveObjectBlock">willRemoveObjectBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A block to be executed just before an object is removed from the cache. The queue waits during execution.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
+    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willRemoveObjectBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">willRemoveObjectBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)willRemoveAllObjectsBlock"></a>
+                    <a name="//apple_ref/objc/Property/willRemoveAllObjectsBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)willRemoveAllObjectsBlock">willRemoveAllObjectsBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A block to be executed just before all objects are removed from the cache as a result of <removeAllObjects:>.
+The queue waits during execution.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
+    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">willRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">willRemoveAllObjectsBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)didAddObjectBlock"></a>
+                    <a name="//apple_ref/objc/Property/didAddObjectBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)didAddObjectBlock">didAddObjectBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A block to be executed just after an object is added to the cache. The queue waits during execution.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didAddObjectBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">didAddObjectBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)didRemoveObjectBlock"></a>
+                    <a name="//apple_ref/objc/Property/didRemoveObjectBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)didRemoveObjectBlock">didRemoveObjectBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A block to be executed just after an object is removed from the cache. The queue waits during execution.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
+    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didRemoveObjectBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">didRemoveObjectBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(py)didRemoveAllObjectsBlock"></a>
+                    <a name="//apple_ref/objc/Property/didRemoveAllObjectsBlock" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(py)didRemoveAllObjectsBlock">didRemoveAllObjectsBlock</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A block to be executed just after all objects are removed from the cache as a result of <removeAllObjects:>.
+The queue waits during execution.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">didRemoveAllObjectsBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initialization"></a>
+                <a name="//apple_ref/objc/Section/Initialization" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Initialization"></a>
+                  <h3 class="section-name"><p>Initialization</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(cm)sharedCache"></a>
+                    <a name="//apple_ref/objc/Method/+sharedCache" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(cm)sharedCache">+sharedCache</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A shared cache.</p>
+
+<p>@result The shared singleton cache instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">sharedCache</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">shared</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(cm)sharedQueue"></a>
+                    <a name="//apple_ref/objc/Method/+sharedQueue" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(cm)sharedQueue">+sharedQueue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A shared serial queue, used by all instances of this class. Use <code>dispatch_set_target_queue</code> to integrate
+this queue with an exisiting serial I/O queue.</p>
+
+<p>@result The shared singleton queue instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">dispatch_queue_t</span><span class="p">)</span><span class="n">sharedQueue</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">sharedQueue</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">DispatchQueue</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(cm)emptyTrash"></a>
+                    <a name="//apple_ref/objc/Method/+emptyTrash" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(cm)emptyTrash">+emptyTrash</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Empties the trash with <code>DISPATCH_QUEUE_PRIORITY_BACKGROUND</code>. Does not block the <sharedQueue>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">emptyTrash</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">emptyTrash</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)initWithName:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithName:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)initWithName:">-initWithName:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Multiple instances with the same name are allowed and can safely access
+the same data on disk thanks to the magic of seriality.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    name
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the cache.
+@result A new cache with the specified name.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)initWithName:rootPath:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithName:rootPath:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)initWithName:rootPath:">-initWithName:rootPath:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The designated initializer. Multiple instances with the same name are allowed and can safely access
+the same data on disk thanks to the magic of seriality.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    name
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">rootPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">rootPath</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">rootPath</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rootPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path of the cache.
+@result A new cache with the specified name.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Asynchronous%20Methods"></a>
+                <a name="//apple_ref/objc/Section/Asynchronous Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Asynchronous%20Methods"></a>
+                  <h3 class="section-name"><p>Asynchronous Methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)objectForKey:block:"></a>
+                    <a name="//apple_ref/objc/Method/-objectForKey:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)objectForKey:block:">-objectForKey:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the object for the specified key. This method returns immediately and executes the passed
+block as soon as the object is available on the serial <sharedQueue>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>The fileURL is only valid for the duration of this block, do not use it after the block ends.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">objectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">object</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key associated with the requested object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially when the object is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:block:"></a>
+                    <a name="//apple_ref/objc/Method/-fileURLForKey:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:block:">-fileURLForKey:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the fileURL for the specified key without actually reading the data from disk. This method
+returns immediately and executes the passed block as soon as the object is available on the serial
+<sharedQueue>.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Access is protected for the duration of the block, but to maintain safe disk access do not
+access this fileURL after the block has ended. Do all work on the <sharedQueue>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">fileURLForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">fileURL</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key associated with the requested object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially when the file URL is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:block:"></a>
+                    <a name="//apple_ref/objc/Method/-setObject:forKey:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:block:">-setObject:forKey:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores an object in the cache for the specified key. This method returns immediately and executes the
+passed block as soon as the object has been stored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setObject</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">object</span>
+           <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+            <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setObject</span><span class="p">(</span><span class="n">_</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">NSCoding</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An object to store in the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key to associate with the object. This string will be copied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially after the object has been stored, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:block:"></a>
+                    <a name="//apple_ref/objc/Method/-removeObjectForKey:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:block:">-removeObjectForKey:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the object for the specified key. This method returns immediately and executes the passed block
+as soon as the object has been removed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeObjectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span>
+                     <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeObject</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key associated with the object to be removed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially after the object has been removed, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)trimToDate:block:"></a>
+                    <a name="//apple_ref/objc/Method/-trimToDate:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToDate:block:">-trimToDate:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes all objects from the cache that have not been used since the specified date.
+This method returns immediately and executes the passed block as soon as the cache has been trimmed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">date</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">trim</span><span class="p">(</span><span class="n">to</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="o">!</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Objects that haven&rsquo;t been accessed since this date are removed from the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially after the cache has been trimmed, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSize:block:"></a>
+                    <a name="//apple_ref/objc/Method/-trimToSize:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSize:block:">-trimToSize:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes objects from the cache, largest first, until the cache is equal to or smaller than the specified byteCount.
+This method returns immediately and executes the passed block as soon as the cache has been trimmed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSize</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">trim</span><span class="p">(</span><span class="n">toSize</span> <span class="nv">byteCount</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>byteCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cache will be trimmed equal to or smaller than this size.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially after the cache has been trimmed, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:block:"></a>
+                    <a name="//apple_ref/objc/Method/-trimToSizeByDate:block:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:block:">-trimToSizeByDate:block:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes objects from the cache, ordered by date (least recently used first), until the cache is equal to or smaller
+than the specified byteCount. This method returns immediately and executes the passed block as soon as the cache has
+been trimmed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSizeByDate</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span> <span class="nf">block</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">trimToSize</span><span class="p">(</span><span class="n">byDate</span> <span class="nv">byteCount</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">,</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>byteCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cache will be trimmed equal to or smaller than this size.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially after the cache has been trimmed, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)removeAllObjects:"></a>
+                    <a name="//apple_ref/objc/Method/-removeAllObjects:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeAllObjects:">-removeAllObjects:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes all objects from the cache. This method returns immediately and executes the passed block as soon as the
+cache has been cleared.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeAllObjects</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeAllObjects</span><span class="p">(</span><span class="n">_</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed serially after the cache has been cleared, or nil.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:completionBlock:"></a>
+                    <a name="//apple_ref/objc/Method/-enumerateObjectsWithBlock:completionBlock:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:completionBlock:">-enumerateObjectsWithBlock:completionBlock:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loops through all objects in the cache (reads and writes are suspended during the enumeration). Data is not actually
+read from disk, the <code>object</code> parameter of the block will be <code>nil</code> but the <code>fileURL</code> will be available.
+This method returns immediately.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span>
+                  <span class="nf">completionBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enumerateObjects</span><span class="p">(</span><span class="n">_</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span><span class="p">,</span> <span class="nv">completionBlock</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed for every object in the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionBlock</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional block to be executed after the enumeration is complete.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Synchronous%20Methods"></a>
+                <a name="//apple_ref/objc/Section/Synchronous Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Synchronous%20Methods"></a>
+                  <h3 class="section-name"><p>Synchronous Methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)objectForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-objectForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)objectForKey:">-objectForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the object for the specified key. This method blocks the calling thread until the
+object is available.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    objectForKey:block:
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span><span class="p">)</span><span class="nf">objectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">object</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSCoding</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key associated with the object.
+@result The object for the specified key.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-fileURLForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:">-fileURLForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the file URL for the specified key. This method blocks the calling thread until the
+url is available. Do not use this URL anywhere but on the <sharedQueue>. This method probably
+shouldn&rsquo;t even exist, just use the asynchronous one.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    fileURLForKey:block:
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nf">fileURLForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">fileURL</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URL</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key associated with the object.
+@result The file URL for the specified key.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-setObject:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:">-setObject:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores an object in the cache for the specified key. This method blocks the calling thread until
+the object has been stored.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    setObject:forKey:block:
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setObject</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">object</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setObject</span><span class="p">(</span><span class="n">_</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">NSCoding</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An object to store in the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A key to associate with the object. This string will be copied.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-removeObjectForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:">-removeObjectForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the object for the specified key. This method blocks the calling thread until the object
+has been removed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeObjectForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeObject</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key associated with the object to be removed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)trimToDate:"></a>
+                    <a name="//apple_ref/objc/Method/-trimToDate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToDate:">-trimToDate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes all objects from the cache that have not been used since the specified date.
+This method blocks the calling thread until the cache has been trimmed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">date</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">trim</span><span class="p">(</span><span class="n">to</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>date</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Objects that haven&rsquo;t been accessed since this date are removed from the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSize:"></a>
+                    <a name="//apple_ref/objc/Method/-trimToSize:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSize:">-trimToSize:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes objects from the cache, largest first, until the cache is equal to or smaller than the
+specified byteCount. This method blocks the calling thread until the cache has been trimmed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSize</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">trim</span><span class="p">(</span><span class="n">toSize</span> <span class="nv">byteCount</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>byteCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cache will be trimmed equal to or smaller than this size.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:"></a>
+                    <a name="//apple_ref/objc/Method/-trimToSizeByDate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:">-trimToSizeByDate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes objects from the cache, ordered by date (least recently used first), until the cache is equal to or
+smaller than the specified byteCount. This method blocks the calling thread until the cache has been trimmed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">trimToSizeByDate</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">byteCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">trimToSize</span><span class="p">(</span><span class="n">byDate</span> <span class="nv">byteCount</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>byteCount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The cache will be trimmed equal to or smaller than this size.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)removeAllObjects"></a>
+                    <a name="//apple_ref/objc/Method/-removeAllObjects" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeAllObjects">-removeAllObjects</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes all objects from the cache. This method blocks the calling thread until the cache has been cleared.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">removeAllObjects</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeAllObjects</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:"></a>
+                    <a name="//apple_ref/objc/Method/-enumerateObjectsWithBlock:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:">-enumerateObjectsWithBlock:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loops through all objects in the cache (reads and writes are suspended during the enumeration). Data is not actually
+read from disk, the <code>object</code> parameter of the block will be <code>nil</code> but the <code>fileURL</code> will be available.
+This method blocks the calling thread until all objects have been enumerated.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Do not call this method within the event blocks (<didRemoveObjectBlock>, etc.)
+Instead use the asynchronous version, <a href="enumerateObjectsWithBlock:completionBlock:">enumerateObjectsWithBlock:completionBlock:</a>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">enumerateObjects</span><span class="p">(</span><span class="n">_</span> <span class="nv">block</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>block</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be executed for every object in the cache.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Background%20Tasks"></a>
+                <a name="//apple_ref/objc/Section/Background Tasks" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Background%20Tasks"></a>
+                  <h3 class="section-name"><p>Background Tasks</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTMDiskCache(cm)setBackgroundTaskManager:"></a>
+                    <a name="//apple_ref/objc/Method/+setBackgroundTaskManager:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(cm)setBackgroundTaskManager:">+setBackgroundTaskManager:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set a global manager to be used for setting up/tearing down any background tasks needed by TMCache.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setBackgroundTaskManager</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n">AWSTMCacheBackgroundTaskManager</span><span class="o">&gt;</span><span class="p">)</span><span class="nv">backgroundTaskManager</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>backgroundTaskManager</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Background task manager.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

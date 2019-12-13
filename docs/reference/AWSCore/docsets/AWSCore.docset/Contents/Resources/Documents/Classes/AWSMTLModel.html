@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSMTLModel Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSMTLModel" class="dashAnchor"></a>
+    <a title="AWSMTLModel Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCore 2.12.3 Docs</a> (47% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCore Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSMTLModel Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Categories.html">Categories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Categories/NSArray%28AWSMTLManipulationAdditions%29.html">NSArray(AWSMTLManipulationAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSData%28AWSGZIP%29.html">NSData(AWSGZIP)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDate%28AWS%29.html">NSDate(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWS%29.html">NSDictionary(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWSMTLManipulationAdditions%29.html">NSDictionary(AWSMTLManipulationAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSDictionary%28AWSXMLDictionary%29.html">NSDictionary(AWSXMLDictionary)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSFileManager%28AWS%29.html">NSFileManager(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSJSONSerialization%28AWS%29.html">NSJSONSerialization(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSNumber%28AWS%29.html">NSNumber(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSObject%28AWS%29.html">NSObject(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSObject%28AWSFMDatabasePoolDelegate%29.html">NSObject(AWSFMDatabasePoolDelegate)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWS%29.html">NSString(AWS)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWSHTTPMethod%29.html">NSString(AWSHTTPMethod)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSString%28AWSXMLDictionary%29.html">NSString(AWSXMLDictionary)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28AWSMTLInversionAdditions%29.html">NSValueTransformer(AWSMTLInversionAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28AWSMTLPredefinedTransformerAdditions%29.html">NSValueTransformer(AWSMTLPredefinedTransformerAdditions)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Categories/NSValueTransformer%28UnavailableAWSMTLPredefinedTransformerAdditions%29.html">NSValueTransformer(UnavailableAWSMTLPredefinedTransformerAdditions)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAbstractCognitoCredentialsProviderHelper.html">AWSAbstractCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAnonymousCredentialsProvider">AWSAnonymousCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSBasicSessionCredentialsProvider.html">AWSBasicSessionCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationToken.html">AWSCancellationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationTokenRegistration.html">AWSCancellationTokenRegistration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCancellationTokenSource.html">AWSCancellationTokenSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSClientContext.html">AWSClientContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoCredentialsProvider.html">AWSCognitoCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoCredentialsProviderHelper.html">AWSCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentity.html">AWSCognitoIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCognitoIdentityProvider.html">AWSCognitoIdentityCognitoIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCreateIdentityPoolInput.html">AWSCognitoIdentityCreateIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCredentials.html">AWSCognitoIdentityCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentitiesInput.html">AWSCognitoIdentityDeleteIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentitiesResponse.html">AWSCognitoIdentityDeleteIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDeleteIdentityPoolInput.html">AWSCognitoIdentityDeleteIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDescribeIdentityInput.html">AWSCognitoIdentityDescribeIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityDescribeIdentityPoolInput.html">AWSCognitoIdentityDescribeIdentityPoolInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityInput.html">AWSCognitoIdentityGetCredentialsForIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetCredentialsForIdentityResponse.html">AWSCognitoIdentityGetCredentialsForIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdInput.html">AWSCognitoIdentityGetIdInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdResponse.html">AWSCognitoIdentityGetIdResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesInput.html">AWSCognitoIdentityGetIdentityPoolRolesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetIdentityPoolRolesResponse.html">AWSCognitoIdentityGetIdentityPoolRolesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse.html">AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenInput.html">AWSCognitoIdentityGetOpenIdTokenInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityGetOpenIdTokenResponse.html">AWSCognitoIdentityGetOpenIdTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityDescription.html">AWSCognitoIdentityIdentityDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityPool.html">AWSCognitoIdentityIdentityPool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityIdentityPoolShortDescription.html">AWSCognitoIdentityIdentityPoolShortDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentitiesInput.html">AWSCognitoIdentityListIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentitiesResponse.html">AWSCognitoIdentityListIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentityPoolsInput.html">AWSCognitoIdentityListIdentityPoolsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListIdentityPoolsResponse.html">AWSCognitoIdentityListIdentityPoolsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListTagsForResourceInput.html">AWSCognitoIdentityListTagsForResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityListTagsForResourceResponse.html">AWSCognitoIdentityListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityInput.html">AWSCognitoIdentityLookupDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityLookupDeveloperIdentityResponse.html">AWSCognitoIdentityLookupDeveloperIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMappingRule.html">AWSCognitoIdentityMappingRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesInput.html">AWSCognitoIdentityMergeDeveloperIdentitiesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMergeDeveloperIdentitiesResponse.html">AWSCognitoIdentityMergeDeveloperIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityResources.html">AWSCognitoIdentityResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityRoleMapping.html">AWSCognitoIdentityRoleMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityRulesConfigurationType.html">AWSCognitoIdentityRulesConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySetIdentityPoolRolesInput.html">AWSCognitoIdentitySetIdentityPoolRolesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityTagResourceInput.html">AWSCognitoIdentityTagResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityTagResourceResponse">AWSCognitoIdentityTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnlinkDeveloperIdentityInput.html">AWSCognitoIdentityUnlinkDeveloperIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnlinkIdentityInput.html">AWSCognitoIdentityUnlinkIdentityInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUnprocessedIdentityId.html">AWSCognitoIdentityUnprocessedIdentityId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUntagResourceInput.html">AWSCognitoIdentityUntagResourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUntagResourceResponse">AWSCognitoIdentityUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCredentials.html">AWSCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDASLLogCapture.html">AWSDDASLLogCapture</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDASLLogger.html">AWSDDASLLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDAbstractLogger.html">AWSDDAbstractLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDFileLogger.html">AWSDDFileLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLog.html">AWSDDLog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileFormatterDefault.html">AWSDDLogFileFormatterDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileInfo.html">AWSDDLogFileInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogFileManagerDefault.html">AWSDDLogFileManagerDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLogMessage.html">AWSDDLogMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDLoggerInformation.html">AWSDDLoggerInformation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDOSLogger.html">AWSDDOSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDDTTYLogger.html">AWSDDTTYLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ParamBuilder.html">AWSEC2ParamBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEndpoint.html">AWSEndpoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSExecutor.html">AWSExecutor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabase.html">AWSFMDatabase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabasePool.html">AWSFMDatabasePool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMDatabaseQueue.html">AWSFMDatabaseQueue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMResultSet.html">AWSFMResultSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFMStatement.html">AWSFMStatement</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSInfo.html">AWSInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONBuilder.html">AWSJSONBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONDictionary.html">AWSJSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONParser.html">AWSJSONParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONRequestSerializer.html">AWSJSONRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSJSONResponseSerializer.html">AWSJSONResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKSReachability.html">AWSKSReachability</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKSReachableOperation.html">AWSKSReachableOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogger.html">AWSLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLJSONAdapter.html">AWSMTLJSONAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLManagedObjectAdapter.html">AWSMTLManagedObjectAdapter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLModel.html">AWSMTLModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMTLValueTransformer.html">AWSMTLValueTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSModel">AWSModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSModelUtility.html">AWSModelUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworking.html">AWSNetworking</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingConfiguration.html">AWSNetworkingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingHelpers.html">AWSNetworkingHelpers</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingRequest.html">AWSNetworkingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSQueryParamBuilder.html">AWSQueryParamBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSQueryStringRequestSerializer.html">AWSQueryStringRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRequest.html">AWSRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSS3ChunkedEncodingInputStream.html">AWSS3ChunkedEncodingInputStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTS.html">AWSSTS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleRequest.html">AWSSTSAssumeRoleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleResponse.html">AWSSTSAssumeRoleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithSAMLRequest.html">AWSSTSAssumeRoleWithSAMLRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithSAMLResponse.html">AWSSTSAssumeRoleWithSAMLResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithWebIdentityRequest.html">AWSSTSAssumeRoleWithWebIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumeRoleWithWebIdentityResponse.html">AWSSTSAssumeRoleWithWebIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSAssumedRoleUser.html">AWSSTSAssumedRoleUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSCredentials.html">AWSSTSCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSDecodeAuthorizationMessageRequest.html">AWSSTSDecodeAuthorizationMessageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSDecodeAuthorizationMessageResponse.html">AWSSTSDecodeAuthorizationMessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSFederatedUser.html">AWSSTSFederatedUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetAccessKeyInfoRequest.html">AWSSTSGetAccessKeyInfoRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetAccessKeyInfoResponse.html">AWSSTSGetAccessKeyInfoResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSTSGetCallerIdentityRequest">AWSSTSGetCallerIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetCallerIdentityResponse.html">AWSSTSGetCallerIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetFederationTokenRequest.html">AWSSTSGetFederationTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetFederationTokenResponse.html">AWSSTSGetFederationTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetSessionTokenRequest.html">AWSSTSGetSessionTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSGetSessionTokenResponse.html">AWSSTSGetSessionTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSPolicyDescriptorType.html">AWSSTSPolicyDescriptorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSResources.html">AWSSTSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSTSTag.html">AWSSTSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSService.html">AWSService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceConfiguration.html">AWSServiceConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceInfo.html">AWSServiceInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSServiceManager.html">AWSServiceManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureSignerUtility.html">AWSSignatureSignerUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureV2Signer.html">AWSSignatureV2Signer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSignatureV4Signer.html">AWSSignatureV4Signer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSStaticCredentialsProvider.html">AWSStaticCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSynchronizedMutableDictionary.html">AWSSynchronizedMutableDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMCache.html">AWSTMCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMDiskCache.html">AWSTMDiskCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTask.html">AWSTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTaskCompletionSource.html">AWSTaskCompletionSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSUICKeyChainStore.html">AWSUICKeyChainStore</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSURLRequestRetryHandler.html">AWSURLRequestRetryHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSURLSessionManager.html">AWSURLSessionManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSWebIdentityCredentialsProvider.html">AWSWebIdentityCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLBuilder.html">AWSXMLBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLDictionaryParser.html">AWSXMLDictionaryParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLParser.html">AWSXMLParser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLRequestSerializer.html">AWSXMLRequestSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSXMLResponseSerializer.html">AWSXMLResponseSerializer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSBoltsFrameworkVersionString">AWSBoltsFrameworkVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextHeader">AWSClientContextHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextHeaderEncoding">AWSClientContextHeaderEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSClientContextVersion">AWSClientContextVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoCredentialsProviderErrorDomain">AWSCognitoCredentialsProviderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoCredentialsProviderHelperErrorDomain">AWSCognitoCredentialsProviderHelperErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityErrorDomain">AWSCognitoIdentityErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityIdChangedNotification">AWSCognitoIdentityIdChangedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoNotificationNewId">AWSCognitoNotificationNewId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoNotificationPreviousId">AWSCognitoNotificationPreviousId</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCoreVersionNumber">AWSCoreVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCoreVersionString">AWSCoreVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat1">AWSDateISO8601DateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat2">AWSDateISO8601DateFormat2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateISO8601DateFormat3">AWSDateISO8601DateFormat3</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateRFC822DateFormat1">AWSDateRFC822DateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateShortDateFormat1">AWSDateShortDateFormat1</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSDateShortDateFormat2">AWSDateShortDateFormat2</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSEC2ParamBuilderErrorDomain">AWSEC2ParamBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderAmazonCognitoIdentity">AWSIdentityProviderAmazonCognitoIdentity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderDigits">AWSIdentityProviderDigits</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderFacebook">AWSIdentityProviderFacebook</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderGoogle">AWSIdentityProviderGoogle</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderLoginWithAmazon">AWSIdentityProviderLoginWithAmazon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSIdentityProviderTwitter">AWSIdentityProviderTwitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInfoDefault">AWSInfoDefault</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSJSONBuilderErrorDomain">AWSJSONBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSJSONParserErrorDomain">AWSJSONParserErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLBooleanValueTransformerName">AWSMTLBooleanValueTransformerName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorDomain">AWSMTLJSONAdapterErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorInvalidJSONDictionary">AWSMTLJSONAdapterErrorInvalidJSONDictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorInvalidJSONMapping">AWSMTLJSONAdapterErrorInvalidJSONMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLJSONAdapterErrorNoClassFound">AWSMTLJSONAdapterErrorNoClassFound</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorDomain">AWSMTLManagedObjectAdapterErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInitializationFailed">AWSMTLManagedObjectAdapterErrorInitializationFailed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInvalidManagedObjectKey">AWSMTLManagedObjectAdapterErrorInvalidManagedObjectKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping">AWSMTLManagedObjectAdapterErrorInvalidManagedObjectMapping</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorNoClassFound">AWSMTLManagedObjectAdapterErrorNoClassFound</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUniqueFetchRequestFailed">AWSMTLManagedObjectAdapterErrorUniqueFetchRequestFailed</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUnsupportedManagedObjectPropertyType">AWSMTLManagedObjectAdapterErrorUnsupportedManagedObjectPropertyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLManagedObjectAdapterErrorUnsupportedRelationshipClass">AWSMTLManagedObjectAdapterErrorUnsupportedRelationshipClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMTLURLValueTransformerName">AWSMTLURLValueTransformerName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMantleVersionNumber">AWSMantleVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMantleVersionString">AWSMantleVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSNetworkingErrorDomain">AWSNetworkingErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSQueryParamBuilderErrorDomain">AWSQueryParamBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSTSErrorDomain">AWSSTSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSServiceErrorDomain">AWSServiceErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSignatureV4Algorithm">AWSSignatureV4Algorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSignatureV4Terminator">AWSSignatureV4Terminator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTaskErrorDomain">AWSTaskErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTaskMultipleErrorsUserInfoKey">AWSTaskMultipleErrorsUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSUICKeyChainStoreErrorDomain">AWSUICKeyChainStoreErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSValidationErrorDomain">AWSValidationErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSXMLBuilderErrorDomain">AWSXMLBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryAttributePrefix">AWSXMLDictionaryAttributePrefix</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryAttributesKey">AWSXMLDictionaryAttributesKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryCommentsKey">AWSXMLDictionaryCommentsKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryNodeNameKey">AWSXMLDictionaryNodeNameKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:AWSXMLDictionary.h@AWSXMLDictionaryTextKey">AWSXMLDictionaryTextKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSXMLParserErrorDomain">AWSXMLParserErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSiOSSDKVersion">AWSiOSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDASLAWSDDLogValue">kAWSDDASLAWSDDLogValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDASLKeyAWSDDLog">kAWSDDASLKeyAWSDDLog</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogFilesDiskQuota">kAWSDDDefaultLogFilesDiskQuota</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogMaxFileSize">kAWSDDDefaultLogMaxFileSize</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogMaxNumLogFiles">kAWSDDDefaultLogMaxNumLogFiles</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSDDDefaultLogRollingFrequency">kAWSDDDefaultLogRollingFrequency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@kAWSMultipleErrorsError">kAWSMultipleErrorsError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoCredentialsProviderErrorType.html">AWSCognitoCredentialsProviderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoCredentialsProviderHelperErrorType.html">AWSCognitoCredentialsProviderHelperErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityAmbiguousRoleResolutionType.html">AWSCognitoIdentityAmbiguousRoleResolutionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityErrorCode.html">AWSCognitoIdentityErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityErrorType.html">AWSCognitoIdentityErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityMappingRuleMatchType.html">AWSCognitoIdentityMappingRuleMatchType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityRoleMappingType.html">AWSCognitoIdentityRoleMappingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogFlag.html">AWSDDLogFlag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogLevel.html">AWSDDLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDDLogMessageOptions.html">AWSDDLogMessageOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2ParamBuilderErrorType.html">AWSEC2ParamBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSJSONBuilderErrorType.html">AWSJSONBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSJSONParserErrorType.html">AWSJSONParserErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLogLevel.html">AWSLogLevel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSNetworkingErrorType.html">AWSNetworkingErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSNetworkingRetryType.html">AWSNetworkingRetryType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSQueryParamBuilderErrorType.html">AWSQueryParamBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRegionType.html">AWSRegionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSTSErrorType.html">AWSSTSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSServiceErrorType.html">AWSServiceErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSServiceType.html">AWSServiceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAccessibility.html">AWSUICKeyChainStoreAccessibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAuthenticationPolicy.html">AWSUICKeyChainStoreAuthenticationPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreAuthenticationType.html">AWSUICKeyChainStoreAuthenticationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreErrorCode.html">AWSUICKeyChainStoreErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreItemClass.html">AWSUICKeyChainStoreItemClass</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSUICKeyChainStoreProtocolType.html">AWSUICKeyChainStoreProtocolType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSValidationErrorType.html">AWSValidationErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLBuilderErrorType.html">AWSXMLBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLDictionaryAttributesMode.html">AWSXMLDictionaryAttributesMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLDictionaryNodeNameMode.html">AWSXMLDictionaryNodeNameMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSXMLParserErrorType.html">AWSXMLParserErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoCredentialsProviderHelper.html">AWSCognitoCredentialsProviderHelper</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogFileManager.html">AWSDDLogFileManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogFormatter.html">AWSDDLogFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDLogger.html">AWSDDLogger</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSDDRegisteredDynamicLogging.html">AWSDDRegisteredDynamicLogging</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSHTTPURLResponseSerializer.html">AWSHTTPURLResponseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSIdentityProvider.html">AWSIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSIdentityProviderManager.html">AWSIdentityProviderManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSNetworkingHTTPResponseInterceptor.html">AWSNetworkingHTTPResponseInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSURLRequestRetryHandler.html">AWSURLRequestRetryHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSURLRequestSerializer.html">AWSURLRequestSerializer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSCancellationToken.h@T@AWSCancellationBlock">AWSCancellationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTask.h@T@AWSContinuationBlock">AWSContinuationBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSDDTTYLogger.h@T@AWSDDColor">AWSDDColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSFMDatabase.h@T@AWSFMDBExecuteStatementsCallbackBlock">AWSFMDBExecuteStatementsCallbackBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSKSReachability.h@T@AWSKSReachabilityCallback">AWSKSReachabilityCallback</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions/AWSMTLModelEncodingBehavior.html">AWSMTLModelEncodingBehavior</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingDownloadProgressBlock">AWSNetworkingDownloadProgressBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingUploadProgressBlock">AWSNetworkingUploadProgressBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheObjectBlock">AWSTMCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSGeneric.h@T@AWSVoid">AWSVoid</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@AWSDDExtractFileNameWithoutExtension">AWSDDExtractFileNameWithoutExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:AWSDDTTYLogger.h@F@AWSDDMakeColor">AWSDDMakeColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@AWSMTLEqualObjects">AWSMTLEqualObjects</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsgzip_loadGZIP">awsgzip_loadGZIP</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsmtl_loadMTLNSCoding">awsmtl_loadMTLNSCoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@awsmtl_loadMTLPredefinedTransformerAdditions">awsmtl_loadMTLPredefinedTransformerAdditions</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSMTLModel</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLModel</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span>
+
+<span class="c1">// Returns a new instance of the receiver initialized using</span>
+<span class="c1">// -initWithDictionary:error:.</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">modelWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+
+<span class="c1">// Initializes the receiver with default values.</span>
+<span class="c1">//</span>
+<span class="c1">// This is the designated initializer for this class.</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span>
+
+<span class="c1">// Initializes the receiver using key-value coding, setting the keys and values</span>
+<span class="c1">// in the given dictionary.</span>
+<span class="c1">//</span>
+<span class="c1">// Subclass implementations may override this method, calling the super</span>
+<span class="c1">// implementation, in order to perform further processing and initialization</span>
+<span class="c1">// after deserialization.</span>
+<span class="c1">//</span>
+<span class="c1">// dictionaryValue - Property keys and values to set on the receiver. Any NSNull</span>
+<span class="c1">//                   values will be converted to nil before being used. KVC</span>
+<span class="c1">//                   validation methods will automatically be invoked for all of</span>
+<span class="c1">//                   the properties given. If nil, this method is equivalent to</span>
+<span class="c1">//                   -init.</span>
+<span class="c1">// error           - If not NULL, this may be set to any error that occurs</span>
+<span class="c1">//                   (like a KVC validation error).</span>
+<span class="c1">//</span>
+<span class="c1">// Returns an initialized model object, or nil if validation failed.</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+
+<span class="c1">// Returns the keys for all @property declarations, except for `readonly`</span>
+<span class="c1">// properties without ivars, or properties on MTLModel itself.</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">propertyKeys</span><span class="p">;</span>
+
+<span class="c1">// A dictionary representing the properties of the receiver.</span>
+<span class="c1">//</span>
+<span class="c1">// The default implementation combines the values corresponding to all</span>
+<span class="c1">// +propertyKeys into a dictionary, with any nil values represented by NSNull.</span>
+<span class="c1">//</span>
+<span class="c1">// This property must never be nil.</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionaryValue</span><span class="p">;</span>
+
+<span class="c1">// Merges the value of the given key on the receiver with the value of the same</span>
+<span class="c1">// key from the given model object, giving precedence to the other model object.</span>
+<span class="c1">//</span>
+<span class="c1">// By default, this method looks for a `-merge&lt;Key&gt;FromModel:` method on the</span>
+<span class="c1">// receiver, and invokes it if found. If not found, and `model` is not nil, the</span>
+<span class="c1">// value for the given key is taken from `model`.</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">fromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+
+<span class="c1">// Merges the values of the given model object into the receiver, using</span>
+<span class="c1">// -mergeValueForKey:fromModel: for each key in +propertyKeys.</span>
+<span class="c1">//</span>
+<span class="c1">// `model` must be an instance of the receiver's class or a subclass thereof.</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValuesForKeysFromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+
+<span class="c1">// Compares the receiver with another object for equality.</span>
+<span class="c1">//</span>
+<span class="c1">// The default implementation is equivalent to comparing both models'</span>
+<span class="c1">// -dictionaryValue.</span>
+<span class="c1">//</span>
+<span class="c1">// Note that this may lead to infinite loops if the receiver holds a circular</span>
+<span class="c1">// reference to another MTLModel and both use the default behavior.</span>
+<span class="c1">// It is recommended to override -isEqual: in this scenario.</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isEqual</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span>
+
+<span class="c1">// A string that describes the contents of the receiver.</span>
+<span class="c1">//</span>
+<span class="c1">// The default implementation is based on the receiver's class and its</span>
+<span class="c1">// -dictionaryValue.</span>
+<span class="c1">//</span>
+<span class="c1">// Note that this may lead to infinite loops if the receiver holds a circular</span>
+<span class="c1">// reference to another MTLModel and both use the default behavior.</span>
+<span class="c1">// It is recommended to override -description in this scenario.</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">description</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)modelWithDictionary:error:"></a>
+                    <a name="//apple_ref/objc/Method/+modelWithDictionary:error:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(cm)modelWithDictionary:error:">+modelWithDictionary:error:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">modelWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)init"></a>
+                    <a name="//apple_ref/objc/Method/-init" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)init">-init</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)initWithDictionary:error:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDictionary:error:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)initWithDictionary:error:">-initWithDictionary:error:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="n">dictionary</span> <span class="nv">dictionaryValue</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">,</span> <span class="nv">error</span><span class="p">:</span> <span class="p">())</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)propertyKeys"></a>
+                    <a name="//apple_ref/objc/Method/+propertyKeys" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(cm)propertyKeys">+propertyKeys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">propertyKeys</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">propertyKeys</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">AnyHashable</span><span class="o">&gt;!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(py)dictionaryValue"></a>
+                    <a name="//apple_ref/objc/Property/dictionaryValue" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(py)dictionaryValue">dictionaryValue</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionaryValue</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dictionaryValue</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)mergeValueForKey:fromModel:"></a>
+                    <a name="//apple_ref/objc/Method/-mergeValueForKey:fromModel:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)mergeValueForKey:fromModel:">-mergeValueForKey:fromModel:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">fromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mergeValue</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">from</span> <span class="nv">model</span><span class="p">:</span> <span class="kt">AWSMTLModel</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)mergeValuesForKeysFromModel:"></a>
+                    <a name="//apple_ref/objc/Method/-mergeValuesForKeysFromModel:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)mergeValuesForKeysFromModel:">-mergeValuesForKeysFromModel:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValuesForKeysFromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">mergeValuesForKeys</span><span class="p">(</span><span class="n">from</span> <span class="nv">model</span><span class="p">:</span> <span class="kt">AWSMTLModel</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)isEqual:"></a>
+                    <a name="//apple_ref/objc/Method/-isEqual:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)isEqual:">-isEqual:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isEqual</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isEqual</span><span class="p">(</span><span class="n">_</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)description"></a>
+                    <a name="//apple_ref/objc/Method/-description" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)description">-description</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">description</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">description</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/NSCoding"></a>
+                <a name="//apple_ref/objc/Section/NSCoding" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/NSCoding"></a>
+                  <h3 class="section-name"><p>NSCoding</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)initWithCoder:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithCoder:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)initWithCoder:">-initWithCoder:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithCoder</span><span class="p">:(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">coder</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)encodeWithCoder:"></a>
+                    <a name="//apple_ref/objc/Method/-encodeWithCoder:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)encodeWithCoder:">-encodeWithCoder:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">encodeWithCoder</span><span class="p">:(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">coder</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">encode</span><span class="p">(</span><span class="n">with</span> <span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)encodingBehaviorsByPropertyKey"></a>
+                    <a name="//apple_ref/objc/Method/+encodingBehaviorsByPropertyKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(cm)encodingBehaviorsByPropertyKey">+encodingBehaviorsByPropertyKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">encodingBehaviorsByPropertyKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">encodingBehaviorsByPropertyKey</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)allowedSecureCodingClassesByPropertyKey"></a>
+                    <a name="//apple_ref/objc/Method/+allowedSecureCodingClassesByPropertyKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(cm)allowedSecureCodingClassesByPropertyKey">+allowedSecureCodingClassesByPropertyKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">allowedSecureCodingClassesByPropertyKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">allowedSecureCodingClassesByPropertyKey</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)decodeValueForKey:withCoder:modelVersion:"></a>
+                    <a name="//apple_ref/objc/Method/-decodeValueForKey:withCoder:modelVersion:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)decodeValueForKey:withCoder:modelVersion:">-decodeValueForKey:withCoder:modelVersion:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">decodeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">withCoder</span><span class="p">:(</span><span class="n">NSCoder</span> <span class="o">*</span><span class="p">)</span><span class="nv">coder</span> <span class="nf">modelVersion</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">modelVersion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">decodeValue</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">with</span> <span class="nv">coder</span><span class="p">:</span> <span class="kt">NSCoder</span><span class="o">!</span><span class="p">,</span> <span class="nv">modelVersion</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)modelVersion"></a>
+                    <a name="//apple_ref/objc/Method/+modelVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(cm)modelVersion">+modelVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="n">modelVersion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">modelVersion</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UInt</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/OldArchiveSupport"></a>
+                <a name="//apple_ref/objc/Section/OldArchiveSupport" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/OldArchiveSupport"></a>
+                  <h3 class="section-name"><p>OldArchiveSupport</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)dictionaryValueFromArchivedExternalRepresentation:version:"></a>
+                    <a name="//apple_ref/objc/Method/+dictionaryValueFromArchivedExternalRepresentation:version:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(cm)dictionaryValueFromArchivedExternalRepresentation:version:">+dictionaryValueFromArchivedExternalRepresentation:version:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">dictionaryValueFromArchivedExternalRepresentation</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">externalRepresentation</span> <span class="nf">version</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">fromVersion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">dictionaryValue</span><span class="p">(</span><span class="n">fromArchivedExternalRepresentation</span> <span class="nv">externalRepresentation</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">,</span> <span class="n">version</span> <span class="nv">fromVersion</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Validation"></a>
+                <a name="//apple_ref/objc/Section/Validation" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Validation"></a>
+                  <h3 class="section-name"><p>Validation</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)validate:"></a>
+                    <a name="//apple_ref/objc/Method/-validate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMTLModel(im)validate:">-validate:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">validate</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">validate</span><span class="p">()</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Unavailable"></a>
+                <a name="//apple_ref/objc/Section/Unavailable" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Unavailable"></a>
+                  <h3 class="section-name"><p>Unavailable</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)modelWithDictionary:"></a>
+                    <a name="//apple_ref/objc/Method/+modelWithDictionary:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(cm)modelWithDictionary:">+modelWithDictionary:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by +modelWithDictionary:error:</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">modelWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by +modelWithDictionary:error:"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)initWithDictionary:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithDictionary:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(im)initWithDictionary:">-initWithDictionary:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by -initWithDictionary:error:</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by -initWithDictionary:error:"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="n">dictionary</span> <span class="nv">dictionaryValue</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)modelWithExternalRepresentation:"></a>
+                    <a name="//apple_ref/objc/Method/+modelWithExternalRepresentation:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(cm)modelWithExternalRepresentation:">+modelWithExternalRepresentation:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by -[MTLJSONAdapter initWithJSONDictionary:modelClass:]</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">modelWithExternalRepresentation</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">externalRepresentation</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by -[MTLJSONAdapter initWithJSONDictionary:modelClass:]"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(im)initWithExternalRepresentation:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithExternalRepresentation:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(im)initWithExternalRepresentation:">-initWithExternalRepresentation:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by -[MTLJSONAdapter initWithJSONDictionary:modelClass:]</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithExternalRepresentation</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">externalRepresentation</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by -[MTLJSONAdapter initWithJSONDictionary:modelClass:]"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="nv">externalRepresentation</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(py)externalRepresentation"></a>
+                    <a name="//apple_ref/objc/Property/externalRepresentation" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(py)externalRepresentation">externalRepresentation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by MTLJSONAdapter.JSONDictionary</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">externalRepresentation</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">externalRepresentation</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)externalRepresentationKeyPathsByPropertyKey"></a>
+                    <a name="//apple_ref/objc/Method/+externalRepresentationKeyPathsByPropertyKey" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(cm)externalRepresentationKeyPathsByPropertyKey">+externalRepresentationKeyPathsByPropertyKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by +JSONKeyPathsByPropertyKey in <MTLJSONSerializing></p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">externalRepresentationKeyPathsByPropertyKey</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by +JSONKeyPathsByPropertyKey in &lt;MTLJSONSerializing&gt;"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">externalRepresentationKeyPathsByPropertyKey</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)transformerForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+transformerForKey:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(cm)transformerForKey:">+transformerForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by +JSONTransformerForKey: in <MTLJSONSerializing></p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">transformerForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by +JSONTransformerForKey: in &lt;MTLJSONSerializing&gt;"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">transformer</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ValueTransformer</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMTLModel(cm)migrateExternalRepresentation:fromVersion:"></a>
+                    <a name="//apple_ref/objc/Method/+migrateExternalRepresentation:fromVersion:" class="dashAnchor"></a>
+                    <a class="token discouraged" href="#/c:objc(cs)AWSMTLModel(cm)migrateExternalRepresentation:fromVersion:">+migrateExternalRepresentation:fromVersion:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Replaced by -decodeValueForKey:withCoder:modelVersion:</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">migrateExternalRepresentation</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">externalRepresentation</span> <span class="nf">fromVersion</span><span class="p">:(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">fromVersion</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Replaced by -decodeValueForKey:withCoder:modelVersion:"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">migrateExternalRepresentation</span><span class="p">(</span><span class="n">_</span> <span class="nv">externalRepresentation</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">,</span> <span class="nv">fromVersion</span><span class="p">:</span> <span class="kt">UInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
