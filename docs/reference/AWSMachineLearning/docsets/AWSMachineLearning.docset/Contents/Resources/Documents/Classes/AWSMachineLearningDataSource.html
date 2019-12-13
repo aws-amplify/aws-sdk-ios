@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSMachineLearningDataSource Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSMachineLearningDataSource" class="dashAnchor"></a>
+    <a title="AWSMachineLearningDataSource Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSMachineLearning 2.12.3 Docs</a> (81% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMachineLearning%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSMachineLearning Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSMachineLearningDataSource Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearning.html">AWSMachineLearning</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningAddTagsInput.html">AWSMachineLearningAddTagsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningAddTagsOutput.html">AWSMachineLearningAddTagsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningBatchPrediction.html">AWSMachineLearningBatchPrediction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateBatchPredictionInput.html">AWSMachineLearningCreateBatchPredictionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateBatchPredictionOutput.html">AWSMachineLearningCreateBatchPredictionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateDataSourceFromRDSInput.html">AWSMachineLearningCreateDataSourceFromRDSInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateDataSourceFromRDSOutput.html">AWSMachineLearningCreateDataSourceFromRDSOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateDataSourceFromRedshiftInput.html">AWSMachineLearningCreateDataSourceFromRedshiftInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateDataSourceFromRedshiftOutput.html">AWSMachineLearningCreateDataSourceFromRedshiftOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateDataSourceFromS3Input.html">AWSMachineLearningCreateDataSourceFromS3Input</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateDataSourceFromS3Output.html">AWSMachineLearningCreateDataSourceFromS3Output</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateEvaluationInput.html">AWSMachineLearningCreateEvaluationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateEvaluationOutput.html">AWSMachineLearningCreateEvaluationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateMLModelInput.html">AWSMachineLearningCreateMLModelInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateMLModelOutput.html">AWSMachineLearningCreateMLModelOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateRealtimeEndpointInput.html">AWSMachineLearningCreateRealtimeEndpointInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningCreateRealtimeEndpointOutput.html">AWSMachineLearningCreateRealtimeEndpointOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDataSource.html">AWSMachineLearningDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteBatchPredictionInput.html">AWSMachineLearningDeleteBatchPredictionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteBatchPredictionOutput.html">AWSMachineLearningDeleteBatchPredictionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteDataSourceInput.html">AWSMachineLearningDeleteDataSourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteDataSourceOutput.html">AWSMachineLearningDeleteDataSourceOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteEvaluationInput.html">AWSMachineLearningDeleteEvaluationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteEvaluationOutput.html">AWSMachineLearningDeleteEvaluationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteMLModelInput.html">AWSMachineLearningDeleteMLModelInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteMLModelOutput.html">AWSMachineLearningDeleteMLModelOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteRealtimeEndpointInput.html">AWSMachineLearningDeleteRealtimeEndpointInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteRealtimeEndpointOutput.html">AWSMachineLearningDeleteRealtimeEndpointOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteTagsInput.html">AWSMachineLearningDeleteTagsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDeleteTagsOutput.html">AWSMachineLearningDeleteTagsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeBatchPredictionsInput.html">AWSMachineLearningDescribeBatchPredictionsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeBatchPredictionsOutput.html">AWSMachineLearningDescribeBatchPredictionsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeDataSourcesInput.html">AWSMachineLearningDescribeDataSourcesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeDataSourcesOutput.html">AWSMachineLearningDescribeDataSourcesOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeEvaluationsInput.html">AWSMachineLearningDescribeEvaluationsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeEvaluationsOutput.html">AWSMachineLearningDescribeEvaluationsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeMLModelsInput.html">AWSMachineLearningDescribeMLModelsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeMLModelsOutput.html">AWSMachineLearningDescribeMLModelsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeTagsInput.html">AWSMachineLearningDescribeTagsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningDescribeTagsOutput.html">AWSMachineLearningDescribeTagsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningEvaluation.html">AWSMachineLearningEvaluation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetBatchPredictionInput.html">AWSMachineLearningGetBatchPredictionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetBatchPredictionOutput.html">AWSMachineLearningGetBatchPredictionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetDataSourceInput.html">AWSMachineLearningGetDataSourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetDataSourceOutput.html">AWSMachineLearningGetDataSourceOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetEvaluationInput.html">AWSMachineLearningGetEvaluationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetEvaluationOutput.html">AWSMachineLearningGetEvaluationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetMLModelInput.html">AWSMachineLearningGetMLModelInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningGetMLModelOutput.html">AWSMachineLearningGetMLModelOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningMLModel.html">AWSMachineLearningMLModel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningPerformanceMetrics.html">AWSMachineLearningPerformanceMetrics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningPredictInput.html">AWSMachineLearningPredictInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningPredictOutput.html">AWSMachineLearningPredictOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningPrediction.html">AWSMachineLearningPrediction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRDSDataSpec.html">AWSMachineLearningRDSDataSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRDSDatabase.html">AWSMachineLearningRDSDatabase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRDSDatabaseCredentials.html">AWSMachineLearningRDSDatabaseCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRDSMetadata.html">AWSMachineLearningRDSMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRealtimeEndpointInfo.html">AWSMachineLearningRealtimeEndpointInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRedshiftDataSpec.html">AWSMachineLearningRedshiftDataSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRedshiftDatabase.html">AWSMachineLearningRedshiftDatabase</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRedshiftDatabaseCredentials.html">AWSMachineLearningRedshiftDatabaseCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningRedshiftMetadata.html">AWSMachineLearningRedshiftMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningResources.html">AWSMachineLearningResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningS3DataSpec.html">AWSMachineLearningS3DataSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningTag.html">AWSMachineLearningTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateBatchPredictionInput.html">AWSMachineLearningUpdateBatchPredictionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateBatchPredictionOutput.html">AWSMachineLearningUpdateBatchPredictionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateDataSourceInput.html">AWSMachineLearningUpdateDataSourceInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateDataSourceOutput.html">AWSMachineLearningUpdateDataSourceOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateEvaluationInput.html">AWSMachineLearningUpdateEvaluationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateEvaluationOutput.html">AWSMachineLearningUpdateEvaluationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateMLModelInput.html">AWSMachineLearningUpdateMLModelInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMachineLearningUpdateMLModelOutput.html">AWSMachineLearningUpdateMLModelOutput</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMachineLearningErrorDomain">AWSMachineLearningErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMachineLearningSDKVersion">AWSMachineLearningSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMachineLearningVersionNumber">AWSMachineLearningVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMachineLearningVersionString">AWSMachineLearningVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningAlgorithm.html">AWSMachineLearningAlgorithm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningBatchPredictionFilterVariable.html">AWSMachineLearningBatchPredictionFilterVariable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningDataSourceFilterVariable.html">AWSMachineLearningDataSourceFilterVariable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningDetailsAttributes.html">AWSMachineLearningDetailsAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningEntityStatus.html">AWSMachineLearningEntityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningErrorType.html">AWSMachineLearningErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningEvaluationFilterVariable.html">AWSMachineLearningEvaluationFilterVariable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningMLModelFilterVariable.html">AWSMachineLearningMLModelFilterVariable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningMLModelType.html">AWSMachineLearningMLModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningRealtimeEndpointStatus.html">AWSMachineLearningRealtimeEndpointStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningSortOrder.html">AWSMachineLearningSortOrder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMachineLearningTaggableResourceType.html">AWSMachineLearningTaggableResourceType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSMachineLearningDataSource</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMachineLearningDataSource</span></code></pre>
+
+                </div>
+              </div>
+            <p> Represents the output of the <code>GetDataSource</code> operation. </p><p> The content consists of the detailed metadata and data file information and the current status of the <code>DataSource</code>. </p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)computeStatistics"></a>
+                    <a name="//apple_ref/objc/Property/computeStatistics" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)computeStatistics">computeStatistics</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> The parameter is <code>true</code> if statistics need to be generated from the observation data. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">computeStatistics</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">computeStatistics</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)computeTime"></a>
+                    <a name="//apple_ref/objc/Property/computeTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)computeTime">computeTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Long integer type that is a 64-bit signed number.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">computeTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">computeTime</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)createdAt"></a>
+                    <a name="//apple_ref/objc/Property/createdAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)createdAt">createdAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time that the <code>DataSource</code> was created. The time is expressed in epoch time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">createdAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">createdAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)createdByIamUser"></a>
+                    <a name="//apple_ref/objc/Property/createdByIamUser" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)createdByIamUser">createdByIamUser</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The AWS user account from which the <code>DataSource</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">createdByIamUser</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">createdByIamUser</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)dataLocationS3"></a>
+                    <a name="//apple_ref/objc/Property/dataLocationS3" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)dataLocationS3">dataLocationS3</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a <code>DataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">dataLocationS3</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dataLocationS3</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)dataRearrangement"></a>
+                    <a name="//apple_ref/objc/Property/dataRearrangement" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)dataRearrangement">dataRearrangement</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A JSON string that represents the splitting and rearrangement requirement used when this <code>DataSource</code> was created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">dataRearrangement</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dataRearrangement</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)dataSizeInBytes"></a>
+                    <a name="//apple_ref/objc/Property/dataSizeInBytes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)dataSizeInBytes">dataSizeInBytes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The total number of observations contained in the data files that the <code>DataSource</code> references.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">dataSizeInBytes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dataSizeInBytes</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)dataSourceId"></a>
+                    <a name="//apple_ref/objc/Property/dataSourceId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)dataSourceId">dataSourceId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ID that is assigned to the <code>DataSource</code> during creation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">dataSourceId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dataSourceId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)finishedAt"></a>
+                    <a name="//apple_ref/objc/Property/finishedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)finishedAt">finishedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A timestamp represented in epoch time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">finishedAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">finishedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)lastUpdatedAt"></a>
+                    <a name="//apple_ref/objc/Property/lastUpdatedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)lastUpdatedAt">lastUpdatedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time of the most recent edit to the <code>BatchPrediction</code>. The time is expressed in epoch time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">lastUpdatedAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">lastUpdatedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)message"></a>
+                    <a name="//apple_ref/objc/Property/message" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)message">message</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A description of the most recent details about creating the <code>DataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">message</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)name"></a>
+                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)name">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A user-supplied name or description of the <code>DataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">name</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)numberOfFiles"></a>
+                    <a name="//apple_ref/objc/Property/numberOfFiles" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)numberOfFiles">numberOfFiles</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of data files referenced by the <code>DataSource</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">numberOfFiles</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">numberOfFiles</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)RDSMetadata"></a>
+                    <a name="//apple_ref/objc/Property/RDSMetadata" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)RDSMetadata">RDSMetadata</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The datasource details that are specific to Amazon RDS.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/AWSMachineLearningRDSMetadata.html">AWSMachineLearningRDSMetadata</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">RDSMetadata</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">rdsMetadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningRDSMetadata.html">AWSMachineLearningRDSMetadata</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)redshiftMetadata"></a>
+                    <a name="//apple_ref/objc/Property/redshiftMetadata" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)redshiftMetadata">redshiftMetadata</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/AWSMachineLearningRedshiftMetadata.html">AWSMachineLearningRedshiftMetadata</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">redshiftMetadata</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">redshiftMetadata</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSMachineLearningRedshiftMetadata.html">AWSMachineLearningRedshiftMetadata</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)roleARN"></a>
+                    <a name="//apple_ref/objc/Property/roleARN" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)roleARN">roleARN</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon Resource Name (ARN) of an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts">AWS IAM Role</a>, such as the following: arn:aws:iam::account:role/rolename. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">roleARN</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">roleARN</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)startedAt"></a>
+                    <a name="//apple_ref/objc/Property/startedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)startedAt">startedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A timestamp represented in epoch time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">startedAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMachineLearningDataSource(py)status"></a>
+                    <a name="//apple_ref/objc/Property/status" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMachineLearningDataSource(py)status">status</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The current status of the <code>DataSource</code>. This element can have one of the following values: </p><ul><li>PENDING - Amazon Machine Learning (Amazon ML) submitted a request to create a <code>DataSource</code>.</li><li>INPROGRESS - The creation process is underway.</li><li>FAILED - The request to create a <code>DataSource</code> did not run to completion. It is not usable.</li><li>COMPLETED - The creation process completed successfully.</li><li>DELETED - The <code>DataSource</code> is marked as deleted. It is not usable.</li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSMachineLearningEntityStatus.html">AWSMachineLearningEntityStatus</a></span> <span class="n">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSMachineLearningEntityStatus.html">AWSMachineLearningEntityStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

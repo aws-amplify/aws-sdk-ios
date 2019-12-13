@@ -1,0 +1,733 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearning.h",
+      "line": 28,
+      "symbol": "AWSMachineLearningVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearning.h",
+      "line": 39,
+      "symbol": "AWSMachineLearningVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 22,
+      "symbol": "AWSMachineLearningErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 24,
+      "symbol": "AWSMachineLearningErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 24,
+      "symbol": "AWSMachineLearningErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 25,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 26,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorIdempotentParameterMismatch",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 27,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorInternalServer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 28,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorInvalidInput",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 29,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorInvalidTag",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 30,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 31,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorPredictorNotMounted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 32,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 33,
+      "symbol": "AWSMachineLearningErrorType.AWSMachineLearningErrorTagLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 36,
+      "symbol": "AWSMachineLearningAlgorithm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 36,
+      "symbol": "AWSMachineLearningAlgorithm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 37,
+      "symbol": "AWSMachineLearningAlgorithm.AWSMachineLearningAlgorithmUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 38,
+      "symbol": "AWSMachineLearningAlgorithm.AWSMachineLearningAlgorithmSgd",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 41,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 41,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 42,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 43,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableCreatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 44,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableLastUpdatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 45,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 46,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 47,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableIAMUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 48,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableMLModelId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 49,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableDataSourceId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 50,
+      "symbol": "AWSMachineLearningBatchPredictionFilterVariable.AWSMachineLearningBatchPredictionFilterVariableDataURI",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 53,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 53,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 54,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 55,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableCreatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 56,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableLastUpdatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 57,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 58,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 59,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableDataLocationS3",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 60,
+      "symbol": "AWSMachineLearningDataSourceFilterVariable.AWSMachineLearningDataSourceFilterVariableIAMUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 63,
+      "symbol": "AWSMachineLearningDetailsAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 63,
+      "symbol": "AWSMachineLearningDetailsAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 64,
+      "symbol": "AWSMachineLearningDetailsAttributes.AWSMachineLearningDetailsAttributesUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 65,
+      "symbol": "AWSMachineLearningDetailsAttributes.AWSMachineLearningDetailsAttributesPredictiveModelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 66,
+      "symbol": "AWSMachineLearningDetailsAttributes.AWSMachineLearningDetailsAttributesAlgorithm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 69,
+      "symbol": "AWSMachineLearningEntityStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 69,
+      "symbol": "AWSMachineLearningEntityStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 70,
+      "symbol": "AWSMachineLearningEntityStatus.AWSMachineLearningEntityStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 71,
+      "symbol": "AWSMachineLearningEntityStatus.AWSMachineLearningEntityStatusPending",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 72,
+      "symbol": "AWSMachineLearningEntityStatus.AWSMachineLearningEntityStatusInprogress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 73,
+      "symbol": "AWSMachineLearningEntityStatus.AWSMachineLearningEntityStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 74,
+      "symbol": "AWSMachineLearningEntityStatus.AWSMachineLearningEntityStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 75,
+      "symbol": "AWSMachineLearningEntityStatus.AWSMachineLearningEntityStatusDeleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 78,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 78,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 79,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 80,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableCreatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 81,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableLastUpdatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 82,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 83,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 84,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableIAMUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 85,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableMLModelId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 86,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableDataSourceId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 87,
+      "symbol": "AWSMachineLearningEvaluationFilterVariable.AWSMachineLearningEvaluationFilterVariableDataURI",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 90,
+      "symbol": "AWSMachineLearningMLModelFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 90,
+      "symbol": "AWSMachineLearningMLModelFilterVariable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 91,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 92,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableCreatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 93,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableLastUpdatedAt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 94,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 95,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 96,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableIAMUser",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 97,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableTrainingDataSourceId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 98,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableRealtimeEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 99,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableMLModelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 100,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableAlgorithm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 101,
+      "symbol": "AWSMachineLearningMLModelFilterVariable.AWSMachineLearningMLModelFilterVariableTrainingDataURI",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 104,
+      "symbol": "AWSMachineLearningMLModelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 104,
+      "symbol": "AWSMachineLearningMLModelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 105,
+      "symbol": "AWSMachineLearningMLModelType.AWSMachineLearningMLModelTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 106,
+      "symbol": "AWSMachineLearningMLModelType.AWSMachineLearningMLModelTypeRegression",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 107,
+      "symbol": "AWSMachineLearningMLModelType.AWSMachineLearningMLModelTypeBinary",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 108,
+      "symbol": "AWSMachineLearningMLModelType.AWSMachineLearningMLModelTypeMulticlass",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 111,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 111,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 112,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus.AWSMachineLearningRealtimeEndpointStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 113,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus.AWSMachineLearningRealtimeEndpointStatusNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 114,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus.AWSMachineLearningRealtimeEndpointStatusReady",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 115,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus.AWSMachineLearningRealtimeEndpointStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 116,
+      "symbol": "AWSMachineLearningRealtimeEndpointStatus.AWSMachineLearningRealtimeEndpointStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 119,
+      "symbol": "AWSMachineLearningSortOrder",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 119,
+      "symbol": "AWSMachineLearningSortOrder",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 120,
+      "symbol": "AWSMachineLearningSortOrder.AWSMachineLearningSortOrderUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 121,
+      "symbol": "AWSMachineLearningSortOrder.AWSMachineLearningSortOrderAsc",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 122,
+      "symbol": "AWSMachineLearningSortOrder.AWSMachineLearningSortOrderDsc",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 125,
+      "symbol": "AWSMachineLearningTaggableResourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 125,
+      "symbol": "AWSMachineLearningTaggableResourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 126,
+      "symbol": "AWSMachineLearningTaggableResourceType.AWSMachineLearningTaggableResourceTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 127,
+      "symbol": "AWSMachineLearningTaggableResourceType.AWSMachineLearningTaggableResourceTypeBatchPrediction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 128,
+      "symbol": "AWSMachineLearningTaggableResourceType.AWSMachineLearningTaggableResourceTypeDataSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 129,
+      "symbol": "AWSMachineLearningTaggableResourceType.AWSMachineLearningTaggableResourceTypeEvaluation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningModel.h",
+      "line": 130,
+      "symbol": "AWSMachineLearningTaggableResourceType.AWSMachineLearningTaggableResourceTypeMLModel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningResources.h",
+      "line": 18,
+      "symbol": "AWSMachineLearningResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningResources.h",
+      "line": 20,
+      "symbol": "AWSMachineLearningResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningResources.h",
+      "line": 22,
+      "symbol": "AWSMachineLearningResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMachineLearning/AWSMachineLearningService.h",
+      "line": 24,
+      "symbol": "AWSMachineLearningSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
