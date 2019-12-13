@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSTranscribeTranscriptionJob Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSTranscribeTranscriptionJob" class="dashAnchor"></a>
+    <a title="AWSTranscribeTranscriptionJob Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSTranscribe 2.12.3 Docs</a> (63% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSTranscribe Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSTranscribeTranscriptionJob Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribe.html">AWSTranscribe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeCreateVocabularyRequest.html">AWSTranscribeCreateVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetTranscriptionJobResponse.html">AWSTranscribeGetTranscriptionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetVocabularyRequest.html">AWSTranscribeGetVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetVocabularyResponse.html">AWSTranscribeGetVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTranscriptionJobsResponse.html">AWSTranscribeListTranscriptionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListVocabulariesRequest.html">AWSTranscribeListVocabulariesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListVocabulariesResponse.html">AWSTranscribeListVocabulariesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeResources.html">AWSTranscribeResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTranscript.html">AWSTranscribeTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTranscriptionJob.html">AWSTranscribeTranscriptionJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTranscriptionJobSummary.html">AWSTranscribeTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUpdateVocabularyRequest.html">AWSTranscribeUpdateVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUpdateVocabularyResponse.html">AWSTranscribeUpdateVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeVocabularyInfo.html">AWSTranscribeVocabularyInfo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeSDKVersion">AWSTranscribeSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeVersionNumber">AWSTranscribeVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeVersionString">AWSTranscribeVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeMediaFormat.html">AWSTranscribeMediaFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeOutputLocationType.html">AWSTranscribeOutputLocationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeVocabularyState.html">AWSTranscribeVocabularyState</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSTranscribeTranscriptionJob</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeTranscriptionJob</span></code></pre>
+
+                </div>
+              </div>
+            <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. </p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)completionTime"></a>
+                    <a name="//apple_ref/objc/Property/completionTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)completionTime">completionTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A timestamp that shows when the job was completed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">completionTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">completionTime</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)creationTime"></a>
+                    <a name="//apple_ref/objc/Property/creationTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)creationTime">creationTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A timestamp that shows when the job was created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">creationTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">creationTime</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)failureReason"></a>
+                    <a name="//apple_ref/objc/Property/failureReason" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)failureReason">failureReason</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, this field contains information about why the job failed.</p><p>The <code>FailureReason</code> field can contain one of the following values:</p><ul><li><p><code>Unsupported media format</code> - The media format specified in the <code>MediaFormat</code> field of the request isn&rsquo;t valid. See the description of the <code>MediaFormat</code> field for a list of valid values.</p></li><li><p><code>The media format provided does not match the detected media format</code> - The media format of the audio file doesn&rsquo;t match the format specified in the <code>MediaFormat</code> field in the request. Check the media format of your media file and make sure that the two values match.</p></li><li><p><code>Invalid sample rate for audio file</code> - The sample rate specified in the <code>MediaSampleRateHertz</code> of the request isn&rsquo;t valid. The sample rate must be between 8000 and 48000 Hertz.</p></li><li><p><code>The sample rate provided does not match the detected sample rate</code> - The sample rate in the audio file doesn&rsquo;t match the sample rate specified in the <code>MediaSampleRateHertz</code> field in the request. Check the sample rate of your media file and make sure that the two values match.</p></li><li><p><code>Invalid file size: file size too large</code> - The size of your audio file is larger than Amazon Transcribe can process. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits">Limits</a> in the <i>Amazon Transcribe Developer Guide</i>.</p></li><li><p><code>Invalid number of channels: number of channels too large</code> - Your audio contains more channels than Amazon Transcribe is configured to process. To request additional channels, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits-amazon-transcribe">Amazon Transcribe Limits</a> in the <i>Amazon Web Services General Reference</i>.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">failureReason</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">failureReason</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)languageCode"></a>
+                    <a name="//apple_ref/objc/Property/languageCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)languageCode">languageCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The language code for the input speech.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="n">languageCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">languageCode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)media"></a>
+                    <a name="//apple_ref/objc/Property/media" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)media">media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An object that describes the input media for the transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">media</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">media</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)mediaFormat"></a>
+                    <a name="//apple_ref/objc/Property/mediaFormat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)mediaFormat">mediaFormat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The format of the input media file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeMediaFormat.html">AWSTranscribeMediaFormat</a></span> <span class="n">mediaFormat</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">mediaFormat</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeMediaFormat.html">AWSTranscribeMediaFormat</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)mediaSampleRateHertz"></a>
+                    <a name="//apple_ref/objc/Property/mediaSampleRateHertz" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)mediaSampleRateHertz">mediaSampleRateHertz</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The sample rate, in Hertz, of the audio track in the input media file. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">mediaSampleRateHertz</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">mediaSampleRateHertz</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)settings"></a>
+                    <a name="//apple_ref/objc/Property/settings" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)settings">settings</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">settings</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">settings</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)transcript"></a>
+                    <a name="//apple_ref/objc/Property/transcript" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)transcript">transcript</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An object that describes the output of the transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/AWSTranscribeTranscript.html">AWSTranscribeTranscript</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transcript</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transcript</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeTranscript.html">AWSTranscribeTranscript</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)transcriptionJobName"></a>
+                    <a name="//apple_ref/objc/Property/transcriptionJobName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)transcriptionJobName">transcriptionJobName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">transcriptionJobName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transcriptionJobName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscriptionJob(py)transcriptionJobStatus"></a>
+                    <a name="//apple_ref/objc/Property/transcriptionJobStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscriptionJob(py)transcriptionJobStatus">transcriptionJobStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The status of the transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a></span> <span class="n">transcriptionJobStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">transcriptionJobStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
