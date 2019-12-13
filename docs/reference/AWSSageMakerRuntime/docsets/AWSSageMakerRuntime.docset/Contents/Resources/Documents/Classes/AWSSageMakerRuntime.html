@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSSageMakerRuntime Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSSageMakerRuntime" class="dashAnchor"></a>
+    <a title="AWSSageMakerRuntime Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSSageMakerRuntime 2.12.3 Docs</a> (58% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSSageMakerRuntime%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSSageMakerRuntime Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSSageMakerRuntime Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSageMakerRuntime.html">AWSSageMakerRuntime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSageMakerRuntimeInvokeEndpointInput.html">AWSSageMakerRuntimeInvokeEndpointInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSageMakerRuntimeInvokeEndpointOutput.html">AWSSageMakerRuntimeInvokeEndpointOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSageMakerRuntimeResources.html">AWSSageMakerRuntimeResources</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSageMakerRuntimeErrorDomain">AWSSageMakerRuntimeErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSageMakerRuntimeSDKVersion">AWSSageMakerRuntimeSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSageMakerRuntimeVersionNumber">AWSSageMakerRuntimeVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSageMakerRuntimeVersionString">AWSSageMakerRuntimeVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSageMakerRuntimeErrorType.html">AWSSageMakerRuntimeErrorType</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSSageMakerRuntime</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSSageMakerRuntime</span></code></pre>
+
+                </div>
+              </div>
+            <p> The Amazon SageMaker runtime API. </p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(py)configuration"></a>
+                    <a name="//apple_ref/objc/Property/configuration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(py)configuration">configuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The service configuration used to instantiate this service client.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(cm)defaultSageMakerRuntime"></a>
+                    <a name="//apple_ref/objc/Method/+defaultSageMakerRuntime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(cm)defaultSageMakerRuntime">+defaultSageMakerRuntime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSServiceManager</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+     <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
+
+     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">SageMakerRuntime</span> <span class="o">=</span> <span class="n">AWSSageMakerRuntime</span><span class="p">.</span><span class="k">default</span><span class="p">()</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSSageMakerRuntime</span> <span class="o">*</span><span class="n">SageMakerRuntime</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSSageMakerRuntime</span> <span class="nf">defaultSageMakerRuntime</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">defaultSageMakerRuntime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The default service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(cm)registerSageMakerRuntimeWithConfiguration:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/+registerSageMakerRuntimeWithConfiguration:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(cm)registerSageMakerRuntimeWithConfiguration:forKey:">+registerSageMakerRuntimeWithConfiguration:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a service client with the given service configuration and registers it for the key.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSSageMakerRuntime</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2SageMakerRuntime"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSSageMakerRuntime</span> <span class="nf">registerSageMakerRuntimeWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2SageMakerRuntime"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">SageMakerRuntime</span> <span class="o">=</span> <span class="n">AWSSageMakerRuntime</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2SageMakerRuntime"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSSageMakerRuntime</span> <span class="o">*</span><span class="n">SageMakerRuntime</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSSageMakerRuntime</span> <span class="nf">SageMakerRuntimeForKey</span><span class="p">:</span><span class="s">@"USWest2SageMakerRuntime"</span><span class="p">];</span>
+</code></pre>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerSageMakerRuntimeWithConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">configuration</span>
+                                           <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">withConfiguration</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A service configuration object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(cm)SageMakerRuntimeForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+SageMakerRuntimeForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(cm)SageMakerRuntimeForKey:">+SageMakerRuntimeForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the service client associated with the key. You need to call <code>+ registerSageMakerRuntimeWithConfiguration:forKey:</code> before invoking this method.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSSageMakerRuntime</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2SageMakerRuntime"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSSageMakerRuntime</span> <span class="nf">registerSageMakerRuntimeWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2SageMakerRuntime"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">SageMakerRuntime</span> <span class="o">=</span> <span class="n">AWSSageMakerRuntime</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2SageMakerRuntime"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSSageMakerRuntime</span> <span class="o">*</span><span class="n">SageMakerRuntime</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSSageMakerRuntime</span> <span class="nf">SageMakerRuntimeForKey</span><span class="p">:</span><span class="s">@"USWest2SageMakerRuntime"</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">SageMakerRuntimeForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of the service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(cm)removeSageMakerRuntimeForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+removeSageMakerRuntimeForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(cm)removeSageMakerRuntimeForKey:">+removeSageMakerRuntimeForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the service client associated with the key and release it.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Before calling this method, make sure no method is running on this client.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeSageMakerRuntimeForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(im)invokeEndpoint:"></a>
+                    <a name="//apple_ref/objc/Method/-invokeEndpoint:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(im)invokeEndpoint:">-invokeEndpoint:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint. </p><p>For an overview of Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p><p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p><p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version 4. For information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p><p>A customer&rsquo;s model containers must respond to requests within 60 seconds. The model itself can have a maximum processing time of 60 seconds before responding to the /invocations. If your model is going to take 50-60 seconds of processing time, the SDK socket timeout should be set to be 70 seconds.</p><note><p>Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker determines the account ID from the authentication token that is supplied by the caller.</p></note></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSSageMakerRuntimeInvokeEndpointInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSSageMakerRuntimeInvokeEndpointOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">invokeEndpoint</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointInput.html">AWSSageMakerRuntimeInvokeEndpointInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">invokeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointInput.html">AWSSageMakerRuntimeInvokeEndpointInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the InvokeEndpoint service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointOutput.html">AWSSageMakerRuntimeInvokeEndpointOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSSageMakerRuntimeErrorDomain">AWSSageMakerRuntimeErrorDomain</a></code> domain and the following error code: <code>AWSSageMakerRuntimeErrorInternalFailure</code>, <code>AWSSageMakerRuntimeErrorServiceUnavailable</code>, <code>AWSSageMakerRuntimeErrorValidation</code>, <code>AWSSageMakerRuntimeErrorModel</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSageMakerRuntime(im)invokeEndpoint:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-invokeEndpoint:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSageMakerRuntime(im)invokeEndpoint:completionHandler:">-invokeEndpoint:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint. </p><p>For an overview of Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p><p>Amazon SageMaker strips all POST headers except those supported by the API. Amazon SageMaker might add additional headers. You should not rely on the behavior of headers outside those enumerated in the request syntax. </p><p>Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version 4. For information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.</p><p>A customer&rsquo;s model containers must respond to requests within 60 seconds. The model itself can have a maximum processing time of 60 seconds before responding to the /invocations. If your model is going to take 50-60 seconds of processing time, the SDK socket timeout should be set to be 70 seconds.</p><note><p>Endpoints are scoped to an individual account, and are not public. The URL does not contain the account ID, but Amazon SageMaker determines the account ID from the authentication token that is supplied by the caller.</p></note></p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSSageMakerRuntimeInvokeEndpointInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSSageMakerRuntimeInvokeEndpointOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">invokeEndpoint</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointInput.html">AWSSageMakerRuntimeInvokeEndpointInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointOutput.html">AWSSageMakerRuntimeInvokeEndpointOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">invokeEndpoint</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointInput.html">AWSSageMakerRuntimeInvokeEndpointInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSSageMakerRuntimeInvokeEndpointOutput.html">AWSSageMakerRuntimeInvokeEndpointOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the InvokeEndpoint service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSSageMakerRuntimeErrorDomain">AWSSageMakerRuntimeErrorDomain</a></code> domain and the following error code: <code>AWSSageMakerRuntimeErrorInternalFailure</code>, <code>AWSSageMakerRuntimeErrorServiceUnavailable</code>, <code>AWSSageMakerRuntimeErrorValidation</code>, <code>AWSSageMakerRuntimeErrorModel</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
