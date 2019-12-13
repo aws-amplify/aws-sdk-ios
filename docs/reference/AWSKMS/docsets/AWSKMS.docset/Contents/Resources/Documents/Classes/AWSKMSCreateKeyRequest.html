@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSKMSCreateKeyRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSKMSCreateKeyRequest" class="dashAnchor"></a>
+    <a title="AWSKMSCreateKeyRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSKMS 2.12.3 Docs</a> (72% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSKMS Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSKMSCreateKeyRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMS.html">AWSKMS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSAliasListEntry.html">AWSKMSAliasListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCancelKeyDeletionRequest.html">AWSKMSCancelKeyDeletionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCancelKeyDeletionResponse.html">AWSKMSCancelKeyDeletionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSConnectCustomKeyStoreRequest.html">AWSKMSConnectCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSConnectCustomKeyStoreResponse">AWSKMSConnectCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateAliasRequest.html">AWSKMSCreateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateCustomKeyStoreRequest.html">AWSKMSCreateCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateCustomKeyStoreResponse.html">AWSKMSCreateCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateGrantRequest.html">AWSKMSCreateGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateGrantResponse.html">AWSKMSCreateGrantResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateKeyRequest.html">AWSKMSCreateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateKeyResponse.html">AWSKMSCreateKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCustomKeyStoresListEntry.html">AWSKMSCustomKeyStoresListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDecryptRequest.html">AWSKMSDecryptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDecryptResponse.html">AWSKMSDecryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeleteAliasRequest.html">AWSKMSDeleteAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeleteCustomKeyStoreRequest.html">AWSKMSDeleteCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSDeleteCustomKeyStoreResponse">AWSKMSDeleteCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeleteImportedKeyMaterialRequest.html">AWSKMSDeleteImportedKeyMaterialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeCustomKeyStoresRequest.html">AWSKMSDescribeCustomKeyStoresRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeCustomKeyStoresResponse.html">AWSKMSDescribeCustomKeyStoresResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeKeyRequest.html">AWSKMSDescribeKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeKeyResponse.html">AWSKMSDescribeKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDisableKeyRequest.html">AWSKMSDisableKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDisableKeyRotationRequest.html">AWSKMSDisableKeyRotationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDisconnectCustomKeyStoreRequest.html">AWSKMSDisconnectCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSDisconnectCustomKeyStoreResponse">AWSKMSDisconnectCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEnableKeyRequest.html">AWSKMSEnableKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEnableKeyRotationRequest.html">AWSKMSEnableKeyRotationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEncryptRequest.html">AWSKMSEncryptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEncryptResponse.html">AWSKMSEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairRequest.html">AWSKMSGenerateDataKeyPairRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairResponse.html">AWSKMSGenerateDataKeyPairResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairWithoutPlaintextRequest.html">AWSKMSGenerateDataKeyPairWithoutPlaintextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairWithoutPlaintextResponse.html">AWSKMSGenerateDataKeyPairWithoutPlaintextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyRequest.html">AWSKMSGenerateDataKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyResponse.html">AWSKMSGenerateDataKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyWithoutPlaintextRequest.html">AWSKMSGenerateDataKeyWithoutPlaintextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyWithoutPlaintextResponse.html">AWSKMSGenerateDataKeyWithoutPlaintextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateRandomRequest.html">AWSKMSGenerateRandomRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateRandomResponse.html">AWSKMSGenerateRandomResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyPolicyRequest.html">AWSKMSGetKeyPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyPolicyResponse.html">AWSKMSGetKeyPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyRotationStatusRequest.html">AWSKMSGetKeyRotationStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyRotationStatusResponse.html">AWSKMSGetKeyRotationStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetParametersForImportRequest.html">AWSKMSGetParametersForImportRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetParametersForImportResponse.html">AWSKMSGetParametersForImportResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetPublicKeyRequest.html">AWSKMSGetPublicKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetPublicKeyResponse.html">AWSKMSGetPublicKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGrantConstraints.html">AWSKMSGrantConstraints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGrantListEntry.html">AWSKMSGrantListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSImportKeyMaterialRequest.html">AWSKMSImportKeyMaterialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSImportKeyMaterialResponse">AWSKMSImportKeyMaterialResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSKeyListEntry.html">AWSKMSKeyListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSKeyMetadata.html">AWSKMSKeyMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListAliasesRequest.html">AWSKMSListAliasesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListAliasesResponse.html">AWSKMSListAliasesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListGrantsRequest.html">AWSKMSListGrantsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListGrantsResponse.html">AWSKMSListGrantsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeyPoliciesRequest.html">AWSKMSListKeyPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeyPoliciesResponse.html">AWSKMSListKeyPoliciesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeysRequest.html">AWSKMSListKeysRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeysResponse.html">AWSKMSListKeysResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListResourceTagsRequest.html">AWSKMSListResourceTagsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListResourceTagsResponse.html">AWSKMSListResourceTagsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListRetirableGrantsRequest.html">AWSKMSListRetirableGrantsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSPutKeyPolicyRequest.html">AWSKMSPutKeyPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReEncryptRequest.html">AWSKMSReEncryptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSResources.html">AWSKMSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRetireGrantRequest.html">AWSKMSRetireGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRevokeGrantRequest.html">AWSKMSRevokeGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSScheduleKeyDeletionRequest.html">AWSKMSScheduleKeyDeletionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSScheduleKeyDeletionResponse.html">AWSKMSScheduleKeyDeletionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSSignRequest.html">AWSKMSSignRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSSignResponse.html">AWSKMSSignResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSTag.html">AWSKMSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSTagResourceRequest.html">AWSKMSTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUntagResourceRequest.html">AWSKMSUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdateAliasRequest.html">AWSKMSUpdateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdateCustomKeyStoreRequest.html">AWSKMSUpdateCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSUpdateCustomKeyStoreResponse">AWSKMSUpdateCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdateKeyDescriptionRequest.html">AWSKMSUpdateKeyDescriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyResponse.html">AWSKMSVerifyResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSErrorDomain">AWSKMSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSSDKVersion">AWSKMSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSVersionNumber">AWSKMSVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSVersionString">AWSKMSVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSAlgorithmSpec.html">AWSKMSAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSConnectionErrorCodeType.html">AWSKMSConnectionErrorCodeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSConnectionStateType.html">AWSKMSConnectionStateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSDataKeyPairSpec.html">AWSKMSDataKeyPairSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSDataKeySpec.html">AWSKMSDataKeySpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSEncryptionAlgorithmSpec.html">AWSKMSEncryptionAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSErrorType.html">AWSKMSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSExpirationModelType.html">AWSKMSExpirationModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSGrantOperation.html">AWSKMSGrantOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyManagerType.html">AWSKMSKeyManagerType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyState.html">AWSKMSKeyState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyUsageType.html">AWSKMSKeyUsageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSSigningAlgorithmSpec.html">AWSKMSSigningAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSWrappingKeySpec.html">AWSKMSWrappingKeySpec</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSKMSCreateKeyRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSCreateKeyRequest</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)bypassPolicyLockoutSafetyCheck"></a>
+                    <a name="//apple_ref/objc/Property/bypassPolicyLockoutSafetyCheck" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)bypassPolicyLockoutSafetyCheck">bypassPolicyLockoutSafetyCheck</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A flag to indicate whether to bypass the key policy lockout safety check.</p><important><p>Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.</p><p>For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section in the <i><i>AWS Key Management Service Developer Guide</i></i>.</p></important><p>Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent <a>PutKeyPolicy</a> request on the CMK.</p><p>The default value is false.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">bypassPolicyLockoutSafetyCheck</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">bypassPolicyLockoutSafetyCheck</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)customKeyStoreId"></a>
+                    <a name="//apple_ref/objc/Property/customKeyStoreId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)customKeyStoreId">customKeyStoreId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates the CMK in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.</p><p>This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.</p><p>To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p><p>The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.</p><p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">customKeyStoreId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">customKeyStoreId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)customerMasterKeySpec"></a>
+                    <a name="//apple_ref/objc/Property/customerMasterKeySpec" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)customerMasterKeySpec">customerMasterKeySpec</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Specifies the type of CMK to create. The <code>CustomerMasterKeySpec</code> determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can&rsquo;t change the <code>CustomerMasterKeySpec</code> after the CMK is created. To further restrict the algorithms that can be used with the CMK, use its key policy or IAM policy.</p><p>For help with choosing a key spec for your CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#cmk-key-spec">Selecting a Customer Master Key Spec</a> in the <i>AWS Key Management Service Developer Guide</i>.</p><p>The default value, <code>SYMMETRIC_DEFAULT</code>, creates a CMK with a 256-bit symmetric key.</p><p>AWS KMS supports the following key specs for CMKs:</p><ul><li><p>Symmetric key (default)</p><ul><li><p><code>SYMMETRIC_DEFAULT</code> (AES-256-GCM)</p></li></ul></li><li><p>Asymmetric RSA key pairs</p><ul><li><p><code>RSA_2048</code></p></li><li><p><code>RSA_3072</code></p></li><li><p><code>RSA_4096</code></p></li></ul></li><li><p>Asymmetric NIST-recommended elliptic curve key pairs</p><ul><li><p><code>ECC_NIST_P256</code> (secp256r1)</p></li><li><p><code>ECC_NIST_P384</code> (secp384r1)</p></li><li><p><code>ECC_NIST_P521</code> (secp521r1)</p></li></ul></li><li><p>Other asymmetric elliptic curve key pairs</p><ul><li><p><code>ECC_SECG_P256K1</code> (secp256k1), commonly used for cryptocurrencies.</p></li></ul></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a></span> <span class="n">customerMasterKeySpec</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">customerMasterKeySpec</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)detail"></a>
+                    <a name="//apple_ref/objc/Property/detail" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)detail">detail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A description of the CMK.</p><p>Use a description that helps you decide whether the CMK is appropriate for a task.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">detail</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">detail</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)keyUsage"></a>
+                    <a name="//apple_ref/objc/Property/keyUsage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)keyUsage">keyUsage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Determines the cryptographic operations for which you can use the CMK. The default value is <code>ENCRYPT_DECRYPT</code>. This parameter is required only for asymmetric CMKs. You can&rsquo;t change the <code>KeyUsage</code> value after the CMK is created.</p><p>Select only one valid value.</p><ul><li><p>For symmetric CMKs, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</p></li><li><p>For asymmetric CMKs with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p></li><li><p>For asymmetric CMKs with ECC key material, specify <code>SIGN_VERIFY</code>.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSKMSKeyUsageType.html">AWSKMSKeyUsageType</a></span> <span class="n">keyUsage</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keyUsage</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSKeyUsageType.html">AWSKMSKeyUsageType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)origin"></a>
+                    <a name="//apple_ref/objc/Property/origin" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)origin">origin</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is <code>AWS_KMS</code>, which means AWS KMS creates the key material.</p><p>When the parameter value is <code>EXTERNAL</code>, AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>. This value is valid only for symmetric CMKs.</p><p>When the parameter value is <code>AWS_CLOUDHSM</code>, AWS KMS creates the CMK in an AWS KMS <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> and creates its key material in the associated AWS CloudHSM cluster. You must also use the <code>CustomKeyStoreId</code> parameter to identify the custom key store. This value is valid only for symmetric CMKs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a></span> <span class="n">origin</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)policy"></a>
+                    <a name="//apple_ref/objc/Property/policy" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)policy">policy</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The key policy to attach to the CMK.</p><p>If you provide a key policy, it must meet the following criteria:</p><ul><li><p>If you don&rsquo;t set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy must allow the principal that is making the <code>CreateKey</code> request to make a subsequent <a>PutKeyPolicy</a> request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default Key Policy</a> section of the <i><i>AWS Key Management Service Developer Guide</i></i>.</p></li><li><p>Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>AWS Identity and Access Management User Guide</i>.</p></li></ul><p>If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default Key Policy</a> in the <i>AWS Key Management Service Developer Guide</i>.</p><p>The key policy size limit is 32 kilobytes (32768 bytes).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">policy</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">policy</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSCreateKeyRequest(py)tags"></a>
+                    <a name="//apple_ref/objc/Property/tags" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSCreateKeyRequest(py)tags">tags</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.</p><p>When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p><p>Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the <a>TagResource</a> operation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSKMSTag.html">AWSKMSTag</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">tags</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tags</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSKMSTag.html">AWSKMSTag</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

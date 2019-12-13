@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSKMSGrantConstraints Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSKMSGrantConstraints" class="dashAnchor"></a>
+    <a title="AWSKMSGrantConstraints Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSKMS 2.12.3 Docs</a> (72% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSKMS Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSKMSGrantConstraints Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMS.html">AWSKMS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSAliasListEntry.html">AWSKMSAliasListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCancelKeyDeletionRequest.html">AWSKMSCancelKeyDeletionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCancelKeyDeletionResponse.html">AWSKMSCancelKeyDeletionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSConnectCustomKeyStoreRequest.html">AWSKMSConnectCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSConnectCustomKeyStoreResponse">AWSKMSConnectCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateAliasRequest.html">AWSKMSCreateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateCustomKeyStoreRequest.html">AWSKMSCreateCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateCustomKeyStoreResponse.html">AWSKMSCreateCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateGrantRequest.html">AWSKMSCreateGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateGrantResponse.html">AWSKMSCreateGrantResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateKeyRequest.html">AWSKMSCreateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCreateKeyResponse.html">AWSKMSCreateKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSCustomKeyStoresListEntry.html">AWSKMSCustomKeyStoresListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDecryptRequest.html">AWSKMSDecryptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDecryptResponse.html">AWSKMSDecryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeleteAliasRequest.html">AWSKMSDeleteAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeleteCustomKeyStoreRequest.html">AWSKMSDeleteCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSDeleteCustomKeyStoreResponse">AWSKMSDeleteCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDeleteImportedKeyMaterialRequest.html">AWSKMSDeleteImportedKeyMaterialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeCustomKeyStoresRequest.html">AWSKMSDescribeCustomKeyStoresRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeCustomKeyStoresResponse.html">AWSKMSDescribeCustomKeyStoresResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeKeyRequest.html">AWSKMSDescribeKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDescribeKeyResponse.html">AWSKMSDescribeKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDisableKeyRequest.html">AWSKMSDisableKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDisableKeyRotationRequest.html">AWSKMSDisableKeyRotationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSDisconnectCustomKeyStoreRequest.html">AWSKMSDisconnectCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSDisconnectCustomKeyStoreResponse">AWSKMSDisconnectCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEnableKeyRequest.html">AWSKMSEnableKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEnableKeyRotationRequest.html">AWSKMSEnableKeyRotationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEncryptRequest.html">AWSKMSEncryptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSEncryptResponse.html">AWSKMSEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairRequest.html">AWSKMSGenerateDataKeyPairRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairResponse.html">AWSKMSGenerateDataKeyPairResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairWithoutPlaintextRequest.html">AWSKMSGenerateDataKeyPairWithoutPlaintextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyPairWithoutPlaintextResponse.html">AWSKMSGenerateDataKeyPairWithoutPlaintextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyRequest.html">AWSKMSGenerateDataKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyResponse.html">AWSKMSGenerateDataKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyWithoutPlaintextRequest.html">AWSKMSGenerateDataKeyWithoutPlaintextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateDataKeyWithoutPlaintextResponse.html">AWSKMSGenerateDataKeyWithoutPlaintextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateRandomRequest.html">AWSKMSGenerateRandomRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGenerateRandomResponse.html">AWSKMSGenerateRandomResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyPolicyRequest.html">AWSKMSGetKeyPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyPolicyResponse.html">AWSKMSGetKeyPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyRotationStatusRequest.html">AWSKMSGetKeyRotationStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetKeyRotationStatusResponse.html">AWSKMSGetKeyRotationStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetParametersForImportRequest.html">AWSKMSGetParametersForImportRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetParametersForImportResponse.html">AWSKMSGetParametersForImportResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetPublicKeyRequest.html">AWSKMSGetPublicKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGetPublicKeyResponse.html">AWSKMSGetPublicKeyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGrantConstraints.html">AWSKMSGrantConstraints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSGrantListEntry.html">AWSKMSGrantListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSImportKeyMaterialRequest.html">AWSKMSImportKeyMaterialRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSImportKeyMaterialResponse">AWSKMSImportKeyMaterialResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSKeyListEntry.html">AWSKMSKeyListEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSKeyMetadata.html">AWSKMSKeyMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListAliasesRequest.html">AWSKMSListAliasesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListAliasesResponse.html">AWSKMSListAliasesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListGrantsRequest.html">AWSKMSListGrantsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListGrantsResponse.html">AWSKMSListGrantsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeyPoliciesRequest.html">AWSKMSListKeyPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeyPoliciesResponse.html">AWSKMSListKeyPoliciesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeysRequest.html">AWSKMSListKeysRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListKeysResponse.html">AWSKMSListKeysResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListResourceTagsRequest.html">AWSKMSListResourceTagsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListResourceTagsResponse.html">AWSKMSListResourceTagsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSListRetirableGrantsRequest.html">AWSKMSListRetirableGrantsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSPutKeyPolicyRequest.html">AWSKMSPutKeyPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReEncryptRequest.html">AWSKMSReEncryptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSResources.html">AWSKMSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRetireGrantRequest.html">AWSKMSRetireGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSRevokeGrantRequest.html">AWSKMSRevokeGrantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSScheduleKeyDeletionRequest.html">AWSKMSScheduleKeyDeletionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSScheduleKeyDeletionResponse.html">AWSKMSScheduleKeyDeletionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSSignRequest.html">AWSKMSSignRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSSignResponse.html">AWSKMSSignResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSTag.html">AWSKMSTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSTagResourceRequest.html">AWSKMSTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUntagResourceRequest.html">AWSKMSUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdateAliasRequest.html">AWSKMSUpdateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdateCustomKeyStoreRequest.html">AWSKMSUpdateCustomKeyStoreRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKMSUpdateCustomKeyStoreResponse">AWSKMSUpdateCustomKeyStoreResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdateKeyDescriptionRequest.html">AWSKMSUpdateKeyDescriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSVerifyResponse.html">AWSKMSVerifyResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSErrorDomain">AWSKMSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSSDKVersion">AWSKMSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSVersionNumber">AWSKMSVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKMSVersionString">AWSKMSVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSAlgorithmSpec.html">AWSKMSAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSConnectionErrorCodeType.html">AWSKMSConnectionErrorCodeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSConnectionStateType.html">AWSKMSConnectionStateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSCustomerMasterKeySpec.html">AWSKMSCustomerMasterKeySpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSDataKeyPairSpec.html">AWSKMSDataKeyPairSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSDataKeySpec.html">AWSKMSDataKeySpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSEncryptionAlgorithmSpec.html">AWSKMSEncryptionAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSErrorType.html">AWSKMSErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSExpirationModelType.html">AWSKMSExpirationModelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSGrantOperation.html">AWSKMSGrantOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyManagerType.html">AWSKMSKeyManagerType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyState.html">AWSKMSKeyState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSKeyUsageType.html">AWSKMSKeyUsageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSSigningAlgorithmSpec.html">AWSKMSSigningAlgorithmSpec</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSWrappingKeySpec.html">AWSKMSWrappingKeySpec</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSKMSGrantConstraints</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSGrantConstraints</span></code></pre>
+
+                </div>
+              </div>
+            <p><p>Use this structure to allow cryptographic operations in the grant only when the operation request includes the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption context</a>.</p><p>AWS KMS applies the grant constraints only when the grant allows a cryptographic operation that accepts an encryption context as input, such as the following.</p><ul><li><p><a>Encrypt</a></p></li><li><p><a>Decrypt</a></p></li><li><p><a>GenerateDataKey</a></p></li><li><p><a>GenerateDataKeyWithoutPlaintext</a></p></li><li><p><a>ReEncrypt</a></p></li></ul><p>AWS KMS does not apply the grant constraints to other operations, such as <a>DescribeKey</a> or <a>ScheduleKeyDeletion</a>.</p><important><p>In a cryptographic operation, the encryption context in the decryption operation must be an exact, case-sensitive match for the keys and values in the encryption context of the encryption operation. Only the order of the pairs can vary.</p><p>However, in a grant constraint, the key in each key-value pair is not case sensitive, but the value is case sensitive.</p><p>To avoid confusion, do not use multiple encryption context pairs that differ only by case. To require a fully case-sensitive encryption context, use the <code>kms:EncryptionContext:</code> and <code>kms:EncryptionContextKeys</code> conditions in an IAM or key policy. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context">kms:EncryptionContext:</a> in the <i><i>AWS Key Management Service Developer Guide</i></i>.</p></important></p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSGrantConstraints(py)encryptionContextEquals"></a>
+                    <a name="//apple_ref/objc/Property/encryptionContextEquals" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGrantConstraints(py)encryptionContextEquals">encryptionContextEquals</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of key-value pairs that must match the encryption context in the cryptographic operation request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">encryptionContextEquals</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">encryptionContextEquals</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSGrantConstraints(py)encryptionContextSubset"></a>
+                    <a name="//apple_ref/objc/Property/encryptionContextSubset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSGrantConstraints(py)encryptionContextSubset">encryptionContextSubset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of key-value pairs that must be included in the encryption context of the cryptographic operation request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">encryptionContextSubset</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">encryptionContextSubset</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
