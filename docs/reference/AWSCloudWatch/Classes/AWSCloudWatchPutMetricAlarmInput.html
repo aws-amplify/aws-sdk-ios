@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSCloudWatchPutMetricAlarmInput Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSCloudWatchPutMetricAlarmInput" class="dashAnchor"></a>
+    <a title="AWSCloudWatchPutMetricAlarmInput Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCloudWatch 2.12.3 Docs</a> (74% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCloudWatch%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCloudWatch Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSCloudWatchPutMetricAlarmInput Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatch.html">AWSCloudWatch</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchAlarmHistoryItem.html">AWSCloudWatchAlarmHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDashboardEntry.html">AWSCloudWatchDashboardEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDashboardValidationMessage.html">AWSCloudWatchDashboardValidationMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDatapoint.html">AWSCloudWatchDatapoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDeleteAlarmsInput.html">AWSCloudWatchDeleteAlarmsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDeleteDashboardsInput.html">AWSCloudWatchDeleteDashboardsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCloudWatchDeleteDashboardsOutput">AWSCloudWatchDeleteDashboardsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmHistoryInput.html">AWSCloudWatchDescribeAlarmHistoryInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmHistoryOutput.html">AWSCloudWatchDescribeAlarmHistoryOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsForMetricInput.html">AWSCloudWatchDescribeAlarmsForMetricInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsForMetricOutput.html">AWSCloudWatchDescribeAlarmsForMetricOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsInput.html">AWSCloudWatchDescribeAlarmsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsOutput.html">AWSCloudWatchDescribeAlarmsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDimension.html">AWSCloudWatchDimension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDimensionFilter.html">AWSCloudWatchDimensionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDisableAlarmActionsInput.html">AWSCloudWatchDisableAlarmActionsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchEnableAlarmActionsInput.html">AWSCloudWatchEnableAlarmActionsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetDashboardInput.html">AWSCloudWatchGetDashboardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetDashboardOutput.html">AWSCloudWatchGetDashboardOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricDataInput.html">AWSCloudWatchGetMetricDataInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricDataOutput.html">AWSCloudWatchGetMetricDataOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricStatisticsInput.html">AWSCloudWatchGetMetricStatisticsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricStatisticsOutput.html">AWSCloudWatchGetMetricStatisticsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricWidgetImageInput.html">AWSCloudWatchGetMetricWidgetImageInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricWidgetImageOutput.html">AWSCloudWatchGetMetricWidgetImageOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListDashboardsInput.html">AWSCloudWatchListDashboardsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListDashboardsOutput.html">AWSCloudWatchListDashboardsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListMetricsInput.html">AWSCloudWatchListMetricsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListMetricsOutput.html">AWSCloudWatchListMetricsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMessageData.html">AWSCloudWatchMessageData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetric.html">AWSCloudWatchMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricAlarm.html">AWSCloudWatchMetricAlarm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricDataQuery.html">AWSCloudWatchMetricDataQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricDataResult.html">AWSCloudWatchMetricDataResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricDatum.html">AWSCloudWatchMetricDatum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricStat.html">AWSCloudWatchMetricStat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutDashboardInput.html">AWSCloudWatchPutDashboardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutDashboardOutput.html">AWSCloudWatchPutDashboardOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutMetricAlarmInput.html">AWSCloudWatchPutMetricAlarmInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutMetricDataInput.html">AWSCloudWatchPutMetricDataInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchResources.html">AWSCloudWatchResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchSetAlarmStateInput.html">AWSCloudWatchSetAlarmStateInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchStatisticSet.html">AWSCloudWatchStatisticSet</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchErrorDomain">AWSCloudWatchErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchSDKVersion">AWSCloudWatchSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchVersionNumber">AWSCloudWatchVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchVersionString">AWSCloudWatchVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchComparisonOperator.html">AWSCloudWatchComparisonOperator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchErrorType.html">AWSCloudWatchErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchHistoryItemType.html">AWSCloudWatchHistoryItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchScanBy.html">AWSCloudWatchScanBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStandardUnit.html">AWSCloudWatchStandardUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStateValue.html">AWSCloudWatchStateValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStatistic.html">AWSCloudWatchStatistic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStatusCode.html">AWSCloudWatchStatusCode</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSCloudWatchPutMetricAlarmInput</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCloudWatchPutMetricAlarmInput</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)actionsEnabled"></a>
+                    <a name="//apple_ref/objc/Property/actionsEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)actionsEnabled">actionsEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">actionsEnabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">actionsEnabled</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)alarmActions"></a>
+                    <a name="//apple_ref/objc/Property/alarmActions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)alarmActions">alarmActions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">alarmActions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">alarmActions</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)alarmDescription"></a>
+                    <a name="//apple_ref/objc/Property/alarmDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)alarmDescription">alarmDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The description for the alarm.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">alarmDescription</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">alarmDescription</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)alarmName"></a>
+                    <a name="//apple_ref/objc/Property/alarmName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)alarmName">alarmName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name for the alarm. This name must be unique within your AWS account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">alarmName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">alarmName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)comparisonOperator"></a>
+                    <a name="//apple_ref/objc/Property/comparisonOperator" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)comparisonOperator">comparisonOperator</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Enums/AWSCloudWatchComparisonOperator.html">AWSCloudWatchComparisonOperator</a></span> <span class="n">comparisonOperator</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">comparisonOperator</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSCloudWatchComparisonOperator.html">AWSCloudWatchComparisonOperator</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)datapointsToAlarm"></a>
+                    <a name="//apple_ref/objc/Property/datapointsToAlarm" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)datapointsToAlarm">datapointsToAlarm</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an &ldquo;M out of N&rdquo; alarm. In that case, this value is the M. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating an Alarm</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">datapointsToAlarm</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">datapointsToAlarm</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)dimensions"></a>
+                    <a name="//apple_ref/objc/Property/dimensions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)dimensions">dimensions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The dimensions for the metric specified in <code>MetricName</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSCloudWatchDimension.html">AWSCloudWatchDimension</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">dimensions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dimensions</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSCloudWatchDimension.html">AWSCloudWatchDimension</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)evaluateLowSampleCountPercentile"></a>
+                    <a name="//apple_ref/objc/Property/evaluateLowSampleCountPercentile" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the alarm state does not change during periods with too few data points to be statistically significant. If you specify <code>evaluate</code> or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based CloudWatch Alarms and Low Data Samples</a>.</p><p>Valid Values: <code>evaluate | ignore</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">evaluateLowSampleCountPercentile</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">evaluateLowSampleCountPercentile</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)evaluationPeriods"></a>
+                    <a name="//apple_ref/objc/Property/evaluationPeriods" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)evaluationPeriods">evaluationPeriods</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an &ldquo;M out of N&rdquo; alarm, this value is the N.</p><p>An alarm&rsquo;s total current evaluation period can be no longer than one day, so this number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">evaluationPeriods</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">evaluationPeriods</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)extendedStatistic"></a>
+                    <a name="//apple_ref/objc/Property/extendedStatistic" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)extendedStatistic">extendedStatistic</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The percentile statistic for the metric specified in <code>MetricName</code>. Specify a value between p0.0 and p100. When you call <code>PutMetricAlarm</code> and specify a <code>MetricName</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">extendedStatistic</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">extendedStatistic</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)insufficientDataActions"></a>
+                    <a name="//apple_ref/objc/Property/insufficientDataActions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)insufficientDataActions">insufficientDataActions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>&gt;arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">insufficientDataActions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">insufficientDataActions</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)metricName"></a>
+                    <a name="//apple_ref/objc/Property/metricName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)metricName">metricName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name for the metric associated with the alarm.</p><p>If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify all this information in the <code>Metrics</code> array.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">metricName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">metricName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)metrics"></a>
+                    <a name="//apple_ref/objc/Property/metrics" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)metrics">metrics</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm based on the result of a metric math expression. Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p><p>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSCloudWatchMetricDataQuery.html">AWSCloudWatchMetricDataQuery</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">metrics</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">metrics</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSCloudWatchMetricDataQuery.html">AWSCloudWatchMetricDataQuery</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)namespace"></a>
+                    <a name="//apple_ref/objc/Property/namespace" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)namespace">namespace</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The namespace for the metric associated specified in <code>MetricName</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">namespace</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">namespace</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)OKActions"></a>
+                    <a name="//apple_ref/objc/Property/OKActions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)OKActions">OKActions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The actions to execute when this alarm transitions to an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">OKActions</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">okActions</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)period"></a>
+                    <a name="//apple_ref/objc/Property/period" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)period">period</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The length, in seconds, used each time the metric specified in <code>MetricName</code> is evaluated. Valid values are 10, 30, and any multiple of 60.</p><p>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code> call with a <code>StorageResolution</code> of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p><p>An alarm&rsquo;s total current evaluation period can be no longer than one day, so <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">period</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">period</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)statistic"></a>
+                    <a name="//apple_ref/objc/Property/statistic" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)statistic">statistic</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The statistic for the metric specified in <code>MetricName</code>, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code> and specify a <code>MetricName</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSCloudWatchStatistic.html">AWSCloudWatchStatistic</a></span> <span class="n">statistic</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">statistic</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSCloudWatchStatistic.html">AWSCloudWatchStatistic</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)threshold"></a>
+                    <a name="//apple_ref/objc/Property/threshold" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)threshold">threshold</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The value against which the specified statistic is compared.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">threshold</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">threshold</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)treatMissingData"></a>
+                    <a name="//apple_ref/objc/Property/treatMissingData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)treatMissingData">treatMissingData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Sets how this alarm is to handle missing data points. If <code>TreatMissingData</code> is omitted, the default behavior of <code>missing</code> is used. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring How CloudWatch Alarms Treats Missing Data</a>.</p><p>Valid Values: <code>breaching | notBreaching | ignore | missing</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">treatMissingData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">treatMissingData</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)unit"></a>
+                    <a name="//apple_ref/objc/Property/unit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchPutMetricAlarmInput(py)unit">unit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.</p><p>If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, the CloudWatch alarm can get stuck in the <code>INSUFFICIENT DATA</code> state. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSCloudWatchStandardUnit.html">AWSCloudWatchStandardUnit</a></span> <span class="n">unit</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">unit</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSCloudWatchStandardUnit.html">AWSCloudWatchStandardUnit</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

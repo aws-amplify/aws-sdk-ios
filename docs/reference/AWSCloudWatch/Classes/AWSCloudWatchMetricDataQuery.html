@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSCloudWatchMetricDataQuery Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSCloudWatchMetricDataQuery" class="dashAnchor"></a>
+    <a title="AWSCloudWatchMetricDataQuery Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCloudWatch 2.12.3 Docs</a> (74% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCloudWatch%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCloudWatch Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSCloudWatchMetricDataQuery Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatch.html">AWSCloudWatch</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchAlarmHistoryItem.html">AWSCloudWatchAlarmHistoryItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDashboardEntry.html">AWSCloudWatchDashboardEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDashboardValidationMessage.html">AWSCloudWatchDashboardValidationMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDatapoint.html">AWSCloudWatchDatapoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDeleteAlarmsInput.html">AWSCloudWatchDeleteAlarmsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDeleteDashboardsInput.html">AWSCloudWatchDeleteDashboardsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCloudWatchDeleteDashboardsOutput">AWSCloudWatchDeleteDashboardsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmHistoryInput.html">AWSCloudWatchDescribeAlarmHistoryInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmHistoryOutput.html">AWSCloudWatchDescribeAlarmHistoryOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsForMetricInput.html">AWSCloudWatchDescribeAlarmsForMetricInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsForMetricOutput.html">AWSCloudWatchDescribeAlarmsForMetricOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsInput.html">AWSCloudWatchDescribeAlarmsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDescribeAlarmsOutput.html">AWSCloudWatchDescribeAlarmsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDimension.html">AWSCloudWatchDimension</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDimensionFilter.html">AWSCloudWatchDimensionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchDisableAlarmActionsInput.html">AWSCloudWatchDisableAlarmActionsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchEnableAlarmActionsInput.html">AWSCloudWatchEnableAlarmActionsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetDashboardInput.html">AWSCloudWatchGetDashboardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetDashboardOutput.html">AWSCloudWatchGetDashboardOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricDataInput.html">AWSCloudWatchGetMetricDataInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricDataOutput.html">AWSCloudWatchGetMetricDataOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricStatisticsInput.html">AWSCloudWatchGetMetricStatisticsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricStatisticsOutput.html">AWSCloudWatchGetMetricStatisticsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricWidgetImageInput.html">AWSCloudWatchGetMetricWidgetImageInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchGetMetricWidgetImageOutput.html">AWSCloudWatchGetMetricWidgetImageOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListDashboardsInput.html">AWSCloudWatchListDashboardsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListDashboardsOutput.html">AWSCloudWatchListDashboardsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListMetricsInput.html">AWSCloudWatchListMetricsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchListMetricsOutput.html">AWSCloudWatchListMetricsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMessageData.html">AWSCloudWatchMessageData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetric.html">AWSCloudWatchMetric</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricAlarm.html">AWSCloudWatchMetricAlarm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricDataQuery.html">AWSCloudWatchMetricDataQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricDataResult.html">AWSCloudWatchMetricDataResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricDatum.html">AWSCloudWatchMetricDatum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchMetricStat.html">AWSCloudWatchMetricStat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutDashboardInput.html">AWSCloudWatchPutDashboardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutDashboardOutput.html">AWSCloudWatchPutDashboardOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutMetricAlarmInput.html">AWSCloudWatchPutMetricAlarmInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchPutMetricDataInput.html">AWSCloudWatchPutMetricDataInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchResources.html">AWSCloudWatchResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchSetAlarmStateInput.html">AWSCloudWatchSetAlarmStateInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCloudWatchStatisticSet.html">AWSCloudWatchStatisticSet</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchErrorDomain">AWSCloudWatchErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchSDKVersion">AWSCloudWatchSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchVersionNumber">AWSCloudWatchVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCloudWatchVersionString">AWSCloudWatchVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchComparisonOperator.html">AWSCloudWatchComparisonOperator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchErrorType.html">AWSCloudWatchErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchHistoryItemType.html">AWSCloudWatchHistoryItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchScanBy.html">AWSCloudWatchScanBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStandardUnit.html">AWSCloudWatchStandardUnit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStateValue.html">AWSCloudWatchStateValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStatistic.html">AWSCloudWatchStatistic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCloudWatchStatusCode.html">AWSCloudWatchStatusCode</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSCloudWatchMetricDataQuery</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCloudWatchMetricDataQuery</span></code></pre>
+
+                </div>
+              </div>
+            <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported use of this structure is different for those two operations.</p><p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single <code>GetMetricData</code> call can include up to 100 <code>MetricDataQuery</code> structures.</p><p>When used in <code>PutMetricAlarm</code>, it enables you to create an alarm based on a metric math expression. Each <code>MetricDataQuery</code> in the array specifies either a metric to retrieve, or a math expression to be performed on retrieved metrics. A single <code>PutMetricAlarm</code> call can include up to 20 <code>MetricDataQuery</code> structures in the array. The 20 structures can include as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a metric, and as many as 10 structures that contain the <code>Expression</code> parameter to perform a math expression. Any expression used in a <code>PutMetricAlarm</code> operation must return a single time series. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>Some of the parameters of this structure also have different uses whether you are using this structure in a <code>GetMetricData</code> operation or a <code>PutMetricAlarm</code> operation. These differences are explained in the following parameter list.</p>
+
+<p>Required parameters: [Id]</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchMetricDataQuery(py)expression"></a>
+                    <a name="//apple_ref/objc/Property/expression" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchMetricDataQuery(py)expression">expression</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other expressions to use the result of those expressions. For more information about metric math expressions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>Within each MetricDataQuery object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">expression</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">expression</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchMetricDataQuery(py)identifier"></a>
+                    <a name="//apple_ref/objc/Property/identifier" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchMetricDataQuery(py)identifier">identifier</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A short name used to tie this object to the results in the response. This name must be unique within a single call to <code>GetMetricData</code>. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchMetricDataQuery(py)label"></a>
+                    <a name="//apple_ref/objc/Property/label" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchMetricDataQuery(py)label">label</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents. If the metric or expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch generates a default.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">label</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchMetricDataQuery(py)metricStat"></a>
+                    <a name="//apple_ref/objc/Property/metricStat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchMetricDataQuery(py)metricStat">metricStat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.</p><p>Within one MetricDataQuery object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/AWSCloudWatchMetricStat.html">AWSCloudWatchMetricStat</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">metricStat</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">metricStat</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCloudWatchMetricStat.html">AWSCloudWatchMetricStat</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCloudWatchMetricDataQuery(py)returnData"></a>
+                    <a name="//apple_ref/objc/Property/returnData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCloudWatchMetricDataQuery(py)returnData">returnData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When used in <code>GetMetricData</code>, this option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify <code>False</code>. If you omit this, the default of <code>True</code> is used.</p><p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">returnData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">returnData</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
