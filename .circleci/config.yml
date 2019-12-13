@@ -34,6 +34,9 @@ commands:
       set environment variables
     steps:
       - run:
+          name: set cache key prefix
+          command: echo $CACHE_KEY_PREFIX > cache-key-prefix
+      - run:
           name: set environment variables
           command: |
             sdkName=aws-ios-sdk
@@ -338,7 +341,7 @@ jobs:
             xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
             xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
       - save_cache:
-          key: build_result-{{ .Revision }}
+          key: {{ checksum "cache-key-prefix" }}-build_result-{{ .Revision }}
           paths:
             - build_result
   post_integrationtest:
@@ -349,69 +352,69 @@ jobs:
       - skip_job_unless_required
       - override_test_job
       - restore_cache:
-          key: test_result-{{ .Revision }}-APIGateway
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-APIGateway
       - restore_cache:
-          key: test_result-{{ .Revision }}-AWSMobileClient
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
-          key: test_result-{{ .Revision }}-AutoScaling
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-AutoScaling
       - restore_cache:
-          key: test_result-{{ .Revision }}-CloudWatch
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-CloudWatch
       - restore_cache:
-          key: test_result-{{ .Revision }}-Cognito
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Cognito
       - restore_cache:
-          key: test_result-{{ .Revision }}-Comprehend
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Comprehend
       - restore_cache:
-          key: test_result-{{ .Revision }}-Connect  
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Connect  
       - restore_cache:
-          key: test_result-{{ .Revision }}-ConnectParticipant
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-ConnectParticipant
       - restore_cache:
-          key: test_result-{{ .Revision }}-Core
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Core
       - restore_cache:
-          key: test_result-{{ .Revision }}-DynamoDB
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-DynamoDB
       - restore_cache:
-          key: test_result-{{ .Revision }}-EC2
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-EC2
       - restore_cache:
-          key: test_result-{{ .Revision }}-ElasticLoadBalancing
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-ElasticLoadBalancing
       - restore_cache:
-          key: test_result-{{ .Revision }}-IoT
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-IoT
       - restore_cache:
-          key: test_result-{{ .Revision }}-KMS
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-KMS
       - restore_cache:
-          key: test_result-{{ .Revision }}-Kinesis
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Kinesis
       - restore_cache:
-          key: test_result-{{ .Revision }}-KinesisVideoSignaling
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-KinesisVideoSignaling
       - restore_cache:
-          key: test_result-{{ .Revision }}-Lambda
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Lambda
       - restore_cache:
-          key: test_result-{{ .Revision }}-Lex
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Lex
       - restore_cache:
-          key: test_result-{{ .Revision }}-MachineLearning
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-MachineLearning
       - restore_cache:
-          key: test_result-{{ .Revision }}-MobileAnalytics
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-MobileAnalytics
       - restore_cache:
-          key: test_result-{{ .Revision }}-Pinpoint
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Pinpoint
       - restore_cache:
-          key: test_result-{{ .Revision }}-Polly
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Polly
       - restore_cache:
-          key: test_result-{{ .Revision }}-Rekognition
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Rekognition
       - restore_cache:
-          key: test_result-{{ .Revision }}-S3
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-S3
       - restore_cache:
-          key: test_result-{{ .Revision }}-SES
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-SES
       - restore_cache:
-          key: test_result-{{ .Revision }}-SNS
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-SNS
       - restore_cache:
-          key: test_result-{{ .Revision }}-SQS
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-SQS
       - restore_cache:
-          key: test_result-{{ .Revision }}-SageMakerRuntime
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-SageMakerRuntime
       - restore_cache:
-          key: test_result-{{ .Revision }}-Textract
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Textract
       - restore_cache:
-          key: test_result-{{ .Revision }}-Transcribe
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Transcribe
       - restore_cache:
-          key: test_result-{{ .Revision }}-TranscribeStreaming
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-TranscribeStreaming
       - restore_cache:
-          key: test_result-{{ .Revision }}-Translate
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-Translate
       - store_artifacts:
           path: integration_test_result
       - run:
@@ -442,7 +445,7 @@ jobs:
       - skip_test_job
       - pre_start_simulator
       - restore_cache:
-          key: build_result-{{ .Revision }}
+          key: {{ checksum "cache-key-prefix" }}-build_result-{{ .Revision }}
       - run:
           name: install json parser
           command: pip3 install demjson
@@ -469,7 +472,7 @@ jobs:
       - store_artifacts:
           path: integration_test_result
       - save_cache:
-          key: test_result-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
+          key: {{ checksum "cache-key-prefix" }}-test_result-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - integration_test_result
 
