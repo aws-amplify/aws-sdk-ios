@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSCognitoAuthClientErrorType Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Enum/AWSCognitoAuthClientErrorType" class="dashAnchor"></a>
+    <a title="AWSCognitoAuthClientErrorType Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCognitoAuth 2.12.3 Docs</a> (76% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoAuth%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCognitoAuth Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSCognitoAuthClientErrorType Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoAuth.html">AWSCognitoAuth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoAuthConfiguration.html">AWSCognitoAuthConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoAuthUserSession.html">AWSCognitoAuthUserSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoAuthUserSessionToken.html">AWSCognitoAuthUserSessionToken</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoAuthErrorDomain">AWSCognitoAuthErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoAuthSDKVersion">AWSCognitoAuthSDKVersion</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoAuthClientErrorType.html">AWSCognitoAuthClientErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoAuthDelegate.html">AWSCognitoAuthDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSCognitoAuth.h@T@AWSCognitoAuthGetSessionBlock">AWSCognitoAuthGetSessionBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSCognitoAuth.h@T@AWSCognitoAuthSignOutBlock">AWSCognitoAuthSignOutBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSCognitoAuthClientErrorType</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSCognitoAuthClientErrorType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSCognitoAuthClientErrorUnknown</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientErrorUserCanceledOperation</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientErrorLoadingPageFailed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2000</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientErrorBadRequest</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3000</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientErrorSecurityFailed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4000</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientInvalidAuthenticationDelegate</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5000</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientNoIdTokenIssued</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span><span class="p">,</span>
+    <span class="n">AWSCognitoAuthClientErrorExpiredRefreshToken</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7000</span>
+<span class="p">}</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientErrorUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorUnknown">AWSCognitoAuthClientErrorUnknown</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientErrorUnknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorUnknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorUserCanceledOperation"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientErrorUserCanceledOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorUserCanceledOperation">AWSCognitoAuthClientErrorUserCanceledOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientErrorUserCanceledOperation</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorUserCanceledOperation</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorLoadingPageFailed"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientErrorLoadingPageFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorLoadingPageFailed">AWSCognitoAuthClientErrorLoadingPageFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientErrorLoadingPageFailed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorLoadingPageFailed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorBadRequest"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientErrorBadRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorBadRequest">AWSCognitoAuthClientErrorBadRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientErrorBadRequest</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorBadRequest</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorSecurityFailed"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientErrorSecurityFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorSecurityFailed">AWSCognitoAuthClientErrorSecurityFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientErrorSecurityFailed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorSecurityFailed</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientInvalidAuthenticationDelegate"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientInvalidAuthenticationDelegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientInvalidAuthenticationDelegate">AWSCognitoAuthClientInvalidAuthenticationDelegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientInvalidAuthenticationDelegate</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidAuthenticationDelegate</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientNoIdTokenIssued"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientNoIdTokenIssued" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientNoIdTokenIssued">AWSCognitoAuthClientNoIdTokenIssued</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientNoIdTokenIssued</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noIdTokenIssued</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorExpiredRefreshToken"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoAuthClientErrorExpiredRefreshToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoAuthClientErrorType@AWSCognitoAuthClientErrorExpiredRefreshToken">AWSCognitoAuthClientErrorExpiredRefreshToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoAuthClientErrorExpiredRefreshToken</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7000</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">errorExpiredRefreshToken</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7000</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
