@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSSESSetActiveReceiptRuleSetRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSSESSetActiveReceiptRuleSetRequest" class="dashAnchor"></a>
+    <a title="AWSSESSetActiveReceiptRuleSetRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSSES 2.12.3 Docs</a> (80% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSSES%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSSES Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSSESSetActiveReceiptRuleSetRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSES.html">AWSSES</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESAddHeaderAction.html">AWSSESAddHeaderAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESBody.html">AWSSESBody</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESBounceAction.html">AWSSESBounceAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESBouncedRecipientInfo.html">AWSSESBouncedRecipientInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESBulkEmailDestination.html">AWSSESBulkEmailDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESBulkEmailDestinationStatus.html">AWSSESBulkEmailDestinationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCloneReceiptRuleSetRequest.html">AWSSESCloneReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCloneReceiptRuleSetResponse">AWSSESCloneReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCloudWatchDestination.html">AWSSESCloudWatchDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCloudWatchDimensionConfiguration.html">AWSSESCloudWatchDimensionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESConfigurationSet.html">AWSSESConfigurationSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESContent.html">AWSSESContent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateConfigurationSetEventDestinationRequest.html">AWSSESCreateConfigurationSetEventDestinationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateConfigurationSetEventDestinationResponse">AWSSESCreateConfigurationSetEventDestinationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateConfigurationSetRequest.html">AWSSESCreateConfigurationSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateConfigurationSetResponse">AWSSESCreateConfigurationSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateConfigurationSetTrackingOptionsRequest.html">AWSSESCreateConfigurationSetTrackingOptionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateConfigurationSetTrackingOptionsResponse">AWSSESCreateConfigurationSetTrackingOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateCustomVerificationEmailTemplateRequest.html">AWSSESCreateCustomVerificationEmailTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateReceiptFilterRequest.html">AWSSESCreateReceiptFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateReceiptFilterResponse">AWSSESCreateReceiptFilterResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateReceiptRuleRequest.html">AWSSESCreateReceiptRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateReceiptRuleResponse">AWSSESCreateReceiptRuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateReceiptRuleSetRequest.html">AWSSESCreateReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateReceiptRuleSetResponse">AWSSESCreateReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCreateTemplateRequest.html">AWSSESCreateTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESCreateTemplateResponse">AWSSESCreateTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESCustomVerificationEmailTemplate.html">AWSSESCustomVerificationEmailTemplate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteConfigurationSetEventDestinationRequest.html">AWSSESDeleteConfigurationSetEventDestinationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteConfigurationSetEventDestinationResponse">AWSSESDeleteConfigurationSetEventDestinationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteConfigurationSetRequest.html">AWSSESDeleteConfigurationSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteConfigurationSetResponse">AWSSESDeleteConfigurationSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteConfigurationSetTrackingOptionsRequest.html">AWSSESDeleteConfigurationSetTrackingOptionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteConfigurationSetTrackingOptionsResponse">AWSSESDeleteConfigurationSetTrackingOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteCustomVerificationEmailTemplateRequest.html">AWSSESDeleteCustomVerificationEmailTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteIdentityPolicyRequest.html">AWSSESDeleteIdentityPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteIdentityPolicyResponse">AWSSESDeleteIdentityPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteIdentityRequest.html">AWSSESDeleteIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteIdentityResponse">AWSSESDeleteIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteReceiptFilterRequest.html">AWSSESDeleteReceiptFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteReceiptFilterResponse">AWSSESDeleteReceiptFilterResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteReceiptRuleRequest.html">AWSSESDeleteReceiptRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteReceiptRuleResponse">AWSSESDeleteReceiptRuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteReceiptRuleSetRequest.html">AWSSESDeleteReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteReceiptRuleSetResponse">AWSSESDeleteReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteTemplateRequest.html">AWSSESDeleteTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDeleteTemplateResponse">AWSSESDeleteTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeleteVerifiedEmailAddressRequest.html">AWSSESDeleteVerifiedEmailAddressRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDeliveryOptions.html">AWSSESDeliveryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESDescribeActiveReceiptRuleSetRequest">AWSSESDescribeActiveReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeActiveReceiptRuleSetResponse.html">AWSSESDescribeActiveReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeConfigurationSetRequest.html">AWSSESDescribeConfigurationSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeConfigurationSetResponse.html">AWSSESDescribeConfigurationSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeReceiptRuleRequest.html">AWSSESDescribeReceiptRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeReceiptRuleResponse.html">AWSSESDescribeReceiptRuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeReceiptRuleSetRequest.html">AWSSESDescribeReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDescribeReceiptRuleSetResponse.html">AWSSESDescribeReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESDestination.html">AWSSESDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESEventDestination.html">AWSSESEventDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESExtensionField.html">AWSSESExtensionField</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetAccountSendingEnabledResponse.html">AWSSESGetAccountSendingEnabledResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetCustomVerificationEmailTemplateRequest.html">AWSSESGetCustomVerificationEmailTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetCustomVerificationEmailTemplateResponse.html">AWSSESGetCustomVerificationEmailTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityDkimAttributesRequest.html">AWSSESGetIdentityDkimAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityDkimAttributesResponse.html">AWSSESGetIdentityDkimAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityMailFromDomainAttributesRequest.html">AWSSESGetIdentityMailFromDomainAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityMailFromDomainAttributesResponse.html">AWSSESGetIdentityMailFromDomainAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityNotificationAttributesRequest.html">AWSSESGetIdentityNotificationAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityNotificationAttributesResponse.html">AWSSESGetIdentityNotificationAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityPoliciesRequest.html">AWSSESGetIdentityPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityPoliciesResponse.html">AWSSESGetIdentityPoliciesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityVerificationAttributesRequest.html">AWSSESGetIdentityVerificationAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetIdentityVerificationAttributesResponse.html">AWSSESGetIdentityVerificationAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetSendQuotaResponse.html">AWSSESGetSendQuotaResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetSendStatisticsResponse.html">AWSSESGetSendStatisticsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetTemplateRequest.html">AWSSESGetTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESGetTemplateResponse.html">AWSSESGetTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESIdentityDkimAttributes.html">AWSSESIdentityDkimAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESIdentityMailFromDomainAttributes.html">AWSSESIdentityMailFromDomainAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESIdentityNotificationAttributes.html">AWSSESIdentityNotificationAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESIdentityVerificationAttributes.html">AWSSESIdentityVerificationAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESKinesisFirehoseDestination.html">AWSSESKinesisFirehoseDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESLambdaAction.html">AWSSESLambdaAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListConfigurationSetsRequest.html">AWSSESListConfigurationSetsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListConfigurationSetsResponse.html">AWSSESListConfigurationSetsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListCustomVerificationEmailTemplatesRequest.html">AWSSESListCustomVerificationEmailTemplatesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListCustomVerificationEmailTemplatesResponse.html">AWSSESListCustomVerificationEmailTemplatesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListIdentitiesRequest.html">AWSSESListIdentitiesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListIdentitiesResponse.html">AWSSESListIdentitiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListIdentityPoliciesRequest.html">AWSSESListIdentityPoliciesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListIdentityPoliciesResponse.html">AWSSESListIdentityPoliciesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESListReceiptFiltersRequest">AWSSESListReceiptFiltersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListReceiptFiltersResponse.html">AWSSESListReceiptFiltersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListReceiptRuleSetsRequest.html">AWSSESListReceiptRuleSetsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListReceiptRuleSetsResponse.html">AWSSESListReceiptRuleSetsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListTemplatesRequest.html">AWSSESListTemplatesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListTemplatesResponse.html">AWSSESListTemplatesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESListVerifiedEmailAddressesResponse.html">AWSSESListVerifiedEmailAddressesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESMessage.html">AWSSESMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESMessageDsn.html">AWSSESMessageDsn</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESMessageTag.html">AWSSESMessageTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESPutConfigurationSetDeliveryOptionsRequest.html">AWSSESPutConfigurationSetDeliveryOptionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESPutConfigurationSetDeliveryOptionsResponse">AWSSESPutConfigurationSetDeliveryOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESPutIdentityPolicyRequest.html">AWSSESPutIdentityPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESPutIdentityPolicyResponse">AWSSESPutIdentityPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESRawMessage.html">AWSSESRawMessage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReceiptAction.html">AWSSESReceiptAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReceiptFilter.html">AWSSESReceiptFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReceiptIpFilter.html">AWSSESReceiptIpFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReceiptRule.html">AWSSESReceiptRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReceiptRuleSetMetadata.html">AWSSESReceiptRuleSetMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESRecipientDsnFields.html">AWSSESRecipientDsnFields</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReorderReceiptRuleSetRequest.html">AWSSESReorderReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESReorderReceiptRuleSetResponse">AWSSESReorderReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESReputationOptions.html">AWSSESReputationOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESResources.html">AWSSESResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESS3Action.html">AWSSESS3Action</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSNSAction.html">AWSSESSNSAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSNSDestination.html">AWSSESSNSDestination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendBounceRequest.html">AWSSESSendBounceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendBounceResponse.html">AWSSESSendBounceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendBulkTemplatedEmailRequest.html">AWSSESSendBulkTemplatedEmailRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendBulkTemplatedEmailResponse.html">AWSSESSendBulkTemplatedEmailResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendCustomVerificationEmailRequest.html">AWSSESSendCustomVerificationEmailRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendCustomVerificationEmailResponse.html">AWSSESSendCustomVerificationEmailResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendDataPoint.html">AWSSESSendDataPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendEmailRequest.html">AWSSESSendEmailRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendEmailResponse.html">AWSSESSendEmailResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendRawEmailRequest.html">AWSSESSendRawEmailRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendRawEmailResponse.html">AWSSESSendRawEmailResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendTemplatedEmailRequest.html">AWSSESSendTemplatedEmailRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSendTemplatedEmailResponse.html">AWSSESSendTemplatedEmailResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetActiveReceiptRuleSetRequest.html">AWSSESSetActiveReceiptRuleSetRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetActiveReceiptRuleSetResponse">AWSSESSetActiveReceiptRuleSetResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetIdentityDkimEnabledRequest.html">AWSSESSetIdentityDkimEnabledRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetIdentityDkimEnabledResponse">AWSSESSetIdentityDkimEnabledResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetIdentityFeedbackForwardingEnabledRequest.html">AWSSESSetIdentityFeedbackForwardingEnabledRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetIdentityFeedbackForwardingEnabledResponse">AWSSESSetIdentityFeedbackForwardingEnabledResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetIdentityHeadersInNotificationsEnabledRequest.html">AWSSESSetIdentityHeadersInNotificationsEnabledRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetIdentityHeadersInNotificationsEnabledResponse">AWSSESSetIdentityHeadersInNotificationsEnabledResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetIdentityMailFromDomainRequest.html">AWSSESSetIdentityMailFromDomainRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetIdentityMailFromDomainResponse">AWSSESSetIdentityMailFromDomainResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetIdentityNotificationTopicRequest.html">AWSSESSetIdentityNotificationTopicRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetIdentityNotificationTopicResponse">AWSSESSetIdentityNotificationTopicResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESSetReceiptRulePositionRequest.html">AWSSESSetReceiptRulePositionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESSetReceiptRulePositionResponse">AWSSESSetReceiptRulePositionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESStopAction.html">AWSSESStopAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESTemplate.html">AWSSESTemplate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESTemplateMetadata.html">AWSSESTemplateMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESTestRenderTemplateRequest.html">AWSSESTestRenderTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESTestRenderTemplateResponse.html">AWSSESTestRenderTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESTrackingOptions.html">AWSSESTrackingOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateAccountSendingEnabledRequest.html">AWSSESUpdateAccountSendingEnabledRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateConfigurationSetEventDestinationRequest.html">AWSSESUpdateConfigurationSetEventDestinationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESUpdateConfigurationSetEventDestinationResponse">AWSSESUpdateConfigurationSetEventDestinationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest.html">AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateConfigurationSetSendingEnabledRequest.html">AWSSESUpdateConfigurationSetSendingEnabledRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateConfigurationSetTrackingOptionsRequest.html">AWSSESUpdateConfigurationSetTrackingOptionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESUpdateConfigurationSetTrackingOptionsResponse">AWSSESUpdateConfigurationSetTrackingOptionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateCustomVerificationEmailTemplateRequest.html">AWSSESUpdateCustomVerificationEmailTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateReceiptRuleRequest.html">AWSSESUpdateReceiptRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESUpdateReceiptRuleResponse">AWSSESUpdateReceiptRuleResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESUpdateTemplateRequest.html">AWSSESUpdateTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESUpdateTemplateResponse">AWSSESUpdateTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESVerifyDomainDkimRequest.html">AWSSESVerifyDomainDkimRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESVerifyDomainDkimResponse.html">AWSSESVerifyDomainDkimResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESVerifyDomainIdentityRequest.html">AWSSESVerifyDomainIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESVerifyDomainIdentityResponse.html">AWSSESVerifyDomainIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESVerifyEmailAddressRequest.html">AWSSESVerifyEmailAddressRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESVerifyEmailIdentityRequest.html">AWSSESVerifyEmailIdentityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSSESVerifyEmailIdentityResponse">AWSSESVerifyEmailIdentityResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSSESWorkmailAction.html">AWSSESWorkmailAction</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSESErrorDomain">AWSSESErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSESSDKVersion">AWSSESSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSESVersionNumber">AWSSESVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSSESVersionString">AWSSESVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESBehaviorOnMXFailure.html">AWSSESBehaviorOnMXFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESBounceType.html">AWSSESBounceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESBulkEmailStatus.html">AWSSESBulkEmailStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESConfigurationSetAttribute.html">AWSSESConfigurationSetAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESCustomMailFromStatus.html">AWSSESCustomMailFromStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESDimensionValueSource.html">AWSSESDimensionValueSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESDsnAction.html">AWSSESDsnAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESErrorType.html">AWSSESErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESEventType.html">AWSSESEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESIdentityType.html">AWSSESIdentityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESInvocationType.html">AWSSESInvocationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESNotificationType.html">AWSSESNotificationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESReceiptFilterPolicy.html">AWSSESReceiptFilterPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESSNSActionEncoding.html">AWSSESSNSActionEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESStopScope.html">AWSSESStopScope</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESTlsPolicy.html">AWSSESTlsPolicy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSSESVerificationStatus.html">AWSSESVerificationStatus</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSSESSetActiveReceiptRuleSetRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSSESSetActiveReceiptRuleSetRequest</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSSESSetActiveReceiptRuleSetRequest(py)ruleSetName"></a>
+                    <a name="//apple_ref/objc/Property/ruleSetName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSSESSetActiveReceiptRuleSetRequest(py)ruleSetName">ruleSetName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the receipt rule set to make active. Setting this value to null disables all email receiving.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">ruleSetName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">ruleSetName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
