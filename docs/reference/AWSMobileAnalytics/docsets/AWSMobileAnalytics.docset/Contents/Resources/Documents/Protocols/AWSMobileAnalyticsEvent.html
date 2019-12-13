@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSMobileAnalyticsEvent Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/AWSMobileAnalyticsEvent" class="dashAnchor"></a>
+    <a title="AWSMobileAnalyticsEvent Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSMobileAnalytics 2.12.3 Docs</a> (57% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileAnalytics%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSMobileAnalytics Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSMobileAnalyticsEvent Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalytics.html">AWSMobileAnalytics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsAppleMonetizationEventBuilder.html">AWSMobileAnalyticsAppleMonetizationEventBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsConfiguration.html">AWSMobileAnalyticsConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERS.html">AWSMobileAnalyticsERS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSEvent.html">AWSMobileAnalyticsERSEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSPutEventsInput.html">AWSMobileAnalyticsERSPutEventsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSResources.html">AWSMobileAnalyticsERSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSSession.html">AWSMobileAnalyticsERSSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsEnvironment.html">AWSMobileAnalyticsEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsMonetizationEventBuilder.html">AWSMobileAnalyticsMonetizationEventBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsVirtualMonetizationEventBuilder.html">AWSMobileAnalyticsVirtualMonetizationEventBuilder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsERSErrorDomain">AWSMobileAnalyticsERSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsERSSDKVersion">AWSMobileAnalyticsERSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsVersionNumber">AWSMobileAnalyticsVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsVersionString">AWSMobileAnalyticsVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAppIdentificationStrategy.html">AWSAppIdentificationStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMobileAnalyticsERSErrorType.html">AWSMobileAnalyticsERSErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsEventClient.html">AWSMobileAnalyticsEventClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsOptions.html">AWSMobileAnalyticsOptions</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSMobileAnalyticsService.h@T@AWSInitializationCompletionBlock">AWSInitializationCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSMobileAnalyticsEvent</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">AWSMobileAnalyticsEvent</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents the visit or conversion event of an A/B test,
+or may also be used to collect useful information in your application.</p>
+
+<p>The example below demonstrates how to record view and conversion events. The <code>@&quot;level1Complete&quot;</code> event represents the view event,
+and if the user makes a purchase, the code below records a <code>@&quot;level1UserBoughtUpgrade&quot;</code> event as the conversion event.</p>
+
+<p>// get the event client from insights instance
+ id<AWSMobileAnalyticsEventClient> eventClient = insights.eventClient;</p>
+
+<p>// create the view event
+ id<AWSMobileAnalyticsEvent> level1Event = [eventClient createEventWithEventType:@&ldquo;level1Complete&rdquo;];</p>
+
+<p>// record the view event
+ [eventClient recordEvent:level1Event];</p>
+
+<p>// record if the user bought an upgrade (conversion)
+ if (userBoughtUpgrade) {
+    // create the conversion event
+    id<AWSMobileAnalyticsEvent> boughtUpgradeEvent = [eventClient createEventWithEventType:@&ldquo;level1UserBoughtUpgrade&rdquo;];</p>
+<pre class="highlight objective_c"><code><span class="c1">// record the conversion event</span>
+<span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">boughtUpgradeEvent</span><span class="p">];</span>
+</code></pre>
+
+<p>}</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(py)eventType"></a>
+                    <a name="//apple_ref/objc/Property/eventType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(py)eventType">eventType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span><span class="o">*</span> <span class="n">eventType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">eventType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)addAttribute:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-addAttribute:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)addAttribute:forKey:">-addAttribute:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theValue</span>
+              <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">theValue</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)addMetric:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-addMetric:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)addMetric:forKey:">-addMetric:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addMetric</span><span class="p">:(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">theValue</span>
+           <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addMetric</span><span class="p">(</span><span class="n">_</span> <span class="nv">theValue</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)attributeForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-attributeForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)attributeForKey:">-attributeForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">attributeForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">attribute</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)metricForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-metricForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)metricForKey:">-metricForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nf">metricForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">metric</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSNumber</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)hasAttributeForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-hasAttributeForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)hasAttributeForKey:">-hasAttributeForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">hasAttributeForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">hasAttribute</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)hasMetricForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-hasMetricForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)hasMetricForKey:">-hasMetricForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">hasMetricForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">hasMetric</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)allAttributes"></a>
+                    <a name="//apple_ref/objc/Method/-allAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)allAttributes">-allAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span><span class="o">*</span><span class="p">)</span> <span class="n">allAttributes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">allAttributes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEvent(im)allMetrics"></a>
+                    <a name="//apple_ref/objc/Method/-allMetrics" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEvent(im)allMetrics">-allMetrics</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span><span class="o">*</span><span class="p">)</span> <span class="n">allMetrics</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">allMetrics</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

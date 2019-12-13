@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSMobileAnalyticsEventClient Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Protocol/AWSMobileAnalyticsEventClient" class="dashAnchor"></a>
+    <a title="AWSMobileAnalyticsEventClient Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSMobileAnalytics 2.12.3 Docs</a> (57% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileAnalytics%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSMobileAnalytics Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSMobileAnalyticsEventClient Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalytics.html">AWSMobileAnalytics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsAppleMonetizationEventBuilder.html">AWSMobileAnalyticsAppleMonetizationEventBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsConfiguration.html">AWSMobileAnalyticsConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERS.html">AWSMobileAnalyticsERS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSEvent.html">AWSMobileAnalyticsERSEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSPutEventsInput.html">AWSMobileAnalyticsERSPutEventsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSResources.html">AWSMobileAnalyticsERSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSSession.html">AWSMobileAnalyticsERSSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsEnvironment.html">AWSMobileAnalyticsEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsMonetizationEventBuilder.html">AWSMobileAnalyticsMonetizationEventBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsVirtualMonetizationEventBuilder.html">AWSMobileAnalyticsVirtualMonetizationEventBuilder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsERSErrorDomain">AWSMobileAnalyticsERSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsERSSDKVersion">AWSMobileAnalyticsERSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsVersionNumber">AWSMobileAnalyticsVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsVersionString">AWSMobileAnalyticsVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAppIdentificationStrategy.html">AWSAppIdentificationStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMobileAnalyticsERSErrorType.html">AWSMobileAnalyticsERSErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsEventClient.html">AWSMobileAnalyticsEventClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsOptions.html">AWSMobileAnalyticsOptions</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSMobileAnalyticsService.h@T@AWSInitializationCompletionBlock">AWSInitializationCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSMobileAnalyticsEventClient</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">AWSMobileAnalyticsEventClient</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span></code></pre>
+
+                </div>
+              </div>
+            <p>AWSMobileAnalyticsEventClient is the entry point into the Mobile Analytics SDK where AWSMobileAnalyticsEvent objects are created,
+ recorded, and submitted to the Mobile Analytics Website.</p>
+
+<p><h3>Recording Events</h3>
+ <p>
+ The example below demonstrates how to create and record events after retrieving an AIVariation. In this example,
+ the developer records the <em>\@&ldquo;level1Complete&rdquo;</em> event to represent a view, and if the user makes
+ a purchase, the developer records a <em>\@&ldquo;level1UserBoughtUpgrade&rdquo;</em> to represent a conversion.
+ </p>
+ Example:
+ @code
+ // get the event client from insights instance
+ id<AWSMobileAnalyticsEventClient> eventClient = insights.eventClient;</p>
+
+<p>// create the view event
+ id<AWSMobileAnalyticsEvent> level1Event = [eventClient createEventWithEventType:@&ldquo;level1Complete&rdquo;];</p>
+
+<p>// record the view event
+ [eventClient recordEvent:level1Event];</p>
+
+<p>// record if the user bought an upgrade (conversion)
+ if (userBoughtUpgrade) {
+    // create the conversion event
+    id<AWSMobileAnalyticsEvent> boughtUpgradeEvent = [eventClient createEventWithEventType:@&ldquo;level1UserBoughtUpgrade&rdquo;];</p>
+<pre class="highlight objective_c"><code><span class="c1">// record the conversion event</span>
+<span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">boughtUpgradeEvent</span><span class="p">];</span>
+</code></pre>
+
+<p>}
+ @endcode</p>
+
+<p><h3>Submitting Events</h3>
+ <p>
+ The example below demonstrates how to submit events to the Mobile Analytics Website.
+ The SDK will automatically attempt to submit events when the application goes into the background. If you want to explicitly submit events you can invoke the AWSMobileAnalyticsEventClient::submitEvents selector to submit events to the Mobile Analytics Website in a background thread.
+ </p>
+ Example:
+ @code
+ // get the event client from insights instance
+ id<AWSMobileAnalyticsEventClient> eventClient = insights.eventClient;</p>
+
+<p>// submit events to the website
+ [eventClient submitEvents];
+ @endcode
+ The SDK ensures that you do not submit events too frequently. If you try submitting events within one minute of a previous
+ submission, the submission request will be ignored.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalAttribute:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-addGlobalAttribute:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalAttribute:forKey:">-addGlobalAttribute:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addGlobalAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theValue</span>
+                    <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addGlobalAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">theValue</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalAttribute:forKey:forEventType:"></a>
+                    <a name="//apple_ref/objc/Method/-addGlobalAttribute:forKey:forEventType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalAttribute:forKey:forEventType:">-addGlobalAttribute:forKey:forEventType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addGlobalAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theValue</span>
+                    <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span>
+              <span class="nf">forEventType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theEventType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addGlobalAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">theValue</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forEventType</span> <span class="nv">theEventType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalMetric:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-addGlobalMetric:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalMetric:forKey:">-addGlobalMetric:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addGlobalMetric</span><span class="p">:(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">theValue</span>
+                 <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addGlobalMetric</span><span class="p">(</span><span class="n">_</span> <span class="nv">theValue</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalMetric:forKey:forEventType:"></a>
+                    <a name="//apple_ref/objc/Method/-addGlobalMetric:forKey:forEventType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)addGlobalMetric:forKey:forEventType:">-addGlobalMetric:forKey:forEventType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">addGlobalMetric</span><span class="p">:(</span><span class="n">NSNumber</span> <span class="o">*</span><span class="p">)</span><span class="nv">theValue</span>
+                 <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theKey</span>
+           <span class="nf">forEventType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theEventType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addGlobalMetric</span><span class="p">(</span><span class="n">_</span> <span class="nv">theValue</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forEventType</span> <span class="nv">theEventType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalAttributeForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-removeGlobalAttributeForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalAttributeForKey:">-removeGlobalAttributeForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeGlobalAttributeForKey</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeGlobalAttribute</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalAttributeForKey:forEventType:"></a>
+                    <a name="//apple_ref/objc/Method/-removeGlobalAttributeForKey:forEventType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalAttributeForKey:forEventType:">-removeGlobalAttributeForKey:forEventType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeGlobalAttributeForKey</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">theKey</span>
+                       <span class="n">forEventType</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">theEventType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeGlobalAttribute</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forEventType</span> <span class="nv">theEventType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalMetricForKey:"></a>
+                    <a name="//apple_ref/objc/Method/-removeGlobalMetricForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalMetricForKey:">-removeGlobalMetricForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeGlobalMetricForKey</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">theKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeGlobalMetric</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalMetricForKey:forEventType:"></a>
+                    <a name="//apple_ref/objc/Method/-removeGlobalMetricForKey:forEventType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)removeGlobalMetricForKey:forEventType:">-removeGlobalMetricForKey:forEventType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeGlobalMetricForKey</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">theKey</span>
+                    <span class="n">forEventType</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">theEventType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeGlobalMetric</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">theKey</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">forEventType</span> <span class="nv">theEventType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)recordEvent:"></a>
+                    <a name="//apple_ref/objc/Method/-recordEvent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)recordEvent:">-recordEvent:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">recordEvent</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">theEvent</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">record</span><span class="p">(</span><span class="n">_</span> <span class="nv">theEvent</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)createEventWithEventType:"></a>
+                    <a name="//apple_ref/objc/Method/-createEventWithEventType:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)createEventWithEventType:">-createEventWithEventType:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nf">createEventWithEventType</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theEventType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createEvent</span><span class="p">(</span><span class="n">withEventType</span> <span class="nv">theEventType</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSMobileAnalyticsEventClient(im)submitEvents"></a>
+                    <a name="//apple_ref/objc/Method/-submitEvents" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSMobileAnalyticsEventClient(im)submitEvents">-submitEvents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">submitEvents</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">submitEvents</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

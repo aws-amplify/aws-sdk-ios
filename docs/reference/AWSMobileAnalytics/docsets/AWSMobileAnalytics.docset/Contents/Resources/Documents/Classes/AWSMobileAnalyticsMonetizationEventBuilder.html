@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSMobileAnalyticsMonetizationEventBuilder Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSMobileAnalyticsMonetizationEventBuilder" class="dashAnchor"></a>
+    <a title="AWSMobileAnalyticsMonetizationEventBuilder Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSMobileAnalytics 2.12.3 Docs</a> (57% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileAnalytics%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSMobileAnalytics Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSMobileAnalyticsMonetizationEventBuilder Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalytics.html">AWSMobileAnalytics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsAppleMonetizationEventBuilder.html">AWSMobileAnalyticsAppleMonetizationEventBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsConfiguration.html">AWSMobileAnalyticsConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERS.html">AWSMobileAnalyticsERS</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSEvent.html">AWSMobileAnalyticsERSEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSPutEventsInput.html">AWSMobileAnalyticsERSPutEventsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSResources.html">AWSMobileAnalyticsERSResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsERSSession.html">AWSMobileAnalyticsERSSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsEnvironment.html">AWSMobileAnalyticsEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsMonetizationEventBuilder.html">AWSMobileAnalyticsMonetizationEventBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileAnalyticsVirtualMonetizationEventBuilder.html">AWSMobileAnalyticsVirtualMonetizationEventBuilder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsERSErrorDomain">AWSMobileAnalyticsERSErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsERSSDKVersion">AWSMobileAnalyticsERSSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsVersionNumber">AWSMobileAnalyticsVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSMobileAnalyticsVersionString">AWSMobileAnalyticsVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAppIdentificationStrategy.html">AWSAppIdentificationStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMobileAnalyticsERSErrorType.html">AWSMobileAnalyticsERSErrorType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsEventClient.html">AWSMobileAnalyticsEventClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSMobileAnalyticsOptions.html">AWSMobileAnalyticsOptions</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Type%20Definitions.html">Type Definitions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSMobileAnalyticsService.h@T@AWSInitializationCompletionBlock">AWSInitializationCompletionBlock</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSMobileAnalyticsMonetizationEventBuilder</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMobileAnalyticsMonetizationEventBuilder</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>Base class for handling the required attributes and metrics for monetization Events. This
+class is not meant to be instantiated. Instead, create instances specific to the purchase
+you are trying to record. Currently, AWSMobileAnalyticsVirtualMonetizationEventBuilder is used to create
+monetization events for virtual purchases, and AWSMobileAnalyticsAppleMonetizationEventBuilder is used
+to create monetization events for purchases with Apple&rsquo;s IAP framework.</p>
+
+<p>This class can be extended if you need to record monetization events from other 
+purchase frameworks. Derived classes must override the AWSMobileAnalyticsMonetizationEventBuilder::isValid
+method so that AWSMobileAnalyticsMonetizationEventBuilder knows if the derived builder is in a valid state.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)build"></a>
+                    <a name="//apple_ref/objc/Method/-build" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)build">-build</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Builds an AWSMobileAnalyticsEvent using the current state of the builder.
+@returns an AWSMobileAnalyticsEvent or nil, if the builder is in an invalid state</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a></span><span class="o">&gt;</span><span class="p">)</span><span class="n">build</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">build</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/AWSMobileAnalyticsEvent.html">AWSMobileAnalyticsEvent</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)isValid"></a>
+                    <a name="//apple_ref/objc/Method/-isValid" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)isValid">-isValid</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines if this builder is in a valid state. This method must be overridden in derived classes.
+@returns YES if the Builder is valid, NO otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">isValid</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">isValid</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)initWithEventClient:"></a>
+                    <a name="//apple_ref/objc/Method/-initWithEventClient:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)initWithEventClient:">-initWithEventClient:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the AWSMobileAnalyticsMonetizationEventBuilder. This class is not meant to be initialized directly. This method should
+only be called/overridden by derived builders.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithEventClient</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMobileAnalyticsEventClient.html">AWSMobileAnalyticsEventClient</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">theEventClient</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="o">!</span><span class="p">(</span><span class="n">eventClient</span> <span class="nv">theEventClient</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AWSMobileAnalyticsEventClient.html">AWSMobileAnalyticsEventClient</a></span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)productId"></a>
+                    <a name="//apple_ref/objc/Method/-productId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)productId">-productId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The product id that will be used to build the monetization event
+@returns The product id</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">productId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">productId</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setProductId:"></a>
+                    <a name="//apple_ref/objc/Method/-setProductId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setProductId:">-setProductId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the product id to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setProductId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theProductId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setProductId</span><span class="p">(</span><span class="n">_</span> <span class="nv">theProductId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theProductId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the product id of the item being purchased</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)quantity"></a>
+                    <a name="//apple_ref/objc/Method/-quantity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)quantity">-quantity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The quantity that will be used to build the monetization event
+@returns The quantity of items purchased</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="n">quantity</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">quantity</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setQuantity:"></a>
+                    <a name="//apple_ref/objc/Method/-setQuantity:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setQuantity:">-setQuantity:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the quantity to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setQuantity</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">theQuantity</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setQuantity</span><span class="p">(</span><span class="n">_</span> <span class="nv">theQuantity</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theQuantity</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the quantity of the item being purchased</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)itemPrice"></a>
+                    <a name="//apple_ref/objc/Method/-itemPrice" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)itemPrice">-itemPrice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The numerical price of the item being purchased that will be used to build the monetization event
+@returns The numerical item price</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">itemPrice</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">itemPrice</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setItemPrice:"></a>
+                    <a name="//apple_ref/objc/Method/-setItemPrice:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setItemPrice:">-setItemPrice:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the numerical item price to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setItemPrice</span><span class="p">:(</span><span class="kt">double</span><span class="p">)</span><span class="nv">theItemPrice</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setItemPrice</span><span class="p">(</span><span class="n">_</span> <span class="nv">theItemPrice</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theItemPrice</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the price of the item being purchased</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)formattedItemPrice"></a>
+                    <a name="//apple_ref/objc/Method/-formattedItemPrice" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)formattedItemPrice">-formattedItemPrice</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The formatted item price that will be used to build the monetization event
+@returns The item price formatted with its currency</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">formattedItemPrice</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">formattedItemPrice</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setFormattedItemPrice:"></a>
+                    <a name="//apple_ref/objc/Method/-setFormattedItemPrice:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setFormattedItemPrice:">-setFormattedItemPrice:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the formatted item price in its local currency to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setFormattedItemPrice</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theFormattedItemPrice</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setFormattedItemPrice</span><span class="p">(</span><span class="n">_</span> <span class="nv">theFormattedItemPrice</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theFormattedItemPrice</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the formatted item price in its local currency</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)transactionId"></a>
+                    <a name="//apple_ref/objc/Method/-transactionId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)transactionId">-transactionId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The transaction id that will be used to build the monetization event
+@returns The transaction id</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">transactionId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">transactionId</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setTransactionId:"></a>
+                    <a name="//apple_ref/objc/Method/-setTransactionId:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setTransactionId:">-setTransactionId:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the transaction id to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setTransactionId</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theTransactionId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setTransactionId</span><span class="p">(</span><span class="n">_</span> <span class="nv">theTransactionId</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theTransactionId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the transaction id of the purchase</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)currency"></a>
+                    <a name="//apple_ref/objc/Method/-currency" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)currency">-currency</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The currency that be used to build the monetization event
+@returns The currency</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">currency</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">currency</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setCurrency:"></a>
+                    <a name="//apple_ref/objc/Method/-setCurrency:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setCurrency:">-setCurrency:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the currency of the item price to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCurrency</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theCurrency</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setCurrency</span><span class="p">(</span><span class="n">_</span> <span class="nv">theCurrency</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theCurrency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the ISO currency code or virtual curreny name of the item price</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)store"></a>
+                    <a name="//apple_ref/objc/Method/-store" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)store">-store</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the Store where this purchase was made. For example &ldquo;Apple&rdquo; for purchases
+originating from the Apple IAP Store, or &ldquo;Virtual&rdquo; if the purchase was performed in your in-game store.
+@returns The store of the purchase</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">store</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">store</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setStore:"></a>
+                    <a name="//apple_ref/objc/Method/-setStore:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSMobileAnalyticsMonetizationEventBuilder(im)setStore:">-setStore:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the name of the Store to use when building the monetization event</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setStore</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">theStore</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setStore</span><span class="p">(</span><span class="n">_</span> <span class="nv">theStore</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>theStore</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the store where the purchase originated from (i.e. &ldquo;Apple&rdquo; or &ldquo;Virtual&rdquo;)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
