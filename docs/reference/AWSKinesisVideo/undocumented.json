@@ -1,0 +1,439 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideo.h",
+      "line": 28,
+      "symbol": "AWSKinesisVideoVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideo.h",
+      "line": 39,
+      "symbol": "AWSKinesisVideoVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 22,
+      "symbol": "AWSKinesisVideoErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 24,
+      "symbol": "AWSKinesisVideoErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 24,
+      "symbol": "AWSKinesisVideoErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 25,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 26,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 27,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorAccountChannelLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 28,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorAccountStreamLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 29,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorClientLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 30,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorDeviceStreamLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 31,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorInvalidArgument",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 32,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorInvalidDevice",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 33,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorInvalidResourceFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 34,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorNotAuthorized",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 35,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorResourceInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 36,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 37,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorTagsPerResourceExceededLimit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 38,
+      "symbol": "AWSKinesisVideoErrorType.AWSKinesisVideoErrorVersionMismatch",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 41,
+      "symbol": "AWSKinesisVideoAPIName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 41,
+      "symbol": "AWSKinesisVideoAPIName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 42,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 43,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINamePutMedia",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 44,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetMedia",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 45,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameListFragments",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 46,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetMediaForFragmentList",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 47,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetHlsStreamingSessionUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 48,
+      "symbol": "AWSKinesisVideoAPIName.AWSKinesisVideoAPINameGetDashStreamingSessionUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 51,
+      "symbol": "AWSKinesisVideoChannelProtocol",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 51,
+      "symbol": "AWSKinesisVideoChannelProtocol",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 52,
+      "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 53,
+      "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolWss",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 54,
+      "symbol": "AWSKinesisVideoChannelProtocol.AWSKinesisVideoChannelProtocolHttps",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 57,
+      "symbol": "AWSKinesisVideoChannelRole",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 57,
+      "symbol": "AWSKinesisVideoChannelRole",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 58,
+      "symbol": "AWSKinesisVideoChannelRole.AWSKinesisVideoChannelRoleUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 59,
+      "symbol": "AWSKinesisVideoChannelRole.AWSKinesisVideoChannelRoleMaster",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 60,
+      "symbol": "AWSKinesisVideoChannelRole.AWSKinesisVideoChannelRoleViewer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 63,
+      "symbol": "AWSKinesisVideoChannelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 63,
+      "symbol": "AWSKinesisVideoChannelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 64,
+      "symbol": "AWSKinesisVideoChannelType.AWSKinesisVideoChannelTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 65,
+      "symbol": "AWSKinesisVideoChannelType.AWSKinesisVideoChannelTypeSingleMaster",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 68,
+      "symbol": "AWSKinesisVideoComparisonOperator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 68,
+      "symbol": "AWSKinesisVideoComparisonOperator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 69,
+      "symbol": "AWSKinesisVideoComparisonOperator.AWSKinesisVideoComparisonOperatorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 70,
+      "symbol": "AWSKinesisVideoComparisonOperator.AWSKinesisVideoComparisonOperatorBeginsWith",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 73,
+      "symbol": "AWSKinesisVideoStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 73,
+      "symbol": "AWSKinesisVideoStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 74,
+      "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 75,
+      "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 76,
+      "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 77,
+      "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 78,
+      "symbol": "AWSKinesisVideoStatus.AWSKinesisVideoStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 81,
+      "symbol": "AWSKinesisVideoUpdateDataRetentionOperation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 81,
+      "symbol": "AWSKinesisVideoUpdateDataRetentionOperation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 82,
+      "symbol": "AWSKinesisVideoUpdateDataRetentionOperation.AWSKinesisVideoUpdateDataRetentionOperationUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 83,
+      "symbol": "AWSKinesisVideoUpdateDataRetentionOperation.AWSKinesisVideoUpdateDataRetentionOperationIncreaseDataRetention",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoModel.h",
+      "line": 84,
+      "symbol": "AWSKinesisVideoUpdateDataRetentionOperation.AWSKinesisVideoUpdateDataRetentionOperationDecreaseDataRetention",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoResources.h",
+      "line": 18,
+      "symbol": "AWSKinesisVideoResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoResources.h",
+      "line": 20,
+      "symbol": "AWSKinesisVideoResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoResources.h",
+      "line": 22,
+      "symbol": "AWSKinesisVideoResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesisVideo/AWSKinesisVideoService.h",
+      "line": 24,
+      "symbol": "AWSKinesisVideoSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
