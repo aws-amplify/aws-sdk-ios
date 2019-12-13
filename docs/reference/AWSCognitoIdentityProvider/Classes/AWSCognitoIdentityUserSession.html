@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSCognitoIdentityUserSession Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSCognitoIdentityUserSession" class="dashAnchor"></a>
+    <a title="AWSCognitoIdentityUserSession Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.12.3 Docs</a> (78% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSCognitoIdentityProvider Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSCognitoIdentityUserSession Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCustomAuthenticationInput.html">AWSCognitoIdentityCustomAuthenticationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityCustomChallengeDetails.html">AWSCognitoIdentityCustomChallengeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityNewPasswordRequiredDetails.html">AWSCognitoIdentityNewPasswordRequiredDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityNewPasswordRequiredInput.html">AWSCognitoIdentityNewPasswordRequiredInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityPasswordAuthenticationDetails.html">AWSCognitoIdentityPasswordAuthenticationDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityPasswordAuthenticationInput.html">AWSCognitoIdentityPasswordAuthenticationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProvider.html">AWSCognitoIdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAccountRecoverySettingType.html">AWSCognitoIdentityProviderAccountRecoverySettingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAccountTakeoverActionType.html">AWSCognitoIdentityProviderAccountTakeoverActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAccountTakeoverActionsType.html">AWSCognitoIdentityProviderAccountTakeoverActionsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType.html">AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAddCustomAttributesRequest.html">AWSCognitoIdentityProviderAddCustomAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAddCustomAttributesResponse">AWSCognitoIdentityProviderAddCustomAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminAddUserToGroupRequest.html">AWSCognitoIdentityProviderAdminAddUserToGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminConfirmSignUpRequest.html">AWSCognitoIdentityProviderAdminConfirmSignUpRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminConfirmSignUpResponse">AWSCognitoIdentityProviderAdminConfirmSignUpResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserConfigType.html">AWSCognitoIdentityProviderAdminCreateUserConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserRequest.html">AWSCognitoIdentityProviderAdminCreateUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminCreateUserResponse.html">AWSCognitoIdentityProviderAdminCreateUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest.html">AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse">AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminDeleteUserRequest.html">AWSCognitoIdentityProviderAdminDeleteUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminDisableProviderForUserRequest.html">AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDisableProviderForUserResponse">AWSCognitoIdentityProviderAdminDisableProviderForUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminDisableUserRequest.html">AWSCognitoIdentityProviderAdminDisableUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminDisableUserResponse">AWSCognitoIdentityProviderAdminDisableUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminEnableUserRequest.html">AWSCognitoIdentityProviderAdminEnableUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminEnableUserResponse">AWSCognitoIdentityProviderAdminEnableUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminForgetDeviceRequest.html">AWSCognitoIdentityProviderAdminForgetDeviceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminGetDeviceRequest.html">AWSCognitoIdentityProviderAdminGetDeviceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminGetDeviceResponse.html">AWSCognitoIdentityProviderAdminGetDeviceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminGetUserRequest.html">AWSCognitoIdentityProviderAdminGetUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminGetUserResponse.html">AWSCognitoIdentityProviderAdminGetUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminInitiateAuthRequest.html">AWSCognitoIdentityProviderAdminInitiateAuthRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminInitiateAuthResponse.html">AWSCognitoIdentityProviderAdminInitiateAuthResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest.html">AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminLinkProviderForUserResponse">AWSCognitoIdentityProviderAdminLinkProviderForUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminListDevicesRequest.html">AWSCognitoIdentityProviderAdminListDevicesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminListDevicesResponse.html">AWSCognitoIdentityProviderAdminListDevicesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminListGroupsForUserRequest.html">AWSCognitoIdentityProviderAdminListGroupsForUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminListGroupsForUserResponse.html">AWSCognitoIdentityProviderAdminListGroupsForUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminListUserAuthEventsRequest.html">AWSCognitoIdentityProviderAdminListUserAuthEventsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminListUserAuthEventsResponse.html">AWSCognitoIdentityProviderAdminListUserAuthEventsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest.html">AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminResetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminResetUserPasswordRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminResetUserPasswordResponse">AWSCognitoIdentityProviderAdminResetUserPasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest.html">AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse">AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminSetUserPasswordRequest.html">AWSCognitoIdentityProviderAdminSetUserPasswordRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserPasswordResponse">AWSCognitoIdentityProviderAdminSetUserPasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminSetUserSettingsRequest.html">AWSCognitoIdentityProviderAdminSetUserSettingsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminSetUserSettingsResponse">AWSCognitoIdentityProviderAdminSetUserSettingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest.html">AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse">AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest.html">AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse">AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest.html">AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse">AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest.html">AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse">AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAnalyticsConfigurationType.html">AWSCognitoIdentityProviderAnalyticsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAnalyticsMetadataType.html">AWSCognitoIdentityProviderAnalyticsMetadataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenRequest.html">AWSCognitoIdentityProviderAssociateSoftwareTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenResponse.html">AWSCognitoIdentityProviderAssociateSoftwareTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAttributeType.html">AWSCognitoIdentityProviderAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAuthEventType.html">AWSCognitoIdentityProviderAuthEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderAuthenticationResultType.html">AWSCognitoIdentityProviderAuthenticationResultType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderChallengeResponseType.html">AWSCognitoIdentityProviderChallengeResponseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderChangePasswordRequest.html">AWSCognitoIdentityProviderChangePasswordRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderChangePasswordResponse">AWSCognitoIdentityProviderChangePasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">AWSCognitoIdentityProviderCodeDeliveryDetailsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCompromisedCredentialsActionsType.html">AWSCognitoIdentityProviderCompromisedCredentialsActionsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType.html">AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderConfirmDeviceRequest.html">AWSCognitoIdentityProviderConfirmDeviceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderConfirmDeviceResponse.html">AWSCognitoIdentityProviderConfirmDeviceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderConfirmForgotPasswordRequest.html">AWSCognitoIdentityProviderConfirmForgotPasswordRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderConfirmForgotPasswordResponse">AWSCognitoIdentityProviderConfirmForgotPasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderConfirmSignUpRequest.html">AWSCognitoIdentityProviderConfirmSignUpRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderConfirmSignUpResponse">AWSCognitoIdentityProviderConfirmSignUpResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderContextDataType.html">AWSCognitoIdentityProviderContextDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateGroupRequest.html">AWSCognitoIdentityProviderCreateGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateGroupResponse.html">AWSCognitoIdentityProviderCreateGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateIdentityProviderRequest.html">AWSCognitoIdentityProviderCreateIdentityProviderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateIdentityProviderResponse.html">AWSCognitoIdentityProviderCreateIdentityProviderResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateResourceServerRequest.html">AWSCognitoIdentityProviderCreateResourceServerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateResourceServerResponse.html">AWSCognitoIdentityProviderCreateResourceServerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserImportJobRequest.html">AWSCognitoIdentityProviderCreateUserImportJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserImportJobResponse.html">AWSCognitoIdentityProviderCreateUserImportJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolClientRequest.html">AWSCognitoIdentityProviderCreateUserPoolClientRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolClientResponse.html">AWSCognitoIdentityProviderCreateUserPoolClientResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolDomainRequest.html">AWSCognitoIdentityProviderCreateUserPoolDomainRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolDomainResponse.html">AWSCognitoIdentityProviderCreateUserPoolDomainResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolRequest.html">AWSCognitoIdentityProviderCreateUserPoolRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCreateUserPoolResponse.html">AWSCognitoIdentityProviderCreateUserPoolResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCustomDomainConfigType.html">AWSCognitoIdentityProviderCustomDomainConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteGroupRequest.html">AWSCognitoIdentityProviderDeleteGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteIdentityProviderRequest.html">AWSCognitoIdentityProviderDeleteIdentityProviderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteResourceServerRequest.html">AWSCognitoIdentityProviderDeleteResourceServerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteUserAttributesRequest.html">AWSCognitoIdentityProviderDeleteUserAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderDeleteUserAttributesResponse">AWSCognitoIdentityProviderDeleteUserAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolClientRequest.html">AWSCognitoIdentityProviderDeleteUserPoolClientRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolDomainRequest.html">AWSCognitoIdentityProviderDeleteUserPoolDomainRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderDeleteUserPoolDomainResponse">AWSCognitoIdentityProviderDeleteUserPoolDomainResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteUserPoolRequest.html">AWSCognitoIdentityProviderDeleteUserPoolRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeleteUserRequest.html">AWSCognitoIdentityProviderDeleteUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeIdentityProviderRequest.html">AWSCognitoIdentityProviderDescribeIdentityProviderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeIdentityProviderResponse.html">AWSCognitoIdentityProviderDescribeIdentityProviderResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeResourceServerRequest.html">AWSCognitoIdentityProviderDescribeResourceServerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeResourceServerResponse.html">AWSCognitoIdentityProviderDescribeResourceServerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeRiskConfigurationRequest.html">AWSCognitoIdentityProviderDescribeRiskConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeRiskConfigurationResponse.html">AWSCognitoIdentityProviderDescribeRiskConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserImportJobRequest.html">AWSCognitoIdentityProviderDescribeUserImportJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserImportJobResponse.html">AWSCognitoIdentityProviderDescribeUserImportJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolClientRequest.html">AWSCognitoIdentityProviderDescribeUserPoolClientRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolClientResponse.html">AWSCognitoIdentityProviderDescribeUserPoolClientResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainRequest.html">AWSCognitoIdentityProviderDescribeUserPoolDomainRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse.html">AWSCognitoIdentityProviderDescribeUserPoolDomainResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolRequest.html">AWSCognitoIdentityProviderDescribeUserPoolRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDescribeUserPoolResponse.html">AWSCognitoIdentityProviderDescribeUserPoolResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeviceConfigurationType.html">AWSCognitoIdentityProviderDeviceConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType.html">AWSCognitoIdentityProviderDeviceSecretVerifierConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDeviceType.html">AWSCognitoIdentityProviderDeviceType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderDomainDescriptionType.html">AWSCognitoIdentityProviderDomainDescriptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderEmailConfigurationType.html">AWSCognitoIdentityProviderEmailConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderEventContextDataType.html">AWSCognitoIdentityProviderEventContextDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderEventFeedbackType.html">AWSCognitoIdentityProviderEventFeedbackType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderEventRiskType.html">AWSCognitoIdentityProviderEventRiskType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderForgetDeviceRequest.html">AWSCognitoIdentityProviderForgetDeviceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderForgotPasswordRequest.html">AWSCognitoIdentityProviderForgotPasswordRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderForgotPasswordResponse.html">AWSCognitoIdentityProviderForgotPasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetCSVHeaderRequest.html">AWSCognitoIdentityProviderGetCSVHeaderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetCSVHeaderResponse.html">AWSCognitoIdentityProviderGetCSVHeaderResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetDeviceRequest.html">AWSCognitoIdentityProviderGetDeviceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetDeviceResponse.html">AWSCognitoIdentityProviderGetDeviceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetGroupRequest.html">AWSCognitoIdentityProviderGetGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetGroupResponse.html">AWSCognitoIdentityProviderGetGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse.html">AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateRequest.html">AWSCognitoIdentityProviderGetSigningCertificateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetSigningCertificateResponse.html">AWSCognitoIdentityProviderGetSigningCertificateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUICustomizationRequest.html">AWSCognitoIdentityProviderGetUICustomizationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUICustomizationResponse.html">AWSCognitoIdentityProviderGetUICustomizationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest.html">AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse.html">AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest.html">AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse.html">AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUserRequest.html">AWSCognitoIdentityProviderGetUserRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGetUserResponse.html">AWSCognitoIdentityProviderGetUserResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGlobalSignOutRequest.html">AWSCognitoIdentityProviderGlobalSignOutRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderGlobalSignOutResponse">AWSCognitoIdentityProviderGlobalSignOutResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderGroupType.html">AWSCognitoIdentityProviderGroupType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderHttpHeader.html">AWSCognitoIdentityProviderHttpHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderIdentityProviderType.html">AWSCognitoIdentityProviderIdentityProviderType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderInitiateAuthRequest.html">AWSCognitoIdentityProviderInitiateAuthRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderInitiateAuthResponse.html">AWSCognitoIdentityProviderInitiateAuthResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLambdaConfigType.html">AWSCognitoIdentityProviderLambdaConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderLatestDeviceMetadataType.html">AWSCognitoIdentityProviderLatestDeviceMetadataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListDevicesRequest.html">AWSCognitoIdentityProviderListDevicesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListDevicesResponse.html">AWSCognitoIdentityProviderListDevicesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListGroupsRequest.html">AWSCognitoIdentityProviderListGroupsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListGroupsResponse.html">AWSCognitoIdentityProviderListGroupsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListIdentityProvidersRequest.html">AWSCognitoIdentityProviderListIdentityProvidersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListIdentityProvidersResponse.html">AWSCognitoIdentityProviderListIdentityProvidersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListResourceServersRequest.html">AWSCognitoIdentityProviderListResourceServersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListResourceServersResponse.html">AWSCognitoIdentityProviderListResourceServersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceRequest.html">AWSCognitoIdentityProviderListTagsForResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListTagsForResourceResponse.html">AWSCognitoIdentityProviderListTagsForResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUserImportJobsRequest.html">AWSCognitoIdentityProviderListUserImportJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUserImportJobsResponse.html">AWSCognitoIdentityProviderListUserImportJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUserPoolClientsRequest.html">AWSCognitoIdentityProviderListUserPoolClientsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUserPoolClientsResponse.html">AWSCognitoIdentityProviderListUserPoolClientsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUserPoolsRequest.html">AWSCognitoIdentityProviderListUserPoolsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUserPoolsResponse.html">AWSCognitoIdentityProviderListUserPoolsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUsersInGroupRequest.html">AWSCognitoIdentityProviderListUsersInGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUsersInGroupResponse.html">AWSCognitoIdentityProviderListUsersInGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUsersRequest.html">AWSCognitoIdentityProviderListUsersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderListUsersResponse.html">AWSCognitoIdentityProviderListUsersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderMFAOptionType.html">AWSCognitoIdentityProviderMFAOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderMessageTemplateType.html">AWSCognitoIdentityProviderMessageTemplateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderNotifyConfigurationType.html">AWSCognitoIdentityProviderNotifyConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderNotifyEmailType.html">AWSCognitoIdentityProviderNotifyEmailType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderNumberAttributeConstraintsType.html">AWSCognitoIdentityProviderNumberAttributeConstraintsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderPasswordPolicyType.html">AWSCognitoIdentityProviderPasswordPolicyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderProviderDescription.html">AWSCognitoIdentityProviderProviderDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderProviderUserIdentifierType.html">AWSCognitoIdentityProviderProviderUserIdentifierType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderRecoveryOptionType.html">AWSCognitoIdentityProviderRecoveryOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderResendConfirmationCodeRequest.html">AWSCognitoIdentityProviderResendConfirmationCodeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderResendConfirmationCodeResponse.html">AWSCognitoIdentityProviderResendConfirmationCodeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderResourceServerScopeType.html">AWSCognitoIdentityProviderResourceServerScopeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderResourceServerType.html">AWSCognitoIdentityProviderResourceServerType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderResources.html">AWSCognitoIdentityProviderResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeRequest.html">AWSCognitoIdentityProviderRespondToAuthChallengeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderRespondToAuthChallengeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderRiskConfigurationType.html">AWSCognitoIdentityProviderRiskConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderRiskExceptionConfigurationType.html">AWSCognitoIdentityProviderRiskExceptionConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSMSMfaSettingsType.html">AWSCognitoIdentityProviderSMSMfaSettingsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">AWSCognitoIdentityProviderSchemaAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">AWSCognitoIdentityProviderSetRiskConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetRiskConfigurationResponse.html">AWSCognitoIdentityProviderSetRiskConfigurationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetUICustomizationRequest.html">AWSCognitoIdentityProviderSetUICustomizationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetUICustomizationResponse.html">AWSCognitoIdentityProviderSetUICustomizationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetUserMFAPreferenceRequest.html">AWSCognitoIdentityProviderSetUserMFAPreferenceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderSetUserMFAPreferenceResponse">AWSCognitoIdentityProviderSetUserMFAPreferenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest.html">AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse.html">AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSetUserSettingsRequest.html">AWSCognitoIdentityProviderSetUserSettingsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderSetUserSettingsResponse">AWSCognitoIdentityProviderSetUserSettingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSignUpRequest.html">AWSCognitoIdentityProviderSignUpRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSignUpResponse.html">AWSCognitoIdentityProviderSignUpResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSmsConfigurationType.html">AWSCognitoIdentityProviderSmsConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSmsMfaConfigType.html">AWSCognitoIdentityProviderSmsMfaConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSoftwareTokenMfaConfigType.html">AWSCognitoIdentityProviderSoftwareTokenMfaConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType.html">AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderStartUserImportJobRequest.html">AWSCognitoIdentityProviderStartUserImportJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderStartUserImportJobResponse.html">AWSCognitoIdentityProviderStartUserImportJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderStopUserImportJobRequest.html">AWSCognitoIdentityProviderStopUserImportJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderStopUserImportJobResponse.html">AWSCognitoIdentityProviderStopUserImportJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderStringAttributeConstraintsType.html">AWSCognitoIdentityProviderStringAttributeConstraintsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderTagResourceRequest.html">AWSCognitoIdentityProviderTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderTagResourceResponse">AWSCognitoIdentityProviderTagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUICustomizationType.html">AWSCognitoIdentityProviderUICustomizationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUntagResourceRequest.html">AWSCognitoIdentityProviderUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUntagResourceResponse">AWSCognitoIdentityProviderUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest.html">AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse">AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateDeviceStatusRequest.html">AWSCognitoIdentityProviderUpdateDeviceStatusRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateDeviceStatusResponse">AWSCognitoIdentityProviderUpdateDeviceStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateGroupRequest.html">AWSCognitoIdentityProviderUpdateGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateGroupResponse.html">AWSCognitoIdentityProviderUpdateGroupResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderRequest.html">AWSCognitoIdentityProviderUpdateIdentityProviderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateIdentityProviderResponse.html">AWSCognitoIdentityProviderUpdateIdentityProviderResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateResourceServerRequest.html">AWSCognitoIdentityProviderUpdateResourceServerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateResourceServerResponse.html">AWSCognitoIdentityProviderUpdateResourceServerResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserAttributesRequest.html">AWSCognitoIdentityProviderUpdateUserAttributesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserAttributesResponse.html">AWSCognitoIdentityProviderUpdateUserAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolClientRequest.html">AWSCognitoIdentityProviderUpdateUserPoolClientRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolClientResponse.html">AWSCognitoIdentityProviderUpdateUserPoolClientResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolDomainRequest.html">AWSCognitoIdentityProviderUpdateUserPoolDomainRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolDomainResponse.html">AWSCognitoIdentityProviderUpdateUserPoolDomainResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUpdateUserPoolRequest.html">AWSCognitoIdentityProviderUpdateUserPoolRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderUpdateUserPoolResponse">AWSCognitoIdentityProviderUpdateUserPoolResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserContextDataType.html">AWSCognitoIdentityProviderUserContextDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserImportJobType.html">AWSCognitoIdentityProviderUserImportJobType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserPoolAddOnsType.html">AWSCognitoIdentityProviderUserPoolAddOnsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserPoolClientDescription.html">AWSCognitoIdentityProviderUserPoolClientDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserPoolClientType.html">AWSCognitoIdentityProviderUserPoolClientType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserPoolDescriptionType.html">AWSCognitoIdentityProviderUserPoolDescriptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserPoolPolicyType.html">AWSCognitoIdentityProviderUserPoolPolicyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserPoolType.html">AWSCognitoIdentityProviderUserPoolType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUserType.html">AWSCognitoIdentityProviderUserType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderVerificationMessageTemplateType.html">AWSCognitoIdentityProviderVerificationMessageTemplateType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderVerifySoftwareTokenRequest.html">AWSCognitoIdentityProviderVerifySoftwareTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderVerifySoftwareTokenResponse.html">AWSCognitoIdentityProviderVerifySoftwareTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderVerifyUserAttributeRequest.html">AWSCognitoIdentityProviderVerifyUserAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderVerifyUserAttributeResponse">AWSCognitoIdentityProviderVerifyUserAttributeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySelectMfaDetails.html">AWSCognitoIdentitySelectMfaDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySelectMfaInput.html">AWSCognitoIdentitySelectMfaInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails.html">AWSCognitoIdentitySoftwareMfaSetupRequiredDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentitySoftwareMfaSetupRequiredInput.html">AWSCognitoIdentitySoftwareMfaSetupRequiredInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUser.html">AWSCognitoIdentityUser</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserAssociateSoftwareTokenResponse">AWSCognitoIdentityUserAssociateSoftwareTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserChangePasswordResponse">AWSCognitoIdentityUserChangePasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmForgotPasswordResponse">AWSCognitoIdentityUserConfirmForgotPasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserDeleteAttributesResponse">AWSCognitoIdentityUserDeleteAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserForgotPasswordResponse">AWSCognitoIdentityUserForgotPasswordResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserGetAttributeVerificationCodeResponse">AWSCognitoIdentityUserGetAttributeVerificationCodeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserGetDetailsResponse">AWSCognitoIdentityUserGetDetailsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserGetDeviceResponse">AWSCognitoIdentityUserGetDeviceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserGlobalSignOutResponse">AWSCognitoIdentityUserGlobalSignOutResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserListDevicesResponse">AWSCognitoIdentityUserListDevicesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserMFAOption.html">AWSCognitoIdentityUserMFAOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserMfaPreferences.html">AWSCognitoIdentityUserMfaPreferences</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserMfaType.html">AWSCognitoIdentityUserMfaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserPool.html">AWSCognitoIdentityUserPool</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserPoolConfiguration.html">AWSCognitoIdentityUserPoolConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserPoolSignUpResponse.html">AWSCognitoIdentityUserPoolSignUpResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserResendConfirmationCodeResponse">AWSCognitoIdentityUserResendConfirmationCodeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserSession.html">AWSCognitoIdentityUserSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserSetUserMfaPreferenceResponse">AWSCognitoIdentityUserSetUserMfaPreferenceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserSetUserSettingsResponse">AWSCognitoIdentityUserSetUserSettingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityUserSettings.html">AWSCognitoIdentityUserSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserUpdateAttributesResponse">AWSCognitoIdentityUserUpdateAttributesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserUpdateDeviceStatusResponse">AWSCognitoIdentityUserUpdateDeviceStatusResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserVerifyAttributeResponse">AWSCognitoIdentityUserVerifyAttributeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserVerifySoftwareTokenResponse">AWSCognitoIdentityUserVerifySoftwareTokenResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityProviderSDKVersion">AWSCognitoIdentityProviderSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityProviderVersionNumber">AWSCognitoIdentityProviderVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSCognitoIdentityProviderVersionString">AWSCognitoIdentityProviderVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityClientErrorType.html">AWSCognitoIdentityClientErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderAccountTakeoverEventActionType.html">AWSCognitoIdentityProviderAccountTakeoverEventActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderAdvancedSecurityModeType.html">AWSCognitoIdentityProviderAdvancedSecurityModeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderAliasAttributeType.html">AWSCognitoIdentityProviderAliasAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderAttributeDataType.html">AWSCognitoIdentityProviderAttributeDataType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderAuthFlowType.html">AWSCognitoIdentityProviderAuthFlowType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderChallengeName.html">AWSCognitoIdentityProviderChallengeName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderChallengeNameType.html">AWSCognitoIdentityProviderChallengeNameType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderChallengeResponse.html">AWSCognitoIdentityProviderChallengeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderCompromisedCredentialsEventActionType.html">AWSCognitoIdentityProviderCompromisedCredentialsEventActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderDefaultEmailOptionType.html">AWSCognitoIdentityProviderDefaultEmailOptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderDeliveryMediumType.html">AWSCognitoIdentityProviderDeliveryMediumType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderDeviceRememberedStatusType.html">AWSCognitoIdentityProviderDeviceRememberedStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderDomainStatusType.html">AWSCognitoIdentityProviderDomainStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEmailSendingAccountType.html">AWSCognitoIdentityProviderEmailSendingAccountType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderErrorType.html">AWSCognitoIdentityProviderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEventFilterType.html">AWSCognitoIdentityProviderEventFilterType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEventResponseType.html">AWSCognitoIdentityProviderEventResponseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderEventType.html">AWSCognitoIdentityProviderEventType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderExplicitAuthFlowsType.html">AWSCognitoIdentityProviderExplicitAuthFlowsType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderFeedbackValueType.html">AWSCognitoIdentityProviderFeedbackValueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderIdentityProviderTypeType.html">AWSCognitoIdentityProviderIdentityProviderTypeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderMessageActionType.html">AWSCognitoIdentityProviderMessageActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderOAuthFlowType.html">AWSCognitoIdentityProviderOAuthFlowType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderPreventUserExistenceErrorTypes.html">AWSCognitoIdentityProviderPreventUserExistenceErrorTypes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderRecoveryOptionNameType.html">AWSCognitoIdentityProviderRecoveryOptionNameType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderRiskDecisionType.html">AWSCognitoIdentityProviderRiskDecisionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderRiskLevelType.html">AWSCognitoIdentityProviderRiskLevelType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderStatusType.html">AWSCognitoIdentityProviderStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderUserImportJobStatusType.html">AWSCognitoIdentityProviderUserImportJobStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderUserPoolMfaType.html">AWSCognitoIdentityProviderUserPoolMfaType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderUserStatusType.html">AWSCognitoIdentityProviderUserStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderUsernameAttributeType.html">AWSCognitoIdentityProviderUsernameAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderVerifiedAttributeType.html">AWSCognitoIdentityProviderVerifiedAttributeType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderVerifySoftwareTokenResponseType.html">AWSCognitoIdentityProviderVerifySoftwareTokenResponseType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityUserStatus.html">AWSCognitoIdentityUserStatus</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentityCustomAuthentication.html">AWSCognitoIdentityCustomAuthentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentityInteractiveAuthenticationDelegate.html">AWSCognitoIdentityInteractiveAuthenticationDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentityMultiFactorAuthentication.html">AWSCognitoIdentityMultiFactorAuthentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentityNewPasswordRequired.html">AWSCognitoIdentityNewPasswordRequired</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentityPasswordAuthentication.html">AWSCognitoIdentityPasswordAuthentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentityRememberDevice.html">AWSCognitoIdentityRememberDevice</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentitySelectMfa.html">AWSCognitoIdentitySelectMfa</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSCognitoIdentitySoftwareMfaSetupRequired.html">AWSCognitoIdentitySoftwareMfaSetupRequired</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSCognitoIdentityUserSession</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityUserSession</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>A User session.  Encapsulates all tokens (id, access and refresh tokens) for a user.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUserSession(py)idToken"></a>
+                    <a name="//apple_ref/objc/Property/idToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUserSession(py)idToken">idToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">idToken</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">idToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUserSession(py)accessToken"></a>
+                    <a name="//apple_ref/objc/Property/accessToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUserSession(py)accessToken">accessToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">accessToken</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">accessToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUserSession(py)refreshToken"></a>
+                    <a name="//apple_ref/objc/Property/refreshToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUserSession(py)refreshToken">refreshToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">refreshToken</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">refreshToken</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityUserSessionToken.html">AWSCognitoIdentityUserSessionToken</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUserSession(py)expirationTime"></a>
+                    <a name="//apple_ref/objc/Property/expirationTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUserSession(py)expirationTime">expirationTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">expirationTime</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">expirationTime</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
