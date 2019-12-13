@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SessionToken Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/SessionToken" class="dashAnchor"></a>
+    <a title="SessionToken Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSMobileClient 2.12.3 Docs</a> (51% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSMobileClient Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SessionToken Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileClient.html">AWSMobileClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceOperations.html">DeviceOperations</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SignInUIOptions.html">SignInUIOptions</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMobileClientError.html">AWSMobileClientError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ForgotPasswordState.html">ForgotPasswordState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/IdentityProvider.html">IdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SignInState.html">SignInState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SignUpConfirmationState.html">SignUpConfirmationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserCodeDeliveryMedium.html">UserCodeDeliveryMedium</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserState.html">UserState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Device.html">Device</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HostedUIOptions.html">HostedUIOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ListDevicesResult.html">ListDevicesResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SessionToken.html">SessionToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignInResult.html">SignInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignOutOptions.html">SignOutOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignUpResult.html">SignUpResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tokens.html">Tokens</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SessionToken</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">SessionToken</span></code></pre>
+
+                </div>
+              </div>
+            <p>Contains the token string and the claims for the token.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient12SessionTokenV11tokenStringSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/tokenString" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient12SessionTokenV11tokenStringSSSgvp">tokenString</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The token string if available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">tokenString</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClient12SessionTokenV6claimsSDySSyXlGSgvp"></a>
+                    <a name="//apple_ref/swift/Property/claims" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClient12SessionTokenV6claimsSDySSyXlGSgvp">claims</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The claims associated with this token.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">claims</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">AnyObject</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

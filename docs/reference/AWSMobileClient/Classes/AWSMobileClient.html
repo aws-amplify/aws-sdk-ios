@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSMobileClient Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/AWSMobileClient" class="dashAnchor"></a>
+    <a title="AWSMobileClient Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSMobileClient 2.12.3 Docs</a> (51% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSMobileClient Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSMobileClient Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSMobileClient.html">AWSMobileClient</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceOperations.html">DeviceOperations</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SignInUIOptions.html">SignInUIOptions</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSMobileClientError.html">AWSMobileClientError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ForgotPasswordState.html">ForgotPasswordState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/IdentityProvider.html">IdentityProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SignInState.html">SignInState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/SignUpConfirmationState.html">SignUpConfirmationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserCodeDeliveryMedium.html">UserCodeDeliveryMedium</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserState.html">UserState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Device.html">Device</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HostedUIOptions.html">HostedUIOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ListDevicesResult.html">ListDevicesResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SessionToken.html">SessionToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignInResult.html">SignInResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignOutOptions.html">SignOutOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SignUpResult.html">SignUpResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Tokens.html">Tokens</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:15AWSMobileClient24UpdateDeviceStatusResultV">UpdateDeviceStatusResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSMobileClient</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">AWSMobileClient</span> <span class="p">:</span> <span class="n">_AWSMobileClient</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AWSMobileClient</span><span class="p">:</span> <span class="kt">AWSIdentityProviderManager</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AWSMobileClient</span><span class="p">:</span> <span class="kt">UserPoolAuthHelperlCallbacks</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">AWSMobileClient</span><span class="p">:</span> <span class="kt">AWSCognitoAuthDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>AWSMobileClient</code> is used for all auth related operations when your app is accessing AWS backend.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20API%20variables"></a>
+                <a name="//apple_ref/swift/Section/Public API variables" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20API%20variables"></a>
+                  <h3 class="section-name"><p>Public API variables</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC16currentUserStateAA0dE0Ovp"></a>
+                    <a name="//apple_ref/swift/Property/currentUserState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC16currentUserStateAA0dE0Ovp">currentUserState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the current state of user. If MobileClient is not initialized, it will return <code>unknown</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">currentUserState</span><span class="p">:</span> <span class="kt"><a href="../Enums/UserState.html">UserState</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC16deviceOperationsAA06DeviceD0Cvp"></a>
+                    <a name="//apple_ref/swift/Property/deviceOperations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC16deviceOperationsAA06DeviceD0Cvp">deviceOperations</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">deviceOperations</span><span class="p">:</span> <span class="kt"><a href="../Classes/DeviceOperations.html">DeviceOperations</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC8usernameSSSgvp"></a>
+                    <a name="//apple_ref/swift/Property/username" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC8usernameSSSgvp">username</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the username of the logged in user, nil otherwise.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(py)identityId"></a>
+                    <a name="//apple_ref/swift/Property/identityId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(py)identityId">identityId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method. If the identityId is not fetched yet, it will return nil. Use <code><a href="../Classes/AWSMobileClient.html#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getIdentityId">getIdentityId()</a></code> method to force a server fetch when identityId is not available.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">identityId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(py)isSignedIn"></a>
+                    <a name="//apple_ref/swift/Property/isSignedIn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(py)isSignedIn">isSignedIn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns true if there is a user currently signed in.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">isSignedIn</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(cm)sharedInstance"></a>
+                    <a name="//apple_ref/swift/Method/sharedInstance()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(cm)sharedInstance">sharedInstance()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The singleton instance of <code>AWSMobileClient</code>.</p>
+
+<p><strong>Deprecation note:</strong> use <code><a href="../Classes/AWSMobileClient.html#/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(cm)default">AWSMobileClient.default()</a></code> since it communicates better the API intent.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated, renamed: "default")</span>
+<span class="kd">@objc</span>
+<span class="k">override</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">sharedInstance</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AWSMobileClient</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The singleton <code>AWSMobileClient</code> instance.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(cm)default"></a>
+                    <a name="//apple_ref/swift/Method/default()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@AWSMobileClient@objc(cs)AWSMobileClient(cm)default">default()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default instance of <code>AWSMobileClient</code>. The configuration is loaded from the <code>awsconfiguration.json</code> file.</p>
+
+<p>You can manage your own instance of <code>AWSMobileClient</code> by constructing it with <code>AWSMobileClient(configuration)</code>,
+however please note that multiple instances of AWSMobileClient is not supported.</p>
+
+<p><strong>Implementation Notes:</strong></p>
+
+<p>The <code>AWSMobileClient</code> relies on <code>AWSInfo</code> for configuration and once that class is initialized, the configuration
+cannot be reset and/or re-initialized. Therefore, even though you can instantiate <code>AWSMobileClient</code> multiple times,
+all instances will have the same configuration reference.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="kt">AWSMobileClient</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The default <code>AWSMobileClient</code> instance</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC18handleAuthResponse_4open17sourceApplication10annotationySo13UIApplicationC_10Foundation3URLVSSSgyptF"></a>
+                    <a name="//apple_ref/swift/Method/handleAuthResponse(_:open:sourceApplication:annotation:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC18handleAuthResponse_4open17sourceApplication10annotationySo13UIApplicationC_10Foundation3URLVSSSgyptF">handleAuthResponse(_:open:sourceApplication:annotation:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">handleAuthResponse</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="kd">open</span> <span class="nv">url</span><span class="p">:</span> <span class="kt">URL</span><span class="p">,</span> <span class="nv">sourceApplication</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">annotation</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC10initializeyyyAA9UserStateOSg_s5Error_pSgtcF"></a>
+                    <a name="//apple_ref/swift/Method/initialize(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC10initializeyyyAA9UserStateOSg_s5Error_pSgtcF">initialize(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes <code>AWSMobileClient</code> and determines the <code><a href="../Enums/UserState.html">UserState</a></code> for current user using cache.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback which describes current user&rsquo;s state.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC20addUserStateListeneryyyXl_yAA0dE0O_SDyS2SGtctF"></a>
+                    <a name="//apple_ref/swift/Method/addUserStateListener(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC20addUserStateListeneryyyXl_yAA0dE0O_SDyS2SGtctF">addUserStateListener(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a listener who receives notifications on user state change.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addUserStateListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">,</span> <span class="n">_</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:15AWSMobileClient23UserStateChangeCallbacka">UserStateChangeCallback</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object who intends to receive notification. A strong reference is held to the object and the developer is required to call <code>removeUserStateListener</code> to stop getting notifications and release the object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Callback describing the new user state.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC23removeUserStateListeneryyyXlF"></a>
+                    <a name="//apple_ref/swift/Method/removeUserStateListener(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC23removeUserStateListeneryyyXlF">removeUserStateListener(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes a registered listener. If no listener exists, call is ignored.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeUserStateListener</span><span class="p">(</span><span class="n">_</span> <span class="nv">object</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>object</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object to be de-registered from receiving notifications.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC10showSignIn20navigationController04signE9UIOptions06hostedI0_ySo012UINavigationG0C_AA0deI0CAA06HostedI0VSgyAA9UserStateOSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/showSignIn(navigationController:signInUIOptions:hostedUIOptions:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC10showSignIn20navigationController04signE9UIOptions06hostedI0_ySo012UINavigationG0C_AA0deI0CAA06HostedI0VSgyAA9UserStateOSg_s5Error_pSgtctF">showSignIn(navigationController:signInUIOptions:hostedUIOptions:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows a fully managed sign in screen which allows users to sign up and sign in.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span>
+                       <span class="nv">signInUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span><span class="p">(),</span>
+                       <span class="nv">hostedUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/HostedUIOptions.html">HostedUIOptions</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                       <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(UserState?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>navigationController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The navigation controller which would act as the anchor for this UI.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>signInUIOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The options object which allows changing logo, background color and if the user can cancel the sign in operation if using native auth UI. This options object will be ignored if <code>hostedUIOptions</code> is passed in.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostedUIOptions</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The options object which allows showSignIn to present a hosted web UI. If passed, <code>signInUIOptions</code> are ignored since they are applicable only to native UI.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to be called when user finishes the sign in action.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Inherited%20methods%20from%20AWSCognitoCredentialsProvider"></a>
+                <a name="//apple_ref/swift/Section/Inherited methods from AWSCognitoCredentialsProvider" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Inherited%20methods%20from%20AWSCognitoCredentialsProvider"></a>
+                  <h3 class="section-name"><p>Inherited methods from AWSCognitoCredentialsProvider</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)credentials"></a>
+                    <a name="//apple_ref/swift/Method/credentials()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)credentials">credentials()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Asynchronously returns a valid AWS credentials or an error object if it cannot retrieve valid credentials. It should cache valid credentials as much as possible and refresh them when they are invalid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">credentials</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AWSTask</span><span class="o">&lt;</span><span class="kt">AWSCredentials</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A valid AWS credentials or an error object describing the error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)invalidateCachedTemporaryCredentials"></a>
+                    <a name="//apple_ref/swift/Method/invalidateCachedTemporaryCredentials()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)invalidateCachedTemporaryCredentials">invalidateCachedTemporaryCredentials()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invalidates the cached temporary AWS credentials. If the credentials provider does not cache temporary credentials, this operation is a no-op.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">invalidateCachedTemporaryCredentials</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getIdentityId"></a>
+                    <a name="//apple_ref/swift/Method/getIdentityId()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getIdentityId">getIdentityId()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get/retrieve the identity id for this provider. If an identity id is already set on this provider, no remote call is made and the identity will be returned as a result of the AWSTask (the identityId is also available as a property). If no identityId is set on this provider, one will be retrieved from the service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getIdentityId</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AWSTask</span><span class="o">&lt;</span><span class="kt">NSString</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Asynchronous task which contains the identity id or error.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)clearCredentials"></a>
+                    <a name="//apple_ref/swift/Method/clearCredentials()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)clearCredentials">clearCredentials()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear the cached AWS credentials for this provider.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">clearCredentials</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)clearKeychain"></a>
+                    <a name="//apple_ref/swift/Method/clearKeychain()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)clearKeychain">clearKeychain()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear ALL saved values for this provider (identityId, credentials, logins).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">clearKeychain</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/%60AWSIdentityProviderManager%60%20protocol%20methods"></a>
+                <a name="//apple_ref/swift/Section/`AWSIdentityProviderManager` protocol methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/%60AWSIdentityProviderManager%60%20protocol%20methods"></a>
+                  <h3 class="section-name"><p><code>AWSIdentityProviderManager</code> protocol methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)logins"></a>
+                    <a name="//apple_ref/swift/Method/logins()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)logins">logins()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Each entry in logins represents a single login with an identity provider. The key is the domain of the login provider (e.g. &lsquo;graph.facebook.com&rsquo;) and the value is the OAuth/OpenId Connect token that results from an authentication with that login provider.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">logins</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">AWSTask</span><span class="o">&lt;</span><span class="kt">NSDictionary</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UserPool%20and%20Federated%20sign%20in%20methods"></a>
+                <a name="//apple_ref/swift/Section/UserPool and Federated sign in methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UserPool%20and%20Federated%20sign%20in%20methods"></a>
+                  <h3 class="section-name"><p>UserPool and Federated sign in methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC6signIn8username8password14validationData17completionHandlerySS_SSSDyS2SGSgyAA04SignD6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/signIn(username:password:validationData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC6signIn8username8password14validationData17completionHandlerySS_SSSDyS2SGSgyAA04SignD6ResultVSg_s5Error_pSgtctF">signIn(username:password:validationData:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signs in a user with the given username and password.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signIn</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                   <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                   <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                   <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignInResult.html">SignInResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>password of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>validationData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>validation data for this sign in.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC15federatedSignIn12providerName5token0cdE7Options17completionHandlerySS_SSAA09FederateddeI0VyAA9UserStateOSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/federatedSignIn(providerName:token:federatedSignInOptions:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC15federatedSignIn12providerName5token0cdE7Options17completionHandlerySS_SSAA09FederateddeI0VyAA9UserStateOSg_s5Error_pSgtctF">federatedSignIn(providerName:token:federatedSignInOptions:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Federates a social provider like Google, Facebook, Amazon or Twitter.
+If user is already signed in through the <code>signIn</code> method, it will return <code>AWSMobileClientError.federationProviderExists</code> error.
+If federation provider name has changed, previous federation provider&rsquo;s token will be erased and the new token will be used going forward; the user state is un-affected in that case.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">federatedSignIn</span><span class="p">(</span><span class="nv">providerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                            <span class="nv">federatedSignInOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span><span class="p">(),</span>
+                            <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>providerName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Provider name for federation provider, e.g. graph.facebook.com, accounts.google.com</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>token</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>idToken</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion handler on successful credentials fetch.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC6signUp8username8password14userAttributes14validationData17completionHandlerySS_SSSDyS2SGAIyAA04SignD6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/signUp(username:password:userAttributes:validationData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC6signUp8username8password14userAttributes14validationData17completionHandlerySS_SSSDyS2SGAIyAA04SignD6ResultVSg_s5Error_pSgtctF">signUp(username:password:userAttributes:validationData:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sign up with username, password and other attrbutes like phone, email.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signUp</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                   <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                   <span class="nv">userAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                   <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                   <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>password</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>password of the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userAttributes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>user attributes which contain attributes like phone_number, email, etc.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>validationData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>validation data for the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when a sign up result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC13confirmSignUp8username16confirmationCode17completionHandlerySS_SSyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmSignUp(username:confirmationCode:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC13confirmSignUp8username16confirmationCode17completionHandlerySS_SSyAA0dE6ResultVSg_s5Error_pSgtctF">confirmSignUp(username:confirmationCode:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Confirms a sign up for a user using a verification code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>confirmationCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>confirmation code sent to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when a result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC16resendSignUpCode8username17completionHandlerySS_yAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/resendSignUpCode(username:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC16resendSignUpCode8username17completionHandlerySS_yAA0dE6ResultVSg_s5Error_pSgtctF">resendSignUpCode(username:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Re-sends the sign up code to the user via email or phone_number.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resendSignUpCode</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username of the user who wants a new registration code.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when a result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC14forgotPassword8username17completionHandlerySS_yAA06ForgotD6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/forgotPassword(username:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC14forgotPassword8username17completionHandlerySS_yAA06ForgotD6ResultVSg_s5Error_pSgtctF">forgotPassword(username:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When called, will send a confirmation code to user which can be used to reset the password.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username of the user who forgot the password.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC21confirmForgotPassword8username03newE016confirmationCode17completionHandlerySS_S2SyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmForgotPassword(username:newPassword:confirmationCode:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC21confirmForgotPassword8username03newE016confirmationCode17completionHandlerySS_S2SyAA0dE6ResultVSg_s5Error_pSgtctF">confirmForgotPassword(username:newPassword:confirmationCode:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resets the password for the user if they have a valid confirmation code using the specified new password.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmForgotPassword</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">newPassword</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>username</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>username of the user who forgot the password</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>newPassword</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new password which the user wants to set</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>confirmationCode</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the confirmation code sent to the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when a result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC7signOut7options17completionHandleryAA04SignD7OptionsV_ys5Error_pSgctF"></a>
+                    <a name="//apple_ref/swift/Method/signOut(options:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC7signOut7options17completionHandleryAA04SignD7OptionsV_ys5Error_pSgctF">signOut(options:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Asynchronous signout method which requires network activity. Based on the options specified in <code><a href="../Structs/SignOutOptions.html">SignOutOptions</a></code>, appropriate tasks will be performed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signOut</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt"><a href="../Structs/SignOutOptions.html">SignOutOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/SignOutOptions.html">SignOutOptions</a></span><span class="p">(),</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>SignOutOptions which specify actions.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion handler for success or error callback.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC7signOutyyF"></a>
+                    <a name="//apple_ref/swift/Method/signOut()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC7signOutyyF">signOut()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Signs out the current logged in user and clears the local keychain store.
+Note: This does not invalidate the tokens from the service or sign out the user from other devices.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signOut</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC13confirmSignIn17challengeResponse14userAttributes17completionHandlerySS_SDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmSignIn(challengeResponse:userAttributes:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC13confirmSignIn17challengeResponse14userAttributes17completionHandlerySS_SDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF">confirmSignIn(challengeResponse:userAttributes:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Confirm a sign in which requires additional validation via steps like SMS MFA.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmSignIn</span><span class="p">(</span><span class="nv">challengeResponse</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="nv">userAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignInResult.html">SignInResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>challengeResponse</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>confirmation code or TOTP token which is available to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>userAttributes</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>user attributes required for the operation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC14changePassword07currentD008proposedD017completionHandlerySS_SSys5Error_pSgctF"></a>
+                    <a name="//apple_ref/swift/Method/changePassword(currentPassword:proposedPassword:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC14changePassword07currentD008proposedD017completionHandlerySS_SSys5Error_pSgctF">changePassword(currentPassword:proposedPassword:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change password of a logged in user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">changePassword</span><span class="p">(</span><span class="nv">currentPassword</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">proposedPassword</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>currentPassword</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>current password of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>proposedPassword</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the new password which user wants to set.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when the result is avilable. If error is nil, the change was successful.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC17getAWSCredentialsyyySo0D0CSg_s5Error_pSgtcF"></a>
+                    <a name="//apple_ref/swift/Method/getAWSCredentials(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC17getAWSCredentialsyyySo0D0CSg_s5Error_pSgtcF">getAWSCredentials(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches the <code>AWSCredentials</code> asynchronously.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAWSCredentials</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(AWSCredentials?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which would have <code>AWSCredentials</code> if successfully retrieved, else error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC17releaseSignInWaityyF"></a>
+                    <a name="//apple_ref/swift/Method/releaseSignInWait()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC17releaseSignInWaityyF">releaseSignInWait()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invoke this function to release any sign-in waits.
+When you receive a notifcation which is <code>signedOutFederatedTokensInvalid</code> or <code>signedOutUserPoolsTokensInvalid</code> you need to proovide SDK the token via <code>federate</code> method or call the <code>signIn</code> method and complete the sign-in flow. If you can&rsquo;t get the latest token from the user, you can call this method to un-block any waiting calls.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">releaseSignInWait</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC9getTokensyyyAA0D0VSg_s5Error_pSgtcF"></a>
+                    <a name="//apple_ref/swift/Method/getTokens(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC9getTokensyyyAA0D0VSg_s5Error_pSgtcF">getTokens(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns cached UserPools auth JWT tokens if valid.
+If the <code>idToken</code> is not valid, and a refresh token is available, refresh token is used to get a new <code>idToken</code>.
+If there is no refresh token and the user is signed in, a notification is dispatched to indicate requirement of user to re-signin.
+The call to wait will be synchronized so that if multiple threads call this method, they will block till the first thread gets the token.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getTokens</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Structs/Tokens.html">Tokens</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Tokens if available, else error.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Extension%20to%20hold%20user%20attribute%20operations"></a>
+                <a name="//apple_ref/swift/Section/Extension to hold user attribute operations" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Extension%20to%20hold%20user%20attribute%20operations"></a>
+                  <h3 class="section-name"><p>Extension to hold user attribute operations</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC19verifyUserAttribute13attributeName17completionHandlerySS_yAA0D19CodeDeliveryDetailsVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/verifyUserAttribute(attributeName:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC19verifyUserAttribute13attributeName17completionHandlerySS_yAA0D19CodeDeliveryDetailsVSg_s5Error_pSgtctF">verifyUserAttribute(attributeName:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Verify a user attribute like phone_number.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">verifyUserAttribute</span><span class="p">(</span><span class="nv">attributeName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attributeName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>name of the attribute.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when the result is avilable.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC20updateUserAttributes12attributeMap17completionHandlerySDyS2SG_ySayAA0D19CodeDeliveryDetailsVGSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/updateUserAttributes(attributeMap:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC20updateUserAttributes12attributeMap17completionHandlerySDyS2SG_ySayAA0D19CodeDeliveryDetailsVGSg_s5Error_pSgtctF">updateUserAttributes(attributeMap:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Update the attributes for a user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateUserAttributes</span><span class="p">(</span><span class="nv">attributeMap</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">],</span>
+                                 <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt"><a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attributeMap</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the attribute map of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when the result is avilable.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC17getUserAttributes17completionHandleryySDyS2SGSg_s5Error_pSgtc_tF"></a>
+                    <a name="//apple_ref/swift/Method/getUserAttributes(completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC17getUserAttributes17completionHandleryySDyS2SGSg_s5Error_pSgtc_tF">getUserAttributes(completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches the attributes for logged in user.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserAttributes</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completion handler which will be invoked when result is available.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC27confirmUpdateUserAttributes13attributeName4code17completionHandlerySS_SSys5Error_pSgctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmUpdateUserAttributes(attributeName:code:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC27confirmUpdateUserAttributes13attributeName4code17completionHandlerySS_SSys5Error_pSgctF">confirmUpdateUserAttributes(attributeName:code:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Confirm the updated attributes using a confirmation code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmUpdateUserAttributes</span><span class="p">(</span><span class="nv">attributeName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attributeName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the attribute to be confirmed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>code</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the code sent to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when the result is avilable.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:15AWSMobileClientAAC26confirmVerifyUserAttribute13attributeName4code17completionHandlerySS_SSys5Error_pSgctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmVerifyUserAttribute(attributeName:code:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC26confirmVerifyUserAttribute13attributeName4code17completionHandlerySS_SSys5Error_pSgctF">confirmVerifyUserAttribute(attributeName:code:completionHandler:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Confirm the attribute using a confirmation code.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmVerifyUserAttribute</span><span class="p">(</span><span class="nv">attributeName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">code</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attributeName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the attribute to be verified.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>code</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the code sent to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>completionHandler which will be called when the result is avilable.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Extension%20to%20hold%20the%20keychain%20methods"></a>
+                <a name="//apple_ref/swift/Section/Extension to hold the keychain methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Extension%20to%20hold%20the%20keychain%20methods"></a>
+                  <h3 class="section-name"><p>Extension to hold the keychain methods</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getViewController"></a>
+                    <a name="//apple_ref/swift/Method/getViewController()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)getViewController">getViewController()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getViewController</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)shouldLaunchSignInVCIfRefreshTokenIsExpired"></a>
+                    <a name="//apple_ref/swift/Method/shouldLaunchSignInVCIfRefreshTokenIsExpired()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)AWSMobileClient(im)shouldLaunchSignInVCIfRefreshTokenIsExpired">shouldLaunchSignInVCIfRefreshTokenIsExpired()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">shouldLaunchSignInVCIfRefreshTokenIsExpired</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
