@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSConnectParticipant Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSConnectParticipant" class="dashAnchor"></a>
+    <a title="AWSConnectParticipant Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSConnectParticipant 2.12.3 Docs</a> (64% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSConnectParticipant%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSConnectParticipant Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSConnectParticipant Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipant.html">AWSConnectParticipant</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantConnectionCredentials.html">AWSConnectParticipantConnectionCredentials</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantCreateParticipantConnectionRequest.html">AWSConnectParticipantCreateParticipantConnectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantCreateParticipantConnectionResponse.html">AWSConnectParticipantCreateParticipantConnectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantDisconnectParticipantRequest.html">AWSConnectParticipantDisconnectParticipantRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectParticipantDisconnectParticipantResponse">AWSConnectParticipantDisconnectParticipantResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantGetTranscriptResponse.html">AWSConnectParticipantGetTranscriptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantItem.html">AWSConnectParticipantItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantResources.html">AWSConnectParticipantResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantSendEventRequest.html">AWSConnectParticipantSendEventRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantSendEventResponse.html">AWSConnectParticipantSendEventResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantSendMessageRequest.html">AWSConnectParticipantSendMessageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantSendMessageResponse.html">AWSConnectParticipantSendMessageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantStartPosition.html">AWSConnectParticipantStartPosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantWebsocket.html">AWSConnectParticipantWebsocket</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectParticipantSDKVersion">AWSConnectParticipantSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectParticipantVersionNumber">AWSConnectParticipantVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSConnectParticipantVersionString">AWSConnectParticipantVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantChatItemType.html">AWSConnectParticipantChatItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantConnectionType.html">AWSConnectParticipantConnectionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantErrorType.html">AWSConnectParticipantErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantParticipantRole.html">AWSConnectParticipantParticipantRole</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantScanDirection.html">AWSConnectParticipantScanDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantSortKey.html">AWSConnectParticipantSortKey</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSConnectParticipant</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectParticipant</span></code></pre>
+
+                </div>
+              </div>
+            <p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p><p>Amazon Connect enables customer contacts through voice or chat.</p><p>The APIs described here are used by chat participants, such as agents and customers.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(py)configuration"></a>
+                    <a name="//apple_ref/objc/Property/configuration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(py)configuration">configuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The service configuration used to instantiate this service client.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(cm)defaultConnectParticipant"></a>
+                    <a name="//apple_ref/objc/Method/+defaultConnectParticipant" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(cm)defaultConnectParticipant">+defaultConnectParticipant</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSServiceManager</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+     <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
+
+     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">ConnectParticipant</span> <span class="o">=</span> <span class="n">AWSConnectParticipant</span><span class="p">.</span><span class="k">default</span><span class="p">()</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSConnectParticipant</span> <span class="o">*</span><span class="n">ConnectParticipant</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSConnectParticipant</span> <span class="nf">defaultConnectParticipant</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">defaultConnectParticipant</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The default service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(cm)registerConnectParticipantWithConfiguration:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/+registerConnectParticipantWithConfiguration:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(cm)registerConnectParticipantWithConfiguration:forKey:">+registerConnectParticipantWithConfiguration:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a service client with the given service configuration and registers it for the key.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSConnectParticipant</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2ConnectParticipant"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSConnectParticipant</span> <span class="nf">registerConnectParticipantWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2ConnectParticipant"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">ConnectParticipant</span> <span class="o">=</span> <span class="n">AWSConnectParticipant</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2ConnectParticipant"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSConnectParticipant</span> <span class="o">*</span><span class="n">ConnectParticipant</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSConnectParticipant</span> <span class="nf">ConnectParticipantForKey</span><span class="p">:</span><span class="s">@"USWest2ConnectParticipant"</span><span class="p">];</span>
+</code></pre>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerConnectParticipantWithConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">configuration</span>
+                                             <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">withConfiguration</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A service configuration object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(cm)ConnectParticipantForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+ConnectParticipantForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(cm)ConnectParticipantForKey:">+ConnectParticipantForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the service client associated with the key. You need to call <code>+ registerConnectParticipantWithConfiguration:forKey:</code> before invoking this method.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSConnectParticipant</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2ConnectParticipant"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSConnectParticipant</span> <span class="nf">registerConnectParticipantWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2ConnectParticipant"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">ConnectParticipant</span> <span class="o">=</span> <span class="n">AWSConnectParticipant</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2ConnectParticipant"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSConnectParticipant</span> <span class="o">*</span><span class="n">ConnectParticipant</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSConnectParticipant</span> <span class="nf">ConnectParticipantForKey</span><span class="p">:</span><span class="s">@"USWest2ConnectParticipant"</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">ConnectParticipantForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of the service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(cm)removeConnectParticipantForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+removeConnectParticipantForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(cm)removeConnectParticipantForKey:">+removeConnectParticipantForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the service client associated with the key and release it.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Before calling this method, make sure no method is running on this client.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeConnectParticipantForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)createParticipantConnection:"></a>
+                    <a name="//apple_ref/objc/Method/-createParticipantConnection:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)createParticipantConnection:">-createParticipantConnection:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates the participant&rsquo;s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until the they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantCreateParticipantConnectionRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantCreateParticipantConnectionResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">createParticipantConnection</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionRequest.html">AWSConnectParticipantCreateParticipantConnectionRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createParticipantConnection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionRequest.html">AWSConnectParticipantCreateParticipantConnectionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateParticipantConnection service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionResponse.html">AWSConnectParticipantCreateParticipantConnectionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)createParticipantConnection:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-createParticipantConnection:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)createParticipantConnection:completionHandler:">-createParticipantConnection:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates the participant&rsquo;s connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until the they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantCreateParticipantConnectionRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantCreateParticipantConnectionResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">createParticipantConnection</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionRequest.html">AWSConnectParticipantCreateParticipantConnectionRequest</a></span> <span class="o">*</span><span class="p">)</span>
+            <span class="n">request</span>
+              <span class="n">completionHandler</span><span class="o">:</span>
+                  <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                      <span class="n"><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionResponse.html">AWSConnectParticipantCreateParticipantConnectionResponse</a></span>
+                          <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createParticipantConnection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionRequest.html">AWSConnectParticipantCreateParticipantConnectionRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSConnectParticipantCreateParticipantConnectionResponse.html">AWSConnectParticipantCreateParticipantConnectionResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateParticipantConnection service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)disconnectParticipant:"></a>
+                    <a name="//apple_ref/objc/Method/-disconnectParticipant:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)disconnectParticipant:">-disconnectParticipant:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantDisconnectParticipantRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantDisconnectParticipantResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">disconnectParticipant</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantDisconnectParticipantRequest.html">AWSConnectParticipantDisconnectParticipantRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disconnectParticipant</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantDisconnectParticipantRequest.html">AWSConnectParticipantDisconnectParticipantRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DisconnectParticipant service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSConnectParticipantDisconnectParticipantResponse">AWSConnectParticipantDisconnectParticipantResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)disconnectParticipant:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-disconnectParticipant:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)disconnectParticipant:completionHandler:">-disconnectParticipant:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantDisconnectParticipantRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantDisconnectParticipantResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">disconnectParticipant</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantDisconnectParticipantRequest.html">AWSConnectParticipantDisconnectParticipantRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+        <span class="nf">completionHandler</span><span class="p">:</span>
+            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                <span class="n"><a href="../Classes.html#/c:objc(cs)AWSConnectParticipantDisconnectParticipantResponse">AWSConnectParticipantDisconnectParticipantResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disconnectParticipant</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantDisconnectParticipantRequest.html">AWSConnectParticipantDisconnectParticipantRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSConnectParticipantDisconnectParticipantResponse">AWSConnectParticipantDisconnectParticipantResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DisconnectParticipant service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)getTranscript:"></a>
+                    <a name="//apple_ref/objc/Method/-getTranscript:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)getTranscript:">-getTranscript:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantGetTranscriptRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantGetTranscriptResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getTranscript</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getTranscript</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetTranscript service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectParticipantGetTranscriptResponse.html">AWSConnectParticipantGetTranscriptResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)getTranscript:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getTranscript:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)getTranscript:completionHandler:">-getTranscript:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantGetTranscriptRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantGetTranscriptResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getTranscript</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                          <span class="n"><a href="../Classes/AWSConnectParticipantGetTranscriptResponse.html">AWSConnectParticipantGetTranscriptResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                          <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getTranscript</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSConnectParticipantGetTranscriptResponse.html">AWSConnectParticipantGetTranscriptResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetTranscript service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)sendEvent:"></a>
+                    <a name="//apple_ref/objc/Method/-sendEvent:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)sendEvent:">-sendEvent:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendEventRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendEventResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">sendEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantSendEventRequest.html">AWSConnectParticipantSendEventRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantSendEventRequest.html">AWSConnectParticipantSendEventRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendEvent service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectParticipantSendEventResponse.html">AWSConnectParticipantSendEventResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)sendEvent:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendEvent:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)sendEvent:completionHandler:">-sendEvent:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendEventRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendEventResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendEvent</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantSendEventRequest.html">AWSConnectParticipantSendEventRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSConnectParticipantSendEventResponse.html">AWSConnectParticipantSendEventResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendEvent</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantSendEventRequest.html">AWSConnectParticipantSendEventRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSConnectParticipantSendEventResponse.html">AWSConnectParticipantSendEventResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendEvent service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)sendMessage:"></a>
+                    <a name="//apple_ref/objc/Method/-sendMessage:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)sendMessage:">-sendMessage:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendMessageRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendMessageResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">sendMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantSendMessageRequest.html">AWSConnectParticipantSendMessageRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantSendMessageRequest.html">AWSConnectParticipantSendMessageRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectParticipantSendMessageResponse.html">AWSConnectParticipantSendMessageResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipant(im)sendMessage:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendMessage:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipant(im)sendMessage:completionHandler:">-sendMessage:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendMessageRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectParticipantSendMessageResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendMessage</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectParticipantSendMessageRequest.html">AWSConnectParticipantSendMessageRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSConnectParticipantSendMessageResponse.html">AWSConnectParticipantSendMessageResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendMessage</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectParticipantSendMessageRequest.html">AWSConnectParticipantSendMessageRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSConnectParticipantSendMessageResponse.html">AWSConnectParticipantSendMessageResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendMessage service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectParticipantErrorDomain">AWSConnectParticipantErrorDomain</a></code> domain and the following error code: <code>AWSConnectParticipantErrorAccessDenied</code>, <code>AWSConnectParticipantErrorInternalServer</code>, <code>AWSConnectParticipantErrorThrottling</code>, <code>AWSConnectParticipantErrorValidation</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
