@@ -1,0 +1,1258 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpoint.h",
+      "line": 28,
+      "symbol": "AWSPinpointVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpoint.h",
+      "line": 39,
+      "symbol": "AWSPinpointVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointAnalyticsClient.h",
+      "line": 23,
+      "symbol": "AWSPinpointCompletionBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointAnalyticsClient.h",
+      "line": 25,
+      "symbol": "AWSPinpointAnalyticsClient",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointConfiguration.h",
+      "line": 22,
+      "symbol": "AWSInitializationCompletionBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointEvent.h",
+      "line": 18,
+      "symbol": "UTCTimeMillis",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointEventRecorder.h",
+      "line": 23,
+      "symbol": "AWSPinpointAnalyticsErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointEventRecorder.h",
+      "line": 25,
+      "symbol": "AWSPinpointAnalyticsErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointEventRecorder.h",
+      "line": 25,
+      "symbol": "AWSPinpointAnalyticsErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointEventRecorder.h",
+      "line": 26,
+      "symbol": "AWSPinpointAnalyticsErrorType.AWSPinpointAnalyticsErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointEventRecorder.h",
+      "line": 27,
+      "symbol": "AWSPinpointAnalyticsErrorType.AWSPinpointAnalyticsErrorBadRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 23,
+      "symbol": "AWSDeviceTokenKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 24,
+      "symbol": "AWSDataKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 25,
+      "symbol": "AWSPinpointKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 26,
+      "symbol": "AWSPinpointCampaignKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 28,
+      "symbol": "AWSPinpointNotificationManager",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointSessionClient.h",
+      "line": 24,
+      "symbol": "AWSPinpointTimeoutBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargeting.h",
+      "line": 28,
+      "symbol": "AWSPinpointTargetingVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargeting.h",
+      "line": 39,
+      "symbol": "AWSPinpointTargetingVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 22,
+      "symbol": "AWSPinpointTargetingErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 24,
+      "symbol": "AWSPinpointTargetingErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 24,
+      "symbol": "AWSPinpointTargetingErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 25,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 26,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorBadRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 27,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorForbidden",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 28,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorInternalServerError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 29,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorMethodNotAllowed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 30,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 31,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorTooManyRequests",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 34,
+      "symbol": "AWSPinpointTargetingAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 34,
+      "symbol": "AWSPinpointTargetingAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 35,
+      "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 36,
+      "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionOpenApp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 37,
+      "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionDeepLink",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 38,
+      "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionUrl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 41,
+      "symbol": "AWSPinpointTargetingAttributeType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 41,
+      "symbol": "AWSPinpointTargetingAttributeType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 42,
+      "symbol": "AWSPinpointTargetingAttributeType.AWSPinpointTargetingAttributeTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 43,
+      "symbol": "AWSPinpointTargetingAttributeType.AWSPinpointTargetingAttributeTypeInclusive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 44,
+      "symbol": "AWSPinpointTargetingAttributeType.AWSPinpointTargetingAttributeTypeExclusive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 47,
+      "symbol": "AWSPinpointTargetingCampaignStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 47,
+      "symbol": "AWSPinpointTargetingCampaignStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 48,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 49,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusScheduled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 50,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusExecuting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 51,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusPendingNextRun",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 52,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 53,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusPaused",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 54,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusDeleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 57,
+      "symbol": "AWSPinpointTargetingChannelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 57,
+      "symbol": "AWSPinpointTargetingChannelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 58,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 59,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeGcm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 60,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApns",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 61,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsSandbox",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 62,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsVoip",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 63,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsVoipSandbox",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 64,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeAdm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 65,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeSms",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 66,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeVoice",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 67,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeEmail",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 68,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeBaidu",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 69,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeCustom",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 72,
+      "symbol": "AWSPinpointTargetingDeliveryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 72,
+      "symbol": "AWSPinpointTargetingDeliveryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 73,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 74,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusSuccessful",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 75,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusThrottled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 76,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusTemporaryFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 77,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusPermanentFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 78,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusUnknownFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 79,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusOptOut",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 80,
+      "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusDuplicate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 83,
+      "symbol": "AWSPinpointTargetingDimensionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 83,
+      "symbol": "AWSPinpointTargetingDimensionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 84,
+      "symbol": "AWSPinpointTargetingDimensionType.AWSPinpointTargetingDimensionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 85,
+      "symbol": "AWSPinpointTargetingDimensionType.AWSPinpointTargetingDimensionTypeInclusive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 86,
+      "symbol": "AWSPinpointTargetingDimensionType.AWSPinpointTargetingDimensionTypeExclusive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 89,
+      "symbol": "AWSPinpointTargetingDuration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 89,
+      "symbol": "AWSPinpointTargetingDuration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 90,
+      "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 91,
+      "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationHr24",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 92,
+      "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationDay7",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 93,
+      "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationDay14",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 94,
+      "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationDay30",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 97,
+      "symbol": "AWSPinpointTargetingFilterType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 97,
+      "symbol": "AWSPinpointTargetingFilterType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 98,
+      "symbol": "AWSPinpointTargetingFilterType.AWSPinpointTargetingFilterTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 99,
+      "symbol": "AWSPinpointTargetingFilterType.AWSPinpointTargetingFilterTypeSystem",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 100,
+      "symbol": "AWSPinpointTargetingFilterType.AWSPinpointTargetingFilterTypeEndpoint",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 103,
+      "symbol": "AWSPinpointTargetingFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 103,
+      "symbol": "AWSPinpointTargetingFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 104,
+      "symbol": "AWSPinpointTargetingFormat.AWSPinpointTargetingFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 105,
+      "symbol": "AWSPinpointTargetingFormat.AWSPinpointTargetingFormatCsv",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 106,
+      "symbol": "AWSPinpointTargetingFormat.AWSPinpointTargetingFormatJson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 109,
+      "symbol": "AWSPinpointTargetingFrequency",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 109,
+      "symbol": "AWSPinpointTargetingFrequency",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 110,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 111,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyOnce",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 112,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyHourly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 113,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyDaily",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 114,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyWeekly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 115,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyMonthly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 116,
+      "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 119,
+      "symbol": "AWSPinpointTargetingInclude",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 119,
+      "symbol": "AWSPinpointTargetingInclude",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 120,
+      "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 121,
+      "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 122,
+      "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeAny",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 123,
+      "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 126,
+      "symbol": "AWSPinpointTargetingJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 126,
+      "symbol": "AWSPinpointTargetingJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 127,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 128,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusCreated",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 129,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusPreparingForInitialization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 130,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusInitializing",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 131,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusProcessing",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 132,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusPendingJob",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 133,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusCompleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 134,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 135,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusFailing",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 136,
+      "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 139,
+      "symbol": "AWSPinpointTargetingMessageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 139,
+      "symbol": "AWSPinpointTargetingMessageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 140,
+      "symbol": "AWSPinpointTargetingMessageType.AWSPinpointTargetingMessageTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 141,
+      "symbol": "AWSPinpointTargetingMessageType.AWSPinpointTargetingMessageTypeTransactional",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 142,
+      "symbol": "AWSPinpointTargetingMessageType.AWSPinpointTargetingMessageTypePromotional",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 145,
+      "symbol": "AWSPinpointTargetingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 145,
+      "symbol": "AWSPinpointTargetingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 146,
+      "symbol": "AWSPinpointTargetingMode.AWSPinpointTargetingModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 147,
+      "symbol": "AWSPinpointTargetingMode.AWSPinpointTargetingModeDelivery",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 148,
+      "symbol": "AWSPinpointTargetingMode.AWSPinpointTargetingModeFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 151,
+      "symbol": "AWSPinpointTargetingOperator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 151,
+      "symbol": "AWSPinpointTargetingOperator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 152,
+      "symbol": "AWSPinpointTargetingOperator.AWSPinpointTargetingOperatorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 153,
+      "symbol": "AWSPinpointTargetingOperator.AWSPinpointTargetingOperatorAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 154,
+      "symbol": "AWSPinpointTargetingOperator.AWSPinpointTargetingOperatorAny",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 157,
+      "symbol": "AWSPinpointTargetingRecencyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 157,
+      "symbol": "AWSPinpointTargetingRecencyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 158,
+      "symbol": "AWSPinpointTargetingRecencyType.AWSPinpointTargetingRecencyTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 159,
+      "symbol": "AWSPinpointTargetingRecencyType.AWSPinpointTargetingRecencyTypeActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 160,
+      "symbol": "AWSPinpointTargetingRecencyType.AWSPinpointTargetingRecencyTypeInactive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 163,
+      "symbol": "AWSPinpointTargetingSegmentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 163,
+      "symbol": "AWSPinpointTargetingSegmentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 164,
+      "symbol": "AWSPinpointTargetingSegmentType.AWSPinpointTargetingSegmentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 165,
+      "symbol": "AWSPinpointTargetingSegmentType.AWSPinpointTargetingSegmentTypeDimensional",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 166,
+      "symbol": "AWSPinpointTargetingSegmentType.AWSPinpointTargetingSegmentTypeImport",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 169,
+      "symbol": "AWSPinpointTargetingSourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 169,
+      "symbol": "AWSPinpointTargetingSourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 170,
+      "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 171,
+      "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 172,
+      "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeAny",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 173,
+      "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 176,
+      "symbol": "AWSPinpointTargetingState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 176,
+      "symbol": "AWSPinpointTargetingState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 177,
+      "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 178,
+      "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateDraft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 179,
+      "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 180,
+      "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 181,
+      "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 182,
+      "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateClosed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 185,
+      "symbol": "AWSPinpointTargetingTemplateType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 185,
+      "symbol": "AWSPinpointTargetingTemplateType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 186,
+      "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 187,
+      "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeEmail",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 188,
+      "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeSms",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 189,
+      "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeVoice",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 190,
+      "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypePush",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 193,
+      "symbol": "AWSPinpointTargetingTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 193,
+      "symbol": "AWSPinpointTargetingTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 194,
+      "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 195,
+      "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 196,
+      "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesAny",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 197,
+      "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingResources.h",
+      "line": 18,
+      "symbol": "AWSPinpointTargetingResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingResources.h",
+      "line": 20,
+      "symbol": "AWSPinpointTargetingResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingResources.h",
+      "line": 22,
+      "symbol": "AWSPinpointTargetingResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingService.h",
+      "line": 24,
+      "symbol": "AWSPinpointTargetingSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPinpoint/AWSPinpointTargetingClient.h",
+      "line": 22,
+      "symbol": "AWSPinpointTargetingClient",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
