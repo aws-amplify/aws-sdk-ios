@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSTextractBlock Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSTextractBlock" class="dashAnchor"></a>
+    <a title="AWSTextractBlock Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSTextract 2.12.3 Docs</a> (65% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSTextract Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSTextractBlock Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextract.html">AWSTextract</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractAnalyzeDocumentRequest.html">AWSTextractAnalyzeDocumentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractAnalyzeDocumentResponse.html">AWSTextractAnalyzeDocumentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractBlock.html">AWSTextractBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractBoundingBox.html">AWSTextractBoundingBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDetectDocumentTextRequest.html">AWSTextractDetectDocumentTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDetectDocumentTextResponse.html">AWSTextractDetectDocumentTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDocument.html">AWSTextractDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDocumentLocation.html">AWSTextractDocumentLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDocumentMetadata.html">AWSTextractDocumentMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGeometry.html">AWSTextractGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentAnalysisRequest.html">AWSTextractGetDocumentAnalysisRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentAnalysisResponse.html">AWSTextractGetDocumentAnalysisResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentTextDetectionRequest.html">AWSTextractGetDocumentTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentTextDetectionResponse.html">AWSTextractGetDocumentTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractPoint.html">AWSTextractPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractRelationship.html">AWSTextractRelationship</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractResources.html">AWSTextractResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractS3Object.html">AWSTextractS3Object</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentAnalysisRequest.html">AWSTextractStartDocumentAnalysisRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentAnalysisResponse.html">AWSTextractStartDocumentAnalysisResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentTextDetectionRequest.html">AWSTextractStartDocumentTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentTextDetectionResponse.html">AWSTextractStartDocumentTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractWarning.html">AWSTextractWarning</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractErrorDomain">AWSTextractErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractSDKVersion">AWSTextractSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractVersionNumber">AWSTextractVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractVersionString">AWSTextractVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractBlockType.html">AWSTextractBlockType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractEntityType.html">AWSTextractEntityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractErrorType.html">AWSTextractErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractFeatureType.html">AWSTextractFeatureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractJobStatus.html">AWSTextractJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractRelationshipType.html">AWSTextractRelationshipType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractSelectionStatus.html">AWSTextractSelectionStatus</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSTextractBlock</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractBlock</span></code></pre>
+
+                </div>
+              </div>
+            <p>A <code>Block</code> represents items that are recognized in a document within a group of pixels close to each other. The information returned in a <code>Block</code> depends on the type of operation. In document-text detection (for example <a>DetectDocumentText</a>), you get information about the detected words and lines of text. In text analysis (for example <a>AnalyzeDocument</a>), you can also get information about the fields, tables and selection elements that are detected in the document.</p><p>An array of <code>Block</code> objects is returned by both synchronous and asynchronous operations. In synchronous operations, such as <a>DetectDocumentText</a>, the array of <code>Block</code> objects is the entire set of results. In asynchronous operations, such as <a>GetDocumentAnalysis</a>, the array is returned over one or more responses.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html">How Amazon Textract Works</a>.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)blockType"></a>
+                    <a name="//apple_ref/objc/Property/blockType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)blockType">blockType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The type of text that&rsquo;s recognized in a block. In text-detection operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE Block objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren&rsquo;t separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that&rsquo;s detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child Block objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE Block objects for a field that&rsquo;s detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY Block object or a VALUE Block object. </p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren&rsquo;t separated by spaces that&rsquo;s detected on a document page.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that&rsquo;s detected on a document page.</p></li><li><p><i>TABLE</i> - A table that&rsquo;s detected on a document page. A table is any grid-based information with 2 or more rows or columns with a cell span of 1 row and 1 column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selectable element such as a radio button or checkbox that&rsquo;s detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTextractBlockType.html">AWSTextractBlockType</a></span> <span class="n">blockType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">blockType</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTextractBlockType.html">AWSTextractBlockType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)columnIndex"></a>
+                    <a name="//apple_ref/objc/Property/columnIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)columnIndex">columnIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The column in which a table cell appears. The first column position is 1. <code>ColumnIndex</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">columnIndex</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">columnIndex</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)columnSpan"></a>
+                    <a name="//apple_ref/objc/Property/columnSpan" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)columnSpan">columnSpan</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">columnSpan</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">columnSpan</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)confidence"></a>
+                    <a name="//apple_ref/objc/Property/confidence" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)confidence">confidence</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The confidence that Amazon Textract has in the accuracy of the recognized text and the accuracy of the geometry points around the recognized text.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">confidence</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">confidence</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)entityTypes"></a>
+                    <a name="//apple_ref/objc/Property/entityTypes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)entityTypes">entityTypes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of entity. The following can be returned:</p><ul><li><p><i>KEY</i> - An identifier for a field on the document.</p></li><li><p><i>VALUE</i> - The field text.</p></li></ul><p><code>EntityTypes</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">entityTypes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">entityTypes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)geometry"></a>
+                    <a name="//apple_ref/objc/Property/geometry" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)geometry">geometry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The location of the recognized text on the image. It includes an axis-aligned, coarse bounding box that surrounds the text, and a finer-grain polygon for more accurate spatial information. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTextractGeometry.html">AWSTextractGeometry</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">geometry</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">geometry</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTextractGeometry.html">AWSTextractGeometry</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)identifier"></a>
+                    <a name="//apple_ref/objc/Property/identifier" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)identifier">identifier</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The identifier for the recognized text. The identifier is only unique for a single operation. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">identifier</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">identifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)page"></a>
+                    <a name="//apple_ref/objc/Property/page" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)page">page</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The page in which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multi-page documents that are in PDF format. A scanned image (JPG/PNG), even if it contains multiple document pages, is always considered to be a single-page document and the value of <code>Page</code> is always 1. Synchronous operations don&rsquo;t return <code>Page</code> as every input document is considered to be a single-page document.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">page</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">page</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)relationships"></a>
+                    <a name="//apple_ref/objc/Property/relationships" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)relationships">relationships</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>A list of child blocks of the current block. For example a LINE object has child blocks for each WORD block that&rsquo;s part of the line of text. There aren&rsquo;t Relationship objects in the list for relationships that don&rsquo;t exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSTextractRelationship.html">AWSTextractRelationship</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">relationships</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">relationships</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSTextractRelationship.html">AWSTextractRelationship</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)rowIndex"></a>
+                    <a name="//apple_ref/objc/Property/rowIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)rowIndex">rowIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The row in which a table cell is located. The first row position is 1. <code>RowIndex</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">rowIndex</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">rowIndex</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)rowSpan"></a>
+                    <a name="//apple_ref/objc/Property/rowSpan" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)rowSpan">rowSpan</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of rows that a table spans. <code>RowSpan</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">rowSpan</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">rowSpan</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)selectionStatus"></a>
+                    <a name="//apple_ref/objc/Property/selectionStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)selectionStatus">selectionStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The selection status of a selectable element such as a radio button or checkbox. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Enums/AWSTextractSelectionStatus.html">AWSTextractSelectionStatus</a></span> <span class="n">selectionStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">selectionStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTextractSelectionStatus.html">AWSTextractSelectionStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBlock(py)text"></a>
+                    <a name="//apple_ref/objc/Property/text" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBlock(py)text">text</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The word or line of text that&rsquo;s recognized by Amazon Textract. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">text</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSTextractBoundingBox Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSTextractBoundingBox" class="dashAnchor"></a>
+    <a title="AWSTextractBoundingBox Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSTextract 2.12.3 Docs</a> (65% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSTextract Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSTextractBoundingBox Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextract.html">AWSTextract</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractAnalyzeDocumentRequest.html">AWSTextractAnalyzeDocumentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractAnalyzeDocumentResponse.html">AWSTextractAnalyzeDocumentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractBlock.html">AWSTextractBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractBoundingBox.html">AWSTextractBoundingBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDetectDocumentTextRequest.html">AWSTextractDetectDocumentTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDetectDocumentTextResponse.html">AWSTextractDetectDocumentTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDocument.html">AWSTextractDocument</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDocumentLocation.html">AWSTextractDocumentLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractDocumentMetadata.html">AWSTextractDocumentMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGeometry.html">AWSTextractGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentAnalysisRequest.html">AWSTextractGetDocumentAnalysisRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentAnalysisResponse.html">AWSTextractGetDocumentAnalysisResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentTextDetectionRequest.html">AWSTextractGetDocumentTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractGetDocumentTextDetectionResponse.html">AWSTextractGetDocumentTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractPoint.html">AWSTextractPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractRelationship.html">AWSTextractRelationship</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractResources.html">AWSTextractResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractS3Object.html">AWSTextractS3Object</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentAnalysisRequest.html">AWSTextractStartDocumentAnalysisRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentAnalysisResponse.html">AWSTextractStartDocumentAnalysisResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentTextDetectionRequest.html">AWSTextractStartDocumentTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractStartDocumentTextDetectionResponse.html">AWSTextractStartDocumentTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractWarning.html">AWSTextractWarning</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractErrorDomain">AWSTextractErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractSDKVersion">AWSTextractSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractVersionNumber">AWSTextractVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTextractVersionString">AWSTextractVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractBlockType.html">AWSTextractBlockType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractEntityType.html">AWSTextractEntityType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractErrorType.html">AWSTextractErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractFeatureType.html">AWSTextractFeatureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractJobStatus.html">AWSTextractJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractRelationshipType.html">AWSTextractRelationshipType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractSelectionStatus.html">AWSTextractSelectionStatus</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSTextractBoundingBox</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTextractBoundingBox</span></code></pre>
+
+                </div>
+              </div>
+            <p>The bounding box around the recognized text, key, value, table or table cell on a document page. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall document page size. For example, if the input image is 700 x 200 pixels, and the top-left coordinate of the bounding box is 350 x 50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall document page dimension. For example, if the document page size is 700 x 200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBoundingBox(py)height"></a>
+                    <a name="//apple_ref/objc/Property/height" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBoundingBox(py)height">height</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The height of the bounding box as a ratio of the overall document page height.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">height</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">height</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBoundingBox(py)left"></a>
+                    <a name="//apple_ref/objc/Property/left" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBoundingBox(py)left">left</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The left coordinate of the bounding box as a ratio of overall document page width.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">left</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">left</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBoundingBox(py)top"></a>
+                    <a name="//apple_ref/objc/Property/top" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBoundingBox(py)top">top</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The top coordinate of the bounding box as a ratio of overall document page height.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">top</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">top</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractBoundingBox(py)width"></a>
+                    <a name="//apple_ref/objc/Property/width" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractBoundingBox(py)width">width</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The width of the bounding box as a ratio of the overall document page width.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">width</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">width</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
