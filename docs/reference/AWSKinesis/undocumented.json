@@ -1,0 +1,1412 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehose.h",
+      "line": 28,
+      "symbol": "AWSFirehoseVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehose.h",
+      "line": 39,
+      "symbol": "AWSFirehoseVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 22,
+      "symbol": "AWSFirehoseErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 24,
+      "symbol": "AWSFirehoseErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 24,
+      "symbol": "AWSFirehoseErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 25,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 26,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorConcurrentModification",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 27,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorInvalidArgument",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 28,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorInvalidKMSResource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 29,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 30,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorResourceInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 31,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 32,
+      "symbol": "AWSFirehoseErrorType.AWSFirehoseErrorServiceUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 35,
+      "symbol": "AWSFirehoseCompressionFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 35,
+      "symbol": "AWSFirehoseCompressionFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 36,
+      "symbol": "AWSFirehoseCompressionFormat.AWSFirehoseCompressionFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 37,
+      "symbol": "AWSFirehoseCompressionFormat.AWSFirehoseCompressionFormatUncompressed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 38,
+      "symbol": "AWSFirehoseCompressionFormat.AWSFirehoseCompressionFormatGzip",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 39,
+      "symbol": "AWSFirehoseCompressionFormat.AWSFirehoseCompressionFormatZip",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 40,
+      "symbol": "AWSFirehoseCompressionFormat.AWSFirehoseCompressionFormatSnappy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 43,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 43,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 44,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 45,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 46,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 47,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnablingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 48,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 49,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 50,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisablingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 53,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 53,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 54,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 55,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeRetireKmsGrantFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 56,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateKmsGrantFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 57,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 58,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDisabledKmsKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 59,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 60,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 61,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 62,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknownError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 65,
+      "symbol": "AWSFirehoseDeliveryStreamStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 65,
+      "symbol": "AWSFirehoseDeliveryStreamStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 66,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 67,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 68,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreatingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 69,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 70,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeletingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 71,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 74,
+      "symbol": "AWSFirehoseDeliveryStreamType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 74,
+      "symbol": "AWSFirehoseDeliveryStreamType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 75,
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 76,
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeDirectPut",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 77,
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 80,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 80,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 81,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 82,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodNoRotation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 83,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneHour",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 84,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneDay",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 85,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneWeek",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 86,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneMonth",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 89,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 89,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 90,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 91,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 92,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeAllDocuments",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 95,
+      "symbol": "AWSFirehoseHECEndpointType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 95,
+      "symbol": "AWSFirehoseHECEndpointType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 96,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 97,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeRaw",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 98,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 101,
+      "symbol": "AWSFirehoseKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 101,
+      "symbol": "AWSFirehoseKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 102,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 103,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeAwsOwnedCmk",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 104,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeCustomerManagedCmk",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 107,
+      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 107,
+      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 108,
+      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 109,
+      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigNoEncryption",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 112,
+      "symbol": "AWSFirehoseOrcCompression",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 112,
+      "symbol": "AWSFirehoseOrcCompression",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 113,
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 114,
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 115,
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionZlib",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 116,
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionSnappy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 119,
+      "symbol": "AWSFirehoseOrcFormatVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 119,
+      "symbol": "AWSFirehoseOrcFormatVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 120,
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 121,
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV011",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 122,
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV012",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 125,
+      "symbol": "AWSFirehoseParquetCompression",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 125,
+      "symbol": "AWSFirehoseParquetCompression",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 126,
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 127,
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUncompressed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 128,
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionGzip",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 129,
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionSnappy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 132,
+      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 132,
+      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 133,
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 134,
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV1",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 135,
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV2",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 138,
+      "symbol": "AWSFirehoseProcessorParameterName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 138,
+      "symbol": "AWSFirehoseProcessorParameterName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 139,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 140,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameLambdaArn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 141,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameNumberOfRetries",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 142,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameRoleArn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 143,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferSizeInMBs",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 144,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferIntervalInSeconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 147,
+      "symbol": "AWSFirehoseProcessorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 147,
+      "symbol": "AWSFirehoseProcessorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 148,
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 149,
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeLambda",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 152,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 152,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 153,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 154,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 155,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 158,
+      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 158,
+      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 159,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 160,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 161,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 164,
+      "symbol": "AWSFirehoseSplunkS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 164,
+      "symbol": "AWSFirehoseSplunkS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 165,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 166,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeFailedEventsOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseModel.h",
+      "line": 167,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeAllEvents",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseRecorder.h",
+      "line": 22,
+      "symbol": "AWSFirehoseRecorderErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseRecorder.h",
+      "line": 24,
+      "symbol": "AWSFirehoseRecorderErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseRecorder.h",
+      "line": 24,
+      "symbol": "AWSFirehoseRecorderErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseRecorder.h",
+      "line": 25,
+      "symbol": "AWSFirehoseRecorderErrorType.AWSFirehoseRecorderErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseRecorder.h",
+      "line": 26,
+      "symbol": "AWSFirehoseRecorderErrorType.AWSFirehoseRecorderErrorDataTooLarge",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseResources.h",
+      "line": 18,
+      "symbol": "AWSFirehoseResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseResources.h",
+      "line": 20,
+      "symbol": "AWSFirehoseResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseResources.h",
+      "line": 22,
+      "symbol": "AWSFirehoseResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSFirehoseService.h",
+      "line": 24,
+      "symbol": "AWSFirehoseSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesis.h",
+      "line": 28,
+      "symbol": "AWSKinesisVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesis.h",
+      "line": 39,
+      "symbol": "AWSKinesisVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 22,
+      "symbol": "AWSKinesisErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 24,
+      "symbol": "AWSKinesisErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 24,
+      "symbol": "AWSKinesisErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 25,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 26,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorExpiredIterator",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 27,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorExpiredNextToken",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 28,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorInvalidArgument",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 29,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorKMSAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 30,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorKMSDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 31,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorKMSInvalidState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 32,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorKMSNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 33,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorKMSOptInRequired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 34,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorKMSThrottling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 35,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 36,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorProvisionedThroughputExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 37,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorResourceInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 38,
+      "symbol": "AWSKinesisErrorType.AWSKinesisErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 41,
+      "symbol": "AWSKinesisEncryptionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 41,
+      "symbol": "AWSKinesisEncryptionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 42,
+      "symbol": "AWSKinesisEncryptionType.AWSKinesisEncryptionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 43,
+      "symbol": "AWSKinesisEncryptionType.AWSKinesisEncryptionTypeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 44,
+      "symbol": "AWSKinesisEncryptionType.AWSKinesisEncryptionTypeKms",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 47,
+      "symbol": "AWSKinesisMetricsName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 47,
+      "symbol": "AWSKinesisMetricsName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 48,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 49,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameIncomingBytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 50,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameIncomingRecords",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 51,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameOutgoingBytes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 52,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameOutgoingRecords",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 53,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameWriteProvisionedThroughputExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 54,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameReadProvisionedThroughputExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 55,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameIteratorAgeMilliseconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 56,
+      "symbol": "AWSKinesisMetricsName.AWSKinesisMetricsNameAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 59,
+      "symbol": "AWSKinesisScalingType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 59,
+      "symbol": "AWSKinesisScalingType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 60,
+      "symbol": "AWSKinesisScalingType.AWSKinesisScalingTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 61,
+      "symbol": "AWSKinesisScalingType.AWSKinesisScalingTypeUniformScaling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 64,
+      "symbol": "AWSKinesisShardIteratorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 64,
+      "symbol": "AWSKinesisShardIteratorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 65,
+      "symbol": "AWSKinesisShardIteratorType.AWSKinesisShardIteratorTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 66,
+      "symbol": "AWSKinesisShardIteratorType.AWSKinesisShardIteratorTypeAtSequenceNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 67,
+      "symbol": "AWSKinesisShardIteratorType.AWSKinesisShardIteratorTypeAfterSequenceNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 68,
+      "symbol": "AWSKinesisShardIteratorType.AWSKinesisShardIteratorTypeTrimHorizon",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 69,
+      "symbol": "AWSKinesisShardIteratorType.AWSKinesisShardIteratorTypeLatest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 70,
+      "symbol": "AWSKinesisShardIteratorType.AWSKinesisShardIteratorTypeAtTimestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 73,
+      "symbol": "AWSKinesisStreamStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 73,
+      "symbol": "AWSKinesisStreamStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 74,
+      "symbol": "AWSKinesisStreamStatus.AWSKinesisStreamStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 75,
+      "symbol": "AWSKinesisStreamStatus.AWSKinesisStreamStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 76,
+      "symbol": "AWSKinesisStreamStatus.AWSKinesisStreamStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 77,
+      "symbol": "AWSKinesisStreamStatus.AWSKinesisStreamStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisModel.h",
+      "line": 78,
+      "symbol": "AWSKinesisStreamStatus.AWSKinesisStreamStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisRecorder.h",
+      "line": 22,
+      "symbol": "AWSKinesisRecorderErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisRecorder.h",
+      "line": 24,
+      "symbol": "AWSKinesisRecorderErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisRecorder.h",
+      "line": 24,
+      "symbol": "AWSKinesisRecorderErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisRecorder.h",
+      "line": 25,
+      "symbol": "AWSKinesisRecorderErrorType.AWSKinesisRecorderErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisRecorder.h",
+      "line": 26,
+      "symbol": "AWSKinesisRecorderErrorType.AWSKinesisRecorderErrorDataTooLarge",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisResources.h",
+      "line": 18,
+      "symbol": "AWSKinesisResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisResources.h",
+      "line": 20,
+      "symbol": "AWSKinesisResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisResources.h",
+      "line": 22,
+      "symbol": "AWSKinesisResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKinesis/AWSKinesisService.h",
+      "line": 24,
+      "symbol": "AWSKinesisSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSKinesisListTagsForStreamInput Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSKinesisListTagsForStreamInput" class="dashAnchor"></a>
+    <a title="AWSKinesisListTagsForStreamInput Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSKinesis 2.12.3 Docs</a> (76% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSKinesis Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSKinesisListTagsForStreamInput Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAbstractKinesisRecorder.html">AWSAbstractKinesisRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehose.html">AWSFirehose</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseBufferingHints.html">AWSFirehoseBufferingHints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseCloudWatchLoggingOptions.html">AWSFirehoseCloudWatchLoggingOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseCreateDeliveryStreamInput.html">AWSFirehoseCreateDeliveryStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseCreateDeliveryStreamOutput.html">AWSFirehoseCreateDeliveryStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDataFormatConversionConfiguration.html">AWSFirehoseDataFormatConversionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDeleteDeliveryStreamInput.html">AWSFirehoseDeleteDeliveryStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSFirehoseDeleteDeliveryStreamOutput">AWSFirehoseDeleteDeliveryStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDeliveryStreamDescription.html">AWSFirehoseDeliveryStreamDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDeliveryStreamEncryptionConfiguration.html">AWSFirehoseDeliveryStreamEncryptionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDeliveryStreamEncryptionConfigurationInput.html">AWSFirehoseDeliveryStreamEncryptionConfigurationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDescribeDeliveryStreamInput.html">AWSFirehoseDescribeDeliveryStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDescribeDeliveryStreamOutput.html">AWSFirehoseDescribeDeliveryStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDeserializer.html">AWSFirehoseDeserializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseDestinationDescription.html">AWSFirehoseDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseElasticsearchBufferingHints.html">AWSFirehoseElasticsearchBufferingHints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseElasticsearchDestinationConfiguration.html">AWSFirehoseElasticsearchDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseElasticsearchDestinationDescription.html">AWSFirehoseElasticsearchDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseElasticsearchDestinationUpdate.html">AWSFirehoseElasticsearchDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseElasticsearchRetryOptions.html">AWSFirehoseElasticsearchRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseEncryptionConfiguration.html">AWSFirehoseEncryptionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseExtendedS3DestinationConfiguration.html">AWSFirehoseExtendedS3DestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseExtendedS3DestinationDescription.html">AWSFirehoseExtendedS3DestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseExtendedS3DestinationUpdate.html">AWSFirehoseExtendedS3DestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseFailureDescription.html">AWSFirehoseFailureDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHiveJsonSerDe.html">AWSFirehoseHiveJsonSerDe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseInputFormatConfiguration.html">AWSFirehoseInputFormatConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseKMSEncryptionConfig.html">AWSFirehoseKMSEncryptionConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseKinesisStreamSourceConfiguration.html">AWSFirehoseKinesisStreamSourceConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseKinesisStreamSourceDescription.html">AWSFirehoseKinesisStreamSourceDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseListDeliveryStreamsInput.html">AWSFirehoseListDeliveryStreamsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseListDeliveryStreamsOutput.html">AWSFirehoseListDeliveryStreamsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseListTagsForDeliveryStreamInput.html">AWSFirehoseListTagsForDeliveryStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseListTagsForDeliveryStreamOutput.html">AWSFirehoseListTagsForDeliveryStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseOpenXJsonSerDe.html">AWSFirehoseOpenXJsonSerDe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseOrcSerDe.html">AWSFirehoseOrcSerDe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseOutputFormatConfiguration.html">AWSFirehoseOutputFormatConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseParquetSerDe.html">AWSFirehoseParquetSerDe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseProcessingConfiguration.html">AWSFirehoseProcessingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseProcessor.html">AWSFirehoseProcessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseProcessorParameter.html">AWSFirehoseProcessorParameter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehosePutRecordBatchInput.html">AWSFirehosePutRecordBatchInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehosePutRecordBatchOutput.html">AWSFirehosePutRecordBatchOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehosePutRecordBatchResponseEntry.html">AWSFirehosePutRecordBatchResponseEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehosePutRecordInput.html">AWSFirehosePutRecordInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehosePutRecordOutput.html">AWSFirehosePutRecordOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRecord.html">AWSFirehoseRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRecorder.html">AWSFirehoseRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRedshiftDestinationConfiguration.html">AWSFirehoseRedshiftDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRedshiftDestinationDescription.html">AWSFirehoseRedshiftDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRedshiftDestinationUpdate.html">AWSFirehoseRedshiftDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseRedshiftRetryOptions.html">AWSFirehoseRedshiftRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseReplicateCommand.html">AWSFirehoseReplicateCommand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseResources.html">AWSFirehoseResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseS3DestinationConfiguration.html">AWSFirehoseS3DestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseS3DestinationDescription.html">AWSFirehoseS3DestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseS3DestinationUpdate.html">AWSFirehoseS3DestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSchemaConfiguration.html">AWSFirehoseSchemaConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSerializer.html">AWSFirehoseSerializer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSourceDescription.html">AWSFirehoseSourceDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSplunkDestinationConfiguration.html">AWSFirehoseSplunkDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSplunkDestinationDescription.html">AWSFirehoseSplunkDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSplunkDestinationUpdate.html">AWSFirehoseSplunkDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseSplunkRetryOptions.html">AWSFirehoseSplunkRetryOptions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseStartDeliveryStreamEncryptionInput.html">AWSFirehoseStartDeliveryStreamEncryptionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSFirehoseStartDeliveryStreamEncryptionOutput">AWSFirehoseStartDeliveryStreamEncryptionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseStopDeliveryStreamEncryptionInput.html">AWSFirehoseStopDeliveryStreamEncryptionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSFirehoseStopDeliveryStreamEncryptionOutput">AWSFirehoseStopDeliveryStreamEncryptionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseTag.html">AWSFirehoseTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseTagDeliveryStreamInput.html">AWSFirehoseTagDeliveryStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSFirehoseTagDeliveryStreamOutput">AWSFirehoseTagDeliveryStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseUntagDeliveryStreamInput.html">AWSFirehoseUntagDeliveryStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSFirehoseUntagDeliveryStreamOutput">AWSFirehoseUntagDeliveryStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseUpdateDestinationInput.html">AWSFirehoseUpdateDestinationInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSFirehoseUpdateDestinationOutput">AWSFirehoseUpdateDestinationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesis.html">AWSKinesis</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisAddTagsToStreamInput.html">AWSKinesisAddTagsToStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisCreateStreamInput.html">AWSKinesisCreateStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDecreaseStreamRetentionPeriodInput.html">AWSKinesisDecreaseStreamRetentionPeriodInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDeleteStreamInput.html">AWSKinesisDeleteStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSKinesisDescribeLimitsInput">AWSKinesisDescribeLimitsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDescribeLimitsOutput.html">AWSKinesisDescribeLimitsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDescribeStreamInput.html">AWSKinesisDescribeStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDescribeStreamOutput.html">AWSKinesisDescribeStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDescribeStreamSummaryInput.html">AWSKinesisDescribeStreamSummaryInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDescribeStreamSummaryOutput.html">AWSKinesisDescribeStreamSummaryOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisDisableEnhancedMonitoringInput.html">AWSKinesisDisableEnhancedMonitoringInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisEnableEnhancedMonitoringInput.html">AWSKinesisEnableEnhancedMonitoringInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisEnhancedMetrics.html">AWSKinesisEnhancedMetrics</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisEnhancedMonitoringOutput.html">AWSKinesisEnhancedMonitoringOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisGetRecordsInput.html">AWSKinesisGetRecordsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisGetRecordsOutput.html">AWSKinesisGetRecordsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisGetShardIteratorInput.html">AWSKinesisGetShardIteratorInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisGetShardIteratorOutput.html">AWSKinesisGetShardIteratorOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisHashKeyRange.html">AWSKinesisHashKeyRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisIncreaseStreamRetentionPeriodInput.html">AWSKinesisIncreaseStreamRetentionPeriodInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisListShardsInput.html">AWSKinesisListShardsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisListShardsOutput.html">AWSKinesisListShardsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisListStreamsInput.html">AWSKinesisListStreamsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisListStreamsOutput.html">AWSKinesisListStreamsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisListTagsForStreamInput.html">AWSKinesisListTagsForStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisListTagsForStreamOutput.html">AWSKinesisListTagsForStreamOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisMergeShardsInput.html">AWSKinesisMergeShardsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisPutRecordInput.html">AWSKinesisPutRecordInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisPutRecordOutput.html">AWSKinesisPutRecordOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisPutRecordsInput.html">AWSKinesisPutRecordsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisPutRecordsOutput.html">AWSKinesisPutRecordsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisPutRecordsRequestEntry.html">AWSKinesisPutRecordsRequestEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisPutRecordsResultEntry.html">AWSKinesisPutRecordsResultEntry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisRecord.html">AWSKinesisRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisRecorder.html">AWSKinesisRecorder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisRemoveTagsFromStreamInput.html">AWSKinesisRemoveTagsFromStreamInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisResources.html">AWSKinesisResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisSequenceNumberRange.html">AWSKinesisSequenceNumberRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisShard.html">AWSKinesisShard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisSplitShardInput.html">AWSKinesisSplitShardInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisStartStreamEncryptionInput.html">AWSKinesisStartStreamEncryptionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisStopStreamEncryptionInput.html">AWSKinesisStopStreamEncryptionInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisStreamDescription.html">AWSKinesisStreamDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisStreamDescriptionSummary.html">AWSKinesisStreamDescriptionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisTag.html">AWSKinesisTag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisUpdateShardCountInput.html">AWSKinesisUpdateShardCountInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisUpdateShardCountOutput.html">AWSKinesisUpdateShardCountOutput</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseErrorDomain">AWSFirehoseErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseRecorderByteThresholdReachedNotification">AWSFirehoseRecorderByteThresholdReachedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseRecorderByteThresholdReachedNotificationDiskBytesUsedKey">AWSFirehoseRecorderByteThresholdReachedNotificationDiskBytesUsedKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseRecorderErrorDomain">AWSFirehoseRecorderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseSDKVersion">AWSFirehoseSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseVersionNumber">AWSFirehoseVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSFirehoseVersionString">AWSFirehoseVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisErrorDomain">AWSKinesisErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisRecorderByteThresholdReachedNotification">AWSKinesisRecorderByteThresholdReachedNotification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisRecorderByteThresholdReachedNotificationDiskBytesUsedKey">AWSKinesisRecorderByteThresholdReachedNotificationDiskBytesUsedKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisRecorderErrorDomain">AWSKinesisRecorderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisSDKVersion">AWSKinesisSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisVersionNumber">AWSKinesisVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisVersionString">AWSKinesisVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseCompressionFormat.html">AWSFirehoseCompressionFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseDeliveryStreamEncryptionStatus.html">AWSFirehoseDeliveryStreamEncryptionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseDeliveryStreamFailureType.html">AWSFirehoseDeliveryStreamFailureType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseDeliveryStreamStatus.html">AWSFirehoseDeliveryStreamStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseDeliveryStreamType.html">AWSFirehoseDeliveryStreamType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseElasticsearchIndexRotationPeriod.html">AWSFirehoseElasticsearchIndexRotationPeriod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseElasticsearchS3BackupMode.html">AWSFirehoseElasticsearchS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseErrorType.html">AWSFirehoseErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseHECEndpointType.html">AWSFirehoseHECEndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseKeyType.html">AWSFirehoseKeyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseNoEncryptionConfig.html">AWSFirehoseNoEncryptionConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseOrcCompression.html">AWSFirehoseOrcCompression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseOrcFormatVersion.html">AWSFirehoseOrcFormatVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseParquetCompression.html">AWSFirehoseParquetCompression</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseParquetWriterVersion.html">AWSFirehoseParquetWriterVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseProcessorParameterName.html">AWSFirehoseProcessorParameterName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseProcessorType.html">AWSFirehoseProcessorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseRecorderErrorType.html">AWSFirehoseRecorderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseRedshiftS3BackupMode.html">AWSFirehoseRedshiftS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseS3BackupMode.html">AWSFirehoseS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseSplunkS3BackupMode.html">AWSFirehoseSplunkS3BackupMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisEncryptionType.html">AWSKinesisEncryptionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisErrorType.html">AWSKinesisErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisMetricsName.html">AWSKinesisMetricsName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisRecorderErrorType.html">AWSKinesisRecorderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisScalingType.html">AWSKinesisScalingType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisShardIteratorType.html">AWSKinesisShardIteratorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisStreamStatus.html">AWSKinesisStreamStatus</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSKinesisListTagsForStreamInput</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKinesisListTagsForStreamInput</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents the input for <code>ListTagsForStream</code>.</p>
+
+<p>Required parameters: [StreamName]</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisListTagsForStreamInput(py)exclusiveStartTagKey"></a>
+                    <a name="//apple_ref/objc/Property/exclusiveStartTagKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisListTagsForStreamInput(py)exclusiveStartTagKey">exclusiveStartTagKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The key to use as the starting point for the list of tags. If this parameter is set, <code>ListTagsForStream</code> gets all tags that occur after <code>ExclusiveStartTagKey</code>. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">exclusiveStartTagKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">exclusiveStartTagKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisListTagsForStreamInput(py)limit"></a>
+                    <a name="//apple_ref/objc/Property/limit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisListTagsForStreamInput(py)limit">limit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of tags to return. If this number is less than the total number of tags associated with the stream, <code>HasMoreTags</code> is set to <code>true</code>. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">limit</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">limit</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisListTagsForStreamInput(py)streamName"></a>
+                    <a name="//apple_ref/objc/Property/streamName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisListTagsForStreamInput(py)streamName">streamName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the stream.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">streamName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">streamName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
