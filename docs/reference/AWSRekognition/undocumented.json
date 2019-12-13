@@ -1,0 +1,1251 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognition.h",
+      "line": 28,
+      "symbol": "AWSRekognitionVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognition.h",
+      "line": 39,
+      "symbol": "AWSRekognitionVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 22,
+      "symbol": "AWSRekognitionErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 24,
+      "symbol": "AWSRekognitionErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 24,
+      "symbol": "AWSRekognitionErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 25,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 26,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 27,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorHumanLoopQuotaExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 28,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorIdempotentParameterMismatch",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 29,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorImageTooLarge",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 30,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInternalServer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 31,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidImageFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 32,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidPaginationToken",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 33,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidParameter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 34,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorInvalidS3Object",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 35,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 36,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorProvisionedThroughputExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 37,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceAlreadyExists",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 38,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 39,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 40,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorResourceNotReady",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 41,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorThrottling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 42,
+      "symbol": "AWSRekognitionErrorType.AWSRekognitionErrorVideoTooLarge",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 45,
+      "symbol": "AWSRekognitionAttribute",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 45,
+      "symbol": "AWSRekognitionAttribute",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 46,
+      "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 47,
+      "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 48,
+      "symbol": "AWSRekognitionAttribute.AWSRekognitionAttributeAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 51,
+      "symbol": "AWSRekognitionCelebrityRecognitionSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 51,
+      "symbol": "AWSRekognitionCelebrityRecognitionSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 52,
+      "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortByUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 53,
+      "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortById",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 54,
+      "symbol": "AWSRekognitionCelebrityRecognitionSortBy.AWSRekognitionCelebrityRecognitionSortByTimestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 57,
+      "symbol": "AWSRekognitionContentClassifier",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 57,
+      "symbol": "AWSRekognitionContentClassifier",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 58,
+      "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 59,
+      "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierFreeOfPersonallyIdentifiableInformation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 60,
+      "symbol": "AWSRekognitionContentClassifier.AWSRekognitionContentClassifierFreeOfAdultContent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 63,
+      "symbol": "AWSRekognitionContentModerationSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 63,
+      "symbol": "AWSRekognitionContentModerationSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 64,
+      "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 65,
+      "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 66,
+      "symbol": "AWSRekognitionContentModerationSortBy.AWSRekognitionContentModerationSortByTimestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 69,
+      "symbol": "AWSRekognitionEmotionName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 69,
+      "symbol": "AWSRekognitionEmotionName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 70,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 71,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameHappy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 72,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameSad",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 73,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameAngry",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 74,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameConfused",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 75,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameDisgusted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 76,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameSurprised",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 77,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameCalm",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 78,
+      "symbol": "AWSRekognitionEmotionName.AWSRekognitionEmotionNameFear",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 81,
+      "symbol": "AWSRekognitionFaceAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 81,
+      "symbol": "AWSRekognitionFaceAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 82,
+      "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 83,
+      "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesDefault",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 84,
+      "symbol": "AWSRekognitionFaceAttributes.AWSRekognitionFaceAttributesAll",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 87,
+      "symbol": "AWSRekognitionFaceSearchSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 87,
+      "symbol": "AWSRekognitionFaceSearchSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 88,
+      "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 89,
+      "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByIndex",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 90,
+      "symbol": "AWSRekognitionFaceSearchSortBy.AWSRekognitionFaceSearchSortByTimestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 93,
+      "symbol": "AWSRekognitionGenderType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 93,
+      "symbol": "AWSRekognitionGenderType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 94,
+      "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 95,
+      "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeMale",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 96,
+      "symbol": "AWSRekognitionGenderType.AWSRekognitionGenderTypeFemale",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 99,
+      "symbol": "AWSRekognitionLabelDetectionSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 99,
+      "symbol": "AWSRekognitionLabelDetectionSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 100,
+      "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 101,
+      "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 102,
+      "symbol": "AWSRekognitionLabelDetectionSortBy.AWSRekognitionLabelDetectionSortByTimestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 105,
+      "symbol": "AWSRekognitionLandmarkType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 105,
+      "symbol": "AWSRekognitionLandmarkType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 106,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 107,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeEyeLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 108,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeEyeRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 109,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 110,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 111,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 112,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 113,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 114,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeBrowUp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 115,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 116,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 117,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeBrowUp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 118,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 119,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 120,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeUp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 121,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftEyeDown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 122,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 123,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 124,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeUp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 125,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightEyeDown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 126,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNoseLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 127,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeNoseRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 128,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthUp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 129,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMouthDown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 130,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeLeftPupil",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 131,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeRightPupil",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 132,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUpperJawlineLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 133,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMidJawlineLeft",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 134,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeChinBottom",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 135,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeMidJawlineRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 136,
+      "symbol": "AWSRekognitionLandmarkType.AWSRekognitionLandmarkTypeUpperJawlineRight",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 139,
+      "symbol": "AWSRekognitionOrientationCorrection",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 139,
+      "symbol": "AWSRekognitionOrientationCorrection",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 140,
+      "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 141,
+      "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate0",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 142,
+      "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate90",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 143,
+      "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate180",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 144,
+      "symbol": "AWSRekognitionOrientationCorrection.AWSRekognitionOrientationCorrectionRotate270",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 147,
+      "symbol": "AWSRekognitionPersonTrackingSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 147,
+      "symbol": "AWSRekognitionPersonTrackingSortBy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 148,
+      "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 149,
+      "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByIndex",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 150,
+      "symbol": "AWSRekognitionPersonTrackingSortBy.AWSRekognitionPersonTrackingSortByTimestamp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 153,
+      "symbol": "AWSRekognitionProjectStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 153,
+      "symbol": "AWSRekognitionProjectStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 154,
+      "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 155,
+      "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 156,
+      "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusCreated",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 157,
+      "symbol": "AWSRekognitionProjectStatus.AWSRekognitionProjectStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 160,
+      "symbol": "AWSRekognitionProjectVersionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 160,
+      "symbol": "AWSRekognitionProjectVersionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 161,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 162,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 163,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 164,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusTrainingFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 165,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStarting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 166,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusRunning",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 167,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 168,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStopping",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 169,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusStopped",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 170,
+      "symbol": "AWSRekognitionProjectVersionStatus.AWSRekognitionProjectVersionStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 173,
+      "symbol": "AWSRekognitionQualityFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 173,
+      "symbol": "AWSRekognitionQualityFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 174,
+      "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 175,
+      "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 176,
+      "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterAuto",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 177,
+      "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterLow",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 178,
+      "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterMedium",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 179,
+      "symbol": "AWSRekognitionQualityFilter.AWSRekognitionQualityFilterHigh",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 182,
+      "symbol": "AWSRekognitionReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 182,
+      "symbol": "AWSRekognitionReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 183,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 184,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonExceedsMaxFaces",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 185,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonExtremePose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 186,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowBrightness",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 187,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowSharpness",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 188,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowConfidence",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 189,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonSmallBoundingBox",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 190,
+      "symbol": "AWSRekognitionReason.AWSRekognitionReasonLowFaceQuality",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 193,
+      "symbol": "AWSRekognitionStreamProcessorStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 193,
+      "symbol": "AWSRekognitionStreamProcessorStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 194,
+      "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 195,
+      "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStopped",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 196,
+      "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStarting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 197,
+      "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusRunning",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 198,
+      "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 199,
+      "symbol": "AWSRekognitionStreamProcessorStatus.AWSRekognitionStreamProcessorStatusStopping",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 202,
+      "symbol": "AWSRekognitionTextTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 202,
+      "symbol": "AWSRekognitionTextTypes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 203,
+      "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 204,
+      "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesLine",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 205,
+      "symbol": "AWSRekognitionTextTypes.AWSRekognitionTextTypesWord",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 208,
+      "symbol": "AWSRekognitionVideoJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 208,
+      "symbol": "AWSRekognitionVideoJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 209,
+      "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 210,
+      "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 211,
+      "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusSucceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionModel.h",
+      "line": 212,
+      "symbol": "AWSRekognitionVideoJobStatus.AWSRekognitionVideoJobStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionResources.h",
+      "line": 18,
+      "symbol": "AWSRekognitionResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionResources.h",
+      "line": 20,
+      "symbol": "AWSRekognitionResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionResources.h",
+      "line": 22,
+      "symbol": "AWSRekognitionResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSRekognition/AWSRekognitionService.h",
+      "line": 24,
+      "symbol": "AWSRekognitionSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
