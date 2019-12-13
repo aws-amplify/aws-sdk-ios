@@ -1,0 +1,859 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehend.h",
+      "line": 28,
+      "symbol": "AWSComprehendVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehend.h",
+      "line": 39,
+      "symbol": "AWSComprehendVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 22,
+      "symbol": "AWSComprehendErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 24,
+      "symbol": "AWSComprehendErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 24,
+      "symbol": "AWSComprehendErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 25,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 26,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorBatchSizeLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 27,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorConcurrentModification",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 28,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorInternalServer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 29,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorInvalidFilter",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 30,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorInvalidRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 31,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorJobNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 32,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorKmsKeyValidation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 33,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorResourceInUse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 34,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorResourceLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 35,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 36,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorResourceUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 37,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorTextSizeLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 38,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorTooManyRequests",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 39,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorTooManyTagKeys",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 40,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorTooManyTags",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 41,
+      "symbol": "AWSComprehendErrorType.AWSComprehendErrorUnsupportedLanguage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 44,
+      "symbol": "AWSComprehendEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 44,
+      "symbol": "AWSComprehendEndpointStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 45,
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 46,
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 47,
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 48,
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 49,
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusInService",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 50,
+      "symbol": "AWSComprehendEndpointStatus.AWSComprehendEndpointStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 53,
+      "symbol": "AWSComprehendEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 53,
+      "symbol": "AWSComprehendEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 54,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 55,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypePerson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 56,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeLocation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 57,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeOrganization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 58,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeCommercialItem",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 59,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 60,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeDate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 61,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeQuantity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 62,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeTitle",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 63,
+      "symbol": "AWSComprehendEntityType.AWSComprehendEntityTypeOther",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 66,
+      "symbol": "AWSComprehendInputFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 66,
+      "symbol": "AWSComprehendInputFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 67,
+      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 68,
+      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatOneDocPerFile",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 69,
+      "symbol": "AWSComprehendInputFormat.AWSComprehendInputFormatOneDocPerLine",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 72,
+      "symbol": "AWSComprehendJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 72,
+      "symbol": "AWSComprehendJobStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 73,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 74,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusSubmitted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 75,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 76,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 77,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 78,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusStopRequested",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 79,
+      "symbol": "AWSComprehendJobStatus.AWSComprehendJobStatusStopped",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 82,
+      "symbol": "AWSComprehendLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 82,
+      "symbol": "AWSComprehendLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 83,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 84,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeEn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 85,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeEs",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 86,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeFr",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 87,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeDe",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 88,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeIt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 89,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodePt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 90,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeAr",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 91,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeHi",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 92,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeJa",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 93,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeKo",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 94,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeZh",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 95,
+      "symbol": "AWSComprehendLanguageCode.AWSComprehendLanguageCodeZhTW",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 98,
+      "symbol": "AWSComprehendModelStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 98,
+      "symbol": "AWSComprehendModelStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 99,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 100,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusSubmitted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 101,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusTraining",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 102,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 103,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusStopRequested",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 104,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusStopped",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 105,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusInError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 106,
+      "symbol": "AWSComprehendModelStatus.AWSComprehendModelStatusTrained",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 109,
+      "symbol": "AWSComprehendPartOfSpeechTagType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 109,
+      "symbol": "AWSComprehendPartOfSpeechTagType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 110,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 111,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdj",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 112,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 113,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAdv",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 114,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeAux",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 115,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeConj",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 116,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeCconj",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 117,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeDet",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 118,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeIntj",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 119,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeNoun",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 120,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeNum",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 121,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeO",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 122,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePart",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 123,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePron",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 124,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePropn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 125,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypePunct",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 126,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeSconj",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 127,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeSym",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 128,
+      "symbol": "AWSComprehendPartOfSpeechTagType.AWSComprehendPartOfSpeechTagTypeVerb",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 131,
+      "symbol": "AWSComprehendSentimentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 131,
+      "symbol": "AWSComprehendSentimentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 132,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 133,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypePositive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 134,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeNegative",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 135,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeNeutral",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 136,
+      "symbol": "AWSComprehendSentimentType.AWSComprehendSentimentTypeMixed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 139,
+      "symbol": "AWSComprehendSyntaxLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 139,
+      "symbol": "AWSComprehendSyntaxLanguageCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 140,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 141,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeEn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 142,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeEs",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 143,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeFr",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 144,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeDe",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 145,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodeIt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendModel.h",
+      "line": 146,
+      "symbol": "AWSComprehendSyntaxLanguageCode.AWSComprehendSyntaxLanguageCodePt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendResources.h",
+      "line": 18,
+      "symbol": "AWSComprehendResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendResources.h",
+      "line": 20,
+      "symbol": "AWSComprehendResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendResources.h",
+      "line": 22,
+      "symbol": "AWSComprehendResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSComprehend/AWSComprehendService.h",
+      "line": 24,
+      "symbol": "AWSComprehendSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
