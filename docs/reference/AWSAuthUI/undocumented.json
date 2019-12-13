@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUI.h",
+      "line": 19,
+      "symbol": "AWSAuthUIVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAuthSDK/Sources/AWSAuthUI/AWSAuthUI.h",
+      "line": 22,
+      "symbol": "AWSAuthUIVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
