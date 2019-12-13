@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSLambdaCreateEventSourceMappingRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSLambdaCreateEventSourceMappingRequest" class="dashAnchor"></a>
+    <a title="AWSLambdaCreateEventSourceMappingRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSLambda 2.12.3 Docs</a> (80% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSLambda Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSLambdaCreateEventSourceMappingRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambda.html">AWSLambda</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAccountLimit.html">AWSLambdaAccountLimit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAccountUsage.html">AWSLambdaAccountUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddLayerVersionPermissionRequest.html">AWSLambdaAddLayerVersionPermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddLayerVersionPermissionResponse.html">AWSLambdaAddLayerVersionPermissionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddPermissionRequest.html">AWSLambdaAddPermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddPermissionResponse.html">AWSLambdaAddPermissionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAliasConfiguration.html">AWSLambdaAliasConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAliasRoutingConfiguration.html">AWSLambdaAliasRoutingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaConcurrency.html">AWSLambdaConcurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateAliasRequest.html">AWSLambdaCreateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateEventSourceMappingRequest.html">AWSLambdaCreateEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateFunctionRequest.html">AWSLambdaCreateFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeadLetterConfig.html">AWSLambdaDeadLetterConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteAliasRequest.html">AWSLambdaDeleteAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteEventSourceMappingRequest.html">AWSLambdaDeleteEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionConcurrencyRequest.html">AWSLambdaDeleteFunctionConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionEventInvokeConfigRequest.html">AWSLambdaDeleteFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionRequest.html">AWSLambdaDeleteFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteLayerVersionRequest.html">AWSLambdaDeleteLayerVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteProvisionedConcurrencyConfigRequest.html">AWSLambdaDeleteProvisionedConcurrencyConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDestinationConfig.html">AWSLambdaDestinationConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEnvironment.html">AWSLambdaEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEnvironmentError.html">AWSLambdaEnvironmentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEnvironmentResponse.html">AWSLambdaEnvironmentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEventSourceMappingConfiguration.html">AWSLambdaEventSourceMappingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionCode.html">AWSLambdaFunctionCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionCodeLocation.html">AWSLambdaFunctionCodeLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionConfiguration.html">AWSLambdaFunctionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionEventInvokeConfig.html">AWSLambdaFunctionEventInvokeConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLambdaGetAccountSettingsRequest">AWSLambdaGetAccountSettingsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetAccountSettingsResponse.html">AWSLambdaGetAccountSettingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetAliasRequest.html">AWSLambdaGetAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetEventSourceMappingRequest.html">AWSLambdaGetEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionConcurrencyRequest.html">AWSLambdaGetFunctionConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionConcurrencyResponse.html">AWSLambdaGetFunctionConcurrencyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionConfigurationRequest.html">AWSLambdaGetFunctionConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionEventInvokeConfigRequest.html">AWSLambdaGetFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionRequest.html">AWSLambdaGetFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionResponse.html">AWSLambdaGetFunctionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionByArnRequest.html">AWSLambdaGetLayerVersionByArnRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionPolicyRequest.html">AWSLambdaGetLayerVersionPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionPolicyResponse.html">AWSLambdaGetLayerVersionPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionRequest.html">AWSLambdaGetLayerVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionResponse.html">AWSLambdaGetLayerVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetPolicyRequest.html">AWSLambdaGetPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetPolicyResponse.html">AWSLambdaGetPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetProvisionedConcurrencyConfigRequest.html">AWSLambdaGetProvisionedConcurrencyConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetProvisionedConcurrencyConfigResponse.html">AWSLambdaGetProvisionedConcurrencyConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvocationRequest.html">AWSLambdaInvocationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvocationResponse.html">AWSLambdaInvocationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeAsyncRequest.html">AWSLambdaInvokeAsyncRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeAsyncResponse.html">AWSLambdaInvokeAsyncResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvoker.html">AWSLambdaInvoker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayer.html">AWSLambdaLayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayerVersionContentInput.html">AWSLambdaLayerVersionContentInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayerVersionContentOutput.html">AWSLambdaLayerVersionContentOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayerVersionsListItem.html">AWSLambdaLayerVersionsListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayersListItem.html">AWSLambdaLayersListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListAliasesRequest.html">AWSLambdaListAliasesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListAliasesResponse.html">AWSLambdaListAliasesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListEventSourceMappingsRequest.html">AWSLambdaListEventSourceMappingsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListEventSourceMappingsResponse.html">AWSLambdaListEventSourceMappingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionEventInvokeConfigsRequest.html">AWSLambdaListFunctionEventInvokeConfigsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionEventInvokeConfigsResponse.html">AWSLambdaListFunctionEventInvokeConfigsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionsRequest.html">AWSLambdaListFunctionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionsResponse.html">AWSLambdaListFunctionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayerVersionsRequest.html">AWSLambdaListLayerVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayerVersionsResponse.html">AWSLambdaListLayerVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayersRequest.html">AWSLambdaListLayersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayersResponse.html">AWSLambdaListLayersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListProvisionedConcurrencyConfigsRequest.html">AWSLambdaListProvisionedConcurrencyConfigsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListProvisionedConcurrencyConfigsResponse.html">AWSLambdaListProvisionedConcurrencyConfigsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListTagsRequest.html">AWSLambdaListTagsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListTagsResponse.html">AWSLambdaListTagsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListVersionsByFunctionRequest.html">AWSLambdaListVersionsByFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListVersionsByFunctionResponse.html">AWSLambdaListVersionsByFunctionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaOnFailure.html">AWSLambdaOnFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaOnSuccess.html">AWSLambdaOnSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaProvisionedConcurrencyConfigListItem.html">AWSLambdaProvisionedConcurrencyConfigListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPublishLayerVersionRequest.html">AWSLambdaPublishLayerVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPublishLayerVersionResponse.html">AWSLambdaPublishLayerVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPublishVersionRequest.html">AWSLambdaPublishVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutFunctionConcurrencyRequest.html">AWSLambdaPutFunctionConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutFunctionEventInvokeConfigRequest.html">AWSLambdaPutFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutProvisionedConcurrencyConfigRequest.html">AWSLambdaPutProvisionedConcurrencyConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutProvisionedConcurrencyConfigResponse.html">AWSLambdaPutProvisionedConcurrencyConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaRemoveLayerVersionPermissionRequest.html">AWSLambdaRemoveLayerVersionPermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaRemovePermissionRequest.html">AWSLambdaRemovePermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaResources.html">AWSLambdaResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaTagResourceRequest.html">AWSLambdaTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaTracingConfig.html">AWSLambdaTracingConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaTracingConfigResponse.html">AWSLambdaTracingConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUntagResourceRequest.html">AWSLambdaUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateAliasRequest.html">AWSLambdaUpdateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateEventSourceMappingRequest.html">AWSLambdaUpdateEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionCodeRequest.html">AWSLambdaUpdateFunctionCodeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionConfigurationRequest.html">AWSLambdaUpdateFunctionConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionEventInvokeConfigRequest.html">AWSLambdaUpdateFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaVpcConfig.html">AWSLambdaVpcConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaVpcConfigResponse.html">AWSLambdaVpcConfigResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaErrorDomain">AWSLambdaErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorDomain">AWSLambdaInvokerErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorMessageKey">AWSLambdaInvokerErrorMessageKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorStackTraceKey">AWSLambdaInvokerErrorStackTraceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorTypeKey">AWSLambdaInvokerErrorTypeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerFunctionErrorKey">AWSLambdaInvokerFunctionErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaSDKVersion">AWSLambdaSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaVersionNumber">AWSLambdaVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaVersionString">AWSLambdaVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaErrorType.html">AWSLambdaErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaEventSourcePosition.html">AWSLambdaEventSourcePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaFunctionVersion.html">AWSLambdaFunctionVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaInvocationType.html">AWSLambdaInvocationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaInvokerErrorType.html">AWSLambdaInvokerErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaLastUpdateStatus.html">AWSLambdaLastUpdateStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaLastUpdateStatusReasonCode.html">AWSLambdaLastUpdateStatusReasonCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaLogType.html">AWSLambdaLogType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaProvisionedConcurrencyStatusEnum.html">AWSLambdaProvisionedConcurrencyStatusEnum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaState.html">AWSLambdaState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaStateReasonCode.html">AWSLambdaStateReasonCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaThrottleReason.html">AWSLambdaThrottleReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaTracingMode.html">AWSLambdaTracingMode</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSLambdaCreateEventSourceMappingRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaCreateEventSourceMappingRequest</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)batchSize"></a>
+                    <a name="//apple_ref/objc/Property/batchSize" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)batchSize">batchSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">batchSize</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">batchSize</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)bisectBatchOnFunctionError"></a>
+                    <a name="//apple_ref/objc/Property/bisectBatchOnFunctionError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)bisectBatchOnFunctionError">bisectBatchOnFunctionError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">bisectBatchOnFunctionError</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">bisectBatchOnFunctionError</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)destinationConfig"></a>
+                    <a name="//apple_ref/objc/Property/destinationConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)destinationConfig">destinationConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Classes/AWSLambdaDestinationConfig.html">AWSLambdaDestinationConfig</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">destinationConfig</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">destinationConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLambdaDestinationConfig.html">AWSLambdaDestinationConfig</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)enabled"></a>
+                    <a name="//apple_ref/objc/Property/enabled" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)enabled">enabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disables the event source mapping to pause polling and invocation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">enabled</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">enabled</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)eventSourceArn"></a>
+                    <a name="//apple_ref/objc/Property/eventSourceArn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)eventSourceArn">eventSourceArn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">eventSourceArn</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">eventSourceArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)functionName"></a>
+                    <a name="//apple_ref/objc/Property/functionName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)functionName">functionName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Version or Alias ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it&rsquo;s limited to 64 characters in length.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">functionName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">functionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)maximumBatchingWindowInSeconds"></a>
+                    <a name="//apple_ref/objc/Property/maximumBatchingWindowInSeconds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)maximumBatchingWindowInSeconds">maximumBatchingWindowInSeconds</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maximumBatchingWindowInSeconds</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maximumBatchingWindowInSeconds</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)maximumRecordAgeInSeconds"></a>
+                    <a name="//apple_ref/objc/Property/maximumRecordAgeInSeconds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)maximumRecordAgeInSeconds">maximumRecordAgeInSeconds</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maximumRecordAgeInSeconds</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maximumRecordAgeInSeconds</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)maximumRetryAttempts"></a>
+                    <a name="//apple_ref/objc/Property/maximumRetryAttempts" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)maximumRetryAttempts">maximumRetryAttempts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maximumRetryAttempts</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maximumRetryAttempts</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)parallelizationFactor"></a>
+                    <a name="//apple_ref/objc/Property/parallelizationFactor" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)parallelizationFactor">parallelizationFactor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>(Streams) The number of batches to process from each shard concurrently.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">parallelizationFactor</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parallelizationFactor</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)startingPosition"></a>
+                    <a name="//apple_ref/objc/Property/startingPosition" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)startingPosition">startingPosition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n"><a href="../Enums/AWSLambdaEventSourcePosition.html">AWSLambdaEventSourcePosition</a></span> <span class="n">startingPosition</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startingPosition</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLambdaEventSourcePosition.html">AWSLambdaEventSourcePosition</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)startingPositionTimestamp"></a>
+                    <a name="//apple_ref/objc/Property/startingPositionTimestamp" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaCreateEventSourceMappingRequest(py)startingPositionTimestamp">startingPositionTimestamp</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">startingPositionTimestamp</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startingPositionTimestamp</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

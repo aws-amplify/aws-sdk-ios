@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSLambdaInvoker Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSLambdaInvoker" class="dashAnchor"></a>
+    <a title="AWSLambdaInvoker Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSLambda 2.12.3 Docs</a> (80% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSLambda Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSLambdaInvoker Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambda.html">AWSLambda</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAccountLimit.html">AWSLambdaAccountLimit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAccountUsage.html">AWSLambdaAccountUsage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddLayerVersionPermissionRequest.html">AWSLambdaAddLayerVersionPermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddLayerVersionPermissionResponse.html">AWSLambdaAddLayerVersionPermissionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddPermissionRequest.html">AWSLambdaAddPermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAddPermissionResponse.html">AWSLambdaAddPermissionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAliasConfiguration.html">AWSLambdaAliasConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaAliasRoutingConfiguration.html">AWSLambdaAliasRoutingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaConcurrency.html">AWSLambdaConcurrency</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateAliasRequest.html">AWSLambdaCreateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateEventSourceMappingRequest.html">AWSLambdaCreateEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaCreateFunctionRequest.html">AWSLambdaCreateFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeadLetterConfig.html">AWSLambdaDeadLetterConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteAliasRequest.html">AWSLambdaDeleteAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteEventSourceMappingRequest.html">AWSLambdaDeleteEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionConcurrencyRequest.html">AWSLambdaDeleteFunctionConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionEventInvokeConfigRequest.html">AWSLambdaDeleteFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteFunctionRequest.html">AWSLambdaDeleteFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteLayerVersionRequest.html">AWSLambdaDeleteLayerVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDeleteProvisionedConcurrencyConfigRequest.html">AWSLambdaDeleteProvisionedConcurrencyConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaDestinationConfig.html">AWSLambdaDestinationConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEnvironment.html">AWSLambdaEnvironment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEnvironmentError.html">AWSLambdaEnvironmentError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEnvironmentResponse.html">AWSLambdaEnvironmentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaEventSourceMappingConfiguration.html">AWSLambdaEventSourceMappingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionCode.html">AWSLambdaFunctionCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionCodeLocation.html">AWSLambdaFunctionCodeLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionConfiguration.html">AWSLambdaFunctionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFunctionEventInvokeConfig.html">AWSLambdaFunctionEventInvokeConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLambdaGetAccountSettingsRequest">AWSLambdaGetAccountSettingsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetAccountSettingsResponse.html">AWSLambdaGetAccountSettingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetAliasRequest.html">AWSLambdaGetAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetEventSourceMappingRequest.html">AWSLambdaGetEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionConcurrencyRequest.html">AWSLambdaGetFunctionConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionConcurrencyResponse.html">AWSLambdaGetFunctionConcurrencyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionConfigurationRequest.html">AWSLambdaGetFunctionConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionEventInvokeConfigRequest.html">AWSLambdaGetFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionRequest.html">AWSLambdaGetFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetFunctionResponse.html">AWSLambdaGetFunctionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionByArnRequest.html">AWSLambdaGetLayerVersionByArnRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionPolicyRequest.html">AWSLambdaGetLayerVersionPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionPolicyResponse.html">AWSLambdaGetLayerVersionPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionRequest.html">AWSLambdaGetLayerVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetLayerVersionResponse.html">AWSLambdaGetLayerVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetPolicyRequest.html">AWSLambdaGetPolicyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetPolicyResponse.html">AWSLambdaGetPolicyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetProvisionedConcurrencyConfigRequest.html">AWSLambdaGetProvisionedConcurrencyConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaGetProvisionedConcurrencyConfigResponse.html">AWSLambdaGetProvisionedConcurrencyConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvocationRequest.html">AWSLambdaInvocationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvocationResponse.html">AWSLambdaInvocationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeAsyncRequest.html">AWSLambdaInvokeAsyncRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvokeAsyncResponse.html">AWSLambdaInvokeAsyncResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaInvoker.html">AWSLambdaInvoker</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayer.html">AWSLambdaLayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayerVersionContentInput.html">AWSLambdaLayerVersionContentInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayerVersionContentOutput.html">AWSLambdaLayerVersionContentOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayerVersionsListItem.html">AWSLambdaLayerVersionsListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaLayersListItem.html">AWSLambdaLayersListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListAliasesRequest.html">AWSLambdaListAliasesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListAliasesResponse.html">AWSLambdaListAliasesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListEventSourceMappingsRequest.html">AWSLambdaListEventSourceMappingsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListEventSourceMappingsResponse.html">AWSLambdaListEventSourceMappingsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionEventInvokeConfigsRequest.html">AWSLambdaListFunctionEventInvokeConfigsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionEventInvokeConfigsResponse.html">AWSLambdaListFunctionEventInvokeConfigsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionsRequest.html">AWSLambdaListFunctionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListFunctionsResponse.html">AWSLambdaListFunctionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayerVersionsRequest.html">AWSLambdaListLayerVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayerVersionsResponse.html">AWSLambdaListLayerVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayersRequest.html">AWSLambdaListLayersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListLayersResponse.html">AWSLambdaListLayersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListProvisionedConcurrencyConfigsRequest.html">AWSLambdaListProvisionedConcurrencyConfigsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListProvisionedConcurrencyConfigsResponse.html">AWSLambdaListProvisionedConcurrencyConfigsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListTagsRequest.html">AWSLambdaListTagsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListTagsResponse.html">AWSLambdaListTagsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListVersionsByFunctionRequest.html">AWSLambdaListVersionsByFunctionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaListVersionsByFunctionResponse.html">AWSLambdaListVersionsByFunctionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaOnFailure.html">AWSLambdaOnFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaOnSuccess.html">AWSLambdaOnSuccess</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaProvisionedConcurrencyConfigListItem.html">AWSLambdaProvisionedConcurrencyConfigListItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPublishLayerVersionRequest.html">AWSLambdaPublishLayerVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPublishLayerVersionResponse.html">AWSLambdaPublishLayerVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPublishVersionRequest.html">AWSLambdaPublishVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutFunctionConcurrencyRequest.html">AWSLambdaPutFunctionConcurrencyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutFunctionEventInvokeConfigRequest.html">AWSLambdaPutFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutProvisionedConcurrencyConfigRequest.html">AWSLambdaPutProvisionedConcurrencyConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaPutProvisionedConcurrencyConfigResponse.html">AWSLambdaPutProvisionedConcurrencyConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaRemoveLayerVersionPermissionRequest.html">AWSLambdaRemoveLayerVersionPermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaRemovePermissionRequest.html">AWSLambdaRemovePermissionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaResources.html">AWSLambdaResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaTagResourceRequest.html">AWSLambdaTagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaTracingConfig.html">AWSLambdaTracingConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaTracingConfigResponse.html">AWSLambdaTracingConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUntagResourceRequest.html">AWSLambdaUntagResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateAliasRequest.html">AWSLambdaUpdateAliasRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateEventSourceMappingRequest.html">AWSLambdaUpdateEventSourceMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionCodeRequest.html">AWSLambdaUpdateFunctionCodeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionConfigurationRequest.html">AWSLambdaUpdateFunctionConfigurationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaUpdateFunctionEventInvokeConfigRequest.html">AWSLambdaUpdateFunctionEventInvokeConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaVpcConfig.html">AWSLambdaVpcConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaVpcConfigResponse.html">AWSLambdaVpcConfigResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaErrorDomain">AWSLambdaErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorDomain">AWSLambdaInvokerErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorMessageKey">AWSLambdaInvokerErrorMessageKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorStackTraceKey">AWSLambdaInvokerErrorStackTraceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerErrorTypeKey">AWSLambdaInvokerErrorTypeKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaInvokerFunctionErrorKey">AWSLambdaInvokerFunctionErrorKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaSDKVersion">AWSLambdaSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaVersionNumber">AWSLambdaVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLambdaVersionString">AWSLambdaVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaErrorType.html">AWSLambdaErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaEventSourcePosition.html">AWSLambdaEventSourcePosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaFunctionVersion.html">AWSLambdaFunctionVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaInvocationType.html">AWSLambdaInvocationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaInvokerErrorType.html">AWSLambdaInvokerErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaLastUpdateStatus.html">AWSLambdaLastUpdateStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaLastUpdateStatusReasonCode.html">AWSLambdaLastUpdateStatusReasonCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaLogType.html">AWSLambdaLogType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaProvisionedConcurrencyStatusEnum.html">AWSLambdaProvisionedConcurrencyStatusEnum</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaRuntime.html">AWSLambdaRuntime</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaState.html">AWSLambdaState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaStateReasonCode.html">AWSLambdaStateReasonCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaThrottleReason.html">AWSLambdaThrottleReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLambdaTracingMode.html">AWSLambdaTracingMode</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSLambdaInvoker</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaInvoker</span> <span class="p">:</span> <span class="nc">AWSService</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSClientContext</span> <span class="o">*</span><span class="n">clientContext</span><span class="p">;</span>
+
+<span class="cm">/**
+ Returns a shared instance of this service client using `[AWSServiceManager defaultServiceManager].defaultServiceConfiguration`. When `defaultServiceConfiguration` is not set, this method returns nil.
+
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+ *Swift*
+
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+         AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+         return true
+     }
+
+ *Objective-C*
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+          AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                          identityPoolId:@"YourIdentityPoolId"];
+          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                               credentialsProvider:credentialsProvider];
+          [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+          return YES;
+      }
+
+ Then call the following to get the default service client:
+
+ *Swift*
+
+     let LambdaInvoker = AWSLambdaInvoker.default()
+
+ *Objective-C*
+
+     AWSLambdaInvoker *LambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+
+ @return A shared instance of this service client.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">defaultLambdaInvoker</span><span class="p">;</span>
+
+<span class="cm">/**
+ Creates a service client with the given service configuration and registers it for the key.
+
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+ *Swift*
+
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+         AWSLambdaInvoker.register(with: configuration!, forKey: "USWest2LambdaInvoker")
+
+         return true
+     }
+
+ *Objective-C*
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                         identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                              credentialsProvider:credentialsProvider];
+
+         [AWSLambdaInvoker registerLambdaInvokerWithConfiguration:configuration forKey:@"USWest2LambdaInvoker"];
+
+         return YES;
+     }
+
+ Then call the following to get the service client:
+
+ *Swift*
+
+     let LambdaInvoker = AWSLambdaInvoker(forKey: "USWest2LambdaInvoker")
+
+ *Objective-C*
+
+     AWSLambdaInvoker *LambdaInvoker = [AWSLambdaInvoker LambdaInvokerForKey:@"USWest2LambdaInvoker"];
+
+ @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+
+ @param configuration A service configuration object.
+ @param key           A string to identify the service client.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerLambdaInvokerWithConfiguration</span><span class="p">:(</span><span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Retrieves the service client associated with the key. You need to call `+ registerKinesisWithConfiguration:forKey:` before invoking this method.
+
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+ *Swift*
+
+     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+         AWSLambdaInvoker.register(with: configuration!, forKey: "USWest2LambdaInvoker")
+
+         return true
+     }
+
+ *Objective-C*
+
+     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+         AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                         identityPoolId:@"YourIdentityPoolId"];
+         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                              credentialsProvider:credentialsProvider];
+
+         [AWSLambdaInvoker registerLambdaInvokerWithConfiguration:configuration forKey:@"USWest2LambdaInvoker"];
+
+         return YES;
+     }
+
+ Then call the following to get the service client:
+
+ *Swift*
+
+     let LambdaInvoker = AWSLambdaInvoker(forKey: "USWest2LambdaInvoker")
+
+ *Objective-C*
+
+     AWSLambdaInvoker *LambdaInvoker = [AWSLambdaInvoker LambdaInvokerForKey:@"USWest2LambdaInvoker"];
+
+ @param key A string to identify the service client.
+
+ @return An instance of the service client.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">LambdaInvokerForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Removes the service client associated with the key and release it.
+
+ @warning Before calling this method, make sure no method is running on this client.
+
+ @param key A string to identify the service client.
+ */</span>
+<span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeLambdaInvokerForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/**
+ Invokes an AWS Lambda function with a given request object.
+
+ @param request The request object.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaInvokerInvocationResponse`. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+
+ @see AWSLambdaInvokerInvocationRequest
+ @see AWSLambdaInvokerInvocationResponse
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">invoke</span><span class="p">:(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span>
+
+<span class="cm">/**
+ Invokes an AWS Lambda function with a given request object.
+
+ @param request           The request object.
+ @param completionHandler The completion handler to call when the invoke request is complete.
+                          `response` - An `AWSLambdaInvokerInvocationResponse` object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+
+ @see AWSLambdaInvokerInvocationRequest
+ @see AWSLambdaInvokerInvocationResponse
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">invoke</span><span class="p">:(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span> <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a></span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span>
+
+<span class="cm">/**
+ Invokes a synchronous AWS Lambda function with given parameters.
+
+ @param functionName The name of a function.
+ @param JSONObject   The object from which to generate JSON request data. Can be `nil`.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain a JSON object. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">invokeFunction</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">functionName</span>
+                 <span class="nf">JSONObject</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nv">JSONObject</span><span class="p">;</span>
+
+<span class="cm">/**
+ Invokes a synchronous AWS Lambda function with given parameters.
+
+ @param functionName      The name of a function.
+ @param JSONObject        The object from which to generate JSON request data. Can be `nil`.
+ @param completionHandler The completion handler to call when the invoke request is complete.
+                          `response` - A JSON object., or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed service execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`. On failed function execution, `task.error` may contain an `NSError` with `AWSLambdaInvokerErrorDomain` domain and the following error code: `AWSLambdaInvokerErrorTypeFunctionError`.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">invokeFunction</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">functionName</span>
+            <span class="nf">JSONObject</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nv">JSONObject</span>
+     <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">_Nullable</span><span class="p">)(</span><span class="n">id</span> <span class="n">_Nullable</span> <span class="n">response</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(py)clientContext"></a>
+                    <a name="//apple_ref/objc/Property/clientContext" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(py)clientContext">clientContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSClientContext</span> <span class="o">*</span><span class="n">clientContext</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">clientContext</span><span class="p">:</span> <span class="kt">AWSClientContext</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(cm)defaultLambdaInvoker"></a>
+                    <a name="//apple_ref/objc/Method/+defaultLambdaInvoker" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(cm)defaultLambdaInvoker">+defaultLambdaInvoker</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a shared instance of this service client using <code>[AWSServiceManager defaultServiceManager].defaultServiceConfiguration</code>. When <code>defaultServiceConfiguration</code> is not set, this method returns nil.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+    <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+    <span class="n">AWSServiceManager</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
+
+    <span class="k">return</span> <span class="nb">true</span>
+<span class="err">}</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+     <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
+
+     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">LambdaInvoker</span> <span class="o">=</span> <span class="n">AWSLambdaInvoker</span><span class="p">.</span><span class="k">default</span><span class="p">()</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSLambdaInvoker</span> <span class="o">*</span><span class="n">LambdaInvoker</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSLambdaInvoker</span> <span class="nf">defaultLambdaInvoker</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">defaultLambdaInvoker</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A shared instance of this service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(cm)registerLambdaInvokerWithConfiguration:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/+registerLambdaInvokerWithConfiguration:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(cm)registerLambdaInvokerWithConfiguration:forKey:">+registerLambdaInvokerWithConfiguration:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a service client with the given service configuration and registers it for the key.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+    <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+    <span class="n">AWSLambdaInvoker</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2LambdaInvoker"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">true</span>
+<span class="err">}</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSLambdaInvoker</span> <span class="nf">registerLambdaInvokerWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2LambdaInvoker"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">LambdaInvoker</span> <span class="o">=</span> <span class="n">AWSLambdaInvoker</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2LambdaInvoker"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSLambdaInvoker</span> <span class="o">*</span><span class="n">LambdaInvoker</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSLambdaInvoker</span> <span class="nf">LambdaInvokerForKey</span><span class="p">:</span><span class="s">@"USWest2LambdaInvoker"</span><span class="p">];</span>
+</code></pre>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerLambdaInvokerWithConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">configuration</span>
+                                        <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">withConfiguration</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A service configuration object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(cm)LambdaInvokerForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+LambdaInvokerForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(cm)LambdaInvokerForKey:">+LambdaInvokerForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the service client associated with the key. You need to call <code>+ registerKinesisWithConfiguration:forKey:</code> before invoking this method.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+    <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+    <span class="n">AWSLambdaInvoker</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2LambdaInvoker"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">true</span>
+<span class="err">}</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSLambdaInvoker</span> <span class="nf">registerLambdaInvokerWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2LambdaInvoker"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">LambdaInvoker</span> <span class="o">=</span> <span class="n">AWSLambdaInvoker</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2LambdaInvoker"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSLambdaInvoker</span> <span class="o">*</span><span class="n">LambdaInvoker</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSLambdaInvoker</span> <span class="nf">LambdaInvokerForKey</span><span class="p">:</span><span class="s">@"USWest2LambdaInvoker"</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">LambdaInvokerForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of the service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(cm)removeLambdaInvokerForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+removeLambdaInvokerForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(cm)removeLambdaInvokerForKey:">+removeLambdaInvokerForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the service client associated with the key and release it.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Before calling this method, make sure no method is running on this client.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeLambdaInvokerForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(im)invoke:"></a>
+                    <a name="//apple_ref/objc/Method/-invoke:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(im)invoke:">-invoke:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invokes an AWS Lambda function with a given request object.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLambdaInvokerInvocationRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLambdaInvokerInvocationResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">invoke</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a></code>. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaErrorDomain">AWSLambdaErrorDomain</a></code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaInvokerErrorDomain">AWSLambdaInvokerErrorDomain</a></code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(im)invoke:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-invoke:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(im)invoke:completionHandler:">-invoke:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invokes an AWS Lambda function with a given request object.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLambdaInvokerInvocationRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLambdaInvokerInvocationResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">invoke</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">invoke</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationRequest">AWSLambdaInvokerInvocationRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the invoke request is complete.
+                     <code>response</code> - An <code><a href="../Classes.html#/c:objc(cs)AWSLambdaInvokerInvocationResponse">AWSLambdaInvokerInvocationResponse</a></code> object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaErrorDomain">AWSLambdaErrorDomain</a></code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaInvokerErrorDomain">AWSLambdaInvokerErrorDomain</a></code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(im)invokeFunction:JSONObject:"></a>
+                    <a name="//apple_ref/objc/Method/-invokeFunction:JSONObject:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(im)invokeFunction:JSONObject:">-invokeFunction:JSONObject:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invokes a synchronous AWS Lambda function with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">invokeFunction</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">functionName</span>
+          <span class="nf">JSONObject</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nv">JSONObject</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">invokeFunction</span><span class="p">(</span><span class="n">_</span> <span class="nv">functionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">jsonObject</span> <span class="kt">JSONObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>functionName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of a function.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>JSONObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object from which to generate JSON request data. Can be <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain a JSON object. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaErrorDomain">AWSLambdaErrorDomain</a></code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaInvokerErrorDomain">AWSLambdaInvokerErrorDomain</a></code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLambdaInvoker(im)invokeFunction:JSONObject:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-invokeFunction:JSONObject:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaInvoker(im)invokeFunction:JSONObject:completionHandler:">-invokeFunction:JSONObject:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Invokes a synchronous AWS Lambda function with given parameters.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">invokeFunction</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">functionName</span>
+            <span class="nf">JSONObject</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nv">JSONObject</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">id</span> <span class="n">_Nullable</span><span class="p">,</span> <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">invokeFunction</span><span class="p">(</span><span class="n">_</span> <span class="nv">functionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">jsonObject</span> <span class="kt">JSONObject</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Any</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>functionName</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The name of a function.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>JSONObject</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The object from which to generate JSON request data. Can be <code>nil</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the invoke request is complete.
+                     <code>response</code> - A JSON object., or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaErrorDomain">AWSLambdaErrorDomain</a></code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLambdaInvokerErrorDomain">AWSLambdaInvokerErrorDomain</a></code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
