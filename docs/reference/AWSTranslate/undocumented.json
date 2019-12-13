@@ -1,0 +1,236 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslate.h",
+      "line": 28,
+      "symbol": "AWSTranslateVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslate.h",
+      "line": 39,
+      "symbol": "AWSTranslateVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 22,
+      "symbol": "AWSTranslateErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 24,
+      "symbol": "AWSTranslateErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 24,
+      "symbol": "AWSTranslateErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 25,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 26,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorDetectedLanguageLowConfidence",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 27,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorInternalServer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 28,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorInvalidParameterValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 29,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorInvalidRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 30,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 31,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorResourceNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 32,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorServiceUnavailable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 33,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorTextSizeLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 34,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorTooManyRequests",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 35,
+      "symbol": "AWSTranslateErrorType.AWSTranslateErrorUnsupportedLanguagePair",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 38,
+      "symbol": "AWSTranslateEncryptionKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 38,
+      "symbol": "AWSTranslateEncryptionKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 39,
+      "symbol": "AWSTranslateEncryptionKeyType.AWSTranslateEncryptionKeyTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 40,
+      "symbol": "AWSTranslateEncryptionKeyType.AWSTranslateEncryptionKeyTypeKms",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 43,
+      "symbol": "AWSTranslateMergeStrategy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 43,
+      "symbol": "AWSTranslateMergeStrategy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 44,
+      "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 45,
+      "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyOverwrite",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 48,
+      "symbol": "AWSTranslateTerminologyDataFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 48,
+      "symbol": "AWSTranslateTerminologyDataFormat",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 49,
+      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 50,
+      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatCsv",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "line": 51,
+      "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatTmx",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateResources.h",
+      "line": 18,
+      "symbol": "AWSTranslateResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateResources.h",
+      "line": 20,
+      "symbol": "AWSTranslateResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateResources.h",
+      "line": 22,
+      "symbol": "AWSTranslateResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTranslate/AWSTranslateService.h",
+      "line": 24,
+      "symbol": "AWSTranslateSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}
