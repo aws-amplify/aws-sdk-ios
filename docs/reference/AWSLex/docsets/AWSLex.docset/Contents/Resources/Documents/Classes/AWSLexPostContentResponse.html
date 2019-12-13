@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSLexPostContentResponse Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSLexPostContentResponse" class="dashAnchor"></a>
+    <a title="AWSLexPostContentResponse Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSLex 2.12.3 Docs</a> (54% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLex%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSLex Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSLexPostContentResponse Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLex.html">AWSLex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexAudioPlayer.html">AWSLexAudioPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexAudioSession.html">AWSLexAudioSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexButton.html">AWSLexButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDeleteSessionRequest.html">AWSLexDeleteSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDeleteSessionResponse.html">AWSLexDeleteSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDialogAction.html">AWSLexDialogAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGenericAttachment.html">AWSLexGenericAttachment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGetSessionRequest.html">AWSLexGetSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGetSessionResponse.html">AWSLexGetSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexIntentSummary.html">AWSLexIntentSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexInteractionKitConfig.html">AWSLexInteractionKitConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostContentRequest.html">AWSLexPostContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostContentResponse.html">AWSLexPostContentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostTextRequest.html">AWSLexPostTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostTextResponse.html">AWSLexPostTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPutSessionRequest.html">AWSLexPutSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPutSessionResponse.html">AWSLexPutSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexResources.html">AWSLexResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexResponseCard.html">AWSLexResponseCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSentimentResponse.html">AWSLexSentimentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSwitchModeInput.html">AWSLexSwitchModeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSwitchModeResponse.html">AWSLexSwitchModeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexVoiceButtonResponse.html">AWSLexVoiceButtonResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInteractionKitSDKVersion">AWSInteractionKitSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInternalLexInteractionKit">AWSInternalLexInteractionKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptMPEG">AWSLexAcceptMPEG</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptPCM">AWSLexAcceptPCM</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptText">AWSLexAcceptText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptVorbid">AWSLexAcceptVorbid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexContentTypeText">AWSLexContentTypeText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexErrorDomain">AWSLexErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexInteractionKitErrorDomain">AWSLexInteractionKitErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexSDKVersion">AWSLexSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVersionNumber">AWSLexVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVersionString">AWSLexVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVoiceButtonErrorDomain">AWSLexVoiceButtonErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVoiceButtonKey">AWSLexVoiceButtonKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexConfirmationStatus.html">AWSLexConfirmationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexContentType.html">AWSLexContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexDialogActionType.html">AWSLexDialogActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexDialogState.html">AWSLexDialogState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexErrorType.html">AWSLexErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexFulfillmentState.html">AWSLexFulfillmentState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexInteractionKitErrorCode.html">AWSLexInteractionKitErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexInteractionMode.html">AWSLexInteractionMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexMessageFormatType.html">AWSLexMessageFormatType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexSpeechEncoding.html">AWSLexSpeechEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexVoiceButtonErrorCode.html">AWSLexVoiceButtonErrorCode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexAudioPlayerDelegate.html">AWSLexAudioPlayerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexInteractionDelegate.html">AWSLexInteractionDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexMicrophoneDelegate.html">AWSLexMicrophoneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexVoiceButtonDelegate.html">AWSLexVoiceButtonDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSLexPostContentResponse</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexPostContentResponse</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)audioStream"></a>
+                    <a name="//apple_ref/objc/Property/audioStream" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)audioStream">audioStream</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The prompt (or statement) to convey to the user. This is based on the bot configuration and context. For example, if Amazon Lex did not understand the user intent, it sends the <code>clarificationPrompt</code> configured for the bot. If the intent requires confirmation before taking the fulfillment action, it sends the <code>confirmationPrompt</code>. Another example: Suppose that the Lambda function successfully fulfilled the intent, and sent a message to convey to the user. Then Amazon Lex sends that message in the response. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">audioStream</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">audioStream</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)contentType"></a>
+                    <a name="//apple_ref/objc/Property/contentType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)contentType">contentType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Content type as specified in the <code>Accept</code> HTTP header in the request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)dialogState"></a>
+                    <a name="//apple_ref/objc/Property/dialogState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)dialogState">dialogState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Identifies the current state of the user interaction. Amazon Lex returns one of the following values as <code>dialogState</code>. The client can optionally use this information to customize the user interface. </p><ul><li><p><code>ElicitIntent</code> - Amazon Lex wants to elicit the user&rsquo;s intent. Consider the following examples: </p><p> For example, a user might utter an intent (&ldquo;I want to order a pizza&rdquo;). If Amazon Lex cannot infer the user intent from this utterance, it will return this dialog state. </p></li><li><p><code>ConfirmIntent</code> - Amazon Lex is expecting a &ldquo;yes&rdquo; or &ldquo;no&rdquo; response. </p><p>For example, Amazon Lex wants user confirmation before fulfilling an intent. Instead of a simple &ldquo;yes&rdquo; or &ldquo;no&rdquo; response, a user might respond with additional information. For example, &ldquo;yes, but make it a thick crust pizza&rdquo; or &ldquo;no, I want to order a drink.&rdquo; Amazon Lex can process such additional information (in these examples, update the crust type slot or change the intent from OrderPizza to OrderDrink). </p></li><li><p><code>ElicitSlot</code> - Amazon Lex is expecting the value of a slot for the current intent. </p><p> For example, suppose that in the response Amazon Lex sends this message: &ldquo;What size pizza would you like?&rdquo;. A user might reply with the slot value (e.g., &ldquo;medium&rdquo;). The user might also provide additional information in the response (e.g., &ldquo;medium thick crust pizza&rdquo;). Amazon Lex can process such additional information appropriately. </p></li><li><p><code>Fulfilled</code> - Conveys that the Lambda function has successfully fulfilled the intent. </p></li><li><p><code>ReadyForFulfillment</code> - Conveys that the client has to fulfill the request. </p></li><li><p><code>Failed</code> - Conveys that the conversation with the user failed. </p><p> This can happen for various reasons, including that the user does not provide an appropriate response to prompts from the service (you can configure how many times Amazon Lex can prompt a user for specific information), or if the Lambda function fails to fulfill the intent. </p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLexDialogState.html">AWSLexDialogState</a></span> <span class="n">dialogState</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">dialogState</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLexDialogState.html">AWSLexDialogState</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)inputTranscript"></a>
+                    <a name="//apple_ref/objc/Property/inputTranscript" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)inputTranscript">inputTranscript</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The text used to process the request.</p><p>If the input was an audio stream, the <code>inputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">inputTranscript</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">inputTranscript</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)intentName"></a>
+                    <a name="//apple_ref/objc/Property/intentName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)intentName">intentName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Current user intent that Amazon Lex is aware of.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">intentName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">intentName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)message"></a>
+                    <a name="//apple_ref/objc/Property/message" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)message">message</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The message to convey to the user. The message can come from the bot&rsquo;s configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot&rsquo;s configuration based on the current interaction context. For example, if Amazon Lex isn&rsquo;t able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">message</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)messageFormat"></a>
+                    <a name="//apple_ref/objc/Property/messageFormat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)messageFormat">messageFormat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The format of the response message. One of the following values:</p><ul><li><p><code>PlainText</code> - The message contains plain UTF-8 text.</p></li><li><p><code>CustomPayload</code> - The message is a custom format for the client.</p></li><li><p><code>SSML</code> - The message contains text formatted for voice output.</p></li><li><p><code>Composite</code> - The message contains an escaped JSON object containing one or more messages from the groups that messages were assigned to when the intent was created.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLexMessageFormatType.html">AWSLexMessageFormatType</a></span> <span class="n">messageFormat</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">messageFormat</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLexMessageFormatType.html">AWSLexMessageFormatType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)sentimentResponse"></a>
+                    <a name="//apple_ref/objc/Property/sentimentResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)sentimentResponse">sentimentResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The sentiment expressed in and utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sentimentResponse</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sentimentResponse</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)sessionAttributes"></a>
+                    <a name="//apple_ref/objc/Property/sessionAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)sessionAttributes">sessionAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> Map of key/value pairs representing the session-specific context information. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sessionAttributes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sessionAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)sessionId"></a>
+                    <a name="//apple_ref/objc/Property/sessionId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)sessionId">sessionId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The unique identifier for the session.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sessionId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sessionId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)slotToElicit"></a>
+                    <a name="//apple_ref/objc/Property/slotToElicit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)slotToElicit">slotToElicit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> If the <code><a href="../Classes/AWSLexPostContentResponse.html#/c:objc(cs)AWSLexPostContentResponse(py)dialogState">dialogState</a></code> value is <code>ElicitSlot</code>, returns the name of the slot for which Amazon Lex is eliciting a value. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">slotToElicit</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">slotToElicit</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)slots"></a>
+                    <a name="//apple_ref/objc/Property/slots" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)slots">slots</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from the user input during the conversation. The field is base-64 encoded.</p><p>Amazon Lex creates a resolution list containing likely values for a slot. The value that it returns is determined by the <code>valueSelectionStrategy</code> selected when the slot type was created or updated. If <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the user value is similar to the slot values. If <code>valueSelectionStrategy</code> is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution list or, if there is no resolution list, null. If you don&rsquo;t specify a <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">slots</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">slots</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

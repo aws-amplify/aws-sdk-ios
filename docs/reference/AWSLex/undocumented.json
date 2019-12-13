@@ -1,0 +1,999 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLex.h",
+      "line": 28,
+      "symbol": "AWSLexVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLex.h",
+      "line": 39,
+      "symbol": "AWSLexVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 25,
+      "symbol": "AWSLexContentTypeText",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 26,
+      "symbol": "AWSLexAcceptMPEG",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 27,
+      "symbol": "AWSLexAcceptVorbid",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 28,
+      "symbol": "AWSLexAcceptPCM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 29,
+      "symbol": "AWSLexAcceptText",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 30,
+      "symbol": "AWSInteractionKitSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 31,
+      "symbol": "AWSInternalLexInteractionKit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 32,
+      "symbol": "AWSLexInteractionKitErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 38,
+      "symbol": "AWSLexInteractionKitErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 38,
+      "symbol": "AWSLexInteractionKitErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 39,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 40,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeAudioRecording",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 41,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeAudioStreaming",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 42,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeMaxSpeechTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 43,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeNoSpeechTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 44,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeDialogFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 45,
+      "symbol": "AWSLexInteractionKitErrorCode.AWSLexInteractionKitErrorCodeRequestInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 48,
+      "symbol": "AWSLexInteractionMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 48,
+      "symbol": "AWSLexInteractionMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 49,
+      "symbol": "AWSLexInteractionMode.AWSLexInteractionModeBreak",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 50,
+      "symbol": "AWSLexInteractionMode.AWSLexInteractionModeText",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 51,
+      "symbol": "AWSLexInteractionMode.AWSLexInteractionModeTextToSpeech",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 52,
+      "symbol": "AWSLexInteractionMode.AWSLexInteractionModeSpeech",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 53,
+      "symbol": "AWSLexInteractionMode.AWSLexInteractionModeSpeechToText",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 56,
+      "symbol": "AWSLexSpeechEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 56,
+      "symbol": "AWSLexSpeechEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 57,
+      "symbol": "AWSLexSpeechEncoding.AWSLexSpeechEncodingOpus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 58,
+      "symbol": "AWSLexSpeechEncoding.AWSLexSpeechEncodingLPCM",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 61,
+      "symbol": "AWSLexMicrophoneDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 67,
+      "symbol": "AWSLexMicrophoneDelegate.-interactionKitOnRecordingStart:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 72,
+      "symbol": "AWSLexMicrophoneDelegate.-interactionKitOnRecordingEnd:audioStream:contentType:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 77,
+      "symbol": "AWSLexMicrophoneDelegate.-interactionKitReadyForRecording:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 82,
+      "symbol": "AWSLexMicrophoneDelegate.-interactionKit:onSoundLevelChanged:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 86,
+      "symbol": "AWSLexInteractionDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 93,
+      "symbol": "AWSLexInteractionDelegate.-interactionKit:onError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 101,
+      "symbol": "AWSLexInteractionDelegate.-interactionKit:onDialogReadyForFulfillmentForIntent:slots:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 106,
+      "symbol": "AWSLexInteractionDelegate.-interactionKit:switchModeInput:completionSource:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 113,
+      "symbol": "AWSLexInteractionDelegate.-interactionKitContinueWithText:completionSource:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 118,
+      "symbol": "AWSLexAudioPlayerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 125,
+      "symbol": "AWSLexAudioPlayerDelegate.-interactionKitOnAudioPlaybackStarted:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 130,
+      "symbol": "AWSLexAudioPlayerDelegate.-interactionKitOnAudioPlaybackFinished:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 137,
+      "symbol": "AWSLexInteractionKitConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 142,
+      "symbol": "AWSLexInteractionKitConfig.botName",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 147,
+      "symbol": "AWSLexInteractionKitConfig.botAlias",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 152,
+      "symbol": "AWSLexInteractionKitConfig.userId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 157,
+      "symbol": "AWSLexInteractionKitConfig.globalSessionAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 162,
+      "symbol": "AWSLexInteractionKitConfig.noSpeechTimeoutInterval",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 167,
+      "symbol": "AWSLexInteractionKitConfig.maxSpeechTimeoutInterval",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 172,
+      "symbol": "AWSLexInteractionKitConfig.startpointingThreshold",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 177,
+      "symbol": "AWSLexInteractionKitConfig.endpointingThreshold",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 182,
+      "symbol": "AWSLexInteractionKitConfig.lrtThreshold",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 187,
+      "symbol": "AWSLexInteractionKitConfig.autoPlayback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 192,
+      "symbol": "AWSLexInteractionKitConfig.encoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 197,
+      "symbol": "AWSLexInteractionKitConfig.-setGlobalSessionAttribute:forKey:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 202,
+      "symbol": "AWSLexInteractionKitConfig.-removeGlobalSessionAttribute:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 207,
+      "symbol": "AWSLexInteractionKitConfig.-clearAllGlobalSessionAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 212,
+      "symbol": "AWSLexInteractionKitConfig.+defaultInteractionKitConfigWithBotName:botAlias:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 218,
+      "symbol": "AWSLexInteractionKit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 223,
+      "symbol": "AWSLexInteractionKit.interactionKitConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 225,
+      "symbol": "AWSLexInteractionKit.interactionDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 227,
+      "symbol": "AWSLexInteractionKit.microphoneDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 229,
+      "symbol": "AWSLexInteractionKit.audioPlayerDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 427,
+      "symbol": "AWSLexSwitchModeInput",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 485,
+      "symbol": "AWSLexSwitchModeResponse.interactionMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 490,
+      "symbol": "AWSLexSwitchModeResponse.sessionAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 503,
+      "symbol": "AWSLexAudioSession.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexInteractionKit.h",
+      "line": 557,
+      "symbol": "AWSLexAudioPlayer.-initWithData:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 22,
+      "symbol": "AWSLexErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 24,
+      "symbol": "AWSLexErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 24,
+      "symbol": "AWSLexErrorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 25,
+      "symbol": "AWSLexErrorType.AWSLexErrorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 26,
+      "symbol": "AWSLexErrorType.AWSLexErrorBadGateway",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 27,
+      "symbol": "AWSLexErrorType.AWSLexErrorBadRequest",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 28,
+      "symbol": "AWSLexErrorType.AWSLexErrorConflict",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 29,
+      "symbol": "AWSLexErrorType.AWSLexErrorDependencyFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 30,
+      "symbol": "AWSLexErrorType.AWSLexErrorInternalFailure",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 31,
+      "symbol": "AWSLexErrorType.AWSLexErrorLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 32,
+      "symbol": "AWSLexErrorType.AWSLexErrorLoopDetected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 33,
+      "symbol": "AWSLexErrorType.AWSLexErrorNotAcceptable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 34,
+      "symbol": "AWSLexErrorType.AWSLexErrorNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 35,
+      "symbol": "AWSLexErrorType.AWSLexErrorRequestTimeout",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 36,
+      "symbol": "AWSLexErrorType.AWSLexErrorUnsupportedMediaType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 39,
+      "symbol": "AWSLexConfirmationStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 39,
+      "symbol": "AWSLexConfirmationStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 40,
+      "symbol": "AWSLexConfirmationStatus.AWSLexConfirmationStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 41,
+      "symbol": "AWSLexConfirmationStatus.AWSLexConfirmationStatusNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 42,
+      "symbol": "AWSLexConfirmationStatus.AWSLexConfirmationStatusConfirmed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 43,
+      "symbol": "AWSLexConfirmationStatus.AWSLexConfirmationStatusDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 46,
+      "symbol": "AWSLexContentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 46,
+      "symbol": "AWSLexContentType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 47,
+      "symbol": "AWSLexContentType.AWSLexContentTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 48,
+      "symbol": "AWSLexContentType.AWSLexContentTypeApplicationVndAmazonawsCardGeneric",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 51,
+      "symbol": "AWSLexDialogActionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 51,
+      "symbol": "AWSLexDialogActionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 52,
+      "symbol": "AWSLexDialogActionType.AWSLexDialogActionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 53,
+      "symbol": "AWSLexDialogActionType.AWSLexDialogActionTypeElicitIntent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 54,
+      "symbol": "AWSLexDialogActionType.AWSLexDialogActionTypeConfirmIntent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 55,
+      "symbol": "AWSLexDialogActionType.AWSLexDialogActionTypeElicitSlot",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 56,
+      "symbol": "AWSLexDialogActionType.AWSLexDialogActionTypeClose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 57,
+      "symbol": "AWSLexDialogActionType.AWSLexDialogActionTypeDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 60,
+      "symbol": "AWSLexDialogState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 60,
+      "symbol": "AWSLexDialogState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 61,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 62,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateElicitIntent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 63,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateConfirmIntent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 64,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateElicitSlot",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 65,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateFulfilled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 66,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateReadyForFulfillment",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 67,
+      "symbol": "AWSLexDialogState.AWSLexDialogStateFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 70,
+      "symbol": "AWSLexFulfillmentState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 70,
+      "symbol": "AWSLexFulfillmentState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 71,
+      "symbol": "AWSLexFulfillmentState.AWSLexFulfillmentStateUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 72,
+      "symbol": "AWSLexFulfillmentState.AWSLexFulfillmentStateFulfilled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 73,
+      "symbol": "AWSLexFulfillmentState.AWSLexFulfillmentStateFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 74,
+      "symbol": "AWSLexFulfillmentState.AWSLexFulfillmentStateReadyForFulfillment",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 77,
+      "symbol": "AWSLexMessageFormatType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 77,
+      "symbol": "AWSLexMessageFormatType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 78,
+      "symbol": "AWSLexMessageFormatType.AWSLexMessageFormatTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 79,
+      "symbol": "AWSLexMessageFormatType.AWSLexMessageFormatTypePlainText",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 80,
+      "symbol": "AWSLexMessageFormatType.AWSLexMessageFormatTypeCustomPayload",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 81,
+      "symbol": "AWSLexMessageFormatType.AWSLexMessageFormatTypeSsml",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexModel.h",
+      "line": 82,
+      "symbol": "AWSLexMessageFormatType.AWSLexMessageFormatTypeComposite",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexResources.h",
+      "line": 18,
+      "symbol": "AWSLexResources",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexResources.h",
+      "line": 20,
+      "symbol": "AWSLexResources.+sharedInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexResources.h",
+      "line": 22,
+      "symbol": "AWSLexResources.-JSONObject",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexService.h",
+      "line": 24,
+      "symbol": "AWSLexSDKVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 23,
+      "symbol": "AWSLexVoiceButtonErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 24,
+      "symbol": "AWSLexVoiceButtonKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 26,
+      "symbol": "AWSLexVoiceButtonErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 26,
+      "symbol": "AWSLexVoiceButtonErrorCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 27,
+      "symbol": "AWSLexVoiceButtonErrorCode.AWSLexVoiceButtonErrorCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 28,
+      "symbol": "AWSLexVoiceButtonErrorCode.AWSLexVoiceButtonErrorCodeAudioRecordingPermisionDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 31,
+      "symbol": "AWSLexVoiceButtonResponse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 80,
+      "symbol": "AWSLexVoiceButtonDelegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 86,
+      "symbol": "AWSLexVoiceButtonDelegate.-voiceButton:onError:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 93,
+      "symbol": "AWSLexVoiceButtonDelegate.-voiceButton:onResponse:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 98,
+      "symbol": "AWSLexVoiceButtonDelegate.-voiceButtononReadyToFullFill:withSlots:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 102,
+      "symbol": "AWSLexVoiceButton",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 104,
+      "symbol": "AWSLexVoiceButton.delegate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLex/AWSLexVoiceButton.h",
+      "line": 119,
+      "symbol": "AWSLexVoiceButton.errorColor",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+}

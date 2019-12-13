@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSLexPostContentRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSLexPostContentRequest" class="dashAnchor"></a>
+    <a title="AWSLexPostContentRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSLex 2.12.3 Docs</a> (54% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLex%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSLex Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSLexPostContentRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLex.html">AWSLex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexAudioPlayer.html">AWSLexAudioPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexAudioSession.html">AWSLexAudioSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexButton.html">AWSLexButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDeleteSessionRequest.html">AWSLexDeleteSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDeleteSessionResponse.html">AWSLexDeleteSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDialogAction.html">AWSLexDialogAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGenericAttachment.html">AWSLexGenericAttachment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGetSessionRequest.html">AWSLexGetSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGetSessionResponse.html">AWSLexGetSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexIntentSummary.html">AWSLexIntentSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexInteractionKitConfig.html">AWSLexInteractionKitConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostContentRequest.html">AWSLexPostContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostContentResponse.html">AWSLexPostContentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostTextRequest.html">AWSLexPostTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostTextResponse.html">AWSLexPostTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPutSessionRequest.html">AWSLexPutSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPutSessionResponse.html">AWSLexPutSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexResources.html">AWSLexResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexResponseCard.html">AWSLexResponseCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSentimentResponse.html">AWSLexSentimentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSwitchModeInput.html">AWSLexSwitchModeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSwitchModeResponse.html">AWSLexSwitchModeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexVoiceButtonResponse.html">AWSLexVoiceButtonResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInteractionKitSDKVersion">AWSInteractionKitSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInternalLexInteractionKit">AWSInternalLexInteractionKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptMPEG">AWSLexAcceptMPEG</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptPCM">AWSLexAcceptPCM</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptText">AWSLexAcceptText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptVorbid">AWSLexAcceptVorbid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexContentTypeText">AWSLexContentTypeText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexErrorDomain">AWSLexErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexInteractionKitErrorDomain">AWSLexInteractionKitErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexSDKVersion">AWSLexSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVersionNumber">AWSLexVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVersionString">AWSLexVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVoiceButtonErrorDomain">AWSLexVoiceButtonErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVoiceButtonKey">AWSLexVoiceButtonKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexConfirmationStatus.html">AWSLexConfirmationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexContentType.html">AWSLexContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexDialogActionType.html">AWSLexDialogActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexDialogState.html">AWSLexDialogState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexErrorType.html">AWSLexErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexFulfillmentState.html">AWSLexFulfillmentState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexInteractionKitErrorCode.html">AWSLexInteractionKitErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexInteractionMode.html">AWSLexInteractionMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexMessageFormatType.html">AWSLexMessageFormatType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexSpeechEncoding.html">AWSLexSpeechEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexVoiceButtonErrorCode.html">AWSLexVoiceButtonErrorCode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexAudioPlayerDelegate.html">AWSLexAudioPlayerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexInteractionDelegate.html">AWSLexInteractionDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexMicrophoneDelegate.html">AWSLexMicrophoneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexVoiceButtonDelegate.html">AWSLexVoiceButtonDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSLexPostContentRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexPostContentRequest</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)accept"></a>
+                    <a name="//apple_ref/objc/Property/accept" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)accept">accept</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p> You pass this value as the <code>Accept</code> HTTP header. </p><p> The message Amazon Lex returns in the response can be either text or speech based on the <code>Accept</code> HTTP header value in the request. </p><ul><li><p> If the value is <code>text/plain; charset=utf-8</code>, Amazon Lex returns text in the response. </p></li><li><p> If the value begins with <code>audio/</code>, Amazon Lex returns speech in the response. Amazon Lex uses Amazon Polly to generate the speech (using the configuration you specified in the <code>Accept</code> header). For example, if you specify <code>audio/mpeg</code> as the value, Amazon Lex returns speech in the MPEG format.</p></li><li><p>If the value is <code>audio/pcm</code>, the speech returned is <code>audio/pcm</code> in 16-bit, little endian format. </p></li><li><p>The following are the accepted values:</p><ul><li><p>audio/mpeg</p></li><li><p>audio/ogg</p></li><li><p>audio/pcm</p></li><li><p>text/plain; charset=utf-8</p></li><li><p>audio/* (defaults to mpeg)</p></li></ul></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">accept</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">accept</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)botAlias"></a>
+                    <a name="//apple_ref/objc/Property/botAlias" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)botAlias">botAlias</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Alias of the Amazon Lex bot.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">botAlias</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">botAlias</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)botName"></a>
+                    <a name="//apple_ref/objc/Property/botName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)botName">botName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Name of the Amazon Lex bot.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">botName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">botName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)contentType"></a>
+                    <a name="//apple_ref/objc/Property/contentType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)contentType">contentType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p> You pass this value as the <code>Content-Type</code> HTTP header. </p><p> Indicates the audio format or text. The header value must start with one of the following prefixes: </p><ul><li><p>PCM format, audio data must be in little-endian byte order.</p><ul><li><p>audio/l16; rate=16000; channels=1</p></li><li><p>audio/x-l16; sample-rate=16000; channel-count=1</p></li><li><p>audio/lpcm; sample-rate=8000; sample-size-bits=16; channel-count=1; is-big-endian=false </p></li></ul></li><li><p>Opus format</p><ul><li><p>audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=256000; frame-size-milliseconds=4</p></li></ul></li><li><p>Text format</p><ul><li><p>text/plain; charset=utf-8</p></li></ul></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)inputStream"></a>
+                    <a name="//apple_ref/objc/Property/inputStream" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)inputStream">inputStream</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> User input in PCM or Opus audio format or text format as described in the <code>Content-Type</code> HTTP header. </p><p>You can stream audio data to Amazon Lex or you can create a local buffer that captures all of the audio data before sending. In general, you get better performance if you stream audio data rather than buffering the data locally.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSInputStream</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">inputStream</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">inputStream</span><span class="p">:</span> <span class="kt">InputStream</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)requestAttributes"></a>
+                    <a name="//apple_ref/objc/Property/requestAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)requestAttributes">requestAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>You pass this value as the <code>x-amz-lex-request-attributes</code> HTTP header.</p><p>Request-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the <code>requestAttributes</code> and <code><a href="../Classes/AWSLexPostContentRequest.html#/c:objc(cs)AWSLexPostContentRequest(py)sessionAttributes">sessionAttributes</a></code> headers is limited to 12 KB.</p><p>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don&rsquo;t create any request attributes with the prefix <code>x-amz-lex:</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request Attributes</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">requestAttributes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">requestAttributes</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)sessionAttributes"></a>
+                    <a name="//apple_ref/objc/Property/sessionAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)sessionAttributes">sessionAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>You pass this value as the <code>x-amz-lex-session-attributes</code> HTTP header.</p><p>Application-specific information passed between Amazon Lex and a client application. The value must be a JSON serialized and base64 encoded map with string keys and values. The total size of the <code>sessionAttributes</code> and <code><a href="../Classes/AWSLexPostContentRequest.html#/c:objc(cs)AWSLexPostContentRequest(py)requestAttributes">requestAttributes</a></code> headers is limited to 12 KB.</p><p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session Attributes</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sessionAttributes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sessionAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentRequest(py)userId"></a>
+                    <a name="//apple_ref/objc/Property/userId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentRequest(py)userId">userId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The ID of the client application user. Amazon Lex uses this to identify a user&rsquo;s conversation with your bot. At runtime, each request must contain the <code>userID</code> field.</p><p>To decide the user ID to use for your application, consider the following factors.</p><ul><li><p>The <code>userID</code> field must not contain any personally identifiable information of the user, for example, name, personal identification numbers, or other end user personal information.</p></li><li><p>If you want a user to start a conversation on one device and continue on another device, use a user-specific identifier.</p></li><li><p>If you want the same user to be able to have two independent conversations on two different devices, choose a device-specific identifier.</p></li><li><p>A user can&rsquo;t have two independent conversations with two different versions of the same bot. For example, a user can&rsquo;t have a conversation with the PROD and BETA versions of the same bot. If you anticipate that a user will need to have conversation with two different versions, for example, while testing, include the bot alias in the user ID to separate the two conversations.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">userId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

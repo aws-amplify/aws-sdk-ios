@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSLexInteractionKitConfig Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSLexInteractionKitConfig" class="dashAnchor"></a>
+    <a title="AWSLexInteractionKitConfig Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSLex 2.12.3 Docs</a> (54% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLex%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSLex Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSLexInteractionKitConfig Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLex.html">AWSLex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexAudioPlayer.html">AWSLexAudioPlayer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexAudioSession.html">AWSLexAudioSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexButton.html">AWSLexButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDeleteSessionRequest.html">AWSLexDeleteSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDeleteSessionResponse.html">AWSLexDeleteSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexDialogAction.html">AWSLexDialogAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGenericAttachment.html">AWSLexGenericAttachment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGetSessionRequest.html">AWSLexGetSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexGetSessionResponse.html">AWSLexGetSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexIntentSummary.html">AWSLexIntentSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexInteractionKitConfig.html">AWSLexInteractionKitConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostContentRequest.html">AWSLexPostContentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostContentResponse.html">AWSLexPostContentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostTextRequest.html">AWSLexPostTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPostTextResponse.html">AWSLexPostTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPutSessionRequest.html">AWSLexPutSessionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPutSessionResponse.html">AWSLexPutSessionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexResources.html">AWSLexResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexResponseCard.html">AWSLexResponseCard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSentimentResponse.html">AWSLexSentimentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSwitchModeInput.html">AWSLexSwitchModeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexSwitchModeResponse.html">AWSLexSwitchModeResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexVoiceButtonResponse.html">AWSLexVoiceButtonResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInteractionKitSDKVersion">AWSInteractionKitSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSInternalLexInteractionKit">AWSInternalLexInteractionKit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptMPEG">AWSLexAcceptMPEG</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptPCM">AWSLexAcceptPCM</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptText">AWSLexAcceptText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexAcceptVorbid">AWSLexAcceptVorbid</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexContentTypeText">AWSLexContentTypeText</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexErrorDomain">AWSLexErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexInteractionKitErrorDomain">AWSLexInteractionKitErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexSDKVersion">AWSLexSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVersionNumber">AWSLexVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVersionString">AWSLexVersionString</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVoiceButtonErrorDomain">AWSLexVoiceButtonErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSLexVoiceButtonKey">AWSLexVoiceButtonKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexConfirmationStatus.html">AWSLexConfirmationStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexContentType.html">AWSLexContentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexDialogActionType.html">AWSLexDialogActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexDialogState.html">AWSLexDialogState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexErrorType.html">AWSLexErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexFulfillmentState.html">AWSLexFulfillmentState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexInteractionKitErrorCode.html">AWSLexInteractionKitErrorCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexInteractionMode.html">AWSLexInteractionMode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexMessageFormatType.html">AWSLexMessageFormatType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexSpeechEncoding.html">AWSLexSpeechEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSLexVoiceButtonErrorCode.html">AWSLexVoiceButtonErrorCode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexAudioPlayerDelegate.html">AWSLexAudioPlayerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexInteractionDelegate.html">AWSLexInteractionDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexMicrophoneDelegate.html">AWSLexMicrophoneDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/AWSLexVoiceButtonDelegate.html">AWSLexVoiceButtonDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSLexInteractionKitConfig</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexInteractionKitConfig</span> <span class="p">:</span> <span class="nc">NSObject</span><span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span>
+
+<span class="cm">/*
+ * The bot name.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">botName</span><span class="p">;</span>
+
+<span class="cm">/*
+ * The bot alias.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">botAlias</span><span class="p">;</span>
+
+<span class="cm">/*
+ * Optional user id, The service will use cognito identity id by default.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">userId</span><span class="p">;</span>
+
+<span class="cm">/*
+ * Global session attributes are attributes that are applied for every call made to the lex service.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">globalSessionAttributes</span><span class="p">;</span>
+
+<span class="cm">/*
+ * The time interval before which the microphone timesout.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">noSpeechTimeoutInterval</span><span class="p">;</span>
+
+<span class="cm">/*
+ * The max time interval for a speech input.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">maxSpeechTimeoutInterval</span><span class="p">;</span>
+
+<span class="cm">/*
+ * The number of speech frames which defines what is a active speech.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">startpointingThreshold</span><span class="p">;</span>
+
+<span class="cm">/*
+ * The number of non-speech frames which defines what a silence is.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">endpointingThreshold</span><span class="p">;</span>
+
+<span class="cm">/*
+ * The Likelyhood-ratio test threshold value, which will be used to classify whether a frame of audio is a speech or not.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="kt">float</span>      <span class="n">lrtThreshold</span><span class="p">;</span>
+
+<span class="cm">/*
+ * Automatically start playing when a speech response is recieved. Defaults to true.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span>       <span class="n">autoPlayback</span><span class="p">;</span>
+
+<span class="cm">/*
+ * Speech encoding format. Defaults to Opus.
+ */</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLexSpeechEncoding.html">AWSLexSpeechEncoding</a></span> <span class="n">encoding</span><span class="p">;</span>
+
+<span class="cm">/*
+ * Set sessionAttribute globally.
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setGlobalSessionAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">value</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/*
+ * remove a global session attribute
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeGlobalSessionAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+
+<span class="cm">/*
+ * Clear all global session attributes.
+ */</span>
+<span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clearAllGlobalSessionAttributes</span><span class="p">;</span>
+
+<span class="cm">/*
+ * returns interaction config with default values.
+ */</span>
+<span class="k">+</span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultInteractionKitConfigWithBotName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">botName</span>
+                                             <span class="nf">botAlias</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">botAlias</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)botName"></a>
+                    <a name="//apple_ref/objc/Property/botName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)botName">botName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">botName</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">botName</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)botAlias"></a>
+                    <a name="//apple_ref/objc/Property/botAlias" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)botAlias">botAlias</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">botAlias</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">botAlias</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)userId"></a>
+                    <a name="//apple_ref/objc/Property/userId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)userId">userId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">userId</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">userId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)globalSessionAttributes"></a>
+                    <a name="//apple_ref/objc/Property/globalSessionAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)globalSessionAttributes">globalSessionAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">globalSessionAttributes</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">globalSessionAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)noSpeechTimeoutInterval"></a>
+                    <a name="//apple_ref/objc/Property/noSpeechTimeoutInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)noSpeechTimeoutInterval">noSpeechTimeoutInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">noSpeechTimeoutInterval</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">noSpeechTimeoutInterval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)maxSpeechTimeoutInterval"></a>
+                    <a name="//apple_ref/objc/Property/maxSpeechTimeoutInterval" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)maxSpeechTimeoutInterval">maxSpeechTimeoutInterval</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">maxSpeechTimeoutInterval</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maxSpeechTimeoutInterval</span><span class="p">:</span> <span class="kt">TimeInterval</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)startpointingThreshold"></a>
+                    <a name="//apple_ref/objc/Property/startpointingThreshold" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)startpointingThreshold">startpointingThreshold</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">startpointingThreshold</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startpointingThreshold</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)endpointingThreshold"></a>
+                    <a name="//apple_ref/objc/Property/endpointingThreshold" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)endpointingThreshold">endpointingThreshold</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">endpointingThreshold</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">endpointingThreshold</span><span class="p">:</span> <span class="kt">UInt</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)lrtThreshold"></a>
+                    <a name="//apple_ref/objc/Property/lrtThreshold" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)lrtThreshold">lrtThreshold</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="kt">float</span>      <span class="n">lrtThreshold</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">lrtThreshold</span><span class="p">:</span> <span class="kt">Float</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)autoPlayback"></a>
+                    <a name="//apple_ref/objc/Property/autoPlayback" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)autoPlayback">autoPlayback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span>       <span class="n">autoPlayback</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">autoPlayback</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(py)encoding"></a>
+                    <a name="//apple_ref/objc/Property/encoding" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(py)encoding">encoding</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSLexSpeechEncoding.html">AWSLexSpeechEncoding</a></span> <span class="n">encoding</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSLexSpeechEncoding.html">AWSLexSpeechEncoding</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(im)setGlobalSessionAttribute:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/-setGlobalSessionAttribute:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(im)setGlobalSessionAttribute:forKey:">-setGlobalSessionAttribute:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setGlobalSessionAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">value</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setGlobalSessionAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(im)removeGlobalSessionAttribute:"></a>
+                    <a name="//apple_ref/objc/Method/-removeGlobalSessionAttribute:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(im)removeGlobalSessionAttribute:">-removeGlobalSessionAttribute:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeGlobalSessionAttribute</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">removeGlobalSessionAttribute</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(im)clearAllGlobalSessionAttributes"></a>
+                    <a name="//apple_ref/objc/Method/-clearAllGlobalSessionAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(im)clearAllGlobalSessionAttributes">-clearAllGlobalSessionAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clearAllGlobalSessionAttributes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearAllGlobalSessionAttributes</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexInteractionKitConfig(cm)defaultInteractionKitConfigWithBotName:botAlias:"></a>
+                    <a name="//apple_ref/objc/Method/+defaultInteractionKitConfigWithBotName:botAlias:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexInteractionKitConfig(cm)defaultInteractionKitConfigWithBotName:botAlias:">+defaultInteractionKitConfigWithBotName:botAlias:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span><span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">defaultInteractionKitConfigWithBotName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">botName</span>
+                                             <span class="nf">botAlias</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">botAlias</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">defaultInteractionKitConfig</span><span class="p">(</span><span class="n">withBotName</span> <span class="nv">botName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">botAlias</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
