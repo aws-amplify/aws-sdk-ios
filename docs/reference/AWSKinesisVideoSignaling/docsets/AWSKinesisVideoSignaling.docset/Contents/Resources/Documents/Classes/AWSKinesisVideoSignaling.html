@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSKinesisVideoSignaling Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSKinesisVideoSignaling" class="dashAnchor"></a>
+    <a title="AWSKinesisVideoSignaling Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSKinesisVideoSignaling 2.12.3 Docs</a> (58% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesisVideoSignaling%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSKinesisVideoSignaling Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSKinesisVideoSignaling Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignaling.html">AWSKinesisVideoSignaling</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigRequest.html">AWSKinesisVideoSignalingGetIceServerConfigRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigResponse.html">AWSKinesisVideoSignalingGetIceServerConfigResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignalingIceServer.html">AWSKinesisVideoSignalingIceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignalingResources.html">AWSKinesisVideoSignalingResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisVideoSignalingErrorDomain">AWSKinesisVideoSignalingErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisVideoSignalingSDKVersion">AWSKinesisVideoSignalingSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisVideoSignalingVersionNumber">AWSKinesisVideoSignalingVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSKinesisVideoSignalingVersionString">AWSKinesisVideoSignalingVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisVideoSignalingErrorType.html">AWSKinesisVideoSignalingErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKinesisVideoSignalingService.html">AWSKinesisVideoSignalingService</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSKinesisVideoSignaling</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKinesisVideoSignaling</span></code></pre>
+
+                </div>
+              </div>
+            <p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a communication channel for discovering peers, transmitting offers and answers in order to establish peer-to-peer connection in webRTC technology.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(py)configuration"></a>
+                    <a name="//apple_ref/objc/Property/configuration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(py)configuration">configuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The service configuration used to instantiate this service client.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(cm)defaultKinesisVideoSignaling"></a>
+                    <a name="//apple_ref/objc/Method/+defaultKinesisVideoSignaling" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(cm)defaultKinesisVideoSignaling">+defaultKinesisVideoSignaling</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSServiceManager</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+     <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
+
+     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">KinesisVideoSignaling</span> <span class="o">=</span> <span class="n">AWSKinesisVideoSignaling</span><span class="p">.</span><span class="k">default</span><span class="p">()</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSKinesisVideoSignaling</span> <span class="o">*</span><span class="n">KinesisVideoSignaling</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSKinesisVideoSignaling</span> <span class="nf">defaultKinesisVideoSignaling</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">defaultKinesisVideoSignaling</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The default service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(cm)registerKinesisVideoSignalingWithConfiguration:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/+registerKinesisVideoSignalingWithConfiguration:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(cm)registerKinesisVideoSignalingWithConfiguration:forKey:">+registerKinesisVideoSignalingWithConfiguration:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a service client with the given service configuration and registers it for the key.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSKinesisVideoSignaling</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2KinesisVideoSignaling"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSKinesisVideoSignaling</span> <span class="nf">registerKinesisVideoSignalingWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2KinesisVideoSignaling"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">KinesisVideoSignaling</span> <span class="o">=</span> <span class="n">AWSKinesisVideoSignaling</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2KinesisVideoSignaling"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSKinesisVideoSignaling</span> <span class="o">*</span><span class="n">KinesisVideoSignaling</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSKinesisVideoSignaling</span> <span class="nf">KinesisVideoSignalingForKey</span><span class="p">:</span><span class="s">@"USWest2KinesisVideoSignaling"</span><span class="p">];</span>
+</code></pre>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerKinesisVideoSignalingWithConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">configuration</span>
+                                                <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">withConfiguration</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A service configuration object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(cm)KinesisVideoSignalingForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+KinesisVideoSignalingForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(cm)KinesisVideoSignalingForKey:">+KinesisVideoSignalingForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the service client associated with the key. You need to call <code>+ registerKinesisVideoSignalingWithConfiguration:forKey:</code> before invoking this method.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSKinesisVideoSignaling</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2KinesisVideoSignaling"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSKinesisVideoSignaling</span> <span class="nf">registerKinesisVideoSignalingWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2KinesisVideoSignaling"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">KinesisVideoSignaling</span> <span class="o">=</span> <span class="n">AWSKinesisVideoSignaling</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2KinesisVideoSignaling"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSKinesisVideoSignaling</span> <span class="o">*</span><span class="n">KinesisVideoSignaling</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSKinesisVideoSignaling</span> <span class="nf">KinesisVideoSignalingForKey</span><span class="p">:</span><span class="s">@"USWest2KinesisVideoSignaling"</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">KinesisVideoSignalingForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of the service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(cm)removeKinesisVideoSignalingForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+removeKinesisVideoSignalingForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(cm)removeKinesisVideoSignalingForKey:">+removeKinesisVideoSignalingForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the service client associated with the key and release it.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Before calling this method, make sure no method is running on this client.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeKinesisVideoSignalingForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(im)getIceServerConfig:"></a>
+                    <a name="//apple_ref/objc/Method/-getIceServerConfig:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(im)getIceServerConfig:">-getIceServerConfig:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the Interactive Connectivity Establishment (ICE) server configuration information, including URIs, username, and password which can be used to configure the WebRTC connection. The ICE component uses this configuration information to setup the WebRTC connection, including authenticating with the Traversal Using Relays around NAT (TURN) relay server. </p><p>TURN is a protocol that is used to improve the connectivity of peer-to-peer applications. By providing a cloud-based relay service, TURN ensures that a connection can be established even when one or more peers are incapable of a direct peer-to-peer connection. For more information, see <a href="https://tools.ietf.org/html/draft-uberti-rtcweb-turn-rest-00">A REST API For Access To TURN Services</a>.</p><p> You can invoke this API to establish a fallback mechanism in case either of the peers is unable to establish a direct peer-to-peer connection over a signaling channel. You must specify either a signaling channel ARN or the client ID in order to invoke this API.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingGetIceServerConfigRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingGetIceServerConfigResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getIceServerConfig</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigRequest.html">AWSKinesisVideoSignalingGetIceServerConfigRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getIceServerConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigRequest.html">AWSKinesisVideoSignalingGetIceServerConfigRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetIceServerConfig service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigResponse.html">AWSKinesisVideoSignalingGetIceServerConfigResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoSignalingErrorDomain">AWSKinesisVideoSignalingErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoSignalingErrorInvalidClient</code>, <code>AWSKinesisVideoSignalingErrorSessionExpired</code>, <code>AWSKinesisVideoSignalingErrorClientLimitExceeded</code>, <code>AWSKinesisVideoSignalingErrorResourceNotFound</code>, <code>AWSKinesisVideoSignalingErrorInvalidArgument</code>, <code>AWSKinesisVideoSignalingErrorNotAuthorized</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(im)getIceServerConfig:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getIceServerConfig:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(im)getIceServerConfig:completionHandler:">-getIceServerConfig:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the Interactive Connectivity Establishment (ICE) server configuration information, including URIs, username, and password which can be used to configure the WebRTC connection. The ICE component uses this configuration information to setup the WebRTC connection, including authenticating with the Traversal Using Relays around NAT (TURN) relay server. </p><p>TURN is a protocol that is used to improve the connectivity of peer-to-peer applications. By providing a cloud-based relay service, TURN ensures that a connection can be established even when one or more peers are incapable of a direct peer-to-peer connection. For more information, see <a href="https://tools.ietf.org/html/draft-uberti-rtcweb-turn-rest-00">A REST API For Access To TURN Services</a>.</p><p> You can invoke this API to establish a fallback mechanism in case either of the peers is unable to establish a direct peer-to-peer connection over a signaling channel. You must specify either a signaling channel ARN or the client ID in order to invoke this API.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingGetIceServerConfigRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingGetIceServerConfigResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getIceServerConfig</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigRequest.html">AWSKinesisVideoSignalingGetIceServerConfigRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+         <span class="nf">completionHandler</span><span class="p">:</span>
+             <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                 <span class="n"><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigResponse.html">AWSKinesisVideoSignalingGetIceServerConfigResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                 <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getIceServerConfig</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigRequest.html">AWSKinesisVideoSignalingGetIceServerConfigRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSKinesisVideoSignalingGetIceServerConfigResponse.html">AWSKinesisVideoSignalingGetIceServerConfigResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetIceServerConfig service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoSignalingErrorDomain">AWSKinesisVideoSignalingErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoSignalingErrorInvalidClient</code>, <code>AWSKinesisVideoSignalingErrorSessionExpired</code>, <code>AWSKinesisVideoSignalingErrorClientLimitExceeded</code>, <code>AWSKinesisVideoSignalingErrorResourceNotFound</code>, <code>AWSKinesisVideoSignalingErrorInvalidArgument</code>, <code>AWSKinesisVideoSignalingErrorNotAuthorized</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(im)sendAlexaOfferToMaster:"></a>
+                    <a name="//apple_ref/objc/Method/-sendAlexaOfferToMaster:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(im)sendAlexaOfferToMaster:">-sendAlexaOfferToMaster:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer. The offer is delivered as soon as the master is connected to the specified signaling channel. This API returns the SDP answer from the connected master. If the master is not connected to the signaling channel, redelivery requests are made until the message expires.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">sendAlexaOfferToMaster</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendAlexaOffer</span><span class="p">(</span><span class="n">toMaster</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendAlexaOfferToMaster service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoSignalingErrorDomain">AWSKinesisVideoSignalingErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoSignalingErrorClientLimitExceeded</code>, <code>AWSKinesisVideoSignalingErrorResourceNotFound</code>, <code>AWSKinesisVideoSignalingErrorInvalidArgument</code>, <code>AWSKinesisVideoSignalingErrorNotAuthorized</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKinesisVideoSignaling(im)sendAlexaOfferToMaster:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-sendAlexaOfferToMaster:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKinesisVideoSignaling(im)sendAlexaOfferToMaster:completionHandler:">-sendAlexaOfferToMaster:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When invoked, it sends the Alexa Session Description Protocol (SDP) offer to the master peer. The offer is delivered as soon as the master is connected to the specified signaling channel. This API returns the SDP answer from the connected master. If the master is not connected to the signaling channel, redelivery requests are made until the message expires.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAlexaOfferToMaster</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</a></span> <span class="o">*</span><span class="p">)</span>
+                <span class="n">request</span>
+             <span class="n">completionHandler</span><span class="o">:</span>
+                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                     <span class="n"><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse</a></span>
+                         <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                     <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">sendAlexaOffer</span><span class="p">(</span><span class="n">toMaster</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse.html">AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SendAlexaOfferToMaster service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKinesisVideoSignalingErrorDomain">AWSKinesisVideoSignalingErrorDomain</a></code> domain and the following error code: <code>AWSKinesisVideoSignalingErrorClientLimitExceeded</code>, <code>AWSKinesisVideoSignalingErrorResourceNotFound</code>, <code>AWSKinesisVideoSignalingErrorInvalidArgument</code>, <code>AWSKinesisVideoSignalingErrorNotAuthorized</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
