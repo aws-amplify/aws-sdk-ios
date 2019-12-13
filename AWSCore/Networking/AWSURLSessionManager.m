@@ -21,6 +21,8 @@
 #import "AWSBolts.h"
 #import "AWSCredentialsProvider.h"
 
+NSString* const AWSResponseObjectErrorUserInfoKey = @"ResponseObjectError";
+
 #pragma mark - AWSURLSessionManagerDelegate
 
 static NSString* const AWSMobileURLSessionManagerCacheDomain = @"com.amazonaws.AWSURLSessionManager";
@@ -324,7 +326,16 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
                                                                                                        error:&error];
                     if (error) {
                         if ([delegate.responseObject isKindOfClass:[NSDictionary class]]) {
-                            delegate.error = [NSError errorWithDomain:[error domain] code:[error code] userInfo: ((NSDictionary *)delegate.responseObject)[@"Error"]];
+                            NSDictionary *responseObject = (NSDictionary *)delegate.responseObject;
+                            if (responseObject[@"Error"]) {
+                                id responseObjectError = responseObject[@"Error"];
+                                NSMutableDictionary<NSErrorUserInfoKey, id> *userInfo = error.userInfo ? [error.userInfo mutableCopy] : [NSMutableDictionary new];
+                                [userInfo setValue:responseObjectError forKey:AWSResponseObjectErrorUserInfoKey];
+                                delegate.error = [NSError errorWithDomain:error.domain code:error.code userInfo:userInfo];
+                            }
+                            else {
+                                delegate.error = error;
+                            }
                         }
                         else {
                             delegate.error = error;
