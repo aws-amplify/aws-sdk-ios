@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSPolly Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSPolly" class="dashAnchor"></a>
+    <a title="AWSPolly Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSPolly 2.12.3 Docs</a> (44% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSPolly%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSPolly Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSPolly Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPolly.html">AWSPolly</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyDeleteLexiconInput.html">AWSPollyDeleteLexiconInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSPollyDeleteLexiconOutput">AWSPollyDeleteLexiconOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyDescribeVoicesInput.html">AWSPollyDescribeVoicesInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyDescribeVoicesOutput.html">AWSPollyDescribeVoicesOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyGetLexiconInput.html">AWSPollyGetLexiconInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyGetLexiconOutput.html">AWSPollyGetLexiconOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">AWSPollyGetSpeechSynthesisTaskOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyLexicon.html">AWSPollyLexicon</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyLexiconAttributes.html">AWSPollyLexiconAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyLexiconDescription.html">AWSPollyLexiconDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyListLexiconsInput.html">AWSPollyListLexiconsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyListLexiconsOutput.html">AWSPollyListLexiconsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyListSpeechSynthesisTasksOutput.html">AWSPollyListSpeechSynthesisTasksOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyPutLexiconInput.html">AWSPollyPutLexiconInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSPollyPutLexiconOutput">AWSPollyPutLexiconOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyResources.html">AWSPollyResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyStartSpeechSynthesisTaskOutput.html">AWSPollyStartSpeechSynthesisTaskOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollySynthesisTask.html">AWSPollySynthesisTask</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollySynthesizeSpeechInput.html">AWSPollySynthesizeSpeechInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollySynthesizeSpeechOutput.html">AWSPollySynthesizeSpeechOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollySynthesizeSpeechURLBuilder.html">AWSPollySynthesizeSpeechURLBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollySynthesizeSpeechURLBuilderRequest.html">AWSPollySynthesizeSpeechURLBuilderRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPollyVoice.html">AWSPollyVoice</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPollySDKVersion">AWSPollySDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPollySynthesizeSpeechURLBuilderErrorDomain">AWSPollySynthesizeSpeechURLBuilderErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPollyVersionNumber">AWSPollyVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPollyVersionString">AWSPollyVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyEngine.html">AWSPollyEngine</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyErrorType.html">AWSPollyErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyGender.html">AWSPollyGender</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyLanguageCode.html">AWSPollyLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyOutputFormat.html">AWSPollyOutputFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollySpeechMarkType.html">AWSPollySpeechMarkType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollySynthesizeSpeechURLBuilderErrorType.html">AWSPollySynthesizeSpeechURLBuilderErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyTaskStatus.html">AWSPollyTaskStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyTextType.html">AWSPollyTextType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPollyVoiceId.html">AWSPollyVoiceId</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/c:@F@stringForSpeechMark">stringForSpeechMark</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSPolly</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSPolly</span></code></pre>
+
+                </div>
+              </div>
+            <p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p><p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(py)configuration"></a>
+                    <a name="//apple_ref/objc/Property/configuration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(py)configuration">configuration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The service configuration used to instantiate this service client.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int32</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(cm)defaultPolly"></a>
+                    <a name="//apple_ref/objc/Method/+defaultPolly" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(cm)defaultPolly">+defaultPolly</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSServiceManager</span><span class="p">.</span><span class="k">default</span><span class="p">().</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+     <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                     <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+     <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+     <span class="p">[</span><span class="n">AWSServiceManager</span> <span class="nf">defaultServiceManager</span><span class="p">].</span><span class="n">defaultServiceConfiguration</span> <span class="o">=</span> <span class="n">configuration</span><span class="p">;</span>
+
+     <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">Polly</span> <span class="o">=</span> <span class="n">AWSPolly</span><span class="p">.</span><span class="k">default</span><span class="p">()</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSPolly</span> <span class="o">*</span><span class="n">Polly</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSPolly</span> <span class="nf">defaultPolly</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="n">defaultPolly</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">default</span><span class="p">`()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The default service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(cm)registerPollyWithConfiguration:forKey:"></a>
+                    <a name="//apple_ref/objc/Method/+registerPollyWithConfiguration:forKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(cm)registerPollyWithConfiguration:forKey:">+registerPollyWithConfiguration:forKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a service client with the given service configuration and registers it for the key.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSPolly</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2Polly"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSPolly</span> <span class="nf">registerPollyWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Polly"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">Polly</span> <span class="o">=</span> <span class="n">AWSPolly</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2Polly"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSPolly</span> <span class="o">*</span><span class="n">Polly</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSPolly</span> <span class="nf">PollyForKey</span><span class="p">:</span><span class="s">@"USWest2Polly"</span><span class="p">];</span>
+</code></pre>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerPollyWithConfiguration</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">configuration</span>
+                                <span class="nf">forKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">register</span><span class="p">(</span><span class="n">withConfiguration</span> <span class="nv">configuration</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>configuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A service configuration object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(cm)PollyForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+PollyForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(cm)PollyForKey:">+PollyForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves the service client associated with the key. You need to call <code>+ registerPollyWithConfiguration:forKey:</code> before invoking this method.</p>
+
+<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">func</span> <span class="n">application</span><span class="p">(</span><span class="n">_</span> <span class="n">application</span><span class="o">:</span> <span class="n">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="n">launchOptions</span><span class="o">:</span> <span class="p">[</span><span class="nf">UIApplicationLaunchOptionsKey</span><span class="p">:</span> <span class="n">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="err">{</span>
+   <span class="n">let</span> <span class="n">credentialProvider</span> <span class="o">=</span> <span class="n">AWSCognitoCredentialsProvider</span><span class="p">(</span><span class="n">regionType</span><span class="p">:</span> <span class="p">.</span><span class="n">USEast1</span><span class="p">,</span> <span class="n">identityPoolId</span><span class="o">:</span> <span class="s">"YourIdentityPoolId"</span><span class="p">)</span>
+   <span class="n">let</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">AWSServiceConfiguration</span><span class="p">(</span><span class="n">region</span><span class="o">:</span> <span class="p">.</span><span class="n">USWest2</span><span class="p">,</span> <span class="n">credentialsProvider</span><span class="o">:</span> <span class="n">credentialProvider</span><span class="p">)</span>
+   <span class="n">AWSPolly</span><span class="p">.</span><span class="k">register</span><span class="p">(</span><span class="n">with</span><span class="o">:</span> <span class="n">configuration</span><span class="o">!</span><span class="p">,</span> <span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2Polly"</span><span class="p">)</span>
+
+   <span class="k">return</span> <span class="nb">true</span>
+</code></pre>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">application</span><span class="p">:(</span><span class="n">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span> <span class="p">{</span>
+    <span class="n">AWSCognitoCredentialsProvider</span> <span class="o">*</span><span class="n">credentialsProvider</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSCognitoCredentialsProvider</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegionType</span><span class="p">:</span><span class="n">AWSRegionUSEast1</span>
+                                                                                                    <span class="nl">identityPoolId:</span><span class="s">@"YourIdentityPoolId"</span><span class="p">];</span>
+    <span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="n">configuration</span> <span class="o">=</span> <span class="p">[[</span><span class="n">AWSServiceConfiguration</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithRegion</span><span class="p">:</span><span class="n">AWSRegionUSWest2</span>
+                                                                         <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
+
+    <span class="p">[</span><span class="n">AWSPolly</span> <span class="nf">registerPollyWithConfiguration</span><span class="p">:</span><span class="n">configuration</span> <span class="nf">forKey</span><span class="p">:</span><span class="s">@"USWest2Polly"</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+<pre class="highlight objective_c"><code><span class="n">let</span> <span class="n">Polly</span> <span class="o">=</span> <span class="n">AWSPolly</span><span class="p">(</span><span class="n">forKey</span><span class="o">:</span> <span class="s">"USWest2Polly"</span><span class="p">)</span>
+</code></pre>
+
+<p><em>Objective-C</em></p>
+<pre class="highlight objective_c"><code><span class="n">AWSPolly</span> <span class="o">*</span><span class="n">Polly</span> <span class="o">=</span> <span class="p">[</span><span class="n">AWSPolly</span> <span class="nf">PollyForKey</span><span class="p">:</span><span class="s">@"USWest2Polly"</span><span class="p">];</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">nonnull</span> <span class="n">instancetype</span><span class="p">)</span><span class="nf">PollyForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of the service client.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(cm)removePollyForKey:"></a>
+                    <a name="//apple_ref/objc/Method/+removePollyForKey:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(cm)removePollyForKey:">+removePollyForKey:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Removes the service client associated with the key and release it.</p>
+<div class="aside aside-warning">
+    <p class="aside-title">Warning</p>
+    <p>Before calling this method, make sure no method is running on this client.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removePollyForKey</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A string to identify the service client.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)deleteLexicon:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteLexicon:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)deleteLexicon:">-deleteLexicon:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDeleteLexiconInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDeleteLexiconOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteLexicon</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyDeleteLexiconInput.html">AWSPollyDeleteLexiconInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLexicon</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyDeleteLexiconInput.html">AWSPollyDeleteLexiconInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteLexicon service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSPollyDeleteLexiconOutput">AWSPollyDeleteLexiconOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)deleteLexicon:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteLexicon:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)deleteLexicon:completionHandler:">-deleteLexicon:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the <code>GetLexicon</code> or <code>ListLexicon</code> APIs.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDeleteLexiconInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDeleteLexiconOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteLexicon</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyDeleteLexiconInput.html">AWSPollyDeleteLexiconInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSPollyDeleteLexiconOutput">AWSPollyDeleteLexiconOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteLexicon</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyDeleteLexiconInput.html">AWSPollyDeleteLexiconInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSPollyDeleteLexiconOutput">AWSPollyDeleteLexiconOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteLexicon service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)describeVoices:"></a>
+                    <a name="//apple_ref/objc/Method/-describeVoices:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)describeVoices:">-describeVoices:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name. </p><p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you provide the voice ID for the voice you want from the list of voices returned by <code>DescribeVoices</code>.</p><p>For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the <code>DescribeVoices</code> operation you can provide the user with a list of available voices to select from.</p><p> You can optionally specify a language code to filter the available voices. For example, if you specify <code>en-US</code>, the operation returns a list of all available US English voices. </p><p>This operation requires permissions to perform the <code>polly:DescribeVoices</code> action.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDescribeVoicesInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDescribeVoicesOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeVoices</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyDescribeVoicesInput.html">AWSPollyDescribeVoicesInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeVoices</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyDescribeVoicesInput.html">AWSPollyDescribeVoicesInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeVoices service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollyDescribeVoicesOutput.html">AWSPollyDescribeVoicesOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)describeVoices:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeVoices:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)describeVoices:completionHandler:">-describeVoices:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name. </p><p>When synthesizing speech ( <code>SynthesizeSpeech</code> ), you provide the voice ID for the voice you want from the list of voices returned by <code>DescribeVoices</code>.</p><p>For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the <code>DescribeVoices</code> operation you can provide the user with a list of available voices to select from.</p><p> You can optionally specify a language code to filter the available voices. For example, if you specify <code>en-US</code>, the operation returns a list of all available US English voices. </p><p>This operation requires permissions to perform the <code>polly:DescribeVoices</code> action.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDescribeVoicesInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyDescribeVoicesOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeVoices</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyDescribeVoicesInput.html">AWSPollyDescribeVoicesInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPollyDescribeVoicesOutput.html">AWSPollyDescribeVoicesOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeVoices</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyDescribeVoicesInput.html">AWSPollyDescribeVoicesInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollyDescribeVoicesOutput.html">AWSPollyDescribeVoicesOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeVoices service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)getLexicon:"></a>
+                    <a name="//apple_ref/objc/Method/-getLexicon:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)getLexicon:">-getLexicon:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetLexiconInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetLexiconOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getLexicon</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyGetLexiconInput.html">AWSPollyGetLexiconInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getLexicon</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyGetLexiconInput.html">AWSPollyGetLexiconInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetLexicon service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollyGetLexiconOutput.html">AWSPollyGetLexiconOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)getLexicon:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getLexicon:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)getLexicon:completionHandler:">-getLexicon:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetLexiconInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetLexiconOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getLexicon</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyGetLexiconInput.html">AWSPollyGetLexiconInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPollyGetLexiconOutput.html">AWSPollyGetLexiconOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getLexicon</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyGetLexiconInput.html">AWSPollyGetLexiconInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollyGetLexiconOutput.html">AWSPollyGetLexiconOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetLexicon service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)getSpeechSynthesisTask:"></a>
+                    <a name="//apple_ref/objc/Method/-getSpeechSynthesisTask:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)getSpeechSynthesisTask:">-getSpeechSynthesisTask:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetSpeechSynthesisTaskInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetSpeechSynthesisTaskOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getSpeechSynthesisTask</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getSpeechSynthesisTask</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">AWSPollyGetSpeechSynthesisTaskOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidTaskId</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorSynthesisTaskNotFound</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)getSpeechSynthesisTask:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getSpeechSynthesisTask:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)getSpeechSynthesisTask:completionHandler:">-getSpeechSynthesisTask:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetSpeechSynthesisTaskInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyGetSpeechSynthesisTaskOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">getSpeechSynthesisTask</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+         <span class="nf">completionHandler</span><span class="p">:</span>
+             <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">AWSPollyGetSpeechSynthesisTaskOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getSpeechSynthesisTask</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">AWSPollyGetSpeechSynthesisTaskOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidTaskId</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorSynthesisTaskNotFound</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)listLexicons:"></a>
+                    <a name="//apple_ref/objc/Method/-listLexicons:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)listLexicons:">-listLexicons:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListLexiconsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListLexiconsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listLexicons</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyListLexiconsInput.html">AWSPollyListLexiconsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLexicons</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyListLexiconsInput.html">AWSPollyListLexiconsInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListLexicons service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollyListLexiconsOutput.html">AWSPollyListLexiconsOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)listLexicons:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listLexicons:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)listLexicons:completionHandler:">-listLexicons:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListLexiconsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListLexiconsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listLexicons</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyListLexiconsInput.html">AWSPollyListLexiconsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPollyListLexiconsOutput.html">AWSPollyListLexiconsOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listLexicons</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyListLexiconsInput.html">AWSPollyListLexiconsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollyListLexiconsOutput.html">AWSPollyListLexiconsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListLexicons service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)listSpeechSynthesisTasks:"></a>
+                    <a name="//apple_ref/objc/Method/-listSpeechSynthesisTasks:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)listSpeechSynthesisTasks:">-listSpeechSynthesisTasks:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListSpeechSynthesisTasksInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListSpeechSynthesisTasksOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listSpeechSynthesisTasks</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSpeechSynthesisTasks</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollyListSpeechSynthesisTasksOutput.html">AWSPollyListSpeechSynthesisTasksOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)listSpeechSynthesisTasks:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listSpeechSynthesisTasks:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)listSpeechSynthesisTasks:completionHandler:">-listSpeechSynthesisTasks:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListSpeechSynthesisTasksInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyListSpeechSynthesisTasksOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listSpeechSynthesisTasks</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+               <span class="nf">completionHandler</span><span class="p">:</span>
+                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                       <span class="n"><a href="../Classes/AWSPollyListSpeechSynthesisTasksOutput.html">AWSPollyListSpeechSynthesisTasksOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                       <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listSpeechSynthesisTasks</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollyListSpeechSynthesisTasksOutput.html">AWSPollyListSpeechSynthesisTasksOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)putLexicon:"></a>
+                    <a name="//apple_ref/objc/Method/-putLexicon:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)putLexicon:">-putLexicon:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyPutLexiconInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyPutLexiconOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">putLexicon</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyPutLexiconInput.html">AWSPollyPutLexiconInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putLexicon</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyPutLexiconInput.html">AWSPollyPutLexiconInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the PutLexicon service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSPollyPutLexiconOutput">AWSPollyPutLexiconOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidLexicon</code>, <code>AWSPollyErrorUnsupportedPlsAlphabet</code>, <code>AWSPollyErrorUnsupportedPlsLanguage</code>, <code>AWSPollyErrorLexiconSizeExceeded</code>, <code>AWSPollyErrorMaxLexemeLengthExceeded</code>, <code>AWSPollyErrorMaxLexiconsNumberExceeded</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)putLexicon:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-putLexicon:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)putLexicon:completionHandler:">-putLexicon:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyPutLexiconInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyPutLexiconOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">putLexicon</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyPutLexiconInput.html">AWSPollyPutLexiconInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSPollyPutLexiconOutput">AWSPollyPutLexiconOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">putLexicon</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyPutLexiconInput.html">AWSPollyPutLexiconInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes.html#/c:objc(cs)AWSPollyPutLexiconOutput">AWSPollyPutLexiconOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the PutLexicon service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorInvalidLexicon</code>, <code>AWSPollyErrorUnsupportedPlsAlphabet</code>, <code>AWSPollyErrorUnsupportedPlsLanguage</code>, <code>AWSPollyErrorLexiconSizeExceeded</code>, <code>AWSPollyErrorMaxLexemeLengthExceeded</code>, <code>AWSPollyErrorMaxLexiconsNumberExceeded</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)startSpeechSynthesisTask:"></a>
+                    <a name="//apple_ref/objc/Method/-startSpeechSynthesisTask:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)startSpeechSynthesisTask:">-startSpeechSynthesisTask:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyStartSpeechSynthesisTaskInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyStartSpeechSynthesisTaskOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">startSpeechSynthesisTask</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startSpeechSynthesisTask</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollyStartSpeechSynthesisTaskOutput.html">AWSPollyStartSpeechSynthesisTaskOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorEngineNotSupported</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)startSpeechSynthesisTask:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-startSpeechSynthesisTask:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)startSpeechSynthesisTask:completionHandler:">-startSpeechSynthesisTask:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyStartSpeechSynthesisTaskInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollyStartSpeechSynthesisTaskOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startSpeechSynthesisTask</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+               <span class="nf">completionHandler</span><span class="p">:</span>
+                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                       <span class="n"><a href="../Classes/AWSPollyStartSpeechSynthesisTaskOutput.html">AWSPollyStartSpeechSynthesisTaskOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                       <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startSpeechSynthesisTask</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollyStartSpeechSynthesisTaskOutput.html">AWSPollyStartSpeechSynthesisTaskOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorEngineNotSupported</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)synthesizeSpeech:"></a>
+                    <a name="//apple_ref/objc/Method/-synthesizeSpeech:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)synthesizeSpeech:">-synthesizeSpeech:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollySynthesizeSpeechInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollySynthesizeSpeechOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">synthesizeSpeech</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollySynthesizeSpeechInput.html">AWSPollySynthesizeSpeechInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">synthesizeSpeech</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollySynthesizeSpeechInput.html">AWSPollySynthesizeSpeechInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SynthesizeSpeech service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSPollySynthesizeSpeechOutput.html">AWSPollySynthesizeSpeechOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>, <code>AWSPollyErrorEngineNotSupported</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPolly(im)synthesizeSpeech:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-synthesizeSpeech:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPolly(im)synthesizeSpeech:completionHandler:">-synthesizeSpeech:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollySynthesizeSpeechInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSPollySynthesizeSpeechOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">synthesizeSpeech</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSPollySynthesizeSpeechInput.html">AWSPollySynthesizeSpeechInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+       <span class="nf">completionHandler</span><span class="p">:</span>
+           <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSPollySynthesizeSpeechOutput.html">AWSPollySynthesizeSpeechOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                              <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">synthesizeSpeech</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPollySynthesizeSpeechInput.html">AWSPollySynthesizeSpeechInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSPollySynthesizeSpeechOutput.html">AWSPollySynthesizeSpeechOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the SynthesizeSpeech service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSPollyErrorDomain">AWSPollyErrorDomain</a></code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>, <code>AWSPollyErrorEngineNotSupported</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
