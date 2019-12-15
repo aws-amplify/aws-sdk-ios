@@ -15931,6 +15931,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"count" : @"Count",
              @"types" : @"Type",
              };
 }
@@ -30658,6 +30659,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"count" : @"Count",
              @"types" : @"Type",
              };
 }
@@ -30668,6 +30670,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"count" : @"Count",
              @"types" : @"Type",
              };
 }
