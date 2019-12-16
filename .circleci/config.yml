@@ -537,14 +537,14 @@ jobs:
           command: |
             git config --local user.name "AWS"
             git checkout gh-pages
-            rm -r docs/reference
+            rm -rf docs/reference
             mv docs_tmp docs/reference
       - run:
           name: checkin documents
           command: |
-            for obj in docs/reference/* ; do
-              name=$( basename $obj )
-              git add $obj && git commit -m "Update API documentation for ${name} ${CIRCLE_TAG}"
+            for dirPath in docs/reference/* ; do
+              sdkName=$( basename "$dirPath" )
+              git add "$dirPath" && git commit -m "Update API documentation for ${sdkName} ${CIRCLE_TAG}"
               git prune
             done
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git

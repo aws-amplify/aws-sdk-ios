@@ -8,6 +8,9 @@ set -x
 
 SDK_VERSION="2.12.3"
 
+GITHUB_DOC_ROOT=https://aws-amplify.github.io
+GITHUB_SOURCE_ROOT=https://github.com/aws-amplify/aws-sdk-ios
+
 if [[ -z $SOURCE_ROOT ]] ; then
   SOURCE_ROOT=$( pwd )
 fi
@@ -19,32 +22,41 @@ function cleanup {
   rm -rf ${DOCS_TMP}
 }
 
-if [ -n $1 ] && [ "$1" == "clean" ] ; then
-	cleanup
+cleanup
+
+if [[ $1 == "clean" ]] ; then
 	exit 0
 fi
-
-cleanup
 
 cd "$SOURCE_ROOT"
 
 mkdir -p ${DOCS_TMP}
 
-# Create destination (see pre_start_simulator.sh)
 test_device_id=$( bash ${SOURCE_ROOT}/CircleciScripts/get_circleci_test_device_id.sh )
+exitValue=$?
+if [[ $exitValue -ne  0 ]] || [[ -z $test_device_id ]] ; then
+  echo "Error getting test device ID"
+  exit $exitValue
+fi
 destination="id=${test_device_id}"
 
-# Generate Swift documentation
-SWIFT_SDK_LIST=${SOURCE_ROOT}/AWSAuthSDK/Sources/AWSMobileClient
+# Generate Swift documentation--right now only for AWSMobileClient. Not
+# technically necessary to do a `find` here, but it will generate an empty list
+# if it can't find AWSMobileClient
+SWIFT_SDK_LIST=$(find ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -maxdepth 1 -mindepth 1 -name "AWS*" \
+  -name "AWSMobileClient" \
+  | sort
+)
+
 for sdkRoot in $SWIFT_SDK_LIST ; do
-  sdkName=$( basename $sdkRoot )
+  sdkName=$( basename "$sdkRoot" )
   jazzy \
     --clean \
     --author "Amazon Web Services, Inc." \
-    --author_url https://aws-amplify.github.io \
-    --github_url https://github.com/aws-amplify/aws-sdk-ios \
+    --author_url ${GITHUB_DOC_ROOT} \
+    --github_url ${GITHUB_SOURCE_ROOT} \
     --module-version $SDK_VERSION \
-    --root-url https://aws-amplify.github.io/aws-sdk-ios/docs/reference/ \
+    --root-url ${GITHUB_DOC_ROOT}/aws-sdk-ios/docs/reference/ \
     --output ${DOCS_TMP}/${sdkName} \
     --build-tool-arguments -project,${SOURCE_ROOT}/AWSAuthSDK/AWSAuthSDK.xcodeproj,-scheme,${sdkName},-destination,"${destination}" \
     --sdk iphonesimulator \
@@ -52,10 +64,10 @@ for sdkRoot in $SWIFT_SDK_LIST ; do
     --module ${sdkName} \
     --min-acl public
 
-  rv=$?
-  if [[ $rv -gt 0 ]] ; then
+  exitValue=$?
+  if [[ $exitValue -ne 0 ]] ; then
     echo "Error generating docs for ${sdkName}" >&2
-    exit $rv
+    exit $exitValue
   fi
 
 done
@@ -72,25 +84,25 @@ OBJC_SDK_LIST=$(find $SOURCE_ROOT ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -max
 )
 
 for sdkRoot in $OBJC_SDK_LIST ; do
-  sdkName=$( basename $sdkRoot )
+  sdkName=$( basename "$sdkRoot" )
   jazzy \
     --objc \
     --clean \
     --author "Amazon Web Services, Inc." \
-    --author_url https://aws-amplify.github.io \
-    --github_url https://github.com/aws-amplify/aws-sdk-ios \
+    --author_url ${GITHUB_DOC_ROOT} \
+    --github_url ${GITHUB_SOURCE_ROOT} \
     --module-version $SDK_VERSION \
-    --root-url https://aws-amplify.github.io/aws-sdk-ios/docs/reference/ \
+    --root-url ${GITHUB_DOC_ROOT}/aws-sdk-ios/docs/reference/ \
     --output ${DOCS_TMP}/${sdkName} \
     --sdk iphonesimulator \
     --umbrella-header ${sdkRoot}/${sdkName}.h \
     --module ${sdkName} \
     --framework-root ${sdkRoot}
 
-  rv=$?
-  if [[ $rv -gt 0 ]] ; then
+  exitValue=$?
+  if [[ $exitValue -ne 0 ]] ; then
     echo "Error generating docs for ${sdkName}" >&2
-    exit $rv
+    exit $exitValue
   fi
 
 done
@@ -101,19 +113,19 @@ cat <<EOF > ${DOC_INDEX}
 <html>
 <body>
 <h1>AWS Mobile SDK for iOS v${SDK_VERSION}</h1>
-<p><a href="https://github.com/aws-amplify/aws-sdk-ios">View source on GitHub</a></p>
+<p><a href="${GITHUB_SOURCE_ROOT}">View source on GitHub</a></p>
 <section>
 List of SDKs:
 <ul>
 EOF
 
 for sdkRoot in $( echo $SWIFT_SDK_LIST ) ; do
-  sdkName=$( basename $sdkRoot )
+  sdkName=$( basename "$sdkRoot" )
   echo "<li><a href=\"${sdkName}/index.html\">${sdkName}</a></li>" >> ${DOC_INDEX}
 done
 
 for sdkRoot in $( echo $OBJC_SDK_LIST ) ; do
-  sdkName=$( basename $sdkRoot )
+  sdkName=$( basename "$sdkRoot" )
   echo "<li><a href=\"${sdkName}/index.html\">${sdkName}</a></li>" >> ${DOC_INDEX}
 done
 
