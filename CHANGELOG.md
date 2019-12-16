@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon EC2
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## [Unreleased]
@@ -16,6 +5,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Improved error handling on network requests by propagating errors encountered deserializing the NSURLSessionDelegate's response in the returned error's `userInfo` dictionary. If present, the response object's error will be under the new key `AWSResponseObjectErrorUserInfoKey`.  (See [issue #1062](https://github.com/aws-amplify/aws-sdk-ios/issues/1062) and [PR #2052](https://github.com/aws-amplify/aws-sdk-ios/pull/2052)).  Thanks @coredumped!
+
+- Model updates for the following services:
+  - Amazon EC2
 
 ## 2.12.3
 
