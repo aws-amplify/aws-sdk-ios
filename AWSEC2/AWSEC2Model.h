@@ -16990,7 +16990,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p> The type of elastic inference accelerator. The possible values are <code>eia1.small</code>, <code>eia1.medium</code>, and <code>eia1.large</code>. </p>
+ <p> The number of elastic inference accelerators of given type to be attached to the instance. Only positive values allowed. If not specified defaults to 1. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
+ <p> The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, and <code>eia1.xlarge</code>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
 
@@ -22298,6 +22303,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p> The number of elastic inference accelerators of given type to be attached to the instance. Only positive values allowed. If not specified defaults to 1. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
+
+/**
  <p> The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
@@ -22309,6 +22319,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse : AWSModel
 
+
+/**
+ <p> The number of elastic inference accelerators of given type to be attached to the instance. Only positive values allowed. If not specified defaults to 1. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable count;
 
 /**
  <p> The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge. </p>
