@@ -16,6 +16,9 @@
 #import <Foundation/Foundation.h>
 #import "AWSNetworking.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnullability-completeness"
+
 FOUNDATION_EXPORT NSString *const AWSSignatureV4Algorithm;
 FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 
@@ -144,3 +147,5 @@ FOUNDATION_EXPORT NSString *const AWSSignatureV4Terminator;
 + (NSUInteger)computeContentLengthForChunkedData:(NSUInteger)dataLength;
 
 @end
+
+#pragma clang diagnostic pop
