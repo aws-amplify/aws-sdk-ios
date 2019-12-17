@@ -8,7 +8,7 @@ test_device_id=$( bash ${SOURCE_ROOT}/CircleciScripts/get_circleci_test_device_i
 exitValue=$?
 if [[ $exitValue -ne  0 ]] || [[ -z $test_device_id ]] ; then
   echo "Error getting test device ID"
-  exit $exitValue
+  exit 1
 fi
 
 echo "export test_device_id='$test_device_id'" >> $BASH_ENV
