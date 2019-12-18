@@ -36,13 +36,15 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 
 @interface AWSPinpointAnalyticsClient()
 
+@property (nonatomic, weak) AWSPinpointContext *context;
+
+@property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
+
 @property (nonatomic, strong) NSMutableDictionary* eventTypeAttributes;
 @property (nonatomic, strong) NSMutableDictionary* eventTypeMetrics;
 @property (nonatomic, strong) NSMutableDictionary* globalAttributes;
 @property (nonatomic, strong) NSMutableDictionary* globalMetrics;
 @property (nonatomic, strong) NSDictionary* globalCampaignAttributes;
-@property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
-@property (nonatomic, strong) AWSPinpointContext *context;
 
 @end
 

@@ -1290,6 +1290,8 @@
 		FA53334222D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */; };
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
+		FA64FA9B23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */; };
+		FA64FA9E23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */; };
 		FA6978C821FA63D50092C8F3 /* AWSPinpointBackgroundBehaviorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */; };
 		FA7A44BD23046B8900F55D7A /* SigV4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A44BC23046B8900F55D7A /* SigV4Tests.swift */; };
 		FA7A44C1230487A400F55D7A /* SigV4TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A44C0230487A400F55D7A /* SigV4TestUtilities.swift */; };
@@ -4686,6 +4688,9 @@
 		FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityASF.m; sourceTree = "<group>"; };
 		FA62A7152167C9F100EFB444 /* AWSGZIPBaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPBaseTestCase.h; sourceTree = "<group>"; };
 		FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPBaseTestCase.m; sourceTree = "<group>"; };
+		FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEventRecorderBatchTests.m; sourceTree = "<group>"; };
+		FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEventRecorderTestBase.m; sourceTree = "<group>"; };
+		FA64FA9F23AAB17100B29182 /* AWSPinpointEventRecorderTestBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSPinpointEventRecorderTestBase.h; sourceTree = "<group>"; };
 		FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointBackgroundBehaviorTests.m; sourceTree = "<group>"; };
 		FA7A44BB23046B8900F55D7A /* AWSCoreUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCoreUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA7A44BC23046B8900F55D7A /* SigV4Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigV4Tests.swift; sourceTree = "<group>"; };
@@ -6031,8 +6036,11 @@
 			isa = PBXGroup;
 			children = (
 				18798FFD1DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m */,
-				18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */,
 				FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */,
+				18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */,
+				FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */,
+				FA64FA9F23AAB17100B29182 /* AWSPinpointEventRecorderTestBase.h */,
+				FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */,
 				187990001DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m */,
 				187990011DEFCB8800BC419B /* AWSPinpointSessionClientTests.m */,
 				187990021DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m */,
@@ -12953,6 +12961,8 @@
 				187990051DEFCB8800BC419B /* AWSPinpointContextTests.m in Sources */,
 				18798F8D1DEF9EAA00BC419B /* AWSPinpointTests.m in Sources */,
 				187990071DEFCB8800BC419B /* AWSPinpointSessionClientTests.m in Sources */,
+				FA64FA9E23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m in Sources */,
+				FA64FA9B23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m in Sources */,
 				187990081DEFCB8800BC419B /* AWSPinpointTargetingClientTests.m in Sources */,
 				187990031DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m in Sources */,
 				187990061DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m in Sources */,
