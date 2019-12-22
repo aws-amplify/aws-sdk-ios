@@ -342,6 +342,12 @@ typedef NS_ENUM(NSInteger, AWSIoTPolicyTemplateName) {
     AWSIoTPolicyTemplateNameBlankPolicy,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTProtocols) {
+    AWSIoTProtocolsUnknown,
+    AWSIoTProtocolsMqtt,
+    AWSIoTProtocolsHttp,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTReportType) {
     AWSIoTReportTypeUnknown,
     AWSIoTReportTypeErrors,
@@ -460,6 +466,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTAuthorizerDescription;
 @class AWSIoTAuthorizerSummary;
 @class AWSIoTAwsJobExecutionsRolloutConfig;
+@class AWSIoTAwsJobPresignedUrlConfig;
 @class AWSIoTBehavior;
 @class AWSIoTBehaviorCriteria;
 @class AWSIoTBillingGroupMetadata;
@@ -1920,6 +1927,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code> contains HTTP.</p>
+ */
+@interface AWSIoTAwsJobPresignedUrlConfig : AWSModel
+
+
+/**
+ <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable expiresInSec;
+
+@end
+
+/**
  <p>A Device Defender security profile behavior.</p>
  Required parameters: [name]
  */
@@ -2995,6 +3015,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTAwsJobExecutionsRolloutConfig * _Nullable awsJobExecutionsRolloutConfig;
 
 /**
+ <p>Configuration information for pre-signed URLs.</p>
+ */
+@property (nonatomic, strong) AWSIoTAwsJobPresignedUrlConfig * _Nullable awsJobPresignedUrlConfig;
+
+/**
  <p>The description of the OTA update.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
@@ -3008,6 +3033,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ID of the OTA update to be created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable otaUpdateId;
+
+/**
+ <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable protocols;
 
 /**
  <p>The IAM role that allows access to the AWS IoT Jobs service.</p>
@@ -9391,6 +9421,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTAwsJobExecutionsRolloutConfig * _Nullable awsJobExecutionsRolloutConfig;
 
 /**
+ <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code> contains HTTP.</p>
+ */
+@property (nonatomic, strong) AWSIoTAwsJobPresignedUrlConfig * _Nullable awsJobPresignedUrlConfig;
+
+/**
  <p>The date when the OTA update was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
@@ -9429,6 +9464,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The status of the OTA update.</p>
  */
 @property (nonatomic, assign) AWSIoTOTAUpdateStatus otaUpdateStatus;
+
+/**
+ <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable protocols;
 
 /**
  <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group. </p>
@@ -9681,7 +9721,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>
+ <p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable assetId;
 
@@ -9696,7 +9736,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable propertyAlias;
 
 /**
- <p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>
+ <p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable propertyId;
 
@@ -11143,7 +11183,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTHttpContext * _Nullable httpContext;
 
 /**
- <p>Specifies a test MQTT authorization request.&gt;</p>
+ <p>Specifies a test MQTT authorization request.</p>
  */
 @property (nonatomic, strong) AWSIoTMqttContext * _Nullable mqttContext;
 
