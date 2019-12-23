@@ -17,7 +17,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class AWSPinpointDeliveryClient, AWSPinpointContext, AWSPinpointEndpointProfile, AWSTask, AWSPinpointEventRecorder;
+@class AWSPinpointDeliveryClient, AWSPinpointContext, AWSPinpointEndpointProfile, AWSTask;
 
 @interface AWSPinpointTargetingClient : NSObject
 
