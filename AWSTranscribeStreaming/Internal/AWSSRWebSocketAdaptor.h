@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AWSSRWebSocketAdaptor : NSObject <AWSTranscribeStreamingWebSocketProvider>
 
 -(instancetype)initWithURLRequest:(NSURLRequest *)urlRequest;
--(void)setDelegateAndDelegateDispatchQueue:(dispatch_queue_t) queue delegate:(AWSSRWebSocketAdaptor*) delegate;
+-(void)setDelegateAndDelegateDispatchQueue:(dispatch_queue_t) queue delegate:(AWSSRWebSocketDelegateAdaptor*) delegate;
 
 
 @end
