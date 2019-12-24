@@ -14,22 +14,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSSRWebSocket.h"
-#import "AWSTranscribeStreamingClientDelegate.h"
-#import "AWSTranscribeStreamingWebSocketProvider.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- An AWSSRWebSocketDelegate adaptor for AWSTranscribeStreamingClientDelegate
- */
-@interface AWSSRWebSocketDelegateAdaptor : NSObject <AWSTranscribeStreamingWebSocketProvider>
+@protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
 
-@property (nonatomic, weak, readonly) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
-@property (nonatomic, weak, readonly) dispatch_queue_t callbackQueue;
+- (void)didReceiveMessage:(id)webSocket
+                  message:(id)message;
+- (void)didConnect:(id)webSocket;
+- (void)didError: (nullable id)webSocket
+           error: (NSError *)error;
+- (void)didDisconnect:(id)webSocket
+     didCloseWithCode:(NSInteger)didCloseWithCode
+               reason:(NSString *)reason
+             wasClean:(BOOL)wasClean;
 
-- (instancetype)initWithClientDelegate:(nullable id<AWSTranscribeStreamingClientDelegate>)clientDelegate
-                         callbackQueue:(dispatch_queue_t)callbackQueue;
 
 @end
 

@@ -50,7 +50,8 @@
  @param webSocket the web socket receiving the message
  @param message the message
 */
-- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
+- (void)didReceiveMessage:(AWSSRWebSocket *)webSocket
+                  message:(id)message  {
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
     NSError *decodingError;
     AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)message
@@ -70,7 +71,7 @@
 
  @param webSocket the web socket that opened
  */
-- (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
+- (void)didConnect:(AWSSRWebSocket *)webSocket {
     AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
@@ -88,7 +89,7 @@
  @param webSocket the web socket that failed
  @param error the error causing the failure
  */
-- (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
+- (void)didError:(AWSSRWebSocket *)webSocket error:(NSError *)error {
     AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
@@ -115,7 +116,7 @@
     });
 }
 
-- (void)webSocket:(AWSSRWebSocket *)webSocket
+- (void)didDisconnect:(AWSSRWebSocket *)webSocket
  didCloseWithCode:(NSInteger)code
            reason:(NSString *)reason
          wasClean:(BOOL)wasClean {
@@ -174,9 +175,6 @@
     });
 }
 
-- (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
-    // Part of wss protocol, ignore
-    AWSDDLogVerbose(@"%@ received pong %@", webSocket, pongPayload);
-}
+
 
 @end

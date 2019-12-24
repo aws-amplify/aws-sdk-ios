@@ -65,6 +65,7 @@ static NSDictionary *errorCodeDictionary = nil;
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 @property (nonatomic, strong) AWSSRWebSocket *webSocket;
+@property (nonatomic, strong) Class<AWSTranscribeStreamingWebSocketProvider> *webSocket;
 @property (nonatomic, strong) AWSSRWebSocketDelegateAdaptor *webSocketDelegateAdaptor;
 
 @end
@@ -223,7 +224,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                          code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                                      userInfo:@{NSUnderlyingErrorKey: error}];
 
-            [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:wrappingError];
+            [self.webSocketDelegateAdaptor didError:nil error:wrappingError];
             return;
         }
 
@@ -231,7 +232,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                         code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                     userInfo:nil];
-            [self.webSocketDelegateAdaptor webSocket:nil didFailWithError:error];
+            [self.webSocketDelegateAdaptor didError:nil error:error];
             return;
         }
     });
