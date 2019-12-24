@@ -14,17 +14,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
-#import "AWSSRWebSocketDelegateAdaptor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
+@protocol AWSTranscribeStreamingWebSocketProviderDelegate <NSObject>
 
-@required
--(void)send:(id)message;
--(void)connect;
--(void)disconnect;
+- (void)didReceiveMessage:(id)webSocket
+                  message:(id)message;
+- (void)didConnect:(id)webSocket;
+- (void)didError: (nullable id)webSocket
+           error: (NSError *)error;
+- (void)didDisconnect:(id)webSocket
+     didCloseWithCode:(NSInteger)didCloseWithCode
+               reason:(NSString *)reason
+             wasClean:(BOOL)wasClean;
 
 @end
 

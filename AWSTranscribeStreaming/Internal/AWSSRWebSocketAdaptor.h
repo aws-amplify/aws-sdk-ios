@@ -17,19 +17,15 @@
 #import "AWSSRWebSocket.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
 #import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
+#import "AWSTranscribeStreamingWebSocketProvider.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- An AWSSRWebSocketDelegate adaptor for AWSTranscribeStreamingClientDelegate
- */
-@interface AWSSRWebSocketDelegateAdaptor : NSObject <AWSTranscribeStreamingWebSocketProviderDelegate, AWSSRWebSocketDelegate>
+@interface AWSSRWebSocketAdaptor : NSObject <AWSTranscribeStreamingWebSocketProvider>
 
-@property (nonatomic, weak, readonly) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
-@property (nonatomic, weak, readonly) dispatch_queue_t callbackQueue;
+-(instancetype)initWithURLRequest:(NSURLRequest *)urlRequest;
+-(void)setDelegateAndDelegateDispatchQueue:(dispatch_queue_t) queue delegate:(AWSSRWebSocketAdaptor*) delegate;
 
-- (instancetype)initWithClientDelegate:(nullable id<AWSTranscribeStreamingClientDelegate>)clientDelegate
-                         callbackQueue:(dispatch_queue_t)callbackQueue;
 
 @end
 

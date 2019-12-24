@@ -176,5 +176,9 @@
 }
 
 
+//needed to fulfill Socket Rocket's protocol
+- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
+    [self didReceiveMessage:webSocket message: message];
+}
 
 @end
