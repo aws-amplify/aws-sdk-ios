@@ -8182,18 +8182,18 @@
 		FA53332222D40A3300BD88AF /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */,
+				95DED98D23B18DA200F7D354 /* AWSTranscribeStreamingWebSocketProviderDelegate.h */,
 				FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */,
 				FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */,
+				95DED99323B1B7E600F7D354 /* AWSSRWebSocketAdaptor.h */,
+				95DED99123B1B7A900F7D354 /* AWSSRWebSocketAdaptor.m */,
 				17D0A70022B9EC2A00A83073 /* AWSTranscribeEventEncoder.h */,
 				17D0A70122B9EC2A00A83073 /* AWSTranscribeEventEncoder.m */,
 				FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */,
 				FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */,
 				FABD9ED522D6AC8A00BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.h */,
 				FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */,
-				95DED98D23B18DA200F7D354 /* AWSTranscribeStreamingWebSocketProviderDelegate.h */,
-				95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */,
-				95DED99123B1B7A900F7D354 /* AWSSRWebSocketAdaptor.m */,
-				95DED99323B1B7E600F7D354 /* AWSSRWebSocketAdaptor.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
