@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)send:(id)message;
 -(void)connect;
 -(void)disconnect;
+@optional
+-(void)setDelegateAndDelegateDispatchQueue:(dispatch_queue_t)queue
+                                  delegate:(id<AWSTranscribeStreamingWebSocketProviderDelegate>) delegate;
 
 @end
 

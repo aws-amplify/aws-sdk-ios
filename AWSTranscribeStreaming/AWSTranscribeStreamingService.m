@@ -66,7 +66,6 @@ static NSDictionary *errorCodeDictionary = nil;
 
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
-@property (nonatomic, strong) AWSSRWebSocket *webSocket;
 @property (nonatomic, strong) id<AWSTranscribeStreamingWebSocketProvider> webSocketProvider;
 @property (nonatomic, strong) AWSSRWebSocketDelegateAdaptor *srWebSocketDelegateAdaptor;
 
@@ -185,7 +184,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         _configuration.baseURL = _configuration.endpoint.URL;
         
-        if (!webSocketProvider) {
+        if (webSocketProvider) {
             _webSocketProvider = webSocketProvider;
         } //else websocket provider will be initiated with socket rocket below in setUpWebsocketForRequest
 
@@ -203,6 +202,14 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                                              callbackQueue:callbackQueue];
 
     self.srWebSocketDelegateAdaptor = adaptor;
+    [self updateWebSocketDelegate];
+}
+
+- (void)updateWebSocketDelegate {
+    if (self.webSocketProvider && self.srWebSocketDelegateAdaptor) {
+        [_webSocketProvider setDelegateAndDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue delegate: self.srWebSocketDelegateAdaptor];
+        
+    }
 }
 
 
@@ -312,12 +319,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         NSURL *websocketURL = task.result;
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:websocketURL];
         if (!self.webSocketProvider) { //if it wasn't initialized aka nothing was passed in then initialize it with socket rocket adaptor
-            AWSSRWebSocketAdaptor *srWebSocketAdaptor = [[AWSSRWebSocketAdaptor alloc] initWithURLRequest:urlRequest];
-            self.webSocketProvider = srWebSocketAdaptor;
-            [srWebSocketAdaptor setDelegateAndDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue delegate: self.srWebSocketDelegateAdaptor];
+            self.webSocketProvider = [[AWSSRWebSocketAdaptor alloc] initWithURLRequest:urlRequest];
+            [self updateWebSocketDelegate];
         }
-
-       
 
         //Open the web socket
         [self.webSocketProvider connect];
