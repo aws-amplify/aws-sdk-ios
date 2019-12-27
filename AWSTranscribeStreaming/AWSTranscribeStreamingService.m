@@ -321,6 +321,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (!self.webSocketProvider) { //if it wasn't initialized aka nothing was passed in then initialize it with socket rocket adaptor
             self.webSocketProvider = [[AWSSRWebSocketAdaptor alloc] initWithURLRequest:urlRequest];
             [self updateWebSocketDelegate];
+
         }
 
         //Open the web socket
