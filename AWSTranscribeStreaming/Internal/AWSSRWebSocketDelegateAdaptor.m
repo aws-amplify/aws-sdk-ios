@@ -175,10 +175,42 @@
     });
 }
 
+#pragma mark - Optional protocol methods to fulfill Socket Rocket protocol
 
 //needed to fulfill Socket Rocket's protocol
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
+    // Part of wss protocol, ignore
     [self didReceiveMessage:webSocket message: message];
 }
 
+/**
+ Converts the AWSSR ready state to a AWSTranscribeStreamingClientDelegateConnectionStatus and invokes the client
+ delegate `connectionStatusDidChange` callback
+ @param webSocket the web socket that opened
+ */
+- (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
+    [self didConnect:webSocket];
+}
+
+/**
+ The websocket failed due to an error
+ @param webSocket the web socket that failed
+ @param error the error causing the failure
+ */
+- (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
+    [self didError:webSocket error:error];
+}
+
+
+- (void)webSocket:(AWSSRWebSocket *)webSocket
+ didCloseWithCode:(NSInteger)code
+           reason:(NSString *)reason
+         wasClean:(BOOL)wasClean {
+    [self didDisconnect:webSocket didCloseWithCode:code reason:reason wasClean:wasClean];
+}
+
+- (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
+    // Part of wss protocol, ignore
+    AWSDDLogVerbose(@"%@ received pong %@", webSocket, pongPayload);
+}
 @end
