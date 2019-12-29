@@ -443,6 +443,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingListJourneysResponse;
 @class AWSPinpointTargetingListTagsForResourceRequest;
 @class AWSPinpointTargetingListTagsForResourceResponse;
+@class AWSPinpointTargetingListTemplateVersionsRequest;
+@class AWSPinpointTargetingListTemplateVersionsResponse;
 @class AWSPinpointTargetingListTemplatesRequest;
 @class AWSPinpointTargetingListTemplatesResponse;
 @class AWSPinpointTargetingMessage;
@@ -506,8 +508,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingTagResourceRequest;
 @class AWSPinpointTargetingTagsModel;
 @class AWSPinpointTargetingTemplate;
+@class AWSPinpointTargetingTemplateActiveVersionRequest;
 @class AWSPinpointTargetingTemplateConfiguration;
 @class AWSPinpointTargetingTemplateResponse;
+@class AWSPinpointTargetingTemplateVersionResponse;
+@class AWSPinpointTargetingTemplateVersionsResponse;
 @class AWSPinpointTargetingTemplatesResponse;
 @class AWSPinpointTargetingTreatmentResource;
 @class AWSPinpointTargetingUntagResourceRequest;
@@ -550,6 +555,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @class AWSPinpointTargetingUpdateSmsChannelResponse;
 @class AWSPinpointTargetingUpdateSmsTemplateRequest;
 @class AWSPinpointTargetingUpdateSmsTemplateResponse;
+@class AWSPinpointTargetingUpdateTemplateActiveVersionRequest;
+@class AWSPinpointTargetingUpdateTemplateActiveVersionResponse;
 @class AWSPinpointTargetingUpdateVoiceChannelRequest;
 @class AWSPinpointTargetingUpdateVoiceChannelResponse;
 @class AWSPinpointTargetingUpdateVoiceTemplateRequest;
@@ -1394,7 +1401,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingHoldoutActivity * _Nullable holdout;
 
 /**
- <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+ <p>The settings for a multivariate split activity. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingMultiConditionalSplitActivity * _Nullable multiCondition;
 
@@ -2004,7 +2011,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingEventDimensions * _Nullable dimensions;
 
 /**
- <p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<linklinkend="apps-application-id-events">Events resource</link>) occurs.</p>
+ <p>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an endpoint event (<linklinkend="apps-application-id-events">Events</link> resource) occurs.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingFilterType filterType;
 
@@ -2084,7 +2091,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The date, ISO 8601 format, when the campaign was created.</p>
+ <p>The date, in ISO 8601 format, when the campaign was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
@@ -2342,12 +2349,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingWaitTime * _Nullable evaluationWaitTime;
 
 /**
- <p>The unique identifier for the activity to perform if the condition isn't met.</p>
+ <p>The unique identifier for the activity to perform if the conditions aren't met.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable falseActivity;
 
 /**
- <p>The unique identifier for the activity to perform if the condition is met.</p>
+ <p>The unique identifier for the activity to perform if the conditions are met.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable trueActivity;
 
@@ -2436,7 +2443,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Creates a new message template that you can use in messages that are sent through the email channel.</p>
+ <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingEmailTemplateRequest * _Nullable emailTemplateRequest;
 
@@ -2560,7 +2567,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Creates a message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingPushNotificationTemplateRequest * _Nullable pushNotificationTemplateRequest;
 
@@ -2622,7 +2629,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingSMSTemplateRequest * _Nullable SMSTemplateRequest;
 
@@ -3044,6 +3051,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
@@ -3184,6 +3196,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
@@ -3267,6 +3284,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
@@ -3349,6 +3371,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 @end
 
@@ -3600,6 +3627,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the email template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i> version of the template. The <i>active</i> version is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateVersion;
+
 @end
 
 /**
@@ -3653,7 +3685,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The date when the message template was created.</p>
+ <p>The date, in ISO 8601 format, when the message template was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
@@ -3668,7 +3700,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable htmlPart;
 
 /**
- <p>The date when the message template was last modified.</p>
+ <p>The date, in ISO 8601 format, when the message template was last modified.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
 
@@ -3696,6 +3728,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The message body, in plain text format, that's used in email messages that are based on the message template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable textPart;
+
+/**
+ <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 /**
  <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
@@ -3803,12 +3840,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable locale;
 
 /**
- <p>The manufacturer of the endpoint device, such as Apple or Samsung.</p>
+ <p>The manufacturer of the endpoint device, such as apple or samsung.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable make;
 
 /**
- <p>The model name or number of the endpoint device, such as iPhone.</p>
+ <p>The model name or number of the endpoint device, such as iPhone or SM-G900F.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable model;
 
@@ -3818,7 +3855,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable modelVersion;
 
 /**
- <p>The platform of the endpoint device, such as iOS or Android.</p>
+ <p>The platform of the endpoint device, such as ios.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platform;
 
@@ -4877,7 +4914,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable applicationId;
 
 /**
- <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-19T00:00:00Z for July 19, 2019 and 2019-07-19T20:00:00Z for 8:00 PM July 19, 2019.</p>
+ <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -4897,7 +4934,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
 /**
- <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-15T00:00:00Z for July 15, 2019 and 2019-07-15T16:00:00Z for 4:00 PM July 15, 2019.</p>
+ <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
@@ -5057,7 +5094,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable campaignId;
 
 /**
- <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-19T00:00:00Z for July 19, 2019 and 2019-07-19T20:00:00Z for 8:00 PM July 19, 2019.</p>
+ <p>The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -5077,7 +5114,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable pageSize;
 
 /**
- <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format, for example: 2019-07-15T00:00:00Z for July 15, 2019 and 2019-07-15T16:00:00Z for 4:00 PM July 15, 2019.</p>
+ <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
@@ -5302,6 +5339,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 @end
 
@@ -5720,6 +5762,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
@@ -5998,6 +6045,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
@@ -6081,6 +6133,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
@@ -6109,7 +6166,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable nextActivity;
 
 /**
- <p>The percentage of participants who shouldn't continue the journey.</p>
+ <p>The percentage of participants who shouldn't continue the journey.</p><p>To determine which participants are held out, Amazon Pinpoint applies a probability-based algorithm to the percentage that you specify. Therefore, the actual percentage of participants who are held out may not be equal to the percentage that you specify.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable percentage;
 
@@ -6480,7 +6537,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The configuration and other settings for the activities that comprise the journey.</p>
+ <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingActivity *> * _Nullable activities;
 
@@ -6545,7 +6602,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingStartCondition * _Nullable startCondition;
 
 /**
- <p>The current status of the journey. Possible values are:</p><ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li><li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li><li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li><li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li><li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may resume the journey.</p></li></ul>
+ <p>The current status of the journey. Possible values are:</p><ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li><li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li><li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li><li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li><li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>
  */
 @property (nonatomic, assign) AWSPinpointTargetingState state;
 
@@ -6676,6 +6733,47 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 /**
  
  */
+@interface AWSPinpointTargetingListTemplateVersionsRequest : AWSRequest
+
+
+/**
+ <p>Thestring that specifies which page of results to return in a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The maximum number of items to include in each page of a paginated response. This parameter is currently not supported for application, campaign, and journey metrics.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable pageSize;
+
+/**
+ <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingListTemplateVersionsResponse : AWSModel
+
+
+/**
+ <p>Provides information about all the versions of a specific message template.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingTemplateVersionsResponse * _Nullable templateVersionsResponse;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPinpointTargetingListTemplatesRequest : AWSRequest
 
 
@@ -6695,7 +6793,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable prefix;
 
 /**
- <p>The type of message template to include in the results. Valid values are: EMAIL, SMS, PUSH, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>
+ <p>The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateType;
 
@@ -6983,7 +7081,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths in a journey, based on conditions that you specify.</p>
+ <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
  */
 @interface AWSPinpointTargetingMultiConditionalSplitActivity : AWSModel
 
@@ -6994,7 +7092,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSArray<AWSPinpointTargetingMultiConditionalBranch *> * _Nullable branches;
 
 /**
- <p>The activity to perform by default for any path in the activity.</p>
+ <p>The unique identifier for the activity to perform for participants who don't meet any of the conditions specified for other paths in the activity.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultActivity;
 
@@ -7240,7 +7338,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 /**
  <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
- Required parameters: [LastModifiedDate, CreationDate, TemplateName, TemplateType]
+ Required parameters: [LastModifiedDate, CreationDate, TemplateType, TemplateName]
  */
 @interface AWSPinpointTargetingPushNotificationTemplateResponse : AWSModel
 
@@ -7266,7 +7364,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingAndroidPushNotificationTemplate * _Nullable baidu;
 
 /**
- <p>The date when the message template was created.</p>
+ <p>The date, in ISO 8601 format, when the message template was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
@@ -7286,7 +7384,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingAndroidPushNotificationTemplate * _Nullable GCM;
 
 /**
- <p>The date when the message template was last modified.</p>
+ <p>The date, in ISO 8601 format, when the message template was last modified.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
 
@@ -7304,6 +7402,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The type of channel that the message template is designed for. For a push notification template, this value is PUSH.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingTemplateType templateType;
+
+/**
+ <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 /**
  <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
@@ -7417,7 +7520,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable nextActivity;
 
 /**
- <p>The percentage of participants to send down the activity path.</p>
+ <p>The percentage of participants to send down the activity path.</p><p>To determine which participants are sent down each path, Amazon Pinpoint applies a probability-based algorithm to the percentages that you specify for the paths. Therefore, the actual percentage of participants who are sent down a path may not be equal to the percentage that you specify.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable percentage;
 
@@ -7720,7 +7823,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable body;
 
 /**
- <p>The date when the message template was created.</p>
+ <p>The date, in ISO 8601 format, when the message template was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
@@ -7730,7 +7833,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable defaultSubstitutions;
 
 /**
- <p>The date when the message template was last modified.</p>
+ <p>The date, in ISO 8601 format, when the message template was last modified.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
 
@@ -7748,6 +7851,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The type of channel that the message template is designed for. For an SMS template, this value is SMS.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingTemplateType templateType;
+
+/**
+ <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 /**
  <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
@@ -8396,7 +8504,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @end
 
 /**
- <p>Specifies the name of the message template to use for the message.</p>
+ <p>Specifies the name and version of the message template to use for the message.</p>
  */
 @interface AWSPinpointTargetingTemplate : AWSModel
 
@@ -8405,6 +8513,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The name of the message template to use for the message. If specified, this value must match the name of an existing message template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The unique identifier for the version of the message template to use for the message. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i> version of the template. The <i>active</i> version is typically the version of a template that's been most recently reviewed and approved for use, depending on your workflow. It isn't necessarily the latest version of a template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
+ <p>Specifies which version of a message template to use as the active version of the template.</p>
+ */
+@interface AWSPinpointTargetingTemplateActiveVersionRequest : AWSModel
+
+
+/**
+ <p>The unique identifier for the version of the message template to use as the active version of the template. If specified, this value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 @end
 
@@ -8449,7 +8575,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The date when the message template was created.</p>
+ <p>The date, in ISO 8601 format, when the message template was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
@@ -8459,7 +8585,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable defaultSubstitutions;
 
 /**
- <p>The date when the message template was last modified.</p>
+ <p>The date, in ISO 8601 format, when the message template was last modified.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
 
@@ -8474,14 +8600,92 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
 /**
- <p>The type of channel that the message template is designed for.</p>
+ <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingTemplateType templateType;
+
+/**
+ <p>The unique identifier, as an integer, for the active version of the message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 /**
  <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Provides information about a specific version of a message template.</p>
+ Required parameters: [LastModifiedDate, CreationDate, TemplateName, TemplateType]
+ */
+@interface AWSPinpointTargetingTemplateVersionResponse : AWSModel
+
+
+/**
+ <p>The date, in ISO 8601 format, when the version of the message template was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable creationDate;
+
+/**
+ <p>A JSON object that specifies the default values that are used for message variables in the version of the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultSubstitutions;
+
+/**
+ <p>The date, in ISO 8601 format, when the version of the message template was last modified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
+
+/**
+ <p>The custom description of the version of the message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateDescription;
+
+/**
+ <p>The name of the message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The type of channel that the message template is designed for. Possible values are: EMAIL, PUSH, SMS, and VOICE.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateType;
+
+/**
+ <p>The unique identifier for the version of the message template. This value is an integer that Amazon Pinpoint automatically increments and assigns to each new version of a template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
+ <p>Provides information about all the versions of a specific message template.</p>
+ Required parameters: [Item]
+ */
+@interface AWSPinpointTargetingTemplateVersionsResponse : AWSModel
+
+
+/**
+ <p>An array of responses, one for each version of the message template.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSPinpointTargetingTemplateVersionResponse *> * _Nullable item;
+
+/**
+ <p>The message that's returned from the API for the request to retrieve information about all the versions of the message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The unique identifier for the request to retrieve information about all the versions of the message template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable requestID;
 
 @end
 
@@ -8875,6 +9079,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
+ <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable createNewVersion;
+
+/**
  <p>Specifies the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingEmailTemplateRequest * _Nullable emailTemplateRequest;
@@ -8883,6 +9092,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 @end
 
@@ -9076,7 +9290,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable createNewVersion;
+
+/**
+ <p>Specifies the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingPushNotificationTemplateRequest * _Nullable pushNotificationTemplateRequest;
 
@@ -9084,6 +9303,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 @end
 
@@ -9174,6 +9398,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
+ <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable createNewVersion;
+
+/**
  <p>Specifies the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingSMSTemplateRequest * _Nullable SMSTemplateRequest;
@@ -9183,12 +9412,53 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
 
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
 @end
 
 /**
  
  */
 @interface AWSPinpointTargetingUpdateSmsTemplateResponse : AWSModel
+
+
+/**
+ <p>Provides information about an API request or response.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingMessageBody * _Nullable messageBody;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateTemplateActiveVersionRequest : AWSRequest
+
+
+/**
+ <p>Specifies which version of a message template to use as the active version of the template.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingTemplateActiveVersionRequest * _Nullable templateActiveVersionRequest;
+
+/**
+ <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingUpdateTemplateActiveVersionResponse : AWSModel
 
 
 /**
@@ -9236,9 +9506,19 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
+ <p>Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to the latest existing version of the template.</p><p> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable createNewVersion;
+
+/**
  <p>The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p><p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 /**
  <p>Specifies the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
@@ -9421,7 +9701,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable body;
 
 /**
- <p>The date when the message template was created.</p>
+ <p>The date, in ISO 8601 format, when the message template was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
@@ -9436,7 +9716,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable languageCode;
 
 /**
- <p>The date when the message template was last modified.</p>
+ <p>The date, in ISO 8601 format, when the message template was last modified.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
 
@@ -9454,6 +9734,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
  <p>The type of channel that the message template is designed for. For a voice template, this value is VOICE.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingTemplateType templateType;
+
+/**
+ <p>The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
 
 /**
  <p>The name of the voice that's used when delivering messages that are based on the message template. For a list of supported voices, see the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly Developer Guide</a>.</p>
@@ -9641,7 +9926,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- <p>The configuration and other settings for the activities that comprise the journey.</p>
+ <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity. An activity identifier can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingActivity *> * _Nullable activities;
 
@@ -9686,7 +9971,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
 
 /**
- <p>The unique identifier for the first activity in the journey.</p>
+ <p>The unique identifier for the first activity in the journey. An activity identifier can contain a maximum of 128 characters. The characters must be alphanumeric characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable startActivity;
 
