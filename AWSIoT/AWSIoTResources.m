@@ -4603,6 +4603,16 @@
       },\
       \"documentation\":\"<p>Configuration for the rollout of OTA updates.</p>\"\
     },\
+    \"AwsJobPresignedUrlConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"expiresInSec\":{\
+          \"shape\":\"ExpiresInSeconds\",\
+          \"documentation\":\"<p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information for pre-signed URLs. Valid when <code>protocols</code> contains HTTP.</p>\"\
+    },\
     \"Behavior\":{\
       \"type\":\"structure\",\
       \"required\":[\"name\"],\
@@ -5713,6 +5723,10 @@
           \"shape\":\"Targets\",\
           \"documentation\":\"<p>The targeted devices to receive OTA updates.</p>\"\
         },\
+        \"protocols\":{\
+          \"shape\":\"Protocols\",\
+          \"documentation\":\"<p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.</p>\"\
+        },\
         \"targetSelection\":{\
           \"shape\":\"TargetSelection\",\
           \"documentation\":\"<p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.</p>\"\
@@ -5720,6 +5734,10 @@
         \"awsJobExecutionsRolloutConfig\":{\
           \"shape\":\"AwsJobExecutionsRolloutConfig\",\
           \"documentation\":\"<p>Configuration for the rollout of OTA updates.</p>\"\
+        },\
+        \"awsJobPresignedUrlConfig\":{\
+          \"shape\":\"AwsJobPresignedUrlConfig\",\
+          \"documentation\":\"<p>Configuration information for pre-signed URLs.</p>\"\
         },\
         \"files\":{\
           \"shape\":\"OTAUpdateFiles\",\
@@ -8312,6 +8330,7 @@
       \"max\":3600,\
       \"min\":60\
     },\
+    \"ExpiresInSeconds\":{\"type\":\"long\"},\
     \"ExplicitDeny\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11882,9 +11901,17 @@
           \"shape\":\"Targets\",\
           \"documentation\":\"<p>The targets of the OTA update.</p>\"\
         },\
+        \"protocols\":{\
+          \"shape\":\"Protocols\",\
+          \"documentation\":\"<p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.</p>\"\
+        },\
         \"awsJobExecutionsRolloutConfig\":{\
           \"shape\":\"AwsJobExecutionsRolloutConfig\",\
           \"documentation\":\"<p>Configuration for the rollout of OTA updates.</p>\"\
+        },\
+        \"awsJobPresignedUrlConfig\":{\
+          \"shape\":\"AwsJobPresignedUrlConfig\",\
+          \"documentation\":\"<p>Configuration information for pre-signed URLs. Valid when <code>protocols</code> contains HTTP.</p>\"\
         },\
         \"targetSelection\":{\
           \"shape\":\"TargetSelection\",\
@@ -12160,6 +12187,19 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ProcessingTargetName\"}\
     },\
+    \"Protocol\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"MQTT\",\
+        \"HTTP\"\
+      ]\
+    },\
+    \"Protocols\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Protocol\"},\
+      \"max\":2,\
+      \"min\":1\
+    },\
     \"ProvisioningTemplateListing\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ProvisioningTemplateSummary\"}\
@@ -12246,11 +12286,11 @@
         },\
         \"assetId\":{\
           \"shape\":\"AssetId\",\
-          \"documentation\":\"<p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
+          \"documentation\":\"<p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
         },\
         \"propertyId\":{\
           \"shape\":\"AssetPropertyId\",\
-          \"documentation\":\"<p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>analiasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
+          \"documentation\":\"<p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
         },\
         \"propertyAlias\":{\
           \"shape\":\"AssetPropertyAlias\",\
@@ -13921,7 +13961,7 @@
         },\
         \"mqttContext\":{\
           \"shape\":\"MqttContext\",\
-          \"documentation\":\"<p>Specifies a test MQTT authorization request.&gt;</p>\"\
+          \"documentation\":\"<p>Specifies a test MQTT authorization request.</p>\"\
         },\
         \"tlsContext\":{\
           \"shape\":\"TlsContext\",\
