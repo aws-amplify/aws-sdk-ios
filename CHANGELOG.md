@@ -8,6 +8,9 @@
 
 - Model updates for the following services:
   - Amazon EC2
+  - Amazon IoT
+  - Amazon Pinpoint
+  - Amazon Transcribe
 
 ## 2.12.3
 
