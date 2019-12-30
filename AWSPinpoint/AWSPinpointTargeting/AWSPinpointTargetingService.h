@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createCampaign:(AWSPinpointTargetingCreateCampaignRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateCampaignResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the email channel.</p>
+ <p>Creates a message template for messages that are sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the CreateEmailTemplate service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateEmailTemplateResponse *> *)createEmailTemplate:(AWSPinpointTargetingCreateEmailTemplateRequest *)request;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the email channel.</p>
+ <p>Creates a message template for messages that are sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the CreateEmailTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createJourney:(AWSPinpointTargetingCreateJourneyRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateJourneyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Creates a message template for messages that are sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the CreatePushTemplate service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreatePushTemplateResponse *> *)createPushTemplate:(AWSPinpointTargetingCreatePushTemplateRequest *)request;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Creates a message template for messages that are sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the CreatePushTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -375,7 +375,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateSegmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Creates a message template for messages that are sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the CreateSmsTemplate service method.
 
@@ -387,7 +387,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateSmsTemplateResponse *> *)createSmsTemplate:(AWSPinpointTargetingCreateSmsTemplateRequest *)request;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Creates a message template for messages that are sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the CreateSmsTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -400,7 +400,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)createSmsTemplate:(AWSPinpointTargetingCreateSmsTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingCreateSmsTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the voice channel.</p>
+ <p>Creates a message template for messages that are sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the CreateVoiceTemplate service method.
 
@@ -412,7 +412,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingCreateVoiceTemplateResponse *> *)createVoiceTemplate:(AWSPinpointTargetingCreateVoiceTemplateRequest *)request;
 
 /**
- <p>Creates a message template that you can use in messages that are sent through the voice channel.</p>
+ <p>Creates a message template for messages that are sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the CreateVoiceTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -650,7 +650,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteEmailChannel:(AWSPinpointTargetingDeleteEmailChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteEmailChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through the email channel.</p>
+ <p>Deletes a message template for messages that were sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEmailTemplate service method.
 
@@ -662,7 +662,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteEmailTemplateResponse *> *)deleteEmailTemplate:(AWSPinpointTargetingDeleteEmailTemplateRequest *)request;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through the email channel.</p>
+ <p>Deletes a message template for messages that were sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteEmailTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -775,7 +775,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteJourney:(AWSPinpointTargetingDeleteJourneyRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteJourneyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through a push notification channel.</p>
+ <p>Deletes a message template for messages that were sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the DeletePushTemplate service method.
 
@@ -787,7 +787,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeletePushTemplateResponse *> *)deletePushTemplate:(AWSPinpointTargetingDeletePushTemplateRequest *)request;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through a push notification channel.</p>
+ <p>Deletes a message template for messages that were sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the DeletePushTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -850,7 +850,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteSmsChannel:(AWSPinpointTargetingDeleteSmsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteSmsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through the SMS channel.</p>
+ <p>Deletes a message template for messages that were sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSmsTemplate service method.
 
@@ -862,7 +862,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteSmsTemplateResponse *> *)deleteSmsTemplate:(AWSPinpointTargetingDeleteSmsTemplateRequest *)request;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through the SMS channel.</p>
+ <p>Deletes a message template for messages that were sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSmsTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -925,7 +925,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)deleteVoiceChannel:(AWSPinpointTargetingDeleteVoiceChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingDeleteVoiceChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through the voice channel.</p>
+ <p>Deletes a message template for messages that were sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVoiceTemplate service method.
 
@@ -937,7 +937,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingDeleteVoiceTemplateResponse *> *)deleteVoiceTemplate:(AWSPinpointTargetingDeleteVoiceTemplateRequest *)request;
 
 /**
- <p>Deletes a message template that was designed for use in messages that were sent through the voice channel.</p>
+ <p>Deletes a message template for messages that were sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the DeleteVoiceTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1150,7 +1150,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetApplicationSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves information about all of your applications.</p>
+ <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
  
  @param request A container for the necessary parameters to execute the GetApps service method.
 
@@ -1162,7 +1162,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetAppsResponse *> *)getApps:(AWSPinpointTargetingGetAppsRequest *)request;
 
 /**
- <p>Retrieves information about all of your applications.</p>
+ <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
  
  @param request A container for the necessary parameters to execute the GetApps service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1400,7 +1400,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getEmailChannel:(AWSPinpointTargetingGetEmailChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetEmailChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the email channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the GetEmailTemplate service method.
 
@@ -1412,7 +1412,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetEmailTemplateResponse *> *)getEmailTemplate:(AWSPinpointTargetingGetEmailTemplateRequest *)request;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the email channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the GetEmailTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1700,7 +1700,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getJourneyExecutionMetrics:(AWSPinpointTargetingGetJourneyExecutionMetricsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetJourneyExecutionMetricsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the GetPushTemplate service method.
 
@@ -1712,7 +1712,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetPushTemplateResponse *> *)getPushTemplate:(AWSPinpointTargetingGetPushTemplateRequest *)request;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the GetPushTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1825,7 +1825,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSegmentVersion:(AWSPinpointTargetingGetSegmentVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSegmentVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves information about the configuration, dimension, and other settings for all versions of a specific segment that's associated with an application.</p>
+ <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentVersions service method.
 
@@ -1837,7 +1837,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSegmentVersionsResponse *> *)getSegmentVersions:(AWSPinpointTargetingGetSegmentVersionsRequest *)request;
 
 /**
- <p>Retrieves information about the configuration, dimension, and other settings for all versions of a specific segment that's associated with an application.</p>
+ <p>Retrieves information about the configuration, dimension, and other settings for all the versions of a specific segment that's associated with an application.</p>
  
  @param request A container for the necessary parameters to execute the GetSegmentVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1900,7 +1900,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getSmsChannel:(AWSPinpointTargetingGetSmsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetSmsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the GetSmsTemplate service method.
 
@@ -1912,7 +1912,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetSmsTemplateResponse *> *)getSmsTemplate:(AWSPinpointTargetingGetSmsTemplateRequest *)request;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the GetSmsTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1975,7 +1975,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)getVoiceChannel:(AWSPinpointTargetingGetVoiceChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingGetVoiceChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the voice channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the GetVoiceTemplate service method.
 
@@ -1987,7 +1987,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingGetVoiceTemplateResponse *> *)getVoiceTemplate:(AWSPinpointTargetingGetVoiceTemplateRequest *)request;
 
 /**
- <p>Retrieves the content and settings for a message template that you can use in messages that are sent through the voice channel.</p>
+ <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the GetVoiceTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2048,6 +2048,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
  @see AWSPinpointTargetingListTagsForResourceResponse
  */
 - (void)listTagsForResource:(AWSPinpointTargetingListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves information about all the versions of a specific message template.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTemplateVersions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingListTemplateVersionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingListTemplateVersionsRequest
+ @see AWSPinpointTargetingListTemplateVersionsResponse
+ */
+- (AWSTask<AWSPinpointTargetingListTemplateVersionsResponse *> *)listTemplateVersions:(AWSPinpointTargetingListTemplateVersionsRequest *)request;
+
+/**
+ <p>Retrieves information about all the versions of a specific message template.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTemplateVersions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingListTemplateVersionsRequest
+ @see AWSPinpointTargetingListTemplateVersionsResponse
+ */
+- (void)listTemplateVersions:(AWSPinpointTargetingListTemplateVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingListTemplateVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>
@@ -2494,7 +2519,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateEmailChannel:(AWSPinpointTargetingUpdateEmailChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateEmailChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through the email channel.</p>
+ <p>Updates an existing message template for messages that are sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEmailTemplate service method.
 
@@ -2506,7 +2531,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateEmailTemplateResponse *> *)updateEmailTemplate:(AWSPinpointTargetingUpdateEmailTemplateRequest *)request;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through the email channel.</p>
+ <p>Updates an existing message template for messages that are sent through the email channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdateEmailTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2619,7 +2644,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateJourney:(AWSPinpointTargetingUpdateJourneyRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateJourneyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Cancels an active journey.</p>
+ <p>Cancels (stops) an active journey.</p>
  
  @param request A container for the necessary parameters to execute the UpdateJourneyState service method.
 
@@ -2631,7 +2656,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateJourneyStateResponse *> *)updateJourneyState:(AWSPinpointTargetingUpdateJourneyStateRequest *)request;
 
 /**
- <p>Cancels an active journey.</p>
+ <p>Cancels (stops) an active journey.</p>
  
  @param request A container for the necessary parameters to execute the UpdateJourneyState service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2644,7 +2669,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateJourneyState:(AWSPinpointTargetingUpdateJourneyStateRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateJourneyStateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdatePushTemplate service method.
 
@@ -2656,7 +2681,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdatePushTemplateResponse *> *)updatePushTemplate:(AWSPinpointTargetingUpdatePushTemplateRequest *)request;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through a push notification channel.</p>
+ <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdatePushTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2719,7 +2744,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateSmsChannel:(AWSPinpointTargetingUpdateSmsChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateSmsChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSmsTemplate service method.
 
@@ -2731,7 +2756,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateSmsTemplateResponse *> *)updateSmsTemplate:(AWSPinpointTargetingUpdateSmsTemplateRequest *)request;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through the SMS channel.</p>
+ <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdateSmsTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2742,6 +2767,31 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
  @see AWSPinpointTargetingUpdateSmsTemplateResponse
  */
 - (void)updateSmsTemplate:(AWSPinpointTargetingUpdateSmsTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateSmsTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTemplateActiveVersion service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingUpdateTemplateActiveVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingUpdateTemplateActiveVersionRequest
+ @see AWSPinpointTargetingUpdateTemplateActiveVersionResponse
+ */
+- (AWSTask<AWSPinpointTargetingUpdateTemplateActiveVersionResponse *> *)updateTemplateActiveVersion:(AWSPinpointTargetingUpdateTemplateActiveVersionRequest *)request;
+
+/**
+ <p>Changes the status of a specific version of a message template to <i>active</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateTemplateActiveVersion service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorInternalServerError`, `AWSPinpointTargetingErrorForbidden`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorMethodNotAllowed`, `AWSPinpointTargetingErrorTooManyRequests`.
+ 
+ @see AWSPinpointTargetingUpdateTemplateActiveVersionRequest
+ @see AWSPinpointTargetingUpdateTemplateActiveVersionResponse
+ */
+- (void)updateTemplateActiveVersion:(AWSPinpointTargetingUpdateTemplateActiveVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateTemplateActiveVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>
@@ -2769,7 +2819,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (void)updateVoiceChannel:(AWSPinpointTargetingUpdateVoiceChannelRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingUpdateVoiceChannelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through the voice channel.</p>
+ <p>Updates an existing message template for messages that are sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdateVoiceTemplate service method.
 
@@ -2781,7 +2831,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
 - (AWSTask<AWSPinpointTargetingUpdateVoiceTemplateResponse *> *)updateVoiceTemplate:(AWSPinpointTargetingUpdateVoiceTemplateRequest *)request;
 
 /**
- <p>Updates an existing message template that you can use in messages that are sent through the voice channel.</p>
+ <p>Updates an existing message template for messages that are sent through the voice channel.</p>
  
  @param request A container for the necessary parameters to execute the UpdateVoiceTemplate service method.
  @param completionHandler The completion handler to call when the load request is complete.
