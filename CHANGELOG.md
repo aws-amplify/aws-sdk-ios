@@ -1,17 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon EC2
- - Amazon IoT
- - Amazon Pinpoint
- - Amazon Transcribe
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## [Unreleased]
@@ -22,6 +8,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services:
   - Amazon EC2
+  - Amazon IoT
+  - Amazon Pinpoint
+  - Amazon Transcribe
 
 ## 2.12.3
 
