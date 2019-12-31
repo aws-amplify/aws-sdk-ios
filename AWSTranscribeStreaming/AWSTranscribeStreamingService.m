@@ -202,16 +202,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                               initWithClientDelegate:delegate callbackQueue:callbackQueue];
     
     self.srWebSocketDelegateAdaptor = adaptor;
-   // [self updateWebSocketDelegate];
 }
-
-//- (void)updateWebSocketDelegate {
-//    if (self.srWebSocketDelegateAdaptor) {
-//        [self.webSocketProvider setDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue
-//                                                delegate: self.srWebSocketDelegateAdaptor];
-//    }
-//}
-
 
 // Note that this method hands off work to the global queue, to prevent potential deadlocks on the main thread while
 // the presigned URL routine is attempting to get refreshed credentials. This method eventually internally invokes
