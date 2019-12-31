@@ -203,7 +203,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (void)updateWebSocketDelegate {
     if (self.srWebSocketDelegateAdaptor) {
-        [self.webSocketProvider setDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue delegate: self.srWebSocketDelegateAdaptor];
+        [self.webSocketProvider setDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue
+                                                delegate: self.srWebSocketDelegateAdaptor];
         
     }
 }
