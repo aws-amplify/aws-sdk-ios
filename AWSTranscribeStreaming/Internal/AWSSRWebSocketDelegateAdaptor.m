@@ -120,15 +120,15 @@
 The websocket disconnected
 
 @param webSocket the web socket that failed
-@param didCloseWithCode the error code it closed with
+@param code the error code it closed with
 @param reason why did the socket close
 @param wasClean  did the scoket close cleanly
 */
 
 - (void)didDisconnect:(AWSSRWebSocket *)webSocket
- didCloseWithCode:(NSInteger)code
-           reason:(NSString *)reason
-         wasClean:(BOOL)wasClean {
+     didCloseWithCode:(NSInteger)code
+               reason:(NSString *)reason
+             wasClean:(BOOL)wasClean {
     AWSDDLogVerbose(@"Web socket %@ didCloseWithCode: %ld (wasClean: %d, reason: %@)", webSocket, (long)code, wasClean, reason);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;

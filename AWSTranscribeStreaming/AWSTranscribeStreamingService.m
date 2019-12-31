@@ -181,6 +181,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [_configuration.endpoint setRegion:_configuration.regionType
                                        service:AWSServiceTranscribeStreaming];
         }
+        
+        if (!webSocketProvider) { //if it wasn't initialized aka nothing was passed in then initialize it with socket rocket adaptor
+            self.webSocketProvider = [[AWSSRWebSocketAdaptor alloc] init];
+        }
 
         _configuration.baseURL = _configuration.endpoint.URL;
 
@@ -194,20 +198,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
       callbackQueue:(dispatch_queue_t)callbackQueue {
-    AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc] initWithClientDelegate:delegate
-                                                                                             callbackQueue:callbackQueue];
-
+    AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
+                                              initWithClientDelegate:delegate callbackQueue:callbackQueue];
+    
     self.srWebSocketDelegateAdaptor = adaptor;
-    [self updateWebSocketDelegate];
+   // [self updateWebSocketDelegate];
 }
 
-- (void)updateWebSocketDelegate {
-    if (self.srWebSocketDelegateAdaptor) {
-        [self.webSocketProvider setDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue
-                                                delegate: self.srWebSocketDelegateAdaptor];
-        
-    }
-}
+//- (void)updateWebSocketDelegate {
+//    if (self.srWebSocketDelegateAdaptor) {
+//        [self.webSocketProvider setDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue
+//                                                delegate: self.srWebSocketDelegateAdaptor];
+//    }
+//}
 
 
 // Note that this method hands off work to the global queue, to prevent potential deadlocks on the main thread while
@@ -315,13 +318,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         NSURL *websocketURL = task.result;
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:websocketURL];
-        if (!self.webSocketProvider) { //if it wasn't initialized aka nothing was passed in then initialize it with socket rocket adaptor
-            self.webSocketProvider = [[AWSSRWebSocketAdaptor alloc] initWithURLRequest:urlRequest];
-            [self updateWebSocketDelegate];
-
-        }
-
-        //Open the web socket
+        [self.webSocketProvider configure:urlRequest
+                            dispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue
+                                 delegate:self.srWebSocketDelegateAdaptor];
+        
         [self.webSocketProvider connect];
 
         return nil;

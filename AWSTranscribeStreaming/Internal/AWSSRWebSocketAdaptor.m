@@ -29,24 +29,22 @@
 @implementation AWSSRWebSocketAdaptor
 
 /**
- Initializes the adaptor with a url request
-
- @param urlRequest  the url request you are invoking the web socket with
- 
- */
-- (instancetype)initWithURLRequest:(NSURLRequest *)urlRequest {
-    AWSDDLogVerbose(@"Initializing adaptor with url request %@", urlRequest);
-    if (self = [super init]) {
-        _webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
-
-    }
-    return self;
+ Web socket protocol implementations
+// Initializes the adaptor with a url request
+//
+// @param urlRequest  the url request you are invoking the web socket with
+//
+// */
+-(void)configure:(NSURLRequest*)urlRequest
+                  dispatchQueue:(dispatch_queue_t)dispatchQueue
+                       delegate:(AWSSRWebSocketDelegateAdaptor*) delegate {
+    self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
+    [self.webSocket setDelegateDispatchQueue:dispatchQueue];
+    [self.webSocket setDelegate:delegate];
 }
 
 /**
- Web socket protocol implementations
-
- @param message the message
+  @param message the message
 */
 - (void)send:(id)message {
     if ( ![message isKindOfClass:[NSData class]]) {
@@ -56,6 +54,7 @@
 }
 
 - (void)connect {
+
     AWSDDLogDebug(@"webSocket %@ is created and opened", _webSocket);
     [self.webSocket open];
 }
@@ -64,15 +63,6 @@
 - (void)disconnect {
     [self.webSocket close];
 }
-
-// @optional method
-
--(void)setDelegateDispatchQueue:(dispatch_queue_t)dispatchQueue
-                                  delegate:(AWSSRWebSocketDelegateAdaptor*) delegate {
-    [self.webSocket setDelegateDispatchQueue:dispatchQueue];
-    [self.webSocket setDelegate:delegate];
-}
-
 
 @end
 

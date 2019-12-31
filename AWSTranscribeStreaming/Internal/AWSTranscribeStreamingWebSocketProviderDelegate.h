@@ -21,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol AWSTranscribeStreamingWebSocketProviderDelegate <NSObject>
 
-- (void)didReceiveMessage:(id<AWSTranscribeStreamingWebSocketProvider>)webSocket
+- (void)didReceiveMessage:(id)webSocket
                   message:(id)message;
-- (void)didConnect:(id<AWSTranscribeStreamingWebSocketProvider>)webSocket;
-- (void)didError: (nullable id<AWSTranscribeStreamingWebSocketProvider>)webSocket
+- (void)didConnect:(id)webSocket;
+- (void)didError: (nullable id)webSocket
            error: (NSError *)error;
-- (void)didDisconnect:(id<AWSTranscribeStreamingWebSocketProvider>)webSocket
+- (void)didDisconnect:(id)webSocket
      didCloseWithCode:(NSInteger)didCloseWithCode
                reason:(NSString *)reason
              wasClean:(BOOL)wasClean;
