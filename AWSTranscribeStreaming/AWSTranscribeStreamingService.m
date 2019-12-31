@@ -206,8 +206,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)updateWebSocketDelegate {
-    if (self.webSocketProvider && self.srWebSocketDelegateAdaptor) {
-        [_webSocketProvider setDelegateAndDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue delegate: self.srWebSocketDelegateAdaptor];
+    if (self.srWebSocketDelegateAdaptor) {
+        [self.webSocketProvider setDelegateDispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue delegate: self.srWebSocketDelegateAdaptor];
         
     }
 }
@@ -326,8 +326,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         //Open the web socket
         [self.webSocketProvider connect];
-
-        AWSDDLogDebug(@"webSocket %@ is created and opened", self.webSocketProvider);
 
         return nil;
     }];

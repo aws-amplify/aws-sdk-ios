@@ -22,7 +22,7 @@
 
 @interface AWSSRWebSocketAdaptor ()
 
-@property(nonatomic, strong, readwrite) AWSSRWebSocket* webSocket;
+@property(nonatomic, strong) AWSSRWebSocket* webSocket;
 
 @end
 
@@ -49,25 +49,28 @@
  @param message the message
 */
 - (void)send:(id)message {
-    AWSDDLogVerbose(@"Web socket %@ sends %@", _webSocket, message);
-    [_webSocket send:message];
+    if ( ![message isKindOfClass:[NSData class]]) {
+        AWSDDLogVerbose(@"Web socket %@ sends %@", _webSocket, message);
+    }   
+    [self.webSocket send:message];
 }
 
 - (void)connect {
-    [_webSocket open];
+    AWSDDLogDebug(@"webSocket %@ is created and opened", _webSocket);
+    [self.webSocket open];
 }
 
 
 - (void)disconnect {
-    [_webSocket close];
+    [self.webSocket close];
 }
 
 // @optional method
 
--(void)setDelegateAndDelegateDispatchQueue:(dispatch_queue_t)queue
+-(void)setDelegateDispatchQueue:(dispatch_queue_t)dispatchQueue
                                   delegate:(AWSSRWebSocketDelegateAdaptor*) delegate {
-    [_webSocket setDelegateDispatchQueue:queue];
-    [_webSocket setDelegate:delegate];
+    [self.webSocket setDelegateDispatchQueue:dispatchQueue];
+    [self.webSocket setDelegate:delegate];
 }
 
 

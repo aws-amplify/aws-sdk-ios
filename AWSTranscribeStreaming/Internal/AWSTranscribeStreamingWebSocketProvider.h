@@ -21,12 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
 
-@required
 -(void)send:(id)message;
 -(void)connect;
 -(void)disconnect;
-@optional
--(void)setDelegateAndDelegateDispatchQueue:(dispatch_queue_t)queue
+-(void)setDelegateDispatchQueue:(dispatch_queue_t)dispatchQueue
                                   delegate:(id<AWSTranscribeStreamingWebSocketProviderDelegate>) delegate;
 
 @end
