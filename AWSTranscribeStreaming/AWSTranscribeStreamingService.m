@@ -183,10 +183,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
 
         _configuration.baseURL = _configuration.endpoint.URL;
-        
-        if (webSocketProvider) {
-            _webSocketProvider = webSocketProvider;
-        } //else websocket provider will be initiated with socket rocket below in setUpWebsocketForRequest
 
         _networking = [[AWSNetworking alloc] initWithConfiguration:_configuration];
     }

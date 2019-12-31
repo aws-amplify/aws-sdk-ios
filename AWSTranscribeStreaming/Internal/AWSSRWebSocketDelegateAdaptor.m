@@ -116,6 +116,15 @@
     });
 }
 
+/**
+The websocket disconnected
+
+@param webSocket the web socket that failed
+@param didCloseWithCode the error code it closed with
+@param reason why did the socket close
+@param wasClean  did the scoket close cleanly
+*/
+
 - (void)didDisconnect:(AWSSRWebSocket *)webSocket
  didCloseWithCode:(NSInteger)code
            reason:(NSString *)reason
@@ -177,9 +186,7 @@
 
 #pragma mark - Optional protocol methods to fulfill Socket Rocket protocol
 
-//needed to fulfill Socket Rocket's protocol
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
-    // Part of wss protocol, ignore
     [self didReceiveMessage:webSocket message: message];
 }
 
