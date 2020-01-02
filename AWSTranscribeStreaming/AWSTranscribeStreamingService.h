@@ -186,7 +186,7 @@ For example, set the default service configuration in `- application:didFinishLa
                                                                                                         identityPoolId:@"YourIdentityPoolId"];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                              credentialsProvider:credentialsProvider];
-        WebSocketProvider provider [[WebSocketProvider alloc] init;
+        WebSocketProvider = provider [[WebSocketProvider alloc] init;
 
         [AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:configuration forKey:@"USWest2TranscribeStreaming" provider: provider];
 

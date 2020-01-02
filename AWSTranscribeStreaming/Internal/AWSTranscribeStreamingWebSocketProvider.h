@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong) id<AWSTranscribeStreamingWebSocketProviderDelegate> delegate;
 
--(void)send:(id)message;
+-(void)send:(NSData *)data;
 -(void)connect;
 -(void)disconnect;
 -(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate

@@ -27,7 +27,6 @@
 
 #import "AWSTranscribeEventEncoder.h"
 #import "AWSTranscribeStreamingResources.h"
-#import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSSRWebSocketAdaptor.h"
 #import "AWSTranscribeStreamingWebSocketProvider.h"
 

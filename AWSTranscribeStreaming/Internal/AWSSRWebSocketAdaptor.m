@@ -54,13 +54,13 @@
 }
 
 /**
-  @param message the message
+  @param data the data to send over the web socket
 */
-- (void)send:(id)message {
-    if ( ![message isKindOfClass:[NSData class]]) {
-        AWSDDLogVerbose(@"Web socket %@ sends %@", _webSocket, message);
-    }   
-    [self.webSocket send:message];
+- (void)send:(NSData *)data {
+  //  if ( ![message isKindOfClass:[NSData class]]) {
+        AWSDDLogVerbose(@"Web socket %@ sends %@", _webSocket, data);
+   // }
+    [self.webSocket send:data];
 }
 
 - (void)connect {
