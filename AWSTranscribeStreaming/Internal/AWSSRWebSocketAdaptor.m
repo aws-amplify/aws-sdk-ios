@@ -44,7 +44,7 @@
 }
 
 -(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
-     dispatchQueue: (dispatch_queue_t) dispatchQueue {
+     dispatchQueue:(dispatch_queue_t)dispatchQueue {
     
     AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
                                                     initWithClientDelegate:delegate callbackQueue:dispatchQueue];

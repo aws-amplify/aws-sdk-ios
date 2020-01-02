@@ -212,7 +212,7 @@ Then call the following to get the service client:
 
 + (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration
                                               forKey:(NSString *)key
-                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>) provider;
+                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>)provider;
 
 /**
  Retrieves the service client associated with the key. You need to call `+ registerTranscribeStreamingWithConfiguration:forKey:` before invoking this method.

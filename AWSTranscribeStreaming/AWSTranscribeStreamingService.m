@@ -140,7 +140,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration
                                               forKey:(NSString *)key
-                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>) provider {
+                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>)provider {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
