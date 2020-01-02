@@ -237,8 +237,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                          code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                                      userInfo:@{NSUnderlyingErrorKey: error}];
 
-           // [self.webSocketDelegateAdaptor websocket:self.webSocketProvider didError:wrappingError];
-            [self.webSocketProvider.delegate websocket:self.webSocketProvider didError:wrappingError];
+            [self.webSocketProvider.delegate webSocket:self.webSocketProvider didError:wrappingError];
             return;
         }
 
@@ -246,7 +245,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                         code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                     userInfo:nil];
-            [self.webSocketProvider.delegate websocket:nil didError:error];
+            [self.webSocketProvider.delegate webSocket:nil didError:error];
            
             return;
         }

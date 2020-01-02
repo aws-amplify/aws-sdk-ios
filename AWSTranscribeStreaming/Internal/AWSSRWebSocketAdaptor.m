@@ -23,9 +23,8 @@
 
 @interface AWSSRWebSocketAdaptor ()
 
-@property(nonatomic, strong) AWSSRWebSocket* webSocket;
-@property(nonatomic, strong, readwrite) AWSSRWebSocketDelegateAdaptor *delegate;
-@property(nonatomic, strong) dispatch_queue_t dispatchQueue;
+@property(nonatomic, strong) AWSSRWebSocket *webSocket;
+
 
 @end
 
@@ -40,7 +39,7 @@
 // */
 -(void)configure:(NSURLRequest*)urlRequest {
     self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
-    [self.webSocket setDelegateDispatchQueue:self.dispatchQueue];
+    [self.webSocket setDelegateDispatchQueue:self.delegate.callbackQueue];
     [self.webSocket setDelegate:self.delegate];
 }
 
@@ -51,9 +50,7 @@
                                                     initWithClientDelegate:delegate callbackQueue:dispatchQueue];
     
     self.delegate = adaptor;
-    self.dispatchQueue = dispatchQueue;
-    
-   
+
 }
 
 /**

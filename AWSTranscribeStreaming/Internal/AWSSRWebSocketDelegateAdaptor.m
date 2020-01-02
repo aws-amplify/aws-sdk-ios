@@ -17,6 +17,7 @@
 #import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSTranscribeStreamingEventDecoder.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
+#import "AWSTranscribeStreamingWebSocketProvider.h"
 
 @interface AWSSRWebSocket (TranscribeStreaming) <AWSTranscribeStreamingWebSocketProvider>
 @end
@@ -53,7 +54,7 @@
  @param webSocket the web socket receiving the message
  @param data the message
 */
-- (void)websocket:(AWSSRWebSocket *)webSocket didReceiveData:(NSData *)data  {
+- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveData:(NSData *)data  {
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
     NSError *decodingError;
     AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)data
@@ -73,7 +74,7 @@
 
  @param webSocket the web socket that opened
  */
-- (void)websocketConnected:(AWSSRWebSocket *)webSocket {
+- (void)webSocketConnected:(AWSSRWebSocket *)webSocket {
     AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
@@ -91,7 +92,7 @@
  @param webSocket the web socket that failed
  @param error the error causing the failure
  */
-- (void)websocket:(nullable AWSSRWebSocket *)webSocket didError:(NSError *)error {
+- (void)webSocket:(nullable AWSSRWebSocket *)webSocket didError:(NSError *)error {
     AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
@@ -127,7 +128,7 @@ The websocket disconnected
 @param wasClean  did the scoket close cleanly
 */
 
-- (void)websocketDisconnected:(AWSSRWebSocket *)webSocket
+- (void)webSocketDisconnected:(AWSSRWebSocket *)webSocket
                      withCode:(NSInteger)code
                        reason:(NSString *)reason
                      wasClean:(BOOL)wasClean {
@@ -190,7 +191,7 @@ The websocket disconnected
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
 
-    [self webSocket:webSocket didReceiveMessage:message];
+    [self webSocket:webSocket didReceiveData: message];
 }
 
 /**
@@ -199,7 +200,7 @@ The websocket disconnected
  @param webSocket the web socket that opened
  */
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
-    [self webSocketDidOpen:webSocket];
+    [self webSocketConnected:webSocket];
 }
 
 /**
@@ -208,7 +209,7 @@ The websocket disconnected
  @param error the error causing the failure
  */
 - (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    [self webSocket:webSocket didFailWithError:error];
+    [self webSocket:webSocket didError:error];
 }
 
 
@@ -216,7 +217,7 @@ The websocket disconnected
  didCloseWithCode:(NSInteger)code
            reason:(NSString *)reason
          wasClean:(BOOL)wasClean {
-    [self webSocket:webSocket didCloseWithCode:code reason:reason wasClean:wasClean];
+    [self webSocketDisconnected:webSocket withCode:code reason:reason wasClean:wasClean];
 }
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {
