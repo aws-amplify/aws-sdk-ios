@@ -22,6 +22,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     
     /// Use this as our timeout value for any operation that hits the network. Note that this may need to be higher
     /// than you think, to account for CI systems running in shared environments
+    
     private static let networkOperationTimeout = 30.0
 
     var transcribeStreamingClient: AWSTranscribeStreaming!

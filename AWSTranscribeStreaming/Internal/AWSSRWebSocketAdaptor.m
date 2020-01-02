@@ -19,10 +19,13 @@
 #import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSTranscribeStreamingEventDecoder.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
+#import "AWSSRWebSocketDelegateAdaptor.h"
 
 @interface AWSSRWebSocketAdaptor ()
 
 @property(nonatomic, strong) AWSSRWebSocket* webSocket;
+@property(nonatomic, strong, readwrite) AWSSRWebSocketDelegateAdaptor *delegate;
+@property(nonatomic, strong) dispatch_queue_t dispatchQueue;
 
 @end
 
@@ -31,16 +34,26 @@
 /**
  Web socket protocol implementations
 // Initializes the adaptor with a url request
-//
-// @param urlRequest  the url request you are invoking the web socket with
-//
+
+ @param urlRequest  the url request you are invoking the web socket with
+
 // */
--(void)configure:(NSURLRequest*)urlRequest
-                  dispatchQueue:(dispatch_queue_t)dispatchQueue
-                       delegate:(AWSSRWebSocketDelegateAdaptor*) delegate {
+-(void)configure:(NSURLRequest*)urlRequest {
     self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
-    [self.webSocket setDelegateDispatchQueue:dispatchQueue];
-    [self.webSocket setDelegate:delegate];
+    [self.webSocket setDelegateDispatchQueue:self.dispatchQueue];
+    [self.webSocket setDelegate:self.delegate];
+}
+
+-(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
+     dispatchQueue: (dispatch_queue_t) dispatchQueue {
+    
+    AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
+                                                    initWithClientDelegate:delegate callbackQueue:dispatchQueue];
+    
+    self.delegate = adaptor;
+    self.dispatchQueue = dispatchQueue;
+    
+   
 }
 
 /**

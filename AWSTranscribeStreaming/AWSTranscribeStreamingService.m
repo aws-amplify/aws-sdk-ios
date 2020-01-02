@@ -67,7 +67,6 @@ static NSDictionary *errorCodeDictionary = nil;
 @property (nonatomic, strong) AWSNetworking *networking;
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 @property (nonatomic, strong) id<AWSTranscribeStreamingWebSocketProvider> webSocketProvider;
-@property (nonatomic, strong) AWSSRWebSocketDelegateAdaptor *srWebSocketDelegateAdaptor;
 
 @end
 
@@ -119,7 +118,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                            reason:@"The service configuration is `nil`. You need to configure `awsconfiguration.json`, `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                          userInfo:nil];
         }
-        _defaultTranscribeStreaming = [[AWSTranscribeStreaming alloc] initWithConfiguration:serviceConfiguration webSocketProvider:nil];
+          AWSSRWebSocketAdaptor *srWebSocketProvider = [[AWSSRWebSocketAdaptor alloc] init];
+        _defaultTranscribeStreaming = [[AWSTranscribeStreaming alloc] initWithConfiguration:serviceConfiguration webSocketProvider:srWebSocketProvider];
     });
 
     return _defaultTranscribeStreaming;
@@ -131,8 +131,25 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-    [_serviceClients setObject:[[AWSTranscribeStreaming alloc] initWithConfiguration:configuration webSocketProvider:nil]
+    //this client facing method will use our default web socket provider, Socket Rocket
+    AWSSRWebSocketAdaptor *srWebSocketProvider = [[AWSSRWebSocketAdaptor alloc] init];
+    [_serviceClients setObject:[[AWSTranscribeStreaming alloc] initWithConfiguration:configuration webSocketProvider:srWebSocketProvider]
                         forKey:key];
+
+    
+}
+
++ (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration
+                                              forKey:(NSString *)key
+                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>) provider {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceClients = [AWSSynchronizedMutableDictionary new];
+    });
+    [_serviceClients setObject:[[AWSTranscribeStreaming alloc] initWithConfiguration:configuration webSocketProvider:provider]
+                        forKey:key];
+
+    
 }
 
 + (instancetype)TranscribeStreamingForKey:(NSString *)key {
@@ -169,7 +186,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 #pragma mark -
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
-                    webSocketProvider:(id<AWSTranscribeStreamingWebSocketProvider>)webSocketProvider {
+                    webSocketProvider:(nonnull id<AWSTranscribeStreamingWebSocketProvider>)webSocketProvider {
     if (self = [super init]) {
         _configuration = [configuration copy];
 
@@ -182,9 +199,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                        service:AWSServiceTranscribeStreaming];
         }
         
-        if (!webSocketProvider) { //if it wasn't initialized aka nothing was passed in then initialize it with socket rocket adaptor
-            self.webSocketProvider = [[AWSSRWebSocketAdaptor alloc] init];
-        }
+        _webSocketProvider = webSocketProvider;
 
         _configuration.baseURL = _configuration.endpoint.URL;
 
@@ -198,10 +213,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
       callbackQueue:(dispatch_queue_t)callbackQueue {
-    AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
-                                              initWithClientDelegate:delegate callbackQueue:callbackQueue];
     
-    self.srWebSocketDelegateAdaptor = adaptor;
+    [self.webSocketProvider setDelegate:delegate dispatchQueue:callbackQueue];
+   
 }
 
 // Note that this method hands off work to the global queue, to prevent potential deadlocks on the main thread while
@@ -223,7 +237,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                          code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                                      userInfo:@{NSUnderlyingErrorKey: error}];
 
-            [self.srWebSocketDelegateAdaptor didError:nil error:wrappingError];
+           // [self.webSocketDelegateAdaptor websocket:self.webSocketProvider didError:wrappingError];
+            [self.webSocketProvider.delegate websocket:self.webSocketProvider didError:wrappingError];
             return;
         }
 
@@ -231,7 +246,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                         code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                     userInfo:nil];
-            [self.srWebSocketDelegateAdaptor didError:nil error:error];
+            [self.webSocketProvider.delegate websocket:nil didError:error];
+           
             return;
         }
     });
@@ -309,9 +325,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         NSURL *websocketURL = task.result;
         NSURLRequest *urlRequest = [NSURLRequest requestWithURL:websocketURL];
-        [self.webSocketProvider configure:urlRequest
-                            dispatchQueue:self.srWebSocketDelegateAdaptor.callbackQueue
-                                 delegate:self.srWebSocketDelegateAdaptor];
+        [self.webSocketProvider configure:urlRequest];
         
         [self.webSocketProvider connect];
 

@@ -18,6 +18,7 @@
 #import "AWSTranscribeStreamingModel.h"
 #import "AWSTranscribeStreamingResources.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
+#import "AWSTranscribeStreamingWebSocketProvider.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -160,6 +161,58 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeStreamingSDKVersion;
  @param key           A string to identify the service client.
  */
 + (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;
+
+
+/**
+Creates a service client with the given service configuration and registers it for the key.
+
+For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+
+*Swift*
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+       let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+       let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+       let webSocketProvider = NativeWebSocketProvider()
+       AWSTranscribeStreaming.register(with: configuration!, forKey: "USWest2TranscribeStreaming", provider: webSocketProvider)
+
+       return true
+   }
+
+*Objective-C*
+
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                        identityPoolId:@"YourIdentityPoolId"];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                             credentialsProvider:credentialsProvider];
+        WebSocketProvider provider [[WebSocketProvider alloc] init;
+
+        [AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:configuration forKey:@"USWest2TranscribeStreaming" provider: provider];
+
+        return YES;
+    }
+
+Then call the following to get the service client:
+
+*Swift*
+
+    let TranscribeStreaming = AWSTranscribeStreaming(forKey: "USWest2TranscribeStreaming")
+
+*Objective-C*
+
+    AWSTranscribeStreaming *TranscribeStreaming = [AWSTranscribeStreaming TranscribeStreamingForKey:@"USWest2TranscribeStreaming"];
+
+@warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+
+@param configuration A service configuration object.
+@param key  A string to identify the service client.
+@param provider the web socket provider you would like to use
+*/
+
++ (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration
+                                              forKey:(NSString *)key
+                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>) provider;
 
 /**
  Retrieves the service client associated with the key. You need to call `+ registerTranscribeStreamingWithConfiguration:forKey:` before invoking this method.

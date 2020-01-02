@@ -15,18 +15,19 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
-#import "AWSSRWebSocketDelegateAdaptor.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
 
+@property(nonatomic, strong) id<AWSTranscribeStreamingWebSocketProviderDelegate> delegate;
+
 -(void)send:(id)message;
 -(void)connect;
 -(void)disconnect;
--(void)configure:(NSURLRequest *)urlRequest
-   dispatchQueue:(dispatch_queue_t)dispatchQueue
-        delegate:(id<AWSTranscribeStreamingWebSocketProviderDelegate>) delegate;
+-(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
+     dispatchQueue: (dispatch_queue_t) dispatchQueue;
+-(void)configure:(NSURLRequest *)urlRequest;
 
 @end
 
