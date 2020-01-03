@@ -71,30 +71,3 @@ class MockWebSocket: AWSSRWebSocket {
     }
 }
 
-//class MockWebSocketProvider: AWSTranscribeStreamingWebSocketProvider {
-//    var delegate: AWSTranscribeStreamingWebSocketProviderDelegate
-//    
-//    var webSocket: AWSTranscribeStreamingWebSocketProvider
-//    
-//    func send(_ data: Data) {
-//        self.webSocket.send(data)
-//    }
-//    
-//    func connect() {
-//        self.webSocket.connect()
-//    }
-//    
-//    func disconnect() {
-//        self.webSocket.disconnect()
-//    }
-//    
-//    func setDelegate(_ delegate: AWSTranscribeStreamingClientDelegate, dispatchQueue: DispatchQueue) {
-//        let adaptor = AWSSRWebSocketDelegateAdaptor(delegate: delegate, callbackQueue: dispatchQueue)
-//        self.webSocket.setDelegate(adaptor, dispatchQueue: dispatchQueue)AWSSRWebSocket_TranscribeStreaming_h
-//    }
-//    
-//    func configure(with urlRequest: URLRequest) {
-//        self.webSocket = AWSSRWebSocket(urlRequest: urlRequest)
-//    }
-//}
-
