@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  An AWSSRWebSocketDelegate adaptor for AWSTranscribeStreamingClientDelegate
  */
-@interface AWSSRWebSocketDelegateAdaptor : NSObject <AWSTranscribeStreamingWebSocketProviderDelegate, AWSSRWebSocketDelegate>
+@interface AWSSRWebSocketDelegateAdaptor : NSObject <AWSSRWebSocketDelegate>
 
 @property (nonatomic, weak, readonly) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
 @property (nonatomic, weak, readonly) dispatch_queue_t callbackQueue;

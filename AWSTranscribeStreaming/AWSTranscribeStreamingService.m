@@ -24,7 +24,7 @@
 #import <AWSCore/AWSURLResponseSerialization.h>
 #import <AWSCore/AWSURLRequestRetryHandler.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
-
+#import "AWSTranscribeStreamingClientDelegate.h"
 #import "AWSTranscribeEventEncoder.h"
 #import "AWSTranscribeStreamingResources.h"
 #import "AWSSRWebSocketAdaptor.h"
@@ -228,20 +228,41 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                          code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                                      userInfo:@{NSUnderlyingErrorKey: error}];
 
-            [self.webSocketProvider.delegate webSocket:self.webSocketProvider.webSocket didError:wrappingError];
+//            [self.webSocketProvider.delegate webSocket:self.webSocketProvider.webSocket didError:wrappingError];
+            ReadyState status = [self webSocketStatus];
+            [self.webSocketProvider.clientDelegate connectionStatusDidChange:status withError:error];
             return;
         }
-
         if (!self.webSocketProvider) {
             error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                         code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                     userInfo:nil];
-            [self.webSocketProvider.delegate webSocket:nil didError:error];
+            ReadyState status = [self webSocketStatus];
+            [self.webSocketProvider.clientDelegate connectionStatusDidChange:status withError:error];
            
             return;
         }
     });
 }
+                   
+- (AWSTranscribeStreamingClientConnectionStatus)webSocketStatus {
+        NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
+        switch (self.webSocketProvider.readyState) {
+            case CONNECTING:
+                status = AWSTranscribeStreamingClientConnectionStatusConnecting;
+                break;
+            case OPEN:
+                status = AWSTranscribeStreamingClientConnectionStatusConnected;
+                break;
+            case CLOSING:
+                status = AWSTranscribeStreamingClientConnectionStatusClosing;
+                break;
+            case CLOSED:
+                status = AWSTranscribeStreamingClientConnectionStatusClosed;
+                break;
+        }
+        return status;
+    }
 
 - (void)sendData:(NSData *)data headers:(NSDictionary *)headers {
     NSData *encodedChunk = [AWSTranscribeEventEncoder encodeChunk:data headers:headers];

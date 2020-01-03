@@ -53,10 +53,146 @@
  @param webSocket the web socket receiving the message
  @param data the message
 */
-- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveData:(NSData *)data  {
+//- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveData:(NSData *)data  {
+//    AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
+//    NSError *decodingError;
+//    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)data
+//                                                                                             decodingError:&decodingError];
+//
+//    dispatch_async(self.callbackQueue, ^(void){
+//        [self.clientDelegate didReceiveEvent:result
+//                               decodingError:decodingError];
+//    });
+//}
+//
+//#pragma mark - Optional protocol methods
+//
+///**
+// Converts the AWSSR ready state to a AWSTranscribeStreamingClientDelegateConnectionStatus and invokes the client
+// delegate `connectionStatusDidChange` callback
+//
+// @param webSocket the web socket that opened
+// */
+//- (void)webSocketConnected:(AWSSRWebSocket *)webSocket {
+//    AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
+//    if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
+//        return;
+//    }
+//
+//    NSInteger status = AWSTranscribeStreamingClientConnectionStatusConnected;
+//    dispatch_async(self.callbackQueue, ^(void){
+//        [self.clientDelegate connectionStatusDidChange:status withError:nil];
+//    });
+//}
+//
+///**
+// The websocket failed due to an error
+//
+// @param webSocket the web socket that failed
+// @param error the error causing the failure
+// */
+//- (void)webSocket:(nullable AWSSRWebSocket *)webSocket didError:(NSError *)error {
+//    AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
+//    if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
+//        return;
+//    }
+//
+//    NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
+//    switch (webSocket.readyState) {
+//        case AWSSR_CONNECTING:
+//            status = AWSTranscribeStreamingClientConnectionStatusConnecting;
+//            break;
+//        case AWSSR_OPEN:
+//            status = AWSTranscribeStreamingClientConnectionStatusConnected;
+//            break;
+//        case AWSSR_CLOSING:
+//            status = AWSTranscribeStreamingClientConnectionStatusClosing;
+//            break;
+//        case AWSSR_CLOSED:
+//            status = AWSTranscribeStreamingClientConnectionStatusClosed;
+//            break;
+//    }
+//
+//    dispatch_async(self.callbackQueue, ^(void){
+//        [self.clientDelegate connectionStatusDidChange:status withError:error];
+//    });
+//}
+//
+///**
+//The websocket disconnected
+//
+//@param webSocket the web socket that failed
+//@param code the error code it closed with
+//@param reason why did the socket close
+//@param wasClean  did the scoket close cleanly
+//*/
+//
+//- (void)webSocketDisconnected:(AWSSRWebSocket *)webSocket
+//                     withCode:(NSInteger)code
+//                       reason:(NSString *)reason
+//                     wasClean:(BOOL)wasClean {
+//    AWSDDLogVerbose(@"Web socket %@ didCloseWithCode: %ld (wasClean: %d, reason: %@)", webSocket, (long)code, wasClean, reason);
+//    if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
+//        return;
+//    }
+//
+//    NSInteger status = AWSTranscribeStreamingClientConnectionStatusClosed;
+//    NSError *error;
+//    if (!wasClean) {
+//        NSInteger errorCode = AWSTranscribeStreamingClientErrorCodeUnknown;
+//        NSDictionary<NSString *, id> *userInfo = @{
+//                                                   NSLocalizedFailureReasonErrorKey: reason,
+//                                                   @"AWSSRStatusCode": @(code),
+//                                                   @"AWSSRStatusReason": reason,
+//                                                   @"AWSSRWasClean": @(wasClean)
+//                                                   };
+//
+//        switch (code) {
+//            case AWSSRStatusCodeNormal:
+//                break;
+//            case AWSSRStatusCodeGoingAway:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly;
+//                break;
+//            case AWSSRStatusCodeProtocolError:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketProtocolError;
+//                break;
+//            case AWSSRStatusCodeUnhandledType:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly;
+//                break;
+//            case AWSSRStatusNoStatusReceived:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly;
+//                break;
+//            case AWSSRStatusCodeInvalidUTF8:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly;
+//                break;
+//            case AWSSRStatusCodePolicyViolated:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly;
+//                break;
+//            case AWSSRStatusCodeMessageTooBig:
+//                errorCode = AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly;
+//                break;
+//            default:
+//                break;
+//        }
+//
+//        error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
+//                                    code:errorCode
+//                                userInfo:userInfo];
+//
+//    }
+//
+//    dispatch_async(self.callbackQueue, ^(void){
+//        [self.clientDelegate connectionStatusDidChange:status withError:error];
+//    });
+//}
+
+#pragma mark - Optional protocol methods to fulfill Socket Rocket protocol
+
+- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
+
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
     NSError *decodingError;
-    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)data
+    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)message
                                                                                              decodingError:&decodingError];
 
     dispatch_async(self.callbackQueue, ^(void){
@@ -65,16 +201,13 @@
     });
 }
 
-#pragma mark - Optional protocol methods
-
 /**
  Converts the AWSSR ready state to a AWSTranscribeStreamingClientDelegateConnectionStatus and invokes the client
  delegate `connectionStatusDidChange` callback
-
  @param webSocket the web socket that opened
  */
-- (void)webSocketConnected:(AWSSRWebSocket *)webSocket {
-    AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
+- (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
+        AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
@@ -87,12 +220,11 @@
 
 /**
  The websocket failed due to an error
-
  @param webSocket the web socket that failed
  @param error the error causing the failure
  */
-- (void)webSocket:(nullable AWSSRWebSocket *)webSocket didError:(NSError *)error {
-    AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
+- (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
+        AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
@@ -118,20 +250,12 @@
     });
 }
 
-/**
-The websocket disconnected
 
-@param webSocket the web socket that failed
-@param code the error code it closed with
-@param reason why did the socket close
-@param wasClean  did the scoket close cleanly
-*/
-
-- (void)webSocketDisconnected:(AWSSRWebSocket *)webSocket
-                     withCode:(NSInteger)code
-                       reason:(NSString *)reason
-                     wasClean:(BOOL)wasClean {
-    AWSDDLogVerbose(@"Web socket %@ didCloseWithCode: %ld (wasClean: %d, reason: %@)", webSocket, (long)code, wasClean, reason);
+- (void)webSocket:(AWSSRWebSocket *)webSocket
+ didCloseWithCode:(NSInteger)code
+           reason:(NSString *)reason
+         wasClean:(BOOL)wasClean {
+        AWSDDLogVerbose(@"Web socket %@ didCloseWithCode: %ld (wasClean: %d, reason: %@)", webSocket, (long)code, wasClean, reason);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
@@ -184,39 +308,6 @@ The websocket disconnected
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:error];
     });
-}
-
-#pragma mark - Optional protocol methods to fulfill Socket Rocket protocol
-
-- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
-
-    [self webSocket:webSocket didReceiveData: message];
-}
-
-/**
- Converts the AWSSR ready state to a AWSTranscribeStreamingClientDelegateConnectionStatus and invokes the client
- delegate `connectionStatusDidChange` callback
- @param webSocket the web socket that opened
- */
-- (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
-    [self webSocketConnected:webSocket];
-}
-
-/**
- The websocket failed due to an error
- @param webSocket the web socket that failed
- @param error the error causing the failure
- */
-- (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
-    [self webSocket:webSocket didError:error];
-}
-
-
-- (void)webSocket:(AWSSRWebSocket *)webSocket
- didCloseWithCode:(NSInteger)code
-           reason:(NSString *)reason
-         wasClean:(BOOL)wasClean {
-    [self webSocketDisconnected:webSocket withCode:code reason:reason wasClean:wasClean];
 }
 
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceivePong:(NSData *)pongPayload {

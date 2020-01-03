@@ -36,11 +36,17 @@
 
 -(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
      dispatchQueue:(dispatch_queue_t)dispatchQueue {
-    
+    self.clientDelegate = delegate;
     AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
                                                     initWithClientDelegate:delegate callbackQueue:dispatchQueue];
     self.delegate = adaptor;
 }
+
+
+-(ReadyState)readyState {
+    return self.webSocket.readyState;
+}
+
 
 /**
   @param data the data to send over the web socket
