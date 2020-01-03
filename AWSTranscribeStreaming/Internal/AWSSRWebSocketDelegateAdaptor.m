@@ -70,7 +70,7 @@
  @param webSocket the web socket that opened
  */
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
-        AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
+    AWSDDLogVerbose(@"Web socket %@ opened", webSocket);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
@@ -87,7 +87,7 @@
  @param error the error causing the failure
  */
 - (void)webSocket:(AWSSRWebSocket *)webSocket didFailWithError:(NSError *)error {
-        AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
+    AWSDDLogVerbose(@"Web socket %@ didFailWithError: %@", webSocket, error);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
@@ -118,7 +118,7 @@
  didCloseWithCode:(NSInteger)code
            reason:(NSString *)reason
          wasClean:(BOOL)wasClean {
-        AWSDDLogVerbose(@"Web socket %@ didCloseWithCode: %ld (wasClean: %d, reason: %@)", webSocket, (long)code, wasClean, reason);
+    AWSDDLogVerbose(@"Web socket %@ didCloseWithCode: %ld (wasClean: %d, reason: %@)", webSocket, (long)code, wasClean, reason);
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }

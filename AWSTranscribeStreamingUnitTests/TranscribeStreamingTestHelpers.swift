@@ -62,8 +62,6 @@ struct TestData {
 /// Mock WebSocket to allow for testing conditions where the adaptor inspects ready state
 class MockWebSocket: AWSSRWebSocket {
     var overrideReadyState: AWSSRReadyState
-
-    
     override var readyState: AWSSRReadyState {
         return overrideReadyState
     }
@@ -71,8 +69,6 @@ class MockWebSocket: AWSSRWebSocket {
         overrideReadyState = .CLOSED
         super.init()
     }
-    
-
 }
 
 //class MockWebSocketProvider: AWSTranscribeStreamingWebSocketProvider {
