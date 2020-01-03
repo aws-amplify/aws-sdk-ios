@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)disconnect;
 -(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
      dispatchQueue:(dispatch_queue_t)dispatchQueue;
--(void)configure:(NSURLRequest *)urlRequest;
+-(void)configureWithURLRequest:(NSURLRequest *)urlRequest;
 
 @end
 

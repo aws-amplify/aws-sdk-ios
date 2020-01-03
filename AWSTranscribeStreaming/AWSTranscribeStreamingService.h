@@ -174,7 +174,7 @@ For example, set the default service configuration in `- application:didFinishLa
        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
        let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
        let webSocketProvider = NativeWebSocketProvider()
-       AWSTranscribeStreaming.register(with: configuration!, forKey: "USWest2TranscribeStreaming", provider: webSocketProvider)
+       AWSTranscribeStreaming.register(with: configuration!, forKey: "USWest2TranscribeStreaming", webSocketProvider: webSocketProvider)
 
        return true
    }
@@ -186,9 +186,9 @@ For example, set the default service configuration in `- application:didFinishLa
                                                                                                         identityPoolId:@"YourIdentityPoolId"];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                              credentialsProvider:credentialsProvider];
-        WebSocketProvider = provider [[WebSocketProvider alloc] init;
+        NativeWebSocketProvider  webSocketProvider =  [[NativeWebSocketProvider alloc] init;
 
-        [AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:configuration forKey:@"USWest2TranscribeStreaming" provider: provider];
+        [AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:configuration forKey:@"USWest2TranscribeStreaming" webSocketProvider: webSocketProvider];
 
         return YES;
     }
@@ -207,12 +207,12 @@ Then call the following to get the service client:
 
 @param configuration A service configuration object.
 @param key  A string to identify the service client.
-@param provider the web socket provider you would like to use
+@param webSocketProvider the web socket provider you would like to use
 */
 
 + (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration
                                               forKey:(NSString *)key
-                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>)provider;
+                                   webSocketProvider:(id<AWSTranscribeStreamingWebSocketProvider>)webSocketProvider;
 
 /**
  Retrieves the service client associated with the key. You need to call `+ registerTranscribeStreamingWithConfiguration:forKey:` before invoking this method.

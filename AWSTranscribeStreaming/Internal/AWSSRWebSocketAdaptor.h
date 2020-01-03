@@ -28,9 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) AWSSRWebSocketDelegateAdaptor *delegate;
 @property(nonatomic, strong) AWSSRWebSocket *webSocket;
 
--(void)configure:(NSURLRequest *)urlRequest;
+-(void)configureWithURLRequest:(NSURLRequest *)urlRequest;
 -(void)connect;
-
 
 @end
 

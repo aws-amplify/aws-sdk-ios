@@ -21,17 +21,14 @@
 #import "AWSTranscribeStreamingClientDelegate.h"
 #import "AWSSRWebSocketDelegateAdaptor.h"
 
-
 @implementation AWSSRWebSocketAdaptor
 
 /**
  Web socket protocol implementations
-// Initializes the adaptor with a url request
-
+ Initializes the web socket socket rocket class with a url request
  @param urlRequest  the url request you are invoking the web socket with
-
-// */
--(void)configure:(NSURLRequest*)urlRequest {
+ */
+-(void)configureWithURLRequest:(NSURLRequest*)urlRequest {
     self.webSocket = [[AWSSRWebSocket alloc] initWithURLRequest:urlRequest];
     [self.webSocket setDelegateDispatchQueue:self.delegate.callbackQueue];
     [self.webSocket setDelegate:self.delegate];
@@ -42,24 +39,19 @@
     
     AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
                                                     initWithClientDelegate:delegate callbackQueue:dispatchQueue];
-    
     self.delegate = adaptor;
-
 }
 
 /**
   @param data the data to send over the web socket
 */
 - (void)send:(NSData *)data {
-  //  if ( ![message isKindOfClass:[NSData class]]) {
-        AWSDDLogVerbose(@"Web socket %@ sends %@", _webSocket, data);
-   // }
+    AWSDDLogVerbose(@"Web socket %@ sends %@", self.webSocket, data);
     [self.webSocket send:data];
 }
 
 - (void)connect {
-
-    AWSDDLogDebug(@"webSocket %@ is created and opened", _webSocket);
+    AWSDDLogDebug(@"webSocket %@ is trying to open", self.webSocket);
     [self.webSocket open];
 }
 
