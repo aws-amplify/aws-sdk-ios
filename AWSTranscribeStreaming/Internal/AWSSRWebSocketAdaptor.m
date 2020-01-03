@@ -50,7 +50,7 @@
 }
 
 - (void)connect {
-    AWSDDLogDebug(@"webSocket %@ is trying to open", self.webSocket);
+    AWSDDLogDebug(@"Web socket %@ is trying to open", self.webSocket);
     [self.webSocket open];
 }
 

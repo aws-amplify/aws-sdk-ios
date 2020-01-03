@@ -113,7 +113,6 @@
     });
 }
 
-
 - (void)webSocket:(AWSSRWebSocket *)webSocket
  didCloseWithCode:(NSInteger)code
            reason:(NSString *)reason

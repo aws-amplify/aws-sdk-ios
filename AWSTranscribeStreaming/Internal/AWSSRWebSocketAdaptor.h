@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "AWSSRWebSocket.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
-#import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
 #import "AWSTranscribeStreamingWebSocketProvider.h"
 #import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSSRWebSocket+TranscribeStreaming.h"
