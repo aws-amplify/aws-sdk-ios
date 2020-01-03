@@ -47,7 +47,10 @@
 }
 
 #pragma mark - Optional protocol methods to fulfill Socket Rocket protocol
-
+/**
+ @param webSocket the web socket receiving the message
+ @param data the data received
+*/
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(NSData *)data {
 
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
