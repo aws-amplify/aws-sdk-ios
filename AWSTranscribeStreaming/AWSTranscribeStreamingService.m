@@ -129,12 +129,12 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                               forKey:(NSString *)key {
     //this client facing method will use our default web socket provider, Socket Rocket
     AWSSRWebSocketAdaptor *srWebSocketProvider = [[AWSSRWebSocketAdaptor alloc] init];
-    [self registerTranscribeStreamingWithConfiguration:configuration forKey:key provider:srWebSocketProvider];
+    [self registerTranscribeStreamingWithConfiguration:configuration forKey:key webSocketProvider:srWebSocketProvider];
 }
 
 + (void)registerTranscribeStreamingWithConfiguration:(AWSServiceConfiguration *)configuration
                                               forKey:(NSString *)key
-                                            provider:(id<AWSTranscribeStreamingWebSocketProvider>)provider {
+                                   webSocketProvider:(id<AWSTranscribeStreamingWebSocketProvider>)provider {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
@@ -228,41 +228,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                          code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                                      userInfo:@{NSUnderlyingErrorKey: error}];
 
-//            [self.webSocketProvider.delegate webSocket:self.webSocketProvider.webSocket didError:wrappingError];
-            ReadyState status = [self webSocketStatus];
-            [self.webSocketProvider.clientDelegate connectionStatusDidChange:status withError:error];
+            NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
+            [self.webSocketProvider.clientDelegate connectionStatusDidChange:status withError:wrappingError];
             return;
         }
         if (!self.webSocketProvider) {
             error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                         code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                     userInfo:nil];
-            ReadyState status = [self webSocketStatus];
+            NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
             [self.webSocketProvider.clientDelegate connectionStatusDidChange:status withError:error];
            
             return;
         }
     });
 }
-                   
-- (AWSTranscribeStreamingClientConnectionStatus)webSocketStatus {
-        NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
-        switch (self.webSocketProvider.readyState) {
-            case CONNECTING:
-                status = AWSTranscribeStreamingClientConnectionStatusConnecting;
-                break;
-            case OPEN:
-                status = AWSTranscribeStreamingClientConnectionStatusConnected;
-                break;
-            case CLOSING:
-                status = AWSTranscribeStreamingClientConnectionStatusClosing;
-                break;
-            case CLOSED:
-                status = AWSTranscribeStreamingClientConnectionStatusClosed;
-                break;
-        }
-        return status;
-    }
 
 - (void)sendData:(NSData *)data headers:(NSDictionary *)headers {
     NSData *encodedChunk = [AWSTranscribeEventEncoder encodeChunk:data headers:headers];

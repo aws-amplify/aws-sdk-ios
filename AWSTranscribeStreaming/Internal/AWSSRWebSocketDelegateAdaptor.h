@@ -16,7 +16,6 @@
 #import <Foundation/Foundation.h>
 #import "AWSSRWebSocket.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
-#import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

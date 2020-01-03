@@ -14,16 +14,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef NS_ENUM(NSInteger, ReadyState) {
-    CONNECTING   = 0,
-    OPEN         = 1,
-    CLOSING      = 2,
-    CLOSED       = 3,
-};
 
 @protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
 
@@ -36,8 +28,6 @@ typedef NS_ENUM(NSInteger, ReadyState) {
 -(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
      dispatchQueue:(dispatch_queue_t)dispatchQueue;
 -(void)configureWithURLRequest:(NSURLRequest *)urlRequest;
--(ReadyState)readyState;
-
 
 @end
 

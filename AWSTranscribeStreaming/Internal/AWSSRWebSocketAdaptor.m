@@ -19,7 +19,6 @@
 #import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSTranscribeStreamingEventDecoder.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
-#import "AWSSRWebSocketDelegateAdaptor.h"
 
 @implementation AWSSRWebSocketAdaptor
 
@@ -42,12 +41,6 @@
     self.delegate = adaptor;
 }
 
-
--(ReadyState)readyState {
-    return self.webSocket.readyState;
-}
-
-
 /**
   @param data the data to send over the web socket
 */
@@ -60,7 +53,6 @@
     AWSDDLogDebug(@"webSocket %@ is trying to open", self.webSocket);
     [self.webSocket open];
 }
-
 
 - (void)disconnect {
     [self.webSocket close];
