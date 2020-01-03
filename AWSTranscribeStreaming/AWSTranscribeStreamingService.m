@@ -236,7 +236,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                          code:AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize
                                                      userInfo:@{NSUnderlyingErrorKey: error}];
 
-            [self.webSocketProvider.delegate webSocket:self.webSocketProvider didError:wrappingError];
+            [self.webSocketProvider.delegate webSocket:self.webSocketProvider.webSocket didError:wrappingError];
             return;
         }
 

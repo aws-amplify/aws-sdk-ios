@@ -3764,6 +3764,7 @@
 		211167372399CE8400902FC1 /* AWSKinesisVideoSignalingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoSignalingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralKinesisVideoSignalingTests.m; sourceTree = "<group>"; };
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
+		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95DED98D23B18DA200F7D354 /* AWSTranscribeStreamingWebSocketProviderDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProviderDelegate.h; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
 		95DED99123B1B7A900F7D354 /* AWSSRWebSocketAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocketAdaptor.m; sourceTree = "<group>"; };
@@ -8194,6 +8195,7 @@
 				FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */,
 				95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */,
 				95DED98D23B18DA200F7D354 /* AWSTranscribeStreamingWebSocketProviderDelegate.h */,
+				95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";

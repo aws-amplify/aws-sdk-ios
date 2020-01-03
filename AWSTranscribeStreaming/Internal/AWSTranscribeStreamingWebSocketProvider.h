@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
 
 @property(nonatomic, strong) id<AWSTranscribeStreamingWebSocketProviderDelegate> delegate;
+@property(nonatomic, strong) id<AWSTranscribeStreamingWebSocketProvider> webSocket;
 
 -(void)send:(NSData *)data;
 -(void)connect;

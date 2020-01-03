@@ -21,12 +21,6 @@
 #import "AWSTranscribeStreamingClientDelegate.h"
 #import "AWSSRWebSocketDelegateAdaptor.h"
 
-@interface AWSSRWebSocketAdaptor ()
-
-@property(nonatomic, strong) AWSSRWebSocket *webSocket;
-
-
-@end
 
 @implementation AWSSRWebSocketAdaptor
 

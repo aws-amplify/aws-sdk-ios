@@ -19,12 +19,14 @@
 #import "AWSTranscribeStreamingWebSocketProviderDelegate.h"
 #import "AWSTranscribeStreamingWebSocketProvider.h"
 #import "AWSSRWebSocketDelegateAdaptor.h"
+#import "AWSSRWebSocket+TranscribeStreaming.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSSRWebSocketAdaptor : NSObject <AWSTranscribeStreamingWebSocketProvider>
 
 @property(nonatomic, strong) AWSSRWebSocketDelegateAdaptor *delegate;
+@property(nonatomic, strong) AWSSRWebSocket *webSocket;
 
 -(void)configure:(NSURLRequest *)urlRequest;
 -(void)connect;

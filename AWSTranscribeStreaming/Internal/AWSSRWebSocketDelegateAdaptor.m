@@ -18,9 +18,8 @@
 #import "AWSTranscribeStreamingEventDecoder.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
 #import "AWSTranscribeStreamingWebSocketProvider.h"
-
-@interface AWSSRWebSocket (TranscribeStreaming) <AWSTranscribeStreamingWebSocketProvider>
-@end
+#import "AWSSRWebSocketAdaptor.h"
+#import "AWSSRWebSocket+TranscribeStreaming.h"
 
 @interface AWSSRWebSocketDelegateAdaptor ()
 
