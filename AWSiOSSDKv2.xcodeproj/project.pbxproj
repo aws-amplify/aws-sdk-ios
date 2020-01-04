@@ -394,6 +394,8 @@
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
 		95CEF9F423BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */; };
+		95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		95CEF9F723C0054C006D4663 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		95DED99023B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95DED99223B1B7A900F7D354 /* AWSSRWebSocketAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DED99123B1B7A900F7D354 /* AWSSRWebSocketAdaptor.m */; };
 		9A2562EC20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A2562EA20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h */; };
@@ -3766,7 +3768,6 @@
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
 		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientWebSocketProviderTests.swift; sourceTree = "<group>"; };
-		95CEF9F523BFF7E4006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSTranscribeStreamingClientWebSocketProviderTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
 		95DED99123B1B7A900F7D354 /* AWSSRWebSocketAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocketAdaptor.m; sourceTree = "<group>"; };
 		95DED99323B1B7E600F7D354 /* AWSSRWebSocketAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSSRWebSocketAdaptor.h; sourceTree = "<group>"; };
@@ -8213,7 +8214,6 @@
 				FA53332F22D4D47E00BD88AF /* Info.plist */,
 				FA968B622302115E00AC6007 /* TranscribeStreamingTestHelpers.swift */,
 				95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */,
-				95CEF9F523BFF7E4006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests-Bridging-Header.h */,
 			);
 			path = AWSTranscribeStreamingUnitTests;
 			sourceTree = "<group>";
@@ -8419,6 +8419,7 @@
 				95DED99023B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h in Headers */,
 				17D0A6FE22B844A900A83073 /* AWSSRWebSocket.h in Headers */,
 				FABD9ED622D6AC8A00BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.h in Headers */,
+				95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */,
 				178A802222AF7DE600B167D6 /* AWSTranscribeStreamingResources.h in Headers */,
 				178A801E22AF7DE600B167D6 /* AWSTranscribeStreamingService.h in Headers */,
 				178A802122AF7DE600B167D6 /* AWSTranscribeStreamingModel.h in Headers */,
@@ -12732,6 +12733,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CEF9F723C0054C006D4663 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

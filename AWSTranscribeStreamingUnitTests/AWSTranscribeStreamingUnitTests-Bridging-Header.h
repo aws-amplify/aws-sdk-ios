@@ -6,3 +6,6 @@
 
 // Expose internal members as testable units
 #import "AWSSRWebSocketDelegateAdaptor.h"
+#import "AWSTranscribeStreamingWebSocketProvider.h"
+#import "AWSSRWebSocket+TranscribeStreaming.h"
+#import "AWSTranscribeStreamingEventDecoder.h"
