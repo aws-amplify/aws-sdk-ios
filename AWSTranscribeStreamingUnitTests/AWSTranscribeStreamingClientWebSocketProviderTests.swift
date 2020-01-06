@@ -74,7 +74,7 @@ class MockWebSocketProvider: NSObject, AWSTranscribeStreamingWebSocketProvider{
     
     var clientDelegate: AWSTranscribeStreamingClientDelegate!
     
-    var delegate: AWSSRWebSocketDelegateAdaptor!
+    var delegate: MockWebSocketProviderDelegate!
     
     override init() {
         super.init()
@@ -98,7 +98,7 @@ class MockWebSocketProvider: NSObject, AWSTranscribeStreamingWebSocketProvider{
 
     func setDelegate(_ delegate: AWSTranscribeStreamingClientDelegate, dispatchQueue: DispatchQueue) {
         self.clientDelegate = delegate
-        let adaptor = AWSSRWebSocketDelegateAdaptor(clientDelegate: delegate, callbackQueue: dispatchQueue)
+        let adaptor = MockWebSocketProviderDelegate(clientDelegate: delegate, callbackQueue: dispatchQueue)
         self.delegate = adaptor
     }
 
@@ -143,14 +143,58 @@ class MockWebSocketProviderDelegate: NSObject, AWSSRWebSocketDelegate {
     }
     
     private func webSocket(_ webSocket: AWSSRWebSocket!, didFailWithError error: NSError?) {
+        var status = AWSTranscribeStreamingClientConnectionStatus.unknown
+        switch (webSocket.readyState) {
         
+        case .CONNECTING:
+            status = AWSTranscribeStreamingClientConnectionStatus.connecting
+        case .OPEN:
+            status = AWSTranscribeStreamingClientConnectionStatus.connected
+        case .CLOSING:
+            status = AWSTranscribeStreamingClientConnectionStatus.closing
+        case .CLOSED:
+            status = AWSTranscribeStreamingClientConnectionStatus.closed
+
+        }
+        
+        callbackQueue.async {
+            self.clientDelegate.connectionStatusDidChange(status, withError: error)
+        }
     }
     
     private func webSocketDidOpen(_ webSocket: AWSSRWebSocket!) {
-        
+
+        let status = AWSTranscribeStreamingClientConnectionStatus.connected
+        callbackQueue.async {
+            self.clientDelegate.connectionStatusDidChange(status, withError: nil)
+        }
+
     }
     
     private func webSocketDidCloseWithCode(_ webSocket: AWSSRWebSocket!, code: Int, reason: String, wasClean: Bool) {
         
+        let status = AWSTranscribeStreamingClientConnectionStatus.closed
+        var error: NSError? = nil
+        if !wasClean {
+        var errorCode = AWSTranscribeStreamingClientErrorCode.unknown
+        let userInfo: Dictionary<String, Any> = ["AWSSRStatusCode": code,
+                                            "AWSSRStatusReason": reason,
+                                            "AWSSRWasClean": wasClean]
+        let statusCode = AWSSRStatusCode(rawValue: code)
+
+        switch (statusCode) {
+
+            
+            default:
+                break
+            }
+
+            error = NSError(domain: AWSTranscribeStreamingClientErrorDomain, code: errorCode.rawValue, userInfo: userInfo)
+
+        }
+    
+        callbackQueue.async {
+            self.clientDelegate.connectionStatusDidChange(status, withError: error)
+        }
     }
 }

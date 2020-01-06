@@ -9,3 +9,4 @@
 #import "AWSTranscribeStreamingWebSocketProvider.h"
 #import "AWSSRWebSocket+TranscribeStreaming.h"
 #import "AWSTranscribeStreamingEventDecoder.h"
+#import "AWSTranscribeStreamingClientDelegate.h"
