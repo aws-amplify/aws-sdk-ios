@@ -21,8 +21,8 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
     
     // Given: A web socket provider
     // When: when registering the streaming client
-    // Then: the streaming client is able to use a third party web socket provider and open the socket
-    func testWSSInitWithError() {
+    // Then: the streaming client is able to use a third party web socket provider and open the socket but error
+    func testWSSConnectWithError() {
         let mockWebSocketProvider = MockWebSocketProvider()
         let errorOnConnectionStatus = NSError(domain: AWSTranscribeStreamingClientErrorDomain,
                                               code: AWSTranscribeStreamingClientErrorCode.webSocketCouldNotInitialize.rawValue,
@@ -68,6 +68,132 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
         wait(for: [receiveError], timeout: 0.1)
     }
     
+       // Given: A web socket provider
+       // When: when registering the streaming client
+       // Then: the streaming client is able to use a third party web socket provider and open the socket
+       func testWSSConnect() {
+           let mockWebSocketProvider = MockWebSocketProvider()
+           mockWebSocketProvider.setErrorOnConnectionStatusDidChange(error: nil)
+           guard let config = AWSServiceConfiguration(
+               region: .USEast1,
+               credentialsProvider: MockReturningCredentialsProvider()) else {
+                   XCTFail("Couldn't initialize config with MockErrorReturningCredentialsProvider")
+                   return
+           }
+           
+           AWSTranscribeStreaming.register(with: config, forKey: "testWSSInitWithWebSocketProvider", webSocketProvider: mockWebSocketProvider)
+    
+           let client = AWSTranscribeStreaming(forKey: "testWSSInitWithWebSocketProvider")
+           
+           guard let request = AWSTranscribeStreamingStartStreamTranscriptionRequest() else {
+               XCTFail("request unexpectedly nil")
+               return
+           }
+    
+           request.languageCode = .enUS
+           request.mediaEncoding = .pcm
+           request.mediaSampleRateHertz = 8000
+           
+           let delegate = MockTranscribeStreamingClientDelegate()
+           let receiveConnected = expectation(description: "Callback received connected status")
+           delegate.connectionStatusCallback = { status, error in
+            if status == AWSTranscribeStreamingClientConnectionStatus.connected {
+                receiveConnected.fulfill()
+            }
+           }
+           
+           client.setDelegate(delegate, callbackQueue: DispatchQueue.global())
+           
+           client.startTranscriptionWSS(request)
+           
+           wait(for: [receiveConnected], timeout: 0.1)
+       }
+    
+       // Given: A web socket provider
+       // When: when registering the streaming client
+       // Then: the streaming client is able to use a third party web socket provider and open the socket and disconnect from it
+       func testWSSDisconnect() {
+           let mockWebSocketProvider = MockWebSocketProvider()
+           mockWebSocketProvider.setErrorOnConnectionStatusDidChange(error: nil)
+           guard let config = AWSServiceConfiguration(
+               region: .USEast1,
+               credentialsProvider: MockReturningCredentialsProvider()) else {
+                   XCTFail("Couldn't initialize config with MockErrorReturningCredentialsProvider")
+                   return
+           }
+           
+           AWSTranscribeStreaming.register(with: config, forKey: "testWSSInitWithWebSocketProvider", webSocketProvider: mockWebSocketProvider)
+    
+           let client = AWSTranscribeStreaming(forKey: "testWSSInitWithWebSocketProvider")
+           
+           guard let request = AWSTranscribeStreamingStartStreamTranscriptionRequest() else {
+               XCTFail("request unexpectedly nil")
+               return
+           }
+    
+           request.languageCode = .enUS
+           request.mediaEncoding = .pcm
+           request.mediaSampleRateHertz = 8000
+           
+           let delegate = MockTranscribeStreamingClientDelegate()
+    
+           let receiveClosed = expectation(description: "Callback received closed status")
+           delegate.connectionStatusCallback = { status, error in
+            if status == AWSTranscribeStreamingClientConnectionStatus.closed {
+                receiveClosed.fulfill()
+            }
+           }
+           
+           client.setDelegate(delegate, callbackQueue: DispatchQueue.global())
+           
+           client.startTranscriptionWSS(request)
+           mockWebSocketProvider.disconnect()
+           wait(for: [receiveClosed], timeout: 10)
+       }
+    
+       // Given: A web socket provider
+       // When: when registering the streaming client
+       // Then: the streaming client is able to use a third party web socket provider and open the socket
+       func testWSSSendData() {
+           let mockWebSocketProvider = MockWebSocketProvider()
+           mockWebSocketProvider.setErrorOnConnectionStatusDidChange(error: nil)
+           guard let config = AWSServiceConfiguration(
+               region: .USEast1,
+               credentialsProvider: MockReturningCredentialsProvider()) else {
+                   XCTFail("Couldn't initialize config with MockErrorReturningCredentialsProvider")
+                   return
+           }
+           
+           AWSTranscribeStreaming.register(with: config, forKey: "testWSSInitWithWebSocketProvider", webSocketProvider: mockWebSocketProvider)
+    
+           let client = AWSTranscribeStreaming(forKey: "testWSSInitWithWebSocketProvider")
+           
+           guard let request = AWSTranscribeStreamingStartStreamTranscriptionRequest() else {
+               XCTFail("request unexpectedly nil")
+               return
+           }
+    
+           request.languageCode = .enUS
+           request.mediaEncoding = .pcm
+           request.mediaSampleRateHertz = 8000
+           
+           let delegate = MockTranscribeStreamingClientDelegate()
+    
+           let receiveDataSend = expectation(description: "Callback received data")
+
+            delegate.receiveEventCallback = { data, error in
+                if error == nil {
+                    receiveDataSend.fulfill()
+                }
+            }
+     
+           client.setDelegate(delegate, callbackQueue: DispatchQueue.global())
+           
+           client.startTranscriptionWSS(request)
+            //add waiter to open web socket and make sure its connected before sending data.
+           mockWebSocketProvider.send(Data())
+           wait(for: [receiveDataSend], timeout: 10)
+       }
 }
 
 class MockAWSTranscribeStreamingClientDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
@@ -98,7 +224,7 @@ class MockWebSocketProvider: NSObject, AWSTranscribeStreamingWebSocketProvider{
         super.init()
     }
     
-    func setErrorOnConnectionStatusDidChange(error: NSError) {
+    func setErrorOnConnectionStatusDidChange(error: NSError?) {
         self.errorOnConnectionStatusDidChange = error
     }
     
