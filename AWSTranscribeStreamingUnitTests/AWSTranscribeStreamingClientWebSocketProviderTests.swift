@@ -12,10 +12,10 @@
 // express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-
+ 
 import XCTest
 @testable import AWSTranscribeStreaming
-
+ 
 class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
     
     
@@ -23,8 +23,11 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
     // When: when registering the streaming client
     // Then: the streaming client is able to use a third party web socket provider and open the socket
     func testWSSInitWithError() {
-        
         let mockWebSocketProvider = MockWebSocketProvider()
+        let errorOnConnectionStatus = NSError(domain: AWSTranscribeStreamingClientErrorDomain,
+                                              code: AWSTranscribeStreamingClientErrorCode.webSocketCouldNotInitialize.rawValue,
+                                              userInfo: [NSUnderlyingErrorKey:"bleh"])
+        mockWebSocketProvider.setErrorOnConnectionStatusDidChange(error: errorOnConnectionStatus)
         guard let config = AWSServiceConfiguration(
             region: .USEast1,
             credentialsProvider: MockReturningCredentialsProvider()) else {
@@ -33,14 +36,14 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
         }
         
         AWSTranscribeStreaming.register(with: config, forKey: "testWSSInitWithWebSocketProvider", webSocketProvider: mockWebSocketProvider)
-
+ 
         let client = AWSTranscribeStreaming(forKey: "testWSSInitWithWebSocketProvider")
         
         guard let request = AWSTranscribeStreamingStartStreamTranscriptionRequest() else {
             XCTFail("request unexpectedly nil")
             return
         }
-
+ 
         request.languageCode = .enUS
         request.mediaEncoding = .pcm
         request.mediaSampleRateHertz = 8000
@@ -49,10 +52,12 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
         let receiveError = expectation(description: "Callback received error")
         delegate.connectionStatusCallback = { status, error in
             if let error = error as NSError? {
-                receiveError.fulfill()
                 XCTAssertEqual(error.domain, AWSTranscribeStreamingClientErrorDomain)
                 XCTAssertEqual(error.code, AWSTranscribeStreamingClientErrorCode.webSocketCouldNotInitialize.rawValue)
                 XCTAssertNotNil(error.userInfo[NSUnderlyingErrorKey])
+ 
+                receiveError.fulfill()
+ 
             }
         }
         
@@ -65,45 +70,63 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
     
 }
 
-
+class MockAWSTranscribeStreamingClientDelegate: NSObject, AWSTranscribeStreamingClientDelegate {
+    func connectionStatusDidChange(_ connectionStatus: AWSTranscribeStreamingClientConnectionStatus, withError error: Error?) {
+        
+    }
+    
+    func didReceiveEvent(_ event: AWSTranscribeStreamingTranscriptResultStream?, decodingError: Error?) {
+        
+    }
+}
+ 
+ 
 class MockWebSocketProvider: NSObject, AWSTranscribeStreamingWebSocketProvider{
     
-    var webSocket: AWSTranscribeStreamingWebSocketProvider!
+    var webSocket: AWSTranscribeStreamingWebSocketProvider
     
-    var clientDelegate: AWSTranscribeStreamingClientDelegate!
+    var clientDelegate: AWSTranscribeStreamingClientDelegate
     
     var delegate: MockWebSocketProviderDelegate?
+    var errorOnConnectionStatusDidChange: NSError?
     
     override init() {
-        super.init()
-        clientDelegate = nil
-        webSocket = nil
+        clientDelegate = MockAWSTranscribeStreamingClientDelegate()
+        webSocket = AWSSRWebSocket()
         delegate = nil
+        errorOnConnectionStatusDidChange = nil
+        super.init()
     }
-
+    
+    func setErrorOnConnectionStatusDidChange(error: NSError) {
+        self.errorOnConnectionStatusDidChange = error
+    }
+    
     func send(_ data: Data) {
         self.webSocket.send(data)
     }
-
+ 
     func connect() {
         self.delegate?.webSocketDidOpen(webSocket)
     }
-
+ 
     func disconnect() {
         self.delegate?.webSocketDidCloseWithCode(webSocket, code: 0, reason: "clean", wasClean: true)
     }
-
+ 
     func setDelegate(_ delegate: AWSTranscribeStreamingClientDelegate, dispatchQueue: DispatchQueue) {
         self.clientDelegate = delegate
-        let adaptor = MockWebSocketProviderDelegate(clientDelegate: delegate, callbackQueue: dispatchQueue)
+        let adaptor = MockWebSocketProviderDelegate(clientDelegate: delegate,
+                                                    callbackQueue: dispatchQueue,
+                                                    errorOnConnectionStatusDidChange: self.errorOnConnectionStatusDidChange)
         self.delegate = adaptor
     }
-
+ 
     func configure(with urlRequest: URLRequest) {
         self.webSocket = AWSSRWebSocket(urlRequest: urlRequest)
     }
 }
-
+ 
 class MockReturningCredentialsProvider: NSObject, AWSCredentialsProvider {
     func credentials() -> AWSTask<AWSCredentials> {
         let credentials = AWSCredentials(accessKey: "memem", secretKey: "hahah", sessionKey: "lskdjflkd", expiration: nil)
@@ -114,27 +137,31 @@ class MockReturningCredentialsProvider: NSObject, AWSCredentialsProvider {
         // Do nothing
     }
 }
-
+ 
 class MockWebSocketProviderDelegate: NSObject {
     
     var clientDelegate:AWSTranscribeStreamingClientDelegate!
     var callbackQueue: DispatchQueue!
+    var errorOnConnectionStatusDidChange: NSError?
     
-    init(clientDelegate: AWSTranscribeStreamingClientDelegate, callbackQueue: DispatchQueue) {
+    init(clientDelegate: AWSTranscribeStreamingClientDelegate,
+         callbackQueue: DispatchQueue,
+         errorOnConnectionStatusDidChange: NSError?) {
         super.init()
         self.clientDelegate = clientDelegate
         self.callbackQueue = callbackQueue
+        self.errorOnConnectionStatusDidChange = errorOnConnectionStatusDidChange
     }
     
     func webSocket(_ webSocket: AWSTranscribeStreamingWebSocketProvider, didReceiveMessage message: Any!) {
-
+ 
         let decodingError = NSError()
         let result = try! AWSTranscribeStreamingEventDecoder.decodeEvent(message as! Data)
-
+ 
         callbackQueue.async {
             self.clientDelegate.didReceiveEvent(result, decodingError: decodingError)
         }
-
+ 
     }
     
     func webSocket(_ webSocket: AWSTranscribeStreamingWebSocketProvider, didFailWithError error: NSError?) {
@@ -146,38 +173,19 @@ class MockWebSocketProviderDelegate: NSObject {
     }
     
     func webSocketDidOpen(_ webSocket: AWSTranscribeStreamingWebSocketProvider) {
-
+ 
         let status = AWSTranscribeStreamingClientConnectionStatus.connected
         callbackQueue.async {
-            self.clientDelegate.connectionStatusDidChange(status, withError: nil)
+            self.clientDelegate.connectionStatusDidChange(status, withError: self.errorOnConnectionStatusDidChange)
         }
-
     }
     
     func webSocketDidCloseWithCode(_ webSocket: AWSTranscribeStreamingWebSocketProvider, code: Int, reason: String, wasClean: Bool) {
         
         let status = AWSTranscribeStreamingClientConnectionStatus.closed
-        var error: NSError? = nil
-        if !wasClean {
-        let errorCode = AWSTranscribeStreamingClientErrorCode.unknown
-        let userInfo: Dictionary<String, Any> = ["AWSSRStatusCode": code,
-                                            "AWSSRStatusReason": reason,
-                                            "AWSSRWasClean": wasClean]
-        let statusCode = AWSSRStatusCode(rawValue: code)
 
-        switch (statusCode) {
-
-            
-            default:
-                break
-            }
-
-            error = NSError(domain: AWSTranscribeStreamingClientErrorDomain, code: errorCode.rawValue, userInfo: userInfo)
-
-        }
-    
         callbackQueue.async {
-            self.clientDelegate.connectionStatusDidChange(status, withError: error)
+            self.clientDelegate.connectionStatusDidChange(status, withError: self.errorOnConnectionStatusDidChange)
         }
     }
 }
