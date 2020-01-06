@@ -12,6 +12,8 @@
   - Amazon Pinpoint
   - Amazon Transcribe
 
+- Updated copyright year throughout
+
 ## 2.12.3
 
 ### New Features
