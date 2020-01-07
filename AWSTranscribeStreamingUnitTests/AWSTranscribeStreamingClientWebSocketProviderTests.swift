@@ -26,7 +26,7 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
         let mockWebSocketProvider = MockWebSocketProvider()
         let errorOnConnectionStatus = NSError(domain: AWSTranscribeStreamingClientErrorDomain,
                                               code: AWSTranscribeStreamingClientErrorCode.webSocketCouldNotInitialize.rawValue,
-                                              userInfo: [NSUnderlyingErrorKey:"bleh"])
+                                              userInfo: [NSUnderlyingErrorKey:"errorKey"])
         mockWebSocketProvider.setErrorOnConnectionStatusDidChange(error: errorOnConnectionStatus)
         guard let config = AWSServiceConfiguration(
             region: .USEast1,
@@ -290,17 +290,17 @@ class MockWebSocketProviderDelegate: NSObject {
     
     func webSocket(_ webSocket: AWSTranscribeStreamingWebSocketProvider, didReceiveMessage message: Data) {
         
-        let result = AWSTranscribeStreamingTranscriptResultStream()
-        let transcriptEvent = AWSTranscribeStreamingTranscriptEvent()
+        let result: AWSTranscribeStreamingTranscriptResultStream = AWSTranscribeStreamingTranscriptResultStream()
+        let transcriptEvent:AWSTranscribeStreamingTranscriptEvent = AWSTranscribeStreamingTranscriptEvent()
         let str = String(decoding: message, as: UTF8.self)
-        let results = AWSTranscribeStreamingTranscript()
-        let resultStream = AWSTranscribeStreamingResult()
-        let alternative = AWSTranscribeStreamingAlternative()
-        alternative?.transcript = str
-        resultStream?.alternatives = [alternative!]
-        results?.results = [resultStream!]
-        transcriptEvent?.transcript = results
-        result?.transcriptEvent = transcriptEvent
+        let results: AWSTranscribeStreamingTranscript = AWSTranscribeStreamingTranscript()
+        let resultStream: AWSTranscribeStreamingResult = AWSTranscribeStreamingResult()
+        let alternative: AWSTranscribeStreamingAlternative = AWSTranscribeStreamingAlternative()
+        alternative.transcript = str
+        resultStream.alternatives = [alternative]
+        results.results = [resultStream]
+        transcriptEvent.transcript = results
+        result.transcriptEvent = transcriptEvent
         
         callbackQueue.async {
             self.clientDelegate.didReceiveEvent(result, decodingError: nil)
