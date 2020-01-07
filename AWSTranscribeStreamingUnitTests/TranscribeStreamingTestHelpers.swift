@@ -70,4 +70,3 @@ class MockWebSocket: AWSSRWebSocket {
         super.init()
     }
 }
-
