@@ -172,6 +172,8 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
                XCTFail("request unexpectedly nil")
                return
            }
+            let transcription = "some transcription"
+            let data = Data(transcription.utf8)
     
            request.languageCode = .enUS
            request.mediaEncoding = .pcm
@@ -180,7 +182,14 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
            let delegate = MockTranscribeStreamingClientDelegate()
     
            let receiveDataSend = expectation(description: "Callback received data")
-
+            delegate.connectionStatusCallback = { status, error in
+                
+                if status == AWSTranscribeStreamingClientConnectionStatus.connected {
+                    //send data once socket is connected
+            
+                mockWebSocketProvider.send(data)
+                }
+            }
             delegate.receiveEventCallback = { data, error in
                 if error == nil {
                     receiveDataSend.fulfill()
@@ -191,7 +200,7 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
            
            client.startTranscriptionWSS(request)
             //add waiter to open web socket and make sure its connected before sending data.
-           mockWebSocketProvider.send(Data())
+          
            wait(for: [receiveDataSend], timeout: 10)
        }
 }
@@ -229,7 +238,7 @@ class MockWebSocketProvider: NSObject, AWSTranscribeStreamingWebSocketProvider{
     }
     
     func send(_ data: Data) {
-        self.webSocket.send(data)
+        self.delegate?.webSocket(webSocket, didReceiveMessage: data)
     }
  
     func connect() {
@@ -279,13 +288,22 @@ class MockWebSocketProviderDelegate: NSObject {
         self.errorOnConnectionStatusDidChange = errorOnConnectionStatusDidChange
     }
     
-    func webSocket(_ webSocket: AWSTranscribeStreamingWebSocketProvider, didReceiveMessage message: Any!) {
+    func webSocket(_ webSocket: AWSTranscribeStreamingWebSocketProvider, didReceiveMessage message: Data) {
  
-        let decodingError = NSError()
-        let result = try! AWSTranscribeStreamingEventDecoder.decodeEvent(message as! Data)
+        let result = AWSTranscribeStreamingTranscriptResultStream()
+        let transcriptEvent = AWSTranscribeStreamingTranscriptEvent()
+        let str = String(decoding: message, as: UTF8.self)
+        let results = AWSTranscribeStreamingTranscript()
+        let resultStream = AWSTranscribeStreamingResult()
+        let alternative = AWSTranscribeStreamingAlternative()
+        alternative?.transcript = str
+        resultStream?.alternatives = [alternative!]
+        results?.results = [resultStream!]
+        transcriptEvent?.transcript = results
+        result?.transcriptEvent = transcriptEvent
  
         callbackQueue.async {
-            self.clientDelegate.didReceiveEvent(result, decodingError: decodingError)
+            self.clientDelegate.didReceiveEvent(result, decodingError: nil)
         }
  
     }
