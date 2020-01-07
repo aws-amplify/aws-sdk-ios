@@ -20,6 +20,12 @@
 #import "AWSTranscribeStreamingEventDecoder.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
 
+@interface AWSSRWebSocketAdaptor()
+
+@property(nonatomic, strong, readwrite) AWSSRWebSocketDelegateAdaptor *delegate;
+
+@end
+
 @implementation AWSSRWebSocketAdaptor
 
 /**

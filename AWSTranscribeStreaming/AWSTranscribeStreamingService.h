@@ -173,7 +173,7 @@ For example, set the default service configuration in `- application:didFinishLa
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
        let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-       let webSocketProvider = NativeWebSocketProvider()
+       let webSocketProvider = MyCustomNativeWebSocketProvider()
        AWSTranscribeStreaming.register(with: configuration!, forKey: "USWest2TranscribeStreaming", webSocketProvider: webSocketProvider)
 
        return true
@@ -186,7 +186,7 @@ For example, set the default service configuration in `- application:didFinishLa
                                                                                                         identityPoolId:@"YourIdentityPoolId"];
         AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                              credentialsProvider:credentialsProvider];
-        NativeWebSocketProvider *webSocketProvider =  [[NativeWebSocketProvider alloc] init;
+        MyCustomNativeWebSocketProvider *webSocketProvider =  [[MyCustomNativeWebSocketProvider alloc] init;
 
         [AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:configuration forKey:@"USWest2TranscribeStreaming" webSocketProvider:webSocketProvider];
 

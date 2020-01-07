@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSSRWebSocketAdaptor : NSObject <AWSTranscribeStreamingWebSocketProvider>
 
-@property(nonatomic, strong) AWSSRWebSocketDelegateAdaptor *delegate;
+@property(nonatomic, strong, readonly) AWSSRWebSocketDelegateAdaptor *delegate;
 @property(nonatomic, strong) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
 @property(nonatomic, strong) AWSSRWebSocket *webSocket;
 
