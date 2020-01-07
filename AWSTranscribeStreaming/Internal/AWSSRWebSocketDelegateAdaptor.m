@@ -32,7 +32,7 @@
 
 /**
  Initializes the adaptor with a client delegate
-
+ 
  @param clientDelegate the client delegate that will be invoked when the underlying AWSSRWebSocket delegate
  messages are received
  */
@@ -50,14 +50,14 @@
 /**
  @param webSocket the web socket receiving the message
  @param data the data received
-*/
+ */
 - (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(NSData *)data {
-
+    
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
     NSError *decodingError;
     AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)data
                                                                                              decodingError:&decodingError];
-
+    
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate didReceiveEvent:result
                                decodingError:decodingError];
@@ -74,7 +74,7 @@
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
-
+    
     NSInteger status = AWSTranscribeStreamingClientConnectionStatusConnected;
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:nil];
@@ -91,7 +91,7 @@
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
-
+    
     NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
     switch (webSocket.readyState) {
         case AWSSR_CONNECTING:
@@ -107,7 +107,7 @@
             status = AWSTranscribeStreamingClientConnectionStatusClosed;
             break;
     }
-
+    
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:error];
     });
@@ -127,12 +127,12 @@
     if (!wasClean) {
         NSInteger errorCode = AWSTranscribeStreamingClientErrorCodeUnknown;
         NSDictionary<NSString *, id> *userInfo = @{
-                                                   NSLocalizedFailureReasonErrorKey: reason,
-                                                   @"AWSSRStatusCode": @(code),
-                                                   @"AWSSRStatusReason": reason,
-                                                   @"AWSSRWasClean": @(wasClean)
-                                                   };
-
+            NSLocalizedFailureReasonErrorKey: reason,
+            @"AWSSRStatusCode": @(code),
+            @"AWSSRStatusReason": reason,
+            @"AWSSRWasClean": @(wasClean)
+        };
+        
         switch (code) {
             case AWSSRStatusCodeNormal:
                 break;
@@ -160,13 +160,13 @@
             default:
                 break;
         }
-
+        
         error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                     code:errorCode
                                 userInfo:userInfo];
-
+        
     }
-
+    
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:error];
     });

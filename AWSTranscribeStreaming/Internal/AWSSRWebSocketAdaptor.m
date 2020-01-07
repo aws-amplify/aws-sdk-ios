@@ -37,13 +37,13 @@
      dispatchQueue:(dispatch_queue_t)dispatchQueue {
     self.clientDelegate = delegate;
     AWSSRWebSocketDelegateAdaptor *adaptor = [[AWSSRWebSocketDelegateAdaptor alloc]
-                                                    initWithClientDelegate:delegate callbackQueue:dispatchQueue];
+                                              initWithClientDelegate:delegate callbackQueue:dispatchQueue];
     self.delegate = adaptor;
 }
 
 /**
-  @param data the data to send over the web socket
-*/
+ @param data the data to send over the web socket
+ */
 - (void)send:(NSData *)data {
     AWSDDLogVerbose(@"Web socket %@ sends %@", self.webSocket, data);
     [self.webSocket send:data];
