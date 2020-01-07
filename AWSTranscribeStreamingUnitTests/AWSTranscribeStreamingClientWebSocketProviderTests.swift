@@ -18,7 +18,6 @@ import XCTest
 
 class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
     
-    
     // Given: A web socket provider
     // When: when registering the streaming client
     // Then: the streaming client is able to use a third party web socket provider and open the socket but error
@@ -153,7 +152,7 @@ class AWSTranscribeStreamingClientWebSocketProviderTest: XCTestCase {
     
     // Given: A web socket provider
     // When: when registering the streaming client
-    // Then: the streaming client is able to use a third party web socket provider and open the socket
+    // Then: the streaming client is able to use a third party web socket provider and open the socket and send data
     func testWSSSendData() {
         let mockWebSocketProvider = MockWebSocketProvider()
         mockWebSocketProvider.setErrorOnConnectionStatusDidChange(error: nil)
@@ -214,7 +213,6 @@ class MockAWSTranscribeStreamingClientDelegate: NSObject, AWSTranscribeStreaming
         
     }
 }
-
 
 class MockWebSocketProvider: NSObject, AWSTranscribeStreamingWebSocketProvider{
     
@@ -305,7 +303,6 @@ class MockWebSocketProviderDelegate: NSObject {
         callbackQueue.async {
             self.clientDelegate.didReceiveEvent(result, decodingError: nil)
         }
-        
     }
     
     func webSocket(_ webSocket: AWSTranscribeStreamingWebSocketProvider, didFailWithError error: NSError?) {
