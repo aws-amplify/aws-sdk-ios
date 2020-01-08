@@ -105,6 +105,7 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
                 return
             }
             XCTAssertEqual(signInResult.signInState, .customChallenge, "SignIn state should be custom challenge")
+            XCTAssertEqual(signInResult.parameters["testKey"], "testResult", "Should return challenge parameters")
         }
         wait(for: [signInSuccessfulExpectation], timeout: 10)
         
