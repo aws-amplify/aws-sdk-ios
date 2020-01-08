@@ -12,7 +12,8 @@
   - Amazon Pinpoint
   - Amazon Transcribe
   
-- TranscribeStreaming SDK has been extended to now take a web socket provider native and or otherwise of your choosing. Functionality and code does not change for you if you are already depending on the existing web socket provider, Socket Rocket.
+- **Amazon Transcribe Streaming**
+- The Amazon Transcribe streaming SDK can now be configured with a custom web socket provider that overrides the default web socket provider, Socket Rocket.
 
 - Updated copyright year throughout
 
