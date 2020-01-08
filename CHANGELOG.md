@@ -8,6 +8,8 @@
 
 - Model updates for the following services:
   - Amazon EC2
+  
+  -TranscribeStreaming SDK has been extended to now take a web socket provider native and or otherwise of your choosing. Functionality and code does not change for you if you are already depending on the existing web socket provider, Socket Rocket.
 
 ## 2.12.3
 
