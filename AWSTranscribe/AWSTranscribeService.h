@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -200,6 +200,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateVocabularyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a new vocabulary filter that you can use to filter words, such as profane words, from the output of a transcription job.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVocabularyFilter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeCreateVocabularyFilterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeCreateVocabularyFilterRequest
+ @see AWSTranscribeCreateVocabularyFilterResponse
+ */
+- (AWSTask<AWSTranscribeCreateVocabularyFilterResponse *> *)createVocabularyFilter:(AWSTranscribeCreateVocabularyFilterRequest *)request;
+
+/**
+ <p>Creates a new vocabulary filter that you can use to filter words, such as profane words, from the output of a transcription job.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateVocabularyFilter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeCreateVocabularyFilterRequest
+ @see AWSTranscribeCreateVocabularyFilterResponse
+ */
+- (void)createVocabularyFilter:(AWSTranscribeCreateVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateVocabularyFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTranscriptionJob service method.
@@ -242,6 +267,28 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeDeleteVocabularyRequest
  */
 - (void)deleteVocabulary:(AWSTranscribeDeleteVocabularyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes a vocabulary filter.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVocabularyFilter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeDeleteVocabularyFilterRequest
+ */
+- (AWSTask *)deleteVocabularyFilter:(AWSTranscribeDeleteVocabularyFilterRequest *)request;
+
+/**
+ <p>Removes a vocabulary filter.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteVocabularyFilter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeDeleteVocabularyFilterRequest
+ */
+- (void)deleteVocabularyFilter:(AWSTranscribeDeleteVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns information about a transcription job. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.</p>
@@ -294,6 +341,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)getVocabulary:(AWSTranscribeGetVocabularyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeGetVocabularyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns information about a vocabulary filter.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVocabularyFilter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeGetVocabularyFilterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorBadRequest`.
+ 
+ @see AWSTranscribeGetVocabularyFilterRequest
+ @see AWSTranscribeGetVocabularyFilterResponse
+ */
+- (AWSTask<AWSTranscribeGetVocabularyFilterResponse *> *)getVocabularyFilter:(AWSTranscribeGetVocabularyFilterRequest *)request;
+
+/**
+ <p>Returns information about a vocabulary filter.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetVocabularyFilter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorBadRequest`.
+ 
+ @see AWSTranscribeGetVocabularyFilterRequest
+ @see AWSTranscribeGetVocabularyFilterResponse
+ */
+- (void)getVocabularyFilter:(AWSTranscribeGetVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeGetVocabularyFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists transcription jobs with the specified status.</p>
  
  @param request A container for the necessary parameters to execute the ListTranscriptionJobs service method.
@@ -344,6 +416,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)listVocabularies:(AWSTranscribeListVocabulariesRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListVocabulariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets information about vocabulary filters.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListVocabularyFilters service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeListVocabularyFiltersResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListVocabularyFiltersRequest
+ @see AWSTranscribeListVocabularyFiltersResponse
+ */
+- (AWSTask<AWSTranscribeListVocabularyFiltersResponse *> *)listVocabularyFilters:(AWSTranscribeListVocabularyFiltersRequest *)request;
+
+/**
+ <p>Gets information about vocabulary filters.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListVocabularyFilters service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListVocabularyFiltersRequest
+ @see AWSTranscribeListVocabularyFiltersResponse
+ */
+- (void)listVocabularyFilters:(AWSTranscribeListVocabularyFiltersRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListVocabularyFiltersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Starts an asynchronous job to transcribe speech to text. </p>
  
  @param request A container for the necessary parameters to execute the StartTranscriptionJob service method.
@@ -392,6 +489,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeUpdateVocabularyResponse
  */
 - (void)updateVocabulary:(AWSTranscribeUpdateVocabularyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeUpdateVocabularyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates a vocabulary filter with a new list of filtered words.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateVocabularyFilter service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeUpdateVocabularyFilterResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorNotFound`.
+ 
+ @see AWSTranscribeUpdateVocabularyFilterRequest
+ @see AWSTranscribeUpdateVocabularyFilterResponse
+ */
+- (AWSTask<AWSTranscribeUpdateVocabularyFilterResponse *> *)updateVocabularyFilter:(AWSTranscribeUpdateVocabularyFilterRequest *)request;
+
+/**
+ <p>Updates a vocabulary filter with a new list of filtered words.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateVocabularyFilter service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorNotFound`.
+ 
+ @see AWSTranscribeUpdateVocabularyFilterRequest
+ @see AWSTranscribeUpdateVocabularyFilterResponse
+ */
+- (void)updateVocabularyFilter:(AWSTranscribeUpdateVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeUpdateVocabularyFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

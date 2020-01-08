@@ -8,8 +8,13 @@
 
 - Model updates for the following services:
   - Amazon EC2
+  - Amazon IoT
+  - Amazon Pinpoint
+  - Amazon Transcribe
   
-  -TranscribeStreaming SDK has been extended to now take a web socket provider native and or otherwise of your choosing. Functionality and code does not change for you if you are already depending on the existing web socket provider, Socket Rocket.
+- TranscribeStreaming SDK has been extended to now take a web socket provider native and or otherwise of your choosing. Functionality and code does not change for you if you are already depending on the existing web socket provider, Socket Rocket.
+
+- Updated copyright year throughout
 
 ## 2.12.3
 

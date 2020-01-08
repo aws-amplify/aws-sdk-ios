@@ -18,11 +18,9 @@
 #import "AWSPinpointDateUtils.h"
 #import "AWSPinpointNotificationManager.h"
 #import "AWSPinpointEndpointProfile.h"
-#import "AWSPinpointEventRecorder.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointTargetingService.h"
 #import "AWSPinpointConfiguration.h"
-#import "AWSPinpointEventRecorder.h"
 
 NSString *const AWSPinpointEndpointAttributesKey = @"AWSPinpointEndpointAttributesKey";
 NSString *const AWSPinpointEndpointMetricsKey = @"AWSPinpointEndpointMetricsKey";
@@ -32,11 +30,11 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 
 @interface AWSPinpointTargetingClient()
 
-@property (nonatomic) AWSPinpointContext *context;
+@property (nonatomic, weak) AWSPinpointContext *context;
+
 @property (nonatomic) NSMutableArray* endpointObservers;
 @property (nonatomic) NSMutableDictionary* globalAttributes;
 @property (nonatomic) NSMutableDictionary* globalMetrics;
-@property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
 @property (nonatomic) AWSPinpointEndpointProfile *endpointProfile;
 
 @end
@@ -51,14 +49,6 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context;
 - (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context;
 - (void) setEndpointOptOut:(BOOL) applicationLevelOptOut;
-@end
-
-@interface AWSPinpointEventRecorder ()
-- (instancetype) initWithContext:(AWSPinpointContext *) context;
-- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
-- (AWSTask *) putEvents:(NSDictionary *)temporaryEvents
-                  error:(NSError* __autoreleasing *) error
-        endpointProfile:(AWSPinpointEndpointProfile *) profile;
 @end
 
 @implementation AWSPinpointTargetingClient
@@ -76,7 +66,6 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         _globalAttributes = [[NSMutableDictionary alloc] initWithDictionary:customAttributes];
         NSDictionary *customMetrics = [context.configuration.userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
         _globalMetrics = [[NSMutableDictionary alloc] initWithDictionary:customMetrics];
-        _eventRecorder = [[AWSPinpointEventRecorder alloc] initWithContext:context];
     }
     
     return self;

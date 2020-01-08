@@ -781,7 +781,10 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     if([challengeResponses objectForKey:@"USERNAME"] != nil){
         self.username = [challengeResponses objectForKey:@"USERNAME"];
     }
-    return [[self performRespondToAuthChallenge:challengeResponses challengeName:AWSCognitoIdentityProviderChallengeNameTypeCustomChallenge session:session] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
+    return [[self performRespondToAuthChallenge: challengeResponses
+                                  challengeName: AWSCognitoIdentityProviderChallengeNameTypeCustomChallenge
+                                 clientMetaData: challengeDetails.clientMetaData
+                                        session: session] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
         //if there was an error, it may be due to the device being forgotten, reset the device and retry if that is the case
         return [self forgetDeviceOnRespondDeviceNotFoundError:task retryContinuation:^AWSTask *{
             return [self performRespondCustomAuthChallenge:challengeDetails session:session];
@@ -801,7 +804,10 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         [challengeResponses setObject:userAttribute.value forKey: [NSString stringWithFormat:@"%@%@", AWSCognitoIdentityUserUserAttributePrefix, userAttribute.name]];
     }
     
-    return [self performRespondToAuthChallenge:challengeResponses challengeName:AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired session:session];
+    return [self performRespondToAuthChallenge:challengeResponses
+                                 challengeName:AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired
+                                clientMetaData: details.clientMetaData
+                                       session:session];
 }
 
 
@@ -818,20 +824,35 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 /**
  * Run respond to auth challenges
  */
-- (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>*) performRespondToAuthChallenge: (NSMutableDictionary *) challengeResponses challengeName: (AWSCognitoIdentityProviderChallengeNameType) challengeName session: (NSString *) session{
+- (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>*) performRespondToAuthChallenge: (NSMutableDictionary *) challengeResponses
+                                                                                        challengeName: (AWSCognitoIdentityProviderChallengeNameType) challengeName
+                                                                                              session: (NSString *) session {
+    return [self performRespondToAuthChallenge:challengeResponses
+                                 challengeName:challengeName
+                                clientMetaData: nil
+                                       session:session];
+}
+
+/**
+ * Run respond to auth challenges
+ */
+- (AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse*>*) performRespondToAuthChallenge:(NSMutableDictionary *) challengeResponses
+                                                                                        challengeName:(AWSCognitoIdentityProviderChallengeNameType) challengeName
+                                                                                       clientMetaData:(NSDictionary *) clientMetaData
+                                                                                              session:(NSString *) session {
     AWSCognitoIdentityProviderRespondToAuthChallengeRequest *request = [AWSCognitoIdentityProviderRespondToAuthChallengeRequest new];
     request.session = session;
     request.clientId = self.pool.userPoolConfiguration.clientId;
     request.challengeName = challengeName;
+    request.clientMetadata = clientMetaData;
     request.analyticsMetadata = [self.pool analyticsMetadata];
     request.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
-    
+
     [self addSecretHashDeviceKeyAndUsername:challengeResponses];
     request.challengeResponses = challengeResponses;
-    
+
     return [self.pool.client respondToAuthChallenge:request];
 }
-
 /**
  * Perform SRP based authentication (initiateAuth(SRP_AUTH) and respondToAuthChallenge) given a username and password. If lastChallenge is supplied it starts with respondToAuthChallenge instead of initiate.
  */

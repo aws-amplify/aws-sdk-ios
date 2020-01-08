@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -2041,6 +2041,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingListTemplateVersionsResponse *> *)listTemplateVersions:(AWSPinpointTargetingListTemplateVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/templates/{template-name}/{template-type}/versions"
+                  targetPrefix:@""
+                 operationName:@"ListTemplateVersions"
+                   outputClass:[AWSPinpointTargetingListTemplateVersionsResponse class]];
+}
+
+- (void)listTemplateVersions:(AWSPinpointTargetingListTemplateVersionsRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingListTemplateVersionsResponse *response, NSError *error))completionHandler {
+    [[self listTemplateVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingListTemplateVersionsResponse *> * _Nonnull task) {
+        AWSPinpointTargetingListTemplateVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingListTemplatesResponse *> *)listTemplates:(AWSPinpointTargetingListTemplatesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2673,6 +2696,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingUpdateSmsTemplateResponse *response, NSError *error))completionHandler {
     [[self updateSmsTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateSmsTemplateResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdateSmsTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingUpdateTemplateActiveVersionResponse *> *)updateTemplateActiveVersion:(AWSPinpointTargetingUpdateTemplateActiveVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/v1/templates/{template-name}/{template-type}/active-version"
+                  targetPrefix:@""
+                 operationName:@"UpdateTemplateActiveVersion"
+                   outputClass:[AWSPinpointTargetingUpdateTemplateActiveVersionResponse class]];
+}
+
+- (void)updateTemplateActiveVersion:(AWSPinpointTargetingUpdateTemplateActiveVersionRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingUpdateTemplateActiveVersionResponse *response, NSError *error))completionHandler {
+    [[self updateTemplateActiveVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateTemplateActiveVersionResponse *> * _Nonnull task) {
+        AWSPinpointTargetingUpdateTemplateActiveVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

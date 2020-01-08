@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -979,6 +979,16 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 @end
 
+@implementation AWSIoTAwsJobPresignedUrlConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expiresInSec" : @"expiresInSec",
+             };
+}
+
+@end
+
 @implementation AWSIoTBehavior
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1909,9 +1919,11 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"additionalParameters" : @"additionalParameters",
              @"awsJobExecutionsRolloutConfig" : @"awsJobExecutionsRolloutConfig",
+             @"awsJobPresignedUrlConfig" : @"awsJobPresignedUrlConfig",
              @"detail" : @"description",
              @"files" : @"files",
              @"otaUpdateId" : @"otaUpdateId",
+             @"protocols" : @"protocols",
              @"roleArn" : @"roleArn",
              @"tags" : @"tags",
              @"targetSelection" : @"targetSelection",
@@ -1921,6 +1933,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)awsJobExecutionsRolloutConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobExecutionsRolloutConfig class]];
+}
+
++ (NSValueTransformer *)awsJobPresignedUrlConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobPresignedUrlConfig class]];
 }
 
 + (NSValueTransformer *)filesJSONTransformer {
@@ -7725,6 +7741,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"awsIotJobArn" : @"awsIotJobArn",
              @"awsIotJobId" : @"awsIotJobId",
              @"awsJobExecutionsRolloutConfig" : @"awsJobExecutionsRolloutConfig",
+             @"awsJobPresignedUrlConfig" : @"awsJobPresignedUrlConfig",
              @"creationDate" : @"creationDate",
              @"detail" : @"description",
              @"errorInfo" : @"errorInfo",
@@ -7733,6 +7750,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"otaUpdateFiles" : @"otaUpdateFiles",
              @"otaUpdateId" : @"otaUpdateId",
              @"otaUpdateStatus" : @"otaUpdateStatus",
+             @"protocols" : @"protocols",
              @"targetSelection" : @"targetSelection",
              @"targets" : @"targets",
              };
@@ -7740,6 +7758,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)awsJobExecutionsRolloutConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobExecutionsRolloutConfig class]];
+}
+
++ (NSValueTransformer *)awsJobPresignedUrlConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTAwsJobPresignedUrlConfig class]];
 }
 
 + (NSValueTransformer *)creationDateJSONTransformer {
