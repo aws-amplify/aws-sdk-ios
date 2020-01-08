@@ -11,6 +11,9 @@
   - Amazon IoT
   - Amazon Pinpoint
   - Amazon Transcribe
+  
+- **Amazon Transcribe Streaming**
+   -  The Amazon Transcribe streaming SDK can now be configured with a custom web socket provider that overrides the default web socket provider, Socket Rocket.
 
 - Updated copyright year throughout
 

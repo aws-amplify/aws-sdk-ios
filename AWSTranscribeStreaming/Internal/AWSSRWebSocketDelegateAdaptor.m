@@ -17,6 +17,9 @@
 #import "AWSSRWebSocketDelegateAdaptor.h"
 #import "AWSTranscribeStreamingEventDecoder.h"
 #import "AWSTranscribeStreamingClientDelegate.h"
+#import "AWSTranscribeStreamingWebSocketProvider.h"
+#import "AWSSRWebSocketAdaptor.h"
+#import "AWSSRWebSocket+TranscribeStreaming.h"
 
 @interface AWSSRWebSocketDelegateAdaptor ()
 
@@ -29,7 +32,7 @@
 
 /**
  Initializes the adaptor with a client delegate
-
+ 
  @param clientDelegate the client delegate that will be invoked when the underlying AWSSRWebSocket delegate
  messages are received
  */
@@ -43,31 +46,27 @@
     return self;
 }
 
+#pragma mark - Optional protocol methods to fulfill Socket Rocket protocol
 /**
- Converts incoming WSS message to a AWSTranscribeStreamingTranscriptResultStream and invokes the client delegate
- `didReceiveEvent` callback
-
  @param webSocket the web socket receiving the message
- @param message the message
-*/
-- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(id)message {
+ @param data the data received
+ */
+- (void)webSocket:(AWSSRWebSocket *)webSocket didReceiveMessage:(NSData *)data {
+    
     AWSDDLogVerbose(@"Web socket %@ didReceiveMessage", webSocket);
     NSError *decodingError;
-    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)message
+    AWSTranscribeStreamingTranscriptResultStream *result = [AWSTranscribeStreamingEventDecoder decodeEvent:(NSData *)data
                                                                                              decodingError:&decodingError];
-
+    
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate didReceiveEvent:result
                                decodingError:decodingError];
     });
 }
 
-#pragma mark - Optional protocol methods
-
 /**
  Converts the AWSSR ready state to a AWSTranscribeStreamingClientDelegateConnectionStatus and invokes the client
  delegate `connectionStatusDidChange` callback
-
  @param webSocket the web socket that opened
  */
 - (void)webSocketDidOpen:(AWSSRWebSocket *)webSocket {
@@ -75,7 +74,7 @@
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
-
+    
     NSInteger status = AWSTranscribeStreamingClientConnectionStatusConnected;
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:nil];
@@ -84,7 +83,6 @@
 
 /**
  The websocket failed due to an error
-
  @param webSocket the web socket that failed
  @param error the error causing the failure
  */
@@ -93,7 +91,7 @@
     if (![self.clientDelegate respondsToSelector:@selector(connectionStatusDidChange:withError:)]) {
         return;
     }
-
+    
     NSInteger status = AWSTranscribeStreamingClientConnectionStatusUnknown;
     switch (webSocket.readyState) {
         case AWSSR_CONNECTING:
@@ -109,7 +107,7 @@
             status = AWSTranscribeStreamingClientConnectionStatusClosed;
             break;
     }
-
+    
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:error];
     });
@@ -129,12 +127,12 @@
     if (!wasClean) {
         NSInteger errorCode = AWSTranscribeStreamingClientErrorCodeUnknown;
         NSDictionary<NSString *, id> *userInfo = @{
-                                                   NSLocalizedFailureReasonErrorKey: reason,
-                                                   @"AWSSRStatusCode": @(code),
-                                                   @"AWSSRStatusReason": reason,
-                                                   @"AWSSRWasClean": @(wasClean)
-                                                   };
-
+            NSLocalizedFailureReasonErrorKey: reason,
+            @"AWSSRStatusCode": @(code),
+            @"AWSSRStatusReason": reason,
+            @"AWSSRWasClean": @(wasClean)
+        };
+        
         switch (code) {
             case AWSSRStatusCodeNormal:
                 break;
@@ -162,13 +160,13 @@
             default:
                 break;
         }
-
+        
         error = [NSError errorWithDomain:AWSTranscribeStreamingClientErrorDomain
                                     code:errorCode
                                 userInfo:userInfo];
-
+        
     }
-
+    
     dispatch_async(self.callbackQueue, ^(void){
         [self.clientDelegate connectionStatusDidChange:status withError:error];
     });
@@ -178,5 +176,4 @@
     // Part of wss protocol, ignore
     AWSDDLogVerbose(@"%@ received pong %@", webSocket, pongPayload);
 }
-
 @end
