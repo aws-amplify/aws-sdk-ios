@@ -42,3 +42,4 @@ FOUNDATION_EXPORT const unsigned char AWSTranscribeStreamingVersionString[] DEPR
 #import "AWSTranscribeStreamingClientDelegate.h"
 #import "AWSTranscribeStreamingModel.h"
 #import "AWSTranscribeStreamingService.h"
+#import "AWSTranscribeStreamingWebSocketProvider.h"

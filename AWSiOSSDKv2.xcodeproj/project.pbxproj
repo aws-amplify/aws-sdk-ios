@@ -5802,6 +5802,7 @@
 				178A801D22AF7DE600B167D6 /* AWSTranscribeStreamingResources.m */,
 				178A801822AF7DE500B167D6 /* AWSTranscribeStreamingService.h */,
 				178A801922AF7DE500B167D6 /* AWSTranscribeStreamingService.m */,
+				95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */,
 				178A800F22AF7DA600B167D6 /* Info.plist */,
 			);
 			path = AWSTranscribeStreaming;
@@ -8204,7 +8205,6 @@
 				FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */,
 				FABD9ED522D6AC8A00BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.h */,
 				FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */,
-				95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
