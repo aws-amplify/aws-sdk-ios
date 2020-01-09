@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## [Unreleased]
+## 2.12.4
 
 ### New Features
 
@@ -14,7 +14,11 @@
 
 ### Misc. Updates
 
-- Improved error handling on network requests by propagating errors encountered deserializing the NSURLSessionDelegate's response in the returned error's `userInfo` dictionary. If present, the response object's error will be under the new key `AWSResponseObjectErrorUserInfoKey`.  (See [issue #1062](https://github.com/aws-amplify/aws-sdk-ios/issues/1062) and [PR #2052](https://github.com/aws-amplify/aws-sdk-ios/pull/2052)).  Thanks @coredumped!
+- **AWSCore**
+  - Improved error handling on network requests by propagating errors encountered deserializing the NSURLSessionDelegate's response in the returned error's `userInfo` dictionary. If present, the response object's error will be under the new key `AWSResponseObjectErrorUserInfoKey`.  (See [issue #1062](https://github.com/aws-amplify/aws-sdk-ios/issues/1062) and [PR #2052](https://github.com/aws-amplify/aws-sdk-ios/pull/2052)).  Thanks @coredumped!
+
+- **Amazon Transcribe Streaming**
+   - The Amazon Transcribe streaming SDK can now be configured with a custom web socket provider that overrides the default web socket provider, Socket Rocket.
 
 - Model updates for the following services:
   - Amazon EC2
@@ -22,9 +26,6 @@
   - Amazon Pinpoint
   - Amazon Transcribe
   
-- **Amazon Transcribe Streaming**
-   -  The Amazon Transcribe streaming SDK can now be configured with a custom web socket provider that overrides the default web socket provider, Socket Rocket.
-
 - Updated copyright year throughout
 
 ## 2.12.3
