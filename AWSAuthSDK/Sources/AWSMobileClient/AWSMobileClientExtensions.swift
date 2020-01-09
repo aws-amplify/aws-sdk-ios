@@ -875,7 +875,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         }
     }
     
-    func getCustomAuthenticationDetails(_ customAuthentiationInput: AWSCognitoIdentityCustomAuthenticationInput,
+    func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
                                         customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
         
         self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
@@ -890,7 +890,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         } else {
             // If user is not signedIn, we reach here as part of the signIn flow. Next step
             // is to inform the user to enter custom auth challenge.
-            let result = SignInResult(signInState: .customChallenge, codeDetails: nil)
+            let result = SignInResult(signInState: .customChallenge,
+                                      parameters: customAuthenticationInput.challengeParameters,
+                                      codeDetails: nil)
             invokeSignInCallback(signResult: result, error: nil)
         }
     }
