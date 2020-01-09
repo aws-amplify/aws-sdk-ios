@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.12.4
+## 2.12.5
 
 ### New Features
 
@@ -27,6 +27,12 @@
   - Amazon Transcribe
   
 - Updated copyright year throughout
+
+## 2.12.4
+
+### Deprecated release
+
+This release is deprecated due to errors. Please use 2.12.5 or greater.
 
 ## 2.12.3
 
