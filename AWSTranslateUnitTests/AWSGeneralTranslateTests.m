@@ -104,6 +104,54 @@ static id mockNetworking = nil;
     [AWSTranslate removeTranslateForKey:key];
 }
 
+- (void)testDescribeTextTranslationJob {
+    NSString *key = @"testDescribeTextTranslationJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranslate TranslateForKey:key] describeTextTranslationJob:[AWSTranslateDescribeTextTranslationJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testDescribeTextTranslationJobCompletionHandler {
+    NSString *key = @"testDescribeTextTranslationJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranslate TranslateForKey:key] describeTextTranslationJob:[AWSTranslateDescribeTextTranslationJobRequest new] completionHandler:^(AWSTranslateDescribeTextTranslationJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
 - (void)testGetTerminology {
     NSString *key = @"testGetTerminology";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -235,6 +283,150 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSTranslate TranslateForKey:key] listTerminologies:[AWSTranslateListTerminologiesRequest new] completionHandler:^(AWSTranslateListTerminologiesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testListTextTranslationJobs {
+    NSString *key = @"testListTextTranslationJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranslate TranslateForKey:key] listTextTranslationJobs:[AWSTranslateListTextTranslationJobsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testListTextTranslationJobsCompletionHandler {
+    NSString *key = @"testListTextTranslationJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranslate TranslateForKey:key] listTextTranslationJobs:[AWSTranslateListTextTranslationJobsRequest new] completionHandler:^(AWSTranslateListTextTranslationJobsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testStartTextTranslationJob {
+    NSString *key = @"testStartTextTranslationJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranslate TranslateForKey:key] startTextTranslationJob:[AWSTranslateStartTextTranslationJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testStartTextTranslationJobCompletionHandler {
+    NSString *key = @"testStartTextTranslationJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranslate TranslateForKey:key] startTextTranslationJob:[AWSTranslateStartTextTranslationJobRequest new] completionHandler:^(AWSTranslateStartTextTranslationJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testStopTextTranslationJob {
+    NSString *key = @"testStopTextTranslationJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranslate TranslateForKey:key] stopTextTranslationJob:[AWSTranslateStopTextTranslationJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranslate removeTranslateForKey:key];
+}
+
+- (void)testStopTextTranslationJobCompletionHandler {
+    NSString *key = @"testStopTextTranslationJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranslate registerTranslateWithConfiguration:configuration forKey:key];
+
+    AWSTranslate *awsClient = [AWSTranslate TranslateForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranslate TranslateForKey:key] stopTextTranslationJob:[AWSTranslateStopTextTranslationJobRequest new] completionHandler:^(AWSTranslateStopTextTranslationJobResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
