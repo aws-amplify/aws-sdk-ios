@@ -6499,6 +6499,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"clientToken" : @"ClientToken",
              @"dryRun" : @"DryRun",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
+             @"privateDnsName" : @"PrivateDnsName",
              };
 }
 
@@ -8466,9 +8467,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              @"egressOnlyInternetGatewayIds" : @"EgressOnlyInternetGatewayIds",
+             @"filters" : @"Filters",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
 }
 
 @end
@@ -15878,11 +15884,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"attachments" : @"Attachments",
              @"egressOnlyInternetGatewayId" : @"EgressOnlyInternetGatewayId",
+             @"tags" : @"Tags",
              };
 }
 
 + (NSValueTransformer *)attachmentsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InternetGatewayAttachment class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -28983,6 +28994,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2LastError
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"message" : @"Message",
+             };
+}
+
+@end
+
 @implementation AWSEC2LaunchPermission
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -33143,7 +33165,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"outpostArn" : @"OutpostArn",
              @"ownerId" : @"OwnerId",
              @"state" : @"State",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -33227,7 +33254,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayRouteTableId" : @"LocalGatewayRouteTableId",
              @"outpostArn" : @"OutpostArn",
              @"state" : @"State",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -33241,7 +33273,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayRouteTableVirtualInterfaceGroupAssociationId" : @"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
              @"localGatewayVirtualInterfaceGroupId" : @"LocalGatewayVirtualInterfaceGroupId",
              @"state" : @"State",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -33254,8 +33291,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayRouteTableId" : @"LocalGatewayRouteTableId",
              @"localGatewayRouteTableVpcAssociationId" : @"LocalGatewayRouteTableVpcAssociationId",
              @"state" : @"State",
+             @"tags" : @"Tags",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -33270,8 +33312,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayVirtualInterfaceId" : @"LocalGatewayVirtualInterfaceId",
              @"peerAddress" : @"PeerAddress",
              @"peerBgpAsn" : @"PeerBgpAsn",
+             @"tags" : @"Tags",
              @"vlan" : @"Vlan",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -33283,7 +33330,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayId" : @"LocalGatewayId",
              @"localGatewayVirtualInterfaceGroupId" : @"LocalGatewayVirtualInterfaceGroupId",
              @"localGatewayVirtualInterfaceIds" : @"LocalGatewayVirtualInterfaceIds",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -34718,7 +34770,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"acceptanceRequired" : @"AcceptanceRequired",
              @"addNetworkLoadBalancerArns" : @"AddNetworkLoadBalancerArns",
              @"dryRun" : @"DryRun",
+             @"privateDnsName" : @"PrivateDnsName",
              @"removeNetworkLoadBalancerArns" : @"RemoveNetworkLoadBalancerArns",
+             @"removePrivateDnsName" : @"RemovePrivateDnsName",
              @"serviceId" : @"ServiceId",
              };
 }
@@ -36171,6 +36225,45 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)statusesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IdFormat class]];
+}
+
+@end
+
+@implementation AWSEC2PrivateDnsNameConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"state" : @"State",
+             @"types" : @"Type",
+             @"value" : @"Value",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"pendingVerification"] == NSOrderedSame) {
+            return @(AWSEC2DnsNameStatePendingVerification);
+        }
+        if ([value caseInsensitiveCompare:@"verified"] == NSOrderedSame) {
+            return @(AWSEC2DnsNameStateVerified);
+        }
+        if ([value caseInsensitiveCompare:@"failed"] == NSOrderedSame) {
+            return @(AWSEC2DnsNameStateFailed);
+        }
+        return @(AWSEC2DnsNameStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DnsNameStatePendingVerification:
+                return @"pendingVerification";
+            case AWSEC2DnsNameStateVerified:
+                return @"verified";
+            case AWSEC2DnsNameStateFailed:
+                return @"failed";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -48926,12 +49019,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"managesVpcEndpoints" : @"ManagesVpcEndpoints",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"privateDnsName" : @"PrivateDnsName",
+             @"privateDnsNameConfiguration" : @"PrivateDnsNameConfiguration",
              @"serviceId" : @"ServiceId",
              @"serviceName" : @"ServiceName",
              @"serviceState" : @"ServiceState",
              @"serviceType" : @"ServiceType",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)privateDnsNameConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2PrivateDnsNameConfiguration class]];
 }
 
 + (NSValueTransformer *)serviceStateJSONTransformer {
@@ -48990,12 +49088,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"managesVpcEndpoints" : @"ManagesVpcEndpoints",
              @"owner" : @"Owner",
              @"privateDnsName" : @"PrivateDnsName",
+             @"privateDnsNameVerificationState" : @"PrivateDnsNameVerificationState",
              @"serviceId" : @"ServiceId",
              @"serviceName" : @"ServiceName",
              @"serviceType" : @"ServiceType",
              @"tags" : @"Tags",
              @"vpcEndpointPolicySupported" : @"VpcEndpointPolicySupported",
              };
+}
+
++ (NSValueTransformer *)privateDnsNameVerificationStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"pendingVerification"] == NSOrderedSame) {
+            return @(AWSEC2DnsNameStatePendingVerification);
+        }
+        if ([value caseInsensitiveCompare:@"verified"] == NSOrderedSame) {
+            return @(AWSEC2DnsNameStateVerified);
+        }
+        if ([value caseInsensitiveCompare:@"failed"] == NSOrderedSame) {
+            return @(AWSEC2DnsNameStateFailed);
+        }
+        return @(AWSEC2DnsNameStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2DnsNameStatePendingVerification:
+                return @"pendingVerification";
+            case AWSEC2DnsNameStateVerified:
+                return @"verified";
+            case AWSEC2DnsNameStateFailed:
+                return @"failed";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)serviceTypeJSONTransformer {
@@ -53176,6 +53301,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2StartVpcEndpointServicePrivateDnsVerificationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"serviceId" : @"ServiceId",
+             };
+}
+
+@end
+
+@implementation AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returnValue" : @"ReturnValue",
+             };
+}
+
+@end
+
 @implementation AWSEC2StateReason
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -56902,6 +57048,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"creationTimestamp" : @"CreationTimestamp",
              @"dnsEntries" : @"DnsEntries",
              @"groups" : @"Groups",
+             @"lastError" : @"LastError",
              @"networkInterfaceIds" : @"NetworkInterfaceIds",
              @"ownerId" : @"OwnerId",
              @"policyDocument" : @"PolicyDocument",
@@ -56932,6 +57079,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)groupsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupIdentifier class]];
+}
+
++ (NSValueTransformer *)lastErrorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LastError class]];
 }
 
 + (NSValueTransformer *)stateJSONTransformer {
