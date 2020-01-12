@@ -1,3 +1,17 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Comprehend
+ - Amazon EC2
+ - Amazon CloudWatch Logs
+ - Amazon Translate
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.5
