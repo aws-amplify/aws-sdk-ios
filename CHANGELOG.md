@@ -1,18 +1,14 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
-
-- Amazon Comprehend
- - Amazon EC2
- - Amazon CloudWatch Logs
- - Amazon Translate
-
----
-# AWS Mobile SDK for iOS CHANGELOG
+  - Amazon CloudWatch Logs
+  - Amazon Comprehend
+  - Amazon EC2
+  - Amazon Translate
 
 ## 2.12.5
 
