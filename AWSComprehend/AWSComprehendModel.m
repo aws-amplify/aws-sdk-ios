@@ -546,6 +546,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 	return @{
              @"accuracy" : @"Accuracy",
              @"f1Score" : @"F1Score",
+             @"hammingLoss" : @"HammingLoss",
+             @"microF1Score" : @"MicroF1Score",
+             @"microPrecision" : @"MicroPrecision",
+             @"microRecall" : @"MicroRecall",
              @"precision" : @"Precision",
              @"recall" : @"Recall",
              };
@@ -586,11 +590,16 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"classes" : @"Classes",
+             @"labels" : @"Labels",
              };
 }
 
 + (NSValueTransformer *)classesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentClass class]];
+}
+
++ (NSValueTransformer *)labelsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentLabel class]];
 }
 
 @end
@@ -604,6 +613,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"documentClassifierName" : @"DocumentClassifierName",
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
+             @"mode" : @"Mode",
              @"outputDataConfig" : @"OutputDataConfig",
              @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
@@ -680,6 +690,27 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"zh";
             case AWSComprehendLanguageCodeZhTW:
                 return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)modeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"MULTI_CLASS"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentClassifierModeMultiClass);
+        }
+        if ([value caseInsensitiveCompare:@"MULTI_LABEL"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentClassifierModeMultiLabel);
+        }
+        return @(AWSComprehendDocumentClassifierModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendDocumentClassifierModeMultiClass:
+                return @"MULTI_CLASS";
+            case AWSComprehendDocumentClassifierModeMultiLabel:
+                return @"MULTI_LABEL";
             default:
                 return nil;
         }
@@ -1765,6 +1796,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"labelDelimiter" : @"LabelDelimiter",
              @"s3Uri" : @"S3Uri",
              };
 }
@@ -1793,6 +1825,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"message" : @"Message",
+             @"mode" : @"Mode",
              @"outputDataConfig" : @"OutputDataConfig",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
@@ -1890,6 +1923,27 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     }];
 }
 
++ (NSValueTransformer *)modeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"MULTI_CLASS"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentClassifierModeMultiClass);
+        }
+        if ([value caseInsensitiveCompare:@"MULTI_LABEL"] == NSOrderedSame) {
+            return @(AWSComprehendDocumentClassifierModeMultiLabel);
+        }
+        return @(AWSComprehendDocumentClassifierModeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendDocumentClassifierModeMultiClass:
+                return @"MULTI_CLASS";
+            case AWSComprehendDocumentClassifierModeMultiLabel:
+                return @"MULTI_LABEL";
+            default:
+                return nil;
+        }
+    }];
+}
+
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendDocumentClassifierOutputDataConfig class]];
 }
@@ -1966,6 +2020,17 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
+}
+
+@end
+
+@implementation AWSComprehendDocumentLabel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"score" : @"Score",
+             };
 }
 
 @end

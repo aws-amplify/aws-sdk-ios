@@ -41,6 +41,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendErrorType) {
     AWSComprehendErrorUnsupportedLanguage,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierMode) {
+    AWSComprehendDocumentClassifierModeUnknown,
+    AWSComprehendDocumentClassifierModeMultiClass,
+    AWSComprehendDocumentClassifierModeMultiLabel,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendEndpointStatus) {
     AWSComprehendEndpointStatusUnknown,
     AWSComprehendEndpointStatusCreating,
@@ -213,6 +219,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDocumentClassifierInputDataConfig;
 @class AWSComprehendDocumentClassifierOutputDataConfig;
 @class AWSComprehendDocumentClassifierProperties;
+@class AWSComprehendDocumentLabel;
 @class AWSComprehendDominantLanguage;
 @class AWSComprehendDominantLanguageDetectionJobFilter;
 @class AWSComprehendDominantLanguageDetectionJobProperties;
@@ -607,6 +614,26 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSNumber * _Nullable f1Score;
 
 /**
+ <p>Indicates the fraction of labels that are incorrectly predicted. Also seen as the fraction of wrong labels compared to the total number of labels. Scores closer to zero are better.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable hammingLoss;
+
+/**
+ <p>A measure of how accurate the classifier results are for the test data. It is a combination of the <code>Micro Precision</code> and <code>Micro Recall</code> values. The <code>Micro F1Score</code> is the harmonic mean of the two scores. The highest score is 1, and the worst score is 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable microF1Score;
+
+/**
+ <p>A measure of the usefulness of the recognizer results in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. Unlike the Precision metric which comes from averaging the precision of all available labels, this is based on the overall score of all precision scores added together.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable microPrecision;
+
+/**
+ <p>A measure of how complete the classifier results are for the test data. High recall means that the classifier returned most of the relevant results. Specifically, this indicates how many of the correct categories in the text that the model can predict. It is a percentage of correct categories in the text that can found. Instead of averaging the recall scores of all labels (as with Recall), micro Recall is based on the overall score of all recall scores added together.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable microRecall;
+
+/**
  <p>A measure of the usefulness of the classifier results in the test data. High precision means that the classifier returned substantially more relevant results than irrelevant ones.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable precision;
@@ -675,6 +702,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) NSArray<AWSComprehendDocumentClass *> * _Nullable classes;
 
+/**
+ <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendDocumentLabel *> * _Nullable labels;
+
 @end
 
 /**
@@ -707,6 +739,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The language of the input documents. You can specify any of the following languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>Indicates the mode in which the classifier will be trained. The classifier can be trained in multi-class mode, which identifies one and only one class for each document, or multi-label mode, which identifies one or more labels for each document. In multi-label mode, multiple labels for an individual document are separated by a delimiter. The default delimiter between labels is a pipe (|).</p>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentClassifierMode mode;
 
 /**
  <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
@@ -1447,6 +1484,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
+ <p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable labelDelimiter;
+
+/**
  <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p><p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
@@ -1513,6 +1555,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
+ <p>Indicates the mode in which the specific classifier was trained. This also indicates the format of input documents and the format of the confusion matrix. Each classifier can only be trained in one mode and this cannot be changed once the classifier is trained.</p>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentClassifierMode mode;
+
+/**
  <p> Provides output results configuration parameters for custom classifier jobs.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
@@ -1546,6 +1593,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  */
 @property (nonatomic, strong) AWSComprehendVpcConfig * _Nullable vpcConfig;
+
+@end
+
+/**
+ <p>Specifies one of the label or labels that categorize the document being analyzed.</p>
+ */
+@interface AWSComprehendDocumentLabel : AWSModel
+
+
+/**
+ <p>The name of the label.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The confidence score that Amazon Comprehend has this label correctly attributed.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
 
 @end
 
