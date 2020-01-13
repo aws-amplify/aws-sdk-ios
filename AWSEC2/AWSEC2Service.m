@@ -9112,6 +9112,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult *> *)startVpcEndpointServicePrivateDnsVerification:(AWSEC2StartVpcEndpointServicePrivateDnsVerificationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"StartVpcEndpointServicePrivateDnsVerification"
+                   outputClass:[AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult class]];
+}
+
+- (void)startVpcEndpointServicePrivateDnsVerification:(AWSEC2StartVpcEndpointServicePrivateDnsVerificationRequest *)request
+     completionHandler:(void (^)(AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult *response, NSError *error))completionHandler {
+    [[self startVpcEndpointServicePrivateDnsVerification:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult *> * _Nonnull task) {
+        AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2StopInstancesResult *> *)stopInstances:(AWSEC2StopInstancesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
