@@ -41,6 +41,7 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"DetectedLanguageLowConfidenceException" : @(AWSTranslateErrorDetectedLanguageLowConfidence),
                             @"InternalServerException" : @(AWSTranslateErrorInternalServer),
+                            @"InvalidFilterException" : @(AWSTranslateErrorInvalidFilter),
                             @"InvalidParameterValueException" : @(AWSTranslateErrorInvalidParameterValue),
                             @"InvalidRequestException" : @(AWSTranslateErrorInvalidRequest),
                             @"LimitExceededException" : @(AWSTranslateErrorLimitExceeded),
@@ -305,6 +306,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTranslateDescribeTextTranslationJobResponse *> *)describeTextTranslationJob:(AWSTranslateDescribeTextTranslationJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"DescribeTextTranslationJob"
+                   outputClass:[AWSTranslateDescribeTextTranslationJobResponse class]];
+}
+
+- (void)describeTextTranslationJob:(AWSTranslateDescribeTextTranslationJobRequest *)request
+     completionHandler:(void (^)(AWSTranslateDescribeTextTranslationJobResponse *response, NSError *error))completionHandler {
+    [[self describeTextTranslationJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateDescribeTextTranslationJobResponse *> * _Nonnull task) {
+        AWSTranslateDescribeTextTranslationJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTranslateGetTerminologyResponse *> *)getTerminology:(AWSTranslateGetTerminologyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -364,6 +388,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranslateListTerminologiesResponse *response, NSError *error))completionHandler {
     [[self listTerminologies:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListTerminologiesResponse *> * _Nonnull task) {
         AWSTranslateListTerminologiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateListTextTranslationJobsResponse *> *)listTextTranslationJobs:(AWSTranslateListTextTranslationJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"ListTextTranslationJobs"
+                   outputClass:[AWSTranslateListTextTranslationJobsResponse class]];
+}
+
+- (void)listTextTranslationJobs:(AWSTranslateListTextTranslationJobsRequest *)request
+     completionHandler:(void (^)(AWSTranslateListTextTranslationJobsResponse *response, NSError *error))completionHandler {
+    [[self listTextTranslationJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateListTextTranslationJobsResponse *> * _Nonnull task) {
+        AWSTranslateListTextTranslationJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateStartTextTranslationJobResponse *> *)startTextTranslationJob:(AWSTranslateStartTextTranslationJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"StartTextTranslationJob"
+                   outputClass:[AWSTranslateStartTextTranslationJobResponse class]];
+}
+
+- (void)startTextTranslationJob:(AWSTranslateStartTextTranslationJobRequest *)request
+     completionHandler:(void (^)(AWSTranslateStartTextTranslationJobResponse *response, NSError *error))completionHandler {
+    [[self startTextTranslationJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateStartTextTranslationJobResponse *> * _Nonnull task) {
+        AWSTranslateStartTextTranslationJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranslateStopTextTranslationJobResponse *> *)stopTextTranslationJob:(AWSTranslateStopTextTranslationJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSShineFrontendService_20170701"
+                 operationName:@"StopTextTranslationJob"
+                   outputClass:[AWSTranslateStopTextTranslationJobResponse class]];
+}
+
+- (void)stopTextTranslationJob:(AWSTranslateStopTextTranslationJobRequest *)request
+     completionHandler:(void (^)(AWSTranslateStopTextTranslationJobResponse *response, NSError *error))completionHandler {
+    [[self stopTextTranslationJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranslateStopTextTranslationJobResponse *> * _Nonnull task) {
+        AWSTranslateStopTextTranslationJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
