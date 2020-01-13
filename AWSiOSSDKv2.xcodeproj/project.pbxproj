@@ -1291,7 +1291,7 @@
 		FA53332322D40B5500BD88AF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		FA53332422D4110900BD88AF /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		FA53333A22D4D54800BD88AF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
-		FA53334122D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FA53334122D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA53334222D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */; };
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
@@ -5796,6 +5796,8 @@
 				FA53332222D40A3300BD88AF /* Internal */,
 				178A800E22AF7DA600B167D6 /* AWSTranscribeStreaming.h */,
 				FA09EEA322D63786007EA360 /* AWSTranscribeStreamingClientDelegate.h */,
+				FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */,
+				FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */,
 				178A801B22AF7DE500B167D6 /* AWSTranscribeStreamingModel.h */,
 				178A801A22AF7DE500B167D6 /* AWSTranscribeStreamingModel.m */,
 				178A801C22AF7DE600B167D6 /* AWSTranscribeStreamingResources.h */,
@@ -8201,8 +8203,6 @@
 				FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */,
 				17D0A70022B9EC2A00A83073 /* AWSTranscribeEventEncoder.h */,
 				17D0A70122B9EC2A00A83073 /* AWSTranscribeEventEncoder.m */,
-				FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */,
-				FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */,
 				FABD9ED522D6AC8A00BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.h */,
 				FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */,
 			);
