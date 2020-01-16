@@ -1,16 +1,16 @@
 from subprocess import Popen, PIPE
 import subprocess
 import os
-from datetime import datetime
 import time
+from framework_list import frameworks
+from utils import log
 
-from cocoapods_packages import podpackages
 
-print (str(datetime.now()) + ': publishing cocoapods ...')
+log('Publishing cocoapods')
 
-for package in podpackages:
-    print (str(datetime.now())+': publishing ' + package + ' ...')
-    process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout= PIPE, stderr= PIPE)
+for package in frameworks:
+    log(f'Publishing {package}')
+    process = Popen(["pod", 'trunk', 'push', f'{package}.podspec', '--allow-warnings'], stdout= PIPE, stderr= PIPE)
     wait_times = 0 ;
     while True:
         try:
@@ -19,21 +19,25 @@ for package in podpackages:
             wait_times = wait_times + 1;
             #tell circleci I am still alive, don't kill me
             if wait_times % 30 == 0 :
-                print(str(datetime.now())+ ": I am still alive")
+                log('I am still alive')
             if wait_times > 600 :
-                print(str(datetime.now())+ ": time out")
+                log('time out')
                 quit(1)
 
             continue
         break
+
     exit_code = process.wait()
+
     if exit_code != 0 :
         if "Unable to accept duplicate entry for:" in str(output):
-            print (str(datetime.now()) +": " +  package +" is already published")
+            log(f'{package} is already published')
         else:
-            print(output)
-            print(err,  exit_code  )
-            print(str(datetime.now()) + " Failed to publish " + package)
+            log(f'Output: {output}')
+            log(f'Error: {err}')
+            log(f'Exit code: {exit_code}')
+            log(f'Failed to publish {package}')
             quit(exit_code);
-    print (str(datetime.now())+': published ' + package)
+
+    log(f'Published {package}')
 

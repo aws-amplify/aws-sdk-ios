@@ -1,14 +1,17 @@
 from subprocess import Popen, PIPE
 import subprocess
 import os
-from datetime import datetime
 import time
+from framework_list import frameworks
+from utils import log
+
+
+log("Creating Carthage archive")
 
 frameworkfilename = "aws-sdk-ios-carthage.framework.zip"
 
-print(str(datetime.now()) + ": creating Carthage archive...")
-
-process = Popen(["carthage", "archive", "--output", frameworkfilename], stdout= PIPE, stderr= PIPE)
+cmd = ["carthage", "archive", "--output", frameworkfilename] + frameworks
+process = Popen(cmd, stdout= PIPE, stderr= PIPE)
 
 elapsed_time = 0
 
@@ -18,9 +21,9 @@ while True:
     except subprocess.TimeoutExpired:
         elapsed_time = elapsed_time + 1;
         if elapsed_time % 30 == 0:
-            print(str(datetime.now())+ ": I am still alive")
-        if elapsed_time > 3600:
-            print(str(datetime.now())+ ": time out")
+            log("I am still alive")
+        if elapsed_time > 600:
+            log("time out")
             quit(1)
 
         continue
@@ -29,13 +32,10 @@ while True:
 exit_code = process.wait()
 
 if exit_code != 0:
-    if "Unable to create archive:" in str(output):
-        print(str(datetime.now()) +": " +  package + " is already published")
-    else:
-        print(output)
-        print(err,  exit_code)
-        print(str(datetime.now()) + " Failed to publish " + package)
-        quit(exit_code);
+    print(output)
+    print(err, exit_code)
+    log(f'Failed to create archive {frameworkfilename}')
+    quit(exit_code);
 
-print(str(datetime.now()) + ": created Carthage archive...")
+log("Created Carthage archive")
 

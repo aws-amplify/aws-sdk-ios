@@ -1,5 +1,3 @@
-# Deprecated--this will be removed in an upcoming release
-
 Pod::Spec.new do |s|
   s.name         = 'AWSMobileAnalytics'
   s.version      = '2.12.6'
@@ -17,4 +15,7 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCore', '2.12.6'
   s.source_files = 'AWSMobileAnalytics/*.{h,m}', 'AWSMobileAnalytics/**/*.{h,m}'
   s.private_header_files = 'AWSMobileAnalytics/Internal/*.h'
+
+  s.deprecated = true
+  s.deprecated_in_favor_of = 'AWSPinpoint'
 end
