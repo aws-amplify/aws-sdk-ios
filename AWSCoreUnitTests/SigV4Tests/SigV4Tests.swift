@@ -51,7 +51,7 @@ class SigV4Tests: XCTestCase {
             date: SigV4TestCredentials.testDate,
             expireDuration: SigV4TestCredentials.expiry,
             signBody: testCase.shouldSignBody,
-            signSessionToken: testCase.shouldSignSecurityToken)?.continueWith { task in
+            signSessionToken: testCase.shouldSignSecurityToken).continueWith { task in
                 defer {
                     taskIsComplete.fulfill()
                 }
