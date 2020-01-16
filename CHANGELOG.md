@@ -1,8 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## 2.12.6
 
 ### Misc. Updates
+
+- **Amazon Transcribe Streaming**
+  - Made the event decoder classes public
 
 - Model updates for the following services
   - Amazon CloudWatch Logs
