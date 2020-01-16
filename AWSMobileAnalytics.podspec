@@ -1,3 +1,5 @@
+# Deprecated--this will be removed in an upcoming release
+
 Pod::Spec.new do |s|
   s.name         = 'AWSMobileAnalytics'
   s.version      = '2.12.6'
