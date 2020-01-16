@@ -84,6 +84,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) NSData *data;
 @property (strong, nonatomic) NSURL *location;
 @property (strong, nonatomic) NSError *error;
+@property (strong, nonatomic) NSString *etag;
 @property int retryCount;
 @property NSString *nsURLSessionID;
 @property NSString *file;
@@ -116,6 +117,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property NSString *nsURLSessionID;
 @property (strong) AWSFMDatabaseQueue *databaseQueue;
 @property (strong, nonatomic) NSError *error;
+@property (strong, nonatomic) NSString *etag;
 @property (strong, nonatomic) NSString *bucket;
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) NSString *transferID;
@@ -948,7 +950,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             AWSS3TransferUtilityUploadTask *uploadTask = [AWSS3TransferUtilityUploadTask new];
             uploadTask.bucket = bucket;
             uploadTask.key = key;
-            completionHandler(uploadTask,error);
+            completionHandler(uploadTask,nil,error);
         }
         return [AWSTask taskWithError:error];
     }
@@ -1153,7 +1155,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                       userInfo:userInfo];
         
         if (transferUtilityUploadTask.expression.completionHandler) {
-            transferUtilityUploadTask.expression.completionHandler(transferUtilityUploadTask, error);
+            transferUtilityUploadTask.expression.completionHandler(transferUtilityUploadTask, nil, error);
         }
     }
     else {
@@ -1199,7 +1201,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             AWSS3TransferUtilityMultiPartUploadTask *uploadTask = [AWSS3TransferUtilityMultiPartUploadTask new];
             uploadTask.bucket = bucket;
             uploadTask.key = key;
-            completionHandler(uploadTask, error);
+            completionHandler(uploadTask, nil, error);
         }
         return [AWSTask taskWithError:error];
     }
@@ -1615,7 +1617,7 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
         
         //Call the completion handler if one was present
         if (transferUtilityMultiPartUploadTask.expression.completionHandler) {
-            transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, subTaskCreationError);
+            transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, nil, subTaskCreationError);
         }
     }
 }
@@ -2109,6 +2111,11 @@ didCompleteWithError:(NSError *)error {
                 if (uploadTask.expression.progressBlock) {
                     uploadTask.expression.progressBlock(uploadTask, uploadTask.progress);
                 }
+
+                NSString *etag = userInfo[@"Etag"];
+                if ([etag isKindOfClass:[NSString class]]) {
+                    uploadTask.etag = etag;
+                }
             }
             //Else mark as error.
             else {
@@ -2118,7 +2125,7 @@ didCompleteWithError:(NSError *)error {
             [self cleanupForUploadTask:uploadTask];
             
             if(uploadTask.expression.completionHandler) {
-                uploadTask.expression.completionHandler(uploadTask,uploadTask.error);
+                uploadTask.expression.completionHandler(uploadTask, uploadTask.etag, uploadTask.error);
             }
             return;
         }
@@ -2185,7 +2192,7 @@ didCompleteWithError:(NSError *)error {
                 
                 //Execute call back if provided.
                 if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
-                    transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, transferUtilityMultiPartUploadTask.error);
+                    transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, nil, transferUtilityMultiPartUploadTask.error);
                 }
                 
                 //Make sure all other parts that are in progress are canceled.
@@ -2266,7 +2273,7 @@ didCompleteWithError:(NSError *)error {
                     
                     //Execute call back if provided.
                     if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
-                        transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, transferUtilityMultiPartUploadTask.error);
+                        transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, nil, transferUtilityMultiPartUploadTask.error);
                     }
                     
                     //Abort the request, so the server can clean up any partials.
@@ -2279,7 +2286,7 @@ didCompleteWithError:(NSError *)error {
                 
                 
                 //Call the Multipart completion step here.
-                [[ self callFinishMultiPartForUploadTask:transferUtilityMultiPartUploadTask] continueWithBlock:^id (AWSTask *task) {
+                [[ self callFinishMultiPartForUploadTask:transferUtilityMultiPartUploadTask] continueWithBlock:^id (AWSTask<AWSS3CompleteMultipartUploadOutput *> *task) {
                     if (task.error) {
                         AWSDDLogError(@"Error finishing up MultiPartForUpload Task[%@]", task.error);
                         transferUtilityMultiPartUploadTask.error = error;
@@ -2293,6 +2300,7 @@ didCompleteWithError:(NSError *)error {
                         //Set progress to 100% and call progressBlock.
                         AWSDDLogInfo(@"Completed Multipart Transfer: %@", transferUtilityMultiPartUploadTask.uploadID);
                         transferUtilityMultiPartUploadTask.status = AWSS3TransferUtilityTransferStatusCompleted;
+                        transferUtilityMultiPartUploadTask.etag = task.result.ETag;
                         
                         transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.totalUnitCount;
                         if (transferUtilityMultiPartUploadTask.expression.progressBlock ) {
@@ -2304,7 +2312,7 @@ didCompleteWithError:(NSError *)error {
                     
                     //Call the callback function is specified.
                     if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
-                        transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask,error);
+                        transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask, transferUtilityMultiPartUploadTask.etag, error);
                     }
                     return nil;
                 }];

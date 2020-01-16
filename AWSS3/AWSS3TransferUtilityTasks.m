@@ -69,6 +69,7 @@
 @property NSString *responseData;
 @property (atomic) BOOL cancelled;
 @property BOOL temporaryFileCreated;
+@property (strong, nonatomic) NSString *etag;
 @end
 
 @interface AWSS3TransferUtilityMultiPartUploadTask()
@@ -87,6 +88,7 @@
 @property NSString *nsURLSessionID;
 @property (strong) AWSFMDatabaseQueue *databaseQueue;
 @property (strong, nonatomic) NSError *error;
+@property (strong, nonatomic) NSString *etag;
 @property (strong, nonatomic) NSString *bucket;
 @property (strong, nonatomic) NSString *key;
 @property (strong, nonatomic) NSString *transferID;
@@ -221,11 +223,11 @@
     self.expression.completionHandler = completionHandler;
     //If the task has already completed successfully, call the completion handler
     if (self.status == AWSS3TransferUtilityTransferStatusCompleted ) {
-        _expression.completionHandler(self, nil);
+        _expression.completionHandler(self, self.etag, nil);
     }
     //If the task has completed with error, call the completion handler
     else if (self.error) {
-        _expression.completionHandler(self, self.error);
+        _expression.completionHandler(self, nil, self.error);
     }
 }
 
@@ -329,11 +331,11 @@
     self.expression.completionHandler = completionHandler;
     //If the task has already completed successfully, call the completion handler
     if (self.status == AWSS3TransferUtilityTransferStatusCompleted) {
-        _expression.completionHandler(self, nil);
+        _expression.completionHandler(self, self.etag, nil);
     }
     //If the task has completed with error, call the completion handler
     else if (self.error ) {
-        _expression.completionHandler(self, self.error);
+        _expression.completionHandler(self, nil, self.error);
     }
 }
 

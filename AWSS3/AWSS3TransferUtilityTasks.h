@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, AWSS3TransferUtilityTransferStatusType) {
  @param error Returns the error object when the download failed.
  */
 typedef void (^AWSS3TransferUtilityUploadCompletionHandlerBlock) (AWSS3TransferUtilityUploadTask *task,
+                                                                  NSString* _Nullable etag,
                                                                   NSError * _Nullable error);
 
 /**
@@ -52,6 +53,7 @@ typedef void (^AWSS3TransferUtilityUploadCompletionHandlerBlock) (AWSS3TransferU
  @param error Returns the error object when the download failed.
  */
 typedef void (^AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock) (AWSS3TransferUtilityMultiPartUploadTask *task,
+                                                                           NSString * _Nullable info,
                                                                            NSError * _Nullable error);
 
 /**
