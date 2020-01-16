@@ -491,11 +491,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     NSMutableDictionary *tempTransferDictionary = [NSMutableDictionary new];
     
     //Hydrate from DB
-    [self hydrateFromDB:tempMultiPartMasterTaskDictionary
-       tempTransferDictionary:tempTransferDictionary];
-    
-    //Link Transfers to NSURL Session.
-    [self linkTransfersToNSURLSession:tempMultiPartMasterTaskDictionary tempTransferDictionary:tempTransferDictionary completionHandler:completionHandler];
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+        [self hydrateFromDB:tempMultiPartMasterTaskDictionary
+           tempTransferDictionary:tempTransferDictionary];
+
+        //Link Transfers to NSURL Session.
+        [self linkTransfersToNSURLSession:tempMultiPartMasterTaskDictionary tempTransferDictionary:tempTransferDictionary completionHandler:completionHandler];
+    });
 }
 
 - (void) hydrateFromDB:(NSMutableDictionary *) tempMultiPartMasterTaskDictionary
