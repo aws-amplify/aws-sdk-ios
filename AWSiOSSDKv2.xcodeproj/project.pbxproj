@@ -1319,6 +1319,8 @@
 		FA99CF2E216C13E30086F9A7 /* AWSFirehoseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF2C216C13E30086F9A7 /* AWSFirehoseSerializer.h */; };
 		FA99CF30216C14240086F9A7 /* AWSFirehoseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */; };
 		FA99CF32216C144F0086F9A7 /* AWSKinesisSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */; };
+		FAAB43DE23D279EF00F7BCBB /* test-identity-password-is-abc123.p12 in Resources */ = {isa = PBXBuildFile; fileRef = FAAB43DA23D275D000F7BCBB /* test-identity-password-is-abc123.p12 */; };
+		FAAB43E023D27A0B00F7BCBB /* AWSIoTManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB43DB23D276E500F7BCBB /* AWSIoTManagerTests.m */; };
 		FAB1E00923102F320097396E /* AWSTranscribeStreamingClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */; };
 		FAB1E00B23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */; };
 		FAB1E00D23103C090097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */; };
@@ -4746,6 +4748,8 @@
 		FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseSerializer.m; sourceTree = "<group>"; };
 		FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisSerializer.m; sourceTree = "<group>"; };
 		FA9E3E1A2199ED2600C65B0A /* AWSCognitoIdentityProvider+TestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProvider+TestUtils.h"; sourceTree = "<group>"; };
+		FAAB43DA23D275D000F7BCBB /* test-identity-password-is-abc123.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "test-identity-password-is-abc123.p12"; sourceTree = "<group>"; };
+		FAAB43DB23D276E500F7BCBB /* AWSIoTManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTManagerTests.m; sourceTree = "<group>"; };
 		FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientTests.swift; sourceTree = "<group>"; };
 		FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTranscribeStreamingClientDelegate.swift; sourceTree = "<group>"; };
 		FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingFirehoseTests.m; sourceTree = "<group>"; };
@@ -7051,15 +7055,15 @@
 		CE5604551C6BC91D00B4E00B /* AWSIoTUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				FAF2C31023463B7C006C5C3E /* Helpers */,
-				FA92428E2344F3DA003F546D /* Resources */,
 				CE5605321C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m */,
 				CE5605331C6BCE2700B4E00B /* AWSGeneralIoTTests.m */,
 				CE56053D1C6BD02800B4E00B /* AWSIoTDataUnitTests.m */,
 				CE56053E1C6BD02800B4E00B /* AWSIoTUnitTests.m */,
-				CE5604581C6BC91D00B4E00B /* Info.plist */,
 				FA92428F2344F44D003F546D /* MQTTDecoderTests.m */,
 				FA39AF0F2346847A0006050D /* MQTTSessionTests.m */,
+				CE5604581C6BC91D00B4E00B /* Info.plist */,
+				FAF2C31023463B7C006C5C3E /* Helpers */,
+				FA92428E2344F3DA003F546D /* Resources */,
 			);
 			path = AWSIoTUnitTests;
 			sourceTree = "<group>";
@@ -7308,11 +7312,13 @@
 		CE9DE6191C6A78A70060793F /* AWSIoTTests */ = {
 			isa = PBXGroup;
 			children = (
-				CE9DE6781C6A79350060793F /* AWSIoTDataTests.m */,
-				CE9DE67A1C6A79350060793F /* AWSIoTTests.m */,
 				9AA55EF6209F7EB300FF2AC4 /* AWSIoTDataManagerTests.swift */,
+				CE9DE6781C6A79350060793F /* AWSIoTDataTests.m */,
+				FAAB43DB23D276E500F7BCBB /* AWSIoTManagerTests.m */,
 				9AA55EF5209F7EB200FF2AC4 /* AWSIoTTests-Bridging-Header.h */,
+				CE9DE67A1C6A79350060793F /* AWSIoTTests.m */,
 				CE9DE61C1C6A78A70060793F /* Info.plist */,
+				FAAB43DF23D279F900F7BCBB /* Resources */,
 			);
 			path = AWSIoTTests;
 			sourceTree = "<group>";
@@ -8318,6 +8324,14 @@
 				FA39AF30234CEBCB0006050D /* OTAJobResponse.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		FAAB43DF23D279F900F7BCBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAAB43DA23D275D000F7BCBB /* test-identity-password-is-abc123.p12 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FAB1E00C23103BEB0097396E /* Common */ = {
@@ -12469,6 +12483,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAB43DE23D279EF00F7BCBB /* test-identity-password-is-abc123.p12 in Resources */,
 				CEFE065C1C6AA24F007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -13652,6 +13667,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DE6801C6A79350060793F /* AWSIoTTests.m in Sources */,
+				FAAB43E023D27A0B00F7BCBB /* AWSIoTManagerTests.m in Sources */,
 				CE9DE67E1C6A79350060793F /* AWSIoTDataTests.m in Sources */,
 				9AA55EF7209F7EB300FF2AC4 /* AWSIoTDataManagerTests.swift in Sources */,
 				CE9DEB431C6A9C060060793F /* AWSTestUtility.m in Sources */,
