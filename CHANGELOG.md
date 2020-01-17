@@ -1,5 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## Unreleased
+
+### Misc. Updates
+
+- Updated `AWSMobileAnalytics` podspec with `deprecated` and `deprecated_in_favor_of` attributes
+
 ## 2.12.6
 
 ### Misc. Updates
