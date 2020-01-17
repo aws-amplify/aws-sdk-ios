@@ -1,7 +1,4 @@
 from subprocess import Popen, PIPE
-import subprocess
-import os
-import time
 from framework_list import frameworks
 from utils import log
 
@@ -17,7 +14,7 @@ elapsed_time = 0
 
 while True:
     try:
-        (output, err) = process.communicate(timeout = 10)
+        (output, err) = process.communicate()
     except subprocess.TimeoutExpired:
         elapsed_time = elapsed_time + 1;
         if elapsed_time % 30 == 0:
