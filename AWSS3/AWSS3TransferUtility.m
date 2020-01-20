@@ -84,7 +84,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) NSData *data;
 @property (strong, nonatomic) NSURL *location;
 @property (strong, nonatomic) NSError *error;
-@property (strong, nonatomic) NSString *etag;
+@property (strong, readonly, nonatomic) NSString *etag;
 @property int retryCount;
 @property NSString *nsURLSessionID;
 @property NSString *file;
@@ -2110,11 +2110,6 @@ didCompleteWithError:(NSError *)error {
                 uploadTask.progress.completedUnitCount = uploadTask.progress.totalUnitCount;
                 if (uploadTask.expression.progressBlock) {
                     uploadTask.expression.progressBlock(uploadTask, uploadTask.progress);
-                }
-
-                NSString *etag = userInfo[@"Etag"];
-                if ([etag isKindOfClass:[NSString class]]) {
-                    uploadTask.etag = etag;
                 }
             }
             //Else mark as error.

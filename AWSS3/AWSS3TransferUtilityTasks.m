@@ -69,7 +69,7 @@
 @property NSString *responseData;
 @property (atomic) BOOL cancelled;
 @property BOOL temporaryFileCreated;
-@property (strong, nonatomic) NSString *etag;
+@property (strong, nonatomic, readonly) NSString *etag;
 @end
 
 @interface AWSS3TransferUtilityMultiPartUploadTask()
@@ -233,6 +233,11 @@
 
 -(void) setProgressBlock:(AWSS3TransferUtilityProgressBlock)progressBlock {
     self.expression.progressBlock = progressBlock;
+}
+
+-(NSString *)etag {
+    NSString *etag = [self.response valueForHTTPHeaderField:@"Etag"];
+    return [etag isKindOfClass:[NSString class]] ? etag : nil;
 }
 
 @end
