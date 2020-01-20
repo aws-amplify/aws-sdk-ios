@@ -14,7 +14,7 @@
     <a title="AWSMachineLearning Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMachineLearning 2.12.3 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSMachineLearning 2.12.6 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMachineLearning%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -713,7 +713,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningAddTagsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningAddTagsOutput</p>
 
@@ -777,7 +778,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningAddTagsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningAddTagsOutput</p>
 
@@ -854,7 +856,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateBatchPredictionOutput</p>
 
@@ -919,7 +922,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateBatchPredictionOutput</p>
 
@@ -998,7 +1002,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRDSInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRDSOutput</p>
 
@@ -1063,7 +1068,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRDSInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRDSOutput</p>
 
@@ -1138,12 +1144,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A <code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p><p><code>CreateDataSourceFromRedshift</code> is an asynchronous operation. In response to <code>CreateDataSourceFromRedshift</code>, Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>DataSource</code> status to <code>PENDING</code>. After the <code>DataSource</code> is created and ready for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>. <code>DataSource</code> in <code>COMPLETED</code> or <code>PENDING</code> states can be used to perform only <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations. </p><p> If Amazon ML can&rsquo;t accept the input source, it sets the <code>Status</code> parameter to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute of the <code>GetDataSource</code> operation response. </p><p>The observations should be contained in the database hosted on an Amazon Redshift cluster and should be specified by a <code>SelectSqlQuery</code> query. Amazon ML executes an <code>Unload</code> command in Amazon Redshift to transfer the result set of the <code>SelectSqlQuery</code> query to <code>S3StagingLocation</code>.</p><p>After the <code>DataSource</code> has been created, it&rsquo;s ready for use in evaluations and batch predictions. If you plan to use the <code>DataSource</code> to train an <code>MLModel</code>, the <code>DataSource</code> also requires a recipe. A recipe describes how each input variable will be used in training an <code>MLModel</code>. Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.</p>&lt;?oxy_insert_start author=&ldquo;laurama&rdquo; timestamp=&ldquo;20160406T153842-0700&rdquo;&gt;<p>You can&rsquo;t change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call <code>GetDataSource</code> for an existing datasource and copy the values to a <code>CreateDataSource</code> call. Change the settings that you want to change and make sure that all required fields have the appropriate values.</p>&lt;?oxy_insert_end&gt;</p>
+                        <p><p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A <code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p><p><code>CreateDataSourceFromRedshift</code> is an asynchronous operation. In response to <code>CreateDataSourceFromRedshift</code>, Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>DataSource</code> status to <code>PENDING</code>. After the <code>DataSource</code> is created and ready for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>. <code>DataSource</code> in <code>COMPLETED</code> or <code>PENDING</code> states can be used to perform only <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations. </p><p> If Amazon ML can&rsquo;t accept the input source, it sets the <code>Status</code> parameter to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute of the <code>GetDataSource</code> operation response. </p><p>The observations should be contained in the database hosted on an Amazon Redshift cluster and should be specified by a <code>SelectSqlQuery</code> query. Amazon ML executes an <code>Unload</code> command in Amazon Redshift to transfer the result set of the <code>SelectSqlQuery</code> query to <code>S3StagingLocation</code>.</p><p>After the <code>DataSource</code> has been created, it&rsquo;s ready for use in evaluations and batch predictions. If you plan to use the <code>DataSource</code> to train an <code>MLModel</code>, the <code>DataSource</code> also requires a recipe. A recipe describes how each input variable will be used in training an <code>MLModel</code>. Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.</p>&lt;?oxy_insert_start author=<q>laurama</q> timestamp=<q>20160406T153842-0700</q>&gt;<p>You can&rsquo;t change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call <code>GetDataSource</code> for an existing datasource and copy the values to a <code>CreateDataSource</code> call. Change the settings that you want to change and make sure that all required fields have the appropriate values.</p>&lt;?oxy_insert_end&gt;</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRedshiftInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRedshiftOutput</p>
 
@@ -1203,12 +1210,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A <code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p><p><code>CreateDataSourceFromRedshift</code> is an asynchronous operation. In response to <code>CreateDataSourceFromRedshift</code>, Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>DataSource</code> status to <code>PENDING</code>. After the <code>DataSource</code> is created and ready for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>. <code>DataSource</code> in <code>COMPLETED</code> or <code>PENDING</code> states can be used to perform only <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations. </p><p> If Amazon ML can&rsquo;t accept the input source, it sets the <code>Status</code> parameter to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute of the <code>GetDataSource</code> operation response. </p><p>The observations should be contained in the database hosted on an Amazon Redshift cluster and should be specified by a <code>SelectSqlQuery</code> query. Amazon ML executes an <code>Unload</code> command in Amazon Redshift to transfer the result set of the <code>SelectSqlQuery</code> query to <code>S3StagingLocation</code>.</p><p>After the <code>DataSource</code> has been created, it&rsquo;s ready for use in evaluations and batch predictions. If you plan to use the <code>DataSource</code> to train an <code>MLModel</code>, the <code>DataSource</code> also requires a recipe. A recipe describes how each input variable will be used in training an <code>MLModel</code>. Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.</p>&lt;?oxy_insert_start author=&ldquo;laurama&rdquo; timestamp=&ldquo;20160406T153842-0700&rdquo;&gt;<p>You can&rsquo;t change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call <code>GetDataSource</code> for an existing datasource and copy the values to a <code>CreateDataSource</code> call. Change the settings that you want to change and make sure that all required fields have the appropriate values.</p>&lt;?oxy_insert_end&gt;</p>
+                        <p><p>Creates a <code>DataSource</code> from a database hosted on an Amazon Redshift cluster. A <code>DataSource</code> references data that can be used to perform either <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations.</p><p><code>CreateDataSourceFromRedshift</code> is an asynchronous operation. In response to <code>CreateDataSourceFromRedshift</code>, Amazon Machine Learning (Amazon ML) immediately returns and sets the <code>DataSource</code> status to <code>PENDING</code>. After the <code>DataSource</code> is created and ready for use, Amazon ML sets the <code>Status</code> parameter to <code>COMPLETED</code>. <code>DataSource</code> in <code>COMPLETED</code> or <code>PENDING</code> states can be used to perform only <code>CreateMLModel</code>, <code>CreateEvaluation</code>, or <code>CreateBatchPrediction</code> operations. </p><p> If Amazon ML can&rsquo;t accept the input source, it sets the <code>Status</code> parameter to <code>FAILED</code> and includes an error message in the <code>Message</code> attribute of the <code>GetDataSource</code> operation response. </p><p>The observations should be contained in the database hosted on an Amazon Redshift cluster and should be specified by a <code>SelectSqlQuery</code> query. Amazon ML executes an <code>Unload</code> command in Amazon Redshift to transfer the result set of the <code>SelectSqlQuery</code> query to <code>S3StagingLocation</code>.</p><p>After the <code>DataSource</code> has been created, it&rsquo;s ready for use in evaluations and batch predictions. If you plan to use the <code>DataSource</code> to train an <code>MLModel</code>, the <code>DataSource</code> also requires a recipe. A recipe describes how each input variable will be used in training an <code>MLModel</code>. Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.</p>&lt;?oxy_insert_start author=<q>laurama</q> timestamp=<q>20160406T153842-0700</q>&gt;<p>You can&rsquo;t change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call <code>GetDataSource</code> for an existing datasource and copy the values to a <code>CreateDataSource</code> call. Change the settings that you want to change and make sure that all required fields have the appropriate values.</p>&lt;?oxy_insert_end&gt;</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRedshiftInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromRedshiftOutput</p>
 
@@ -1289,7 +1297,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromS3Input</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromS3Output</p>
 
@@ -1354,7 +1363,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromS3Input</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateDataSourceFromS3Output</p>
 
@@ -1433,7 +1443,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateEvaluationOutput</p>
 
@@ -1498,7 +1509,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateEvaluationOutput</p>
 
@@ -1576,7 +1588,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateMLModelOutput</p>
 
@@ -1640,7 +1653,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateMLModelOutput</p>
 
@@ -1717,7 +1731,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateRealtimeEndpointInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateRealtimeEndpointOutput</p>
 
@@ -1782,7 +1797,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateRealtimeEndpointInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningCreateRealtimeEndpointOutput</p>
 
@@ -1861,7 +1877,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteBatchPredictionOutput</p>
 
@@ -1926,7 +1943,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteBatchPredictionOutput</p>
 
@@ -2005,7 +2023,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteDataSourceInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteDataSourceOutput</p>
 
@@ -2070,7 +2089,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteDataSourceInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteDataSourceOutput</p>
 
@@ -2148,7 +2168,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteEvaluationOutput</p>
 
@@ -2213,7 +2234,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteEvaluationOutput</p>
 
@@ -2291,7 +2313,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteMLModelOutput</p>
 
@@ -2355,7 +2378,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteMLModelOutput</p>
 
@@ -2432,7 +2456,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteRealtimeEndpointInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteRealtimeEndpointOutput</p>
 
@@ -2497,7 +2522,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteRealtimeEndpointInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteRealtimeEndpointOutput</p>
 
@@ -2576,7 +2602,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteTagsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteTagsOutput</p>
 
@@ -2640,7 +2667,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteTagsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDeleteTagsOutput</p>
 
@@ -2717,7 +2745,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeBatchPredictionsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeBatchPredictionsOutput</p>
 
@@ -2782,7 +2811,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeBatchPredictionsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeBatchPredictionsOutput</p>
 
@@ -2862,7 +2892,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeDataSourcesInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeDataSourcesOutput</p>
 
@@ -2927,7 +2958,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeDataSourcesInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeDataSourcesOutput</p>
 
@@ -3006,7 +3038,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeEvaluationsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeEvaluationsOutput</p>
 
@@ -3071,7 +3104,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeEvaluationsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeEvaluationsOutput</p>
 
@@ -3150,7 +3184,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeMLModelsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeMLModelsOutput</p>
 
@@ -3215,7 +3250,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeMLModelsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeMLModelsOutput</p>
 
@@ -3293,7 +3329,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeTagsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeTagsOutput</p>
 
@@ -3357,7 +3394,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeTagsInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningDescribeTagsOutput</p>
 
@@ -3434,7 +3472,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetBatchPredictionOutput</p>
 
@@ -3499,7 +3538,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetBatchPredictionOutput</p>
 
@@ -3578,7 +3618,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetDataSourceInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetDataSourceOutput</p>
 
@@ -3642,7 +3683,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetDataSourceInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetDataSourceOutput</p>
 
@@ -3719,7 +3761,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetEvaluationOutput</p>
 
@@ -3783,7 +3826,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetEvaluationOutput</p>
 
@@ -3860,7 +3904,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetMLModelOutput</p>
 
@@ -3924,7 +3969,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningGetMLModelOutput</p>
 
@@ -4001,7 +4047,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningPredictInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningPredictOutput</p>
 
@@ -4065,7 +4112,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningPredictInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningPredictOutput</p>
 
@@ -4142,7 +4190,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateBatchPredictionOutput</p>
 
@@ -4207,7 +4256,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateBatchPredictionInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateBatchPredictionOutput</p>
 
@@ -4286,7 +4336,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateDataSourceInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateDataSourceOutput</p>
 
@@ -4351,7 +4402,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateDataSourceInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateDataSourceOutput</p>
 
@@ -4429,7 +4481,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateEvaluationOutput</p>
 
@@ -4494,7 +4547,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateEvaluationInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateEvaluationOutput</p>
 
@@ -4572,7 +4626,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateMLModelOutput</p>
 
@@ -4636,7 +4691,8 @@
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateMLModelInput</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSMachineLearningUpdateMLModelOutput</p>
 
@@ -4700,8 +4756,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

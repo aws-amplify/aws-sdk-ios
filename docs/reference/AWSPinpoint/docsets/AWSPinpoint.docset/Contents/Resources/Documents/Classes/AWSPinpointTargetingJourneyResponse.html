@@ -14,7 +14,7 @@
     <a title="AWSPinpointTargetingJourneyResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.12.3 Docs</a> (91% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.12.6 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -816,6 +816,12 @@
                 <a href="../Classes/AWSPinpointTargetingListTagsForResourceResponse.html">AWSPinpointTargetingListTagsForResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingListTemplateVersionsRequest.html">AWSPinpointTargetingListTemplateVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingListTemplateVersionsResponse.html">AWSPinpointTargetingListTemplateVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingListTemplatesRequest.html">AWSPinpointTargetingListTemplatesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1008,10 +1014,19 @@
                 <a href="../Classes/AWSPinpointTargetingTemplate.html">AWSPinpointTargetingTemplate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateActiveVersionRequest.html">AWSPinpointTargetingTemplateActiveVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplateConfiguration.html">AWSPinpointTargetingTemplateConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplateResponse.html">AWSPinpointTargetingTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateVersionResponse.html">AWSPinpointTargetingTemplateVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateVersionsResponse.html">AWSPinpointTargetingTemplateVersionsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplatesResponse.html">AWSPinpointTargetingTemplatesResponse</a>
@@ -1138,6 +1153,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateSmsTemplateResponse.html">AWSPinpointTargetingUpdateSmsTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingUpdateTemplateActiveVersionRequest.html">AWSPinpointTargetingUpdateTemplateActiveVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingUpdateTemplateActiveVersionResponse.html">AWSPinpointTargetingUpdateTemplateActiveVersionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateVoiceChannelRequest.html">AWSPinpointTargetingUpdateVoiceChannelRequest</a>
@@ -1360,7 +1381,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The configuration and other settings for the activities that comprise the journey.</p>
+                        <p>A map that contains a set of Activity objects, one object for each activity in the journey. For each Activity object, the key is the unique identifier (string) for an activity and the value is the settings for the activity.</p>
 
                       </div>
                       <div class="declaration">
@@ -1782,7 +1803,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The current status of the journey. Possible values are:</p><ul><li><p>DRAFT - The journey is being developed and hasn&rsquo;t been published yet.</p></li><li><p>ACTIVE - The journey has been developed and published. Depending on the journey&rsquo;s schedule, the journey may currently be running or scheduled to start running at a later time. If a journey&rsquo;s status is ACTIVE, you can&rsquo;t add, change, or remove activities from it.</p></li><li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li><li><p>CANCELLED - The journey has been stopped. If a journey&rsquo;s status is CANCELLED, you can&rsquo;t add, change, or remove activities or segment settings from the journey.</p></li><li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn&rsquo;t been specified for it. If a journey&rsquo;s status is CLOSED, you can&rsquo;t add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may resume the journey.</p></li></ul></p>
+                        <p><p>The current status of the journey. Possible values are:</p><ul><li><p>DRAFT - The journey is being developed and hasn&rsquo;t been published yet.</p></li><li><p>ACTIVE - The journey has been developed and published. Depending on the journey&rsquo;s schedule, the journey may currently be running or scheduled to start running at a later time. If a journey&rsquo;s status is ACTIVE, you can&rsquo;t add, change, or remove activities from it.</p></li><li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li><li><p>CANCELLED - The journey has been stopped. If a journey&rsquo;s status is CANCELLED, you can&rsquo;t add, change, or remove activities or segment settings from the journey.</p></li><li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn&rsquo;t been specified for it. If a journey&rsquo;s status is CLOSED, you can&rsquo;t add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -1839,8 +1860,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

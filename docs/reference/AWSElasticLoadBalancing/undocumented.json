@@ -1,229 +1,229 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancing.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancing.h",
       "line": 28,
       "symbol": "AWSElasticLoadBalancingVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancing.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancing.h",
       "line": 39,
       "symbol": "AWSElasticLoadBalancingVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 22,
       "symbol": "AWSElasticLoadBalancingErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 24,
       "symbol": "AWSElasticLoadBalancingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 24,
       "symbol": "AWSElasticLoadBalancingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 25,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 26,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorAccessPointNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 27,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorCertificateNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 28,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDependencyThrottle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 29,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateAccessPointName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 30,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateListener",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 31,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicatePolicyName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 32,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorDuplicateTagKeys",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 33,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidConfigurationRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 34,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidEndPoint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 35,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidScheme",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 36,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidSecurityGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 37,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorInvalidSubnet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 38,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorListenerNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 39,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 40,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorOperationNotPermitted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 41,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorPolicyNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 42,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorPolicyTypeNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 43,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorSubnetNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 44,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyAccessPoints",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 45,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyPolicies",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 46,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorTooManyTags",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingModel.h",
       "line": 47,
       "symbol": "AWSElasticLoadBalancingErrorType.AWSElasticLoadBalancingErrorUnsupportedProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingResources.h",
       "line": 18,
       "symbol": "AWSElasticLoadBalancingResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingResources.h",
       "line": 20,
       "symbol": "AWSElasticLoadBalancingResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingResources.h",
       "line": 22,
       "symbol": "AWSElasticLoadBalancingResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSElasticLoadBalancing/AWSElasticLoadBalancingService.h",
       "line": 24,
       "symbol": "AWSElasticLoadBalancingSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

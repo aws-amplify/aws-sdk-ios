@@ -14,7 +14,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSMobileAnalytics 2.12.3 Docs</a> (57% documented)</p>
+        <p><a href="index.html">AWSMobileAnalytics 2.12.6 Docs</a> (57% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileAnalytics%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -152,7 +152,7 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
  id<AWSMobileAnalyticsEventClient> eventClient = insights.eventClient;</p>
 
 <p>// create the view event
- id<AWSMobileAnalyticsEvent> level1Event = [eventClient createEventWithEventType:@&ldquo;level1Complete&rdquo;];</p>
+ id<AWSMobileAnalyticsEvent> level1Event = [eventClient createEventWithEventType:@<q>level1Complete</q>];</p>
 
 <p>// record the view event
  [eventClient recordEvent:level1Event];</p>
@@ -160,7 +160,7 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
 <p>// record if the user bought an upgrade (conversion)
  if (userBoughtUpgrade) {
     // create the conversion event
-    id<AWSMobileAnalyticsEvent> boughtUpgradeEvent = [eventClient createEventWithEventType:@&ldquo;level1UserBoughtUpgrade&rdquo;];</p>
+    id<AWSMobileAnalyticsEvent> boughtUpgradeEvent = [eventClient createEventWithEventType:@<q>level1UserBoughtUpgrade</q>];</p>
 <pre class="highlight objective_c"><code><span class="c1">// record the conversion event</span>
 <span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">boughtUpgradeEvent</span><span class="p">];</span>
 </code></pre>
@@ -185,6 +185,10 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -204,8 +208,8 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
 <p><h3>Recording Events</h3>
  <p>
  The example below demonstrates how to create and record events after retrieving an AIVariation. In this example,
- the developer records the <em>\@&ldquo;level1Complete&rdquo;</em> event to represent a view, and if the user makes
- a purchase, the developer records a <em>\@&ldquo;level1UserBoughtUpgrade&rdquo;</em> to represent a conversion.
+ the developer records the <em>\@<q>level1Complete</q></em> event to represent a view, and if the user makes
+ a purchase, the developer records a <em>\@<q>level1UserBoughtUpgrade</q></em> to represent a conversion.
  </p>
  Example:
  @code
@@ -213,7 +217,7 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
  id<AWSMobileAnalyticsEventClient> eventClient = insights.eventClient;</p>
 
 <p>// create the view event
- id<AWSMobileAnalyticsEvent> level1Event = [eventClient createEventWithEventType:@&ldquo;level1Complete&rdquo;];</p>
+ id<AWSMobileAnalyticsEvent> level1Event = [eventClient createEventWithEventType:@<q>level1Complete</q>];</p>
 
 <p>// record the view event
  [eventClient recordEvent:level1Event];</p>
@@ -221,7 +225,7 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
 <p>// record if the user bought an upgrade (conversion)
  if (userBoughtUpgrade) {
     // create the conversion event
-    id<AWSMobileAnalyticsEvent> boughtUpgradeEvent = [eventClient createEventWithEventType:@&ldquo;level1UserBoughtUpgrade&rdquo;];</p>
+    id<AWSMobileAnalyticsEvent> boughtUpgradeEvent = [eventClient createEventWithEventType:@<q>level1UserBoughtUpgrade</q>];</p>
 <pre class="highlight objective_c"><code><span class="c1">// record the conversion event</span>
 <span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">boughtUpgradeEvent</span><span class="p">];</span>
 </code></pre>
@@ -263,6 +267,10 @@ and if the user makes a purchase, the code below records a <code>@&quot;level1Us
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -303,8 +311,8 @@ delivery on WAN within the SDK.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

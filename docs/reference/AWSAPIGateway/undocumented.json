@@ -1,103 +1,103 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGateway.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGateway.h",
       "line": 28,
       "symbol": "AWSAPIGatewayVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGateway.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGateway.h",
       "line": 39,
       "symbol": "AWSAPIGatewayVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 23,
       "symbol": "AWSAPIGatewaySDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 25,
       "symbol": "AWSAPIGatewayErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 27,
       "symbol": "AWSAPIGatewayErrorHTTPBodyKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 28,
       "symbol": "AWSAPIGatewayErrorHTTPHeaderFieldsKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 30,
       "symbol": "AWSAPIGatewayErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 30,
       "symbol": "AWSAPIGatewayErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 31,
       "symbol": "AWSAPIGatewayErrorType.AWSAPIGatewayErrorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 32,
       "symbol": "AWSAPIGatewayErrorType.AWSAPIGatewayErrorTypeClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 33,
       "symbol": "AWSAPIGatewayErrorType.AWSAPIGatewayErrorTypeService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 38,
       "symbol": "AWSAPIGatewayClient",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 40,
       "symbol": "AWSAPIGatewayClient.configuration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAPIGateway/AWSAPIGatewayClient.h",
       "line": 42,
       "symbol": "AWSAPIGatewayClient.APIKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

@@ -1,19 +1,19 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAuthSDK/Sources/AWSAuthCore/AWSAuthCore.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSAuthCore/AWSAuthCore.h",
       "line": 19,
       "symbol": "AWSAuthCoreVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAuthSDK/Sources/AWSAuthCore/AWSAuthCore.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSAuthCore/AWSAuthCore.h",
       "line": 22,
       "symbol": "AWSAuthCoreVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

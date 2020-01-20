@@ -14,7 +14,7 @@
     <a title="AWSLogs Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.12.3 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.12.6 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -335,7 +335,7 @@
 
                 </div>
               </div>
-            <p><p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p><p>You can use CloudWatch Logs to:</p><ul><li><p><b>Monitor logs from EC2 instances in real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as &ldquo;NullReferenceException&rdquo;) or count the number of occurrences of a literal term at a particular position in log data (such as &ldquo;404&rdquo; status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.</p></li><li><p><b>Monitor AWS CloudTrail logged events</b>: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.</p></li><li><p><b>Archive log data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p></li></ul></p>
+            <p><p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p><p>You can use CloudWatch Logs to:</p><ul><li><p><b>Monitor logs from EC2 instances in real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as <q>NullReferenceException</q>) or count the number of occurrences of a literal term at a particular position in log data (such as <q>404</q> status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.</p></li><li><p><b>Monitor AWS CloudTrail logged events</b>: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.</p></li><li><p><b>Archive log data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p></li></ul></p>
 
           </section>
           <section class="section task-group-section">
@@ -714,7 +714,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p><p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>Note that it can take up to 5 minutes for this operation to take effect.</p><p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
+                        <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p><p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><note><p><b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not use an associate an asymmetric CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></note><p>Note that it can take up to 5 minutes for this operation to take effect.</p><p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsAssociateKmsKeyRequest</p>
@@ -774,7 +774,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p><p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>Note that it can take up to 5 minutes for this operation to take effect.</p><p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
+                        <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p><p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><note><p><b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not use an associate an asymmetric CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></note><p>Note that it can take up to 5 minutes for this operation to take effect.</p><p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsAssociateKmsKeyRequest</p>
@@ -981,7 +981,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsCreateExportTaskRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateExportTaskResponse</p>
 
@@ -1045,7 +1046,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsCreateExportTaskRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateExportTaskResponse</p>
 
@@ -1117,7 +1119,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a log group with the specified name.</p><p>You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
+                        <p><p>Creates a log group with the specified name.</p><p>You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p><note><p><b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateLogGroupRequest</p>
@@ -1177,7 +1179,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a log group with the specified name.</p><p>You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
+                        <p><p>Creates a log group with the specified name.</p><p>You can create up to 20,000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, &lsquo;_&rsquo; (underscore), &lsquo;-&rsquo; (hyphen), &lsquo;/&rsquo; (forward slash), &lsquo;.&rsquo; (period), and &lsquo;#&rsquo; (number sign)</p></li></ul><p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p><note><p><b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric Keys</a>.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateLogGroupRequest</p>
@@ -1247,7 +1249,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a log stream for the specified log group.</p><p>There is no limit on the number of log streams that you can create for a log group.</p><p>You must use the following guidelines when naming a log stream:</p><ul><li><p>Log stream names must be unique within the log group.</p></li><li><p>Log stream names can be between 1 and 512 characters long.</p></li><li><p>The &lsquo;:&rsquo; (colon) and &lsquo;*&rsquo; (asterisk) characters are not allowed.</p></li></ul></p>
+                        <p><p>Creates a log stream for the specified log group.</p><p>There is no limit on the number of log streams that you can create for a log group. There is a limit of 50 TPS on <code>CreateLogStream</code> operations, after which transactions are throttled.</p><p>You must use the following guidelines when naming a log stream:</p><ul><li><p>Log stream names must be unique within the log group.</p></li><li><p>Log stream names can be between 1 and 512 characters long.</p></li><li><p>The &lsquo;:&rsquo; (colon) and &lsquo;*&rsquo; (asterisk) characters are not allowed.</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateLogStreamRequest</p>
@@ -1307,7 +1309,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a log stream for the specified log group.</p><p>There is no limit on the number of log streams that you can create for a log group.</p><p>You must use the following guidelines when naming a log stream:</p><ul><li><p>Log stream names must be unique within the log group.</p></li><li><p>Log stream names can be between 1 and 512 characters long.</p></li><li><p>The &lsquo;:&rsquo; (colon) and &lsquo;*&rsquo; (asterisk) characters are not allowed.</p></li></ul></p>
+                        <p><p>Creates a log stream for the specified log group.</p><p>There is no limit on the number of log streams that you can create for a log group. There is a limit of 50 TPS on <code>CreateLogStream</code> operations, after which transactions are throttled.</p><p>You must use the following guidelines when naming a log stream:</p><ul><li><p>Log stream names must be unique within the log group.</p></li><li><p>Log stream names can be between 1 and 512 characters long.</p></li><li><p>The &lsquo;:&rsquo; (colon) and &lsquo;*&rsquo; (asterisk) characters are not allowed.</p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsCreateLogStreamRequest</p>
@@ -2305,7 +2307,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeDestinationsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeDestinationsResponse</p>
 
@@ -2370,7 +2373,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeDestinationsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeDestinationsResponse</p>
 
@@ -2448,7 +2452,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeExportTasksRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeExportTasksResponse</p>
 
@@ -2512,7 +2517,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeExportTasksRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeExportTasksResponse</p>
 
@@ -2589,7 +2595,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogGroupsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogGroupsResponse</p>
 
@@ -2653,7 +2660,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogGroupsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogGroupsResponse</p>
 
@@ -2730,7 +2738,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogStreamsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogStreamsResponse</p>
 
@@ -2794,7 +2803,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogStreamsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeLogStreamsResponse</p>
 
@@ -2871,7 +2881,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeMetricFiltersRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeMetricFiltersResponse</p>
 
@@ -2936,7 +2947,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeMetricFiltersRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeMetricFiltersResponse</p>
 
@@ -3014,7 +3026,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeQueriesRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeQueriesResponse</p>
 
@@ -3078,7 +3091,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeQueriesRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeQueriesResponse</p>
 
@@ -3155,7 +3169,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeResourcePoliciesRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeResourcePoliciesResponse</p>
 
@@ -3220,7 +3235,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeResourcePoliciesRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeResourcePoliciesResponse</p>
 
@@ -3299,7 +3315,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeSubscriptionFiltersRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeSubscriptionFiltersResponse</p>
 
@@ -3364,7 +3381,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeSubscriptionFiltersRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsDescribeSubscriptionFiltersResponse</p>
 
@@ -3574,7 +3592,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsFilterLogEventsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsFilterLogEventsResponse</p>
 
@@ -3638,7 +3657,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsFilterLogEventsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsFilterLogEventsResponse</p>
 
@@ -3715,7 +3735,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogEventsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogEventsResponse</p>
 
@@ -3779,7 +3800,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogEventsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogEventsResponse</p>
 
@@ -3855,7 +3877,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogGroupFieldsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogGroupFieldsResponse</p>
 
@@ -3919,7 +3942,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogGroupFieldsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogGroupFieldsResponse</p>
 
@@ -3996,7 +4020,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogRecordRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogRecordResponse</p>
 
@@ -4060,7 +4085,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogRecordRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetLogRecordResponse</p>
 
@@ -4136,7 +4162,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetQueryResultsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetQueryResultsResponse</p>
 
@@ -4200,7 +4227,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsGetQueryResultsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsGetQueryResultsResponse</p>
 
@@ -4277,7 +4305,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsListTagsLogGroupRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsListTagsLogGroupResponse</p>
 
@@ -4341,7 +4370,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsListTagsLogGroupRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsListTagsLogGroupResponse</p>
 
@@ -4418,7 +4448,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsPutDestinationRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutDestinationResponse</p>
 
@@ -4482,7 +4513,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsPutDestinationRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutDestinationResponse</p>
 
@@ -4687,12 +4719,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or older than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is an invalid AWS access key ID or secret key. </p>
+                        <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token in the <code>expectedSequenceToken</code> field from <code>InvalidSequenceTokenException</code>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or older than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>There is a quota of 5 requests per second per log stream. Additional requests are throttled. This quota can&rsquo;t be changed.</p></li></ul><p>If a call to PutLogEvents returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is an invalid AWS access key ID or secret key. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutLogEventsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutLogEventsResponse</p>
 
@@ -4751,12 +4784,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or older than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is an invalid AWS access key ID or secret key. </p>
+                        <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token in the <code>expectedSequenceToken</code> field from <code>InvalidSequenceTokenException</code>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or older than the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>There is a quota of 5 requests per second per log stream. Additional requests are throttled. This quota can&rsquo;t be changed.</p></li></ul><p>If a call to PutLogEvents returns &ldquo;UnrecognizedClientException&rdquo; the most likely cause is an invalid AWS access key ID or secret key. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutLogEventsRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutLogEventsResponse</p>
 
@@ -4963,7 +4997,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsPutResourcePolicyRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutResourcePolicyResponse</p>
 
@@ -5027,7 +5062,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsPutResourcePolicyRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsPutResourcePolicyResponse</p>
 
@@ -5368,7 +5404,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsStartQueryRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsStartQueryResponse</p>
 
@@ -5432,7 +5469,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsStartQueryRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsStartQueryResponse</p>
 
@@ -5508,7 +5546,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsStopQueryRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsStopQueryResponse</p>
 
@@ -5572,7 +5611,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsStopQueryRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsStopQueryResponse</p>
 
@@ -5778,7 +5818,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsTestMetricFilterRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsTestMetricFilterResponse</p>
 
@@ -5842,7 +5883,8 @@
     <p class="aside-title">See</p>
     <p>AWSLogsTestMetricFilterRequest</p>
 
-</div><div class="aside aside-see">
+</div>
+<div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLogsTestMetricFilterResponse</p>
 
@@ -6036,8 +6078,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

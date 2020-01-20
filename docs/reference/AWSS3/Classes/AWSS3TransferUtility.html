@@ -14,7 +14,7 @@
     <a title="AWSS3TransferUtility Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSS3 2.12.3 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSS3 2.12.6 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSS3%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1256,7 +1256,7 @@
 <p><em>Swift</em></p>
 
 <p>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
-let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: &ldquo;YourIdentityPoolId&rdquo;)
+let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: <q>YourIdentityPoolId</q>)
 let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
 AWSServiceManager.default().defaultServiceConfiguration = configuration</p>
 
@@ -1268,7 +1268,7 @@ AWSServiceManager.default().defaultServiceConfiguration = configuration</p>
 <ul>
 <li>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-identityPoolId:@&ldquo;YourIdentityPoolId&rdquo;];
+identityPoolId:@<q>YourIdentityPoolId</q>];
 AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
 credentialsProvider:credentialsProvider];
 [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;</li>
@@ -1367,7 +1367,7 @@ credentialsProvider:credentialsProvider];
                                                                          <span class="nl">credentialsProvider:</span><span class="n">credentialsProvider</span><span class="p">];</span>
 </code></pre>
 
-<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
+<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@<q>USWest2S3TransferUtility</q> completionHandler:^(NSError * _Nullable error) {</p>
 
 <p>}];</p>
 <pre class="highlight objective_c"><code>    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
@@ -1458,9 +1458,9 @@ credentialsProvider:credentialsProvider];
 <p><em>Swift</em></p>
 
 <p>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
-let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: &ldquo;YourIdentityPoolId&rdquo;)
+let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: <q>YourIdentityPoolId</q>)
 let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-AWSS3TransferUtility.register(with: configuration!, forKey: &ldquo;USWest2S3TransferUtility&rdquo;){ (error) in</p>
+AWSS3TransferUtility.register(with: configuration!, forKey: <q>USWest2S3TransferUtility</q>){ (error) in</p>
 
 <p>}</p>
 
@@ -1472,12 +1472,12 @@ AWSS3TransferUtility.register(with: configuration!, forKey: &ldquo;USWest2S3Tran
 <ul>
 <li>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-identityPoolId:@&ldquo;YourIdentityPoolId&rdquo;];
+identityPoolId:@<q>YourIdentityPoolId</q>];
 AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
 credentialsProvider:credentialsProvider];</li>
 </ul>
 
-<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
+<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@<q>USWest2S3TransferUtility</q> completionHandler:^(NSError * _Nullable error) {</p>
 
 <p>}];</p>
 
@@ -1488,11 +1488,11 @@ credentialsProvider:credentialsProvider];</li>
 
 <p><em>Swift</em></p>
 
-<p>let S3TransferUtility = AWSS3TransferUtility(forKey: &ldquo;USWest2S3TransferUtility&rdquo;)</p>
+<p>let S3TransferUtility = AWSS3TransferUtility(forKey: <q>USWest2S3TransferUtility</q>)</p>
 
 <p><em>Objective-C</em></p>
 
-<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@&ldquo;USWest2S3TransferUtility&rdquo;];</p>
+<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@<q>USWest2S3TransferUtility</q>];</p>
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
@@ -1703,9 +1703,9 @@ credentialsProvider:credentialsProvider];</li>
 <p><em>Swift</em></p>
 
 <p>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
-let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: &ldquo;YourIdentityPoolId&rdquo;)
+let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: <q>YourIdentityPoolId</q>)
 let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: &ldquo;USWest2S3TransferUtility&rdquo;) { (error) in</p>
+AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: <q>USWest2S3TransferUtility</q>) { (error) in</p>
 
 <p>}</p>
 
@@ -1717,12 +1717,12 @@ AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration
 <ul>
 <li>(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-identityPoolId:@&ldquo;YourIdentityPoolId&rdquo;];
+identityPoolId:@<q>YourIdentityPoolId</q>];
 AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
 credentialsProvider:credentialsProvider];</li>
 </ul>
 
-<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration transferUtilityConfiguration:nil forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
+<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration transferUtilityConfiguration:nil forKey:@<q>USWest2S3TransferUtility</q> completionHandler:^(NSError * _Nullable error) {</p>
 
 <p>}];</p>
 
@@ -1733,11 +1733,11 @@ credentialsProvider:credentialsProvider];</li>
 
 <p><em>Swift</em></p>
 
-<p>let S3TransferUtility = AWSS3TransferUtility(forKey: &ldquo;USWest2S3TransferUtility&rdquo;)</p>
+<p>let S3TransferUtility = AWSS3TransferUtility(forKey: <q>USWest2S3TransferUtility</q>)</p>
 
 <p><em>Objective-C</em></p>
 
-<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@&ldquo;USWest2S3TransferUtility&rdquo;];</p>
+<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@<q>USWest2S3TransferUtility</q>];</p>
 <div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p>
@@ -3688,8 +3688,8 @@ credentialsProvider:credentialsProvider];</li>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

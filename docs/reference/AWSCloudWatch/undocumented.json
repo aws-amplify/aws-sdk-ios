@@ -1,621 +1,621 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatch.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatch.h",
       "line": 28,
       "symbol": "AWSCloudWatchVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatch.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatch.h",
       "line": 39,
       "symbol": "AWSCloudWatchVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 22,
       "symbol": "AWSCloudWatchErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 24,
       "symbol": "AWSCloudWatchErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 24,
       "symbol": "AWSCloudWatchErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 25,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 26,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorDashboardInvalidInput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 27,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorDashboardNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 28,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorInternalService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 29,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorInvalidFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 30,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorInvalidNextToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 31,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorInvalidParameterCombination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 32,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorInvalidParameterValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 33,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 34,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorMissingRequiredParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 35,
       "symbol": "AWSCloudWatchErrorType.AWSCloudWatchErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 38,
       "symbol": "AWSCloudWatchComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 38,
       "symbol": "AWSCloudWatchComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 39,
       "symbol": "AWSCloudWatchComparisonOperator.AWSCloudWatchComparisonOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 40,
       "symbol": "AWSCloudWatchComparisonOperator.AWSCloudWatchComparisonOperatorGreaterThanOrEqualToThreshold",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 41,
       "symbol": "AWSCloudWatchComparisonOperator.AWSCloudWatchComparisonOperatorGreaterThanThreshold",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 42,
       "symbol": "AWSCloudWatchComparisonOperator.AWSCloudWatchComparisonOperatorLessThanThreshold",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 43,
       "symbol": "AWSCloudWatchComparisonOperator.AWSCloudWatchComparisonOperatorLessThanOrEqualToThreshold",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 46,
       "symbol": "AWSCloudWatchHistoryItemType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 46,
       "symbol": "AWSCloudWatchHistoryItemType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 47,
       "symbol": "AWSCloudWatchHistoryItemType.AWSCloudWatchHistoryItemTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 48,
       "symbol": "AWSCloudWatchHistoryItemType.AWSCloudWatchHistoryItemTypeConfigurationUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 49,
       "symbol": "AWSCloudWatchHistoryItemType.AWSCloudWatchHistoryItemTypeStateUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 50,
       "symbol": "AWSCloudWatchHistoryItemType.AWSCloudWatchHistoryItemTypeAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 53,
       "symbol": "AWSCloudWatchScanBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 53,
       "symbol": "AWSCloudWatchScanBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 54,
       "symbol": "AWSCloudWatchScanBy.AWSCloudWatchScanByUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 55,
       "symbol": "AWSCloudWatchScanBy.AWSCloudWatchScanByTimestampDescending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 56,
       "symbol": "AWSCloudWatchScanBy.AWSCloudWatchScanByTimestampAscending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 59,
       "symbol": "AWSCloudWatchStandardUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 59,
       "symbol": "AWSCloudWatchStandardUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 60,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 61,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitSeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 62,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitMicroseconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 63,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitMilliseconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 64,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitBytes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 65,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitKilobytes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 66,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitMegabytes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 67,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitGigabytes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 68,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitTerabytes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 69,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitBits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 70,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitKilobits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 71,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitMegabits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 72,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitGigabits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 73,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitTerabits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 74,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitPercent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 75,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 76,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitBytesSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 77,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitKilobytesSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 78,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitMegabytesSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 79,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitGigabytesSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 80,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitTerabytesSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 81,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitBitsSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 82,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitKilobitsSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 83,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitMegabitsSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 84,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitGigabitsSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 85,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitTerabitsSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 86,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitCountSecond",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 87,
       "symbol": "AWSCloudWatchStandardUnit.AWSCloudWatchStandardUnitNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 90,
       "symbol": "AWSCloudWatchStateValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 90,
       "symbol": "AWSCloudWatchStateValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 91,
       "symbol": "AWSCloudWatchStateValue.AWSCloudWatchStateValueUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 92,
       "symbol": "AWSCloudWatchStateValue.AWSCloudWatchStateValueOK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 93,
       "symbol": "AWSCloudWatchStateValue.AWSCloudWatchStateValueAlarm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 94,
       "symbol": "AWSCloudWatchStateValue.AWSCloudWatchStateValueInsufficientData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 97,
       "symbol": "AWSCloudWatchStatistic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 97,
       "symbol": "AWSCloudWatchStatistic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 98,
       "symbol": "AWSCloudWatchStatistic.AWSCloudWatchStatisticUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 99,
       "symbol": "AWSCloudWatchStatistic.AWSCloudWatchStatisticSampleCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 100,
       "symbol": "AWSCloudWatchStatistic.AWSCloudWatchStatisticAverage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 101,
       "symbol": "AWSCloudWatchStatistic.AWSCloudWatchStatisticSum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 102,
       "symbol": "AWSCloudWatchStatistic.AWSCloudWatchStatisticMinimum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 103,
       "symbol": "AWSCloudWatchStatistic.AWSCloudWatchStatisticMaximum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 106,
       "symbol": "AWSCloudWatchStatusCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 106,
       "symbol": "AWSCloudWatchStatusCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 107,
       "symbol": "AWSCloudWatchStatusCode.AWSCloudWatchStatusCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 108,
       "symbol": "AWSCloudWatchStatusCode.AWSCloudWatchStatusCodeComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 109,
       "symbol": "AWSCloudWatchStatusCode.AWSCloudWatchStatusCodeInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchModel.h",
       "line": 110,
       "symbol": "AWSCloudWatchStatusCode.AWSCloudWatchStatusCodePartialData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchResources.h",
       "line": 18,
       "symbol": "AWSCloudWatchResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchResources.h",
       "line": 20,
       "symbol": "AWSCloudWatchResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchResources.h",
       "line": 22,
       "symbol": "AWSCloudWatchResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCloudWatch/AWSCloudWatchService.h",
       "line": 24,
       "symbol": "AWSCloudWatchSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

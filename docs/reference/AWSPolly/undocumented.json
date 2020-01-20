@@ -1,1230 +1,1230 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPolly.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPolly.h",
       "line": 28,
       "symbol": "AWSPollyVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPolly.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPolly.h",
       "line": 39,
       "symbol": "AWSPollyVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 22,
       "symbol": "AWSPollyErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 24,
       "symbol": "AWSPollyErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 24,
       "symbol": "AWSPollyErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 25,
       "symbol": "AWSPollyErrorType.AWSPollyErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 26,
       "symbol": "AWSPollyErrorType.AWSPollyErrorEngineNotSupported",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 27,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidLexicon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 28,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidNextToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 29,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidS3Bucket",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 30,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidS3Key",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 31,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidSampleRate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 32,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidSnsTopicArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 33,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidSsml",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 34,
       "symbol": "AWSPollyErrorType.AWSPollyErrorInvalidTaskId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 35,
       "symbol": "AWSPollyErrorType.AWSPollyErrorLanguageNotSupported",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 36,
       "symbol": "AWSPollyErrorType.AWSPollyErrorLexiconNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 37,
       "symbol": "AWSPollyErrorType.AWSPollyErrorLexiconSizeExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 38,
       "symbol": "AWSPollyErrorType.AWSPollyErrorMarksNotSupportedForFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 39,
       "symbol": "AWSPollyErrorType.AWSPollyErrorMaxLexemeLengthExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 40,
       "symbol": "AWSPollyErrorType.AWSPollyErrorMaxLexiconsNumberExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 41,
       "symbol": "AWSPollyErrorType.AWSPollyErrorServiceFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 42,
       "symbol": "AWSPollyErrorType.AWSPollyErrorSsmlMarksNotSupportedForTextType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 43,
       "symbol": "AWSPollyErrorType.AWSPollyErrorSynthesisTaskNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 44,
       "symbol": "AWSPollyErrorType.AWSPollyErrorTextLengthExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 45,
       "symbol": "AWSPollyErrorType.AWSPollyErrorUnsupportedPlsAlphabet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 46,
       "symbol": "AWSPollyErrorType.AWSPollyErrorUnsupportedPlsLanguage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 49,
       "symbol": "AWSPollyEngine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 49,
       "symbol": "AWSPollyEngine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 50,
       "symbol": "AWSPollyEngine.AWSPollyEngineUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 51,
       "symbol": "AWSPollyEngine.AWSPollyEngineStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 52,
       "symbol": "AWSPollyEngine.AWSPollyEngineNeural",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 55,
       "symbol": "AWSPollyGender",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 55,
       "symbol": "AWSPollyGender",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 56,
       "symbol": "AWSPollyGender.AWSPollyGenderUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 57,
       "symbol": "AWSPollyGender.AWSPollyGenderFemale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 58,
       "symbol": "AWSPollyGender.AWSPollyGenderMale",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 61,
       "symbol": "AWSPollyLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 61,
       "symbol": "AWSPollyLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 62,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 63,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeArb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 64,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeCmnCN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 65,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeCyGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 66,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeDaDK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 67,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeDeDE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 68,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEnAU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 69,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 70,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEnGBWLS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 71,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEnIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 72,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 73,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEsES",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 74,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEsMX",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 75,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeEsUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 76,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeFrCA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 77,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeFrFR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 78,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeIsIS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 79,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeItIT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 80,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeJaJP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 81,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeHiIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 82,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeKoKR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 83,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeNbNO",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 84,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeNlNL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 85,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodePlPL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 86,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodePtBR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 87,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodePtPT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 88,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeRoRO",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 89,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeRuRU",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 90,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeSvSE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 91,
       "symbol": "AWSPollyLanguageCode.AWSPollyLanguageCodeTrTR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 94,
       "symbol": "AWSPollyOutputFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 94,
       "symbol": "AWSPollyOutputFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 95,
       "symbol": "AWSPollyOutputFormat.AWSPollyOutputFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 96,
       "symbol": "AWSPollyOutputFormat.AWSPollyOutputFormatJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 97,
       "symbol": "AWSPollyOutputFormat.AWSPollyOutputFormatMp3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 98,
       "symbol": "AWSPollyOutputFormat.AWSPollyOutputFormatOggVorbis",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 99,
       "symbol": "AWSPollyOutputFormat.AWSPollyOutputFormatPcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 102,
       "symbol": "AWSPollySpeechMarkType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 102,
       "symbol": "AWSPollySpeechMarkType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 103,
       "symbol": "AWSPollySpeechMarkType.AWSPollySpeechMarkTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 104,
       "symbol": "AWSPollySpeechMarkType.AWSPollySpeechMarkTypeSentence",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 105,
       "symbol": "AWSPollySpeechMarkType.AWSPollySpeechMarkTypeSsml",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 106,
       "symbol": "AWSPollySpeechMarkType.AWSPollySpeechMarkTypeViseme",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 107,
       "symbol": "AWSPollySpeechMarkType.AWSPollySpeechMarkTypeWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 110,
       "symbol": "AWSPollyTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 110,
       "symbol": "AWSPollyTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 111,
       "symbol": "AWSPollyTaskStatus.AWSPollyTaskStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 112,
       "symbol": "AWSPollyTaskStatus.AWSPollyTaskStatusScheduled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 113,
       "symbol": "AWSPollyTaskStatus.AWSPollyTaskStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 114,
       "symbol": "AWSPollyTaskStatus.AWSPollyTaskStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 115,
       "symbol": "AWSPollyTaskStatus.AWSPollyTaskStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 118,
       "symbol": "AWSPollyTextType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 118,
       "symbol": "AWSPollyTextType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 119,
       "symbol": "AWSPollyTextType.AWSPollyTextTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 120,
       "symbol": "AWSPollyTextType.AWSPollyTextTypeSsml",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 121,
       "symbol": "AWSPollyTextType.AWSPollyTextTypeText",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 124,
       "symbol": "AWSPollyVoiceId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 124,
       "symbol": "AWSPollyVoiceId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 125,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 126,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdAditi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 127,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdAmy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 128,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdAstrid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 129,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdBianca",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 130,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdBrian",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 131,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdCamila",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 132,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdCarla",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 133,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdCarmen",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 134,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdCeline",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 135,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdChantal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 136,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdConchita",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 137,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdCristiano",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 138,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdDora",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 139,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdEmma",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 140,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdEnrique",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 141,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdEwa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 142,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdFiliz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 143,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdGeraint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 144,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdGiorgio",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 145,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdGwyneth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 146,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdHans",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 147,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdInes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 148,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdIvy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 149,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdJacek",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 150,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdJan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 151,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdJoanna",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 152,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdJoey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 153,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdJustin",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 154,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdKarl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 155,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdKendra",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 156,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdKimberly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 157,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdLea",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 158,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdLiv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 159,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdLotte",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 160,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdLucia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 161,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdLupe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 162,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMads",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 163,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMaja",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 164,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMarlene",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 165,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMathieu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 166,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMatthew",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 167,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMaxim",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 168,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 169,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMiguel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 170,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdMizuki",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 171,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdNaja",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 172,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdNicole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 173,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdPenelope",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 174,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdRaveena",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 175,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdRicardo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 176,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdRuben",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 177,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdRussell",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 178,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdSalli",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 179,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdSeoyeon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 180,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdTakumi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 181,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdTatyana",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 182,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdVicki",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 183,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdVitoria",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 184,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdZeina",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyModel.h",
       "line": 185,
       "symbol": "AWSPollyVoiceId.AWSPollyVoiceIdZhiyu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
       "line": 18,
       "symbol": "AWSPollyResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
       "line": 20,
       "symbol": "AWSPollyResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyResources.h",
       "line": 22,
       "symbol": "AWSPollyResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollyService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollyService.h",
       "line": 24,
       "symbol": "AWSPollySDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 22,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 24,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 24,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 25,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 26,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderAccessKeyIsNil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 27,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderSecretKeyIsNil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 28,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderEndpointIsNil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 29,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderInvalidExpiresDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 30,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderErrorInvalidServiceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 31,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderCredentialProviderIsNil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 32,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderErrorType.AWSPollySynthesizeSpeechURLBuilderInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 35,
       "symbol": "AWSPollySynthesizeSpeechURLBuilderRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSPolly/AWSPollySynthesizeSpeechURLBuilder.h",
       "line": 91,
       "symbol": "AWSPollySynthesizeSpeechURLBuilder",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

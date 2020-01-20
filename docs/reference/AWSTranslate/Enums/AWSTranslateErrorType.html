@@ -14,7 +14,7 @@
     <a title="AWSTranslateErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.12.3 Docs</a> (69% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.12.6 Docs</a> (75% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -42,6 +42,12 @@
                 <a href="../Classes/AWSTranslateDeleteTerminologyRequest.html">AWSTranslateDeleteTerminologyRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDescribeTextTranslationJobRequest.html">AWSTranslateDescribeTextTranslationJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDescribeTextTranslationJobResponse.html">AWSTranslateDescribeTextTranslationJobResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateEncryptionKey.html">AWSTranslateEncryptionKey</a>
               </li>
               <li class="nav-group-task">
@@ -57,13 +63,40 @@
                 <a href="../Classes/AWSTranslateImportTerminologyResponse.html">AWSTranslateImportTerminologyResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateInputDataConfig.html">AWSTranslateInputDataConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateJobDetails.html">AWSTranslateJobDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateListTerminologiesRequest.html">AWSTranslateListTerminologiesRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateListTerminologiesResponse.html">AWSTranslateListTerminologiesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTextTranslationJobsRequest.html">AWSTranslateListTextTranslationJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTextTranslationJobsResponse.html">AWSTranslateListTextTranslationJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateOutputDataConfig.html">AWSTranslateOutputDataConfig</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateResources.html">AWSTranslateResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStartTextTranslationJobRequest.html">AWSTranslateStartTextTranslationJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStartTextTranslationJobResponse.html">AWSTranslateStartTextTranslationJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStopTextTranslationJobRequest.html">AWSTranslateStopTextTranslationJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStopTextTranslationJobResponse.html">AWSTranslateStopTextTranslationJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateTerm.html">AWSTranslateTerm</a>
@@ -76,6 +109,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateTerminologyProperties.html">AWSTranslateTerminologyProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTextTranslationJobFilter.html">AWSTranslateTextTranslationJobFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTextTranslationJobProperties.html">AWSTranslateTextTranslationJobProperties</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateTranslateTextRequest.html">AWSTranslateTranslateTextRequest</a>
@@ -112,6 +151,9 @@
                 <a href="../Enums/AWSTranslateErrorType.html">AWSTranslateErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateJobStatus.html">AWSTranslateJobStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateMergeStrategy.html">AWSTranslateMergeStrategy</a>
               </li>
               <li class="nav-group-task">
@@ -131,6 +173,7 @@
     <span class="n">AWSTranslateErrorUnknown</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorDetectedLanguageLowConfidence</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorInternalServer</span><span class="p">,</span>
+    <span class="n">AWSTranslateErrorInvalidFilter</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorInvalidParameterValue</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorInvalidRequest</span><span class="p">,</span>
     <span class="n">AWSTranslateErrorLimitExceeded</span><span class="p">,</span>
@@ -248,6 +291,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSTranslateErrorType@AWSTranslateErrorInvalidFilter"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranslateErrorInvalidFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranslateErrorType@AWSTranslateErrorInvalidFilter">AWSTranslateErrorInvalidFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranslateErrorInvalidFilter</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidFilter</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSTranslateErrorType@AWSTranslateErrorInvalidParameterValue"></a>
                     <a name="//apple_ref/objc/Case/AWSTranslateErrorInvalidParameterValue" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSTranslateErrorType@AWSTranslateErrorInvalidParameterValue">AWSTranslateErrorInvalidParameterValue</a>
@@ -270,7 +345,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidParameterValue</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidParameterValue</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -302,7 +377,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRequest</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRequest</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -334,7 +409,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -366,7 +441,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotFound</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotFound</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -398,7 +473,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceUnavailable</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceUnavailable</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -430,7 +505,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">textSizeLimitExceeded</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">textSizeLimitExceeded</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -462,7 +537,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tooManyRequests</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tooManyRequests</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -494,7 +569,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedLanguagePair</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedLanguagePair</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -506,8 +581,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

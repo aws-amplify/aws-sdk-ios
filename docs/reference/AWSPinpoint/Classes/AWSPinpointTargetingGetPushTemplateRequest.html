@@ -14,7 +14,7 @@
     <a title="AWSPinpointTargetingGetPushTemplateRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.12.3 Docs</a> (91% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.12.6 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -816,6 +816,12 @@
                 <a href="../Classes/AWSPinpointTargetingListTagsForResourceResponse.html">AWSPinpointTargetingListTagsForResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingListTemplateVersionsRequest.html">AWSPinpointTargetingListTemplateVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingListTemplateVersionsResponse.html">AWSPinpointTargetingListTemplateVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingListTemplatesRequest.html">AWSPinpointTargetingListTemplatesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1008,10 +1014,19 @@
                 <a href="../Classes/AWSPinpointTargetingTemplate.html">AWSPinpointTargetingTemplate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateActiveVersionRequest.html">AWSPinpointTargetingTemplateActiveVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplateConfiguration.html">AWSPinpointTargetingTemplateConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplateResponse.html">AWSPinpointTargetingTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateVersionResponse.html">AWSPinpointTargetingTemplateVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateVersionsResponse.html">AWSPinpointTargetingTemplateVersionsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplatesResponse.html">AWSPinpointTargetingTemplatesResponse</a>
@@ -1138,6 +1153,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateSmsTemplateResponse.html">AWSPinpointTargetingUpdateSmsTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingUpdateTemplateActiveVersionRequest.html">AWSPinpointTargetingUpdateTemplateActiveVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingUpdateTemplateActiveVersionResponse.html">AWSPinpointTargetingUpdateTemplateActiveVersionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateVoiceChannelRequest.html">AWSPinpointTargetingUpdateVoiceChannelRequest</a>
@@ -1376,13 +1397,45 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingGetPushTemplateRequest(py)version"></a>
+                    <a name="//apple_ref/objc/Property/version" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingGetPushTemplateRequest(py)version">version</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <linklinkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p><p>If specified, this value must match the identifier of an existing template version. If specified for an update operation, this value must match the identifier of the latest existing version of the template. This restriction helps ensure that race conditions don&rsquo;t occur.</p><p>If you don&rsquo;t specify a value for this parameter, Amazon Pinpoint does the following:</p><ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li><li><p>For an update operation, saves the updates to the latest existing version of the template, if the create-new-version parameter isn&rsquo;t used or is set to false.</p></li><li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">version</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">version</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCore 2.12.3 Docs</a> (47% documented)</p>
+        <p><a href="index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -664,6 +664,9 @@
                 <a href="Constants.html#/c:@AWSQueryParamBuilderErrorDomain">AWSQueryParamBuilderErrorDomain</a>
               </li>
               <li class="nav-group-task">
+                <a href="Constants.html#/c:@AWSResponseObjectErrorUserInfoKey">AWSResponseObjectErrorUserInfoKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Constants.html#/c:@AWSSTSErrorDomain">AWSSTSErrorDomain</a>
               </li>
               <li class="nav-group-task">
@@ -1198,6 +1201,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1266,6 +1273,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1491,6 +1502,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1524,6 +1539,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1557,6 +1576,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1590,6 +1613,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1623,6 +1650,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1656,6 +1687,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1689,6 +1724,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3111,6 +3150,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3150,6 +3193,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3183,6 +3230,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3237,14 +3288,13 @@ Cognito (and optionally STS) to establish credentials.</li>
 <p><code>FMDatabaseQueue</code> will run the blocks on a serialized queue (hence the name of the class).  So if you call <code>FMDatabaseQueue</code>&lsquo;s methods from multiple threads at the same time, they will be executed in the order they are received.  This way queries and updates won&rsquo;t step on each other&rsquo;s toes, and every one is happy.</p>
 
 <p>### See also</p>
-
-<ul>
 <li><p><code>&lt;FMDatabase&gt;</code></p></li>
-</ul><div class="aside aside-warning">
+<div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>Do not instantiate a single <code>&lt;FMDatabase&gt;</code> object and use it across multiple threads. Use <code>FMDatabaseQueue</code> instead.</p>
 
-</div><div class="aside aside-warning">
+</div>
+<div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>The calls to <code>FMDatabaseQueue</code>&rsquo;s methods are blocking.  So even though you are passing along blocks, they will <strong>not</strong> be run on another thread.</p>
 
@@ -3273,6 +3323,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -3289,11 +3343,9 @@ Cognito (and optionally STS) to establish credentials.</li>
                         <p>Pool of <code>&lt;FMDatabase&gt;</code> objects.</p>
 
 <p>### See also</p>
-
-<ul>
 <li><code>&lt;FMDatabaseQueue&gt;</code></li>
 <li><p><code>&lt;FMDatabase&gt;</code></p></li>
-</ul><div class="aside aside-warning">
+<div class="aside aside-warning">
     <p class="aside-title">Warning</p>
     <p>Before using <code>FMDatabasePool</code>, please consider using <code>&lt;FMDatabaseQueue&gt;</code> instead.</p>
 
@@ -3333,6 +3385,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4362,6 +4418,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4406,6 +4466,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4421,23 +4485,20 @@ Cognito (and optionally STS) to establish credentials.</li>
                       <div class="abstract">
                         <p>Monitors network connectivity.
  *</p>
-
-<ul>
 <li>You can elect to be notified via blocks (onReachabilityChanged),</li>
 <li>notifications (notificationName), or KVO (flags, reachable, and WWANOnly).
 *</li>
 <li>All notification methods are disabled by default.
 *</li>
-</ul><div class="aside aside-note">
+<div class="aside aside-note">
     <p class="aside-title">Note</p>
     Upon construction, this object will fetch its initial reachability
 
-</div><ul>
+</div>
 <li>state in the background. This means that the reachability status will ALWAYS</li>
-<li>be &ldquo;unreachable&rdquo; until some time after object construction (possibly up to 10</li>
-<li>seconds, depending on how long the DNS lookup takes). Use the &ldquo;initialized&rdquo;</li>
-<li>property to monitor initialization, or set the callback &ldquo;onInitializationComplete&rdquo;.</li>
-</ul>
+<li>be <q>unreachable</q> until some time after object construction (possibly up to 10</li>
+<li>seconds, depending on how long the DNS lookup takes). Use the <q>initialized</q></li>
+<li>property to monitor initialization, or set the callback <q>onInitializationComplete</q>.</li>
 
                         <a href="Classes/AWSKSReachability.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4495,6 +4556,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4528,6 +4593,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4543,7 +4612,7 @@ Cognito (and optionally STS) to establish credentials.</li>
                       <div class="abstract">
                         <p>This class provides a logger for the Apple System Log facility.</p>
 
-<p>As described in the &ldquo;Getting Started&rdquo; page,
+<p>As described in the <q>Getting Started</q> page,
  the traditional NSLog() function directs its output to two places:</p>
 
 <ul>
@@ -4573,6 +4642,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4616,6 +4689,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4656,6 +4733,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4691,6 +4772,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4735,6 +4820,10 @@ Cognito (and optionally STS) to establish credentials.</li>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4769,6 +4858,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4818,6 +4911,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4870,6 +4967,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4903,6 +5004,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4937,6 +5042,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -4953,7 +5062,7 @@ For most of the users, this class is hidden behind the logging functions like <c
                         <p>This class provides a logger for Terminal output or Xcode console output,
  depending on where you are running your code.</p>
 
-<p>As described in the &ldquo;Getting Started&rdquo; page,
+<p>As described in the <q>Getting Started</q> page,
  the traditional NSLog() function directs it&rsquo;s output to two places:</p>
 
 <ul>
@@ -4983,6 +5092,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -5110,6 +5223,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -5167,6 +5284,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -5275,6 +5396,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -5327,11 +5452,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSNetworking"></a>
                 <a name="//apple_ref/objc/Section/AWSNetworking" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSNetworking"></a>
-                  <h3 class="section-name"><p>AWSNetworking</p>
-</h3>
-                </div>
+                <a href="#/AWSNetworking">
+                  <h3 class="section-name">AWSNetworking</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -5379,11 +5502,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSNetworkingConfiguration"></a>
                 <a name="//apple_ref/objc/Section/AWSNetworkingConfiguration" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSNetworkingConfiguration"></a>
-                  <h3 class="section-name"><p>AWSNetworkingConfiguration</p>
-</h3>
-                </div>
+                <a href="#/AWSNetworkingConfiguration">
+                  <h3 class="section-name">AWSNetworkingConfiguration</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -5456,11 +5577,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSNetworkingRequest"></a>
                 <a name="//apple_ref/objc/Section/AWSNetworkingRequest" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSNetworkingRequest"></a>
-                  <h3 class="section-name"><p>AWSNetworkingRequest</p>
-</h3>
-                </div>
+                <a href="#/AWSNetworkingRequest">
+                  <h3 class="section-name">AWSNetworkingRequest</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -5595,6 +5714,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -5643,6 +5766,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -5684,6 +5811,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6375,6 +6506,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6414,6 +6549,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6447,6 +6586,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6735,6 +6878,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6774,6 +6921,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6895,6 +7046,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -6983,6 +7138,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -7050,6 +7209,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -7130,11 +7293,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSService"></a>
                 <a name="//apple_ref/objc/Section/AWSService" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSService"></a>
-                  <h3 class="section-name"><p>AWSService</p>
-</h3>
-                </div>
+                <a href="#/AWSService">
+                  <h3 class="section-name">AWSService</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -7176,11 +7337,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSServiceManager"></a>
                 <a name="//apple_ref/objc/Section/AWSServiceManager" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSServiceManager"></a>
-                  <h3 class="section-name"><p>AWSServiceManager</p>
-</h3>
-                </div>
+                <a href="#/AWSServiceManager">
+                  <h3 class="section-name">AWSServiceManager</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -7222,11 +7381,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSServiceConfiguration"></a>
                 <a name="//apple_ref/objc/Section/AWSServiceConfiguration" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSServiceConfiguration"></a>
-                  <h3 class="section-name"><p>AWSServiceConfiguration</p>
-</h3>
-                </div>
+                <a href="#/AWSServiceConfiguration">
+                  <h3 class="section-name">AWSServiceConfiguration</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -7268,11 +7425,9 @@ For most of the users, this class is hidden behind the logging functions like <c
               <div class="task-name-container">
                 <a name="/AWSEndpoint"></a>
                 <a name="//apple_ref/objc/Section/AWSEndpoint" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/AWSEndpoint"></a>
-                  <h3 class="section-name"><p>AWSEndpoint</p>
-</h3>
-                </div>
+                <a href="#/AWSEndpoint">
+                  <h3 class="section-name">AWSEndpoint</h3>
+                </a>
               </div>
               <ul>
                 <li class="item">
@@ -7341,6 +7496,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -7525,6 +7684,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -7874,6 +8037,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -8192,6 +8359,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -8326,6 +8497,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -8396,6 +8571,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -8479,6 +8658,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -8520,6 +8703,10 @@ For most of the users, this class is hidden behind the logging functions like <c
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -8577,8 +8764,8 @@ For most of the users, this class is hidden behind the logging functions like <c
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

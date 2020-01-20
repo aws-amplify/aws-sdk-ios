@@ -14,7 +14,7 @@
     <a title="AWSPinpointTargetingAPNSMessage Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.12.3 Docs</a> (91% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.12.6 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -816,6 +816,12 @@
                 <a href="../Classes/AWSPinpointTargetingListTagsForResourceResponse.html">AWSPinpointTargetingListTagsForResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingListTemplateVersionsRequest.html">AWSPinpointTargetingListTemplateVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingListTemplateVersionsResponse.html">AWSPinpointTargetingListTemplateVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingListTemplatesRequest.html">AWSPinpointTargetingListTemplatesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -1008,10 +1014,19 @@
                 <a href="../Classes/AWSPinpointTargetingTemplate.html">AWSPinpointTargetingTemplate</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateActiveVersionRequest.html">AWSPinpointTargetingTemplateActiveVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplateConfiguration.html">AWSPinpointTargetingTemplateConfiguration</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplateResponse.html">AWSPinpointTargetingTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateVersionResponse.html">AWSPinpointTargetingTemplateVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingTemplateVersionsResponse.html">AWSPinpointTargetingTemplateVersionsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingTemplatesResponse.html">AWSPinpointTargetingTemplatesResponse</a>
@@ -1138,6 +1153,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateSmsTemplateResponse.html">AWSPinpointTargetingUpdateSmsTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingUpdateTemplateActiveVersionRequest.html">AWSPinpointTargetingUpdateTemplateActiveVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingUpdateTemplateActiveVersionResponse.html">AWSPinpointTargetingUpdateTemplateActiveVersionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingUpdateVoiceChannelRequest.html">AWSPinpointTargetingUpdateVoiceChannelRequest</a>
@@ -1712,7 +1733,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Specifies whether the notification is a silent push notification. A silent (or background) push notification isn&rsquo;t displayed on recipients&rsquo; devices. You can use silent push notifications to make small updates to your app, or to display messages in an in-app message center.</p><p>Amazon Pinpoint uses this property to determine the correct value for the apns-push-type request header when it sends the notification message to APNs. If you specify a value of true for this property, Amazon Pinpoint sets the value for the apns-push-type header field to background.</p><note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. For silent (background) notifications, set the value of content-available to 1. Additionally, the message payload for a silent notification can&rsquo;t include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p><p>Apple has indicated that they will throttle &ldquo;excessive&rdquo; background notifications based on current traffic volumes. To prevent your notifications being throttled, Apple recommends that you send no more than 3 silent push notifications to each recipient per hour.</p></note></p>
+                        <p><p>Specifies whether the notification is a silent push notification. A silent (or background) push notification isn&rsquo;t displayed on recipients&rsquo; devices. You can use silent push notifications to make small updates to your app, or to display messages in an in-app message center.</p><p>Amazon Pinpoint uses this property to determine the correct value for the apns-push-type request header when it sends the notification message to APNs. If you specify a value of true for this property, Amazon Pinpoint sets the value for the apns-push-type header field to background.</p><note><p>If you specify the raw content of an APNs push notification, the message payload has to include the content-available key. For silent (background) notifications, set the value of content-available to 1. Additionally, the message payload for a silent notification can&rsquo;t include the alert, badge, or sound keys. For more information, see <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">Generating a Remote Notification</a> and <a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app">Pushing Background Updates to Your App</a> on the Apple Developer website.</p><p>Apple has indicated that they will throttle <q>excessive</q> background notifications based on current traffic volumes. To prevent your notifications being throttled, Apple recommends that you send no more than 3 silent push notifications to each recipient per hour.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -1929,8 +1950,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2019-12-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.12.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

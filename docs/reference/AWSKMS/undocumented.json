@@ -1,1160 +1,1160 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMS.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMS.h",
       "line": 28,
       "symbol": "AWSKMSVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMS.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMS.h",
       "line": 39,
       "symbol": "AWSKMSVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 22,
       "symbol": "AWSKMSErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 24,
       "symbol": "AWSKMSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 24,
       "symbol": "AWSKMSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 25,
       "symbol": "AWSKMSErrorType.AWSKMSErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 26,
       "symbol": "AWSKMSErrorType.AWSKMSErrorAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 27,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCloudHsmClusterInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 28,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCloudHsmClusterInvalidConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 29,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCloudHsmClusterNotActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 30,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCloudHsmClusterNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 31,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCloudHsmClusterNotRelated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 32,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCustomKeyStoreHasCMKs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 33,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCustomKeyStoreInvalidState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 34,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCustomKeyStoreNameInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 35,
       "symbol": "AWSKMSErrorType.AWSKMSErrorCustomKeyStoreNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 36,
       "symbol": "AWSKMSErrorType.AWSKMSErrorDependencyTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 37,
       "symbol": "AWSKMSErrorType.AWSKMSErrorDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 38,
       "symbol": "AWSKMSErrorType.AWSKMSErrorExpiredImportToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 39,
       "symbol": "AWSKMSErrorType.AWSKMSErrorIncorrectKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 40,
       "symbol": "AWSKMSErrorType.AWSKMSErrorIncorrectKeyMaterial",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 41,
       "symbol": "AWSKMSErrorType.AWSKMSErrorIncorrectTrustAnchor",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 42,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidAliasName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 43,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 44,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidCiphertext",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 45,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidGrantId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 46,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidGrantToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 47,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidImportToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 48,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidKeyUsage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 49,
       "symbol": "AWSKMSErrorType.AWSKMSErrorInvalidMarker",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 50,
       "symbol": "AWSKMSErrorType.AWSKMSErrorKMSInternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 51,
       "symbol": "AWSKMSErrorType.AWSKMSErrorKMSInvalidSignature",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 52,
       "symbol": "AWSKMSErrorType.AWSKMSErrorKMSInvalidState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 53,
       "symbol": "AWSKMSErrorType.AWSKMSErrorKeyUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 54,
       "symbol": "AWSKMSErrorType.AWSKMSErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 55,
       "symbol": "AWSKMSErrorType.AWSKMSErrorMalformedPolicyDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 56,
       "symbol": "AWSKMSErrorType.AWSKMSErrorNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 57,
       "symbol": "AWSKMSErrorType.AWSKMSErrorTag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 58,
       "symbol": "AWSKMSErrorType.AWSKMSErrorUnsupportedOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 61,
       "symbol": "AWSKMSAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 61,
       "symbol": "AWSKMSAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 62,
       "symbol": "AWSKMSAlgorithmSpec.AWSKMSAlgorithmSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 63,
       "symbol": "AWSKMSAlgorithmSpec.AWSKMSAlgorithmSpecRsaesPkcs1V15",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 64,
       "symbol": "AWSKMSAlgorithmSpec.AWSKMSAlgorithmSpecRsaesOaepSha1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 65,
       "symbol": "AWSKMSAlgorithmSpec.AWSKMSAlgorithmSpecRsaesOaepSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 68,
       "symbol": "AWSKMSConnectionErrorCodeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 68,
       "symbol": "AWSKMSConnectionErrorCodeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 69,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 70,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeInvalidCredentials",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 71,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeClusterNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 72,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeNetworkErrors",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 73,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 74,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeInsufficientCloudhsmHsms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 75,
       "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeUserLockedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 78,
       "symbol": "AWSKMSConnectionStateType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 78,
       "symbol": "AWSKMSConnectionStateType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 79,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 80,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeConnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 81,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeConnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 82,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 83,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeDisconnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 84,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeDisconnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 87,
       "symbol": "AWSKMSCustomerMasterKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 87,
       "symbol": "AWSKMSCustomerMasterKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 88,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 89,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 90,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecRsa3072",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 91,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecRsa4096",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 92,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccNistP256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 93,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccNistP384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 94,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccNistP521",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 95,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccSecgP256k1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 96,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecSymmetricDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 99,
       "symbol": "AWSKMSDataKeyPairSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 99,
       "symbol": "AWSKMSDataKeyPairSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 100,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 101,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 102,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecRsa3072",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 103,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecRsa4096",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 104,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccNistP256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 105,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccNistP384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 106,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccNistP521",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 107,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccSecgP256k1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 110,
       "symbol": "AWSKMSDataKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 110,
       "symbol": "AWSKMSDataKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 111,
       "symbol": "AWSKMSDataKeySpec.AWSKMSDataKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 112,
       "symbol": "AWSKMSDataKeySpec.AWSKMSDataKeySpecAes256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 113,
       "symbol": "AWSKMSDataKeySpec.AWSKMSDataKeySpecAes128",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 116,
       "symbol": "AWSKMSEncryptionAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 116,
       "symbol": "AWSKMSEncryptionAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 117,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 118,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecSymmetricDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 119,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecRsaesOaepSha1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 120,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 123,
       "symbol": "AWSKMSExpirationModelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 123,
       "symbol": "AWSKMSExpirationModelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 124,
       "symbol": "AWSKMSExpirationModelType.AWSKMSExpirationModelTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 125,
       "symbol": "AWSKMSExpirationModelType.AWSKMSExpirationModelTypeKeyMaterialExpires",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 126,
       "symbol": "AWSKMSExpirationModelType.AWSKMSExpirationModelTypeKeyMaterialDoesNotExpire",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 129,
       "symbol": "AWSKMSGrantOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 129,
       "symbol": "AWSKMSGrantOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 130,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 131,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationDecrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 132,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationEncrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 133,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 134,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKeyWithoutPlaintext",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 135,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationReEncryptFrom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 136,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationReEncryptTo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 137,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationSign",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 138,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationVerify",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 139,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGetPublicKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 140,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationCreateGrant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 141,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationRetireGrant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 142,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationDescribeKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 143,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKeyPair",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 144,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKeyPairWithoutPlaintext",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 147,
       "symbol": "AWSKMSKeyManagerType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 147,
       "symbol": "AWSKMSKeyManagerType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 148,
       "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 149,
       "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeAws",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 150,
       "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeCustomer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 153,
       "symbol": "AWSKMSKeyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 153,
       "symbol": "AWSKMSKeyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 154,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 155,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 156,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 157,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingDeletion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 158,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingImport",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 159,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 162,
       "symbol": "AWSKMSKeyUsageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 162,
       "symbol": "AWSKMSKeyUsageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 163,
       "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 164,
       "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeSignVerify",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 165,
       "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeEncryptDecrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 168,
       "symbol": "AWSKMSMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 168,
       "symbol": "AWSKMSMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 169,
       "symbol": "AWSKMSMessageType.AWSKMSMessageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 170,
       "symbol": "AWSKMSMessageType.AWSKMSMessageTypeRAW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 171,
       "symbol": "AWSKMSMessageType.AWSKMSMessageTypeDigest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 174,
       "symbol": "AWSKMSOriginType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 174,
       "symbol": "AWSKMSOriginType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 175,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 176,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 177,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeExternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 178,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsCloudhsm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 181,
       "symbol": "AWSKMSSigningAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 181,
       "symbol": "AWSKMSSigningAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 182,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 183,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 184,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 185,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 186,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 187,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 188,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 189,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 190,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 191,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 194,
       "symbol": "AWSKMSWrappingKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 194,
       "symbol": "AWSKMSWrappingKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 195,
       "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSModel.h",
       "line": 196,
       "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSResources.h",
       "line": 18,
       "symbol": "AWSKMSResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSResources.h",
       "line": 20,
       "symbol": "AWSKMSResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSResources.h",
       "line": 22,
       "symbol": "AWSKMSResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSKMS/AWSKMSService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKMS/AWSKMSService.h",
       "line": 24,
       "symbol": "AWSKMSSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }
