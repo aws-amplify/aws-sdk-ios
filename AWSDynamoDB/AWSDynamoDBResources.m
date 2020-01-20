@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -142,7 +142,7 @@
         {\"shape\":\"GlobalTableAlreadyExistsException\"},\
         {\"shape\":\"TableNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided Regions. </p> <p>If you want to add a new replica table to a global table, each of the following conditions must be true:</p> <ul> <li> <p>The table must have the same primary key as all of the other replicas.</p> </li> <li> <p>The table must have the same name as all of the other replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.</p> </li> <li> <p>None of the replica tables in the global table can contain any data.</p> </li> </ul> <p> If global secondary indexes are specified, then the following conditions must also be met: </p> <ul> <li> <p> The global secondary indexes must have the same name. </p> </li> <li> <p> The global secondary indexes must have the same hash key and sort key (if present). </p> </li> </ul> <important> <p> Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes. </p> <p> If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table. </p> </important>\",\
+      \"documentation\":\"<p>Creates a global table from an existing table. A global table creates a replication relationship between two or more DynamoDB tables with the same table name in the provided Regions. </p> <note> <p>This method only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html\\\">Version 2017.11.29</a> of global tables.</p> </note> <p>If you want to add a new replica table to a global table, each of the following conditions must be true:</p> <ul> <li> <p>The table must have the same primary key as all of the other replicas.</p> </li> <li> <p>The table must have the same name as all of the other replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled, with the stream containing both the new and the old images of the item.</p> </li> <li> <p>None of the replica tables in the global table can contain any data.</p> </li> </ul> <p> If global secondary indexes are specified, then the following conditions must also be met: </p> <ul> <li> <p> The global secondary indexes must have the same name. </p> </li> <li> <p> The global secondary indexes must have the same hash key and sort key (if present). </p> </li> </ul> <important> <p> Write capacity settings should be set consistently across your replica tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling to manage the write capacity settings for all of your global tables replicas and indexes. </p> <p> If you prefer to manage write capacity settings manually, you should provision equal replicated write capacity units to your replica tables. You should also provision equal replicated write capacity units to matching secondary indexes across your global table. </p> </important>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -252,6 +252,20 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"DescribeContributorInsights\":{\
+      \"name\":\"DescribeContributorInsights\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeContributorInsightsInput\"},\
+      \"output\":{\"shape\":\"DescribeContributorInsightsOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerError\"}\
+      ],\
+      \"documentation\":\"<p>Returns information about contributor insights, for a given table or global secondary index.</p>\"\
+    },\
     \"DescribeEndpoints\":{\
       \"name\":\"DescribeEndpoints\",\
       \"http\":{\
@@ -275,7 +289,7 @@
         {\"shape\":\"InternalServerError\"},\
         {\"shape\":\"GlobalTableNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Returns information about the specified global table.</p>\",\
+      \"documentation\":\"<p>Returns information about the specified global table.</p> <note> <p>This method only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html\\\">Version 2017.11.29</a> of global tables.</p> </note>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -291,7 +305,7 @@
         {\"shape\":\"GlobalTableNotFoundException\"},\
         {\"shape\":\"InternalServerError\"}\
       ],\
-      \"documentation\":\"<p>Describes Region-specific settings for a global table.</p>\",\
+      \"documentation\":\"<p>Describes Region-specific settings for a global table.</p> <note> <p>This method only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html\\\">Version 2017.11.29</a> of global tables.</p> </note>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -325,6 +339,20 @@
       \"documentation\":\"<p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p> <note> <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually consistent query, and the metadata for your table might not be available at that moment. Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p> </note>\",\
       \"endpointdiscovery\":{\
       }\
+    },\
+    \"DescribeTableReplicaAutoScaling\":{\
+      \"name\":\"DescribeTableReplicaAutoScaling\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeTableReplicaAutoScalingInput\"},\
+      \"output\":{\"shape\":\"DescribeTableReplicaAutoScalingOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerError\"}\
+      ],\
+      \"documentation\":\"<p>Describes auto scaling settings across replicas of the global table at once.</p> <note> <p>This method only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html\\\">Version 2019.11.21</a> of global tables.</p> </note>\"\
     },\
     \"DescribeTimeToLive\":{\
       \"name\":\"DescribeTimeToLive\",\
@@ -375,6 +403,20 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"ListContributorInsights\":{\
+      \"name\":\"ListContributorInsights\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListContributorInsightsInput\"},\
+      \"output\":{\"shape\":\"ListContributorInsightsOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerError\"}\
+      ],\
+      \"documentation\":\"<p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>\"\
+    },\
     \"ListGlobalTables\":{\
       \"name\":\"ListGlobalTables\",\
       \"http\":{\
@@ -386,7 +428,7 @@
       \"errors\":[\
         {\"shape\":\"InternalServerError\"}\
       ],\
-      \"documentation\":\"<p>Lists all global tables that have a replica in the specified Region.</p>\",\
+      \"documentation\":\"<p>Lists all global tables that have a replica in the specified Region.</p> <note> <p>This method only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html\\\">Version 2017.11.29</a> of global tables.</p> </note>\",\
       \"endpointdiscovery\":{\
       }\
     },\
@@ -610,6 +652,20 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"UpdateContributorInsights\":{\
+      \"name\":\"UpdateContributorInsights\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UpdateContributorInsightsInput\"},\
+      \"output\":{\"shape\":\"UpdateContributorInsightsOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServerError\"}\
+      ],\
+      \"documentation\":\"<p>Updates the status for contributor insights for a specific table or index.</p>\"\
+    },\
     \"UpdateGlobalTable\":{\
       \"name\":\"UpdateGlobalTable\",\
       \"http\":{\
@@ -688,6 +744,22 @@
       \"endpointdiscovery\":{\
       }\
     },\
+    \"UpdateTableReplicaAutoScaling\":{\
+      \"name\":\"UpdateTableReplicaAutoScaling\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"UpdateTableReplicaAutoScalingInput\"},\
+      \"output\":{\"shape\":\"UpdateTableReplicaAutoScalingOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceInUseException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"InternalServerError\"}\
+      ],\
+      \"documentation\":\"<p>Updates auto scaling settings on your global tables at once.</p> <note> <p>This method only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html\\\">Version 2019.11.21</a> of global tables.</p> </note>\"\
+    },\
     \"UpdateTimeToLive\":{\
       \"name\":\"UpdateTimeToLive\",\
       \"http\":{\
@@ -708,6 +780,25 @@
     }\
   },\
   \"shapes\":{\
+    \"ArchivalReason\":{\"type\":\"string\"},\
+    \"ArchivalSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ArchivalDateTime\":{\
+          \"shape\":\"Date\",\
+          \"documentation\":\"<p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>\"\
+        },\
+        \"ArchivalReason\":{\
+          \"shape\":\"ArchivalReason\",\
+          \"documentation\":\"<p>The reason DynamoDB archived the table. Currently, the only possible value is:</p> <ul> <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's AWS KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p> </li> </ul>\"\
+        },\
+        \"ArchivalBackupArn\":{\
+          \"shape\":\"BackupArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains details of a table archival operation.</p>\"\
+    },\
     \"AttributeAction\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -1452,6 +1543,53 @@
       \"documentation\":\"<p>Backups have not yet been enabled for this table.</p>\",\
       \"exception\":true\
     },\
+    \"ContributorInsightsAction\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENABLE\",\
+        \"DISABLE\"\
+      ]\
+    },\
+    \"ContributorInsightsRule\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"[A-Za-z0-9][A-Za-z0-9\\\\-\\\\_\\\\.]{0,126}[A-Za-z0-9]\"\
+    },\
+    \"ContributorInsightsRuleList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContributorInsightsRule\"}\
+    },\
+    \"ContributorInsightsStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENABLING\",\
+        \"ENABLED\",\
+        \"DISABLING\",\
+        \"DISABLED\",\
+        \"FAILED\"\
+      ]\
+    },\
+    \"ContributorInsightsSummaries\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ContributorInsightsSummary\"}\
+    },\
+    \"ContributorInsightsSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>Name of the table associated with the summary.</p>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>Name of the index associated with the summary, if any.</p>\"\
+        },\
+        \"ContributorInsightsStatus\":{\
+          \"shape\":\"ContributorInsightsStatus\",\
+          \"documentation\":\"<p>Describes the current status for contributor insights for the given table and index, if applicable.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents a Contributor Insights summary entry..</p>\"\
+    },\
     \"CreateBackupInput\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1541,6 +1679,29 @@
         }\
       },\
       \"documentation\":\"<p>Represents a replica to be added.</p>\"\
+    },\
+    \"CreateReplicationGroupMemberAction\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"RegionName\"],\
+      \"members\":{\
+        \"RegionName\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>The Region where the new replica will be created.</p>\"\
+        },\
+        \"KMSMasterKeyId\":{\
+          \"shape\":\"KMSMasterKeyId\",\
+          \"documentation\":\"<p>The AWS KMS customer master key (CMK) that should be used for AWS KMS encryption in the new replica. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>\"\
+        },\
+        \"ProvisionedThroughputOverride\":{\
+          \"shape\":\"ProvisionedThroughputOverride\",\
+          \"documentation\":\"<p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>\"\
+        },\
+        \"GlobalSecondaryIndexes\":{\
+          \"shape\":\"ReplicaGlobalSecondaryIndexList\",\
+          \"documentation\":\"<p>Replica-specific global secondary index settings.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents a replica to be created.</p>\"\
     },\
     \"CreateTableInput\":{\
       \"type\":\"structure\",\
@@ -1744,6 +1905,17 @@
       },\
       \"documentation\":\"<p>Represents a replica to be removed.</p>\"\
     },\
+    \"DeleteReplicationGroupMemberAction\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"RegionName\"],\
+      \"members\":{\
+        \"RegionName\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>The Region where the replica exists.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents a replica to be deleted.</p>\"\
+    },\
     \"DeleteRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"Key\"],\
@@ -1811,6 +1983,49 @@
         \"ContinuousBackupsDescription\":{\
           \"shape\":\"ContinuousBackupsDescription\",\
           \"documentation\":\"<p>Represents the continuous backups and point in time recovery settings on the table.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeContributorInsightsInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TableName\"],\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table to describe.</p>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index to describe, if applicable.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeContributorInsightsOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table being described.</p>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index being described.</p>\"\
+        },\
+        \"ContributorInsightsRuleList\":{\
+          \"shape\":\"ContributorInsightsRuleList\",\
+          \"documentation\":\"<p>List of names of the associated Alpine rules.</p>\"\
+        },\
+        \"ContributorInsightsStatus\":{\
+          \"shape\":\"ContributorInsightsStatus\",\
+          \"documentation\":\"<p>Current Status contributor insights.</p>\"\
+        },\
+        \"LastUpdateDateTime\":{\
+          \"shape\":\"LastUpdateDateTime\",\
+          \"documentation\":\"<p>Timestamp of the last time the status was changed.</p>\"\
+        },\
+        \"FailureException\":{\
+          \"shape\":\"FailureException\",\
+          \"documentation\":\"<p>Returns information about the last failure that encountered.</p> <p>The most common exceptions for a FAILED status are:</p> <ul> <li> <p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p> </li> <li> <p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p> </li> <li> <p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p> </li> <li> <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p> </li> </ul>\"\
         }\
       }\
     },\
@@ -1920,6 +2135,25 @@
       },\
       \"documentation\":\"<p>Represents the output of a <code>DescribeTable</code> operation.</p>\"\
     },\
+    \"DescribeTableReplicaAutoScalingInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TableName\"],\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeTableReplicaAutoScalingOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableAutoScalingDescription\":{\
+          \"shape\":\"TableAutoScalingDescription\",\
+          \"documentation\":\"<p>Represents the auto scaling properties of the table.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeTimeToLiveInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"TableName\"],\
@@ -1963,6 +2197,8 @@
       \"member\":{\"shape\":\"Endpoint\"}\
     },\
     \"ErrorMessage\":{\"type\":\"string\"},\
+    \"ExceptionDescription\":{\"type\":\"string\"},\
+    \"ExceptionName\":{\"type\":\"string\"},\
     \"ExpectedAttributeMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"AttributeName\"},\
@@ -2002,6 +2238,20 @@
       \"value\":{\"shape\":\"AttributeValue\"}\
     },\
     \"ExpressionAttributeValueVariable\":{\"type\":\"string\"},\
+    \"FailureException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ExceptionName\":{\
+          \"shape\":\"ExceptionName\",\
+          \"documentation\":\"<p>Exception name.</p>\"\
+        },\
+        \"ExceptionDescription\":{\
+          \"shape\":\"ExceptionDescription\",\
+          \"documentation\":\"<p>Description of the failure.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents a failure a contributor insights operation.</p>\"\
+    },\
     \"FilterConditionMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"AttributeName\"},\
@@ -2108,6 +2358,22 @@
         }\
       },\
       \"documentation\":\"<p>Represents the properties of a global secondary index.</p>\"\
+    },\
+    \"GlobalSecondaryIndexAutoScalingUpdate\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index.</p>\"\
+        },\
+        \"ProvisionedWriteCapacityAutoScalingUpdate\":{\"shape\":\"AutoScalingSettingsUpdate\"}\
+      },\
+      \"documentation\":\"<p>Represents the auto scaling settings of a global secondary index for a global table that will be modified.</p>\"\
+    },\
+    \"GlobalSecondaryIndexAutoScalingUpdateList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"GlobalSecondaryIndexAutoScalingUpdate\"},\
+      \"min\":1\
     },\
     \"GlobalSecondaryIndexDescription\":{\
       \"type\":\"structure\",\
@@ -2505,6 +2771,7 @@
       },\
       \"documentation\":\"<p>Represents a set of primary keys and, for each key, the attributes to retrieve from the table.</p> <p>For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key. For a composite primary key, you must provide <i>both</i> the partition key and the sort key.</p>\"\
     },\
+    \"LastUpdateDateTime\":{\"type\":\"timestamp\"},\
     \"LimitExceededException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -2559,6 +2826,40 @@
         \"LastEvaluatedBackupArn\":{\
           \"shape\":\"BackupArn\",\
           \"documentation\":\"<p> The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results. </p> <p> If <code>LastEvaluatedBackupArn</code> is empty, then the last page of results has been processed and there are no more results to be retrieved. </p> <p> If <code>LastEvaluatedBackupArn</code> is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for <code>LastEvaluatedBackupArn</code> is returned. </p>\"\
+        }\
+      }\
+    },\
+    \"ListContributorInsightsInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextTokenString\",\
+          \"documentation\":\"<p>A token to for the desired page, if there is one.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"ListContributorInsightsLimit\",\
+          \"documentation\":\"<p>Maximum number of results to return per page.</p>\"\
+        }\
+      }\
+    },\
+    \"ListContributorInsightsLimit\":{\
+      \"type\":\"integer\",\
+      \"max\":100\
+    },\
+    \"ListContributorInsightsOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContributorInsightsSummaries\":{\
+          \"shape\":\"ContributorInsightsSummaries\",\
+          \"documentation\":\"<p>A list of ContributorInsightsSummary.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextTokenString\",\
+          \"documentation\":\"<p>A token to go to the next page if there is one.</p>\"\
         }\
       }\
     },\
@@ -2893,6 +3194,16 @@
       \"documentation\":\"<p>Your request rate is too high. The AWS SDKs for DynamoDB automatically retry requests that receive this exception. Your request is eventually successful, unless your retry queue is too large to finish. Reduce the frequency of requests and use exponential backoff. For more information, go to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff\\\">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\",\
       \"exception\":true\
     },\
+    \"ProvisionedThroughputOverride\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ReadCapacityUnits\":{\
+          \"shape\":\"PositiveLongObject\",\
+          \"documentation\":\"<p>Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Replica-specific provisioned throughput settings. If not specified, uses the source table's provisioned throughput settings.</p>\"\
+    },\
     \"Put\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3125,12 +3436,81 @@
       \"documentation\":\"<p>The specified replica is already part of the global table.</p>\",\
       \"exception\":true\
     },\
+    \"ReplicaAutoScalingDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RegionName\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>The Region where the replica exists.</p>\"\
+        },\
+        \"GlobalSecondaryIndexes\":{\
+          \"shape\":\"ReplicaGlobalSecondaryIndexAutoScalingDescriptionList\",\
+          \"documentation\":\"<p>Replica-specific global secondary index auto scaling settings.</p>\"\
+        },\
+        \"ReplicaProvisionedReadCapacityAutoScalingSettings\":{\"shape\":\"AutoScalingSettingsDescription\"},\
+        \"ReplicaProvisionedWriteCapacityAutoScalingSettings\":{\"shape\":\"AutoScalingSettingsDescription\"},\
+        \"ReplicaStatus\":{\
+          \"shape\":\"ReplicaStatus\",\
+          \"documentation\":\"<p>The current state of the replica:</p> <ul> <li> <p> <code>CREATING</code> - The replica is being created.</p> </li> <li> <p> <code>UPDATING</code> - The replica is being updated.</p> </li> <li> <p> <code>DELETING</code> - The replica is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The replica is ready for use.</p> </li> </ul>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents the auto scaling settings of the replica.</p>\"\
+    },\
+    \"ReplicaAutoScalingDescriptionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicaAutoScalingDescription\"}\
+    },\
+    \"ReplicaAutoScalingUpdate\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"RegionName\"],\
+      \"members\":{\
+        \"RegionName\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>The Region where the replica exists.</p>\"\
+        },\
+        \"ReplicaGlobalSecondaryIndexUpdates\":{\
+          \"shape\":\"ReplicaGlobalSecondaryIndexAutoScalingUpdateList\",\
+          \"documentation\":\"<p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>\"\
+        },\
+        \"ReplicaProvisionedReadCapacityAutoScalingUpdate\":{\"shape\":\"AutoScalingSettingsUpdate\"}\
+      },\
+      \"documentation\":\"<p>Represents the auto scaling settings of a replica that will be modified.</p>\"\
+    },\
+    \"ReplicaAutoScalingUpdateList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicaAutoScalingUpdate\"},\
+      \"min\":1\
+    },\
     \"ReplicaDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"RegionName\":{\
           \"shape\":\"RegionName\",\
           \"documentation\":\"<p>The name of the Region.</p>\"\
+        },\
+        \"ReplicaStatus\":{\
+          \"shape\":\"ReplicaStatus\",\
+          \"documentation\":\"<p>The current state of the replica:</p> <ul> <li> <p> <code>CREATING</code> - The replica is being created.</p> </li> <li> <p> <code>UPDATING</code> - The replica is being updated.</p> </li> <li> <p> <code>DELETING</code> - The replica is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The replica is ready for use.</p> </li> </ul>\"\
+        },\
+        \"ReplicaStatusDescription\":{\
+          \"shape\":\"ReplicaStatusDescription\",\
+          \"documentation\":\"<p>Detailed information about the replica status.</p>\"\
+        },\
+        \"ReplicaStatusPercentProgress\":{\
+          \"shape\":\"ReplicaStatusPercentProgress\",\
+          \"documentation\":\"<p>Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.</p>\"\
+        },\
+        \"KMSMasterKeyId\":{\
+          \"shape\":\"KMSMasterKeyId\",\
+          \"documentation\":\"<p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.</p>\"\
+        },\
+        \"ProvisionedThroughputOverride\":{\
+          \"shape\":\"ProvisionedThroughputOverride\",\
+          \"documentation\":\"<p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>\"\
+        },\
+        \"GlobalSecondaryIndexes\":{\
+          \"shape\":\"ReplicaGlobalSecondaryIndexDescriptionList\",\
+          \"documentation\":\"<p>Replica-specific global secondary index settings.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the details of the replica.</p>\"\
@@ -3138,6 +3518,79 @@
     \"ReplicaDescriptionList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ReplicaDescription\"}\
+    },\
+    \"ReplicaGlobalSecondaryIndex\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"IndexName\"],\
+      \"members\":{\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index.</p>\"\
+        },\
+        \"ProvisionedThroughputOverride\":{\
+          \"shape\":\"ProvisionedThroughputOverride\",\
+          \"documentation\":\"<p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents the properties of a replica global secondary index.</p>\"\
+    },\
+    \"ReplicaGlobalSecondaryIndexAutoScalingDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index.</p>\"\
+        },\
+        \"IndexStatus\":{\
+          \"shape\":\"IndexStatus\",\
+          \"documentation\":\"<p>The current state of the replica global secondary index:</p> <ul> <li> <p> <code>CREATING</code> - The index is being created.</p> </li> <li> <p> <code>UPDATING</code> - The index is being updated.</p> </li> <li> <p> <code>DELETING</code> - The index is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The index is ready for use.</p> </li> </ul>\"\
+        },\
+        \"ProvisionedReadCapacityAutoScalingSettings\":{\"shape\":\"AutoScalingSettingsDescription\"},\
+        \"ProvisionedWriteCapacityAutoScalingSettings\":{\"shape\":\"AutoScalingSettingsDescription\"}\
+      },\
+      \"documentation\":\"<p>Represents the auto scaling configuration for a replica global secondary index.</p>\"\
+    },\
+    \"ReplicaGlobalSecondaryIndexAutoScalingDescriptionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicaGlobalSecondaryIndexAutoScalingDescription\"}\
+    },\
+    \"ReplicaGlobalSecondaryIndexAutoScalingUpdate\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index.</p>\"\
+        },\
+        \"ProvisionedReadCapacityAutoScalingUpdate\":{\"shape\":\"AutoScalingSettingsUpdate\"}\
+      },\
+      \"documentation\":\"<p>Represents the auto scaling settings of a global secondary index for a replica that will be modified.</p>\"\
+    },\
+    \"ReplicaGlobalSecondaryIndexAutoScalingUpdateList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicaGlobalSecondaryIndexAutoScalingUpdate\"}\
+    },\
+    \"ReplicaGlobalSecondaryIndexDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index.</p>\"\
+        },\
+        \"ProvisionedThroughputOverride\":{\
+          \"shape\":\"ProvisionedThroughputOverride\",\
+          \"documentation\":\"<p>If not described, uses the source table GSI's read capacity settings.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents the properties of a replica global secondary index.</p>\"\
+    },\
+    \"ReplicaGlobalSecondaryIndexDescriptionList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicaGlobalSecondaryIndexDescription\"}\
+    },\
+    \"ReplicaGlobalSecondaryIndexList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicaGlobalSecondaryIndex\"},\
+      \"min\":1\
     },\
     \"ReplicaGlobalSecondaryIndexSettingsDescription\":{\
       \"type\":\"structure\",\
@@ -3287,11 +3740,14 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"CREATING\",\
+        \"CREATION_FAILED\",\
         \"UPDATING\",\
         \"DELETING\",\
         \"ACTIVE\"\
       ]\
     },\
+    \"ReplicaStatusDescription\":{\"type\":\"string\"},\
+    \"ReplicaStatusPercentProgress\":{\"type\":\"string\"},\
     \"ReplicaUpdate\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3309,6 +3765,29 @@
     \"ReplicaUpdateList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ReplicaUpdate\"}\
+    },\
+    \"ReplicationGroupUpdate\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Create\":{\
+          \"shape\":\"CreateReplicationGroupMemberAction\",\
+          \"documentation\":\"<p>The parameters required for creating a replica for the table.</p>\"\
+        },\
+        \"Update\":{\
+          \"shape\":\"UpdateReplicationGroupMemberAction\",\
+          \"documentation\":\"<p>The parameters required for updating a replica for the table.</p>\"\
+        },\
+        \"Delete\":{\
+          \"shape\":\"DeleteReplicationGroupMemberAction\",\
+          \"documentation\":\"<p>The parameters required for deleting a replica for the table.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents one of the following:</p> <ul> <li> <p>A new replica to be added to an existing regional table or global table. This request invokes the <code>CreateTableReplica</code> action in the destination Region.</p> </li> <li> <p>New parameters for an existing replica. This request invokes the <code>UpdateTable</code> action in the destination Region.</p> </li> <li> <p>An existing replica to be deleted. The request invokes the <code>DeleteTableReplica</code> action in the destination Region, deleting the replica and all if its items in the destination Region.</p> </li> </ul>\"\
+    },\
+    \"ReplicationGroupUpdateList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ReplicationGroupUpdate\"},\
+      \"min\":1\
     },\
     \"RequestLimitExceeded\":{\
       \"type\":\"structure\",\
@@ -3510,7 +3989,11 @@
         },\
         \"KMSMasterKeyArn\":{\
           \"shape\":\"KMSMasterKeyArn\",\
-          \"documentation\":\"<p>The KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>\"\
+          \"documentation\":\"<p>The AWS KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>\"\
+        },\
+        \"InaccessibleEncryptionDateTime\":{\
+          \"shape\":\"Date\",\
+          \"documentation\":\"<p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's AWS KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's AWS KMS key is accessible again. DynamoDB will initiate the table archival process when table's AWS KMS key remains inaccessible for more than seven days from this date.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The description of the server-side encryption status on the specified table.</p>\"\
@@ -3529,7 +4012,7 @@
         },\
         \"KMSMasterKeyId\":{\
           \"shape\":\"KMSMasterKeyId\",\
-          \"documentation\":\"<p>The KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.</p>\"\
+          \"documentation\":\"<p>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the settings used to enable server-side encryption.</p>\"\
@@ -3760,6 +4243,7 @@
     \"StreamEnabled\":{\"type\":\"boolean\"},\
     \"StreamSpecification\":{\
       \"type\":\"structure\",\
+      \"required\":[\"StreamEnabled\"],\
       \"members\":{\
         \"StreamEnabled\":{\
           \"shape\":\"StreamEnabled\",\
@@ -3796,6 +4280,24 @@
       \"exception\":true\
     },\
     \"TableArn\":{\"type\":\"string\"},\
+    \"TableAutoScalingDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table.</p>\"\
+        },\
+        \"TableStatus\":{\
+          \"shape\":\"TableStatus\",\
+          \"documentation\":\"<p>The current state of the table:</p> <ul> <li> <p> <code>CREATING</code> - The table is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table is being updated.</p> </li> <li> <p> <code>DELETING</code> - The table is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The table is ready for use.</p> </li> </ul>\"\
+        },\
+        \"Replicas\":{\
+          \"shape\":\"ReplicaAutoScalingDescriptionList\",\
+          \"documentation\":\"<p>Represents replicas of the global table.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents the auto scaling configuration for a global table.</p>\"\
+    },\
     \"TableCreationDateTime\":{\"type\":\"timestamp\"},\
     \"TableDescription\":{\
       \"type\":\"structure\",\
@@ -3814,7 +4316,7 @@
         },\
         \"TableStatus\":{\
           \"shape\":\"TableStatus\",\
-          \"documentation\":\"<p>The current state of the table:</p> <ul> <li> <p> <code>CREATING</code> - The table is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table is being updated.</p> </li> <li> <p> <code>DELETING</code> - The table is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The table is ready for use.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The current state of the table:</p> <ul> <li> <p> <code>CREATING</code> - The table is being created.</p> </li> <li> <p> <code>UPDATING</code> - The table is being updated.</p> </li> <li> <p> <code>DELETING</code> - The table is being deleted.</p> </li> <li> <p> <code>ACTIVE</code> - The table is ready for use.</p> </li> <li> <p> <code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days. </p> </li> <li> <p> <code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p> </li> <li> <p> <code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p> </li> </ul>\"\
         },\
         \"CreationDateTime\":{\
           \"shape\":\"Date\",\
@@ -3864,6 +4366,14 @@
           \"shape\":\"StreamArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.</p>\"\
         },\
+        \"GlobalTableVersion\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Represents the version of <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html\\\">global tables</a> in use, if the table is replicated across AWS Regions.</p>\"\
+        },\
+        \"Replicas\":{\
+          \"shape\":\"ReplicaDescriptionList\",\
+          \"documentation\":\"<p>Represents replicas of the table.</p>\"\
+        },\
         \"RestoreSummary\":{\
           \"shape\":\"RestoreSummary\",\
           \"documentation\":\"<p>Contains details for the restore.</p>\"\
@@ -3871,6 +4381,10 @@
         \"SSEDescription\":{\
           \"shape\":\"SSEDescription\",\
           \"documentation\":\"<p>The description of the server-side encryption status on the specified table.</p>\"\
+        },\
+        \"ArchivalSummary\":{\
+          \"shape\":\"ArchivalSummary\",\
+          \"documentation\":\"<p>Contains information about the table archive.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the properties of a table.</p>\"\
@@ -3911,7 +4425,10 @@
         \"CREATING\",\
         \"UPDATING\",\
         \"DELETING\",\
-        \"ACTIVE\"\
+        \"ACTIVE\",\
+        \"INACCESSIBLE_ENCRYPTION_CREDENTIALS\",\
+        \"ARCHIVING\",\
+        \"ARCHIVED\"\
       ]\
     },\
     \"Tag\":{\
@@ -4231,6 +4748,44 @@
         }\
       }\
     },\
+    \"UpdateContributorInsightsInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"TableName\",\
+        \"ContributorInsightsAction\"\
+      ],\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table.</p>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The global secondary index name, if applicable.</p>\"\
+        },\
+        \"ContributorInsightsAction\":{\
+          \"shape\":\"ContributorInsightsAction\",\
+          \"documentation\":\"<p>Represents the contributor insights action.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateContributorInsightsOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the table.</p>\"\
+        },\
+        \"IndexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The name of the global secondary index, if applicable.</p>\"\
+        },\
+        \"ContributorInsightsStatus\":{\
+          \"shape\":\"ContributorInsightsStatus\",\
+          \"documentation\":\"<p>The status of contributor insights</p>\"\
+        }\
+      }\
+    },\
     \"UpdateExpression\":{\"type\":\"string\"},\
     \"UpdateGlobalSecondaryIndexAction\":{\
       \"type\":\"structure\",\
@@ -4392,6 +4947,29 @@
       },\
       \"documentation\":\"<p>Represents the output of an <code>UpdateItem</code> operation.</p>\"\
     },\
+    \"UpdateReplicationGroupMemberAction\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"RegionName\"],\
+      \"members\":{\
+        \"RegionName\":{\
+          \"shape\":\"RegionName\",\
+          \"documentation\":\"<p>The Region where the replica exists.</p>\"\
+        },\
+        \"KMSMasterKeyId\":{\
+          \"shape\":\"KMSMasterKeyId\",\
+          \"documentation\":\"<p>The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>\"\
+        },\
+        \"ProvisionedThroughputOverride\":{\
+          \"shape\":\"ProvisionedThroughputOverride\",\
+          \"documentation\":\"<p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>\"\
+        },\
+        \"GlobalSecondaryIndexes\":{\
+          \"shape\":\"ReplicaGlobalSecondaryIndexList\",\
+          \"documentation\":\"<p>Replica-specific global secondary index settings.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents a replica to be modified.</p>\"\
+    },\
     \"UpdateTableInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"TableName\"],\
@@ -4423,6 +5001,10 @@
         \"SSESpecification\":{\
           \"shape\":\"SSESpecification\",\
           \"documentation\":\"<p>The new server-side encryption settings for the specified table.</p>\"\
+        },\
+        \"ReplicaUpdates\":{\
+          \"shape\":\"ReplicationGroupUpdateList\",\
+          \"documentation\":\"<p>A list of replica update actions (create, delete, or update) for the table.</p> <note> <p>This property only applies to <a href=\\\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html\\\">Version 2019.11.21</a> of global tables.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the input of an <code>UpdateTable</code> operation.</p>\"\
@@ -4436,6 +5018,34 @@
         }\
       },\
       \"documentation\":\"<p>Represents the output of an <code>UpdateTable</code> operation.</p>\"\
+    },\
+    \"UpdateTableReplicaAutoScalingInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TableName\"],\
+      \"members\":{\
+        \"GlobalSecondaryIndexUpdates\":{\
+          \"shape\":\"GlobalSecondaryIndexAutoScalingUpdateList\",\
+          \"documentation\":\"<p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>\"\
+        },\
+        \"TableName\":{\
+          \"shape\":\"TableName\",\
+          \"documentation\":\"<p>The name of the global table to be updated.</p>\"\
+        },\
+        \"ProvisionedWriteCapacityAutoScalingUpdate\":{\"shape\":\"AutoScalingSettingsUpdate\"},\
+        \"ReplicaUpdates\":{\
+          \"shape\":\"ReplicaAutoScalingUpdateList\",\
+          \"documentation\":\"<p>Represents the auto scaling settings of replicas of the table that will be modified.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateTableReplicaAutoScalingOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TableAutoScalingDescription\":{\
+          \"shape\":\"TableAutoScalingDescription\",\
+          \"documentation\":\"<p>Returns information about the auto scaling settings of a table with replicas.</p>\"\
+        }\
+      }\
     },\
     \"UpdateTimeToLiveInput\":{\
       \"type\":\"structure\",\

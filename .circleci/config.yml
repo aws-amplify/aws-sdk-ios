@@ -99,7 +99,7 @@ commands:
             git fetch upstream
             git reset --hard upstream/$target_branch
             echo "push update the branch"
-            git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
+            git push --force -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
 
   bump_version_post:
     description: >-
@@ -129,12 +129,12 @@ commands:
             git status
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
             git commit -m "${bump_version_message}"
-            git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
+            git push --force -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
             title="${bump_version_pr_title}"
             content="${bump_version_message}"
             echo "title:$title"
             echo "content:$content"
-            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "$target_branch" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
+            python3 ../CircleciScripts/create_pullrequest.py "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "$target_branch" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
   configure_aws:
     description: >-
       install aws cli and configure android aws release profile
@@ -172,8 +172,8 @@ commands:
       - run:
           name: skip the test job if the release process is triggered by circleci
           command: |
-            skipflag=$(echo "${SKIPTEST_FOR_RELEASE}") |  tr '[:upper:]' '[:lower:]'
-            if ! [ -z "${CIRCLE_TAG}" ]  && [ "$skipflag" == "true" ]
+            skipflag=$(echo "${SKIPTEST_FOR_RELEASE}") | tr '[:upper:]' '[:lower:]'
+            if ! [ -z "${CIRCLE_TAG}" ] && [ "$skipflag" == "true" ]
             then
               tagmessage="git show ${CIRCLE_TAG}"
               echo $tagmessage
@@ -186,7 +186,7 @@ commands:
       - run:
           name: skip the test job if this is merged from develop by circleci
           command: |
-            skipflag=$(echo "${SKIPTEST_FOR_MASTER}") |  tr '[:upper:]' '[:lower:]'
+            skipflag=$(echo "${SKIPTEST_FOR_MASTER}") | tr '[:upper:]' '[:lower:]'
             commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
             if [ "$skipflag" == "true" ] && [[ "$commitmessage" =~ .*"[Merge develop to master by circleci]".* ]]
             then
@@ -203,7 +203,7 @@ commands:
           name: skip test if the commit is already tested
           command: |
             echo "${TESTED_COMMITID}:${CIRCLE_SHA1}"
-            skipflag=$(echo "${SKIPTESTEDCHANGE}" |  tr '[:upper:]' '[:lower:]')
+            skipflag=$(echo "${SKIPTESTEDCHANGE}" | tr '[:upper:]' '[:lower:]')
             if [ "${TESTED_COMMITID}" == "${CIRCLE_SHA1}" ] && [ "${skipflag}" != "true" ]
             then
               echo "skip test as the change ${CIRCLE_SHA1} is already tested"
@@ -214,7 +214,7 @@ commands:
           command: |
               echo "override_test_variable_name=$override_test_variable_name"
               override_test_value=$(eval "echo $"${override_test_variable_name}"")
-              override_test_value=$(echo "${override_test_value}" |  tr '[:upper:]' '[:lower:]')
+              override_test_value=$(echo "${override_test_value}" | tr '[:upper:]' '[:lower:]')
               if [ "${override_test_value}" == "true" ]; then
                 echo "project environment variable OVERRIDE_TEST is set with TRUE, skip all tests"
                 circleci step halt
@@ -229,33 +229,17 @@ commands:
               variable_name=SKIP_JOB_${CIRCLE_JOB}
 
               skipjob_flag=$(eval "echo $"${variable_name}"")
-              skipjob_flag=$(echo "${skipjob_flag}" |  tr '[:upper:]' '[:lower:]')
+              skipjob_flag=$(echo "${skipjob_flag}" | tr '[:upper:]' '[:lower:]')
               if [ "${skipjob_flag}" == "true" ]
               then
                 echo "skip current job as ${variable_name} is set in project environment variables"
                 circleci step halt
               fi
-      - run:
-          name: checkifjobcanskip
-          command: |
-            echo "check if job can be skipped"
-            # # we can add script here to halt a job for circleci script test
-            # declare -a jobs=("prepare_release_sdk" "merge_to_master" "bump_sdk_version")
-            # for i in "${jobs[@]}"
-            # do
-            #   echo "$i":"${CIRCLE_JOB}"
-            #   if [ "$i" == "${CIRCLE_JOB}" ]
-            #   then
-            #     echo "not skip job $i"
-            #     exit 0
-            #   fi
-            # done
-            # circleci step halt
 
 jobs:
   build:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -274,7 +258,7 @@ jobs:
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
   unittest:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - set_environment_variables
       - override_test_job
@@ -299,7 +283,7 @@ jobs:
           path: test_result
   pre_integrationtest:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -314,7 +298,7 @@ jobs:
             override_test_value=$(eval "echo $"${override_test_variable_name}"")
             if ! [ -z "$override_test_value" ]
             then
-               echo "reset  ${override_test_variable_name} value"
+               echo "reset ${override_test_variable_name} value"
               parameters='{"name":"'${override_test_variable_name}'","value":"FALSE"}'
               curl -X POST \
                 -H "Content-type: application/json" \
@@ -328,9 +312,9 @@ jobs:
       - run:
           name: create credentials
           command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
-            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json  AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+            echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
+            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
+            aws s3 cp s3://ios-circleci-payload/credentials-mc.json AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - pre_start_simulator
       - run:
           name: build sdk
@@ -343,7 +327,7 @@ jobs:
             - build_result
   post_integrationtest:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
@@ -378,6 +362,8 @@ jobs:
           key: test_result-{{ .Revision }}-KMS
       - restore_cache:
           key: test_result-{{ .Revision }}-Kinesis
+      - restore_cache:
+          key: test_result-{{ .Revision }}-KinesisVideoSignaling
       - restore_cache:
           key: test_result-{{ .Revision }}-Lambda
       - restore_cache:
@@ -430,7 +416,7 @@ jobs:
         default: stable_testList
         type: string
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - set_environment_variables
       - override_test_job
@@ -447,12 +433,12 @@ jobs:
       - run:
           name: create credentials
           command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json
+            echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
       - run :
           name: run integration tests
           command: |
             mkdir integration_test_result
-            python3 CircleciScripts/run_integrationtests.py  CircleciScripts/IntegrationTestsConfiguration.json  "integration_test_result" "<< parameters.groupname >>" "${destination}"  "./build_result"
+            python3 CircleciScripts/run_integrationtests.py CircleciScripts/IntegrationTestsConfiguration.json "integration_test_result" "<< parameters.groupname >>" "${destination}" "./build_result"
       - run:
           name : check integration test result
           command : |
@@ -472,9 +458,8 @@ jobs:
             - integration_test_result
 
   release_tag:
-    # Specify the Xcode version to use
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -485,14 +470,13 @@ jobs:
       - run:
           name: release the tag
           command: |
-            tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p'  CHANGELOG.md | sed '1d' | sed '$d')
+            tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p' CHANGELOG.md | sed '1d' | sed '$d')
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
-            echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG}  --name  "$tagname" -d -
+            echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} --name "$tagname" -d -
 
   release_carthage:
-    # Specify the Xcode version to use
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -520,15 +504,14 @@ jobs:
           no_output_timeout: 100m
       - run:
           name: Create Carthage Archive
-          command: bash ./CircleciScripts/CreateCarthageArchive.sh
+          command: python3 ./CircleciScripts/create_carthage_archive.py
       - run:
           name: upload file to git release
-          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
+          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
   release_cocoapods:
-    # Specify the Xcode version to use
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -536,46 +519,9 @@ jobs:
           name: Release cocoapods
           command: python3 ./CircleciScripts/cocoapods_release.py
 
-  release_appledoc:
-    # Specify the Xcode version to use
+  release_docs:
     macos:
-      xcode: "9.2.0"
-    steps:
-      - skip_job_unless_required
-      - checkout
-      - run:
-          name: Install appledoc
-          command: |
-            pwd
-            pushd $TMPDIR
-            git clone https://github.com/tomaz/appledoc
-            cd appledoc
-            bash install-appledoc.sh -t default
-            popd
-            pwd
-      - run:
-          name: generate documents
-          command: bash ./Scripts/GenerateAppleDocs.sh
-      - run:
-          name: copy documents
-          command: |
-            git config --local user.name "AWS"
-            git checkout  gh-pages
-            cp -R docs/html/*   docs/reference/
-      - run:
-          name: checkin documents
-          command: |
-            git add docs/reference
-            git commit -m "Update appledoc documentation for ${CIRCLE_TAG}"
-            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
-
-  release_jazzydoc:
-    # Specify the Xcode version to use
-    macos:
-      # NOTE: As of 11-Oct-2019, Jazzy doesn't properly work with Xcode 11 on
-      # MacOS 10.14. Until and unless the CircleCI image uses MacOS 10.15, we
-      # must not use an image higher than 10.3.
-      xcode: "10.3.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -584,27 +530,28 @@ jobs:
           command: |
             sudo gem install jazzy --source http://rubygems.org
       - run:
-          name: generate jazzy documents
-          command: |
-            currentversion=${CIRCLE_TAG}
-            bash ./Scripts/AWSMobileClientAPIReference.sh $currentversion
+          name: generate documents
+          command: bash ./CircleciScripts/generate_documentation.sh
       - run:
-          name: copy jazzy documents
+          name: copy documents
           command: |
             git config --local user.name "AWS"
-            git checkout  gh-pages
-            mkdir -p docs/reference/AWSMobileClient
-            cp -R docs/api/* docs/reference/AWSMobileClient
+            git checkout gh-pages
+            rm -rf docs/reference
+            mv docs_tmp docs/reference
       - run:
-          name: checkin jazzy documents
+          name: checkin documents
           command: |
-            git add docs/reference/AWSMobileClient
-            git commit -m "Update jazzy documentation for ${CIRCLE_TAG}"
+            for dirPath in docs/reference/* ; do
+              sdkName=$( basename "$dirPath" )
+              git add "$dirPath" && git commit -m "Update API documentation for ${sdkName} ${CIRCLE_TAG}"
+              git prune
+            done
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
 
   add_doc_tag:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -612,13 +559,13 @@ jobs:
           name: Add documentation tags to gh-pages
           command: |
             git config --local user.name "AWS"
-            git checkout  gh-pages
-            git tag -a ${CIRCLE_TAG}_api_docs  -m "Add documentation tags to version ${CIRCLE_TAG}"
+            git checkout gh-pages
+            git tag -a ${CIRCLE_TAG}_api_docs -m "Add documentation tags to version ${CIRCLE_TAG}"
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -662,7 +609,7 @@ jobs:
 
   bump_ios_amplifydocs_version:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -692,7 +639,7 @@ jobs:
 
   release_ios_s3:
     macos:
-      xcode: "11.0.0"
+      xcode: "11.2.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -707,12 +654,12 @@ jobs:
           name: Copy frameworks
           command: |
             mkdir -p "$sdkNameWithVersion/frameworks"
-            cp -R  builtFramework/framework/*  "$sdkNameWithVersion/frameworks"
+            cp -R builtFramework/framework/* "$sdkNameWithVersion/frameworks"
       - run:
           name: Copy SDK resource files
           command: |
             mkdir -p "$sdkNameWithVersion"
-            python3 CircleciScripts/copy_resourcefiles.py "$(pwd)"  "$(pwd)/$sdkNameWithVersion"
+            python3 CircleciScripts/copy_resourcefiles.py "$(pwd)" "$(pwd)/$sdkNameWithVersion"
       - run:
           name: Zip SDK folder
           command: |
@@ -728,12 +675,12 @@ jobs:
       - run:
           name: Upload to S3
           command: |
-            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
-            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
       - run:
           name: Invalidate cloudfront
           command: |
-            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
   bump_sdk_version:
     docker:
       - image: circleci/android:api-27-alpha
@@ -827,7 +774,7 @@ jobs:
               currentcommit="${CIRCLE_SHA1}"
               lastcommitmessage=$(git log --format=%B -n 1 ${currentcommit})
 
-              git merge  develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"
+              git merge develop --no-edit --commit -m "[Merge develop to master by circleci] $lastcommitmessage"
               echo "push change"
               git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
             fi
@@ -859,7 +806,7 @@ jobs:
             target_branch="develop"
             title=${CIRCLE_BRANCH}
             content="${CIRCLE_BRANCH}"
-            python3 ./CircleciScripts/create_pullrequest.py  "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
+            python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
 
 
 workflows:
@@ -1041,6 +988,17 @@ workflows:
       - integrationtest:
           name: Kinesis
           groupname: Kinesis
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+
+      - integrationtest:
+          name: KinesisVideoSignaling
+          groupname: KinesisVideoSignaling
           requires:
             - pre_integrationtest
           filters:
@@ -1241,6 +1199,7 @@ workflows:
             - IoT
             - KMS
             - Kinesis
+            - KinesisVideoSignaling
             - Lambda
             - Lex
             - MobileAnalytics
@@ -1473,6 +1432,16 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
+          name: KinesisVideoSignaling
+          groupname: KinesisVideoSignaling
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
           name: KMS
           groupname: KMS
           requires:
@@ -1532,16 +1501,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      # - integrationtest:
-      #     name: MachineLearning
-      #     groupname: MachineLearning
-      #     requires:
-      #       - pre_integrationtest
-      #     filters:
-      #       branches:
-      #         ignore: /.*/
-      #       tags:
-      #         only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
           name: Pinpoint
           groupname: Pinpoint
@@ -1631,13 +1590,13 @@ workflows:
             - Comprehend
             - Core
             - Kinesis
+            - KinesisVideoSignaling
             - KMS
             - ElasticLoadBalancing
             - EC2
             - Lambda
             - Lex
             - IoT
-            # - MachineLearning
             - Pinpoint
             - S3
             - DynamoDB
@@ -1685,7 +1644,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_appledoc:
+      - release_docs:
           requires:
             - release_carthage
             - release_cocoapods
@@ -1694,17 +1653,9 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_jazzydoc:
-          requires:
-            - release_appledoc
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - add_doc_tag:
           requires:
-            - release_jazzydoc
+            - release_docs
           filters:
             branches:
               ignore: /.*/
@@ -1728,4 +1679,5 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+
 

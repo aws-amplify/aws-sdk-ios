@@ -26,6 +26,7 @@ bash CircleciScripts/run_unittest_bundle.sh AWSKMSUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSKinesisUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSKinesisVideoUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSKinesisVideoArchivedMediaUnitTests
+bash CircleciScripts/run_unittest_bundle.sh AWSKinesisVideoSignalingUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSLambdaUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSLexUnitTests
 bash CircleciScripts/run_unittest_bundle.sh AWSLogsUnitTests

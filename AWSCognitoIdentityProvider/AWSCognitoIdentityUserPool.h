@@ -184,6 +184,11 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
  */
 @property(nonatomic, strong) NSDictionary<NSString*,NSString*>* challengeResponses;
 
+/**
+ A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+ */
+@property(nonatomic, copy, nullable) NSDictionary<NSString*, NSString*> *clientMetaData;
+
 -(instancetype) initWithChallengeResponses: (NSDictionary<NSString*,NSString*> *) challengeResponses;
 
 @end
@@ -202,6 +207,11 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
  required attributes.  Any other attributes are optional.
  */
 @property(nonatomic, strong, nullable) NSArray<AWSCognitoIdentityUserAttributeType*> *userAttributes;
+
+/**
+ A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+ */
+@property(nonatomic, copy, nullable) NSDictionary<NSString*, NSString*> *clientMetaData;
 
 /**
  Initializer given a new password and map of user attributes to set 

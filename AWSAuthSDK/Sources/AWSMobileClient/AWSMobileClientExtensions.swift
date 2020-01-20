@@ -570,9 +570,12 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - challengeResponse: confirmation code or TOTP token which is available to the user.
     ///   - userAttributes: user attributes required for the operation.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
     public func confirmSignIn(challengeResponse: String,
                               userAttributes: [String:String] = [:],
+                              clientMetaData: [String:String] = [:],
                               completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         if (self.userpoolOpsHelper.mfaCodeCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
@@ -581,10 +584,12 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
                                                                                     userAttributes: userAttributes)
+            passwordDetails.clientMetaData = clientMetaData
             self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource?.set(result: passwordDetails)
         } else if (self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let customAuthDetails = AWSCognitoIdentityCustomChallengeDetails.init(challengeResponses: ["ANSWER": challengeResponse])
+            customAuthDetails.clientMetaData = clientMetaData
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(result: customAuthDetails)
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         }
@@ -870,7 +875,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         }
     }
     
-    func getCustomAuthenticationDetails(_ customAuthentiationInput: AWSCognitoIdentityCustomAuthenticationInput,
+    func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput,
                                         customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>) {
         
         self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = customAuthCompletionSource
@@ -885,7 +890,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         } else {
             // If user is not signedIn, we reach here as part of the signIn flow. Next step
             // is to inform the user to enter custom auth challenge.
-            let result = SignInResult(signInState: .customChallenge, codeDetails: nil)
+            let result = SignInResult(signInState: .customChallenge,
+                                      parameters: customAuthenticationInput.challengeParameters,
+                                      codeDetails: nil)
             invokeSignInCallback(signResult: result, error: nil)
         }
     }

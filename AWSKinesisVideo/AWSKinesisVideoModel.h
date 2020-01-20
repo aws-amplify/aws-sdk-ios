@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoErrorType) {
     AWSKinesisVideoErrorUnknown,
+    AWSKinesisVideoErrorAccessDenied,
+    AWSKinesisVideoErrorAccountChannelLimitExceeded,
     AWSKinesisVideoErrorAccountStreamLimitExceeded,
     AWSKinesisVideoErrorClientLimitExceeded,
     AWSKinesisVideoErrorDeviceStreamLimitExceeded,
@@ -46,6 +48,23 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoAPIName) {
     AWSKinesisVideoAPINameGetDashStreamingSessionUrl,
 };
 
+typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelProtocol) {
+    AWSKinesisVideoChannelProtocolUnknown,
+    AWSKinesisVideoChannelProtocolWss,
+    AWSKinesisVideoChannelProtocolHttps,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelRole) {
+    AWSKinesisVideoChannelRoleUnknown,
+    AWSKinesisVideoChannelRoleMaster,
+    AWSKinesisVideoChannelRoleViewer,
+};
+
+typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelType) {
+    AWSKinesisVideoChannelTypeUnknown,
+    AWSKinesisVideoChannelTypeSingleMaster,
+};
+
 typedef NS_ENUM(NSInteger, AWSKinesisVideoComparisonOperator) {
     AWSKinesisVideoComparisonOperatorUnknown,
     AWSKinesisVideoComparisonOperatorBeginsWith,
@@ -65,28 +84,154 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
     AWSKinesisVideoUpdateDataRetentionOperationDecreaseDataRetention,
 };
 
+@class AWSKinesisVideoChannelInfo;
+@class AWSKinesisVideoChannelNameCondition;
+@class AWSKinesisVideoCreateSignalingChannelInput;
+@class AWSKinesisVideoCreateSignalingChannelOutput;
 @class AWSKinesisVideoCreateStreamInput;
 @class AWSKinesisVideoCreateStreamOutput;
+@class AWSKinesisVideoDeleteSignalingChannelInput;
+@class AWSKinesisVideoDeleteSignalingChannelOutput;
 @class AWSKinesisVideoDeleteStreamInput;
 @class AWSKinesisVideoDeleteStreamOutput;
+@class AWSKinesisVideoDescribeSignalingChannelInput;
+@class AWSKinesisVideoDescribeSignalingChannelOutput;
 @class AWSKinesisVideoDescribeStreamInput;
 @class AWSKinesisVideoDescribeStreamOutput;
 @class AWSKinesisVideoGetDataEndpointInput;
 @class AWSKinesisVideoGetDataEndpointOutput;
+@class AWSKinesisVideoGetSignalingChannelEndpointInput;
+@class AWSKinesisVideoGetSignalingChannelEndpointOutput;
+@class AWSKinesisVideoListSignalingChannelsInput;
+@class AWSKinesisVideoListSignalingChannelsOutput;
 @class AWSKinesisVideoListStreamsInput;
 @class AWSKinesisVideoListStreamsOutput;
+@class AWSKinesisVideoListTagsForResourceInput;
+@class AWSKinesisVideoListTagsForResourceOutput;
 @class AWSKinesisVideoListTagsForStreamInput;
 @class AWSKinesisVideoListTagsForStreamOutput;
+@class AWSKinesisVideoResourceEndpointListItem;
+@class AWSKinesisVideoSingleMasterChannelEndpointConfiguration;
+@class AWSKinesisVideoSingleMasterConfiguration;
 @class AWSKinesisVideoStreamInfo;
 @class AWSKinesisVideoStreamNameCondition;
+@class AWSKinesisVideoTag;
+@class AWSKinesisVideoTagResourceInput;
+@class AWSKinesisVideoTagResourceOutput;
 @class AWSKinesisVideoTagStreamInput;
 @class AWSKinesisVideoTagStreamOutput;
+@class AWSKinesisVideoUntagResourceInput;
+@class AWSKinesisVideoUntagResourceOutput;
 @class AWSKinesisVideoUntagStreamInput;
 @class AWSKinesisVideoUntagStreamOutput;
 @class AWSKinesisVideoUpdateDataRetentionInput;
 @class AWSKinesisVideoUpdateDataRetentionOutput;
+@class AWSKinesisVideoUpdateSignalingChannelInput;
+@class AWSKinesisVideoUpdateSignalingChannelOutput;
 @class AWSKinesisVideoUpdateStreamInput;
 @class AWSKinesisVideoUpdateStreamOutput;
+
+/**
+ <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
+ */
+@interface AWSKinesisVideoChannelInfo : AWSModel
+
+
+/**
+ <p>The ARN of the signaling channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>The name of the signaling channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelName;
+
+/**
+ <p>Current status of the signaling channel.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoStatus channelStatus;
+
+/**
+ <p>The type of the signaling channel.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoChannelType channelType;
+
+/**
+ <p>The time at which the signaling channel was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoSingleMasterConfiguration * _Nullable singleMasterConfiguration;
+
+/**
+ <p>The current version of the signaling channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
+ <p>An optional input parameter for the <code>ListSignalingChannels</code> API. When this parameter is specified while invoking <code>ListSignalingChannels</code>, the API returns only the channels that satisfy a condition specified in <code>ChannelNameCondition</code>.</p>
+ */
+@interface AWSKinesisVideoChannelNameCondition : AWSModel
+
+
+/**
+ <p>A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code> operator, which finds signaling channels whose names begin with a given prefix.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoComparisonOperator comparisonOperator;
+
+/**
+ <p>A value to compare.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable comparisonValue;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoCreateSignalingChannelInput : AWSRequest
+
+
+/**
+ <p>A name for the signaling channel that you are creating. It must be unique for each account and region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelName;
+
+/**
+ <p>A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. </p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoChannelType channelType;
+
+/**
+ <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel type. </p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoSingleMasterConfiguration * _Nullable singleMasterConfiguration;
+
+/**
+ <p>A set of tags (key/value pairs) that you want to associate with this channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoCreateSignalingChannelOutput : AWSModel
+
+
+/**
+ <p>The ARN of the created channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+@end
 
 /**
  
@@ -110,7 +255,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p><p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
+ <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p><p>Example valid values include "video/h264" and "video/h264,audio/aac".</p><p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaType;
 
@@ -142,6 +287,32 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 /**
  
  */
+@interface AWSKinesisVideoDeleteSignalingChannelInput : AWSRequest
+
+
+/**
+ <p>The ARN of the signaling channel that you want to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> APIs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable currentVersion;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDeleteSignalingChannelOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSKinesisVideoDeleteStreamInput : AWSRequest
 
 
@@ -162,6 +333,37 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  */
 @interface AWSKinesisVideoDeleteStreamOutput : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeSignalingChannelInput : AWSRequest
+
+
+/**
+ <p>The ARN of the signaling channel that you want to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>The name of the signaling channel that you want to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoDescribeSignalingChannelOutput : AWSModel
+
+
+/**
+ <p>A structure that encapsulates the specified signaling channel's metadata and properties.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoChannelInfo * _Nullable channelInfo;
 
 @end
 
@@ -235,6 +437,78 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 /**
  
  */
+@interface AWSKinesisVideoGetSignalingChannelEndpointInput : AWSRequest
+
+
+/**
+ <p>The ARN of the signalling channel for which you want to get an endpoint.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code> channel type.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoSingleMasterChannelEndpointConfiguration * _Nullable singleMasterChannelEndpointConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoGetSignalingChannelEndpointOutput : AWSModel
+
+
+/**
+ <p>A list of endpoints for the specified signaling channel.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoResourceEndpointListItem *> * _Nullable resourceEndpointList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoListSignalingChannelsInput : AWSRequest
+
+
+/**
+ <p>Optional: Returns only the channels that satisfy a specific condition.</p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoChannelNameCondition * _Nullable channelNameCondition;
+
+/**
+ <p>The maximum number of channels to return in the response. The default is 500.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoListSignalingChannelsOutput : AWSModel
+
+
+/**
+ <p>An array of <code>ChannelInfo</code> objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoChannelInfo *> * _Nullable channelInfoList;
+
+/**
+ <p>If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSKinesisVideoListStreamsInput : AWSRequest
 
 
@@ -276,6 +550,42 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 /**
  
  */
+@interface AWSKinesisVideoListTagsForResourceInput : AWSRequest
+
+
+/**
+ <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ARN of the signaling channel for which you want to list tags.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceARN;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoListTagsForResourceOutput : AWSModel
+
+
+/**
+ <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A map of tag keys and values associated with the specified signaling channel.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
 @interface AWSKinesisVideoListTagsForStreamInput : AWSRequest
 
 
@@ -311,6 +621,55 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>A map of tag keys and values associated with the specified stream.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
+ */
+@interface AWSKinesisVideoResourceEndpointListItem : AWSModel
+
+
+/**
+ <p>The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoChannelProtocol protocols;
+
+/**
+ <p>The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceEndpoint;
+
+@end
+
+/**
+ <p>An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code> channel type. </p>
+ */
+@interface AWSKinesisVideoSingleMasterChannelEndpointConfiguration : AWSModel
+
+
+/**
+ <p>This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code> endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable protocols;
+
+/**
+ <p>This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is specified, this API returns an endpoint that a client can use only to send offers to another <code>MASTER</code> client on this signaling channel. </p>
+ */
+@property (nonatomic, assign) AWSKinesisVideoChannelRole role;
+
+@end
+
+/**
+ <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.</p>
+ */
+@interface AWSKinesisVideoSingleMasterConfiguration : AWSModel
+
+
+/**
+ <p>The period of time a signaling channel retains underlivered messages before they are discarded.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable messageTtlSeconds;
 
 @end
 
@@ -386,6 +745,51 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @end
 
 /**
+ <p>A key and value pair that is associated with the specified signaling channel.</p>
+ Required parameters: [Key, Value]
+ */
+@interface AWSKinesisVideoTag : AWSModel
+
+
+/**
+ <p>The key of the tag that is associated with the specified signaling channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p>The value of the tag that is associated with the specified signaling channel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoTagResourceInput : AWSRequest
+
+
+/**
+ <p>The ARN of the signaling channel to which you want to add tags.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceARN;
+
+/**
+ <p>A list of tags to associate with the specified signaling channel. Each tag is a key-value pair.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSKinesisVideoTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoTagResourceOutput : AWSModel
+
+
+@end
+
+/**
  
  */
 @interface AWSKinesisVideoTagStreamInput : AWSRequest
@@ -412,6 +816,32 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  
  */
 @interface AWSKinesisVideoTagStreamOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUntagResourceInput : AWSRequest
+
+
+/**
+ <p>The ARN of the signaling channel from which you want to remove tags.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceARN;
+
+/**
+ <p>A list of the keys of the tags that you want to remove.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeyList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUntagResourceOutput : AWSModel
 
 
 @end
@@ -484,6 +914,37 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  
  */
 @interface AWSKinesisVideoUpdateDataRetentionOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateSignalingChannelInput : AWSRequest
+
+
+/**
+ <p>The ARN of the signaling channel that you want to update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable channelARN;
+
+/**
+ <p>The current version of the signaling channel that you want to update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable currentVersion;
+
+/**
+ <p>The structure containing the configuration for the <code>SINGLE_MASTER</code> type of the signaling channel that you want to update. </p>
+ */
+@property (nonatomic, strong) AWSKinesisVideoSingleMasterConfiguration * _Nullable singleMasterConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSKinesisVideoUpdateSignalingChannelOutput : AWSModel
 
 
 @end

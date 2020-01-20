@@ -1,21 +1,16 @@
-# Create sim if needed
-test_device_id=$( xcrun simctl list devices | grep "circleci-test-device" | sed 's/ *circleci-test-device *(//' | sed 's/).*//' )
+#!/bin/bash
 
-if [[ -z $test_device_id ]] ; then
-  echo "Creating test device"
-
-  # Get the most recent available runtime
-  runtime=$( xcrun simctl list runtimes iOS | sed 's/iOS //' | sort -h | tail -1 | sed 's/.* - //' | tr -d '[:space:]' )
-  echo "Runtime: '${runtime}'"
-
-  # Get the last alphabetical device (probably something in the iPhone X family, as of 2019-05-31)
-  devicetype=$( xcrun simctl list devicetypes iPhone | sort | tail -1 | sed 's/.*(//' | sed 's/).*//' | tr -d '[:space:]' )
-  echo "Device type: '${devicetype}'"
-
-  test_device_id=$( xcrun simctl create "circleci-test-device" "${devicetype}" "${runtime}" | tr -d '[:space:]' )
+if [[ -z $SOURCE_ROOT ]] ; then
+  SOURCE_ROOT=$( pwd )
 fi
 
-echo "test_device_id: ${test_device_id}"
+test_device_id=$( bash ${SOURCE_ROOT}/CircleciScripts/get_circleci_test_device_id.sh )
+exitValue=$?
+if [[ $exitValue -ne  0 ]] || [[ -z $test_device_id ]] ; then
+  echo "Error getting test device ID"
+  exit 1
+fi
+
 echo "export test_device_id='$test_device_id'" >> $BASH_ENV
 
 # Boot sim if needed
@@ -29,4 +24,3 @@ fi
 destination="platform=iOS Simulator,id=${test_device_id}"
 echo "destination: ${destination}"
 echo "export destination='$destination'" >> $BASH_ENV
-

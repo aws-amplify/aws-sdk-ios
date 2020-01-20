@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,6 +25,20 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"high" : @"High",
              @"low" : @"Low",
              };
+}
+
+@end
+
+@implementation AWSRekognitionAsset
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groundTruthManifest" : @"GroundTruthManifest",
+             };
+}
+
++ (NSValueTransformer *)groundTruthManifestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionGroundTruthManifest class]];
 }
 
 @end
@@ -128,10 +142,47 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"qualityFilter" : @"QualityFilter",
              @"similarityThreshold" : @"SimilarityThreshold",
              @"sourceImage" : @"SourceImage",
              @"targetImage" : @"TargetImage",
              };
+}
+
++ (NSValueTransformer *)qualityFilterJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterNone);
+        }
+        if ([value caseInsensitiveCompare:@"AUTO"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterAuto);
+        }
+        if ([value caseInsensitiveCompare:@"LOW"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterLow);
+        }
+        if ([value caseInsensitiveCompare:@"MEDIUM"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterMedium);
+        }
+        if ([value caseInsensitiveCompare:@"HIGH"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterHigh);
+        }
+        return @(AWSRekognitionQualityFilterUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionQualityFilterNone:
+                return @"NONE";
+            case AWSRekognitionQualityFilterAuto:
+                return @"AUTO";
+            case AWSRekognitionQualityFilterLow:
+                return @"LOW";
+            case AWSRekognitionQualityFilterMedium:
+                return @"MEDIUM";
+            case AWSRekognitionQualityFilterHigh:
+                return @"HIGH";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)sourceImageJSONTransformer {
@@ -314,6 +365,62 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionCreateProjectRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectName" : @"ProjectName",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionCreateProjectResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectArn" : @"ProjectArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionCreateProjectVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"outputConfig" : @"OutputConfig",
+             @"projectArn" : @"ProjectArn",
+             @"testingData" : @"TestingData",
+             @"trainingData" : @"TrainingData",
+             @"versionName" : @"VersionName",
+             };
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionOutputConfig class]];
+}
+
++ (NSValueTransformer *)testingDataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTestingData class]];
+}
+
++ (NSValueTransformer *)trainingDataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTrainingData class]];
+}
+
+@end
+
+@implementation AWSRekognitionCreateProjectVersionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectVersionArn" : @"ProjectVersionArn",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionCreateStreamProcessorRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -346,6 +453,22 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"streamProcessorArn" : @"StreamProcessorArn",
              };
+}
+
+@end
+
+@implementation AWSRekognitionCustomLabel
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"geometry" : @"Geometry",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)geometryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionGeometry class]];
 }
 
 @end
@@ -432,6 +555,60 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
+@end
+
+@implementation AWSRekognitionDescribeProjectVersionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"projectArn" : @"ProjectArn",
+             @"versionNames" : @"VersionNames",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionDescribeProjectVersionsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"projectVersionDescriptions" : @"ProjectVersionDescriptions",
+             };
+}
+
++ (NSValueTransformer *)projectVersionDescriptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionProjectVersionDescription class]];
+}
+
+@end
+
+@implementation AWSRekognitionDescribeProjectsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionDescribeProjectsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"projectDescriptions" : @"ProjectDescriptions",
+             };
+}
+
++ (NSValueTransformer *)projectDescriptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionProjectDescription class]];
 }
 
 @end
@@ -525,6 +702,37 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSRekognitionDetectCustomLabelsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"image" : @"Image",
+             @"maxResults" : @"MaxResults",
+             @"minConfidence" : @"MinConfidence",
+             @"projectVersionArn" : @"ProjectVersionArn",
+             };
+}
+
++ (NSValueTransformer *)imageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionImage class]];
+}
+
+@end
+
+@implementation AWSRekognitionDetectCustomLabelsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customLabels" : @"CustomLabels",
+             };
+}
+
++ (NSValueTransformer *)customLabelsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionCustomLabel class]];
 }
 
 @end
@@ -657,9 +865,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"humanLoopConfig" : @"HumanLoopConfig",
              @"image" : @"Image",
              @"minConfidence" : @"MinConfidence",
              };
+}
+
++ (NSValueTransformer *)humanLoopConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionHumanLoopConfig class]];
 }
 
 + (NSValueTransformer *)imageJSONTransformer {
@@ -672,9 +885,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"humanLoopActivationOutput" : @"HumanLoopActivationOutput",
              @"moderationLabels" : @"ModerationLabels",
              @"moderationModelVersion" : @"ModerationModelVersion",
              };
+}
+
++ (NSValueTransformer *)humanLoopActivationOutputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionHumanLoopActivationOutput class]];
 }
 
 + (NSValueTransformer *)moderationLabelsJSONTransformer {
@@ -774,6 +992,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSRekognitionEvaluationResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"f1Score" : @"F1Score",
+             @"summary" : @"Summary",
+             };
+}
+
++ (NSValueTransformer *)summaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionSummary class]];
 }
 
 @end
@@ -1502,6 +1735,58 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionGroundTruthManifest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Object" : @"S3Object",
+             };
+}
+
++ (NSValueTransformer *)s3ObjectJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionS3Object class]];
+}
+
+@end
+
+@implementation AWSRekognitionHumanLoopActivationOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"humanLoopActivationConditionsEvaluationResults" : @"HumanLoopActivationConditionsEvaluationResults",
+             @"humanLoopActivationReasons" : @"HumanLoopActivationReasons",
+             @"humanLoopArn" : @"HumanLoopArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionHumanLoopConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataAttributes" : @"DataAttributes",
+             @"flowDefinitionArn" : @"FlowDefinitionArn",
+             @"humanLoopName" : @"HumanLoopName",
+             };
+}
+
++ (NSValueTransformer *)dataAttributesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionHumanLoopDataAttributes class]];
+}
+
+@end
+
+@implementation AWSRekognitionHumanLoopDataAttributes
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contentClassifiers" : @"ContentClassifiers",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionImage
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1553,6 +1838,15 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"AUTO"] == NSOrderedSame) {
             return @(AWSRekognitionQualityFilterAuto);
         }
+        if ([value caseInsensitiveCompare:@"LOW"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterLow);
+        }
+        if ([value caseInsensitiveCompare:@"MEDIUM"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterMedium);
+        }
+        if ([value caseInsensitiveCompare:@"HIGH"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterHigh);
+        }
         return @(AWSRekognitionQualityFilterUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1560,6 +1854,12 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"NONE";
             case AWSRekognitionQualityFilterAuto:
                 return @"AUTO";
+            case AWSRekognitionQualityFilterLow:
+                return @"LOW";
+            case AWSRekognitionQualityFilterMedium:
+                return @"MEDIUM";
+            case AWSRekognitionQualityFilterHigh:
+                return @"HIGH";
             default:
                 return nil;
         }
@@ -1986,6 +2286,17 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionOutputConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3KeyPrefix" : @"S3KeyPrefix",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionParent
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2070,6 +2381,160 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"roll" : @"Roll",
              @"yaw" : @"Yaw",
              };
+}
+
+@end
+
+@implementation AWSRekognitionProjectDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTimestamp" : @"CreationTimestamp",
+             @"projectArn" : @"ProjectArn",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)creationTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectStatusCreated);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectStatusDeleting);
+        }
+        return @(AWSRekognitionProjectStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProjectStatusCreating:
+                return @"CREATING";
+            case AWSRekognitionProjectStatusCreated:
+                return @"CREATED";
+            case AWSRekognitionProjectStatusDeleting:
+                return @"DELETING";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSRekognitionProjectVersionDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"billableTrainingTimeInSeconds" : @"BillableTrainingTimeInSeconds",
+             @"creationTimestamp" : @"CreationTimestamp",
+             @"evaluationResult" : @"EvaluationResult",
+             @"minInferenceUnits" : @"MinInferenceUnits",
+             @"outputConfig" : @"OutputConfig",
+             @"projectVersionArn" : @"ProjectVersionArn",
+             @"status" : @"Status",
+             @"statusMessage" : @"StatusMessage",
+             @"testingDataResult" : @"TestingDataResult",
+             @"trainingDataResult" : @"TrainingDataResult",
+             @"trainingEndTimestamp" : @"TrainingEndTimestamp",
+             };
+}
+
++ (NSValueTransformer *)creationTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)evaluationResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionEvaluationResult class]];
+}
+
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionOutputConfig class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TRAINING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STARTING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStarting);
+        }
+        if ([value caseInsensitiveCompare:@"RUNNING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopping);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopped);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusDeleting);
+        }
+        return @(AWSRekognitionProjectVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProjectVersionStatusTrainingInProgress:
+                return @"TRAINING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusTrainingCompleted:
+                return @"TRAINING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusTrainingFailed:
+                return @"TRAINING_FAILED";
+            case AWSRekognitionProjectVersionStatusStarting:
+                return @"STARTING";
+            case AWSRekognitionProjectVersionStatusRunning:
+                return @"RUNNING";
+            case AWSRekognitionProjectVersionStatusFailed:
+                return @"FAILED";
+            case AWSRekognitionProjectVersionStatusStopping:
+                return @"STOPPING";
+            case AWSRekognitionProjectVersionStatusStopped:
+                return @"STOPPED";
+            case AWSRekognitionProjectVersionStatusDeleting:
+                return @"DELETING";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)testingDataResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTestingDataResult class]];
+}
+
++ (NSValueTransformer *)trainingDataResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTrainingDataResult class]];
+}
+
++ (NSValueTransformer *)trainingEndTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -2159,11 +2624,48 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"faceMatchThreshold" : @"FaceMatchThreshold",
              @"image" : @"Image",
              @"maxFaces" : @"MaxFaces",
+             @"qualityFilter" : @"QualityFilter",
              };
 }
 
 + (NSValueTransformer *)imageJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionImage class]];
+}
+
++ (NSValueTransformer *)qualityFilterJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"NONE"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterNone);
+        }
+        if ([value caseInsensitiveCompare:@"AUTO"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterAuto);
+        }
+        if ([value caseInsensitiveCompare:@"LOW"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterLow);
+        }
+        if ([value caseInsensitiveCompare:@"MEDIUM"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterMedium);
+        }
+        if ([value caseInsensitiveCompare:@"HIGH"] == NSOrderedSame) {
+            return @(AWSRekognitionQualityFilterHigh);
+        }
+        return @(AWSRekognitionQualityFilterUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionQualityFilterNone:
+                return @"NONE";
+            case AWSRekognitionQualityFilterAuto:
+                return @"AUTO";
+            case AWSRekognitionQualityFilterLow:
+                return @"LOW";
+            case AWSRekognitionQualityFilterMedium:
+                return @"MEDIUM";
+            case AWSRekognitionQualityFilterHigh:
+                return @"HIGH";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2441,6 +2943,83 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionStartProjectVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"minInferenceUnits" : @"MinInferenceUnits",
+             @"projectVersionArn" : @"ProjectVersionArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionStartProjectVersionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TRAINING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STARTING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStarting);
+        }
+        if ([value caseInsensitiveCompare:@"RUNNING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopping);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopped);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusDeleting);
+        }
+        return @(AWSRekognitionProjectVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProjectVersionStatusTrainingInProgress:
+                return @"TRAINING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusTrainingCompleted:
+                return @"TRAINING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusTrainingFailed:
+                return @"TRAINING_FAILED";
+            case AWSRekognitionProjectVersionStatusStarting:
+                return @"STARTING";
+            case AWSRekognitionProjectVersionStatusRunning:
+                return @"RUNNING";
+            case AWSRekognitionProjectVersionStatusFailed:
+                return @"FAILED";
+            case AWSRekognitionProjectVersionStatusStopping:
+                return @"STOPPING";
+            case AWSRekognitionProjectVersionStatusStopped:
+                return @"STOPPED";
+            case AWSRekognitionProjectVersionStatusDeleting:
+                return @"DELETING";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSRekognitionStartStreamProcessorRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2452,6 +3031,82 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 @end
 
 @implementation AWSRekognitionStartStreamProcessorResponse
+
+@end
+
+@implementation AWSRekognitionStopProjectVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectVersionArn" : @"ProjectVersionArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionStopProjectVersionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TRAINING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STARTING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStarting);
+        }
+        if ([value caseInsensitiveCompare:@"RUNNING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopping);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopped);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusDeleting);
+        }
+        return @(AWSRekognitionProjectVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProjectVersionStatusTrainingInProgress:
+                return @"TRAINING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusTrainingCompleted:
+                return @"TRAINING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusTrainingFailed:
+                return @"TRAINING_FAILED";
+            case AWSRekognitionProjectVersionStatusStarting:
+                return @"STARTING";
+            case AWSRekognitionProjectVersionStatusRunning:
+                return @"RUNNING";
+            case AWSRekognitionProjectVersionStatusFailed:
+                return @"FAILED";
+            case AWSRekognitionProjectVersionStatusStopping:
+                return @"STOPPING";
+            case AWSRekognitionProjectVersionStatusStopped:
+                return @"STOPPED";
+            case AWSRekognitionProjectVersionStatusDeleting:
+                return @"DELETING";
+            default:
+                return nil;
+        }
+    }];
+}
 
 @end
 
@@ -2558,6 +3213,20 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionSummary
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Object" : @"S3Object",
+             };
+}
+
++ (NSValueTransformer *)s3ObjectJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionS3Object class]];
+}
+
+@end
+
 @implementation AWSRekognitionSunglasses
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2565,6 +3234,40 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"confidence" : @"Confidence",
              @"value" : @"Value",
              };
+}
+
+@end
+
+@implementation AWSRekognitionTestingData
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"assets" : @"Assets",
+             @"autoCreate" : @"AutoCreate",
+             };
+}
+
++ (NSValueTransformer *)assetsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionAsset class]];
+}
+
+@end
+
+@implementation AWSRekognitionTestingDataResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"input" : @"Input",
+             @"output" : @"Output",
+             };
+}
+
++ (NSValueTransformer *)inputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTestingData class]];
+}
+
++ (NSValueTransformer *)outputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTestingData class]];
 }
 
 @end
@@ -2605,6 +3308,39 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSRekognitionTrainingData
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"assets" : @"Assets",
+             };
+}
+
++ (NSValueTransformer *)assetsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionAsset class]];
+}
+
+@end
+
+@implementation AWSRekognitionTrainingDataResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"input" : @"Input",
+             @"output" : @"Output",
+             };
+}
+
++ (NSValueTransformer *)inputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTrainingData class]];
+}
+
++ (NSValueTransformer *)outputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTrainingData class]];
 }
 
 @end

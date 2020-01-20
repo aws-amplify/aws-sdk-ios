@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -197,6 +197,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (void)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets the properties associated with an asycnhronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTextTranslationJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateDescribeTextTranslationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateDescribeTextTranslationJobRequest
+ @see AWSTranslateDescribeTextTranslationJobResponse
+ */
+- (AWSTask<AWSTranslateDescribeTextTranslationJobResponse *> *)describeTextTranslationJob:(AWSTranslateDescribeTextTranslationJobRequest *)request;
+
+/**
+ <p>Gets the properties associated with an asycnhronous batch translation job including name, ID, status, source and target languages, input/output S3 buckets, and so on.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTextTranslationJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateDescribeTextTranslationJobRequest
+ @see AWSTranslateDescribeTextTranslationJobResponse
+ */
+- (void)describeTextTranslationJob:(AWSTranslateDescribeTextTranslationJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateDescribeTextTranslationJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Retrieves a custom terminology.</p>
  
  @param request A container for the necessary parameters to execute the GetTerminology service method.
@@ -272,7 +297,82 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (void)listTerminologies:(AWSTranslateListTerminologiesRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListTerminologiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Translates input text from the source language to the target language. It is not necessary to use English (en) as either the source or the target language but not all language combinations are supported by Amazon Translate. For more information, see <a href="http://docs.aws.amazon.com/translate/latest/dg/pairs.html">Supported Language Pairs</a>.</p><ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>Chinese (Traditional) (zh-TW)</p></li><li><p>Czech (cs)</p></li><li><p>Danish (da)</p></li><li><p>Dutch (nl)</p></li><li><p>English (en)</p></li><li><p>Finnish (fi)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Hebrew (he)</p></li><li><p>Indonesian (id)</p></li><li><p>Italian (it)</p></li><li><p>Japanese (ja)</p></li><li><p>Korean (ko)</p></li><li><p>Polish (pl)</p></li><li><p>Portuguese (pt)</p></li><li><p>Russian (ru)</p></li><li><p>Spanish (es)</p></li><li><p>Swedish (sv)</p></li><li><p>Turkish (tr)</p></li></ul><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
+ <p>Gets a list of the batch translation jobs that you have submitted.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTextTranslationJobs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateListTextTranslationJobsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInvalidFilter`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListTextTranslationJobsRequest
+ @see AWSTranslateListTextTranslationJobsResponse
+ */
+- (AWSTask<AWSTranslateListTextTranslationJobsResponse *> *)listTextTranslationJobs:(AWSTranslateListTextTranslationJobsRequest *)request;
+
+/**
+ <p>Gets a list of the batch translation jobs that you have submitted.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTextTranslationJobs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInvalidFilter`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListTextTranslationJobsRequest
+ @see AWSTranslateListTextTranslationJobsResponse
+ */
+- (void)listTextTranslationJobs:(AWSTranslateListTextTranslationJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListTextTranslationJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p><note><p>Amazon Translate does not support batch translation of multiple source languages at once.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the StartTextTranslationJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateStartTextTranslationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateStartTextTranslationJobRequest
+ @see AWSTranslateStartTextTranslationJobResponse
+ */
+- (AWSTask<AWSTranslateStartTextTranslationJobResponse *> *)startTextTranslationJob:(AWSTranslateStartTextTranslationJobRequest *)request;
+
+/**
+ <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once. For more information, see <a>async</a>.</p><p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p><note><p>Amazon Translate does not support batch translation of multiple source languages at once.</p></note>
+ 
+ @param request A container for the necessary parameters to execute the StartTextTranslationJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateStartTextTranslationJobRequest
+ @see AWSTranslateStartTextTranslationJobResponse
+ */
+- (void)startTextTranslationJob:(AWSTranslateStartTextTranslationJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateStartTextTranslationJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Stops an asynchronous batch translation job that is in progress.</p><p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state. Otherwise, the job is put into the <code>STOPPED</code> state.</p><p>Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a> operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a> operations to get a batch translation job's <code>JobId</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopTextTranslationJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateStopTextTranslationJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateStopTextTranslationJobRequest
+ @see AWSTranslateStopTextTranslationJobResponse
+ */
+- (AWSTask<AWSTranslateStopTextTranslationJobResponse *> *)stopTextTranslationJob:(AWSTranslateStopTextTranslationJobRequest *)request;
+
+/**
+ <p>Stops an asynchronous batch translation job that is in progress.</p><p>If the job's state is <code>IN_PROGRESS</code>, the job will be marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state. Otherwise, the job is put into the <code>STOPPED</code> state.</p><p>Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a> operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a> operations to get a batch translation job's <code>JobId</code>.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopTextTranslationJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateStopTextTranslationJobRequest
+ @see AWSTranslateStopTextTranslationJobResponse
+ */
+- (void)stopTextTranslationJob:(AWSTranslateStopTextTranslationJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateStopTextTranslationJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>
  
  @param request A container for the necessary parameters to execute the TranslateText service method.
 
@@ -284,7 +384,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (AWSTask<AWSTranslateTranslateTextResponse *> *)translateText:(AWSTranslateTranslateTextRequest *)request;
 
 /**
- <p>Translates input text from the source language to the target language. It is not necessary to use English (en) as either the source or the target language but not all language combinations are supported by Amazon Translate. For more information, see <a href="http://docs.aws.amazon.com/translate/latest/dg/pairs.html">Supported Language Pairs</a>.</p><ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>Chinese (Traditional) (zh-TW)</p></li><li><p>Czech (cs)</p></li><li><p>Danish (da)</p></li><li><p>Dutch (nl)</p></li><li><p>English (en)</p></li><li><p>Finnish (fi)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Hebrew (he)</p></li><li><p>Indonesian (id)</p></li><li><p>Italian (it)</p></li><li><p>Japanese (ja)</p></li><li><p>Korean (ko)</p></li><li><p>Polish (pl)</p></li><li><p>Portuguese (pt)</p></li><li><p>Russian (ru)</p></li><li><p>Spanish (es)</p></li><li><p>Swedish (sv)</p></li><li><p>Turkish (tr)</p></li></ul><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
+ <p>Translates input text from the source language to the target language. For a list of available languages and language codes, see <a>what-is-languages</a>.</p>
  
  @param request A container for the necessary parameters to execute the TranslateText service method.
  @param completionHandler The completion handler to call when the load request is complete.

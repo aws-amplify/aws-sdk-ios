@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -310,6 +310,23 @@
       ],\
       \"documentation\":\"<p>Clears the default authorizer.</p>\"\
     },\
+    \"ConfirmTopicRuleDestination\":{\
+      \"name\":\"ConfirmTopicRuleDestination\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/confirmdestination/{confirmationToken+}\"\
+      },\
+      \"input\":{\"shape\":\"ConfirmTopicRuleDestinationRequest\"},\
+      \"output\":{\"shape\":\"ConfirmTopicRuleDestinationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"}\
+      ],\
+      \"documentation\":\"<p>Confirms a topic rule destination. When you create a rule requiring a destination, AWS IoT sends a confirmation message to the endpoint or base address you specify. The message includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code> to confirm that you own or have access to the endpoint.</p>\"\
+    },\
     \"CreateAuthorizer\":{\
       \"name\":\"CreateAuthorizer\",\
       \"http\":{\
@@ -361,6 +378,26 @@
         {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Creates an X.509 certificate using the specified certificate signing request.</p> <p> <b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p> <p> <b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> <p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p> <p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is:</p> <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR.</p> <p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p> <p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p> <p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p> <p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p> <p>&gt; forfiles /p my-csr-directory /c \\\"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\\\"</p>\"\
+    },\
+    \"CreateDomainConfiguration\":{\
+      \"name\":\"CreateDomainConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/domainConfigurations/{domainConfigurationName}\"\
+      },\
+      \"input\":{\"shape\":\"CreateDomainConfigurationRequest\"},\
+      \"output\":{\"shape\":\"CreateDomainConfigurationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"CertificateValidationException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a domain configuration.</p> <note> <p>The domain configuration feature is in public preview and is subject to change.</p> </note>\"\
     },\
     \"CreateDynamicThingGroup\":{\
       \"name\":\"CreateDynamicThingGroup\",\
@@ -414,7 +451,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p> <p> <b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>\"\
+      \"documentation\":\"<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a device, for more information, see <a href=\\\"https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api\\\">Provisioning MQTT API</a>.</p> <p> <b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>\"\
     },\
     \"CreateMitigationAction\":{\
       \"name\":\"CreateMitigationAction\",\
@@ -491,6 +528,61 @@
         {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p> <p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>\"\
+    },\
+    \"CreateProvisioningClaim\":{\
+      \"name\":\"CreateProvisioningClaim\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}/provisioning-claim\"\
+      },\
+      \"input\":{\"shape\":\"CreateProvisioningClaimRequest\"},\
+      \"output\":{\"shape\":\"CreateProvisioningClaimResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a provisioning claim.</p>\"\
+    },\
+    \"CreateProvisioningTemplate\":{\
+      \"name\":\"CreateProvisioningTemplate\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/provisioning-templates\"\
+      },\
+      \"input\":{\"shape\":\"CreateProvisioningTemplateRequest\"},\
+      \"output\":{\"shape\":\"CreateProvisioningTemplateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a fleet provisioning template.</p>\"\
+    },\
+    \"CreateProvisioningTemplateVersion\":{\
+      \"name\":\"CreateProvisioningTemplateVersion\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}/versions\"\
+      },\
+      \"input\":{\"shape\":\"CreateProvisioningTemplateVersionRequest\"},\
+      \"output\":{\"shape\":\"CreateProvisioningTemplateVersionResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"VersionsLimitExceededException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new version of a fleet provisioning template.</p>\"\
     },\
     \"CreateRoleAlias\":{\
       \"name\":\"CreateRoleAlias\",\
@@ -634,6 +726,23 @@
       ],\
       \"documentation\":\"<p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>\"\
     },\
+    \"CreateTopicRuleDestination\":{\
+      \"name\":\"CreateTopicRuleDestination\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/destinations\"\
+      },\
+      \"input\":{\"shape\":\"CreateTopicRuleDestinationRequest\"},\
+      \"output\":{\"shape\":\"CreateTopicRuleDestinationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a topic rule destination. The destination must be confirmed prior to use.</p>\"\
+    },\
     \"DeleteAccountAuditConfiguration\":{\
       \"name\":\"DeleteAccountAuditConfiguration\",\
       \"http\":{\
@@ -722,6 +831,24 @@
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified certificate.</p> <p>A certificate cannot be deleted if it has a policy or IoT thing attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>\"\
+    },\
+    \"DeleteDomainConfiguration\":{\
+      \"name\":\"DeleteDomainConfiguration\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/domainConfigurations/{domainConfigurationName}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteDomainConfigurationRequest\"},\
+      \"output\":{\"shape\":\"DeleteDomainConfigurationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes the specified domain configuration.</p> <note> <p>The domain configuration feature is in public preview and is subject to change.</p> </note>\"\
     },\
     \"DeleteDynamicThingGroup\":{\
       \"name\":\"DeleteDynamicThingGroup\",\
@@ -841,6 +968,42 @@
         {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this API. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.</p>\"\
+    },\
+    \"DeleteProvisioningTemplate\":{\
+      \"name\":\"DeleteProvisioningTemplate\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteProvisioningTemplateRequest\"},\
+      \"output\":{\"shape\":\"DeleteProvisioningTemplateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a fleet provisioning template.</p>\"\
+    },\
+    \"DeleteProvisioningTemplateVersion\":{\
+      \"name\":\"DeleteProvisioningTemplateVersion\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}/versions/{versionId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteProvisioningTemplateVersionRequest\"},\
+      \"output\":{\"shape\":\"DeleteProvisioningTemplateVersionResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"DeleteConflictException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a fleet provisioning template version.</p>\"\
     },\
     \"DeleteRegistrationCode\":{\
       \"name\":\"DeleteRegistrationCode\",\
@@ -997,6 +1160,23 @@
         {\"shape\":\"ConflictingResourceUpdateException\"}\
       ],\
       \"documentation\":\"<p>Deletes the rule.</p>\"\
+    },\
+    \"DeleteTopicRuleDestination\":{\
+      \"name\":\"DeleteTopicRuleDestination\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/destinations/{arn+}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteTopicRuleDestinationRequest\"},\
+      \"output\":{\"shape\":\"DeleteTopicRuleDestinationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a topic rule destination.</p>\"\
     },\
     \"DeleteV2LoggingLevel\":{\
       \"name\":\"DeleteV2LoggingLevel\",\
@@ -1180,6 +1360,23 @@
       ],\
       \"documentation\":\"<p>Describes the default authorizer.</p>\"\
     },\
+    \"DescribeDomainConfiguration\":{\
+      \"name\":\"DescribeDomainConfiguration\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/domainConfigurations/{domainConfigurationName}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeDomainConfigurationRequest\"},\
+      \"output\":{\"shape\":\"DescribeDomainConfigurationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Gets summary information about a domain configuration.</p> <note> <p>The domain configuration feature is in public preview and is subject to change.</p> </note>\"\
+    },\
     \"DescribeEndpoint\":{\
       \"name\":\"DescribeEndpoint\",\
       \"http\":{\
@@ -1275,6 +1472,40 @@
         {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Gets information about a mitigation action.</p>\"\
+    },\
+    \"DescribeProvisioningTemplate\":{\
+      \"name\":\"DescribeProvisioningTemplate\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeProvisioningTemplateRequest\"},\
+      \"output\":{\"shape\":\"DescribeProvisioningTemplateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>Returns information about a fleet provisioning template.</p>\"\
+    },\
+    \"DescribeProvisioningTemplateVersion\":{\
+      \"name\":\"DescribeProvisioningTemplateVersion\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}/versions/{versionId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeProvisioningTemplateVersionRequest\"},\
+      \"output\":{\"shape\":\"DescribeProvisioningTemplateVersionResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>Returns information about a fleet provisioning template version.</p>\"\
     },\
     \"DescribeRoleAlias\":{\
       \"name\":\"DescribeRoleAlias\",\
@@ -1533,7 +1764,7 @@
         {\"shape\":\"InvalidAggregationException\"},\
         {\"shape\":\"IndexNotReadyException\"}\
       ],\
-      \"documentation\":\"<p>Returns the number of things with distinct values for the aggregation field. </p>\"\
+      \"documentation\":\"<p>Returns the approximate count of unique values that match the query.</p>\"\
     },\
     \"GetEffectivePolicies\":{\
       \"name\":\"GetEffectivePolicies\",\
@@ -1569,7 +1800,7 @@
         {\"shape\":\"ServiceUnavailableException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Gets the search configuration.</p>\"\
+      \"documentation\":\"<p>Gets the indexing configuration.</p>\"\
     },\
     \"GetJobDocument\":{\
       \"name\":\"GetJobDocument\",\
@@ -1639,7 +1870,7 @@
         {\"shape\":\"InvalidAggregationException\"},\
         {\"shape\":\"IndexNotReadyException\"}\
       ],\
-      \"documentation\":\"<p>Returns the percentile values for the aggregation field. The results from GetPercentiles is an approximation. The default percentile groupings are: 1,5,25,50,75,95,99. You can specify custom percentile grouping using the percents argument to the GetPercentiles API.</p>\"\
+      \"documentation\":\"<p>Groups the aggregated values that match the query into percentile groupings. The default percentile groupings are: 1,5,25,50,75,95,99, although you can specify your own when you call <code>GetPercentiles</code>. This function returns a value for each percentile group specified (or the default percentile groupings). The percentile group \\\"1\\\" contains the aggregated field value that occurs in approximately one percent of the values that match the query. The percentile group \\\"5\\\" contains the aggregated field value that occurs in approximately five percent of the values that match the query, and so on. The result is an approximation, the more values that match the query, the more accurate the percentile values.</p>\"\
     },\
     \"GetPolicy\":{\
       \"name\":\"GetPolicy\",\
@@ -1713,7 +1944,7 @@
         {\"shape\":\"InvalidAggregationException\"},\
         {\"shape\":\"IndexNotReadyException\"}\
       ],\
-      \"documentation\":\"<p>Gets statistics returns the count, average, sum, minimum, maximum, sumOfSquares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type String, only the count statistic is returned.</p>\"\
+      \"documentation\":\"<p>Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard deviation for the specified aggregated field. If the aggregation field is of type <code>String</code>, only the count statistic is returned.</p>\"\
     },\
     \"GetTopicRule\":{\
       \"name\":\"GetTopicRule\",\
@@ -1730,6 +1961,22 @@
         {\"shape\":\"UnauthorizedException\"}\
       ],\
       \"documentation\":\"<p>Gets information about the rule.</p>\"\
+    },\
+    \"GetTopicRuleDestination\":{\
+      \"name\":\"GetTopicRuleDestination\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/destinations/{arn+}\"\
+      },\
+      \"input\":{\"shape\":\"GetTopicRuleDestinationRequest\"},\
+      \"output\":{\"shape\":\"GetTopicRuleDestinationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>Gets information about a topic rule destination.</p>\"\
     },\
     \"GetV2LoggingOptions\":{\
       \"name\":\"GetV2LoggingOptions\",\
@@ -1924,6 +2171,23 @@
         {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>List the device certificates signed by the specified CA certificate.</p>\"\
+    },\
+    \"ListDomainConfigurations\":{\
+      \"name\":\"ListDomainConfigurations\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/domainConfigurations\"\
+      },\
+      \"input\":{\"shape\":\"ListDomainConfigurationsRequest\"},\
+      \"output\":{\"shape\":\"ListDomainConfigurationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p> <note> <p>The domain configuration feature is in public preview and is subject to change.</p> </note>\"\
     },\
     \"ListIndices\":{\
       \"name\":\"ListIndices\",\
@@ -2129,6 +2393,39 @@
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Lists the things associated with the specified principal. A principal can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or federated identities. </p>\"\
+    },\
+    \"ListProvisioningTemplateVersions\":{\
+      \"name\":\"ListProvisioningTemplateVersions\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}/versions\"\
+      },\
+      \"input\":{\"shape\":\"ListProvisioningTemplateVersionsRequest\"},\
+      \"output\":{\"shape\":\"ListProvisioningTemplateVersionsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>A list of fleet provisioning template versions.</p>\"\
+    },\
+    \"ListProvisioningTemplates\":{\
+      \"name\":\"ListProvisioningTemplates\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/provisioning-templates\"\
+      },\
+      \"input\":{\"shape\":\"ListProvisioningTemplatesRequest\"},\
+      \"output\":{\"shape\":\"ListProvisioningTemplatesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the fleet provisioning templates in your AWS account.</p>\"\
     },\
     \"ListRoleAliases\":{\
       \"name\":\"ListRoleAliases\",\
@@ -2405,6 +2702,22 @@
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Lists the things in the specified group.</p>\"\
+    },\
+    \"ListTopicRuleDestinations\":{\
+      \"name\":\"ListTopicRuleDestinations\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/destinations\"\
+      },\
+      \"input\":{\"shape\":\"ListTopicRuleDestinationsRequest\"},\
+      \"output\":{\"shape\":\"ListTopicRuleDestinationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
+      ],\
+      \"documentation\":\"<p>Lists all the topic rule destinations in your AWS account.</p>\"\
     },\
     \"ListTopicRules\":{\
       \"name\":\"ListTopicRules\",\
@@ -2922,6 +3235,25 @@
       ],\
       \"documentation\":\"<p>Updates the status of the specified certificate. This operation is idempotent.</p> <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.</p> <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>\"\
     },\
+    \"UpdateDomainConfiguration\":{\
+      \"name\":\"UpdateDomainConfiguration\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/domainConfigurations/{domainConfigurationName}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateDomainConfigurationRequest\"},\
+      \"output\":{\"shape\":\"UpdateDomainConfigurationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"CertificateValidationException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p> <note> <p>The domain configuration feature is in public preview and is subject to change.</p> </note>\"\
+    },\
     \"UpdateDynamicThingGroup\":{\
       \"name\":\"UpdateDynamicThingGroup\",\
       \"http\":{\
@@ -3002,6 +3334,23 @@
         {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Updates the definition for the specified mitigation action.</p>\"\
+    },\
+    \"UpdateProvisioningTemplate\":{\
+      \"name\":\"UpdateProvisioningTemplate\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/provisioning-templates/{templateName}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateProvisioningTemplateRequest\"},\
+      \"output\":{\"shape\":\"UpdateProvisioningTemplateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"}\
+      ],\
+      \"documentation\":\"<p>Updates a fleet provisioning template.</p>\"\
     },\
     \"UpdateRoleAlias\":{\
       \"name\":\"UpdateRoleAlias\",\
@@ -3124,6 +3473,23 @@
       ],\
       \"documentation\":\"<p>Updates the groups to which the thing belongs.</p>\"\
     },\
+    \"UpdateTopicRuleDestination\":{\
+      \"name\":\"UpdateTopicRuleDestination\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/destinations\"\
+      },\
+      \"input\":{\"shape\":\"UpdateTopicRuleDestinationRequest\"},\
+      \"output\":{\"shape\":\"UpdateTopicRuleDestinationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"}\
+      ],\
+      \"documentation\":\"<p>Updates a topic rule destination. You use this to change the status, endpoint URL, or confirmation URL of the destination.</p>\"\
+    },\
     \"ValidateSecurityProfileBehaviors\":{\
       \"name\":\"ValidateSecurityProfileBehaviors\",\
       \"http\":{\
@@ -3212,6 +3578,12 @@
       },\
       \"documentation\":\"<p>The input for the AcceptCertificateTransfer operation.</p>\"\
     },\
+    \"AcmCertificateArn\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":1,\
+      \"pattern\":\"arn:aws:acm:[a-z]{2}-(gov-)?[a-z]{4,9}-\\\\d{1}:\\\\d{12}:certificate/?[a-zA-Z0-9/-]+\"\
+    },\
     \"Action\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3275,9 +3647,17 @@
           \"shape\":\"IotEventsAction\",\
           \"documentation\":\"<p>Sends an input to an AWS IoT Events detector.</p>\"\
         },\
+        \"iotSiteWise\":{\
+          \"shape\":\"IotSiteWiseAction\",\
+          \"documentation\":\"<p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.</p>\"\
+        },\
         \"stepFunctions\":{\
           \"shape\":\"StepFunctionsAction\",\
           \"documentation\":\"<p>Starts execution of a Step Functions state machine.</p>\"\
+        },\
+        \"http\":{\
+          \"shape\":\"HttpAction\",\
+          \"documentation\":\"<p>Send data to an HTTPS endpoint.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the actions associated with a rule.</p>\"\
@@ -3449,6 +3829,7 @@
       \"key\":{\"shape\":\"AlertTargetType\"},\
       \"value\":{\"shape\":\"AlertTarget\"}\
     },\
+    \"AllowAuthorizerOverride\":{\"type\":\"boolean\"},\
     \"AllowAutoRegistration\":{\"type\":\"boolean\"},\
     \"Allowed\":{\
       \"type\":\"structure\",\
@@ -3462,6 +3843,89 @@
     },\
     \"ApproximateSecondsBeforeTimedOut\":{\"type\":\"long\"},\
     \"AscendingOrder\":{\"type\":\"boolean\"},\
+    \"AssetId\":{\"type\":\"string\"},\
+    \"AssetPropertyAlias\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":1\
+    },\
+    \"AssetPropertyBooleanValue\":{\"type\":\"string\"},\
+    \"AssetPropertyDoubleValue\":{\"type\":\"string\"},\
+    \"AssetPropertyEntryId\":{\"type\":\"string\"},\
+    \"AssetPropertyId\":{\"type\":\"string\"},\
+    \"AssetPropertyIntegerValue\":{\"type\":\"string\"},\
+    \"AssetPropertyOffsetInNanos\":{\"type\":\"string\"},\
+    \"AssetPropertyQuality\":{\"type\":\"string\"},\
+    \"AssetPropertyStringValue\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1\
+    },\
+    \"AssetPropertyTimeInSeconds\":{\"type\":\"string\"},\
+    \"AssetPropertyTimestamp\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"timeInSeconds\"],\
+      \"members\":{\
+        \"timeInSeconds\":{\
+          \"shape\":\"AssetPropertyTimeInSeconds\",\
+          \"documentation\":\"<p>A string that contains the time in seconds since epoch. Accepts substitution templates.</p>\"\
+        },\
+        \"offsetInNanos\":{\
+          \"shape\":\"AssetPropertyOffsetInNanos\",\
+          \"documentation\":\"<p>Optional. A string that contains the nanosecond time offset. Accepts substitution templates.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An asset property timestamp entry containing the following information.</p>\"\
+    },\
+    \"AssetPropertyValue\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"value\",\
+        \"timestamp\"\
+      ],\
+      \"members\":{\
+        \"value\":{\
+          \"shape\":\"AssetPropertyVariant\",\
+          \"documentation\":\"<p>The value of the asset property.</p>\"\
+        },\
+        \"timestamp\":{\
+          \"shape\":\"AssetPropertyTimestamp\",\
+          \"documentation\":\"<p>The asset property value timestamp.</p>\"\
+        },\
+        \"quality\":{\
+          \"shape\":\"AssetPropertyQuality\",\
+          \"documentation\":\"<p>Optional. A string that describes the quality of the value. Accepts substitution templates. Must be <code>GOOD</code>, <code>BAD</code>, or <code>UNCERTAIN</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An asset property value entry containing the following information.</p>\"\
+    },\
+    \"AssetPropertyValueList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AssetPropertyValue\"},\
+      \"min\":1\
+    },\
+    \"AssetPropertyVariant\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"stringValue\":{\
+          \"shape\":\"AssetPropertyStringValue\",\
+          \"documentation\":\"<p>Optional. The string value of the value entry. Accepts substitution templates.</p>\"\
+        },\
+        \"integerValue\":{\
+          \"shape\":\"AssetPropertyIntegerValue\",\
+          \"documentation\":\"<p>Optional. A string that contains the integer value of the value entry. Accepts substitution templates.</p>\"\
+        },\
+        \"doubleValue\":{\
+          \"shape\":\"AssetPropertyDoubleValue\",\
+          \"documentation\":\"<p>Optional. A string that contains the double value of the value entry. Accepts substitution templates.</p>\"\
+        },\
+        \"booleanValue\":{\
+          \"shape\":\"AssetPropertyBooleanValue\",\
+          \"documentation\":\"<p>Optional. A string that contains the boolean value (<code>true</code> or <code>false</code>) of the value entry. Accepts substitution templates.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains an asset property value (of a single type).</p>\"\
+    },\
     \"AssociateTargetsWithJobRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4022,6 +4486,21 @@
       \"member\":{\"shape\":\"AuthResult\"}\
     },\
     \"AuthorizerArn\":{\"type\":\"string\"},\
+    \"AuthorizerConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"defaultAuthorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The name of the authorization service for a domain configuration.</p>\"\
+        },\
+        \"allowAuthorizerOverride\":{\
+          \"shape\":\"AllowAuthorizerOverride\",\
+          \"documentation\":\"<p>A Boolean that specifies whether the domain configuration's authorization service can be overridden.</p>\",\
+          \"box\":true\
+        }\
+      },\
+      \"documentation\":\"<p>An object that specifies the authorization service for a domain.</p>\"\
+    },\
     \"AuthorizerDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4056,6 +4535,10 @@
         \"lastModifiedDate\":{\
           \"shape\":\"DateType\",\
           \"documentation\":\"<p>The UNIX timestamp of when the authorizer was last updated.</p>\"\
+        },\
+        \"signingDisabled\":{\
+          \"shape\":\"BooleanKey\",\
+          \"documentation\":\"<p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The authorizer description.</p>\"\
@@ -4119,6 +4602,16 @@
         }\
       },\
       \"documentation\":\"<p>Configuration for the rollout of OTA updates.</p>\"\
+    },\
+    \"AwsJobPresignedUrlConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"expiresInSec\":{\
+          \"shape\":\"ExpiresInSeconds\",\
+          \"documentation\":\"<p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information for pre-signed URLs. Valid when <code>protocols</code> contains HTTP.</p>\"\
     },\
     \"Behavior\":{\
       \"type\":\"structure\",\
@@ -4224,6 +4717,7 @@
       \"documentation\":\"<p>The properties of a billing group.</p>\"\
     },\
     \"Boolean\":{\"type\":\"boolean\"},\
+    \"BooleanKey\":{\"type\":\"boolean\"},\
     \"BucketName\":{\"type\":\"string\"},\
     \"CACertificate\":{\
       \"type\":\"structure\",\
@@ -4784,6 +5278,28 @@
       },\
       \"documentation\":\"<p>Configuration.</p>\"\
     },\
+    \"ConfirmTopicRuleDestinationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"confirmationToken\"],\
+      \"members\":{\
+        \"confirmationToken\":{\
+          \"shape\":\"ConfirmationToken\",\
+          \"documentation\":\"<p>The token used to confirm ownership or access to the topic rule confirmation URL.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"confirmationToken\"\
+        }\
+      }\
+    },\
+    \"ConfirmTopicRuleDestinationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"ConfirmationToken\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":1\
+    },\
     \"ConflictingResourceUpdateException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4812,9 +5328,7 @@
       \"type\":\"structure\",\
       \"required\":[\
         \"authorizerName\",\
-        \"authorizerFunctionArn\",\
-        \"tokenKeyName\",\
-        \"tokenSigningPublicKeys\"\
+        \"authorizerFunctionArn\"\
       ],\
       \"members\":{\
         \"authorizerName\":{\
@@ -4838,6 +5352,10 @@
         \"status\":{\
           \"shape\":\"AuthorizerStatus\",\
           \"documentation\":\"<p>The status of the create authorizer request.</p>\"\
+        },\
+        \"signingDisabled\":{\
+          \"shape\":\"BooleanKey\",\
+          \"documentation\":\"<p>Specifies whether AWS IoT validates the token signature in an authorization request.</p>\"\
         }\
       }\
     },\
@@ -4925,6 +5443,51 @@
         }\
       },\
       \"documentation\":\"<p>The output from the CreateCertificateFromCsr operation.</p>\"\
+    },\
+    \"CreateDomainConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"domainConfigurationName\"],\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"DomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration. This value must be unique to a region.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"domainConfigurationName\"\
+        },\
+        \"domainName\":{\
+          \"shape\":\"DomainName\",\
+          \"documentation\":\"<p>The name of the domain.</p>\"\
+        },\
+        \"serverCertificateArns\":{\
+          \"shape\":\"ServerCertificateArns\",\
+          \"documentation\":\"<p>The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS-managed domains.</p>\"\
+        },\
+        \"validationCertificateArn\":{\
+          \"shape\":\"AcmCertificateArn\",\
+          \"documentation\":\"<p>The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS-managed domains.</p>\"\
+        },\
+        \"authorizerConfig\":{\
+          \"shape\":\"AuthorizerConfig\",\
+          \"documentation\":\"<p>An object that specifies the authorization service for a domain.</p>\"\
+        },\
+        \"serviceType\":{\
+          \"shape\":\"ServiceType\",\
+          \"documentation\":\"<p>The type of service delivered by the endpoint.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateDomainConfigurationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"DomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration.</p>\"\
+        },\
+        \"domainConfigurationArn\":{\
+          \"shape\":\"DomainConfigurationArn\",\
+          \"documentation\":\"<p>The ARN of the domain configuration.</p>\"\
+        }\
+      }\
     },\
     \"CreateDynamicThingGroupRequest\":{\
       \"type\":\"structure\",\
@@ -5160,6 +5723,10 @@
           \"shape\":\"Targets\",\
           \"documentation\":\"<p>The targeted devices to receive OTA updates.</p>\"\
         },\
+        \"protocols\":{\
+          \"shape\":\"Protocols\",\
+          \"documentation\":\"<p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.</p>\"\
+        },\
         \"targetSelection\":{\
           \"shape\":\"TargetSelection\",\
           \"documentation\":\"<p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.</p>\"\
@@ -5167,6 +5734,10 @@
         \"awsJobExecutionsRolloutConfig\":{\
           \"shape\":\"AwsJobExecutionsRolloutConfig\",\
           \"documentation\":\"<p>Configuration for the rollout of OTA updates.</p>\"\
+        },\
+        \"awsJobPresignedUrlConfig\":{\
+          \"shape\":\"AwsJobPresignedUrlConfig\",\
+          \"documentation\":\"<p>Configuration information for pre-signed URLs.</p>\"\
         },\
         \"files\":{\
           \"shape\":\"OTAUpdateFiles\",\
@@ -5300,6 +5871,136 @@
         }\
       },\
       \"documentation\":\"<p>The output of the CreatePolicyVersion operation.</p>\"\
+    },\
+    \"CreateProvisioningClaimRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"templateName\"],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the provisioning template to use.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        }\
+      }\
+    },\
+    \"CreateProvisioningClaimResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"certificateId\":{\
+          \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+        },\
+        \"certificatePem\":{\
+          \"shape\":\"CertificatePem\",\
+          \"documentation\":\"<p>The provisioning claim certificate.</p>\"\
+        },\
+        \"keyPair\":{\
+          \"shape\":\"KeyPair\",\
+          \"documentation\":\"<p>The provisioning claim key pair.</p>\"\
+        },\
+        \"expiration\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The provisioning claim expiration time.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateProvisioningTemplateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"templateName\",\
+        \"templateBody\",\
+        \"provisioningRoleArn\"\
+      ],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"TemplateDescription\",\
+          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+        },\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template.</p>\"\
+        },\
+        \"enabled\":{\
+          \"shape\":\"Enabled\",\
+          \"documentation\":\"<p>True to enable the fleet provisioning template, otherwise false.</p>\"\
+        },\
+        \"provisioningRoleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.</p>\"\
+        },\
+        \"tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Metadata which can be used to manage the fleet provisioning template.</p> <note> <p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p> <p>For the CLI command-line parameter use format: &amp;&amp;tags \\\"key1=value1&amp;key2=value2...\\\"</p> <p>For the cli-input-json file use format: \\\"tags\\\": \\\"key1=value1&amp;key2=value2...\\\"</p> </note>\"\
+        }\
+      }\
+    },\
+    \"CreateProvisioningTemplateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"templateArn\":{\
+          \"shape\":\"TemplateArn\",\
+          \"documentation\":\"<p>The ARN that identifies the provisioning template.</p>\"\
+        },\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+        },\
+        \"defaultVersionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The default version of the fleet provisioning template.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateProvisioningTemplateVersionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"templateName\",\
+        \"templateBody\"\
+      ],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        },\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template.</p>\"\
+        },\
+        \"setAsDefault\":{\
+          \"shape\":\"SetAsDefault\",\
+          \"documentation\":\"<p>Sets a fleet provision template version as the default version.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"setAsDefault\"\
+        }\
+      }\
+    },\
+    \"CreateProvisioningTemplateVersionResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"templateArn\":{\
+          \"shape\":\"TemplateArn\",\
+          \"documentation\":\"<p>The ARN that identifies the provisioning template.</p>\"\
+        },\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+        },\
+        \"versionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The version of the fleet provisioning template.</p>\"\
+        },\
+        \"isDefaultVersion\":{\
+          \"shape\":\"IsDefaultVersion\",\
+          \"documentation\":\"<p>True if the fleet provisioning template version is the default version, otherwise false.</p>\"\
+        }\
+      }\
     },\
     \"CreateRoleAliasRequest\":{\
       \"type\":\"structure\",\
@@ -5603,6 +6304,25 @@
       },\
       \"documentation\":\"<p>The output of the CreateThingType operation.</p>\"\
     },\
+    \"CreateTopicRuleDestinationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"destinationConfiguration\"],\
+      \"members\":{\
+        \"destinationConfiguration\":{\
+          \"shape\":\"TopicRuleDestinationConfiguration\",\
+          \"documentation\":\"<p>The topic rule destination configuration.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateTopicRuleDestinationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"topicRuleDestination\":{\
+          \"shape\":\"TopicRuleDestination\",\
+          \"documentation\":\"<p>The topic rule destination.</p>\"\
+        }\
+      }\
+    },\
     \"CreateTopicRuleRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5789,6 +6509,23 @@
       \"error\":{\"httpStatusCode\":409},\
       \"exception\":true\
     },\
+    \"DeleteDomainConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"domainConfigurationName\"],\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"DomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration to be deleted.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"domainConfigurationName\"\
+        }\
+      }\
+    },\
+    \"DeleteDomainConfigurationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"DeleteDynamicThingGroupRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"thingGroupName\"],\
@@ -5945,6 +6682,49 @@
       },\
       \"documentation\":\"<p>The input for the DeletePolicyVersion operation.</p>\"\
     },\
+    \"DeleteProvisioningTemplateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"templateName\"],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provision template to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        }\
+      }\
+    },\
+    \"DeleteProvisioningTemplateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"DeleteProvisioningTemplateVersionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"templateName\",\
+        \"versionId\"\
+      ],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template version to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        },\
+        \"versionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The fleet provisioning template version ID to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"versionId\"\
+        }\
+      }\
+    },\
+    \"DeleteProvisioningTemplateVersionResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"DeleteRegistrationCodeRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6099,6 +6879,23 @@
       \"members\":{\
       },\
       \"documentation\":\"<p>The output for the DeleteThingType operation.</p>\"\
+    },\
+    \"DeleteTopicRuleDestinationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"arn\"],\
+      \"members\":{\
+        \"arn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The ARN of the topic rule destination to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"arn\"\
+        }\
+      }\
+    },\
+    \"DeleteTopicRuleDestinationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"DeleteTopicRuleRequest\":{\
       \"type\":\"structure\",\
@@ -6425,6 +7222,55 @@
         }\
       }\
     },\
+    \"DescribeDomainConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"domainConfigurationName\"],\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"ReservedDomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"domainConfigurationName\"\
+        }\
+      }\
+    },\
+    \"DescribeDomainConfigurationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"ReservedDomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration.</p>\"\
+        },\
+        \"domainConfigurationArn\":{\
+          \"shape\":\"DomainConfigurationArn\",\
+          \"documentation\":\"<p>The ARN of the domain configuration.</p>\"\
+        },\
+        \"domainName\":{\
+          \"shape\":\"DomainName\",\
+          \"documentation\":\"<p>The name of the domain.</p>\"\
+        },\
+        \"serverCertificates\":{\
+          \"shape\":\"ServerCertificates\",\
+          \"documentation\":\"<p>A list containing summary information about the server certificate included in the domain configuration.</p>\"\
+        },\
+        \"authorizerConfig\":{\
+          \"shape\":\"AuthorizerConfig\",\
+          \"documentation\":\"<p>An object that specifies the authorization service for a domain.</p>\"\
+        },\
+        \"domainConfigurationStatus\":{\
+          \"shape\":\"DomainConfigurationStatus\",\
+          \"documentation\":\"<p>A Boolean value that specifies the current state of the domain configuration.</p>\"\
+        },\
+        \"serviceType\":{\
+          \"shape\":\"ServiceType\",\
+          \"documentation\":\"<p>The type of service delivered by the endpoint.</p>\"\
+        },\
+        \"domainType\":{\
+          \"shape\":\"DomainType\",\
+          \"documentation\":\"<p>The type of the domain.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeEndpointRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6605,6 +7451,101 @@
         \"lastModifiedDate\":{\
           \"shape\":\"Timestamp\",\
           \"documentation\":\"<p>The date and time when the mitigation action was last changed.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeProvisioningTemplateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"templateName\"],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        }\
+      }\
+    },\
+    \"DescribeProvisioningTemplateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"templateArn\":{\
+          \"shape\":\"TemplateArn\",\
+          \"documentation\":\"<p>The ARN of the fleet provisioning template.</p>\"\
+        },\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"TemplateDescription\",\
+          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the fleet provisioning template was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the fleet provisioning template was last modified.</p>\"\
+        },\
+        \"defaultVersionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The default fleet template version ID.</p>\"\
+        },\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template.</p>\"\
+        },\
+        \"enabled\":{\
+          \"shape\":\"Enabled\",\
+          \"documentation\":\"<p>True if the fleet provisioning template is enabled, otherwise false.</p>\"\
+        },\
+        \"provisioningRoleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeProvisioningTemplateVersionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"templateName\",\
+        \"versionId\"\
+      ],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The template name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        },\
+        \"versionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The fleet provisioning template version ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"versionId\"\
+        }\
+      }\
+    },\
+    \"DescribeProvisioningTemplateVersionResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"versionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The fleet provisioning template version ID.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the fleet provisioning template version was created.</p>\"\
+        },\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The JSON formatted contents of the fleet provisioning template version.</p>\"\
+        },\
+        \"isDefaultVersion\":{\
+          \"shape\":\"IsDefaultVersion\",\
+          \"documentation\":\"<p>True if the fleet provisioning template version is the default version.</p>\"\
         }\
       }\
     },\
@@ -7102,6 +8043,55 @@
       },\
       \"documentation\":\"<p>The input for the DisableTopicRuleRequest operation.</p>\"\
     },\
+    \"DomainConfigurationArn\":{\"type\":\"string\"},\
+    \"DomainConfigurationName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\w.-]+\"\
+    },\
+    \"DomainConfigurationStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENABLED\",\
+        \"DISABLED\"\
+      ]\
+    },\
+    \"DomainConfigurationSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"ReservedDomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration. This value must be unique to a region.</p>\"\
+        },\
+        \"domainConfigurationArn\":{\
+          \"shape\":\"DomainConfigurationArn\",\
+          \"documentation\":\"<p>The ARN of the domain configuration.</p>\"\
+        },\
+        \"serviceType\":{\
+          \"shape\":\"ServiceType\",\
+          \"documentation\":\"<p>The type of service delivered by the endpoint.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain. A domain configuration can be associated with an AWS-managed domain (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p> <ul> <li> <p>Data</p> </li> <li> <p>Jobs</p> </li> <li> <p>CredentialProvider</p> </li> </ul> <note> <p>The domain configuration feature is in public preview and is subject to change.</p> </note>\"\
+    },\
+    \"DomainConfigurations\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"DomainConfigurationSummary\"}\
+    },\
+    \"DomainName\":{\
+      \"type\":\"string\",\
+      \"max\":253,\
+      \"min\":1\
+    },\
+    \"DomainType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENDPOINT\",\
+        \"AWS_MANAGED\",\
+        \"CUSTOMER_MANAGED\"\
+      ]\
+    },\
     \"DurationSeconds\":{\"type\":\"integer\"},\
     \"DynamicGroupStatus\":{\
       \"type\":\"string\",\
@@ -7284,7 +8274,10 @@
     },\
     \"Enabled\":{\"type\":\"boolean\"},\
     \"EndpointAddress\":{\"type\":\"string\"},\
-    \"EndpointType\":{\"type\":\"string\"},\
+    \"EndpointType\":{\
+      \"type\":\"string\",\
+      \"max\":128\
+    },\
     \"ErrorCode\":{\"type\":\"string\"},\
     \"ErrorInfo\":{\
       \"type\":\"structure\",\
@@ -7337,6 +8330,7 @@
       \"max\":3600,\
       \"min\":60\
     },\
+    \"ExpiresInSeconds\":{\"type\":\"long\"},\
     \"ExplicitDeny\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -7464,11 +8458,6 @@
     \"ForceFlag\":{\"type\":\"boolean\"},\
     \"Forced\":{\"type\":\"boolean\"},\
     \"FunctionArn\":{\"type\":\"string\"},\
-    \"GEMaxResults\":{\
-      \"type\":\"integer\",\
-      \"max\":10000,\
-      \"min\":1\
-    },\
     \"GenerationId\":{\"type\":\"string\"},\
     \"GetCardinalityRequest\":{\
       \"type\":\"structure\",\
@@ -7497,7 +8486,7 @@
       \"members\":{\
         \"cardinality\":{\
           \"shape\":\"Count\",\
-          \"documentation\":\"<p>The number of things that match the query.</p>\"\
+          \"documentation\":\"<p>The approximate count of unique values that match the query.</p>\"\
         }\
       }\
     },\
@@ -7798,6 +8787,27 @@
         }\
       }\
     },\
+    \"GetTopicRuleDestinationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"arn\"],\
+      \"members\":{\
+        \"arn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The ARN of the topic rule destination.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"arn\"\
+        }\
+      }\
+    },\
+    \"GetTopicRuleDestinationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"topicRuleDestination\":{\
+          \"shape\":\"TopicRuleDestination\",\
+          \"documentation\":\"<p>The topic rule destination.</p>\"\
+        }\
+      }\
+    },\
     \"GetTopicRuleRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ruleName\"],\
@@ -7864,6 +8874,134 @@
     \"HashAlgorithm\":{\"type\":\"string\"},\
     \"HashKeyField\":{\"type\":\"string\"},\
     \"HashKeyValue\":{\"type\":\"string\"},\
+    \"HeaderKey\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
+    },\
+    \"HeaderList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"HttpActionHeader\"},\
+      \"max\":100,\
+      \"min\":0\
+    },\
+    \"HeaderValue\":{\"type\":\"string\"},\
+    \"HttpAction\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"url\"],\
+      \"members\":{\
+        \"url\":{\
+          \"shape\":\"Url\",\
+          \"documentation\":\"<p>The endpoint URL. If substitution templates are used in the URL, you must also specify a <code>confirmationUrl</code>. If this is a new destination, a new <code>TopicRuleDestination</code> is created if possible.</p>\"\
+        },\
+        \"confirmationUrl\":{\
+          \"shape\":\"Url\",\
+          \"documentation\":\"<p>The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substituion template before traffic is allowed to your endpoint URL.</p>\"\
+        },\
+        \"headers\":{\
+          \"shape\":\"HeaderList\",\
+          \"documentation\":\"<p>The HTTP headers to send with the message data.</p>\"\
+        },\
+        \"auth\":{\
+          \"shape\":\"HttpAuthorization\",\
+          \"documentation\":\"<p>The authentication method to use when sending data to an HTTPS endpoint.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Send data to an HTTPS endpoint.</p>\"\
+    },\
+    \"HttpActionHeader\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"key\",\
+        \"value\"\
+      ],\
+      \"members\":{\
+        \"key\":{\
+          \"shape\":\"HeaderKey\",\
+          \"documentation\":\"<p>The HTTP header key.</p>\"\
+        },\
+        \"value\":{\
+          \"shape\":\"HeaderValue\",\
+          \"documentation\":\"<p>The HTTP header value. Substitution templates are supported.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The HTTP action header.</p>\"\
+    },\
+    \"HttpAuthorization\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"sigv4\":{\
+          \"shape\":\"SigV4Authorization\",\
+          \"documentation\":\"<p>Use Sig V4 authorization. For more information, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\\\">Signature Version 4 Signing Process</a>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The authorization method used to send messages.</p>\"\
+    },\
+    \"HttpContext\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"headers\":{\
+          \"shape\":\"HttpHeaders\",\
+          \"documentation\":\"<p>The header keys and values in an HTTP authorization request.</p>\"\
+        },\
+        \"queryString\":{\
+          \"shape\":\"HttpQueryString\",\
+          \"documentation\":\"<p>The query string keys and values in an HTTP authorization request.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the HTTP context to use for the test authorizer request.</p>\"\
+    },\
+    \"HttpHeaderName\":{\
+      \"type\":\"string\",\
+      \"max\":8192,\
+      \"min\":1\
+    },\
+    \"HttpHeaderValue\":{\
+      \"type\":\"string\",\
+      \"max\":8192,\
+      \"min\":1\
+    },\
+    \"HttpHeaders\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"HttpHeaderName\"},\
+      \"value\":{\"shape\":\"HttpHeaderValue\"}\
+    },\
+    \"HttpQueryString\":{\
+      \"type\":\"string\",\
+      \"max\":4096,\
+      \"min\":1\
+    },\
+    \"HttpUrlDestinationConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"confirmationUrl\"],\
+      \"members\":{\
+        \"confirmationUrl\":{\
+          \"shape\":\"Url\",\
+          \"documentation\":\"<p>The URL AWS IoT uses to confirm ownership of or access to the topic rule destination URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>\"\
+    },\
+    \"HttpUrlDestinationProperties\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"confirmationUrl\":{\
+          \"shape\":\"Url\",\
+          \"documentation\":\"<p>The URL used to confirm the HTTP topic rule destination URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>HTTP URL destination properties.</p>\"\
+    },\
+    \"HttpUrlDestinationSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"confirmationUrl\":{\
+          \"shape\":\"Url\",\
+          \"documentation\":\"<p>The URL used to confirm ownership of or access to the HTTP topic rule destination URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about an HTTP URL destination.</p>\"\
+    },\
     \"ImplicitDeny\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -8041,6 +9179,24 @@
         }\
       },\
       \"documentation\":\"<p>Sends an input to an AWS IoT Events detector.</p>\"\
+    },\
+    \"IotSiteWiseAction\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"putAssetPropertyValueEntries\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"putAssetPropertyValueEntries\":{\
+          \"shape\":\"PutAssetPropertyValueEntryList\",\
+          \"documentation\":\"<p>A list of asset property value entries.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoTSiteWise. (<code>\\\"Action\\\": \\\"iotsitewise:BatchPutAssetPropertyValue\\\"</code>). The trust policy can restrict access to specific asset hierarchy paths.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.</p>\"\
     },\
     \"IsAuthenticated\":{\"type\":\"boolean\"},\
     \"IsDefaultVersion\":{\"type\":\"boolean\"},\
@@ -8977,12 +10133,48 @@
       },\
       \"documentation\":\"<p>The output of the ListCertificates operation.</p>\"\
     },\
+    \"ListDomainConfigurationsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"marker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"marker\"\
+        },\
+        \"pageSize\":{\
+          \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"pageSize\"\
+        },\
+        \"serviceType\":{\
+          \"shape\":\"ServiceType\",\
+          \"documentation\":\"<p>The type of service delivered by the endpoint.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"serviceType\"\
+        }\
+      }\
+    },\
+    \"ListDomainConfigurationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"domainConfigurations\":{\
+          \"shape\":\"DomainConfigurations\",\
+          \"documentation\":\"<p>A list of objects that contain summary information about the user's domain configurations.</p>\"\
+        },\
+        \"nextMarker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListIndicesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -9003,7 +10195,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -9446,6 +10638,73 @@
         }\
       },\
       \"documentation\":\"<p>The output from the ListPrincipalThings operation.</p>\"\
+    },\
+    \"ListProvisioningTemplateVersionsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"templateName\"],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"ListProvisioningTemplateVersionsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"versions\":{\
+          \"shape\":\"ProvisioningTemplateVersionListing\",\
+          \"documentation\":\"<p>The list of fleet provisioning template versions.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token to retrieve the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListProvisioningTemplatesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"maxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"ListProvisioningTemplatesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"templates\":{\
+          \"shape\":\"ProvisioningTemplateListing\",\
+          \"documentation\":\"<p>A list of fleet provisioning templates</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token to retrieve the next set of results.</p>\"\
+        }\
+      }\
     },\
     \"ListRoleAliasesRequest\":{\
       \"type\":\"structure\",\
@@ -10089,6 +11348,36 @@
       },\
       \"documentation\":\"<p>The output from the ListThings operation.</p>\"\
     },\
+    \"ListTopicRuleDestinationsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"maxResults\":{\
+          \"shape\":\"TopicRuleDestinationMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"ListTopicRuleDestinationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"destinationSummaries\":{\
+          \"shape\":\"TopicRuleDestinationSummaries\",\
+          \"documentation\":\"<p>Information about a topic rule destination.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListTopicRulesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -10099,7 +11388,7 @@
           \"locationName\":\"topic\"\
         },\
         \"maxResults\":{\
-          \"shape\":\"GEMaxResults\",\
+          \"shape\":\"TopicRuleMaxResults\",\
           \"documentation\":\"<p>The maximum number of results to return.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"maxResults\"\
@@ -10469,6 +11758,39 @@
         \"PUBLISH_FINDING_TO_SNS\"\
       ]\
     },\
+    \"MqttClientId\":{\
+      \"type\":\"string\",\
+      \"max\":65535,\
+      \"min\":1\
+    },\
+    \"MqttContext\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"username\":{\
+          \"shape\":\"MqttUsername\",\
+          \"documentation\":\"<p>The value of the <code>username</code> key in an MQTT authorization request.</p>\"\
+        },\
+        \"password\":{\
+          \"shape\":\"MqttPassword\",\
+          \"documentation\":\"<p>The value of the <code>password</code> key in an MQTT authorization request.</p>\"\
+        },\
+        \"clientId\":{\
+          \"shape\":\"MqttClientId\",\
+          \"documentation\":\"<p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the MQTT context to use for the test authorizer request</p>\"\
+    },\
+    \"MqttPassword\":{\
+      \"type\":\"blob\",\
+      \"max\":65535,\
+      \"min\":1\
+    },\
+    \"MqttUsername\":{\
+      \"type\":\"string\",\
+      \"max\":65535,\
+      \"min\":1\
+    },\
     \"NextToken\":{\"type\":\"string\"},\
     \"NonCompliantChecksCount\":{\"type\":\"integer\"},\
     \"NonCompliantResource\":{\
@@ -10579,9 +11901,17 @@
           \"shape\":\"Targets\",\
           \"documentation\":\"<p>The targets of the OTA update.</p>\"\
         },\
+        \"protocols\":{\
+          \"shape\":\"Protocols\",\
+          \"documentation\":\"<p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.</p>\"\
+        },\
         \"awsJobExecutionsRolloutConfig\":{\
           \"shape\":\"AwsJobExecutionsRolloutConfig\",\
           \"documentation\":\"<p>Configuration for the rollout of OTA updates.</p>\"\
+        },\
+        \"awsJobPresignedUrlConfig\":{\
+          \"shape\":\"AwsJobPresignedUrlConfig\",\
+          \"documentation\":\"<p>Configuration information for pre-signed URLs. Valid when <code>protocols</code> contains HTTP.</p>\"\
         },\
         \"targetSelection\":{\
           \"shape\":\"TargetSelection\",\
@@ -10712,7 +12042,7 @@
         },\
         \"value\":{\
           \"shape\":\"PercentValue\",\
-          \"documentation\":\"<p>The value.</p>\"\
+          \"documentation\":\"<p>The value of the percentile.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the percentile and percentile value.</p>\"\
@@ -10857,6 +12187,75 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ProcessingTargetName\"}\
     },\
+    \"Protocol\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"MQTT\",\
+        \"HTTP\"\
+      ]\
+    },\
+    \"Protocols\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Protocol\"},\
+      \"max\":2,\
+      \"min\":1\
+    },\
+    \"ProvisioningTemplateListing\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProvisioningTemplateSummary\"}\
+    },\
+    \"ProvisioningTemplateSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"templateArn\":{\
+          \"shape\":\"TemplateArn\",\
+          \"documentation\":\"<p>The ARN of the fleet provisioning template.</p>\"\
+        },\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"TemplateDescription\",\
+          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the fleet provisioning template summary was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the fleet provisioning template summary was last modified.</p>\"\
+        },\
+        \"enabled\":{\
+          \"shape\":\"Enabled\",\
+          \"documentation\":\"<p>True if the fleet provision template is enabled, otherwise false.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A summary of information about a fleet provisioning template.</p>\"\
+    },\
+    \"ProvisioningTemplateVersionListing\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProvisioningTemplateVersionSummary\"}\
+    },\
+    \"ProvisioningTemplateVersionSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"versionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The ID of the fleet privisioning template version.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the fleet provisioning template version was created</p>\"\
+        },\
+        \"isDefaultVersion\":{\
+          \"shape\":\"IsDefaultVersion\",\
+          \"documentation\":\"<p>True if the fleet provisioning template version is the default version, otherwise false.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A summary of information about a fleet provision template version.</p>\"\
+    },\
     \"PublicKey\":{\
       \"type\":\"string\",\
       \"min\":1\
@@ -10876,6 +12275,38 @@
         }\
       },\
       \"documentation\":\"<p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>\"\
+    },\
+    \"PutAssetPropertyValueEntry\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"propertyValues\"],\
+      \"members\":{\
+        \"entryId\":{\
+          \"shape\":\"AssetPropertyEntryId\",\
+          \"documentation\":\"<p>Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.</p>\"\
+        },\
+        \"assetId\":{\
+          \"shape\":\"AssetId\",\
+          \"documentation\":\"<p>The ID of the AWS IoT SiteWise asset. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
+        },\
+        \"propertyId\":{\
+          \"shape\":\"AssetPropertyId\",\
+          \"documentation\":\"<p>The ID of the asset's property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
+        },\
+        \"propertyAlias\":{\
+          \"shape\":\"AssetPropertyAlias\",\
+          \"documentation\":\"<p>The name of the property alias associated with your asset property. You must specify either a <code>propertyAlias</code> or both an <code>aliasId</code> and a <code>propertyId</code>. Accepts substitution templates.</p>\"\
+        },\
+        \"propertyValues\":{\
+          \"shape\":\"AssetPropertyValueList\",\
+          \"documentation\":\"<p>A list of property values to insert that each contain timestamp, quality, and value (TQV) information.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An asset property value entry containing the following information.</p>\"\
+    },\
+    \"PutAssetPropertyValueEntryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PutAssetPropertyValueEntry\"},\
+      \"min\":1\
     },\
     \"PutItemInput\":{\
       \"type\":\"structure\",\
@@ -11140,6 +12571,7 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"RelatedResource\"}\
     },\
+    \"RemoveAuthorizerConfig\":{\"type\":\"boolean\"},\
     \"RemoveAutoRegistration\":{\"type\":\"boolean\"},\
     \"RemoveThingFromBillingGroupRequest\":{\
       \"type\":\"structure\",\
@@ -11256,6 +12688,12 @@
       },\
       \"documentation\":\"<p>Describes an action to republish to another topic.</p>\"\
     },\
+    \"ReservedDomainConfigurationName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\w.:-]+\"\
+    },\
     \"Resource\":{\"type\":\"string\"},\
     \"ResourceAlreadyExistsException\":{\
       \"type\":\"structure\",\
@@ -11309,6 +12747,14 @@
         \"account\":{\
           \"shape\":\"AwsAccountId\",\
           \"documentation\":\"<p>The account with which the resource is associated.</p>\"\
+        },\
+        \"iamRoleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The ARN of the IAM role that has overly permissive actions.</p>\"\
+        },\
+        \"roleAliasArn\":{\
+          \"shape\":\"RoleAliasArn\",\
+          \"documentation\":\"<p>The ARN of the role alias that has overly permissive actions.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Information that identifies the noncompliant resource.</p>\"\
@@ -11346,7 +12792,9 @@
         \"IOT_POLICY\",\
         \"COGNITO_IDENTITY_POOL\",\
         \"CLIENT_ID\",\
-        \"ACCOUNT_SETTINGS\"\
+        \"ACCOUNT_SETTINGS\",\
+        \"ROLE_ALIAS\",\
+        \"IAM_ROLE\"\
       ]\
     },\
     \"Resources\":{\
@@ -11359,7 +12807,11 @@
       \"min\":1,\
       \"pattern\":\"[\\\\w=,@-]+\"\
     },\
-    \"RoleAliasArn\":{\"type\":\"string\"},\
+    \"RoleAliasArn\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":1\
+    },\
     \"RoleAliasDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -11570,7 +13022,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>\"\
         },\
         \"maxResults\":{\
           \"shape\":\"QueryMaxResults\",\
@@ -11587,7 +13039,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or null if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>\"\
         },\
         \"things\":{\
           \"shape\":\"ThingDocumentList\",\
@@ -11671,6 +13123,56 @@
     \"SecurityProfileTargets\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SecurityProfileTarget\"}\
+    },\
+    \"ServerCertificateArns\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AcmCertificateArn\"},\
+      \"max\":1,\
+      \"min\":0\
+    },\
+    \"ServerCertificateStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"INVALID\",\
+        \"VALID\"\
+      ]\
+    },\
+    \"ServerCertificateStatusDetail\":{\"type\":\"string\"},\
+    \"ServerCertificateSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"serverCertificateArn\":{\
+          \"shape\":\"AcmCertificateArn\",\
+          \"documentation\":\"<p>The ARN of the server certificate.</p>\"\
+        },\
+        \"serverCertificateStatus\":{\
+          \"shape\":\"ServerCertificateStatus\",\
+          \"documentation\":\"<p>The status of the server certificate.</p>\"\
+        },\
+        \"serverCertificateStatusDetail\":{\
+          \"shape\":\"ServerCertificateStatusDetail\",\
+          \"documentation\":\"<p>Details that explain the status of the server certificate.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An object that contains information about a server certificate.</p>\"\
+    },\
+    \"ServerCertificates\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ServerCertificateSummary\"}\
+    },\
+    \"ServerName\":{\
+      \"type\":\"string\",\
+      \"max\":253,\
+      \"min\":1\
+    },\
+    \"ServiceName\":{\"type\":\"string\"},\
+    \"ServiceType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DATA\",\
+        \"CREDENTIAL_PROVIDER\",\
+        \"JOBS\"\
+      ]\
     },\
     \"ServiceUnavailableException\":{\
       \"type\":\"structure\",\
@@ -11779,6 +13281,29 @@
         }\
       }\
     },\
+    \"SigV4Authorization\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"signingRegion\",\
+        \"serviceName\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"signingRegion\":{\
+          \"shape\":\"SigningRegion\",\
+          \"documentation\":\"<p>The signing region.</p>\"\
+        },\
+        \"serviceName\":{\
+          \"shape\":\"ServiceName\",\
+          \"documentation\":\"<p>The service name to use while signing with Sig V4.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The ARN of the signing role.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Use Sig V4 authorization.</p>\"\
+    },\
     \"Signature\":{\"type\":\"blob\"},\
     \"SignatureAlgorithm\":{\"type\":\"string\"},\
     \"SigningJobId\":{\"type\":\"string\"},\
@@ -11801,6 +13326,7 @@
       },\
       \"documentation\":\"<p>Describes the code-signing profile.</p>\"\
     },\
+    \"SigningRegion\":{\"type\":\"string\"},\
     \"SkippedFindingsCount\":{\"type\":\"long\"},\
     \"SkyfallMaxResults\":{\
       \"type\":\"integer\",\
@@ -12031,7 +13557,7 @@
         },\
         \"stdDeviation\":{\
           \"shape\":\"StdDeviation\",\
-          \"documentation\":\"<p>The standard deviation of the aggregated field valuesl</p>\",\
+          \"documentation\":\"<p>The standard deviation of the aggregated field values.</p>\",\
           \"box\":true\
         }\
       },\
@@ -12355,7 +13881,21 @@
       },\
       \"documentation\":\"<p>Provides summary counts of how many tasks for findings are in a particular state. This information is included in the response from DescribeAuditMitigationActionsTask.</p>\"\
     },\
+    \"TemplateArn\":{\"type\":\"string\"},\
     \"TemplateBody\":{\"type\":\"string\"},\
+    \"TemplateDescription\":{\
+      \"type\":\"string\",\
+      \"max\":500,\
+      \"min\":0,\
+      \"pattern\":\"[^\\\\p{C}]*\"\
+    },\
+    \"TemplateName\":{\
+      \"type\":\"string\",\
+      \"max\":36,\
+      \"min\":1,\
+      \"pattern\":\"^[0-9A-Za-z_-]+$\"\
+    },\
+    \"TemplateVersionId\":{\"type\":\"integer\"},\
     \"TestAuthorizationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"authInfos\"],\
@@ -12399,11 +13939,7 @@
     },\
     \"TestInvokeAuthorizerRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"authorizerName\",\
-        \"token\",\
-        \"tokenSignature\"\
-      ],\
+      \"required\":[\"authorizerName\"],\
       \"members\":{\
         \"authorizerName\":{\
           \"shape\":\"AuthorizerName\",\
@@ -12418,6 +13954,18 @@
         \"tokenSignature\":{\
           \"shape\":\"TokenSignature\",\
           \"documentation\":\"<p>The signature made with the token and your custom authentication service's private key.</p>\"\
+        },\
+        \"httpContext\":{\
+          \"shape\":\"HttpContext\",\
+          \"documentation\":\"<p>Specifies a test HTTP authorization request.</p>\"\
+        },\
+        \"mqttContext\":{\
+          \"shape\":\"MqttContext\",\
+          \"documentation\":\"<p>Specifies a test MQTT authorization request.</p>\"\
+        },\
+        \"tlsContext\":{\
+          \"shape\":\"TlsContext\",\
+          \"documentation\":\"<p>Specifies a test TLS authorization request.</p>\"\
         }\
       }\
     },\
@@ -12592,7 +14140,7 @@
         },\
         \"customFields\":{\
           \"shape\":\"Fields\",\
-          \"documentation\":\"<p>Contains custom field names and their data type.</p>\"\
+          \"documentation\":\"<p>A list of thing group fields to index. This list cannot contain any managed fields. Use the GetIndexingConfiguration API to get a list of managed fields.</p> <p>Contains custom field names and their data type.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Thing group indexing configuration.</p>\"\
@@ -12797,6 +14345,16 @@
       \"documentation\":\"<p>Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.</p>\"\
     },\
     \"Timestamp\":{\"type\":\"timestamp\"},\
+    \"TlsContext\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"serverName\":{\
+          \"shape\":\"ServerName\",\
+          \"documentation\":\"<p>The value of the <code>serverName</code> key in a TLS authorization request.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the TLS context to use for the test authorizer request.</p>\"\
+    },\
     \"Token\":{\
       \"type\":\"string\",\
       \"max\":6144,\
@@ -12854,6 +14412,78 @@
       },\
       \"documentation\":\"<p>Describes a rule.</p>\"\
     },\
+    \"TopicRuleDestination\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"arn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The topic rule destination URL.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"TopicRuleDestinationStatus\",\
+          \"documentation\":\"<p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>\"\
+        },\
+        \"statusReason\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Additional details or reason why the topic rule destination is in the current status.</p>\"\
+        },\
+        \"httpUrlProperties\":{\
+          \"shape\":\"HttpUrlDestinationProperties\",\
+          \"documentation\":\"<p>Properties of the HTTP URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A topic rule destination.</p>\"\
+    },\
+    \"TopicRuleDestinationConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"httpUrlConfiguration\":{\
+          \"shape\":\"HttpUrlDestinationConfiguration\",\
+          \"documentation\":\"<p>Configuration of the HTTP URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration of the topic rule destination.</p>\"\
+    },\
+    \"TopicRuleDestinationMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":1\
+    },\
+    \"TopicRuleDestinationStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ENABLED\",\
+        \"IN_PROGRESS\",\
+        \"DISABLED\",\
+        \"ERROR\"\
+      ]\
+    },\
+    \"TopicRuleDestinationSummaries\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TopicRuleDestinationSummary\"}\
+    },\
+    \"TopicRuleDestinationSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"arn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The topic rule destination ARN.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"TopicRuleDestinationStatus\",\
+          \"documentation\":\"<p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>\"\
+        },\
+        \"statusReason\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The reason the topic rule destination is in the current status.</p>\"\
+        },\
+        \"httpUrlSummary\":{\
+          \"shape\":\"HttpUrlDestinationSummary\",\
+          \"documentation\":\"<p>Information about the HTTP URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the topic rule destination.</p>\"\
+    },\
     \"TopicRuleList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TopicRuleListItem\"}\
@@ -12883,6 +14513,11 @@
         }\
       },\
       \"documentation\":\"<p>Describes a rule.</p>\"\
+    },\
+    \"TopicRuleMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":10000,\
+      \"min\":1\
     },\
     \"TopicRulePayload\":{\
       \"type\":\"structure\",\
@@ -13218,6 +14853,43 @@
       },\
       \"documentation\":\"<p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>\"\
     },\
+    \"UpdateDomainConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"domainConfigurationName\"],\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"ReservedDomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration to be updated.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"domainConfigurationName\"\
+        },\
+        \"authorizerConfig\":{\
+          \"shape\":\"AuthorizerConfig\",\
+          \"documentation\":\"<p>An object that specifies the authorization service for a domain.</p>\"\
+        },\
+        \"domainConfigurationStatus\":{\
+          \"shape\":\"DomainConfigurationStatus\",\
+          \"documentation\":\"<p>The status to which the domain configuration should be updated.</p>\"\
+        },\
+        \"removeAuthorizerConfig\":{\
+          \"shape\":\"RemoveAuthorizerConfig\",\
+          \"documentation\":\"<p>Removes the authorization configuration from a domain.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateDomainConfigurationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"domainConfigurationName\":{\
+          \"shape\":\"ReservedDomainConfigurationName\",\
+          \"documentation\":\"<p>The name of the domain configuration that was updated.</p>\"\
+        },\
+        \"domainConfigurationArn\":{\
+          \"shape\":\"DomainConfigurationArn\",\
+          \"documentation\":\"<p>The ARN of the domain configuration that was updated.</p>\"\
+        }\
+      }\
+    },\
     \"UpdateDynamicThingGroupRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -13357,6 +15029,39 @@
           \"shape\":\"MitigationActionId\",\
           \"documentation\":\"<p>A unique identifier for the mitigation action.</p>\"\
         }\
+      }\
+    },\
+    \"UpdateProvisioningTemplateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"templateName\"],\
+      \"members\":{\
+        \"templateName\":{\
+          \"shape\":\"TemplateName\",\
+          \"documentation\":\"<p>The name of the fleet provisioning template.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"templateName\"\
+        },\
+        \"description\":{\
+          \"shape\":\"TemplateDescription\",\
+          \"documentation\":\"<p>The description of the fleet provisioning template.</p>\"\
+        },\
+        \"enabled\":{\
+          \"shape\":\"Enabled\",\
+          \"documentation\":\"<p>True to enable the fleet provisioning template, otherwise false.</p>\"\
+        },\
+        \"defaultVersionId\":{\
+          \"shape\":\"TemplateVersionId\",\
+          \"documentation\":\"<p>The ID of the default provisioning template version.</p>\"\
+        },\
+        \"provisioningRoleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The ARN of the role associated with the provisioning template. This IoT role grants permission to provision a device.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateProvisioningTemplateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
       }\
     },\
     \"UpdateRoleAliasRequest\":{\
@@ -13653,6 +15358,32 @@
       \"members\":{\
       },\
       \"documentation\":\"<p>The output from the UpdateThing operation.</p>\"\
+    },\
+    \"UpdateTopicRuleDestinationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"arn\",\
+        \"status\"\
+      ],\
+      \"members\":{\
+        \"arn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The ARN of the topic rule destination.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"TopicRuleDestinationStatus\",\
+          \"documentation\":\"<p>The status of the topic rule destination. Valid values are:</p> <dl> <dt>IN_PROGRESS</dt> <dd> <p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> <dt>ENABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>DISABLED</dt> <dd> <p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p> </dd> <dt>ERROR</dt> <dd> <p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p> </dd> </dl>\"\
+        }\
+      }\
+    },\
+    \"UpdateTopicRuleDestinationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"Url\":{\
+      \"type\":\"string\",\
+      \"max\":2000\
     },\
     \"UseBase64\":{\"type\":\"boolean\"},\
     \"Valid\":{\"type\":\"boolean\"},\

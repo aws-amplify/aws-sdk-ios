@@ -14,16 +14,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSTranscribeStreamingModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AWSTranscribeStreamingEventDecoder : NSObject
+@protocol AWSTranscribeStreamingWebSocketProvider <NSObject>
 
-/// Decodes a single stream event, per
-/// https://docs.aws.amazon.com/transcribe/latest/dg/streaming-format.html
-+ (nullable AWSTranscribeStreamingTranscriptResultStream *)decodeEvent:(NSData *)data
-                                                         decodingError:(NSError **)decodingError;
+@property(nonatomic, strong) id<AWSTranscribeStreamingClientDelegate> clientDelegate;
+
+-(void)send:(NSData *)data;
+-(void)connect;
+-(void)disconnect;
+-(void)setDelegate:(id<AWSTranscribeStreamingClientDelegate>)delegate
+     dispatchQueue:(dispatch_queue_t)dispatchQueue;
+-(void)configureWithURLRequest:(NSURLRequest *)urlRequest;
 
 @end
 

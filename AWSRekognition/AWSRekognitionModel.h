@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString *const AWSRekognitionErrorDomain;
 typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorUnknown,
     AWSRekognitionErrorAccessDenied,
+    AWSRekognitionErrorHumanLoopQuotaExceeded,
     AWSRekognitionErrorIdempotentParameterMismatch,
     AWSRekognitionErrorImageTooLarge,
     AWSRekognitionErrorInternalServer,
@@ -36,6 +37,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorResourceAlreadyExists,
     AWSRekognitionErrorResourceInUse,
     AWSRekognitionErrorResourceNotFound,
+    AWSRekognitionErrorResourceNotReady,
     AWSRekognitionErrorThrottling,
     AWSRekognitionErrorVideoTooLarge,
 };
@@ -50,6 +52,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionCelebrityRecognitionSortBy) {
     AWSRekognitionCelebrityRecognitionSortByUnknown,
     AWSRekognitionCelebrityRecognitionSortById,
     AWSRekognitionCelebrityRecognitionSortByTimestamp,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionContentClassifier) {
+    AWSRekognitionContentClassifierUnknown,
+    AWSRekognitionContentClassifierFreeOfPersonallyIdentifiableInformation,
+    AWSRekognitionContentClassifierFreeOfAdultContent,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionContentModerationSortBy) {
@@ -142,10 +150,33 @@ typedef NS_ENUM(NSInteger, AWSRekognitionPersonTrackingSortBy) {
     AWSRekognitionPersonTrackingSortByTimestamp,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionProjectStatus) {
+    AWSRekognitionProjectStatusUnknown,
+    AWSRekognitionProjectStatusCreating,
+    AWSRekognitionProjectStatusCreated,
+    AWSRekognitionProjectStatusDeleting,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionProjectVersionStatus) {
+    AWSRekognitionProjectVersionStatusUnknown,
+    AWSRekognitionProjectVersionStatusTrainingInProgress,
+    AWSRekognitionProjectVersionStatusTrainingCompleted,
+    AWSRekognitionProjectVersionStatusTrainingFailed,
+    AWSRekognitionProjectVersionStatusStarting,
+    AWSRekognitionProjectVersionStatusRunning,
+    AWSRekognitionProjectVersionStatusFailed,
+    AWSRekognitionProjectVersionStatusStopping,
+    AWSRekognitionProjectVersionStatusStopped,
+    AWSRekognitionProjectVersionStatusDeleting,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionQualityFilter) {
     AWSRekognitionQualityFilterUnknown,
     AWSRekognitionQualityFilterNone,
     AWSRekognitionQualityFilterAuto,
+    AWSRekognitionQualityFilterLow,
+    AWSRekognitionQualityFilterMedium,
+    AWSRekognitionQualityFilterHigh,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionReason) {
@@ -156,6 +187,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionReason) {
     AWSRekognitionReasonLowSharpness,
     AWSRekognitionReasonLowConfidence,
     AWSRekognitionReasonSmallBoundingBox,
+    AWSRekognitionReasonLowFaceQuality,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionStreamProcessorStatus) {
@@ -181,6 +213,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 };
 
 @class AWSRekognitionAgeRange;
+@class AWSRekognitionAsset;
 @class AWSRekognitionBeard;
 @class AWSRekognitionBoundingBox;
 @class AWSRekognitionCelebrity;
@@ -194,8 +227,13 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionContentModerationDetection;
 @class AWSRekognitionCreateCollectionRequest;
 @class AWSRekognitionCreateCollectionResponse;
+@class AWSRekognitionCreateProjectRequest;
+@class AWSRekognitionCreateProjectResponse;
+@class AWSRekognitionCreateProjectVersionRequest;
+@class AWSRekognitionCreateProjectVersionResponse;
 @class AWSRekognitionCreateStreamProcessorRequest;
 @class AWSRekognitionCreateStreamProcessorResponse;
+@class AWSRekognitionCustomLabel;
 @class AWSRekognitionDeleteCollectionRequest;
 @class AWSRekognitionDeleteCollectionResponse;
 @class AWSRekognitionDeleteFacesRequest;
@@ -204,8 +242,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDeleteStreamProcessorResponse;
 @class AWSRekognitionDescribeCollectionRequest;
 @class AWSRekognitionDescribeCollectionResponse;
+@class AWSRekognitionDescribeProjectVersionsRequest;
+@class AWSRekognitionDescribeProjectVersionsResponse;
+@class AWSRekognitionDescribeProjectsRequest;
+@class AWSRekognitionDescribeProjectsResponse;
 @class AWSRekognitionDescribeStreamProcessorRequest;
 @class AWSRekognitionDescribeStreamProcessorResponse;
+@class AWSRekognitionDetectCustomLabelsRequest;
+@class AWSRekognitionDetectCustomLabelsResponse;
 @class AWSRekognitionDetectFacesRequest;
 @class AWSRekognitionDetectFacesResponse;
 @class AWSRekognitionDetectLabelsRequest;
@@ -215,6 +259,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDetectTextRequest;
 @class AWSRekognitionDetectTextResponse;
 @class AWSRekognitionEmotion;
+@class AWSRekognitionEvaluationResult;
 @class AWSRekognitionEyeOpen;
 @class AWSRekognitionEyeglasses;
 @class AWSRekognitionFace;
@@ -239,6 +284,10 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetLabelDetectionResponse;
 @class AWSRekognitionGetPersonTrackingRequest;
 @class AWSRekognitionGetPersonTrackingResponse;
+@class AWSRekognitionGroundTruthManifest;
+@class AWSRekognitionHumanLoopActivationOutput;
+@class AWSRekognitionHumanLoopConfig;
+@class AWSRekognitionHumanLoopDataAttributes;
 @class AWSRekognitionImage;
 @class AWSRekognitionImageQuality;
 @class AWSRekognitionIndexFacesRequest;
@@ -259,12 +308,15 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
 @class AWSRekognitionNotificationChannel;
+@class AWSRekognitionOutputConfig;
 @class AWSRekognitionParent;
 @class AWSRekognitionPersonDetail;
 @class AWSRekognitionPersonDetection;
 @class AWSRekognitionPersonMatch;
 @class AWSRekognitionPoint;
 @class AWSRekognitionPose;
+@class AWSRekognitionProjectDescription;
+@class AWSRekognitionProjectVersionDescription;
 @class AWSRekognitionRecognizeCelebritiesRequest;
 @class AWSRekognitionRecognizeCelebritiesResponse;
 @class AWSRekognitionS3Object;
@@ -285,16 +337,25 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStartLabelDetectionResponse;
 @class AWSRekognitionStartPersonTrackingRequest;
 @class AWSRekognitionStartPersonTrackingResponse;
+@class AWSRekognitionStartProjectVersionRequest;
+@class AWSRekognitionStartProjectVersionResponse;
 @class AWSRekognitionStartStreamProcessorRequest;
 @class AWSRekognitionStartStreamProcessorResponse;
+@class AWSRekognitionStopProjectVersionRequest;
+@class AWSRekognitionStopProjectVersionResponse;
 @class AWSRekognitionStopStreamProcessorRequest;
 @class AWSRekognitionStopStreamProcessorResponse;
 @class AWSRekognitionStreamProcessor;
 @class AWSRekognitionStreamProcessorInput;
 @class AWSRekognitionStreamProcessorOutput;
 @class AWSRekognitionStreamProcessorSettings;
+@class AWSRekognitionSummary;
 @class AWSRekognitionSunglasses;
+@class AWSRekognitionTestingData;
+@class AWSRekognitionTestingDataResult;
 @class AWSRekognitionTextDetection;
+@class AWSRekognitionTrainingData;
+@class AWSRekognitionTrainingDataResult;
 @class AWSRekognitionUnindexedFace;
 @class AWSRekognitionVideo;
 @class AWSRekognitionVideoMetadata;
@@ -314,6 +375,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The lowest estimated age.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable low;
+
+@end
+
+/**
+ <p>Assets are the images that you use to train and evaluate a model version. Assets are referenced by Sagemaker GroundTruth manifest files. </p>
+ */
+@interface AWSRekognitionAsset : AWSModel
+
+
+/**
+ <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGroundTruthManifest * _Nullable groundTruthManifest;
 
 @end
 
@@ -477,6 +551,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is <code>NONE</code>. </p><p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionQualityFilter qualityFilter;
+
+/**
  <p>The minimum level of confidence in the face matches that a match must meet to be included in the <code>FaceMatches</code> array.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable similarityThreshold;
@@ -634,6 +713,78 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionCreateProjectRequest : AWSRequest
+
+
+/**
+ <p>The name of the project to create.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateProjectResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to configure IAM access to the project. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateProjectVersionRequest : AWSRequest
+
+
+/**
+ <p>The Amazon S3 location to store the results of training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
+
+/**
+ <p>The ARN of the Amazon Rekognition Custom Labels project that manages the model that you want to train.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+/**
+ <p>The dataset to use for testing.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTestingData * _Nullable testingData;
+
+/**
+ <p>The dataset to use for training. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable trainingData;
+
+/**
+ <p>A name for the version of the model. This value must be unique.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable versionName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionCreateProjectVersionResponse : AWSModel
+
+
+/**
+ <p>The ARN of the model version that was created. Use <code>DescribeProjectVersion</code> to get the current status of the training operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionCreateStreamProcessorRequest : AWSRequest
 
 
@@ -674,6 +825,29 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>ARN for the newly create stream processor.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamProcessorArn;
+
+@end
+
+/**
+ <p>A custom label detected in an image by a call to <a>DetectCustomLabels</a>.</p>
+ */
+@interface AWSRekognitionCustomLabel : AWSModel
+
+
+/**
+ <p>The confidence that the model has in the detection of the custom label. The range is 0-100. A higher value indicates a higher confidence.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The location of the detected object on the image that corresponds to the custom label. Includes an axis aligned coarse bounding box surrounding the object and a finer grain polygon for more accurate spatial information.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGeometry * _Nullable geometry;
+
+/**
+ <p>The name of the custom label.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
@@ -799,6 +973,88 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionDescribeProjectVersionsRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+/**
+ <p>A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable versionNames;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDescribeProjectVersionsResponse : AWSModel
+
+
+/**
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of model descriptions. The list is sorted by the creation date and time of the model versions, latest to earliest.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionProjectVersionDescription *> * _Nullable projectVersionDescriptions;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDescribeProjectsRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return per paginated call. The largest value you can specify is 100. If you specify a value greater than 100, a ValidationException error occurs. The default value is 100. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDescribeProjectsResponse : AWSModel
+
+
+/**
+ <p>If the previous response was incomplete (because there is more results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination token to retrieve the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of project descriptions. The list is sorted by the date and time the projects are created.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionProjectDescription *> * _Nullable projectDescriptions;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionDescribeStreamProcessorRequest : AWSRequest
 
 
@@ -864,6 +1120,47 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>ARN of the stream processor.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamProcessorArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDetectCustomLabelsRequest : AWSRequest
+
+
+/**
+ <p>Provides the input image either as bytes or an S3 object.</p><p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Amazon Rekognition API operations. </p><p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p><p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
+
+/**
+ <p>Maximum number of results you want the service to return in the response. The service returns the specified number of highest confidence labels ranked from highest confidence to lowest.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with a confidence lower than this specified value. If you specify a value of 0, all labels are return, regardless of the default thresholds that the model version applies.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minConfidence;
+
+/**
+ <p>The ARN of the model version that you want to use.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDetectCustomLabelsResponse : AWSModel
+
+
+/**
+ <p>An array of custom labels detected in the input image.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionCustomLabel *> * _Nullable customLabels;
 
 @end
 
@@ -956,6 +1253,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Sets up the configuration for human evaluation, including the FlowDefinition the image will be sent to.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionHumanLoopConfig * _Nullable humanLoopConfig;
+
+/**
  <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p><p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
  */
 @property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
@@ -972,6 +1274,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionDetectModerationLabelsResponse : AWSModel
 
+
+/**
+ <p>Shows the results of the human in the loop evaluation.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionHumanLoopActivationOutput * _Nullable humanLoopActivationOutput;
 
 /**
  <p>Array of detected Moderation labels and the time, in milliseconds from the start of the video, they were detected.</p>
@@ -1026,6 +1333,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Type of emotion detected.</p>
  */
 @property (nonatomic, assign) AWSRekognitionEmotionName types;
+
+@end
+
+/**
+ <p>The evaluation results for the training of a model.</p>
+ */
+@interface AWSRekognitionEvaluationResult : AWSModel
+
+
+/**
+ <p>The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable f1Score;
+
+/**
+ <p>The S3 bucket that contains the training summary.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionSummary * _Nullable summary;
 
 @end
 
@@ -1140,7 +1465,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionEyeOpen * _Nullable eyesOpen;
 
 /**
- <p>Gender of the face and the confidence level in the determination.</p>
+ <p>The predicted gender of a detected face. </p>
  */
 @property (nonatomic, strong) AWSRekognitionGender * _Nullable gender;
 
@@ -1254,36 +1579,36 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Gender of the face and the confidence level in the determination.</p>
+ <p>The predicted gender of a detected face. </p><p>Amazon Rekognition makes gender binary (male/female) predictions based on the physical appearance of a face in a particular image. This kind of prediction is not designed to categorize a person’s gender identity, and you shouldn't use Amazon Rekognition to make such a determination. For example, a male actor wearing a long-haired wig and earrings for a role might be predicted as female.</p><p>Using Amazon Rekognition to make gender binary predictions is best suited for use cases where aggregate gender distribution statistics need to be analyzed without identifying specific users. For example, the percentage of female users compared to male users on a social media platform. </p><p>We don't recommend using gender binary predictions to make decisions that impact&#x2028; an individual's rights, privacy, or access to services.</p>
  */
 @interface AWSRekognitionGender : AWSModel
 
 
 /**
- <p>Level of confidence in the determination.</p>
+ <p>Level of confidence in the prediction.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 /**
- <p>Gender of the face.</p>
+ <p>The predicted gender of the face.</p>
  */
 @property (nonatomic, assign) AWSRekognitionGenderType value;
 
 @end
 
 /**
- <p>Information about where the text detected by <a>DetectText</a> is located on an image.</p>
+ <p>Information about where an object (<a>DetectCustomLabels</a>) or text (<a>DetectText</a>) is located on an image.</p>
  */
 @interface AWSRekognitionGeometry : AWSModel
 
 
 /**
- <p>An axis-aligned coarse representation of the detected text's location on the image.</p>
+ <p>An axis-aligned coarse representation of the detected item's location on the image.</p>
  */
 @property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
 
 /**
- <p>Within the bounding box, a fine-grained polygon around the detected text.</p>
+ <p>Within the bounding box, a fine-grained polygon around the detected item.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionPoint *> * _Nullable polygon;
 
@@ -1692,6 +2017,79 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+ */
+@interface AWSRekognitionGroundTruthManifest : AWSModel
+
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
+
+@end
+
+/**
+ <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did not trigger human review.</p>
+ */
+@interface AWSRekognitionHumanLoopActivationOutput : AWSModel
+
+
+/**
+ <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable humanLoopActivationConditionsEvaluationResults;
+
+/**
+ <p>Shows if and why human review was needed.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable humanLoopActivationReasons;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable humanLoopArn;
+
+@end
+
+/**
+ <p>Sets up the flow definition the image will be sent to if one of the conditions is met. You can also set certain attributes of the image before review.</p>
+ Required parameters: [HumanLoopName, FlowDefinitionArn]
+ */
+@interface AWSRekognitionHumanLoopConfig : AWSModel
+
+
+/**
+ <p>Sets attributes of the input data.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionHumanLoopDataAttributes * _Nullable dataAttributes;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable flowDefinitionArn;
+
+/**
+ <p>The name of the human review used for this image. This should be kept unique within a region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable humanLoopName;
+
+@end
+
+/**
+ <p>Allows you to set attributes of the image. Currently, you can declare an image as free of personally identifiable information.</p>
+ */
+@interface AWSRekognitionHumanLoopDataAttributes : AWSModel
+
+
+/**
+ <p>Sets whether the input image is free of personally identifiable information.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable contentClassifiers;
+
+@end
+
+/**
  <p>Provides the input image either as bytes or an S3 object.</p><p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Amazon Rekognition API operations. </p><p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p><p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionImage : AWSModel
@@ -1759,7 +2157,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxFaces;
 
 /**
- <p>A filter that specifies how much filtering is done to identify faces that are detected with low quality. Filtered faces aren't indexed. If you specify <code>AUTO</code>, filtering prioritizes the identification of faces that don’t meet the required quality bar chosen by Amazon Rekognition. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is AUTO.</p><p>To use quality filtering, the collection you are using must be associated with version 3 of the face model.</p>
+ <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The default value is <code>AUTO</code>. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. </p><p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
  */
 @property (nonatomic, assign) AWSRekognitionQualityFilter qualityFilter;
 
@@ -2108,6 +2506,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>The S3 bucket and folder location where training output is placed.</p>
+ */
+@interface AWSRekognitionOutputConfig : AWSModel
+
+
+/**
+ <p>The S3 bucket where training output is placed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The prefix applied to the training output files. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3KeyPrefix;
+
+@end
+
+/**
  <p>A parent label for a label. A label can have 0, 1, or more parents. </p>
  */
 @interface AWSRekognitionParent : AWSModel
@@ -2185,7 +2601,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by <a>DetectText</a>. <code>Polygon</code> represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Rekognition Developer Guide. </p>
+ <p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>. <code>Polygon</code> represents a fine-grained polygon around a detected item. For more information, see Geometry in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionPoint : AWSModel
 
@@ -2222,6 +2638,92 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Value representing the face rotation on the yaw axis.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable yaw;
+
+@end
+
+/**
+ <p>A description of a Amazon Rekognition Custom Labels project.</p>
+ */
+@interface AWSRekognitionProjectDescription : AWSModel
+
+
+/**
+ <p>The Unix timestamp for the date and time that the project was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the project.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+/**
+ <p>The current status of the project.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectStatus status;
+
+@end
+
+/**
+ <p>The description of a version of a model.</p>
+ */
+@interface AWSRekognitionProjectVersionDescription : AWSModel
+
+
+/**
+ <p>The duration, in seconds, that the model version has been billed for training. This value is only returned if the model version has been successfully trained.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableTrainingTimeInSeconds;
+
+/**
+ <p>The Unix datetime for the date and time that training started.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
+
+/**
+ <p>The training results. <code>EvaluationResult</code> is only returned if training is successful.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionEvaluationResult * _Nullable evaluationResult;
+
+/**
+ <p>The minimum number of inference units used by the model. For more information, see <a>StartProjectVersion</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
+
+/**
+ <p>The location where training results are saved.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the model version. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+/**
+ <p>The current status of the model version.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectVersionStatus status;
+
+/**
+ <p>A descriptive message for an error or warning that occurred.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>The manifest file that represents the testing results.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTestingDataResult * _Nullable testingDataResult;
+
+/**
+ <p>The manifest file that represents the training results.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTrainingDataResult * _Nullable trainingDataResult;
+
+/**
+ <p>The Unix date and time that training of the model ended.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable trainingEndTimestamp;
 
 @end
 
@@ -2309,6 +2811,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxFaces;
+
+/**
+ <p>A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is <code>NONE</code>. </p><p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionQualityFilter qualityFilter;
 
 @end
 
@@ -2683,6 +3190,37 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionStartProjectVersionRequest : AWSRequest
+
+
+/**
+ <p>The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
+
+/**
+ <p>The Amazon Resource Name(ARN) of the model version that you want to start.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartProjectVersionResponse : AWSModel
+
+
+/**
+ <p>The current running status of the model. </p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectVersionStatus status;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionStartStreamProcessorRequest : AWSRequest
 
 
@@ -2698,6 +3236,32 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionStartStreamProcessorResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStopProjectVersionRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p><p>This operation requires permissions to perform the <code>rekognition:StopProjectVersion</code> action.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStopProjectVersionResponse : AWSModel
+
+
+/**
+ <p>The current status of the stop operation. </p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectVersionStatus status;
 
 @end
 
@@ -2780,6 +3344,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>The S3 bucket that contains the training summary. The training summary includes aggregated evaluation metrics for the entire testing dataset and metrics for each individual label. </p><p>You get the training summary S3 bucket location by calling <a>DescribeProjectVersions</a>. </p>
+ */
+@interface AWSRekognitionSummary : AWSModel
+
+
+/**
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition Developer Guide. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionS3Object * _Nullable s3Object;
+
+@end
+
+/**
  <p>Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.</p>
  */
 @interface AWSRekognitionSunglasses : AWSModel
@@ -2794,6 +3371,42 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Boolean value that indicates whether the face is wearing sunglasses or not.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
+
+@end
+
+/**
+ <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set, Amazon Rekognition Custom Labels creates a testing dataset using an 80/20 split of the training dataset.</p>
+ */
+@interface AWSRekognitionTestingData : AWSModel
+
+
+/**
+ <p>The assets used for testing.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionAsset *> * _Nullable assets;
+
+/**
+ <p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable autoCreate;
+
+@end
+
+/**
+ <p>A Sagemaker Groundtruth format manifest file representing the dataset used for testing.</p>
+ */
+@interface AWSRekognitionTestingDataResult : AWSModel
+
+
+/**
+ <p>The testing dataset that was supplied for training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTestingData * _Nullable input;
+
+/**
+ <p>The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionTestingData * _Nullable output;
 
 @end
 
@@ -2832,6 +3445,37 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The type of text that was detected.</p>
  */
 @property (nonatomic, assign) AWSRekognitionTextTypes types;
+
+@end
+
+/**
+ <p>The dataset used for training.</p>
+ */
+@interface AWSRekognitionTrainingData : AWSModel
+
+
+/**
+ <p>A Sagemaker GroundTruth manifest file that contains the training images (assets).</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionAsset *> * _Nullable assets;
+
+@end
+
+/**
+ <p>A Sagemaker Groundtruth format manifest file that represents the dataset used for training.</p>
+ */
+@interface AWSRekognitionTrainingDataResult : AWSModel
+
+
+/**
+ <p>The training assets that you supplied for training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable input;
+
+/**
+ <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable output;
 
 @end
 

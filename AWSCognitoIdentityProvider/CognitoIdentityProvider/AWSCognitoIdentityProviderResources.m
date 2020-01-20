@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -609,7 +609,7 @@
         {\"shape\":\"UserNotFoundException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Signs out users from all devices, as an administrator.</p> <p>Calling this action requires developer credentials.</p>\"\
+      \"documentation\":\"<p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p> <p>Calling this action requires developer credentials.</p>\"\
     },\
     \"AssociateSoftwareToken\":{\
       \"name\":\"AssociateSoftwareToken\",\
@@ -1358,7 +1358,7 @@
         {\"shape\":\"UserNotConfirmedException\"},\
         {\"shape\":\"InternalErrorException\"}\
       ],\
-      \"documentation\":\"<p>Signs out users from all devices.</p>\"\
+      \"documentation\":\"<p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and Id tokens expire one hour after they are issued.</p>\"\
     },\
     \"InitiateAuth\":{\
       \"name\":\"InitiateAuth\",\
@@ -2045,6 +2045,16 @@
   },\
   \"shapes\":{\
     \"AWSAccountIdType\":{\"type\":\"string\"},\
+    \"AccountRecoverySettingType\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RecoveryMechanisms\":{\
+          \"shape\":\"RecoveryMechanismsType\",\
+          \"documentation\":\"<p>The list of <code>RecoveryOptionTypes</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The data type for <code>AccountRecoverySetting</code>.</p>\"\
+    },\
     \"AccountTakeoverActionNotifyType\":{\"type\":\"boolean\"},\
     \"AccountTakeoverActionType\":{\
       \"type\":\"structure\",\
@@ -4013,6 +4023,10 @@
         \"UserPoolAddOns\":{\
           \"shape\":\"UserPoolAddOnsType\",\
           \"documentation\":\"<p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \\\"AUDIT\\\".</p>\"\
+        },\
+        \"AccountRecoverySetting\":{\
+          \"shape\":\"AccountRecoverySettingType\",\
+          \"documentation\":\"<p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p> <note> <p>Starting February 1, 2020, the value of <code>AccountRecoverySetting</code> will default to <code>verified_email</code> first and <code>verified_phone_number</code> as the second option for newly created user pools if no value is provided.</p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to create a user pool.</p>\"\
@@ -5184,6 +5198,7 @@
         \"Facebook\",\
         \"Google\",\
         \"LoginWithAmazon\",\
+        \"SignInWithApple\",\
         \"OIDC\"\
       ]\
     },\
@@ -6010,6 +6025,11 @@
         \"ENABLED\"\
       ]\
     },\
+    \"PriorityType\":{\
+      \"type\":\"integer\",\
+      \"max\":2,\
+      \"min\":1\
+    },\
     \"ProviderDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6082,6 +6102,38 @@
       \"type\":\"integer\",\
       \"max\":60,\
       \"min\":0\
+    },\
+    \"RecoveryMechanismsType\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RecoveryOptionType\"},\
+      \"max\":2,\
+      \"min\":1\
+    },\
+    \"RecoveryOptionNameType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"verified_email\",\
+        \"verified_phone_number\",\
+        \"admin_only\"\
+      ]\
+    },\
+    \"RecoveryOptionType\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Priority\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"Priority\":{\
+          \"shape\":\"PriorityType\",\
+          \"documentation\":\"<p>A positive integer specifying priority of a method with 1 being the highest priority.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"RecoveryOptionNameType\",\
+          \"documentation\":\"<p>Specifies the recovery method for a user.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A map containing a priority as a key, and recovery method name as a value.</p>\"\
     },\
     \"RedirectUrlType\":{\
       \"type\":\"string\",\
@@ -7383,6 +7435,10 @@
         \"UserPoolAddOns\":{\
           \"shape\":\"UserPoolAddOnsType\",\
           \"documentation\":\"<p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value \\\"AUDIT\\\".</p>\"\
+        },\
+        \"AccountRecoverySetting\":{\
+          \"shape\":\"AccountRecoverySettingType\",\
+          \"documentation\":\"<p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Represents the request to update the user pool.</p>\"\
@@ -7867,6 +7923,10 @@
         \"Arn\":{\
           \"shape\":\"ArnType\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) for the user pool.</p>\"\
+        },\
+        \"AccountRecoverySetting\":{\
+          \"shape\":\"AccountRecoverySettingType\",\
+          \"documentation\":\"<p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>\"\
         }\
       },\
       \"documentation\":\"<p>A container for information about the user pool.</p>\"\

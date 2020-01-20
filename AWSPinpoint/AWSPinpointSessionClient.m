@@ -63,8 +63,9 @@ typedef void(^voidBlock)(void);
 #pragma mark - Categories -
 @interface AWSPinpointSessionClient()
 
+@property (nonatomic, weak) AWSPinpointContext *context;
+
 @property (nonatomic, readwrite) AWSPinpointSession *session;
-@property (nonatomic, strong) AWSPinpointContext *context;
 @property (nonatomic, assign) UIBackgroundTaskIdentifier bgTask;
 @property (nonatomic, strong) NSTimer *bgTimer;
 

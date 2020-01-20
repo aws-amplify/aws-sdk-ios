@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -232,6 +232,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"loadBalancerNames" : @"LoadBalancerNames",
+             @"maxInstanceLifetime" : @"MaxInstanceLifetime",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
              @"mixedInstancesPolicy" : @"MixedInstancesPolicy",
@@ -316,10 +317,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"availabilityZone" : @"AvailabilityZone",
              @"healthStatus" : @"HealthStatus",
              @"instanceId" : @"InstanceId",
+             @"instanceType" : @"InstanceType",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"lifecycleState" : @"LifecycleState",
              @"protectedFromScaleIn" : @"ProtectedFromScaleIn",
+             @"weightedCapacity" : @"WeightedCapacity",
              };
 }
 
@@ -448,6 +451,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"launchTemplate" : @"LaunchTemplate",
              @"lifecycleHookSpecificationList" : @"LifecycleHookSpecificationList",
              @"loadBalancerNames" : @"LoadBalancerNames",
+             @"maxInstanceLifetime" : @"MaxInstanceLifetime",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
              @"mixedInstancesPolicy" : @"MixedInstancesPolicy",
@@ -1123,10 +1127,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"availabilityZone" : @"AvailabilityZone",
              @"healthStatus" : @"HealthStatus",
              @"instanceId" : @"InstanceId",
+             @"instanceType" : @"InstanceType",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
              @"lifecycleState" : @"LifecycleState",
              @"protectedFromScaleIn" : @"ProtectedFromScaleIn",
+             @"weightedCapacity" : @"WeightedCapacity",
              };
 }
 
@@ -1342,6 +1348,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceType" : @"InstanceType",
+             @"weightedCapacity" : @"WeightedCapacity",
              };
 }
 
@@ -1980,6 +1987,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"healthCheckType" : @"HealthCheckType",
              @"launchConfigurationName" : @"LaunchConfigurationName",
              @"launchTemplate" : @"LaunchTemplate",
+             @"maxInstanceLifetime" : @"MaxInstanceLifetime",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
              @"mixedInstancesPolicy" : @"MixedInstancesPolicy",

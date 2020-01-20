@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseErrorType) {
     AWSFirehoseErrorUnknown,
     AWSFirehoseErrorConcurrentModification,
     AWSFirehoseErrorInvalidArgument,
+    AWSFirehoseErrorInvalidKMSResource,
     AWSFirehoseErrorLimitExceeded,
     AWSFirehoseErrorResourceInUse,
     AWSFirehoseErrorResourceNotFound,
@@ -43,14 +44,30 @@ typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamEncryptionStatus) {
     AWSFirehoseDeliveryStreamEncryptionStatusUnknown,
     AWSFirehoseDeliveryStreamEncryptionStatusEnabled,
     AWSFirehoseDeliveryStreamEncryptionStatusEnabling,
+    AWSFirehoseDeliveryStreamEncryptionStatusEnablingFailed,
     AWSFirehoseDeliveryStreamEncryptionStatusDisabled,
     AWSFirehoseDeliveryStreamEncryptionStatusDisabling,
+    AWSFirehoseDeliveryStreamEncryptionStatusDisablingFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamFailureType) {
+    AWSFirehoseDeliveryStreamFailureTypeUnknown,
+    AWSFirehoseDeliveryStreamFailureTypeRetireKmsGrantFailed,
+    AWSFirehoseDeliveryStreamFailureTypeCreateKmsGrantFailed,
+    AWSFirehoseDeliveryStreamFailureTypeKmsAccessDenied,
+    AWSFirehoseDeliveryStreamFailureTypeDisabledKmsKey,
+    AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey,
+    AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound,
+    AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired,
+    AWSFirehoseDeliveryStreamFailureTypeUnknownError,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamStatus) {
     AWSFirehoseDeliveryStreamStatusUnknown,
     AWSFirehoseDeliveryStreamStatusCreating,
+    AWSFirehoseDeliveryStreamStatusCreatingFailed,
     AWSFirehoseDeliveryStreamStatusDeleting,
+    AWSFirehoseDeliveryStreamStatusDeletingFailed,
     AWSFirehoseDeliveryStreamStatusActive,
 };
 
@@ -79,6 +96,12 @@ typedef NS_ENUM(NSInteger, AWSFirehoseHECEndpointType) {
     AWSFirehoseHECEndpointTypeUnknown,
     AWSFirehoseHECEndpointTypeRaw,
     AWSFirehoseHECEndpointTypeEvent,
+};
+
+typedef NS_ENUM(NSInteger, AWSFirehoseKeyType) {
+    AWSFirehoseKeyTypeUnknown,
+    AWSFirehoseKeyTypeAwsOwnedCmk,
+    AWSFirehoseKeyTypeCustomerManagedCmk,
 };
 
 typedef NS_ENUM(NSInteger, AWSFirehoseNoEncryptionConfig) {
@@ -154,6 +177,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseDeleteDeliveryStreamOutput;
 @class AWSFirehoseDeliveryStreamDescription;
 @class AWSFirehoseDeliveryStreamEncryptionConfiguration;
+@class AWSFirehoseDeliveryStreamEncryptionConfigurationInput;
 @class AWSFirehoseDescribeDeliveryStreamInput;
 @class AWSFirehoseDescribeDeliveryStreamOutput;
 @class AWSFirehoseDeserializer;
@@ -167,6 +191,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseExtendedS3DestinationConfiguration;
 @class AWSFirehoseExtendedS3DestinationDescription;
 @class AWSFirehoseExtendedS3DestinationUpdate;
+@class AWSFirehoseFailureDescription;
 @class AWSFirehoseHiveJsonSerDe;
 @class AWSFirehoseInputFormatConfiguration;
 @class AWSFirehoseKMSEncryptionConfig;
@@ -287,6 +312,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
+ <p>Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDeliveryStreamEncryptionConfigurationInput * _Nullable deliveryStreamEncryptionConfigurationInput;
+
+/**
  <p>The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
@@ -381,6 +411,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
+ <p>Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete operation.</p><p>The default value is false.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowForceDelete;
+
+/**
  <p>The name of the delivery stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
@@ -423,7 +458,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
 
 /**
- <p>The status of the delivery stream.</p>
+ <p>The status of the delivery stream. If the status of a delivery stream is <code>CREATING_FAILED</code>, this status doesn't change, and you can't invoke <code>CreateDeliveryStream</code> again on it. However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.</p>
  */
 @property (nonatomic, assign) AWSFirehoseDeliveryStreamStatus deliveryStreamStatus;
 
@@ -436,6 +471,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The destinations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSFirehoseDestinationDescription *> * _Nullable destinations;
+
+/**
+ <p>Provides details in case one of the following operations fails due to an error related to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>, <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseFailureDescription * _Nullable failureDescription;
 
 /**
  <p>Indicates whether there are more destinations available to list.</p>
@@ -460,15 +500,49 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
- <p>Indicates the server-side encryption (SSE) status for the delivery stream.</p>
+ <p>Contains information about the server-side encryption (SSE) status for the delivery stream, the type customer master key (CMK) in use, if any, and the ARN of the CMK. You can get <code>DeliveryStreamEncryptionConfiguration</code> by invoking the <a>DescribeDeliveryStream</a> operation. </p>
  */
 @interface AWSFirehoseDeliveryStreamEncryptionConfiguration : AWSModel
 
 
 /**
- <p>For a full description of the different values of this status, see <a>StartDeliveryStreamEncryption</a> and <a>StopDeliveryStreamEncryption</a>.</p>
+ <p>Provides details in case one of the following operations fails due to an error related to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>, <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseFailureDescription * _Nullable failureDescription;
+
+/**
+ <p>If <code>KeyType</code> is <code>CUSTOMER_MANAGED_CMK</code>, this field contains the ARN of the customer managed CMK. If <code>KeyType</code> is <code>AWS_OWNED_CMK</code>, <code>DeliveryStreamEncryptionConfiguration</code> doesn't contain a value for <code>KeyARN</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyARN;
+
+/**
+ <p>Indicates the type of customer master key (CMK) that is used for encryption. The default setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseKeyType keyType;
+
+/**
+ <p>This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see <a>StartDeliveryStreamEncryption</a> and <a>StopDeliveryStreamEncryption</a>. If this status is <code>ENABLING_FAILED</code> or <code>DISABLING_FAILED</code>, it is the status of the most recent attempt to enable or disable SSE, respectively.</p>
  */
 @property (nonatomic, assign) AWSFirehoseDeliveryStreamEncryptionStatus status;
+
+@end
+
+/**
+ <p>Used to specify the type and Amazon Resource Name (ARN) of the CMK needed for Server-Side Encryption (SSE). </p>
+ Required parameters: [KeyType]
+ */
+@interface AWSFirehoseDeliveryStreamEncryptionConfigurationInput : AWSModel
+
+
+/**
+ <p>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>AWS_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable keyARN;
+
+/**
+ <p>Indicates the type of customer master key (CMK) to use for encryption. The default setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> with <code>KeyType</code> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a> to create a grant that allows the Kinesis Data Firehose service to use the customer managed CMK to perform encryption and decryption. Kinesis Data Firehose manages that grant. </p><p>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a delivery stream that is already encrypted with a customer managed CMK, Kinesis Data Firehose schedules the grant it had on the old CMK for retirement.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseKeyType keyType;
 
 @end
 
@@ -1021,6 +1095,25 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @end
 
 /**
+ <p>Provides details in case one of the following operations fails due to an error related to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>, <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
+ Required parameters: [Type, Details]
+ */
+@interface AWSFirehoseFailureDescription : AWSModel
+
+
+/**
+ <p>A message providing details about the error that caused the failure.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable details;
+
+/**
+ <p>The type of error that caused the failure.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseDeliveryStreamFailureType types;
+
+@end
+
+/**
  <p>The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.</p>
  */
 @interface AWSFirehoseHiveJsonSerDe : AWSModel
@@ -1290,7 +1383,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSNumber * _Nullable blockSizeBytes;
 
 /**
- <p>The compression code to use over data blocks. The possible values are <code>UNCOMPRESSED</code>, <code>SNAPPY</code>, and <code>GZIP</code>, with the default being <code>SNAPPY</code>. Use <code>SNAPPY</code> for higher decompression speed. Use <code>GZIP</code> if the compression ration is more important than speed.</p>
+ <p>The compression code to use over data blocks. The possible values are <code>UNCOMPRESSED</code>, <code>SNAPPY</code>, and <code>GZIP</code>, with the default being <code>SNAPPY</code>. Use <code>SNAPPY</code> for higher decompression speed. Use <code>GZIP</code> if the compression ratio is more important than speed.</p>
  */
 @property (nonatomic, assign) AWSFirehoseParquetCompression compression;
 
@@ -2078,6 +2171,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @interface AWSFirehoseStartDeliveryStreamEncryptionInput : AWSRequest
 
+
+/**
+ <p>Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDeliveryStreamEncryptionConfigurationInput * _Nullable deliveryStreamEncryptionConfigurationInput;
 
 /**
  <p>The name of the delivery stream for which you want to enable server-side encryption (SSE).</p>
