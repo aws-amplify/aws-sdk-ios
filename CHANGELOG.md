@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Bug Fixes
+  - **Amazon IoT**
+    - Fixed a crash in AWSIoTManager when importing PKCS12 data with an incorrect passphrase. (See [#1166](https://github.com/aws-amplify/aws-sdk-ios/issues/1166))
+
 ### Misc. Updates
 
 - Updated **AWSMobileAnalytics** podspec with `deprecated` and `deprecated_in_favor_of` attributes
