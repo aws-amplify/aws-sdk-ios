@@ -1,103 +1,103 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntime.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntime.h",
       "line": 28,
       "symbol": "AWSSageMakerRuntimeVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntime.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntime.h",
       "line": 39,
       "symbol": "AWSSageMakerRuntimeVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 22,
       "symbol": "AWSSageMakerRuntimeErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 24,
       "symbol": "AWSSageMakerRuntimeErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 24,
       "symbol": "AWSSageMakerRuntimeErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 25,
       "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 26,
       "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 27,
       "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorModel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 28,
       "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeModel.h",
       "line": 29,
       "symbol": "AWSSageMakerRuntimeErrorType.AWSSageMakerRuntimeErrorValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeResources.h",
       "line": 18,
       "symbol": "AWSSageMakerRuntimeResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeResources.h",
       "line": 20,
       "symbol": "AWSSageMakerRuntimeResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeResources.h",
       "line": 22,
       "symbol": "AWSSageMakerRuntimeResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSageMakerRuntime/AWSSageMakerRuntimeService.h",
       "line": 24,
       "symbol": "AWSSageMakerRuntimeSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }
