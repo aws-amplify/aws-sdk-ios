@@ -1,418 +1,418 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextract.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextract.h",
       "line": 28,
       "symbol": "AWSTextractVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextract.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextract.h",
       "line": 39,
       "symbol": "AWSTextractVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 22,
       "symbol": "AWSTextractErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 24,
       "symbol": "AWSTextractErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 24,
       "symbol": "AWSTextractErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 25,
       "symbol": "AWSTextractErrorType.AWSTextractErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 26,
       "symbol": "AWSTextractErrorType.AWSTextractErrorAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 27,
       "symbol": "AWSTextractErrorType.AWSTextractErrorBadDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 28,
       "symbol": "AWSTextractErrorType.AWSTextractErrorDocumentTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 29,
       "symbol": "AWSTextractErrorType.AWSTextractErrorIdempotentParameterMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 30,
       "symbol": "AWSTextractErrorType.AWSTextractErrorInternalServer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 31,
       "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidJobId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 32,
       "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 33,
       "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidS3Object",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 34,
       "symbol": "AWSTextractErrorType.AWSTextractErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 35,
       "symbol": "AWSTextractErrorType.AWSTextractErrorProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 36,
       "symbol": "AWSTextractErrorType.AWSTextractErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 37,
       "symbol": "AWSTextractErrorType.AWSTextractErrorUnsupportedDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 40,
       "symbol": "AWSTextractBlockType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 40,
       "symbol": "AWSTextractBlockType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 41,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 42,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeKeyValueSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 43,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypePage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 44,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeLine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 45,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 46,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeTable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 47,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeCell",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 48,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeSelectionElement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 51,
       "symbol": "AWSTextractEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 51,
       "symbol": "AWSTextractEntityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 52,
       "symbol": "AWSTextractEntityType.AWSTextractEntityTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 53,
       "symbol": "AWSTextractEntityType.AWSTextractEntityTypeKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 54,
       "symbol": "AWSTextractEntityType.AWSTextractEntityTypeValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 57,
       "symbol": "AWSTextractFeatureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 57,
       "symbol": "AWSTextractFeatureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 58,
       "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 59,
       "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeTables",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 60,
       "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeForms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 63,
       "symbol": "AWSTextractJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 63,
       "symbol": "AWSTextractJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 64,
       "symbol": "AWSTextractJobStatus.AWSTextractJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 65,
       "symbol": "AWSTextractJobStatus.AWSTextractJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 66,
       "symbol": "AWSTextractJobStatus.AWSTextractJobStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 67,
       "symbol": "AWSTextractJobStatus.AWSTextractJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 68,
       "symbol": "AWSTextractJobStatus.AWSTextractJobStatusPartialSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 71,
       "symbol": "AWSTextractRelationshipType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 71,
       "symbol": "AWSTextractRelationshipType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 72,
       "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 73,
       "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 74,
       "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeChild",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 77,
       "symbol": "AWSTextractSelectionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 77,
       "symbol": "AWSTextractSelectionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 78,
       "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 79,
       "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusSelected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractModel.h",
       "line": 80,
       "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusNotSelected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractResources.h",
       "line": 18,
       "symbol": "AWSTextractResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractResources.h",
       "line": 20,
       "symbol": "AWSTextractResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractResources.h",
       "line": 22,
       "symbol": "AWSTextractResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSTextract/AWSTextractService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTextract/AWSTextractService.h",
       "line": 24,
       "symbol": "AWSTextractSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }
