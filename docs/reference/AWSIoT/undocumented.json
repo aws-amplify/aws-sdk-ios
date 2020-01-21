@@ -1,2938 +1,2973 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoT.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoT.h",
       "line": 28,
       "symbol": "AWSIoTVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoT.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoT.h",
       "line": 39,
       "symbol": "AWSIoTVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTData.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTData.h",
       "line": 28,
       "symbol": "AWSIoTDataVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTData.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTData.h",
       "line": 39,
       "symbol": "AWSIoTDataVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 24,
       "symbol": "AWSIoTMQTTLastWillAndTestament",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 47,
       "symbol": "AWSIoTMQTTConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 190,
       "symbol": "AWSIoTDataManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 686,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 686,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 693,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 694,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeGet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 695,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 696,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 697,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 700,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 700,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 707,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeAccepted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 708,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 709,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDelta",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 710,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDocuments",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 711,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 712,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeForeignUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataManager.h",
       "line": 713,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 22,
       "symbol": "AWSIoTDataErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 24,
       "symbol": "AWSIoTDataErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 24,
       "symbol": "AWSIoTDataErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 25,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 26,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 27,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 28,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorInvalidRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 29,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorMethodNotAllowed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 30,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorRequestEntityTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 31,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 32,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 33,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 34,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataModel.h",
       "line": 35,
       "symbol": "AWSIoTDataErrorType.AWSIoTDataErrorUnsupportedDocumentEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
       "line": 18,
       "symbol": "AWSIoTDataResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
       "line": 20,
       "symbol": "AWSIoTDataResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataResources.h",
       "line": 22,
       "symbol": "AWSIoTDataResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTDataService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTDataService.h",
       "line": 24,
       "symbol": "AWSIoTDataSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 20,
       "symbol": "AWSIoTMQTTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 20,
       "symbol": "AWSIoTMQTTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 21,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 22,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 23,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 24,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusDisconnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 25,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnectionRefused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 26,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnectionError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 27,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusProtocolError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 30,
       "symbol": "AWSIoTMQTTQoS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 30,
       "symbol": "AWSIoTMQTTQoS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 31,
       "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 32,
       "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 35,
       "symbol": "AWSIoTMQTTNewMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 36,
       "symbol": "AWSIoTMQTTExtendedNewMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 37,
       "symbol": "AWSIoTMQTTAckBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 19,
       "symbol": "AWSIoTCreateCertificateResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 21,
       "symbol": "AWSIoTCreateCertificateResponse.certificateArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 22,
       "symbol": "AWSIoTCreateCertificateResponse.certificateId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 23,
       "symbol": "AWSIoTCreateCertificateResponse.certificatePem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTManager.h",
       "line": 27,
       "symbol": "AWSIoTManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 22,
       "symbol": "AWSIoTErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 24,
       "symbol": "AWSIoTErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 24,
       "symbol": "AWSIoTErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 25,
       "symbol": "AWSIoTErrorType.AWSIoTErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 26,
       "symbol": "AWSIoTErrorType.AWSIoTErrorCertificateConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 27,
       "symbol": "AWSIoTErrorType.AWSIoTErrorCertificateState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 28,
       "symbol": "AWSIoTErrorType.AWSIoTErrorCertificateValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 29,
       "symbol": "AWSIoTErrorType.AWSIoTErrorConflictingResourceUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 30,
       "symbol": "AWSIoTErrorType.AWSIoTErrorDeleteConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 31,
       "symbol": "AWSIoTErrorType.AWSIoTErrorIndexNotReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 32,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 33,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 34,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidAggregation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 35,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidQuery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 36,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 37,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 38,
       "symbol": "AWSIoTErrorType.AWSIoTErrorInvalidStateTransition",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 39,
       "symbol": "AWSIoTErrorType.AWSIoTErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 40,
       "symbol": "AWSIoTErrorType.AWSIoTErrorMalformedPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 41,
       "symbol": "AWSIoTErrorType.AWSIoTErrorNotConfigured",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 42,
       "symbol": "AWSIoTErrorType.AWSIoTErrorRegistrationCodeValidation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 43,
       "symbol": "AWSIoTErrorType.AWSIoTErrorResourceAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 44,
       "symbol": "AWSIoTErrorType.AWSIoTErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 45,
       "symbol": "AWSIoTErrorType.AWSIoTErrorResourceRegistrationFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 46,
       "symbol": "AWSIoTErrorType.AWSIoTErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 47,
       "symbol": "AWSIoTErrorType.AWSIoTErrorSqlParse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 48,
       "symbol": "AWSIoTErrorType.AWSIoTErrorTaskAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 49,
       "symbol": "AWSIoTErrorType.AWSIoTErrorThrottling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 50,
       "symbol": "AWSIoTErrorType.AWSIoTErrorTransferAlreadyCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 51,
       "symbol": "AWSIoTErrorType.AWSIoTErrorTransferConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 52,
       "symbol": "AWSIoTErrorType.AWSIoTErrorUnauthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 53,
       "symbol": "AWSIoTErrorType.AWSIoTErrorVersionConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 54,
       "symbol": "AWSIoTErrorType.AWSIoTErrorVersionsLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 57,
       "symbol": "AWSIoTAbortAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 57,
       "symbol": "AWSIoTAbortAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 58,
       "symbol": "AWSIoTAbortAction.AWSIoTAbortActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 59,
       "symbol": "AWSIoTAbortAction.AWSIoTAbortActionCancel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 62,
       "symbol": "AWSIoTActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 62,
       "symbol": "AWSIoTActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 63,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 64,
       "symbol": "AWSIoTActionType.AWSIoTActionTypePublish",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 65,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeSubscribe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 66,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeReceive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 67,
       "symbol": "AWSIoTActionType.AWSIoTActionTypeConnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 70,
       "symbol": "AWSIoTAlertTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 70,
       "symbol": "AWSIoTAlertTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 71,
       "symbol": "AWSIoTAlertTargetType.AWSIoTAlertTargetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 72,
       "symbol": "AWSIoTAlertTargetType.AWSIoTAlertTargetTypeSns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 75,
       "symbol": "AWSIoTAuditCheckRunStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 75,
       "symbol": "AWSIoTAuditCheckRunStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 76,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 77,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 78,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusWaitingForDataCollection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 79,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 80,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusCompletedCompliant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 81,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusCompletedNonCompliant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 82,
       "symbol": "AWSIoTAuditCheckRunStatus.AWSIoTAuditCheckRunStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 85,
       "symbol": "AWSIoTAuditFindingSeverity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 85,
       "symbol": "AWSIoTAuditFindingSeverity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 86,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 87,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityCritical",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 88,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityHigh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 89,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityMedium",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 90,
       "symbol": "AWSIoTAuditFindingSeverity.AWSIoTAuditFindingSeverityLow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 93,
       "symbol": "AWSIoTAuditFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 93,
       "symbol": "AWSIoTAuditFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 94,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 95,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyDaily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 96,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyWeekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 97,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyBiweekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 98,
       "symbol": "AWSIoTAuditFrequency.AWSIoTAuditFrequencyMonthly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 101,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 101,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 102,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 103,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 104,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 105,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 106,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 107,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusSkipped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 108,
       "symbol": "AWSIoTAuditMitigationActionsExecutionStatus.AWSIoTAuditMitigationActionsExecutionStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 111,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 111,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 112,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 113,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 114,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 115,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 116,
       "symbol": "AWSIoTAuditMitigationActionsTaskStatus.AWSIoTAuditMitigationActionsTaskStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 119,
       "symbol": "AWSIoTAuditNotificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 119,
       "symbol": "AWSIoTAuditNotificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 120,
       "symbol": "AWSIoTAuditNotificationType.AWSIoTAuditNotificationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 121,
       "symbol": "AWSIoTAuditNotificationType.AWSIoTAuditNotificationTypeSns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 124,
       "symbol": "AWSIoTAuditTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 124,
       "symbol": "AWSIoTAuditTaskStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 125,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 126,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 127,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 128,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 129,
       "symbol": "AWSIoTAuditTaskStatus.AWSIoTAuditTaskStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 132,
       "symbol": "AWSIoTAuditTaskType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 132,
       "symbol": "AWSIoTAuditTaskType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 133,
       "symbol": "AWSIoTAuditTaskType.AWSIoTAuditTaskTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 134,
       "symbol": "AWSIoTAuditTaskType.AWSIoTAuditTaskTypeOnDemandAuditTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 135,
       "symbol": "AWSIoTAuditTaskType.AWSIoTAuditTaskTypeScheduledAuditTask",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 138,
       "symbol": "AWSIoTAuthDecision",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 138,
       "symbol": "AWSIoTAuthDecision",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 139,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 140,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionAllowed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 141,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionExplicitDeny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 142,
       "symbol": "AWSIoTAuthDecision.AWSIoTAuthDecisionImplicitDeny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 145,
       "symbol": "AWSIoTAuthorizerStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 145,
       "symbol": "AWSIoTAuthorizerStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 146,
       "symbol": "AWSIoTAuthorizerStatus.AWSIoTAuthorizerStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 147,
       "symbol": "AWSIoTAuthorizerStatus.AWSIoTAuthorizerStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 148,
       "symbol": "AWSIoTAuthorizerStatus.AWSIoTAuthorizerStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 151,
       "symbol": "AWSIoTAutoRegistrationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 151,
       "symbol": "AWSIoTAutoRegistrationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 152,
       "symbol": "AWSIoTAutoRegistrationStatus.AWSIoTAutoRegistrationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 153,
       "symbol": "AWSIoTAutoRegistrationStatus.AWSIoTAutoRegistrationStatusEnable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 154,
       "symbol": "AWSIoTAutoRegistrationStatus.AWSIoTAutoRegistrationStatusDisable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 157,
       "symbol": "AWSIoTCACertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 157,
       "symbol": "AWSIoTCACertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 158,
       "symbol": "AWSIoTCACertificateStatus.AWSIoTCACertificateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 159,
       "symbol": "AWSIoTCACertificateStatus.AWSIoTCACertificateStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 160,
       "symbol": "AWSIoTCACertificateStatus.AWSIoTCACertificateStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 163,
       "symbol": "AWSIoTCACertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 163,
       "symbol": "AWSIoTCACertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 164,
       "symbol": "AWSIoTCACertificateUpdateAction.AWSIoTCACertificateUpdateActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 165,
       "symbol": "AWSIoTCACertificateUpdateAction.AWSIoTCACertificateUpdateActionDeactivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 168,
       "symbol": "AWSIoTCannedAccessControlList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 168,
       "symbol": "AWSIoTCannedAccessControlList",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 169,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 170,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 171,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListPublicRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 172,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListPublicReadWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 173,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListAwsExecRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 174,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListAuthenticatedRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 175,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListBucketOwnerRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 176,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListBucketOwnerFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 177,
       "symbol": "AWSIoTCannedAccessControlList.AWSIoTCannedAccessControlListLogDeliveryWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 180,
       "symbol": "AWSIoTCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 180,
       "symbol": "AWSIoTCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 181,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 182,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 183,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 184,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusRevoked",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 185,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusPendingTransfer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 186,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusRegisterInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 187,
       "symbol": "AWSIoTCertificateStatus.AWSIoTCertificateStatusPendingActivation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 190,
       "symbol": "AWSIoTComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 190,
       "symbol": "AWSIoTComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 191,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 192,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorLessThan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 193,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorLessThanEquals",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 194,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorGreaterThan",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 195,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorGreaterThanEquals",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 196,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorInCidrSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 197,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorNotInCidrSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 198,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorInPortSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 199,
       "symbol": "AWSIoTComparisonOperator.AWSIoTComparisonOperatorNotInPortSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 202,
       "symbol": "AWSIoTDayOfWeek",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 202,
       "symbol": "AWSIoTDayOfWeek",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 203,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 204,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekSun",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 205,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekMon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 206,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekTue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 207,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekWed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 208,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekThu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 209,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekFri",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 210,
       "symbol": "AWSIoTDayOfWeek.AWSIoTDayOfWeekSat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 213,
       "symbol": "AWSIoTDeviceCertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 213,
       "symbol": "AWSIoTDeviceCertificateUpdateAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 214,
       "symbol": "AWSIoTDeviceCertificateUpdateAction.AWSIoTDeviceCertificateUpdateActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 215,
       "symbol": "AWSIoTDeviceCertificateUpdateAction.AWSIoTDeviceCertificateUpdateActionDeactivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 218,
       "symbol": "AWSIoTDomainConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 218,
       "symbol": "AWSIoTDomainConfigurationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 219,
       "symbol": "AWSIoTDomainConfigurationStatus.AWSIoTDomainConfigurationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 220,
       "symbol": "AWSIoTDomainConfigurationStatus.AWSIoTDomainConfigurationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 221,
       "symbol": "AWSIoTDomainConfigurationStatus.AWSIoTDomainConfigurationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 224,
       "symbol": "AWSIoTDomainType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 224,
       "symbol": "AWSIoTDomainType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 225,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 226,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeEndpoint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 227,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeAwsManaged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 228,
       "symbol": "AWSIoTDomainType.AWSIoTDomainTypeCustomerManaged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 231,
       "symbol": "AWSIoTDynamicGroupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 231,
       "symbol": "AWSIoTDynamicGroupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 232,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 233,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 234,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusBuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 235,
       "symbol": "AWSIoTDynamicGroupStatus.AWSIoTDynamicGroupStatusRebuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 238,
       "symbol": "AWSIoTDynamoKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 238,
       "symbol": "AWSIoTDynamoKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 239,
       "symbol": "AWSIoTDynamoKeyType.AWSIoTDynamoKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 240,
       "symbol": "AWSIoTDynamoKeyType.AWSIoTDynamoKeyTypeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 241,
       "symbol": "AWSIoTDynamoKeyType.AWSIoTDynamoKeyTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 244,
       "symbol": "AWSIoTEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 244,
       "symbol": "AWSIoTEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 245,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 246,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 247,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 248,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 249,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingGroupMembership",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 250,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingGroupHierarchy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 251,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeThingTypeAssociation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 252,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeJob",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 253,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeJobExecution",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 254,
       "symbol": "AWSIoTEventType.AWSIoTEventTypePolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 255,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 256,
       "symbol": "AWSIoTEventType.AWSIoTEventTypeCaCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 259,
       "symbol": "AWSIoTFieldType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 259,
       "symbol": "AWSIoTFieldType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 260,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 261,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 262,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 263,
       "symbol": "AWSIoTFieldType.AWSIoTFieldTypeBoolean",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 266,
       "symbol": "AWSIoTIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 266,
       "symbol": "AWSIoTIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 267,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 268,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 269,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusBuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 270,
       "symbol": "AWSIoTIndexStatus.AWSIoTIndexStatusRebuilding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 273,
       "symbol": "AWSIoTJobExecutionFailureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 273,
       "symbol": "AWSIoTJobExecutionFailureType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 274,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 275,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 276,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 277,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeTimedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 278,
       "symbol": "AWSIoTJobExecutionFailureType.AWSIoTJobExecutionFailureTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 281,
       "symbol": "AWSIoTJobExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 281,
       "symbol": "AWSIoTJobExecutionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 282,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 283,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusQueued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 284,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 285,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 286,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 287,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusTimedOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 288,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 289,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusRemoved",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 290,
       "symbol": "AWSIoTJobExecutionStatus.AWSIoTJobExecutionStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 293,
       "symbol": "AWSIoTJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 293,
       "symbol": "AWSIoTJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 294,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 295,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 296,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 297,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 298,
       "symbol": "AWSIoTJobStatus.AWSIoTJobStatusDeletionInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 301,
       "symbol": "AWSIoTLogLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 301,
       "symbol": "AWSIoTLogLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 302,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 303,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelDebug",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 304,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 305,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 306,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelWarn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 307,
       "symbol": "AWSIoTLogLevel.AWSIoTLogLevelDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 310,
       "symbol": "AWSIoTLogTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 310,
       "symbol": "AWSIoTLogTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 311,
       "symbol": "AWSIoTLogTargetType.AWSIoTLogTargetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 312,
       "symbol": "AWSIoTLogTargetType.AWSIoTLogTargetTypeDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 313,
       "symbol": "AWSIoTLogTargetType.AWSIoTLogTargetTypeThingGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 316,
       "symbol": "AWSIoTMessageFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 316,
       "symbol": "AWSIoTMessageFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 317,
       "symbol": "AWSIoTMessageFormat.AWSIoTMessageFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 318,
       "symbol": "AWSIoTMessageFormat.AWSIoTMessageFormatRAW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 319,
       "symbol": "AWSIoTMessageFormat.AWSIoTMessageFormatJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 322,
       "symbol": "AWSIoTMitigationActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 322,
       "symbol": "AWSIoTMitigationActionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 323,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 324,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeUpdateDeviceCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 325,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeUpdateCaCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 326,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeAddThingsToThingGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 327,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeReplaceDefaultPolicyVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 328,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypeEnableIotLogging",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 329,
       "symbol": "AWSIoTMitigationActionType.AWSIoTMitigationActionTypePublishFindingToSns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 332,
       "symbol": "AWSIoTOTAUpdateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 332,
       "symbol": "AWSIoTOTAUpdateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 333,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 334,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 335,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreateInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 336,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreateComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 337,
       "symbol": "AWSIoTOTAUpdateStatus.AWSIoTOTAUpdateStatusCreateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 340,
       "symbol": "AWSIoTPolicyTemplateName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 340,
       "symbol": "AWSIoTPolicyTemplateName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 341,
       "symbol": "AWSIoTPolicyTemplateName.AWSIoTPolicyTemplateNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 342,
       "symbol": "AWSIoTPolicyTemplateName.AWSIoTPolicyTemplateNameBlankPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
       "line": 345,
+      "symbol": "AWSIoTProtocols",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 345,
+      "symbol": "AWSIoTProtocols",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 346,
+      "symbol": "AWSIoTProtocols.AWSIoTProtocolsUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 347,
+      "symbol": "AWSIoTProtocols.AWSIoTProtocolsMqtt",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 348,
+      "symbol": "AWSIoTProtocols.AWSIoTProtocolsHttp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 351,
       "symbol": "AWSIoTReportType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 345,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 351,
       "symbol": "AWSIoTReportType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 346,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 352,
       "symbol": "AWSIoTReportType.AWSIoTReportTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 347,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 353,
       "symbol": "AWSIoTReportType.AWSIoTReportTypeErrors",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 348,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 354,
       "symbol": "AWSIoTReportType.AWSIoTReportTypeResults",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 351,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 357,
       "symbol": "AWSIoTResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 351,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 357,
       "symbol": "AWSIoTResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 352,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 358,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 353,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 359,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeDeviceCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 354,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 360,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeCaCertificate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 355,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 361,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeIotPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 356,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 362,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeCognitoIdentityPool",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 357,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 363,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeClientId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 358,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 364,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeAccountSettings",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 359,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 365,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeRoleAlias",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 360,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 366,
       "symbol": "AWSIoTResourceType.AWSIoTResourceTypeIamRole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 363,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 369,
       "symbol": "AWSIoTServerCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 363,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 369,
       "symbol": "AWSIoTServerCertificateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 364,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 370,
       "symbol": "AWSIoTServerCertificateStatus.AWSIoTServerCertificateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 365,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 371,
       "symbol": "AWSIoTServerCertificateStatus.AWSIoTServerCertificateStatusInvalid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 366,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 372,
       "symbol": "AWSIoTServerCertificateStatus.AWSIoTServerCertificateStatusValid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 369,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 375,
       "symbol": "AWSIoTServiceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 369,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 375,
       "symbol": "AWSIoTServiceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 370,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 376,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 371,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 377,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 372,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 378,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeCredentialProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 373,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 379,
       "symbol": "AWSIoTServiceType.AWSIoTServiceTypeJobs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 376,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 382,
       "symbol": "AWSIoTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 376,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 382,
       "symbol": "AWSIoTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 377,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 383,
       "symbol": "AWSIoTStatus.AWSIoTStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 378,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 384,
       "symbol": "AWSIoTStatus.AWSIoTStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 379,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 385,
       "symbol": "AWSIoTStatus.AWSIoTStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 380,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 386,
       "symbol": "AWSIoTStatus.AWSIoTStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 381,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 387,
       "symbol": "AWSIoTStatus.AWSIoTStatusCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 382,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 388,
       "symbol": "AWSIoTStatus.AWSIoTStatusCancelling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 385,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 391,
       "symbol": "AWSIoTTargetSelection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 385,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 391,
       "symbol": "AWSIoTTargetSelection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 386,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 392,
       "symbol": "AWSIoTTargetSelection.AWSIoTTargetSelectionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 387,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 393,
       "symbol": "AWSIoTTargetSelection.AWSIoTTargetSelectionContinuous",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 388,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 394,
       "symbol": "AWSIoTTargetSelection.AWSIoTTargetSelectionSnapshot",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 391,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 397,
       "symbol": "AWSIoTThingConnectivityIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 391,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 397,
       "symbol": "AWSIoTThingConnectivityIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 392,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 398,
       "symbol": "AWSIoTThingConnectivityIndexingMode.AWSIoTThingConnectivityIndexingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 393,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 399,
       "symbol": "AWSIoTThingConnectivityIndexingMode.AWSIoTThingConnectivityIndexingModeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 394,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 400,
       "symbol": "AWSIoTThingConnectivityIndexingMode.AWSIoTThingConnectivityIndexingModeStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 397,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 403,
       "symbol": "AWSIoTThingGroupIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 397,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 403,
       "symbol": "AWSIoTThingGroupIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 398,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 404,
       "symbol": "AWSIoTThingGroupIndexingMode.AWSIoTThingGroupIndexingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 399,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 405,
       "symbol": "AWSIoTThingGroupIndexingMode.AWSIoTThingGroupIndexingModeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 400,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 406,
       "symbol": "AWSIoTThingGroupIndexingMode.AWSIoTThingGroupIndexingModeOn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 403,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 409,
       "symbol": "AWSIoTThingIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 403,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 409,
       "symbol": "AWSIoTThingIndexingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 404,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 410,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 405,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 411,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 406,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 412,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeRegistry",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 407,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 413,
       "symbol": "AWSIoTThingIndexingMode.AWSIoTThingIndexingModeRegistryAndShadow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 410,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 416,
       "symbol": "AWSIoTTopicRuleDestinationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 410,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 416,
       "symbol": "AWSIoTTopicRuleDestinationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 411,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 417,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 412,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 418,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 413,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 419,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 414,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 420,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 415,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 421,
       "symbol": "AWSIoTTopicRuleDestinationStatus.AWSIoTTopicRuleDestinationStatusError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 418,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 424,
       "symbol": "AWSIoTViolationEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 418,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 424,
       "symbol": "AWSIoTViolationEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 419,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 425,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 420,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 426,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeInAlarm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 421,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 427,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeAlarmCleared",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
-      "line": 422,
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTModel.h",
+      "line": 428,
       "symbol": "AWSIoTViolationEventType.AWSIoTViolationEventTypeAlarmInvalidated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
       "line": 18,
       "symbol": "AWSIoTResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
       "line": 20,
       "symbol": "AWSIoTResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTResources.h",
       "line": 22,
       "symbol": "AWSIoTResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSIoT/AWSIoTService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSIoT/AWSIoTService.h",
       "line": 24,
       "symbol": "AWSIoTSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

@@ -1,439 +1,439 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQS.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQS.h",
       "line": 28,
       "symbol": "AWSSQSVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQS.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQS.h",
       "line": 39,
       "symbol": "AWSSQSVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 22,
       "symbol": "AWSSQSErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 24,
       "symbol": "AWSSQSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 24,
       "symbol": "AWSSQSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 25,
       "symbol": "AWSSQSErrorType.AWSSQSErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 26,
       "symbol": "AWSSQSErrorType.AWSSQSErrorBatchEntryIdsNotDistinct",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 27,
       "symbol": "AWSSQSErrorType.AWSSQSErrorBatchRequestTooLong",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 28,
       "symbol": "AWSSQSErrorType.AWSSQSErrorEmptyBatchRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 29,
       "symbol": "AWSSQSErrorType.AWSSQSErrorInvalidAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 30,
       "symbol": "AWSSQSErrorType.AWSSQSErrorInvalidBatchEntryId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 31,
       "symbol": "AWSSQSErrorType.AWSSQSErrorInvalidIdFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 32,
       "symbol": "AWSSQSErrorType.AWSSQSErrorInvalidMessageContents",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 33,
       "symbol": "AWSSQSErrorType.AWSSQSErrorMessageNotInflight",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 34,
       "symbol": "AWSSQSErrorType.AWSSQSErrorOverLimit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 35,
       "symbol": "AWSSQSErrorType.AWSSQSErrorPurgeQueueInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 36,
       "symbol": "AWSSQSErrorType.AWSSQSErrorQueueDeletedRecently",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 37,
       "symbol": "AWSSQSErrorType.AWSSQSErrorQueueDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 38,
       "symbol": "AWSSQSErrorType.AWSSQSErrorQueueNameExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 39,
       "symbol": "AWSSQSErrorType.AWSSQSErrorReceiptHandleIsInvalid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 40,
       "symbol": "AWSSQSErrorType.AWSSQSErrorTooManyEntriesInBatchRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 41,
       "symbol": "AWSSQSErrorType.AWSSQSErrorUnsupportedOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 44,
       "symbol": "AWSSQSMessageSystemAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 44,
       "symbol": "AWSSQSMessageSystemAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 45,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 46,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameSenderId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 47,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameSentTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 48,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameApproximateReceiveCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 49,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameApproximateFirstReceiveTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 50,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameSequenceNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 51,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameMessageDeduplicationId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 52,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameMessageGroupId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 53,
       "symbol": "AWSSQSMessageSystemAttributeName.AWSSQSMessageSystemAttributeNameAWSTraceHeader",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 56,
       "symbol": "AWSSQSMessageSystemAttributeNameForSends",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 56,
       "symbol": "AWSSQSMessageSystemAttributeNameForSends",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 57,
       "symbol": "AWSSQSMessageSystemAttributeNameForSends.AWSSQSMessageSystemAttributeNameForSendsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 58,
       "symbol": "AWSSQSMessageSystemAttributeNameForSends.AWSSQSMessageSystemAttributeNameForSendsAWSTraceHeader",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 61,
       "symbol": "AWSSQSQueueAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 61,
       "symbol": "AWSSQSQueueAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 62,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 63,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 64,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNamePolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 65,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameVisibilityTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 66,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameMaximumMessageSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 67,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameMessageRetentionPeriod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 68,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameApproximateNumberOfMessages",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 69,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameApproximateNumberOfMessagesNotVisible",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 70,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameCreatedTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 71,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameLastModifiedTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 72,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameQueueArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 73,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameApproximateNumberOfMessagesDelayed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 74,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameDelaySeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 75,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameReceiveMessageWaitTimeSeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 76,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameRedrivePolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 77,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameFifoQueue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 78,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameContentBasedDeduplication",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 79,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameKmsMasterKeyId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSModel.h",
       "line": 80,
       "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameKmsDataKeyReusePeriodSeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSResources.h",
       "line": 18,
       "symbol": "AWSSQSResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSResources.h",
       "line": 20,
       "symbol": "AWSSQSResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSResources.h",
       "line": 22,
       "symbol": "AWSSQSResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSQS/AWSSQSService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSQS/AWSSQSService.h",
       "line": 24,
       "symbol": "AWSSQSSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

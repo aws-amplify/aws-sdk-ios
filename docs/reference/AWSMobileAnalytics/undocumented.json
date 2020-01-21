@@ -1,362 +1,362 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalytics.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalytics.h",
       "line": 24,
       "symbol": "AWSMobileAnalyticsVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalytics.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalytics.h",
       "line": 32,
       "symbol": "AWSMobileAnalyticsVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 20,
       "symbol": "AWSAppIdentificationStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 20,
       "symbol": "AWSAppIdentificationStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 21,
       "symbol": "AWSAppIdentificationStrategy.AWSAppIdentificationStrategyGlobal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 22,
       "symbol": "AWSAppIdentificationStrategy.AWSAppIdentificationStrategyPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 25,
       "symbol": "AWSMobileAnalyticsEnvironment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 27,
       "symbol": "AWSMobileAnalyticsEnvironment.appVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 28,
       "symbol": "AWSMobileAnalyticsEnvironment.appBuild",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 29,
       "symbol": "AWSMobileAnalyticsEnvironment.appPackageName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 30,
       "symbol": "AWSMobileAnalyticsEnvironment.appName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 34,
       "symbol": "AWSMobileAnalyticsConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 36,
       "symbol": "AWSMobileAnalyticsConfiguration.useHttps",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 37,
       "symbol": "AWSMobileAnalyticsConfiguration.attributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 38,
       "symbol": "AWSMobileAnalyticsConfiguration.environment",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 39,
       "symbol": "AWSMobileAnalyticsConfiguration.transmitOnWAN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 40,
       "symbol": "AWSMobileAnalyticsConfiguration.enableEvents",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 41,
       "symbol": "AWSMobileAnalyticsConfiguration.identificationStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsConfiguration.h",
       "line": 42,
       "symbol": "AWSMobileAnalyticsConfiguration.serviceConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
       "line": 22,
       "symbol": "AWSMobileAnalyticsERSErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
       "line": 24,
       "symbol": "AWSMobileAnalyticsERSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
       "line": 24,
       "symbol": "AWSMobileAnalyticsERSErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
       "line": 25,
       "symbol": "AWSMobileAnalyticsERSErrorType.AWSMobileAnalyticsERSErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSModel.h",
       "line": 26,
       "symbol": "AWSMobileAnalyticsERSErrorType.AWSMobileAnalyticsERSErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h",
       "line": 18,
       "symbol": "AWSMobileAnalyticsERSResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h",
       "line": 20,
       "symbol": "AWSMobileAnalyticsERSResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSResources.h",
       "line": 22,
       "symbol": "AWSMobileAnalyticsERSResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.h",
       "line": 24,
       "symbol": "AWSMobileAnalyticsERSSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 52,
       "symbol": "AWSMobileAnalyticsEvent.eventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 61,
       "symbol": "AWSMobileAnalyticsEvent.-addAttribute:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 71,
       "symbol": "AWSMobileAnalyticsEvent.-addMetric:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 80,
       "symbol": "AWSMobileAnalyticsEvent.-attributeForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 88,
       "symbol": "AWSMobileAnalyticsEvent.-metricForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 96,
       "symbol": "AWSMobileAnalyticsEvent.-hasAttributeForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 104,
       "symbol": "AWSMobileAnalyticsEvent.-hasMetricForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 111,
       "symbol": "AWSMobileAnalyticsEvent.-allAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEvent.h",
       "line": 118,
       "symbol": "AWSMobileAnalyticsEvent.-allMetrics",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 74,
       "symbol": "AWSMobileAnalyticsEventClient.-addGlobalAttribute:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 84,
       "symbol": "AWSMobileAnalyticsEventClient.-addGlobalAttribute:forKey:forEventType:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 94,
       "symbol": "AWSMobileAnalyticsEventClient.-addGlobalMetric:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 104,
       "symbol": "AWSMobileAnalyticsEventClient.-addGlobalMetric:forKey:forEventType:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 113,
       "symbol": "AWSMobileAnalyticsEventClient.-removeGlobalAttributeForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 121,
       "symbol": "AWSMobileAnalyticsEventClient.-removeGlobalAttributeForKey:forEventType:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 129,
       "symbol": "AWSMobileAnalyticsEventClient.-removeGlobalMetricForKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 137,
       "symbol": "AWSMobileAnalyticsEventClient.-removeGlobalMetricForKey:forEventType:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 145,
       "symbol": "AWSMobileAnalyticsEventClient.-recordEvent:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 153,
       "symbol": "AWSMobileAnalyticsEventClient.-createEventWithEventType:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsEventClient.h",
       "line": 162,
       "symbol": "AWSMobileAnalyticsEventClient.-submitEvents",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsOptions.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsOptions.h",
       "line": 30,
       "symbol": "AWSMobileAnalyticsOptions.allowEventCollection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsOptions.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsOptions.h",
       "line": 37,
       "symbol": "AWSMobileAnalyticsOptions.allowWANDelivery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSMobileAnalytics/AWSMobileAnalyticsService.h",
       "line": 27,
       "symbol": "AWSInitializationCompletionBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

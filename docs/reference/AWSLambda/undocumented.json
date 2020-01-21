@@ -1,992 +1,992 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambda.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambda.h",
       "line": 28,
       "symbol": "AWSLambdaVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambda.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambda.h",
       "line": 39,
       "symbol": "AWSLambdaVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 22,
       "symbol": "AWSLambdaInvokerErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 23,
       "symbol": "AWSLambdaInvokerFunctionErrorKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 24,
       "symbol": "AWSLambdaInvokerErrorTypeKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 25,
       "symbol": "AWSLambdaInvokerErrorMessageKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 26,
       "symbol": "AWSLambdaInvokerErrorStackTraceKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 28,
       "symbol": "AWSLambdaInvokerErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 28,
       "symbol": "AWSLambdaInvokerErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 29,
       "symbol": "AWSLambdaInvokerErrorType.AWSLambdaInvokerErrorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 30,
       "symbol": "AWSLambdaInvokerErrorType.AWSLambdaInvokerErrorTypeFunctionError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 37,
       "symbol": "AWSLambdaInvoker",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaInvoker.h",
       "line": 39,
       "symbol": "AWSLambdaInvoker.clientContext",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 22,
       "symbol": "AWSLambdaErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 24,
       "symbol": "AWSLambdaErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 24,
       "symbol": "AWSLambdaErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 25,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 26,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorCodeStorageExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 27,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorEC2AccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 28,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorEC2Throttled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 29,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorEC2Unexpected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 30,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorENILimitReached",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 31,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorInvalidParameterValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 32,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorInvalidRequestContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 33,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorInvalidRuntime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 34,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorInvalidSecurityGroupID",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 35,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorInvalidSubnetID",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 36,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorInvalidZipFile",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 37,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorKMSAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 38,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorKMSDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 39,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorKMSInvalidState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 40,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorKMSNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 41,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorPolicyLengthExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 42,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorPreconditionFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 43,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorProvisionedConcurrencyConfigNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 44,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorRequestTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 45,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorResourceConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 46,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 47,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 48,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorResourceNotReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 49,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 50,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorSubnetIPAddressLimitReached",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 51,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorTooManyRequests",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 52,
       "symbol": "AWSLambdaErrorType.AWSLambdaErrorUnsupportedMediaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 55,
       "symbol": "AWSLambdaEventSourcePosition",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 55,
       "symbol": "AWSLambdaEventSourcePosition",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 56,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 57,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionTrimHorizon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 58,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionLatest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 59,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionAtTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 62,
       "symbol": "AWSLambdaFunctionVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 62,
       "symbol": "AWSLambdaFunctionVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 63,
       "symbol": "AWSLambdaFunctionVersion.AWSLambdaFunctionVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 64,
       "symbol": "AWSLambdaFunctionVersion.AWSLambdaFunctionVersionAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 67,
       "symbol": "AWSLambdaInvocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 67,
       "symbol": "AWSLambdaInvocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 68,
       "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 69,
       "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 70,
       "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeRequestResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 71,
       "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeDryRun",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 74,
       "symbol": "AWSLambdaLastUpdateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 74,
       "symbol": "AWSLambdaLastUpdateStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 75,
       "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 76,
       "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 77,
       "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 78,
       "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 81,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 81,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 82,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 83,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeEniLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 84,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInsufficientRolePermissions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 85,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 86,
       "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 89,
       "symbol": "AWSLambdaLogType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 89,
       "symbol": "AWSLambdaLogType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 90,
       "symbol": "AWSLambdaLogType.AWSLambdaLogTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 91,
       "symbol": "AWSLambdaLogType.AWSLambdaLogTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 92,
       "symbol": "AWSLambdaLogType.AWSLambdaLogTypeTail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 95,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 95,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 96,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 97,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 98,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 99,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 102,
       "symbol": "AWSLambdaRuntime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 102,
       "symbol": "AWSLambdaRuntime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 103,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 104,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 105,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs43",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 106,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs610",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 107,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs810",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 108,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs10X",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 109,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs12X",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 110,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeJava8",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 111,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeJava11",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 112,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython27",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 113,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython36",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 114,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython37",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 115,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython38",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 116,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore10",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 117,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore20",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 118,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore21",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 119,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs43Edge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 120,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeGo1X",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 121,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeRuby25",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 122,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeProvided",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 125,
       "symbol": "AWSLambdaState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 125,
       "symbol": "AWSLambdaState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 126,
       "symbol": "AWSLambdaState.AWSLambdaStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 127,
       "symbol": "AWSLambdaState.AWSLambdaStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 128,
       "symbol": "AWSLambdaState.AWSLambdaStateActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 129,
       "symbol": "AWSLambdaState.AWSLambdaStateInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 130,
       "symbol": "AWSLambdaState.AWSLambdaStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 133,
       "symbol": "AWSLambdaStateReasonCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 133,
       "symbol": "AWSLambdaStateReasonCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 134,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 135,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeIdle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 136,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 137,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeRestoring",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 138,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeEniLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 139,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInsufficientRolePermissions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 140,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 141,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 142,
       "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeSubnetOutOfIPAddresses",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 145,
       "symbol": "AWSLambdaThrottleReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 145,
       "symbol": "AWSLambdaThrottleReason",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 146,
       "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 147,
       "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonConcurrentInvocationLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 148,
       "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonFunctionInvocationRateLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 149,
       "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 150,
       "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 151,
       "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonCallerRateLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 154,
       "symbol": "AWSLambdaTracingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 154,
       "symbol": "AWSLambdaTracingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 155,
       "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 156,
       "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModeActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaModel.h",
       "line": 157,
       "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModePassThrough",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaResources.h",
       "line": 18,
       "symbol": "AWSLambdaResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaResources.h",
       "line": 20,
       "symbol": "AWSLambdaResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaResources.h",
       "line": 22,
       "symbol": "AWSLambdaResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSLambda/AWSLambdaService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSLambda/AWSLambdaService.h",
       "line": 24,
       "symbol": "AWSLambdaSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }

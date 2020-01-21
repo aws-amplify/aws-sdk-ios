@@ -1,1104 +1,1104 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSES.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSES.h",
       "line": 28,
       "symbol": "AWSSESVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSES.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSES.h",
       "line": 39,
       "symbol": "AWSSESVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 22,
       "symbol": "AWSSESErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 24,
       "symbol": "AWSSESErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 24,
       "symbol": "AWSSESErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 25,
       "symbol": "AWSSESErrorType.AWSSESErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 26,
       "symbol": "AWSSESErrorType.AWSSESErrorAccountSendingPaused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 27,
       "symbol": "AWSSESErrorType.AWSSESErrorAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 28,
       "symbol": "AWSSESErrorType.AWSSESErrorCannotDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 29,
       "symbol": "AWSSESErrorType.AWSSESErrorConfigurationSetAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 30,
       "symbol": "AWSSESErrorType.AWSSESErrorConfigurationSetDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 31,
       "symbol": "AWSSESErrorType.AWSSESErrorConfigurationSetSendingPaused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 32,
       "symbol": "AWSSESErrorType.AWSSESErrorCustomVerificationEmailInvalidContent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 33,
       "symbol": "AWSSESErrorType.AWSSESErrorCustomVerificationEmailTemplateAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 34,
       "symbol": "AWSSESErrorType.AWSSESErrorCustomVerificationEmailTemplateDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 35,
       "symbol": "AWSSESErrorType.AWSSESErrorEventDestinationAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 36,
       "symbol": "AWSSESErrorType.AWSSESErrorEventDestinationDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 37,
       "symbol": "AWSSESErrorType.AWSSESErrorFromEmailAddressNotVerified",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 38,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidCloudWatchDestination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 39,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidConfigurationSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 40,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidDeliveryOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 41,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidFirehoseDestination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 42,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidLambdaFunction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 43,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 44,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidRenderingParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 45,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidS3Configuration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 46,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidSNSDestination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 47,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidSnsTopic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 48,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidTemplate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 49,
       "symbol": "AWSSESErrorType.AWSSESErrorInvalidTrackingOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 50,
       "symbol": "AWSSESErrorType.AWSSESErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 51,
       "symbol": "AWSSESErrorType.AWSSESErrorMailFromDomainNotVerified",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 52,
       "symbol": "AWSSESErrorType.AWSSESErrorMessageRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 53,
       "symbol": "AWSSESErrorType.AWSSESErrorMissingRenderingAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 54,
       "symbol": "AWSSESErrorType.AWSSESErrorProductionAccessNotGranted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 55,
       "symbol": "AWSSESErrorType.AWSSESErrorRuleDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 56,
       "symbol": "AWSSESErrorType.AWSSESErrorRuleSetDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 57,
       "symbol": "AWSSESErrorType.AWSSESErrorTemplateDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 58,
       "symbol": "AWSSESErrorType.AWSSESErrorTrackingOptionsAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 59,
       "symbol": "AWSSESErrorType.AWSSESErrorTrackingOptionsDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 62,
       "symbol": "AWSSESBehaviorOnMXFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 62,
       "symbol": "AWSSESBehaviorOnMXFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 63,
       "symbol": "AWSSESBehaviorOnMXFailure.AWSSESBehaviorOnMXFailureUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 64,
       "symbol": "AWSSESBehaviorOnMXFailure.AWSSESBehaviorOnMXFailureUseDefaultValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 65,
       "symbol": "AWSSESBehaviorOnMXFailure.AWSSESBehaviorOnMXFailureRejectMessage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 68,
       "symbol": "AWSSESBounceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 68,
       "symbol": "AWSSESBounceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 69,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 70,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 71,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeMessageTooLarge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 72,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeExceededQuota",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 73,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeContentRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 74,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeUndefined",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 75,
       "symbol": "AWSSESBounceType.AWSSESBounceTypeTemporaryFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 78,
       "symbol": "AWSSESBulkEmailStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 78,
       "symbol": "AWSSESBulkEmailStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 79,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 80,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 81,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusMessageRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 82,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusMailFromDomainNotVerified",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 83,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusConfigurationSetDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 84,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusTemplateDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 85,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusAccountSuspended",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 86,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusAccountThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 87,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusAccountDailyQuotaExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 88,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusInvalidSendingPoolName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 89,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusAccountSendingPaused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 90,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusConfigurationSetSendingPaused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 91,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusInvalidParameterValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 92,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusTransientFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 93,
       "symbol": "AWSSESBulkEmailStatus.AWSSESBulkEmailStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 96,
       "symbol": "AWSSESConfigurationSetAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 96,
       "symbol": "AWSSESConfigurationSetAttribute",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 97,
       "symbol": "AWSSESConfigurationSetAttribute.AWSSESConfigurationSetAttributeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 98,
       "symbol": "AWSSESConfigurationSetAttribute.AWSSESConfigurationSetAttributeEventDestinations",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 99,
       "symbol": "AWSSESConfigurationSetAttribute.AWSSESConfigurationSetAttributeTrackingOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 100,
       "symbol": "AWSSESConfigurationSetAttribute.AWSSESConfigurationSetAttributeDeliveryOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 101,
       "symbol": "AWSSESConfigurationSetAttribute.AWSSESConfigurationSetAttributeReputationOptions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 104,
       "symbol": "AWSSESCustomMailFromStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 104,
       "symbol": "AWSSESCustomMailFromStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 105,
       "symbol": "AWSSESCustomMailFromStatus.AWSSESCustomMailFromStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 106,
       "symbol": "AWSSESCustomMailFromStatus.AWSSESCustomMailFromStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 107,
       "symbol": "AWSSESCustomMailFromStatus.AWSSESCustomMailFromStatusSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 108,
       "symbol": "AWSSESCustomMailFromStatus.AWSSESCustomMailFromStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 109,
       "symbol": "AWSSESCustomMailFromStatus.AWSSESCustomMailFromStatusTemporaryFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 112,
       "symbol": "AWSSESDimensionValueSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 112,
       "symbol": "AWSSESDimensionValueSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 113,
       "symbol": "AWSSESDimensionValueSource.AWSSESDimensionValueSourceUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 114,
       "symbol": "AWSSESDimensionValueSource.AWSSESDimensionValueSourceMessageTag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 115,
       "symbol": "AWSSESDimensionValueSource.AWSSESDimensionValueSourceEmailHeader",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 116,
       "symbol": "AWSSESDimensionValueSource.AWSSESDimensionValueSourceLinkTag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 119,
       "symbol": "AWSSESDsnAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 119,
       "symbol": "AWSSESDsnAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 120,
       "symbol": "AWSSESDsnAction.AWSSESDsnActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 121,
       "symbol": "AWSSESDsnAction.AWSSESDsnActionFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 122,
       "symbol": "AWSSESDsnAction.AWSSESDsnActionDelayed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 123,
       "symbol": "AWSSESDsnAction.AWSSESDsnActionDelivered",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 124,
       "symbol": "AWSSESDsnAction.AWSSESDsnActionRelayed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 125,
       "symbol": "AWSSESDsnAction.AWSSESDsnActionExpanded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 128,
       "symbol": "AWSSESEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 128,
       "symbol": "AWSSESEventType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 129,
       "symbol": "AWSSESEventType.AWSSESEventTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 130,
       "symbol": "AWSSESEventType.AWSSESEventTypeSend",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 131,
       "symbol": "AWSSESEventType.AWSSESEventTypeReject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 132,
       "symbol": "AWSSESEventType.AWSSESEventTypeBounce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 133,
       "symbol": "AWSSESEventType.AWSSESEventTypeComplaint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 134,
       "symbol": "AWSSESEventType.AWSSESEventTypeDelivery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 135,
       "symbol": "AWSSESEventType.AWSSESEventTypeOpen",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 136,
       "symbol": "AWSSESEventType.AWSSESEventTypeClick",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 137,
       "symbol": "AWSSESEventType.AWSSESEventTypeRenderingFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 140,
       "symbol": "AWSSESIdentityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 140,
       "symbol": "AWSSESIdentityType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 141,
       "symbol": "AWSSESIdentityType.AWSSESIdentityTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 142,
       "symbol": "AWSSESIdentityType.AWSSESIdentityTypeEmailAddress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 143,
       "symbol": "AWSSESIdentityType.AWSSESIdentityTypeDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 146,
       "symbol": "AWSSESInvocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 146,
       "symbol": "AWSSESInvocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 147,
       "symbol": "AWSSESInvocationType.AWSSESInvocationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 148,
       "symbol": "AWSSESInvocationType.AWSSESInvocationTypeEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 149,
       "symbol": "AWSSESInvocationType.AWSSESInvocationTypeRequestResponse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 152,
       "symbol": "AWSSESNotificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 152,
       "symbol": "AWSSESNotificationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 153,
       "symbol": "AWSSESNotificationType.AWSSESNotificationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 154,
       "symbol": "AWSSESNotificationType.AWSSESNotificationTypeBounce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 155,
       "symbol": "AWSSESNotificationType.AWSSESNotificationTypeComplaint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 156,
       "symbol": "AWSSESNotificationType.AWSSESNotificationTypeDelivery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 159,
       "symbol": "AWSSESReceiptFilterPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 159,
       "symbol": "AWSSESReceiptFilterPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 160,
       "symbol": "AWSSESReceiptFilterPolicy.AWSSESReceiptFilterPolicyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 161,
       "symbol": "AWSSESReceiptFilterPolicy.AWSSESReceiptFilterPolicyBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 162,
       "symbol": "AWSSESReceiptFilterPolicy.AWSSESReceiptFilterPolicyAllow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 165,
       "symbol": "AWSSESSNSActionEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 165,
       "symbol": "AWSSESSNSActionEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 166,
       "symbol": "AWSSESSNSActionEncoding.AWSSESSNSActionEncodingUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 167,
       "symbol": "AWSSESSNSActionEncoding.AWSSESSNSActionEncodingUtf8",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 168,
       "symbol": "AWSSESSNSActionEncoding.AWSSESSNSActionEncodingBase64",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 171,
       "symbol": "AWSSESStopScope",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 171,
       "symbol": "AWSSESStopScope",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 172,
       "symbol": "AWSSESStopScope.AWSSESStopScopeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 173,
       "symbol": "AWSSESStopScope.AWSSESStopScopeRuleSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 176,
       "symbol": "AWSSESTlsPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 176,
       "symbol": "AWSSESTlsPolicy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 177,
       "symbol": "AWSSESTlsPolicy.AWSSESTlsPolicyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 178,
       "symbol": "AWSSESTlsPolicy.AWSSESTlsPolicyRequire",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 179,
       "symbol": "AWSSESTlsPolicy.AWSSESTlsPolicyOptional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 182,
       "symbol": "AWSSESVerificationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 182,
       "symbol": "AWSSESVerificationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 183,
       "symbol": "AWSSESVerificationStatus.AWSSESVerificationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 184,
       "symbol": "AWSSESVerificationStatus.AWSSESVerificationStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 185,
       "symbol": "AWSSESVerificationStatus.AWSSESVerificationStatusSuccess",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 186,
       "symbol": "AWSSESVerificationStatus.AWSSESVerificationStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 187,
       "symbol": "AWSSESVerificationStatus.AWSSESVerificationStatusTemporaryFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESModel.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESModel.h",
       "line": 188,
       "symbol": "AWSSESVerificationStatus.AWSSESVerificationStatusNotStarted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESResources.h",
       "line": 18,
       "symbol": "AWSSESResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESResources.h",
       "line": 20,
       "symbol": "AWSSESResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESResources.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESResources.h",
       "line": 22,
       "symbol": "AWSSESResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSSES/AWSSESService.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSES/AWSSESService.h",
       "line": 24,
       "symbol": "AWSSESSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }
