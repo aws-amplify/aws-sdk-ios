@@ -1,19 +1,19 @@
 {
   "warnings": [
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAuthSDK/Sources/AWSUserPoolsSignIn/AWSUserPoolsSignIn.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSUserPoolsSignIn/AWSUserPoolsSignIn.h",
       "line": 19,
       "symbol": "AWSUserPoolsSignInVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/schmelte/src/github-repos/aws-sdk-ios/AWSAuthSDK/Sources/AWSUserPoolsSignIn/AWSUserPoolsSignIn.h",
+      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSUserPoolsSignIn/AWSUserPoolsSignIn.h",
       "line": 22,
       "symbol": "AWSUserPoolsSignInVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/schmelte/src/github-repos/aws-sdk-ios"
+  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
 }
