@@ -32,6 +32,7 @@ static const NSString * AWSCognitoIdentityUserAsfDeviceId = @"asf.device.id";
 static const NSString * AWSCognitoIdentityUserDeviceSecret = @"device.secret";
 static const NSString * AWSCognitoIdentityUserDeviceGroup = @"device.group";
 static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttributes.";
+static const NSString * AWSCognitoIdentityUserEmailVerifiedKey = @"email_verified";
 
 -(instancetype) initWithUsername: (NSString *)username pool:(AWSCognitoIdentityUserPool *)pool {
     self = [super init];
@@ -363,6 +364,9 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         
         if(userAttributes){
             [userAttributesDict addEntriesFromDictionary:[NSJSONSerialization JSONObjectWithData:[userAttributes dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil]];
+            // Service responds with "Cannot modify the non-mutable attribute email_verified", if this value isn't taken out.
+            // https://github.com/aws-amplify/aws-sdk-ios/issues/2203
+            [userAttributesDict removeObjectForKey:AWSCognitoIdentityUserEmailVerifiedKey];
         }
         if(requiredAttributes) {
             NSArray * requiredAttributesArray = [NSJSONSerialization JSONObjectWithData:[requiredAttributes dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
