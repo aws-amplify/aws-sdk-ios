@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon EC2
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -17,6 +6,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Updated **AWSMobileAnalytics** podspec with `deprecated` and `deprecated_in_favor_of` attributes
 
+- Model updates for the following services
+  - Amazon EC2
+  
 ## 2.12.6
 
 ### Misc. Updates
