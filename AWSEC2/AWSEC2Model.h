@@ -969,6 +969,24 @@ typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateErrorCode) {
     AWSEC2LaunchTemplateErrorCodeUnexpectedError,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateHttpTokensState) {
+    AWSEC2LaunchTemplateHttpTokensStateUnknown,
+    AWSEC2LaunchTemplateHttpTokensStateOptional,
+    AWSEC2LaunchTemplateHttpTokensStateRequired,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateInstanceMetadataEndpointState) {
+    AWSEC2LaunchTemplateInstanceMetadataEndpointStateUnknown,
+    AWSEC2LaunchTemplateInstanceMetadataEndpointStateDisabled,
+    AWSEC2LaunchTemplateInstanceMetadataEndpointStateEnabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateInstanceMetadataOptionsState) {
+    AWSEC2LaunchTemplateInstanceMetadataOptionsStateUnknown,
+    AWSEC2LaunchTemplateInstanceMetadataOptionsStatePending,
+    AWSEC2LaunchTemplateInstanceMetadataOptionsStateApplied,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ListingState) {
     AWSEC2ListingStateUnknown,
     AWSEC2ListingStateAvailable,
@@ -2529,6 +2547,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LaunchTemplateIamInstanceProfileSpecificationRequest;
 @class AWSEC2LaunchTemplateInstanceMarketOptions;
 @class AWSEC2LaunchTemplateInstanceMarketOptionsRequest;
+@class AWSEC2LaunchTemplateInstanceMetadataOptions;
+@class AWSEC2LaunchTemplateInstanceMetadataOptionsRequest;
 @class AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecification;
 @class AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest;
 @class AWSEC2LaunchTemplateLicenseConfiguration;
@@ -5537,6 +5557,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2TransportProtocol transportProtocol;
 
 /**
+ <p>The port number for the Client VPN endpoint.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable vpnPort;
+
+/**
  <p>The protocol used by the VPN session.</p>
  */
 @property (nonatomic, assign) AWSEC2VpnProtocol vpnProtocol;
@@ -6222,6 +6247,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The transport protocol to be used by the VPN session.</p><p>Default value: <code>udp</code></p>
  */
 @property (nonatomic, assign) AWSEC2TransportProtocol transportProtocol;
+
+/**
+ <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p><p>Valid Values: <code>443</code> | <code>1194</code></p><p>Default Value: <code>443</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable vpnPort;
 
 @end
 
@@ -10751,7 +10781,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>description</code> - The description of the authorization rule.</p></li><li><p><code>destination-cidr</code> - The CIDR of the network to which the authorization rule applies.</p></li><li><p><code>group-id</code> - The ID of the Active Directory group to which the authorization rule grants access.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -10802,7 +10832,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>connection-id</code> - The ID of the connection.</p></li><li><p><code>username</code> - For Active Directory client authentication, the user name of the client who established the client connection.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -10853,7 +10883,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>endpoint-id</code> - The ID of the Client VPN endpoint.</p></li><li><p><code>transport-protocol</code> - The transport protocol (<code>tcp</code> | <code>udp</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -10904,7 +10934,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>destination-cidr</code> - The CIDR of the route destination.</p></li><li><p><code>origin</code> - How the route was associated with the Client VPN endpoint (<code>associate</code> | <code>add-route</code>).</p></li><li><p><code>target-subnet</code> - The ID of the subnet through which traffic is routed.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -10960,7 +10990,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>association-id</code> - The ID of the association.</p></li><li><p><code>target-network-id</code> - The ID of the subnet specified as the target network.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the target network is located.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -11333,7 +11363,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable exportTaskIds;
 
 /**
- 
+ <p>the filters for the export tasks.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -12459,7 +12489,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p></li><li><p><code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p></li><li><p><code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance type. (<code>true</code> | <code>false</code>)</p></li><li><p><code>current-generation</code> - Indicates whether this instance type is the latest generation instance type of an instance family. (<code>true</code> | <code>false</code>)</p></li><li><p><code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is EBS-optimized. (<code>true</code> | <code>false</code>)</p></li><li><p><code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p></li><li><p><code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free tier. (<code>true</code> | <code>false</code>)</p></li><li><p><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p></li><li><p><code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p></li><li><p><code>instance-storage-info.disk.count</code> - The number of local disks.</p></li><li><p><code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in GB.</p></li><li><p><code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks. (<code>hdd</code> | <code>ssd</code>)</p></li><li><p><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local instance storage, in GB.</p></li><li><p><code>instance-storage-supported</code> - Indicates whether the instance type has local instance storage. (<code>true</code> | <code>false</code>)</p></li><li><p><code>memory-info.size-in-mib</code> - The memory size.</p></li><li><p><code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p></li><li><p><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per network interface.</p></li><li><p><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per network interface.</p></li><li><p><code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p></li><li><p><code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p></li><li><p><code>network-info.network-performance</code> - Describes the network performance.</p></li><li><p><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p></li><li><p><code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p></li><li><p><code>vcpu-info.default-threads-per-core</code> - The default number of threads per cores for the instance type.</p></li><li><p><code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p></li><li><p><code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p></li><li><p><code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance type. (<code>true</code> | <code>false</code>)</p></li><li><p><code>current-generation</code> - Indicates whether this instance type is the latest generation instance type of an instance family. (<code>true</code> | <code>false</code>)</p></li><li><p><code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is EBS-optimized. (<code>true</code> | <code>false</code>)</p></li><li><p><code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p></li><li><p><code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free tier. (<code>true</code> | <code>false</code>)</p></li><li><p><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p></li><li><p><code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p></li><li><p><code>instance-storage-info.disk.count</code> - The number of local disks.</p></li><li><p><code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in GB.</p></li><li><p><code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks. (<code>hdd</code> | <code>ssd</code>)</p></li><li><p><code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local instance storage, in GB.</p></li><li><p><code>instance-storage-supported</code> - Indicates whether the instance type has local instance storage. (<code>true</code> | <code>false</code>)</p></li><li><p><code>memory-info.size-in-mib</code> - The memory size.</p></li><li><p><code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p></li><li><p><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per network interface.</p></li><li><p><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per network interface.</p></li><li><p><code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p></li><li><p><code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p></li><li><p><code>network-info.network-performance</code> - Describes the network performance.</p></li><li><p><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p></li><li><p><code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p></li><li><p><code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance type.</p></li><li><p><code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -17690,7 +17720,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- 
+ <p>The tags for the export task.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
@@ -20158,7 +20188,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>Any tags applied to the import image task.</p>
+ <p>The tags for the import image task.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
@@ -20478,7 +20508,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2SnapshotTaskDetail * _Nullable snapshotTaskDetail;
 
 /**
- <p>Any tags applied to the import snapshot task.</p>
+ <p>The tags for the import snapshot task.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
@@ -22560,6 +22590,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@interface AWSEC2LaunchTemplateInstanceMetadataOptions : AWSModel
+
+
+/**
+ <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p><note><p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata. </p></note>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateInstanceMetadataEndpointState httpEndpoint;
+
+/**
+ <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: 1</p><p>Possible values: Integers from 1 to 64</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
+
+/**
+ <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p><p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p><p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateHttpTokensState httpTokens;
+
+/**
+ <p>The state of the metadata option changes.</p><p><code>pending</code> - The metadata options are being updated and the instance is not ready to process metadata traffic with the new selection.</p><p><code>applied</code> - The metadata options have been successfully applied on the instance.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateInstanceMetadataOptionsState state;
+
+@end
+
+/**
+ <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@interface AWSEC2LaunchTemplateInstanceMetadataOptionsRequest : AWSModel
+
+
+/**
+ <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p><note><p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata. </p></note>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateInstanceMetadataEndpointState httpEndpoint;
+
+/**
+ <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: 1</p><p>Possible values: Integers from 1 to 64</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
+
+/**
+ <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p><p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p><p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+ */
+@property (nonatomic, assign) AWSEC2LaunchTemplateHttpTokensState httpTokens;
+
+@end
+
+/**
  <p>Describes a network interface.</p>
  */
 @interface AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecification : AWSModel
@@ -22796,9 +22877,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable hostId;
 
 /**
- <p>The ARN of the host resource group in which to launch the instances.</p>
+ <p>The ARN of the host resource group in which to launch the instances. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostResourceGroupArn;
+
+/**
+ <p>The number of the partition the instance should launch in. Valid only if the placement group strategy is set to <code>partition</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable partitionNumber;
 
 /**
  <p>Reserved for future use.</p>
@@ -22842,6 +22928,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostResourceGroupArn;
+
+/**
+ <p>The number of the partition the instance should launch in. Valid only if the placement group strategy is set to <code>partition</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable partitionNumber;
 
 /**
  <p>Reserved for future use.</p>
@@ -23502,6 +23593,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether the VPN is split-tunnel.</p><p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable splitTunnel;
+
+/**
+ <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p><p>Valid Values: <code>443</code> | <code>1194</code></p><p>Default Value: <code>443</code></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable vpnPort;
 
 @end
 
@@ -27704,7 +27800,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The block device mapping.</p><important><p>Supplying both a snapshot ID and an encryption value as arguments for block-device mapping results in an error. This is because only blank volumes can be encrypted on start, and these are not created from a snapshot. If a snapshot is the basis for the volume, it contains data by definition and its encryption status cannot be changed using this action.</p></important>
+ <p>The block device mapping.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateBlockDeviceMappingRequest *> * _Nullable blockDeviceMappings;
 
@@ -27787,6 +27883,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The license configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateLicenseConfigurationRequest *> * _Nullable licenseSpecifications;
+
+/**
+ <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMetadataOptionsRequest * _Nullable metadataOptions;
 
 /**
  <p>The monitoring for the instance.</p>
@@ -28743,6 +28844,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The license configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateLicenseConfiguration *> * _Nullable licenseSpecifications;
+
+/**
+ <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateInstanceMetadataOptions * _Nullable metadataOptions;
 
 /**
  <p>The monitoring for the instance.</p>
