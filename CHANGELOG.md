@@ -10,6 +10,9 @@
 
 - Updated **AWSMobileAnalytics** podspec with `deprecated` and `deprecated_in_favor_of` attributes
 
+- Model updates for the following services
+  - Amazon EC2
+  
 ## 2.12.6
 
 ### Misc. Updates
