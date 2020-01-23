@@ -5,6 +5,8 @@
 ### Bug Fixes
   - **Amazon IoT**
     - Fixed a crash in AWSIoTManager when importing PKCS12 data with an incorrect passphrase. (See [#1166](https://github.com/aws-amplify/aws-sdk-ios/issues/1166))
+  - **AWSCognitoIdentityProvider**
+    - Fixed issue where users in a FORCE_CHANGE_PASSWORD flow are unable to update their password (See [#2203](https://github.com/aws-amplify/aws-sdk-ios/issues/2203))
 
 ### Misc. Updates
 
