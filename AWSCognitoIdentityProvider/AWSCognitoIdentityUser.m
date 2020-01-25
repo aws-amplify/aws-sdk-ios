@@ -309,7 +309,7 @@ static const NSString * AWSCognitoIdentityUserEmailVerifiedKey = @"email_verifie
         }else if(AWSCognitoIdentityProviderChallengeNameTypeMfaSetup == nextChallenge){
             return [self startMfaSetupRequiredUI:authenticateResult];
         }else if(AWSCognitoIdentityProviderChallengeNameTypeNewPasswordRequired == nextChallenge){
-            return [self startNewPasswordRequiredUI:authenticateResult];
+            return [self startNewPasswordRequiredUI:authenticateResult lastError:nil];
         }else if(AWSCognitoIdentityProviderAuthFlowTypeUserSrpAuth == nextChallenge){ //if srp auth happens mid auth
             return [self startPasswordAuthenticationUI:authenticateResult];
         }else if (session) { //we have a session, return it
@@ -354,7 +354,8 @@ static const NSString * AWSCognitoIdentityUserEmailVerifiedKey = @"email_verifie
     }
 }
 
-- (AWSTask<AWSCognitoIdentityUserSession*>*) startNewPasswordRequiredUI:(AWSCognitoIdentityProviderRespondToAuthChallengeResponse*) lastChallenge {
+- (AWSTask<AWSCognitoIdentityUserSession*>*) startNewPasswordRequiredUI:(AWSCognitoIdentityProviderRespondToAuthChallengeResponse*) lastChallenge
+                                                              lastError:(NSError*)lastError {
     if ([self.pool.delegate respondsToSelector:@selector(startNewPasswordRequired)]) {
         id<AWSCognitoIdentityNewPasswordRequired> newPasswordRequiredDelegate = [self.pool.delegate startNewPasswordRequired];
         NSString * userAttributes = lastChallenge.challengeParameters[@"userAttributes"];
@@ -376,17 +377,22 @@ static const NSString * AWSCognitoIdentityUserEmailVerifiedKey = @"email_verifie
                 [requiredAttributesSet addObject:strippedKey];
             }
         }
-        AWSCognitoIdentityNewPasswordRequiredInput *newPasswordRequiredInput = [[AWSCognitoIdentityNewPasswordRequiredInput alloc] initWithUserAttributes:userAttributesDict requiredAttributes:requiredAttributesSet];
+        AWSCognitoIdentityNewPasswordRequiredInput *newPasswordRequiredInput = [[AWSCognitoIdentityNewPasswordRequiredInput alloc] initWithUserAttributes:userAttributesDict
+                                                                                                                                       requiredAttributes:requiredAttributesSet];
         AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails *> *newPasswordRequiredDetails = [AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails *> new];
         [newPasswordRequiredDelegate getNewPasswordDetails:newPasswordRequiredInput newPasswordRequiredCompletionSource:newPasswordRequiredDetails];
+        if (lastError) {
+            [newPasswordRequiredDelegate didCompleteNewPasswordStepWithError:lastError];
+        }
         return [[newPasswordRequiredDetails.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityNewPasswordRequiredDetails *> * _Nonnull task) {
             return [self performRespondToNewPasswordChallenge:task.result session:lastChallenge.session];
         }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
-            [newPasswordRequiredDelegate didCompleteNewPasswordStepWithError:task.error];
-            if(task.error){
-                return [self startNewPasswordRequiredUI:lastChallenge];
+            if (task.error) {
+                return [self startNewPasswordRequiredUI:lastChallenge lastError:task.error];
+            } else {
+                [newPasswordRequiredDelegate didCompleteNewPasswordStepWithError:task.error];
+                return [self getSessionInternal:task];
             }
-            return [self getSessionInternal:task];
         }];
         
     }else {
