@@ -766,7 +766,9 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"amazonProvidedIpv6CidrBlock" : @"AmazonProvidedIpv6CidrBlock",
              @"cidrBlock" : @"CidrBlock",
+             @"ipv6CidrBlock" : @"Ipv6CidrBlock",
              @"ipv6CidrBlockNetworkBorderGroup" : @"Ipv6CidrBlockNetworkBorderGroup",
+             @"ipv6Pool" : @"Ipv6Pool",
              @"vpcId" : @"VpcId",
              };
 }
@@ -1370,6 +1372,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"provisioned"] == NSOrderedSame) {
             return @(AWSEC2ByoipCidrStateProvisioned);
         }
+        if ([value caseInsensitiveCompare:@"provisioned-not-publicly-advertisable"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStateProvisionedNotPubliclyAdvertisable);
+        }
         return @(AWSEC2ByoipCidrStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1387,6 +1392,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"pending-provision";
             case AWSEC2ByoipCidrStateProvisioned:
                 return @"provisioned";
+            case AWSEC2ByoipCidrStateProvisionedNotPubliclyAdvertisable:
+                return @"provisioned-not-publicly-advertisable";
             default:
                 return nil;
         }
@@ -6558,7 +6565,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"cidrBlock" : @"CidrBlock",
              @"dryRun" : @"DryRun",
              @"instanceTenancy" : @"InstanceTenancy",
+             @"ipv6CidrBlock" : @"Ipv6CidrBlock",
              @"ipv6CidrBlockNetworkBorderGroup" : @"Ipv6CidrBlockNetworkBorderGroup",
+             @"ipv6Pool" : @"Ipv6Pool",
              };
 }
 
@@ -11102,6 +11111,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)internetGatewaysJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InternetGateway class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeIpv6PoolsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"poolIds" : @"PoolIds",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeIpv6PoolsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv6Pools" : @"Ipv6Pools",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)ipv6PoolsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6Pool class]];
 }
 
 @end
@@ -20003,6 +20045,34 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)fpgasJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2FpgaDeviceInfo class]];
+}
+
+@end
+
+@implementation AWSEC2GetAssociatedIpv6PoolCidrsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"poolId" : @"PoolId",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetAssociatedIpv6PoolCidrsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv6CidrAssociations" : @"Ipv6CidrAssociations",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)ipv6CidrAssociationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6CidrAssociation class]];
 }
 
 @end
@@ -28945,12 +29015,44 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2Ipv6CidrAssociation
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"associatedResource" : @"AssociatedResource",
+             @"ipv6Cidr" : @"Ipv6Cidr",
+             };
+}
+
+@end
+
 @implementation AWSEC2Ipv6CidrBlock
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ipv6CidrBlock" : @"Ipv6CidrBlock",
              };
+}
+
+@end
+
+@implementation AWSEC2Ipv6Pool
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"poolCidrBlocks" : @"PoolCidrBlocks",
+             @"poolId" : @"PoolId",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)poolCidrBlocksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PoolCidrBlock class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -36247,6 +36349,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2PoolCidrBlock
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             };
+}
+
+@end
+
 @implementation AWSEC2PortRange
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -36475,6 +36587,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"cidrAuthorizationContext" : @"CidrAuthorizationContext",
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
+             @"publiclyAdvertisable" : @"PubliclyAdvertisable",
              };
 }
 
@@ -57394,6 +57507,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"associationId" : @"AssociationId",
              @"ipv6CidrBlock" : @"Ipv6CidrBlock",
              @"ipv6CidrBlockState" : @"Ipv6CidrBlockState",
+             @"ipv6Pool" : @"Ipv6Pool",
              @"networkBorderGroup" : @"NetworkBorderGroup",
              };
 }
