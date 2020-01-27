@@ -645,6 +645,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"InternalError"] == NSOrderedSame) {
             return @(AWSLambdaLastUpdateStatusReasonCodeInternalError);
         }
+        if ([value caseInsensitiveCompare:@"SubnetOutOfIPAddresses"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSubnet"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSecurityGroup"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup);
+        }
         return @(AWSLambdaLastUpdateStatusReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -656,6 +665,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"InvalidConfiguration";
             case AWSLambdaLastUpdateStatusReasonCodeInternalError:
                 return @"InternalError";
+            case AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses:
+                return @"SubnetOutOfIPAddresses";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet:
+                return @"InvalidSubnet";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup:
+                return @"InvalidSecurityGroup";
             default:
                 return nil;
         }
@@ -829,6 +844,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"SubnetOutOfIPAddresses"] == NSOrderedSame) {
             return @(AWSLambdaStateReasonCodeSubnetOutOfIPAddresses);
         }
+        if ([value caseInsensitiveCompare:@"InvalidSubnet"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidSubnet);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSecurityGroup"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidSecurityGroup);
+        }
         return @(AWSLambdaStateReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -848,6 +869,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"InternalError";
             case AWSLambdaStateReasonCodeSubnetOutOfIPAddresses:
                 return @"SubnetOutOfIPAddresses";
+            case AWSLambdaStateReasonCodeInvalidSubnet:
+                return @"InvalidSubnet";
+            case AWSLambdaStateReasonCodeInvalidSecurityGroup:
+                return @"InvalidSecurityGroup";
             default:
                 return nil;
         }
