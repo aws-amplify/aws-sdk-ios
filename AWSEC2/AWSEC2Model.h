@@ -162,6 +162,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ByoipCidrState) {
     AWSEC2ByoipCidrStatePendingDeprovision,
     AWSEC2ByoipCidrStatePendingProvision,
     AWSEC2ByoipCidrStateProvisioned,
+    AWSEC2ByoipCidrStateProvisionedNotPubliclyAdvertisable,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2CancelBatchErrorCode) {
@@ -2172,6 +2173,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeInstancesResult;
 @class AWSEC2DescribeInternetGatewaysRequest;
 @class AWSEC2DescribeInternetGatewaysResult;
+@class AWSEC2DescribeIpv6PoolsRequest;
+@class AWSEC2DescribeIpv6PoolsResult;
 @class AWSEC2DescribeKeyPairsRequest;
 @class AWSEC2DescribeKeyPairsResult;
 @class AWSEC2DescribeLaunchTemplateVersionsRequest;
@@ -2409,6 +2412,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2FpgaImageAttribute;
 @class AWSEC2FpgaImageState;
 @class AWSEC2FpgaInfo;
+@class AWSEC2GetAssociatedIpv6PoolCidrsRequest;
+@class AWSEC2GetAssociatedIpv6PoolCidrsResult;
 @class AWSEC2GetCapacityReservationUsageRequest;
 @class AWSEC2GetCapacityReservationUsageResult;
 @class AWSEC2GetCoipPoolUsageRequest;
@@ -2520,7 +2525,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2InternetGatewayAttachment;
 @class AWSEC2IpPermission;
 @class AWSEC2IpRange;
+@class AWSEC2Ipv6CidrAssociation;
 @class AWSEC2Ipv6CidrBlock;
+@class AWSEC2Ipv6Pool;
 @class AWSEC2Ipv6Range;
 @class AWSEC2KeyPair;
 @class AWSEC2KeyPairInfo;
@@ -2691,6 +2698,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2PlacementGroup;
 @class AWSEC2PlacementGroupInfo;
 @class AWSEC2PlacementResponse;
+@class AWSEC2PoolCidrBlock;
 @class AWSEC2PortRange;
 @class AWSEC2PrefixList;
 @class AWSEC2PrefixListId;
@@ -3254,7 +3262,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The IPv4 address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.</p>
+ <p>The address range, in CIDR notation. This must be the exact range that you provisioned. You can't advertise only a portion of the provisioned range.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
@@ -3912,9 +3920,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable cidrBlock;
 
 /**
+ <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p><p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6CidrBlock;
+
+/**
  <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CiDR block to this location.</p><p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p><p> You can have one IPv6 CIDR block association per network border group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlockNetworkBorderGroup;
+
+/**
+ <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6Pool;
 
 /**
  <p>The ID of the VPC.</p>
@@ -4614,7 +4632,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The public IPv4 address range, in CIDR notation.</p>
+ <p>The address range, in CIDR notation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
@@ -8685,9 +8703,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2Tenancy instanceTenancy;
 
 /**
+ <p>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p><p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6CidrBlock;
+
+/**
  <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the address to this location.</p><p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlockNetworkBorderGroup;
+
+/**
+ <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6Pool;
 
 @end
 
@@ -10311,7 +10339,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The public IPv4 address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p>
+ <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
@@ -12622,6 +12650,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about one or more internet gateways.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InternetGateway *> * _Nullable internetGateways;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeIpv6PoolsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p><ul><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the IPv6 address pools.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable poolIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeIpv6PoolsResult : AWSModel
+
+
+/**
+ <p>Information about the IPv6 address pools.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Ipv6Pool *> * _Nullable ipv6Pools;
 
 /**
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -15829,7 +15908,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, <code>/28</code>).</p></li><li><p><code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.association-id</code> - The association ID for an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.state</code> - The state of an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>dhcp-options-id</code> - The ID of a set of DHCP options.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.association-id</code> - The association ID for an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>isDefault</code> - Indicates whether the VPC is the default VPC.</p></li><li><p><code>owner-id</code> - The ID of the AWS account that owns the VPC.</p></li><li><p><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you specify must exactly match the VPC's CIDR block for information to be returned for the VPC. Must contain the slash followed by one or two digits (for example, <code>/28</code>).</p></li><li><p><code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.association-id</code> - The association ID for an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>cidr-block-association.state</code> - The state of an IPv4 CIDR block associated with the VPC.</p></li><li><p><code>dhcp-options-id</code> - The ID of a set of DHCP options.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p></li><li><p><code>ipv6-cidr-block-association.association-id</code> - The association ID for an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block associated with the VPC.</p></li><li><p><code>isDefault</code> - Indicates whether the VPC is the default VPC.</p></li><li><p><code>owner-id</code> - The ID of the AWS account that owns the VPC.</p></li><li><p><code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18430,6 +18509,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The total memory of all FPGA accelerators for the instance type.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable totalFpgaMemoryInMiB;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetAssociatedIpv6PoolCidrsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The ID of the IPv6 address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable poolId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetAssociatedIpv6PoolCidrsResult : AWSModel
+
+
+/**
+ <p>Information about the IPv6 CIDR block associations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Ipv6CidrAssociation *> * _Nullable ipv6CidrAssociations;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -21938,6 +22063,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes an IPv6 CIDR block association.</p>
+ */
+@interface AWSEC2Ipv6CidrAssociation : AWSModel
+
+
+/**
+ <p>The resource that's associated with the IPv6 CIDR block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedResource;
+
+/**
+ <p>The IPv6 CIDR block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6Cidr;
+
+@end
+
+/**
  <p>Describes an IPv6 CIDR block.</p>
  */
 @interface AWSEC2Ipv6CidrBlock : AWSModel
@@ -21947,6 +22090,34 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IPv6 CIDR block.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlock;
+
+@end
+
+/**
+ <p>Describes an IPv6 address pool.</p>
+ */
+@interface AWSEC2Ipv6Pool : AWSModel
+
+
+/**
+ <p>The description for the address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The CIDR blocks for the address pool.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PoolCidrBlock *> * _Nullable poolCidrBlocks;
+
+/**
+ <p>The ID of the address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable poolId;
+
+/**
+ <p>Any tags for the address pool.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 @end
 
@@ -26457,6 +26628,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a CIDR block for an address pool.</p>
+ */
+@interface AWSEC2PoolCidrBlock : AWSModel
+
+
+/**
+ <p>The CIDR block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+@end
+
+/**
  <p>Describes a range of ports.</p>
  */
 @interface AWSEC2PortRange : AWSModel
@@ -26704,7 +26888,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The public IPv4 address range, in CIDR notation. The most specific prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
+ <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've brought to this or another Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
@@ -26723,6 +26907,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
+/**
+ <p>(IPv6 only) Indicate whether the address range will be publicly advertised to the internet.</p><p>Default: true</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable publiclyAdvertisable;
+
 @end
 
 /**
@@ -26732,7 +26921,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about the address pool.</p>
+ <p>Information about the address range.</p>
  */
 @property (nonatomic, strong) AWSEC2ByoipCidr * _Nullable byoipCidr;
 
@@ -26772,7 +26961,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an address pool.</p>
+ <p>Describes an IPv4 address pool.</p>
  */
 @interface AWSEC2PublicIpv4Pool : AWSModel
 
@@ -26788,7 +26977,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2PublicIpv4PoolRange *> * _Nullable poolAddressRanges;
 
 /**
- <p>The ID of the IPv4 address pool.</p>
+ <p>The ID of the address pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable poolId;
 
@@ -34336,6 +34525,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VpcCidrBlockState * _Nullable ipv6CidrBlockState;
 
 /**
+ <p>The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ipv6Pool;
+
+/**
  <p>The name of the location from which we advertise the IPV6 CIDR block.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
@@ -34734,7 +34928,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The public IPv4 address range, in CIDR notation.</p>
+ <p>The address range, in CIDR notation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable cidr;
 
