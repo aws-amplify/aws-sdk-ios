@@ -14,6 +14,8 @@
 
 - Model updates for the following services
   - Amazon EC2
+  - AWS KMS
+  - AWS Lambda
   
 ## 2.12.6
 
