@@ -1,16 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon EC2
- - AWS KMS
- - AWS Lambda
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -27,6 +14,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
   - Amazon EC2
+  - AWS KMS
+  - AWS Lambda
   
 ## 2.12.6
 
