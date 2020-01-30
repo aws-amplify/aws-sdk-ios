@@ -519,6 +519,7 @@ extension AWSMobileClient {
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         }
         self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
+        self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         invokeSignInCallback(signResult: nil, error: AWSMobileClientError.unableToSignIn(message: "Could not get end user to sign in."))
         self.userPoolClient?.clearAll()
     }
