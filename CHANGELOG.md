@@ -9,6 +9,8 @@
     - Fixed issue where users in a FORCE_CHANGE_PASSWORD flow are unable to update their password (See [#2203](https://github.com/aws-amplify/aws-sdk-ios/issues/2203))
   - **AWSAuthUI**
     - Fix crash on NewPasswordRequired flow when UIAlertView is presented on service error
+  - **AWSMobileClient**
+    - Fixed issue where custom auth challenge task completion wasn't being reset to nil if user logged out before completing it (See [#2261](https://github.com/aws-amplify/aws-sdk-ios/issues/2261))
 
 ### Misc. Updates
 
@@ -16,6 +18,8 @@
 
 - Model updates for the following services
   - Amazon EC2
+  - AWS KMS
+  - AWS Lambda
   
 ## 2.12.6
 
