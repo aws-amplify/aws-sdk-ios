@@ -26,6 +26,7 @@
 @property (nonatomic, strong) AWSCognitoIdentityNewPasswordRequiredInput *passwordRequiredInput;
 @property (nonatomic, strong) AWSFormTableCell *passwordRow;
 @property (nonatomic, strong) AWSFormTableDelegate *tableDelegate;
+@property (nonatomic, strong) NSError *errorOfCompletedTask;
 
 @end
 
@@ -45,6 +46,29 @@
     }
     
     [super touchesBegan:touches withEvent:event];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if (self.errorOfCompletedTask) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSError *error = self.errorOfCompletedTask;
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:error.userInfo[@"__type"]
+                                                                                     message:error.userInfo[@"message"]
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            if (self.navigationController.topViewController == self) {
+                [self presentViewController:alertController
+                                   animated:YES
+                                 completion:nil];
+            } else {
+                [self.navigationController.topViewController presentViewController:alertController animated:YES completion:^{
+                    self.navigationItem.hidesBackButton = YES;
+                    [self removeFromParentViewController];
+                }];
+            }
+        });
+    }
 }
 
 - (void)setUp {
@@ -93,21 +117,13 @@ newPasswordRequiredCompletionSource: (AWSTaskCompletionSource<AWSCognitoIdentity
 }
 /**
  This step completed, usually either display an error to the end user or dismiss ui
+ However [AWSUserPoolsUIOperations startNewPasswordRequired] will be pushing on a new view controller
+ so we will save this error, wait for the next view controller to come on the stack, and then present
+ the error once this this has completed.
  @param error the error if any that occured
  */
 -(void) didCompleteNewPasswordStepWithError:(NSError* _Nullable) error {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(error){
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:error.userInfo[@"__type"]
-                                                                                     message:error.userInfo[@"message"]
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:ok];
-            [self presentViewController:alertController
-                               animated:YES
-                             completion:nil];
-        }
-    });
+    self.errorOfCompletedTask = error;
 }
 
 @end
