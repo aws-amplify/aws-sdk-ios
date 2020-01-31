@@ -6,7 +6,7 @@
   - **Amazon IoT**
     - Fixed a crash in AWSIoTManager when importing PKCS12 data with an incorrect passphrase. (See [#1166](https://github.com/aws-amplify/aws-sdk-ios/issues/1166))
   - **AWSMobileClient, Amazon Cognito Identity Provider**
-    - Fixed issue where users in a FORCE_CHANGE_PASSWORD flow are unable to update their password (See [#2203](https://github.com/aws-amplify/aws-sdk-ios/issues/2203))
+    - Fixed issue where users in a FORCE_CHANGE_PASSWORD flow are unable to update their password.  We confirmed with the service team that we should not be sending back these parameters, and instead be sending an empty dictionary. (See [#2203](https://github.com/aws-amplify/aws-sdk-ios/issues/2203))
   - **AWSAuthUI**
     - Fix crash on NewPasswordRequired flow when UIAlertView is presented on service error
   - **AWSMobileClient**
