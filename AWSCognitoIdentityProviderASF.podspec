@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.public_header_files = 'AWSCognitoIdentityProviderASF/*.h'
   s.source_files = 'AWSCognitoIdentityProviderASF/**/*.{h,m,c}'
   s.private_header_files = 'AWSCognitoIdentityProviderASF/Internal/*.h'
-  s.vendored_libraries = 'AWSCognitoIdentityProviderASF/Internal/libAWSCognitoIdentityProviderASFBinary.a'
+  s.vendored_libraries = 'AWSCognitoIdentityProviderASF/Internal/libAWSCognitoIdentityProviderASF.a'
 end
