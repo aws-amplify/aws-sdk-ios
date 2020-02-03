@@ -103,7 +103,7 @@
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
     
     AWSEC2DescribeImagesRequest *describeImagesRequest = [AWSEC2DescribeImagesRequest new];
-    describeImagesRequest.imageIds = @[@"ami-04b2418be76894465"]; // .NET Beanstalk Cfn Container v1.0.0.0 on Windows 2008 Image ID
+    describeImagesRequest.imageIds = @[@"ami-04b2418be76894465"]; // aws-elasticbeanstalk-amzn-2018.03.20.x86_64-python36-hvm-202001170814 Image Name
     [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
