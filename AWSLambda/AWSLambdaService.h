@@ -250,7 +250,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)createAlias:(AWSLambdaCreateAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaAliasConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li></ul>
+ <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateEventSourceMapping service method.
 
@@ -262,7 +262,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request;
 
 /**
- <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li></ul>
+ <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateEventSourceMapping service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1205,7 +1205,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaTagResourceRequest
  */
@@ -1216,7 +1216,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaTagResourceRequest
  */
@@ -1227,7 +1227,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaUntagResourceRequest
  */
@@ -1238,7 +1238,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaUntagResourceRequest
  */
@@ -1270,7 +1270,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)updateAlias:(AWSLambdaUpdateAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaAliasConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li></ul>
+ <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateEventSourceMapping service method.
 
@@ -1282,7 +1282,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request;
 
 /**
- <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li></ul>
+ <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateEventSourceMapping service method.
  @param completionHandler The completion handler to call when the load request is complete.
