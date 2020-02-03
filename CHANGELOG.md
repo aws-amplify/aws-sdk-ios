@@ -13,6 +13,9 @@
     - Fixed issue where custom auth challenge task completion wasn't being reset to nil if user logged out before completing it (See [#2261](https://github.com/aws-amplify/aws-sdk-ios/issues/2261))
 
 ### Misc. Updates
+  
+  - **AWSEC2**
+    - Fix for hardcoded AMI in EC2 integration test that had been deprecated. Updated to hardcoded AMI that was created 01/2020.
 
 - Updated **AWSMobileAnalytics** podspec with `deprecated` and `deprecated_in_favor_of` attributes
 
