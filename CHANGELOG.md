@@ -18,7 +18,7 @@
     - Fix for hardcoded AMI in EC2 integration test that had been deprecated. Updated to hardcoded AMI that was created 01/2020.
 
 - Updated **AWSMobileAnalytics** podspec with `deprecated` and `deprecated_in_favor_of` attributes
-
+- Added workaround for `use_modular_headers!` inside of Podfile (experimental)
 - Model updates for the following services
   - Amazon EC2
   - AWS KMS
