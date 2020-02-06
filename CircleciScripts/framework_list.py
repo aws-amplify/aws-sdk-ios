@@ -9,16 +9,16 @@ grouped_frameworks = [
         'AWSCore',
         'AWSCognitoIdentityProviderASF',
     ],
-    
+
     # Depends only on AWSCognitoIdentityProviderASF
     ['AWSCognitoAuth'],
-    
+
     # Depends on AWSCore and AWSCognitoIdentityProviderASF
     ['AWSCognitoIdentityProvider'],
-    
+
     # Depends only on AWSCore
     ['AWSAuthCore'],
-    
+
     # Service-API packages depend only on AWSCore
     [
         'AWSAPIGateway',
