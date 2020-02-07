@@ -1,4 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
+## Unreleased
+- Fixed issue 2274 where we were not packaging x86_64-apple-ios-simulator.swiftmodule files for binary releases
 
 ## 2.12.7
 
