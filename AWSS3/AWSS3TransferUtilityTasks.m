@@ -261,7 +261,12 @@
         AWSS3TransferUtilityUploadSubTask *subTask = [self.inProgressPartsDictionary objectForKey:key];
         [subTask.sessionTask cancel];
     }
-    
+
+    for (NSNumber *key in [self.waitingPartsDictionary allKeys]) {
+        AWSS3TransferUtilityUploadSubTask *subTask = [self.waitingPartsDictionary objectForKey:key];
+        [subTask.sessionTask cancel];
+    }
+
     [AWSS3TransferUtilityDatabaseHelper deleteTransferRequestFromDB:_transferID databaseQueue:self.databaseQueue];
 }
 
