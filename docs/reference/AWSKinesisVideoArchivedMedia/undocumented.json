@@ -1,271 +1,271 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMedia.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMedia.h",
       "line": 28,
       "symbol": "AWSKinesisVideoArchivedMediaVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMedia.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMedia.h",
       "line": 39,
       "symbol": "AWSKinesisVideoArchivedMediaVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 22,
       "symbol": "AWSKinesisVideoArchivedMediaErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 24,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 24,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 25,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 26,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorClientLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 27,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorInvalidArgument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 28,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 29,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 30,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorNoDataRetention",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 31,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorNotAuthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 32,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 33,
       "symbol": "AWSKinesisVideoArchivedMediaErrorType.AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 36,
       "symbol": "AWSKinesisVideoArchivedMediaDiscontinuityMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 36,
       "symbol": "AWSKinesisVideoArchivedMediaDiscontinuityMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 37,
       "symbol": "AWSKinesisVideoArchivedMediaDiscontinuityMode.AWSKinesisVideoArchivedMediaDiscontinuityModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 38,
       "symbol": "AWSKinesisVideoArchivedMediaDiscontinuityMode.AWSKinesisVideoArchivedMediaDiscontinuityModeAlways",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 39,
       "symbol": "AWSKinesisVideoArchivedMediaDiscontinuityMode.AWSKinesisVideoArchivedMediaDiscontinuityModeNever",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 42,
       "symbol": "AWSKinesisVideoArchivedMediaFragmentSelectorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 42,
       "symbol": "AWSKinesisVideoArchivedMediaFragmentSelectorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 43,
       "symbol": "AWSKinesisVideoArchivedMediaFragmentSelectorType.AWSKinesisVideoArchivedMediaFragmentSelectorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 44,
       "symbol": "AWSKinesisVideoArchivedMediaFragmentSelectorType.AWSKinesisVideoArchivedMediaFragmentSelectorTypeProducerTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 45,
       "symbol": "AWSKinesisVideoArchivedMediaFragmentSelectorType.AWSKinesisVideoArchivedMediaFragmentSelectorTypeServerTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 48,
       "symbol": "AWSKinesisVideoArchivedMediaHLSFragmentSelectorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 48,
       "symbol": "AWSKinesisVideoArchivedMediaHLSFragmentSelectorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 49,
       "symbol": "AWSKinesisVideoArchivedMediaHLSFragmentSelectorType.AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 50,
       "symbol": "AWSKinesisVideoArchivedMediaHLSFragmentSelectorType.AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeProducerTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 51,
       "symbol": "AWSKinesisVideoArchivedMediaHLSFragmentSelectorType.AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeServerTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 54,
       "symbol": "AWSKinesisVideoArchivedMediaPlaybackMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 54,
       "symbol": "AWSKinesisVideoArchivedMediaPlaybackMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 55,
       "symbol": "AWSKinesisVideoArchivedMediaPlaybackMode.AWSKinesisVideoArchivedMediaPlaybackModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 56,
       "symbol": "AWSKinesisVideoArchivedMediaPlaybackMode.AWSKinesisVideoArchivedMediaPlaybackModeLive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaModel.h",
       "line": 57,
       "symbol": "AWSKinesisVideoArchivedMediaPlaybackMode.AWSKinesisVideoArchivedMediaPlaybackModeOnDemand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaResources.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaResources.h",
       "line": 18,
       "symbol": "AWSKinesisVideoArchivedMediaResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaResources.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaResources.h",
       "line": 20,
       "symbol": "AWSKinesisVideoArchivedMediaResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaResources.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaResources.h",
       "line": 22,
       "symbol": "AWSKinesisVideoArchivedMediaResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaService.h",
+      "file": "/Users/distiller/project/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMediaService.h",
       "line": 24,
       "symbol": "AWSKinesisVideoArchivedMediaSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
