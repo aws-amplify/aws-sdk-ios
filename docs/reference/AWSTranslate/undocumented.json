@@ -1,313 +1,313 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslate.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslate.h",
       "line": 28,
       "symbol": "AWSTranslateVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslate.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslate.h",
       "line": 39,
       "symbol": "AWSTranslateVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 22,
       "symbol": "AWSTranslateErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 24,
       "symbol": "AWSTranslateErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 24,
       "symbol": "AWSTranslateErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 25,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 26,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorDetectedLanguageLowConfidence",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 27,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorInternalServer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 28,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorInvalidFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 29,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorInvalidParameterValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 30,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorInvalidRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 31,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 32,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 33,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorServiceUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 34,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorTextSizeLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 35,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorTooManyRequests",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 36,
       "symbol": "AWSTranslateErrorType.AWSTranslateErrorUnsupportedLanguagePair",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 39,
       "symbol": "AWSTranslateEncryptionKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 39,
       "symbol": "AWSTranslateEncryptionKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 40,
       "symbol": "AWSTranslateEncryptionKeyType.AWSTranslateEncryptionKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 41,
       "symbol": "AWSTranslateEncryptionKeyType.AWSTranslateEncryptionKeyTypeKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 44,
       "symbol": "AWSTranslateJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 44,
       "symbol": "AWSTranslateJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 45,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 46,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusSubmitted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 47,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 48,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 49,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusCompletedWithError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 50,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 51,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusStopRequested",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 52,
       "symbol": "AWSTranslateJobStatus.AWSTranslateJobStatusStopped",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 55,
       "symbol": "AWSTranslateMergeStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 55,
       "symbol": "AWSTranslateMergeStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 56,
       "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 57,
       "symbol": "AWSTranslateMergeStrategy.AWSTranslateMergeStrategyOverwrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 60,
       "symbol": "AWSTranslateTerminologyDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 60,
       "symbol": "AWSTranslateTerminologyDataFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 61,
       "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 62,
       "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatCsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateModel.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateModel.h",
       "line": 63,
       "symbol": "AWSTranslateTerminologyDataFormat.AWSTranslateTerminologyDataFormatTmx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateResources.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateResources.h",
       "line": 18,
       "symbol": "AWSTranslateResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateResources.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateResources.h",
       "line": 20,
       "symbol": "AWSTranslateResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateResources.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateResources.h",
       "line": 22,
       "symbol": "AWSTranslateResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranslate/AWSTranslateService.h",
+      "file": "/Users/distiller/project/AWSTranslate/AWSTranslateService.h",
       "line": 24,
       "symbol": "AWSTranslateSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
