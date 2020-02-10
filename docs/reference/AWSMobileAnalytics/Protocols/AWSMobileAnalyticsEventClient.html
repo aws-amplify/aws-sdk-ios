@@ -14,7 +14,7 @@
     <a title="AWSMobileAnalyticsEventClient Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileAnalytics 2.12.6 Docs</a> (57% documented)</p>
+        <p><a href="../index.html">AWSMobileAnalytics 2.12.7 Docs</a> (57% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileAnalytics%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -139,22 +139,22 @@
  a purchase, the developer records a <em>\@&ldquo;level1UserBoughtUpgrade&rdquo;</em> to represent a conversion.
  </p>
  Example:</p>
-<pre class="highlight objective_c"><code> <span class="c1">// get the event client from insights instance</span>
- <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEventClient</span><span class="o">&gt;</span> <span class="n">eventClient</span> <span class="o">=</span> <span class="n">insights</span><span class="p">.</span><span class="n">eventClient</span><span class="p">;</span>
+<pre class="highlight objective_c"><code> <span class="c1">// get the event client from insights instance
+</span> <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEventClient</span><span class="o">&gt;</span> <span class="n">eventClient</span> <span class="o">=</span> <span class="n">insights</span><span class="p">.</span><span class="n">eventClient</span><span class="p">;</span>
 
- <span class="c1">// create the view event</span>
- <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEvent</span><span class="o">&gt;</span> <span class="n">level1Event</span> <span class="o">=</span> <span class="p">[</span><span class="n">eventClient</span> <span class="nf">createEventWithEventType</span><span class="p">:</span><span class="s">@"level1Complete"</span><span class="p">];</span>
+ <span class="c1">// create the view event
+</span> <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEvent</span><span class="o">&gt;</span> <span class="n">level1Event</span> <span class="o">=</span> <span class="p">[</span><span class="n">eventClient</span> <span class="nf">createEventWithEventType</span><span class="p">:</span><span class="s">@"level1Complete"</span><span class="p">];</span>
 
- <span class="c1">// record the view event</span>
- <span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">level1Event</span><span class="p">];</span>
+ <span class="c1">// record the view event
+</span> <span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">level1Event</span><span class="p">];</span>
 
- <span class="c1">// record if the user bought an upgrade (conversion)</span>
- <span class="k">if</span> <span class="p">(</span><span class="n">userBoughtUpgrade</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// create the conversion event</span>
-    <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEvent</span><span class="o">&gt;</span> <span class="n">boughtUpgradeEvent</span> <span class="o">=</span> <span class="p">[</span><span class="n">eventClient</span> <span class="nf">createEventWithEventType</span><span class="p">:</span><span class="s">@"level1UserBoughtUpgrade"</span><span class="p">];</span>
+ <span class="c1">// record if the user bought an upgrade (conversion)
+</span> <span class="k">if</span> <span class="p">(</span><span class="n">userBoughtUpgrade</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// create the conversion event
+</span>    <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEvent</span><span class="o">&gt;</span> <span class="n">boughtUpgradeEvent</span> <span class="o">=</span> <span class="p">[</span><span class="n">eventClient</span> <span class="nf">createEventWithEventType</span><span class="p">:</span><span class="s">@"level1UserBoughtUpgrade"</span><span class="p">];</span>
 
-    <span class="c1">// record the conversion event</span>
-    <span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">boughtUpgradeEvent</span><span class="p">];</span>
+    <span class="c1">// record the conversion event
+</span>    <span class="p">[</span><span class="n">eventClient</span> <span class="nf">recordEvent</span><span class="p">:</span><span class="n">boughtUpgradeEvent</span><span class="p">];</span>
  <span class="p">}</span>
 </code></pre>
 
@@ -164,11 +164,11 @@
  The SDK will automatically attempt to submit events when the application goes into the background. If you want to explicitly submit events you can invoke the AWSMobileAnalyticsEventClient::submitEvents selector to submit events to the Mobile Analytics Website in a background thread.
  </p>
  Example:</p>
-<pre class="highlight objective_c"><code> <span class="c1">// get the event client from insights instance</span>
- <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEventClient</span><span class="o">&gt;</span> <span class="n">eventClient</span> <span class="o">=</span> <span class="n">insights</span><span class="p">.</span><span class="n">eventClient</span><span class="p">;</span>
+<pre class="highlight objective_c"><code> <span class="c1">// get the event client from insights instance
+</span> <span class="n">id</span><span class="o">&lt;</span><span class="n">AWSMobileAnalyticsEventClient</span><span class="o">&gt;</span> <span class="n">eventClient</span> <span class="o">=</span> <span class="n">insights</span><span class="p">.</span><span class="n">eventClient</span><span class="p">;</span>
 
- <span class="c1">// submit events to the website</span>
- <span class="p">[</span><span class="n">eventClient</span> <span class="nf">submitEvents</span><span class="p">];</span>
+ <span class="c1">// submit events to the website
+</span> <span class="p">[</span><span class="n">eventClient</span> <span class="nf">submitEvents</span><span class="p">];</span>
 </code></pre>
 
 <p>The SDK ensures that you do not submit events too frequently. If you try submitting events within one minute of a previous
@@ -543,7 +543,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
