@@ -1,19 +1,19 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
       "line": 19,
       "symbol": "AWSGoogleSignInVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSGoogleSignIn/AWSGoogleSignIn.h",
       "line": 22,
       "symbol": "AWSGoogleSignInVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
