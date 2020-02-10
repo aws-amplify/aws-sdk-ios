@@ -1,194 +1,194 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDB.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDB.h",
       "line": 28,
       "symbol": "AWSSimpleDBVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDB.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDB.h",
       "line": 39,
       "symbol": "AWSSimpleDBVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 22,
       "symbol": "AWSSimpleDBErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 24,
       "symbol": "AWSSimpleDBErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 24,
       "symbol": "AWSSimpleDBErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 25,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 26,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorAttributeDoesNotExist",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 27,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorDuplicateItemName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 28,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorInvalidNextToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 29,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorInvalidNumberPredicates",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 30,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorInvalidNumberValueTests",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 31,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorInvalidParameterValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 32,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorInvalidQueryExpression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 33,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorMissingParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 34,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNoSuchDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 35,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNumberDomainAttributesExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 36,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNumberDomainBytesExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 37,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNumberDomainsExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 38,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNumberItemAttributesExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 39,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNumberSubmittedAttributesExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 40,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorNumberSubmittedItemsExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 41,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorRequestTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBModel.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBModel.h",
       "line": 42,
       "symbol": "AWSSimpleDBErrorType.AWSSimpleDBErrorTooManyRequestedAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBResources.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBResources.h",
       "line": 18,
       "symbol": "AWSSimpleDBResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBResources.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBResources.h",
       "line": 20,
       "symbol": "AWSSimpleDBResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBResources.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBResources.h",
       "line": 22,
       "symbol": "AWSSimpleDBResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSSimpleDB/AWSSimpleDBService.h",
+      "file": "/Users/distiller/project/AWSSimpleDB/AWSSimpleDBService.h",
       "line": 24,
       "symbol": "AWSSimpleDBSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
