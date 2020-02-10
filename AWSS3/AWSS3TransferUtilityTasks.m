@@ -236,7 +236,13 @@
 }
 
 -(NSString *)etag {
-    NSString *etag = [self.response valueForHTTPHeaderField:@"Etag"];
+    NSString *etag;
+    if (@available(iOS 13.0, *)) {
+        etag = [self.response valueForHTTPHeaderField:@"Etag"];
+    } else {
+        NSDictionary *allHeaders = [self.response allHeaderFields];
+        etag = allHeaders[@"Etag"];
+    }
     return [etag isKindOfClass:[NSString class]] ? etag : nil;
 }
 
