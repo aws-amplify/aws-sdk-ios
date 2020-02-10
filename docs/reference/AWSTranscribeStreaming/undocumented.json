@@ -1,404 +1,404 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreaming.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreaming.h",
       "line": 28,
       "symbol": "AWSTranscribeStreamingVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreaming.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreaming.h",
       "line": 39,
       "symbol": "AWSTranscribeStreamingVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 21,
       "symbol": "AWSTranscribeStreamingClientErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 23,
       "symbol": "AWSTranscribeStreamingClientErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 23,
       "symbol": "AWSTranscribeStreamingClientErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 24,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeEventSerializationError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 25,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeInvalidMessagePrelude",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 26,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeInvalidMessageLengthHeader",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 27,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeWebSocketProtocolError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 28,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeWebSocketCouldNotInitialize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 29,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeWebSocketClosedUnexpectedly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 30,
       "symbol": "AWSTranscribeStreamingClientErrorCode.AWSTranscribeStreamingClientErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 33,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 33,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 34,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus.AWSTranscribeStreamingClientConnectionStatusConnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 35,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus.AWSTranscribeStreamingClientConnectionStatusConnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 36,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus.AWSTranscribeStreamingClientConnectionStatusClosing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 37,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus.AWSTranscribeStreamingClientConnectionStatusClosed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 38,
       "symbol": "AWSTranscribeStreamingClientConnectionStatus.AWSTranscribeStreamingClientConnectionStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingClientDelegate.h",
       "line": 41,
       "symbol": "AWSTranscribeStreamingClientDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingEventDecoder.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingEventDecoder.h",
       "line": 21,
       "symbol": "AWSTranscribeStreamingEventDecoder",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 22,
       "symbol": "AWSTranscribeStreamingErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 24,
       "symbol": "AWSTranscribeStreamingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 24,
       "symbol": "AWSTranscribeStreamingErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 25,
       "symbol": "AWSTranscribeStreamingErrorType.AWSTranscribeStreamingErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 26,
       "symbol": "AWSTranscribeStreamingErrorType.AWSTranscribeStreamingErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 27,
       "symbol": "AWSTranscribeStreamingErrorType.AWSTranscribeStreamingErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 28,
       "symbol": "AWSTranscribeStreamingErrorType.AWSTranscribeStreamingErrorInternalFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 29,
       "symbol": "AWSTranscribeStreamingErrorType.AWSTranscribeStreamingErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 32,
       "symbol": "AWSTranscribeStreamingItemType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 32,
       "symbol": "AWSTranscribeStreamingItemType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 33,
       "symbol": "AWSTranscribeStreamingItemType.AWSTranscribeStreamingItemTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 34,
       "symbol": "AWSTranscribeStreamingItemType.AWSTranscribeStreamingItemTypePronunciation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 35,
       "symbol": "AWSTranscribeStreamingItemType.AWSTranscribeStreamingItemTypePunctuation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 38,
       "symbol": "AWSTranscribeStreamingLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 38,
       "symbol": "AWSTranscribeStreamingLanguageCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 39,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 40,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 41,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEnGB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 42,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeEsUS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 43,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeFrCA",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 44,
       "symbol": "AWSTranscribeStreamingLanguageCode.AWSTranscribeStreamingLanguageCodeFrFR",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 47,
       "symbol": "AWSTranscribeStreamingMediaEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 47,
       "symbol": "AWSTranscribeStreamingMediaEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 48,
       "symbol": "AWSTranscribeStreamingMediaEncoding.AWSTranscribeStreamingMediaEncodingUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingModel.h",
       "line": 49,
       "symbol": "AWSTranscribeStreamingMediaEncoding.AWSTranscribeStreamingMediaEncodingPcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingResources.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingResources.h",
       "line": 18,
       "symbol": "AWSTranscribeStreamingResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingResources.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingResources.h",
       "line": 20,
       "symbol": "AWSTranscribeStreamingResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingResources.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingResources.h",
       "line": 22,
       "symbol": "AWSTranscribeStreamingResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingService.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingService.h",
       "line": 26,
       "symbol": "AWSTranscribeStreamingSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 20,
       "symbol": "AWSTranscribeStreamingWebSocketProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 22,
       "symbol": "AWSTranscribeStreamingWebSocketProvider.clientDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 24,
       "symbol": "AWSTranscribeStreamingWebSocketProvider.-send:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 25,
       "symbol": "AWSTranscribeStreamingWebSocketProvider.-connect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 26,
       "symbol": "AWSTranscribeStreamingWebSocketProvider.-disconnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 27,
       "symbol": "AWSTranscribeStreamingWebSocketProvider.-setDelegate:dispatchQueue:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
+      "file": "/Users/distiller/project/AWSTranscribeStreaming/AWSTranscribeStreamingWebSocketProvider.h",
       "line": 29,
       "symbol": "AWSTranscribeStreamingWebSocketProvider.-configureWithURLRequest:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
