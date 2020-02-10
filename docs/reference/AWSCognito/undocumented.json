@@ -1,509 +1,509 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognito.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognito.h",
       "line": 20,
       "symbol": "AWSCognitoVersionNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognito.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognito.h",
       "line": 31,
       "symbol": "AWSCognitoVersionString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 10,
       "symbol": "AWSCognitoRecordValueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 10,
       "symbol": "AWSCognitoRecordValueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 11,
       "symbol": "AWSCognitoRecordValueType.AWSCognitoRecordValueTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 12,
       "symbol": "AWSCognitoRecordValueType.AWSCognitoRecordValueTypeString",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 13,
       "symbol": "AWSCognitoRecordValueType.AWSCognitoRecordValueTypeDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 53,
       "symbol": "AWSCognitoRecordMetadata",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 87,
       "symbol": "AWSCognitoRecordMetadata.-initWithId:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoRecord.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoRecord.h",
       "line": 100,
       "symbol": "AWSCognitoRecord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 15,
       "symbol": "AWSCognitoSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 102,
       "symbol": "AWSCognitoErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 102,
       "symbol": "AWSCognitoErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 103,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 104,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorRemoteDataStorageFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 105,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorInvalidDataValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 106,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorUserDataSizeLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 107,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorLocalDataStorageFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 108,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorIllegalArgument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 109,
       "symbol": "AWSCognitoErrorType.AWSCognitoAuthenticationFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 110,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorTaskCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 111,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorConflictRetriesExhausted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 112,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorWiFiNotAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 113,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorDeviceNotRegistered",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 114,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorSyncAlreadyPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 115,
       "symbol": "AWSCognitoErrorType.AWSCognitoErrorTimedOutWaitingForInFlightSync",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/AWSCognitoService.h",
+      "file": "/Users/distiller/project/AWSCognito/AWSCognitoService.h",
       "line": 118,
       "symbol": "AWSCognito.configuration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 22,
       "symbol": "AWSCognitoSyncErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 24,
       "symbol": "AWSCognitoSyncErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 24,
       "symbol": "AWSCognitoSyncErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 25,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 26,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorAlreadyStreamed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 27,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorConcurrentModification",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 28,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorDuplicateRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 29,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 30,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorInvalidConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 31,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorInvalidLambdaFunctionOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 32,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 33,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorLambdaThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 34,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 35,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorNotAuthorized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 36,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorResourceConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 37,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 38,
       "symbol": "AWSCognitoSyncErrorType.AWSCognitoSyncErrorTooManyRequests",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 41,
       "symbol": "AWSCognitoSyncBulkPublishStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 41,
       "symbol": "AWSCognitoSyncBulkPublishStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 42,
       "symbol": "AWSCognitoSyncBulkPublishStatus.AWSCognitoSyncBulkPublishStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 43,
       "symbol": "AWSCognitoSyncBulkPublishStatus.AWSCognitoSyncBulkPublishStatusNotStarted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 44,
       "symbol": "AWSCognitoSyncBulkPublishStatus.AWSCognitoSyncBulkPublishStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 45,
       "symbol": "AWSCognitoSyncBulkPublishStatus.AWSCognitoSyncBulkPublishStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 46,
       "symbol": "AWSCognitoSyncBulkPublishStatus.AWSCognitoSyncBulkPublishStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 49,
       "symbol": "AWSCognitoSyncOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 49,
       "symbol": "AWSCognitoSyncOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 50,
       "symbol": "AWSCognitoSyncOperation.AWSCognitoSyncOperationUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 51,
       "symbol": "AWSCognitoSyncOperation.AWSCognitoSyncOperationReplace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 52,
       "symbol": "AWSCognitoSyncOperation.AWSCognitoSyncOperationRemove",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 55,
       "symbol": "AWSCognitoSyncPlatform",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 55,
       "symbol": "AWSCognitoSyncPlatform",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 56,
       "symbol": "AWSCognitoSyncPlatform.AWSCognitoSyncPlatformUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 57,
       "symbol": "AWSCognitoSyncPlatform.AWSCognitoSyncPlatformApns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 58,
       "symbol": "AWSCognitoSyncPlatform.AWSCognitoSyncPlatformApnsSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 59,
       "symbol": "AWSCognitoSyncPlatform.AWSCognitoSyncPlatformGcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 60,
       "symbol": "AWSCognitoSyncPlatform.AWSCognitoSyncPlatformAdm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 63,
       "symbol": "AWSCognitoSyncStreamingStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 63,
       "symbol": "AWSCognitoSyncStreamingStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 64,
       "symbol": "AWSCognitoSyncStreamingStatus.AWSCognitoSyncStreamingStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 65,
       "symbol": "AWSCognitoSyncStreamingStatus.AWSCognitoSyncStreamingStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncModel.h",
       "line": 66,
       "symbol": "AWSCognitoSyncStreamingStatus.AWSCognitoSyncStreamingStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncResources.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncResources.h",
       "line": 18,
       "symbol": "AWSCognitoSyncResources",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncResources.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncResources.h",
       "line": 20,
       "symbol": "AWSCognitoSyncResources.+sharedInstance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncResources.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncResources.h",
       "line": 22,
       "symbol": "AWSCognitoSyncResources.-JSONObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognito/CognitoSync/AWSCognitoSyncService.h",
+      "file": "/Users/distiller/project/AWSCognito/CognitoSync/AWSCognitoSyncService.h",
       "line": 24,
       "symbol": "AWSCognitoSyncSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
