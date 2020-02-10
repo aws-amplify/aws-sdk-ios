@@ -14,7 +14,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLex 2.12.6 Docs</a> (54% documented)</p>
+        <p><a href="index.html">AWSLex 2.12.7 Docs</a> (54% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLex%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -253,7 +253,7 @@
 <span class="cm">/*
  * Send to delegate when the microphone has started recording.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interactionKitOnRecordingStart</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">interactionKit</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">interactionKitOnRecordingStart</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="n">interactionKit</span><span class="p">;</span>
 
 <span class="cm">/*
  * Sent to delegate when the microphone recording ends.
@@ -310,15 +310,15 @@
 <span class="cm">/*
  * Sent to delegate when an error occured from service.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interactionKit</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">interactionKit</span>
-               <span class="nf">onError</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">interactionKit</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="n">interactionKit</span>
+               <span class="n">onError</span><span class="o">:</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="n">error</span><span class="p">;</span>
 
 <span class="k">@optional</span>
 
 <span class="cm">/*
  * Sent to delegate when the all the required slots are filled, and the the fullfillment is client side.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interactionKit</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">interactionKit</span> <span class="nf">onDialogReadyForFulfillmentForIntent</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">intentName</span> <span class="nf">slots</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">slots</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">interactionKit</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="n">interactionKit</span> <span class="n">onDialogReadyForFulfillmentForIntent</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">intentName</span> <span class="n">slots</span><span class="o">:</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">slots</span><span class="p">;</span>
 
 <span class="cm">/*
  * Sent to delegate incase you want to switch modes between text and voice input.
@@ -373,7 +373,7 @@
 <span class="cm">/*
  * Sent to delegate when the Audio playback starts.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">interactionKitOnAudioPlaybackStarted</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">interactionKit</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">interactionKitOnAudioPlaybackStarted</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexInteractionKit.html">AWSLexInteractionKit</a></span> <span class="o">*</span><span class="p">)</span><span class="n">interactionKit</span><span class="p">;</span>
 
 <span class="cm">/*
  * Sent to delegate when the Audio playback finished.
@@ -419,14 +419,14 @@
 <span class="cm">/*
  * On error response.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">voiceButton</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">button</span> <span class="nf">onError</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">voiceButton</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a></span> <span class="o">*</span><span class="p">)</span><span class="n">button</span> <span class="n">onError</span><span class="o">:</span><span class="p">(</span><span class="n">NSError</span> <span class="o">*</span><span class="p">)</span><span class="n">error</span><span class="p">;</span>
 
 <span class="k">@optional</span>
 
 <span class="cm">/*
  * Response per service call.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">voiceButton</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">button</span> <span class="nf">onResponse</span><span class="p">:(</span><span class="n"><a href="Classes/AWSLexVoiceButtonResponse.html">AWSLexVoiceButtonResponse</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">response</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">voiceButton</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexVoiceButton.html">AWSLexVoiceButton</a></span> <span class="o">*</span><span class="p">)</span><span class="n">button</span> <span class="n">onResponse</span><span class="o">:</span><span class="p">(</span><span class="n"><a href="Classes/AWSLexVoiceButtonResponse.html">AWSLexVoiceButtonResponse</a></span> <span class="o">*</span><span class="p">)</span><span class="n">response</span><span class="p">;</span>
 
 <span class="cm">/*
  * If the dialog fullfillment is on the client side, this method would be invoked with the filled slots.
@@ -450,7 +450,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
