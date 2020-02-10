@@ -3569,7 +3569,7 @@
       },\
       \"input\":{\"shape\":\"RegisterImageRequest\"},\
       \"output\":{\"shape\":\"RegisterImageResult\"},\
-      \"documentation\":\"<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\\\">Creating Your Own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p> </note> <p>You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html\\\">Launching a Linux Instance from a Backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.</p> <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, do the following:</p> <ol> <li> <p>Launch an instance from an existing AMI with that billing product code.</p> </li> <li> <p>Customize the instance.</p> </li> <li> <p>Create a new AMI from the instance using <a>CreateImage</a> to preserve the billing product code association.</p> </li> </ol> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. </p> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p>\"\
+      \"documentation\":\"<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\\\">Creating Your Own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p> </note> <p>You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html\\\">Launching a Linux Instance from a Backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.</p> <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of instead of registering the AMI, do the following to preserve the billing product code association:</p> <ol> <li> <p>Launch an instance from an existing AMI with that billing product code.</p> </li> <li> <p>Customize the instance.</p> </li> <li> <p>Create an AMI from the instance using <a>CreateImage</a>.</p> </li> </ol> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. </p> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p>\"\
     },\
     \"RegisterTransitGatewayMulticastGroupMembers\":{\
       \"name\":\"RegisterTransitGatewayMulticastGroupMembers\",\
@@ -7981,6 +7981,10 @@
         \"LogFormat\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\\\">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p> <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p> <p>Only applicable to flow logs that are published to an Amazon S3 bucket.</p>\"\
+        },\
+        \"MaxAggregationInterval\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</p> <p>For network interfaces attached to <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\\\">Nitro-based instances</a>, the aggregation interval is always 60 seconds, regardless of the value that you specify.</p> <p>Default: 600</p>\"\
         }\
       }\
     },\
@@ -9575,6 +9579,11 @@
         \"PrivateDnsEnabled\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p> <p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC attributes.</p> <p>Default: <code>true</code> </p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to associate with the endpoint.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for CreateVpcEndpoint.</p>\"\
@@ -9619,6 +9628,11 @@
         \"ClientToken\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\\\">How to Ensure Idempotency</a>.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to associate with the service.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       }\
     },\
@@ -18712,6 +18726,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The format of the flow log record.</p>\",\
           \"locationName\":\"logFormat\"\
+        },\
+        \"MaxAggregationInterval\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p> <p>For network interfaces attached to <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\\\">Nitro-based instances</a>, the aggregation interval is always 60 seconds (1 minute), regardless of the specified value.</p>\",\
+          \"locationName\":\"maxAggregationInterval\"\
         }\
       },\
       \"documentation\":\"<p>Describes a flow log.</p>\"\
@@ -20307,6 +20326,16 @@
           \"shape\":\"PlatformValues\",\
           \"documentation\":\"<p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>\",\
           \"locationName\":\"platform\"\
+        },\
+        \"PlatformDetails\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The platform details associated with the billing code of the AMI. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info.html\\\">AMI Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
+          \"locationName\":\"platformDetails\"\
+        },\
+        \"UsageOperation\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The operation of the Amazon EC2 instance and the billing code associated with the AMI. <code>usageOperation</code> corresponds to the <a href=\\\"https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation\\\">lineitem/Operation</a> column on your AWS Cost and Usage Report. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info.html\\\">AMI Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\",\
+          \"locationName\":\"usageOperation\"\
         },\
         \"ProductCodes\":{\
           \"shape\":\"ProductCodeList\",\

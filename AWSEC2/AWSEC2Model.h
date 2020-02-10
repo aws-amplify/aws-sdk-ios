@@ -6727,6 +6727,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
+ <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</p><p>For network interfaces attached to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>, the aggregation interval is always 60 seconds, regardless of the value that you specify.</p><p>Default: 600</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxAggregationInterval;
+
+/**
  <p>The ID of the subnet, network interface, or VPC for which you want to create a flow log.</p><p>Constraints: Maximum of 1000 resources</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable resourceIds;
@@ -8550,6 +8555,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
 
 /**
+ <p>The tags to associate with the endpoint.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
  <p>The type of endpoint.</p><p>Default: Gateway</p>
  */
 @property (nonatomic, assign) AWSEC2VpcEndpointType vpcEndpointType;
@@ -8609,6 +8619,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The private DNS name to assign to the VPC endpoint service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateDnsName;
+
+/**
+ <p>The tags to associate with the service.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 @end
 
@@ -18308,6 +18323,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
+ <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p><p>For network interfaces attached to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>, the aggregation interval is always 60 seconds (1 minute), regardless of the specified value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxAggregationInterval;
+
+/**
  <p>The ID of the resource on which the flow log was created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceId;
@@ -19886,6 +19906,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2PlatformValues platform;
 
 /**
+ <p>The platform details associated with the billing code of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info.html">AMI Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable platformDetails;
+
+/**
  <p>Any product codes associated with the AMI.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2ProductCode *> * _Nullable productCodes;
@@ -19929,6 +19954,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Any tags assigned to the image.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The operation of the Amazon EC2 instance and the billing code associated with the AMI. <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your AWS Cost and Usage Report. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info.html">AMI Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable usageOperation;
 
 /**
  <p>The type of virtualization of the AMI.</p>
