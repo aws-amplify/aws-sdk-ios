@@ -14330,7 +14330,7 @@
         }\
       },\
       \"documentation\":\"<p>The rate exceeds the limit.</p>\",\
-      \"error\":{\"httpStatusCode\":429},\
+      \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
     \"TimedOutThings\":{\"type\":\"integer\"},\
