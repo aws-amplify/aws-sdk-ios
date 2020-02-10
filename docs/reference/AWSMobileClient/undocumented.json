@@ -1,621 +1,621 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 30,
       "symbol": "UserState.guest",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 30,
       "symbol": "UserState.signedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 30,
       "symbol": "UserState.signedOut",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 30,
       "symbol": "UserState.signedOutFederatedTokensInvalid",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 30,
       "symbol": "UserState.signedOutUserPoolsTokenInvalid",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 30,
       "symbol": "UserState.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 143,
       "symbol": "AWSMobileClient.deviceOperations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
       "line": 194,
       "symbol": "AWSMobileClient.handleAuthResponse(_:open:sourceApplication:annotation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1001,
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
+      "line": 1002,
       "symbol": "AWSMobileClient.getViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1009,
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
+      "line": 1010,
       "symbol": "AWSMobileClient.shouldLaunchSignInVCIfRefreshTokenIsExpired()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
       "line": 143,
       "symbol": "IdentityProvider.facebook",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
       "line": 144,
       "symbol": "IdentityProvider.google",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
       "line": 145,
       "symbol": "IdentityProvider.twitter",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
       "line": 146,
       "symbol": "IdentityProvider.amazon",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
       "line": 147,
       "symbol": "IdentityProvider.developer",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 24,
       "symbol": "AWSMobileClientError.aliasExists(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 25,
       "symbol": "AWSMobileClientError.codeDeliveryFailure(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 26,
       "symbol": "AWSMobileClientError.codeMismatch(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 27,
       "symbol": "AWSMobileClientError.expiredCode(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 28,
       "symbol": "AWSMobileClientError.groupExists(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 29,
       "symbol": "AWSMobileClientError.internalError(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 30,
       "symbol": "AWSMobileClientError.invalidLambdaResponse(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 31,
       "symbol": "AWSMobileClientError.invalidOAuthFlow(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 32,
       "symbol": "AWSMobileClientError.invalidParameter(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 33,
       "symbol": "AWSMobileClientError.invalidPassword(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 34,
       "symbol": "AWSMobileClientError.invalidUserPoolConfiguration(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 35,
       "symbol": "AWSMobileClientError.limitExceeded(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 36,
       "symbol": "AWSMobileClientError.mfaMethodNotFound(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 37,
       "symbol": "AWSMobileClientError.notAuthorized(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 38,
       "symbol": "AWSMobileClientError.passwordResetRequired(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 39,
       "symbol": "AWSMobileClientError.resourceNotFound(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 40,
       "symbol": "AWSMobileClientError.scopeDoesNotExist(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 41,
       "symbol": "AWSMobileClientError.softwareTokenMFANotFound(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 42,
       "symbol": "AWSMobileClientError.tooManyFailedAttempts(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 43,
       "symbol": "AWSMobileClientError.tooManyRequests(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 44,
       "symbol": "AWSMobileClientError.unexpectedLambda(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 45,
       "symbol": "AWSMobileClientError.userLambdaValidation(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 46,
       "symbol": "AWSMobileClientError.userNotConfirmed(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 47,
       "symbol": "AWSMobileClientError.userNotFound(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 48,
       "symbol": "AWSMobileClientError.usernameExists(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 49,
       "symbol": "AWSMobileClientError.unknown(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 50,
       "symbol": "AWSMobileClientError.notSignedIn(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 51,
       "symbol": "AWSMobileClientError.identityIdUnavailable(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 52,
       "symbol": "AWSMobileClientError.guestAccessNotAllowed(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 53,
       "symbol": "AWSMobileClientError.federationProviderExists(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 54,
       "symbol": "AWSMobileClientError.cognitoIdentityPoolNotConfigured(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 55,
       "symbol": "AWSMobileClientError.unableToSignIn(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 56,
       "symbol": "AWSMobileClientError.invalidState(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 57,
       "symbol": "AWSMobileClientError.userPoolNotConfigured(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 58,
       "symbol": "AWSMobileClientError.userCancelledSignIn(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 59,
       "symbol": "AWSMobileClientError.badRequest(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 60,
       "symbol": "AWSMobileClientError.expiredRefreshToken(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 61,
       "symbol": "AWSMobileClientError.errorLoadingPage(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 62,
       "symbol": "AWSMobileClientError.securityFailed(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 63,
       "symbol": "AWSMobileClientError.idTokenNotIssued(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 64,
       "symbol": "AWSMobileClientError.idTokenAndAcceessTokenNotIssued(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 65,
       "symbol": "AWSMobileClientError.invalidConfiguration(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 66,
       "symbol": "AWSMobileClientError.deviceNotRemembered(message:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 227,
       "symbol": "SignInState.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 228,
       "symbol": "SignInState.smsMFA",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 229,
       "symbol": "SignInState.passwordVerifier",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 230,
       "symbol": "SignInState.customChallenge",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 231,
       "symbol": "SignInState.deviceSRPAuth",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 232,
       "symbol": "SignInState.devicePasswordVerifier",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 233,
       "symbol": "SignInState.adminNoSRPAuth",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 234,
       "symbol": "SignInState.newPasswordRequired",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 235,
       "symbol": "SignInState.signedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 240,
       "symbol": "ForgotPasswordState.confirmationCodeSent",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 240,
       "symbol": "ForgotPasswordState.done",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 245,
       "symbol": "ForgotPasswordResult.forgotPasswordState",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 246,
       "symbol": "ForgotPasswordResult.codeDeliveryDetails",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 256,
       "symbol": "SignUpConfirmationState.confirmed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 256,
       "symbol": "SignUpConfirmationState.unconfirmed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 256,
       "symbol": "SignUpConfirmationState.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 261,
       "symbol": "SignInResult.signInState",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 262,
       "symbol": "SignInResult.parameters",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 263,
       "symbol": "SignInResult.codeDetails",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 274,
       "symbol": "SignUpResult.codeDeliveryDetails",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 275,
       "symbol": "SignUpResult.signUpConfirmationState",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 285,
       "symbol": "UserCodeDeliveryMedium.email",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 285,
       "symbol": "UserCodeDeliveryMedium.sms",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 285,
       "symbol": "UserCodeDeliveryMedium.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 290,
       "symbol": "UserCodeDeliveryDetails.deliveryMedium",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 291,
       "symbol": "UserCodeDeliveryDetails.destination",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 292,
       "symbol": "UserCodeDeliveryDetails.attributeName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
       "line": 300,
       "symbol": "UserCodeDeliveryDetails.getUserCodeDeliveryDetails(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/DeviceOperations.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/DeviceOperations.swift",
       "line": 48,
       "symbol": "ListDevicesResult.devices",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/DeviceOperations.swift",
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/DeviceOperations.swift",
       "line": 49,
       "symbol": "ListDevicesResult.paginationToken",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
