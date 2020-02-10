@@ -1,96 +1,96 @@
 {
   "warnings": [
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 22,
       "symbol": "AWSCognitoAuthSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 45,
       "symbol": "AWSCognitoAuthClientErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 45,
       "symbol": "AWSCognitoAuthClientErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 46,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 47,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorUserCanceledOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 48,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorLoadingPageFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 49,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 50,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorSecurityFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 51,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientInvalidAuthenticationDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 52,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientNoIdTokenIssued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 53,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorExpiredRefreshToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 56,
       "symbol": "AWSCognitoAuthGetSessionBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/mdlaw/aws-amplify/aws-sdk-ios/AWSCognitoAuth/AWSCognitoAuth.h",
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
       "line": 57,
       "symbol": "AWSCognitoAuthSignOutBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/mdlaw/aws-amplify/aws-sdk-ios"
+  "source_directory": "/Users/distiller/project"
 }
