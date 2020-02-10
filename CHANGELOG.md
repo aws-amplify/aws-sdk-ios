@@ -1,6 +1,4 @@
 # AWS Mobile SDK for iOS CHANGELOG
-## Unreleased
-- Fixed issue 2274 where we were not packaging x86_64-apple-ios-simulator.swiftmodule files for binary releases
 
 ## 2.12.7
 
@@ -14,6 +12,7 @@
   - Fix crash on NewPasswordRequired flow when UIAlertView is presented on service error
 - **AWSMobileClient**
   - Fixed issue where custom auth challenge task completion wasn't being reset to nil if user logged out before completing it (See [#2261](https://github.com/aws-amplify/aws-sdk-ios/issues/2261))
+- Include x86_64-apple-ios-simulator.swiftmodule files for binary releases (See [#2274](https://github.com/aws-amplify/aws-sdk-ios/issues/2274))
 
 ### Misc. Updates
   
