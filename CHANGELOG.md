@@ -1,15 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
-- Amazon EC2
- - Amazon IoT
-
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.7
@@ -32,8 +20,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - **AWSMobileAnalytics**
   - Updated podspec with `deprecated` and `deprecated_in_favor_of` attributes
 - Added workaround for `use_modular_headers!` inside of Podfile (experimental)
-- Model updates for the following services
+- Model updates for the following services:
   - Amazon EC2
+  - Amazon IoT
   - AWS KMS
   - AWS Lambda
   
