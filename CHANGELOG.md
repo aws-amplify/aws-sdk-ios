@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon EC2
+ - Amazon IoT
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.7
