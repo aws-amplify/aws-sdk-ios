@@ -14,7 +14,7 @@
     <a title="Categories  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1066,20 +1066,20 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NSArray</span> <span class="p">(</span><span class="nl">AWSMTLManipulationAdditions</span><span class="p">)</span>
 
-<span class="c1">// The first object in the array or nil if the array is empty.</span>
-<span class="c1">// Forwards to `firstObject` which has been first declared in iOS7, but works with iOS4/10.6.</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">id</span> <span class="n">awsmtl_firstObject</span><span class="p">;</span>
+<span class="c1">// The first object in the array or nil if the array is empty.
+// Forwards to `firstObject` which has been first declared in iOS7, but works with iOS4/10.6.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">id</span> <span class="n">awsmtl_firstObject</span><span class="p">;</span>
 
-<span class="c1">// Returns a new array without all instances of the given object.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_arrayByRemovingObject</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span>
+<span class="c1">// Returns a new array without all instances of the given object.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_arrayByRemovingObject</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span>
 
-<span class="c1">// Returns a new array without the first object. If the array is empty, it</span>
-<span class="c1">// returns the empty array.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">awsmtl_arrayByRemovingFirstObject</span><span class="p">;</span>
+<span class="c1">// Returns a new array without the first object. If the array is empty, it
+// returns the empty array.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">awsmtl_arrayByRemovingFirstObject</span><span class="p">;</span>
 
-<span class="c1">// Returns a new array without the last object. If the array is empty, it</span>
-<span class="c1">// returns the empty array.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">awsmtl_arrayByRemovingLastObject</span><span class="p">;</span>
+<span class="c1">// Returns a new array without the last object. If the array is empty, it
+// returns the empty array.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="n">awsmtl_arrayByRemovingLastObject</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1111,17 +1111,17 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NSDictionary</span> <span class="p">(</span><span class="nl">AWSMTLManipulationAdditions</span><span class="p">)</span>
 
-<span class="c1">// Merges the keys and values from the given dictionary into the receiver. If</span>
-<span class="c1">// both the receiver and `dictionary` have a given key, the value from</span>
-<span class="c1">// `dictionary` is used.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a new dictionary containing the entries of the receiver combined with</span>
-<span class="c1">// those of `dictionary`.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_dictionaryByAddingEntriesFromDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span>
+<span class="c1">// Merges the keys and values from the given dictionary into the receiver. If
+// both the receiver and `dictionary` have a given key, the value from
+// `dictionary` is used.
+//
+// Returns a new dictionary containing the entries of the receiver combined with
+// those of `dictionary`.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_dictionaryByAddingEntriesFromDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span>
 
-<span class="c1">// Creates a new dictionary with all the entries for the given keys removed from</span>
-<span class="c1">// the receiver.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_dictionaryByRemovingEntriesWithKeys</span><span class="p">:(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nv">keys</span><span class="p">;</span>
+<span class="c1">// Creates a new dictionary with all the entries for the given keys removed from
+// the receiver.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_dictionaryByRemovingEntriesWithKeys</span><span class="p">:(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="nv">keys</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1153,13 +1153,13 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NSValueTransformer</span> <span class="p">(</span><span class="nl">AWSMTLInversionAdditions</span><span class="p">)</span>
 
-<span class="c1">// Flips the direction of the receiver's transformation, such that</span>
-<span class="c1">// -transformedValue: will become -reverseTransformedValue:, and vice-versa.</span>
-<span class="c1">//</span>
-<span class="c1">// The receiver must allow reverse transformation.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an inverted transformer.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="n">awsmtl_invertedTransformer</span><span class="p">;</span>
+<span class="c1">// Flips the direction of the receiver's transformation, such that
+// -transformedValue: will become -reverseTransformedValue:, and vice-versa.
+//
+// The receiver must allow reverse transformation.
+//
+// Returns an inverted transformer.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="n">awsmtl_invertedTransformer</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1191,57 +1191,57 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NSValueTransformer</span> <span class="p">(</span><span class="nl">AWSMTLPredefinedTransformerAdditions</span><span class="p">)</span>
 
-<span class="c1">// Creates a reversible transformer to convert a JSON dictionary into a MTLModel</span>
-<span class="c1">// object, and vice-versa.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass - The MTLModel subclass to attempt to parse from the JSON. This</span>
-<span class="c1">//              class must conform to &lt;MTLJSONSerializing&gt;. This argument must</span>
-<span class="c1">//              not be nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a reversible transformer which uses MTLJSONAdapter for transforming</span>
-<span class="c1">// values back and forth.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_JSONDictionaryTransformerWithModelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span><span class="p">;</span>
+<span class="c1">// Creates a reversible transformer to convert a JSON dictionary into a MTLModel
+// object, and vice-versa.
+//
+// modelClass - The MTLModel subclass to attempt to parse from the JSON. This
+//              class must conform to &lt;MTLJSONSerializing&gt;. This argument must
+//              not be nil.
+//
+// Returns a reversible transformer which uses MTLJSONAdapter for transforming
+// values back and forth.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_JSONDictionaryTransformerWithModelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span><span class="p">;</span>
 
-<span class="c1">// Creates a reversible transformer to convert an array of JSON dictionaries</span>
-<span class="c1">// into an array of MTLModel objects, and vice-versa.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass - The MTLModel subclass to attempt to parse from each JSON</span>
-<span class="c1">//              dictionary. This class must conform to &lt;MTLJSONSerializing&gt;.</span>
-<span class="c1">//              This argument must not be nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a reversible transformer which uses MTLJSONAdapter for transforming</span>
-<span class="c1">// array elements back and forth.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_JSONArrayTransformerWithModelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span><span class="p">;</span>
+<span class="c1">// Creates a reversible transformer to convert an array of JSON dictionaries
+// into an array of MTLModel objects, and vice-versa.
+//
+// modelClass - The MTLModel subclass to attempt to parse from each JSON
+//              dictionary. This class must conform to &lt;MTLJSONSerializing&gt;.
+//              This argument must not be nil.
+//
+// Returns a reversible transformer which uses MTLJSONAdapter for transforming
+// array elements back and forth.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_JSONArrayTransformerWithModelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span><span class="p">;</span>
 
-<span class="c1">// A reversible value transformer to transform between the keys and objects of a</span>
-<span class="c1">// dictionary.</span>
-<span class="c1">//</span>
-<span class="c1">// dictionary          - The dictionary whose keys and values should be</span>
-<span class="c1">//                       transformed between. This argument must not be nil.</span>
-<span class="c1">// defaultValue        - The result to fall back to, in case no key matching the</span>
-<span class="c1">//                       input value was found during a forward transformation.</span>
-<span class="c1">// reverseDefaultValue - The result to fall back to, in case no value matching</span>
-<span class="c1">//                       the input value was found during a reverse</span>
-<span class="c1">//                       transformation.</span>
-<span class="c1">//</span>
-<span class="c1">// Can for example be used for transforming between enum values and their string</span>
-<span class="c1">// representation.</span>
-<span class="c1">//</span>
-<span class="c1">//   NSValueTransformer *valueTransformer = [NSValueTransformer awsmtl_valueMappingTransformerWithDictionary:@{</span>
-<span class="c1">//     @"foo": @(EnumDataTypeFoo),</span>
-<span class="c1">//     @"bar": @(EnumDataTypeBar),</span>
-<span class="c1">//   } defaultValue: @(EnumDataTypeUndefined) reverseDefaultValue: @"undefined"];</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a transformer that will map from keys to values in dictionary</span>
-<span class="c1">// for forward transformation, and from values to keys for reverse</span>
-<span class="c1">// transformations. If no matching key or value can be found, the respective</span>
-<span class="c1">// default value is returned.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_valueMappingTransformerWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span> <span class="nf">defaultValue</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">defaultValue</span> <span class="nf">reverseDefaultValue</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">reverseDefaultValue</span><span class="p">;</span>
+<span class="c1">// A reversible value transformer to transform between the keys and objects of a
+// dictionary.
+//
+// dictionary          - The dictionary whose keys and values should be
+//                       transformed between. This argument must not be nil.
+// defaultValue        - The result to fall back to, in case no key matching the
+//                       input value was found during a forward transformation.
+// reverseDefaultValue - The result to fall back to, in case no value matching
+//                       the input value was found during a reverse
+//                       transformation.
+//
+// Can for example be used for transforming between enum values and their string
+// representation.
+//
+//   NSValueTransformer *valueTransformer = [NSValueTransformer awsmtl_valueMappingTransformerWithDictionary:@{
+//     @"foo": @(EnumDataTypeFoo),
+//     @"bar": @(EnumDataTypeBar),
+//   } defaultValue: @(EnumDataTypeUndefined) reverseDefaultValue: @"undefined"];
+//
+// Returns a transformer that will map from keys to values in dictionary
+// for forward transformation, and from values to keys for reverse
+// transformations. If no matching key or value can be found, the respective
+// default value is returned.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_valueMappingTransformerWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span> <span class="nf">defaultValue</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">defaultValue</span> <span class="nf">reverseDefaultValue</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">reverseDefaultValue</span><span class="p">;</span>
 
-<span class="c1">// Returns a value transformer created by calling</span>
-<span class="c1">// `+mtl_valueMappingTransformerWithDictionary:defaultValue:reverseDefaultValue:`</span>
-<span class="c1">// with a default value of `nil` and a reverse default value of `nil`.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_valueMappingTransformerWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span>
+<span class="c1">// Returns a value transformer created by calling
+// `+mtl_valueMappingTransformerWithDictionary:defaultValue:reverseDefaultValue:`
+// with a default value of `nil` and a reverse default value of `nil`.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">awsmtl_valueMappingTransformerWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionary</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1671,7 +1671,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

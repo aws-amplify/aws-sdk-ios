@@ -14,7 +14,7 @@
     <a title="AWSMTLJSONAdapter Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -977,97 +977,97 @@
                 <div class="language">
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLJSONAdapter</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="c1">// The model object that the receiver was initialized with, or that the receiver</span>
-<span class="c1">// parsed from a JSON dictionary.</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="n">model</span><span class="p">;</span>
+<span class="c1">// The model object that the receiver was initialized with, or that the receiver
+// parsed from a JSON dictionary.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="n">model</span><span class="p">;</span>
 
-<span class="c1">// Attempts to parse a JSON dictionary into a model object.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass     - The MTLModel subclass to attempt to parse from the JSON.</span>
-<span class="c1">//                  This class must conform to &lt;MTLJSONSerializing&gt;. This</span>
-<span class="c1">//                  argument must not be nil.</span>
-<span class="c1">// JSONDictionary - A dictionary representing JSON data. This should match the</span>
-<span class="c1">//                  format returned by NSJSONSerialization. If this argument is</span>
-<span class="c1">//                  nil, the method returns nil.</span>
-<span class="c1">// error          - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//                  parsing or initializing an instance of `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an instance of `modelClass` upon success, or nil if a parsing error</span>
-<span class="c1">// occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Attempts to parse a JSON dictionary into a model object.
+//
+// modelClass     - The MTLModel subclass to attempt to parse from the JSON.
+//                  This class must conform to &lt;MTLJSONSerializing&gt;. This
+//                  argument must not be nil.
+// JSONDictionary - A dictionary representing JSON data. This should match the
+//                  format returned by NSJSONSerialization. If this argument is
+//                  nil, the method returns nil.
+// error          - If not NULL, this may be set to an error that occurs during
+//                  parsing or initializing an instance of `modelClass`.
+//
+// Returns an instance of `modelClass` upon success, or nil if a parsing error
+// occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Attempts to parse an array of JSON dictionary objects into a model objects</span>
-<span class="c1">// of a specific class.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass - The MTLModel subclass to attempt to parse from the JSON. This</span>
-<span class="c1">//              class must conform to &lt;MTLJSONSerializing&gt;. This argument must</span>
-<span class="c1">//              not be nil.</span>
-<span class="c1">// JSONArray  - A array of dictionaries representing JSON data. This should</span>
-<span class="c1">//              match the format returned by NSJSONSerialization. If this</span>
-<span class="c1">//              argument is nil, the method returns nil.</span>
-<span class="c1">// error      - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//              parsing or initializing an any of the instances of</span>
-<span class="c1">//              `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an array of `modelClass` instances upon success, or nil if a parsing</span>
-<span class="c1">// error occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">modelsOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONArray</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONArray</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Attempts to parse an array of JSON dictionary objects into a model objects
+// of a specific class.
+//
+// modelClass - The MTLModel subclass to attempt to parse from the JSON. This
+//              class must conform to &lt;MTLJSONSerializing&gt;. This argument must
+//              not be nil.
+// JSONArray  - A array of dictionaries representing JSON data. This should
+//              match the format returned by NSJSONSerialization. If this
+//              argument is nil, the method returns nil.
+// error      - If not NULL, this may be set to an error that occurs during
+//              parsing or initializing an any of the instances of
+//              `modelClass`.
+//
+// Returns an array of `modelClass` instances upon success, or nil if a parsing
+// error occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">modelsOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONArray</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONArray</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Converts a model into a JSON representation.</span>
-<span class="c1">//</span>
-<span class="c1">// model - The model to use for JSON serialization. This argument must not be</span>
-<span class="c1">//         nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a JSON dictionary, or nil if a serialization error occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONDictionaryFromModel</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+<span class="c1">// Converts a model into a JSON representation.
+//
+// model - The model to use for JSON serialization. This argument must not be
+//         nil.
+//
+// Returns a JSON dictionary, or nil if a serialization error occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONDictionaryFromModel</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
 
-<span class="c1">// Converts a array of models into a JSON representation.</span>
-<span class="c1">//</span>
-<span class="c1">// models - The array of models to use for JSON serialization. This argument</span>
-<span class="c1">//          must not be nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a JSON array, or nil if a serialization error occurred for any</span>
-<span class="c1">// model.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONArrayFromModels</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">models</span><span class="p">;</span>
+<span class="c1">// Converts a array of models into a JSON representation.
+//
+// models - The array of models to use for JSON serialization. This argument
+//          must not be nil.
+//
+// Returns a JSON array, or nil if a serialization error occurred for any
+// model.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONArrayFromModels</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">models</span><span class="p">;</span>
 
-<span class="c1">// Initializes the receiver by attempting to parse a JSON dictionary into</span>
-<span class="c1">// a model object.</span>
-<span class="c1">//</span>
-<span class="c1">// JSONDictionary - A dictionary representing JSON data. This should match the</span>
-<span class="c1">//                  format returned by NSJSONSerialization. If this argument is</span>
-<span class="c1">//                  nil, the method returns nil and an error with code</span>
-<span class="c1">//                  MTLJSONAdapterErrorInvalidJSONDictionary.</span>
-<span class="c1">// modelClass     - The MTLModel subclass to attempt to parse from the JSON.</span>
-<span class="c1">//                  This class must conform to &lt;MTLJSONSerializing&gt;. This</span>
-<span class="c1">//                  argument must not be nil.</span>
-<span class="c1">// error          - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//                  parsing or initializing an instance of `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an initialized adapter upon success, or nil if a parsing error</span>
-<span class="c1">// occurred.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">modelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Initializes the receiver by attempting to parse a JSON dictionary into
+// a model object.
+//
+// JSONDictionary - A dictionary representing JSON data. This should match the
+//                  format returned by NSJSONSerialization. If this argument is
+//                  nil, the method returns nil and an error with code
+//                  MTLJSONAdapterErrorInvalidJSONDictionary.
+// modelClass     - The MTLModel subclass to attempt to parse from the JSON.
+//                  This class must conform to &lt;MTLJSONSerializing&gt;. This
+//                  argument must not be nil.
+// error          - If not NULL, this may be set to an error that occurs during
+//                  parsing or initializing an instance of `modelClass`.
+//
+// Returns an initialized adapter upon success, or nil if a parsing error
+// occurred.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">modelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Initializes the receiver with an existing model.</span>
-<span class="c1">//</span>
-<span class="c1">// model - The model to use for JSON serialization. This argument must not be</span>
-<span class="c1">//         nil.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithModel</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+<span class="c1">// Initializes the receiver with an existing model.
+//
+// model - The model to use for JSON serialization. This argument must not be
+//         nil.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithModel</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
 
-<span class="c1">// Serializes the receiver's `model` into JSON.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a JSON dictionary, or nil if a serialization error occurred.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDictionary</span><span class="p">;</span>
+<span class="c1">// Serializes the receiver's `model` into JSON.
+//
+// Returns a JSON dictionary, or nil if a serialization error occurred.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDictionary</span><span class="p">;</span>
 
-<span class="c1">// Looks up the JSON key path in the model's +propertyKeys.</span>
-<span class="c1">//</span>
-<span class="c1">// Subclasses may override this method to customize the adapter's seralizing</span>
-<span class="c1">// behavior. You should not call this method directly.</span>
-<span class="c1">//</span>
-<span class="c1">// key - The property key to retrieve the corresponding JSON key path for. This</span>
-<span class="c1">//       argument must not be nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a key path to use, or nil to omit the property from JSON.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONKeyPathForPropertyKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+<span class="c1">// Looks up the JSON key path in the model's +propertyKeys.
+//
+// Subclasses may override this method to customize the adapter's seralizing
+// behavior. You should not call this method directly.
+//
+// key - The property key to retrieve the corresponding JSON key path for. This
+//       argument must not be nil.
+//
+// Returns a key path to use, or nil to omit the property from JSON.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONKeyPathForPropertyKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1459,7 +1459,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

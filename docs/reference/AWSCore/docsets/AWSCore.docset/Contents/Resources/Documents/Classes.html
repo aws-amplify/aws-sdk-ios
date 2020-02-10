@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -3217,8 +3217,8 @@ Cognito (and optionally STS) to establish credentials.</li>
 
     <span class="n">FMResultSet</span> <span class="o">*</span><span class="n">rs</span> <span class="o">=</span> <span class="p">[</span><span class="n">db</span> <span class="nf">executeQuery</span><span class="p">:</span><span class="s">@"select * from foo"</span><span class="p">];</span>
     <span class="k">while</span> <span class="p">([</span><span class="n">rs</span> <span class="nf">next</span><span class="p">])</span> <span class="p">{</span>
-        <span class="c1">//…</span>
-    <span class="p">}</span>
+        <span class="c1">//…
+</span>    <span class="p">}</span>
 <span class="p">}];</span>
 </code></pre>
 
@@ -3232,8 +3232,8 @@ Cognito (and optionally STS) to establish credentials.</li>
         <span class="o">*</span><span class="n">rollback</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="c1">// etc…</span>
-    <span class="p">[</span><span class="n">db</span> <span class="nf">executeUpdate</span><span class="p">:</span><span class="s">@"INSERT INTO myTable VALUES (?)"</span><span class="p">,</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithInt</span><span class="p">:</span><span class="mi">4</span><span class="p">]];</span>
+    <span class="c1">// etc…
+</span>    <span class="p">[</span><span class="n">db</span> <span class="nf">executeUpdate</span><span class="p">:</span><span class="s">@"INSERT INTO myTable VALUES (?)"</span><span class="p">,</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithInt</span><span class="p">:</span><span class="mi">4</span><span class="p">]];</span>
 <span class="p">}];</span>
 </code></pre>
 
@@ -3377,10 +3377,10 @@ Cognito (and optionally STS) to establish credentials.</li>
     <span class="n">NSDateFormatter</span>     <span class="o">*</span><span class="n">_dateFormat</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">///-----------------</span>
-<span class="c1">/// @name Properties</span>
-<span class="c1">///-----------------</span>
-
+<span class="c1">///-----------------
+/// @name Properties
+///-----------------
+</span>
 <span class="cm">/** Whether should trace execution */</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">atomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">traceExecution</span><span class="p">;</span>
@@ -3401,10 +3401,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">atomic</span><span class="p">,</span> <span class="n">retain</span><span class="p">)</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="n">cachedStatements</span><span class="p">;</span>
 
-<span class="c1">///---------------------</span>
-<span class="c1">/// @name Initialization</span>
-<span class="c1">///---------------------</span>
-
+<span class="c1">///---------------------
+/// @name Initialization
+///---------------------
+</span>
 <span class="cm">/** Create a `FMDatabase` object.
  
  An `FMDatabase` is created with a path to a SQLite database file.  This path can be one of these three:
@@ -3462,10 +3462,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithPath</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">inPath</span><span class="p">;</span>
 
 
-<span class="c1">///-----------------------------------</span>
-<span class="c1">/// @name Opening and closing database</span>
-<span class="c1">///-----------------------------------</span>
-
+<span class="c1">///-----------------------------------
+/// @name Opening and closing database
+///-----------------------------------
+</span>
 <span class="cm">/** Opening a new database connection
  
  The database is opened for reading and writing, and is created if it does not already exist.
@@ -3533,10 +3533,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">goodConnection</span><span class="p">;</span>
 
 
-<span class="c1">///----------------------</span>
-<span class="c1">/// @name Perform updates</span>
-<span class="c1">///----------------------</span>
-
+<span class="c1">///----------------------
+/// @name Perform updates
+///----------------------
+</span>
 <span class="cm">/** Execute single update statement
  
  This method executes a single SQL update statement (i.e. any SQL that does not return results, such as `UPDATE`, `INSERT`, or `DELETE`. This method employs [`sqlite3_prepare_v2`](http://sqlite.org/c3ref/prepare.html), [`sqlite3_bind`](http://sqlite.org/c3ref/bind_blob.html) to bind values to `?` placeholders in the SQL with the optional list of parameters, and [`sqlite_step`](http://sqlite.org/c3ref/step.html) to perform the update.
@@ -3740,10 +3740,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">changes</span><span class="p">;</span>
 
 
-<span class="c1">///-------------------------</span>
-<span class="c1">/// @name Retrieving results</span>
-<span class="c1">///-------------------------</span>
-
+<span class="c1">///-------------------------
+/// @name Retrieving results
+///-------------------------
+</span>
 <span class="cm">/** Execute select statement
 
  Executing queries returns an `&lt;FMResultSet&gt;` object if successful, and `nil` upon failure.  Like executing updates, there is a variant that accepts an `NSError **` parameter.  Otherwise you should use the `&lt;lastErrorMessage&gt;` and `&lt;lastErrorMessage&gt;` methods to determine why a query failed.
@@ -3834,13 +3834,13 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n"><a href="Classes/AWSFMResultSet.html">AWSFMResultSet</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">executeQuery</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">sql</span> <span class="nf">withParameterDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">arguments</span><span class="p">;</span>
 
 
-<span class="c1">// Documentation forthcoming.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n"><a href="Classes/AWSFMResultSet.html">AWSFMResultSet</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">executeQuery</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">sql</span> <span class="nf">withVAList</span><span class="p">:</span> <span class="p">(</span><span class="kt">va_list</span><span class="p">)</span><span class="nv">args</span><span class="p">;</span>
+<span class="c1">// Documentation forthcoming.
+</span><span class="k">-</span> <span class="p">(</span><span class="n"><a href="Classes/AWSFMResultSet.html">AWSFMResultSet</a></span> <span class="o">*</span><span class="p">)</span><span class="nf">executeQuery</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">sql</span> <span class="nf">withVAList</span><span class="p">:</span> <span class="p">(</span><span class="kt">va_list</span><span class="p">)</span><span class="nv">args</span><span class="p">;</span>
 
-<span class="c1">///-------------------</span>
-<span class="c1">/// @name Transactions</span>
-<span class="c1">///-------------------</span>
-
+<span class="c1">///-------------------
+/// @name Transactions
+///-------------------
+</span>
 <span class="cm">/** Begin a transaction
  
  @return `YES` on success; `NO` on failure. If failed, you can call `&lt;lastError&gt;`, `&lt;lastErrorCode&gt;`, or `&lt;lastErrorMessage&gt;` for diagnostic information regarding the failure.
@@ -3906,10 +3906,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">inTransaction</span><span class="p">;</span>
 
 
-<span class="c1">///----------------------------------------</span>
-<span class="c1">/// @name Cached statements and result sets</span>
-<span class="c1">///----------------------------------------</span>
-
+<span class="c1">///----------------------------------------
+/// @name Cached statements and result sets
+///----------------------------------------
+</span>
 <span class="cm">/** Clear cached statements */</span>
 
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">clearCachedStatements</span><span class="p">;</span>
@@ -3940,10 +3940,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setShouldCacheStatements</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">value</span><span class="p">;</span>
 
 
-<span class="c1">///-------------------------</span>
-<span class="c1">/// @name Encryption methods</span>
-<span class="c1">///-------------------------</span>
-
+<span class="c1">///-------------------------
+/// @name Encryption methods
+///-------------------------
+</span>
 <span class="cm">/** Set encryption key.
  
  @param key The key to be used.
@@ -3997,10 +3997,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">rekeyWithData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyData</span><span class="p">;</span>
 
 
-<span class="c1">///------------------------------</span>
-<span class="c1">/// @name General inquiry methods</span>
-<span class="c1">///------------------------------</span>
-
+<span class="c1">///------------------------------
+/// @name General inquiry methods
+///------------------------------
+</span>
 <span class="cm">/** The path of the database file
  
  @return path of database.
@@ -4018,10 +4018,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">sqliteHandle</span><span class="p">;</span>
 
 
-<span class="c1">///-----------------------------</span>
-<span class="c1">/// @name Retrieving error codes</span>
-<span class="c1">///-----------------------------</span>
-
+<span class="c1">///-----------------------------
+/// @name Retrieving error codes
+///-----------------------------
+</span>
 <span class="cm">/** Last error message
  
  Returns the English-language text that describes the most recent failed SQLite API call associated with a database connection. If a prior API call failed but the most recent API call succeeded, this return value is undefined.
@@ -4074,15 +4074,15 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSError</span><span class="o">*</span><span class="p">)</span><span class="n">lastError</span><span class="p">;</span>
 
 
-<span class="c1">// description forthcoming</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMaxBusyRetryTimeInterval</span><span class="p">:(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">timeoutInSeconds</span><span class="p">;</span>
+<span class="c1">// description forthcoming
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setMaxBusyRetryTimeInterval</span><span class="p">:(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="nv">timeoutInSeconds</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSTimeInterval</span><span class="p">)</span><span class="n">maxBusyRetryTimeInterval</span><span class="p">;</span>
 
 
-<span class="c1">///------------------</span>
-<span class="c1">/// @name Save points</span>
-<span class="c1">///------------------</span>
-
+<span class="c1">///------------------
+/// @name Save points
+///------------------
+</span>
 <span class="cm">/** Start save point
  
  @param name Name of save point.
@@ -4141,10 +4141,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSError</span><span class="o">*</span><span class="p">)</span><span class="nf">inSavePoint</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">BOOL</span> <span class="o">*</span><span class="n">rollback</span><span class="p">))</span><span class="nv">block</span><span class="p">;</span>
 
 
-<span class="c1">///----------------------------</span>
-<span class="c1">/// @name SQLite library status</span>
-<span class="c1">///----------------------------</span>
-
+<span class="c1">///----------------------------
+/// @name SQLite library status
+///----------------------------
+</span>
 <span class="cm">/** Test to see if the library is threadsafe
 
  @return `NO` if and only if SQLite was compiled with mutexing code omitted due to the SQLITE_THREADSAFE compile-time option being set to 0.
@@ -4169,10 +4169,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">+</span> <span class="p">(</span><span class="n">SInt32</span><span class="p">)</span><span class="n">AWSFMDBVersion</span><span class="p">;</span>
 
 
-<span class="c1">///------------------------</span>
-<span class="c1">/// @name Make SQL function</span>
-<span class="c1">///------------------------</span>
-
+<span class="c1">///------------------------
+/// @name Make SQL function
+///------------------------
+</span>
 <span class="cm">/** Adds SQL functions or aggregates or to redefine the behavior of existing SQL functions or aggregates.
  
  For example:
@@ -4220,10 +4220,10 @@ Cognito (and optionally STS) to establish credentials.</li>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">makeFunctionNamed</span><span class="p">:(</span><span class="n">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">maximumArguments</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">count</span> <span class="nf">withBlock</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">void</span> <span class="o">**</span><span class="n">argv</span><span class="p">))</span><span class="nv">block</span><span class="p">;</span>
 
 
-<span class="c1">///---------------------</span>
-<span class="c1">/// @name Date formatter</span>
-<span class="c1">///---------------------</span>
-
+<span class="c1">///---------------------
+/// @name Date formatter
+///---------------------
+</span>
 <span class="cm">/** Generate an `NSDateFormatter` that won't be broken by permutations of timezones or locales.
  
  Use this method to generate values to set the dateFormat property.
@@ -5009,97 +5009,97 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLJSONAdapter</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="c1">// The model object that the receiver was initialized with, or that the receiver</span>
-<span class="c1">// parsed from a JSON dictionary.</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="n">model</span><span class="p">;</span>
+<span class="c1">// The model object that the receiver was initialized with, or that the receiver
+// parsed from a JSON dictionary.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="n">model</span><span class="p">;</span>
 
-<span class="c1">// Attempts to parse a JSON dictionary into a model object.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass     - The MTLModel subclass to attempt to parse from the JSON.</span>
-<span class="c1">//                  This class must conform to &lt;MTLJSONSerializing&gt;. This</span>
-<span class="c1">//                  argument must not be nil.</span>
-<span class="c1">// JSONDictionary - A dictionary representing JSON data. This should match the</span>
-<span class="c1">//                  format returned by NSJSONSerialization. If this argument is</span>
-<span class="c1">//                  nil, the method returns nil.</span>
-<span class="c1">// error          - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//                  parsing or initializing an instance of `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an instance of `modelClass` upon success, or nil if a parsing error</span>
-<span class="c1">// occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Attempts to parse a JSON dictionary into a model object.
+//
+// modelClass     - The MTLModel subclass to attempt to parse from the JSON.
+//                  This class must conform to &lt;MTLJSONSerializing&gt;. This
+//                  argument must not be nil.
+// JSONDictionary - A dictionary representing JSON data. This should match the
+//                  format returned by NSJSONSerialization. If this argument is
+//                  nil, the method returns nil.
+// error          - If not NULL, this may be set to an error that occurs during
+//                  parsing or initializing an instance of `modelClass`.
+//
+// Returns an instance of `modelClass` upon success, or nil if a parsing error
+// occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Attempts to parse an array of JSON dictionary objects into a model objects</span>
-<span class="c1">// of a specific class.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass - The MTLModel subclass to attempt to parse from the JSON. This</span>
-<span class="c1">//              class must conform to &lt;MTLJSONSerializing&gt;. This argument must</span>
-<span class="c1">//              not be nil.</span>
-<span class="c1">// JSONArray  - A array of dictionaries representing JSON data. This should</span>
-<span class="c1">//              match the format returned by NSJSONSerialization. If this</span>
-<span class="c1">//              argument is nil, the method returns nil.</span>
-<span class="c1">// error      - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//              parsing or initializing an any of the instances of</span>
-<span class="c1">//              `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an array of `modelClass` instances upon success, or nil if a parsing</span>
-<span class="c1">// error occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">modelsOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONArray</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONArray</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Attempts to parse an array of JSON dictionary objects into a model objects
+// of a specific class.
+//
+// modelClass - The MTLModel subclass to attempt to parse from the JSON. This
+//              class must conform to &lt;MTLJSONSerializing&gt;. This argument must
+//              not be nil.
+// JSONArray  - A array of dictionaries representing JSON data. This should
+//              match the format returned by NSJSONSerialization. If this
+//              argument is nil, the method returns nil.
+// error      - If not NULL, this may be set to an error that occurs during
+//              parsing or initializing an any of the instances of
+//              `modelClass`.
+//
+// Returns an array of `modelClass` instances upon success, or nil if a parsing
+// error occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">modelsOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromJSONArray</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONArray</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Converts a model into a JSON representation.</span>
-<span class="c1">//</span>
-<span class="c1">// model - The model to use for JSON serialization. This argument must not be</span>
-<span class="c1">//         nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a JSON dictionary, or nil if a serialization error occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONDictionaryFromModel</span><span class="p">:(</span><span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+<span class="c1">// Converts a model into a JSON representation.
+//
+// model - The model to use for JSON serialization. This argument must not be
+//         nil.
+//
+// Returns a JSON dictionary, or nil if a serialization error occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONDictionaryFromModel</span><span class="p">:(</span><span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
 
-<span class="c1">// Converts a array of models into a JSON representation.</span>
-<span class="c1">//</span>
-<span class="c1">// models - The array of models to use for JSON serialization. This argument</span>
-<span class="c1">//          must not be nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a JSON array, or nil if a serialization error occurred for any</span>
-<span class="c1">// model.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONArrayFromModels</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">models</span><span class="p">;</span>
+<span class="c1">// Converts a array of models into a JSON representation.
+//
+// models - The array of models to use for JSON serialization. This argument
+//          must not be nil.
+//
+// Returns a JSON array, or nil if a serialization error occurred for any
+// model.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONArrayFromModels</span><span class="p">:(</span><span class="n">NSArray</span> <span class="o">*</span><span class="p">)</span><span class="nv">models</span><span class="p">;</span>
 
-<span class="c1">// Initializes the receiver by attempting to parse a JSON dictionary into</span>
-<span class="c1">// a model object.</span>
-<span class="c1">//</span>
-<span class="c1">// JSONDictionary - A dictionary representing JSON data. This should match the</span>
-<span class="c1">//                  format returned by NSJSONSerialization. If this argument is</span>
-<span class="c1">//                  nil, the method returns nil and an error with code</span>
-<span class="c1">//                  MTLJSONAdapterErrorInvalidJSONDictionary.</span>
-<span class="c1">// modelClass     - The MTLModel subclass to attempt to parse from the JSON.</span>
-<span class="c1">//                  This class must conform to &lt;MTLJSONSerializing&gt;. This</span>
-<span class="c1">//                  argument must not be nil.</span>
-<span class="c1">// error          - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//                  parsing or initializing an instance of `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an initialized adapter upon success, or nil if a parsing error</span>
-<span class="c1">// occurred.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">modelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Initializes the receiver by attempting to parse a JSON dictionary into
+// a model object.
+//
+// JSONDictionary - A dictionary representing JSON data. This should match the
+//                  format returned by NSJSONSerialization. If this argument is
+//                  nil, the method returns nil and an error with code
+//                  MTLJSONAdapterErrorInvalidJSONDictionary.
+// modelClass     - The MTLModel subclass to attempt to parse from the JSON.
+//                  This class must conform to &lt;MTLJSONSerializing&gt;. This
+//                  argument must not be nil.
+// error          - If not NULL, this may be set to an error that occurs during
+//                  parsing or initializing an instance of `modelClass`.
+//
+// Returns an initialized adapter upon success, or nil if a parsing error
+// occurred.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span> <span class="nf">modelClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Initializes the receiver with an existing model.</span>
-<span class="c1">//</span>
-<span class="c1">// model - The model to use for JSON serialization. This argument must not be</span>
-<span class="c1">//         nil.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithModel</span><span class="p">:(</span><span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+<span class="c1">// Initializes the receiver with an existing model.
+//
+// model - The model to use for JSON serialization. This argument must not be
+//         nil.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">initWithModel</span><span class="p">:(</span><span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLJSONSerializing.html">AWSMTLJSONSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
 
-<span class="c1">// Serializes the receiver's `model` into JSON.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a JSON dictionary, or nil if a serialization error occurred.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDictionary</span><span class="p">;</span>
+<span class="c1">// Serializes the receiver's `model` into JSON.
+//
+// Returns a JSON dictionary, or nil if a serialization error occurred.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDictionary</span><span class="p">;</span>
 
-<span class="c1">// Looks up the JSON key path in the model's +propertyKeys.</span>
-<span class="c1">//</span>
-<span class="c1">// Subclasses may override this method to customize the adapter's seralizing</span>
-<span class="c1">// behavior. You should not call this method directly.</span>
-<span class="c1">//</span>
-<span class="c1">// key - The property key to retrieve the corresponding JSON key path for. This</span>
-<span class="c1">//       argument must not be nil.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a key path to use, or nil to omit the property from JSON.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONKeyPathForPropertyKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+<span class="c1">// Looks up the JSON key path in the model's +propertyKeys.
+//
+// Subclasses may override this method to customize the adapter's seralizing
+// behavior. You should not call this method directly.
+//
+// key - The property key to retrieve the corresponding JSON key path for. This
+//       argument must not be nil.
+//
+// Returns a key path to use, or nil to omit the property from JSON.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONKeyPathForPropertyKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -5136,27 +5136,27 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLManagedObjectAdapter</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="c1">// Attempts to deserialize an NSManagedObject into a MTLModel object.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass    - The MTLModel subclass to return. This class must conform to</span>
-<span class="c1">//                 &lt;MTLManagedObjectSerializing&gt;. This argument must not be nil.</span>
-<span class="c1">// managedObject - The managed object to deserialize. If this argument is nil,</span>
-<span class="c1">//                 the method returns nil.</span>
-<span class="c1">// error         - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//                 deserialization or initializing an instance of `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an instance of `modelClass` upon success, or nil if an error</span>
-<span class="c1">// occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Attempts to deserialize an NSManagedObject into a MTLModel object.
+//
+// modelClass    - The MTLModel subclass to return. This class must conform to
+//                 &lt;MTLManagedObjectSerializing&gt;. This argument must not be nil.
+// managedObject - The managed object to deserialize. If this argument is nil,
+//                 the method returns nil.
+// error         - If not NULL, this may be set to an error that occurs during
+//                 deserialization or initializing an instance of `modelClass`.
+//
+// Returns an instance of `modelClass` upon success, or nil if an error
+// occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Serializes a MTLModel into an NSManagedObject.</span>
-<span class="c1">//</span>
-<span class="c1">// model   - The model object to serialize. This argument must not be nil.</span>
-<span class="c1">// context - The context into which to insert the created managed object. This</span>
-<span class="c1">//           argument must not be nil.</span>
-<span class="c1">// error   - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//           serialization or insertion.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">managedObjectFromModel</span><span class="p">:(</span><span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span> <span class="nf">insertingIntoContext</span><span class="p">:(</span><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Serializes a MTLModel into an NSManagedObject.
+//
+// model   - The model object to serialize. This argument must not be nil.
+// context - The context into which to insert the created managed object. This
+//           argument must not be nil.
+// error   - If not NULL, this may be set to an error that occurs during
+//           serialization or insertion.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">managedObjectFromModel</span><span class="p">:(</span><span class="n"><a href="Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span> <span class="nf">insertingIntoContext</span><span class="p">:(</span><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -5193,78 +5193,78 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLModel</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span>
 
-<span class="c1">// Returns a new instance of the receiver initialized using</span>
-<span class="c1">// -initWithDictionary:error:.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">modelWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Returns a new instance of the receiver initialized using
+// -initWithDictionary:error:.
+</span><span class="o">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">modelWithDictionary</span><span class="o">:</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">dictionaryValue</span> <span class="n">error</span><span class="o">:</span><span class="p">(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="n">error</span><span class="p">;</span>
 
-<span class="c1">// Initializes the receiver with default values.</span>
-<span class="c1">//</span>
-<span class="c1">// This is the designated initializer for this class.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span>
+<span class="c1">// Initializes the receiver with default values.
+//
+// This is the designated initializer for this class.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span><span class="p">;</span>
 
-<span class="c1">// Initializes the receiver using key-value coding, setting the keys and values</span>
-<span class="c1">// in the given dictionary.</span>
-<span class="c1">//</span>
-<span class="c1">// Subclass implementations may override this method, calling the super</span>
-<span class="c1">// implementation, in order to perform further processing and initialization</span>
-<span class="c1">// after deserialization.</span>
-<span class="c1">//</span>
-<span class="c1">// dictionaryValue - Property keys and values to set on the receiver. Any NSNull</span>
-<span class="c1">//                   values will be converted to nil before being used. KVC</span>
-<span class="c1">//                   validation methods will automatically be invoked for all of</span>
-<span class="c1">//                   the properties given. If nil, this method is equivalent to</span>
-<span class="c1">//                   -init.</span>
-<span class="c1">// error           - If not NULL, this may be set to any error that occurs</span>
-<span class="c1">//                   (like a KVC validation error).</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an initialized model object, or nil if validation failed.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Initializes the receiver using key-value coding, setting the keys and values
+// in the given dictionary.
+//
+// Subclass implementations may override this method, calling the super
+// implementation, in order to perform further processing and initialization
+// after deserialization.
+//
+// dictionaryValue - Property keys and values to set on the receiver. Any NSNull
+//                   values will be converted to nil before being used. KVC
+//                   validation methods will automatically be invoked for all of
+//                   the properties given. If nil, this method is equivalent to
+//                   -init.
+// error           - If not NULL, this may be set to any error that occurs
+//                   (like a KVC validation error).
+//
+// Returns an initialized model object, or nil if validation failed.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">dictionaryValue</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Returns the keys for all @property declarations, except for `readonly`</span>
-<span class="c1">// properties without ivars, or properties on MTLModel itself.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">propertyKeys</span><span class="p">;</span>
+<span class="c1">// Returns the keys for all @property declarations, except for `readonly`
+// properties without ivars, or properties on MTLModel itself.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">propertyKeys</span><span class="p">;</span>
 
-<span class="c1">// A dictionary representing the properties of the receiver.</span>
-<span class="c1">//</span>
-<span class="c1">// The default implementation combines the values corresponding to all</span>
-<span class="c1">// +propertyKeys into a dictionary, with any nil values represented by NSNull.</span>
-<span class="c1">//</span>
-<span class="c1">// This property must never be nil.</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionaryValue</span><span class="p">;</span>
+<span class="c1">// A dictionary representing the properties of the receiver.
+//
+// The default implementation combines the values corresponding to all
+// +propertyKeys into a dictionary, with any nil values represented by NSNull.
+//
+// This property must never be nil.
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">dictionaryValue</span><span class="p">;</span>
 
-<span class="c1">// Merges the value of the given key on the receiver with the value of the same</span>
-<span class="c1">// key from the given model object, giving precedence to the other model object.</span>
-<span class="c1">//</span>
-<span class="c1">// By default, this method looks for a `-merge&lt;Key&gt;FromModel:` method on the</span>
-<span class="c1">// receiver, and invokes it if found. If not found, and `model` is not nil, the</span>
-<span class="c1">// value for the given key is taken from `model`.</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">fromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+<span class="c1">// Merges the value of the given key on the receiver with the value of the same
+// key from the given model object, giving precedence to the other model object.
+//
+// By default, this method looks for a `-merge&lt;Key&gt;FromModel:` method on the
+// receiver, and invokes it if found. If not found, and `model` is not nil, the
+// value for the given key is taken from `model`.
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">fromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
 
-<span class="c1">// Merges the values of the given model object into the receiver, using</span>
-<span class="c1">// -mergeValueForKey:fromModel: for each key in +propertyKeys.</span>
-<span class="c1">//</span>
-<span class="c1">// `model` must be an instance of the receiver's class or a subclass thereof.</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValuesForKeysFromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
+<span class="c1">// Merges the values of the given model object into the receiver, using
+// -mergeValueForKey:fromModel: for each key in +propertyKeys.
+//
+// `model` must be an instance of the receiver's class or a subclass thereof.
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValuesForKeysFromModel</span><span class="p">:(</span><span class="n">AWSMTLModel</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span><span class="p">;</span>
 
-<span class="c1">// Compares the receiver with another object for equality.</span>
-<span class="c1">//</span>
-<span class="c1">// The default implementation is equivalent to comparing both models'</span>
-<span class="c1">// -dictionaryValue.</span>
-<span class="c1">//</span>
-<span class="c1">// Note that this may lead to infinite loops if the receiver holds a circular</span>
-<span class="c1">// reference to another MTLModel and both use the default behavior.</span>
-<span class="c1">// It is recommended to override -isEqual: in this scenario.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isEqual</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span>
+<span class="c1">// Compares the receiver with another object for equality.
+//
+// The default implementation is equivalent to comparing both models'
+// -dictionaryValue.
+//
+// Note that this may lead to infinite loops if the receiver holds a circular
+// reference to another MTLModel and both use the default behavior.
+// It is recommended to override -isEqual: in this scenario.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">isEqual</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">object</span><span class="p">;</span>
 
-<span class="c1">// A string that describes the contents of the receiver.</span>
-<span class="c1">//</span>
-<span class="c1">// The default implementation is based on the receiver's class and its</span>
-<span class="c1">// -dictionaryValue.</span>
-<span class="c1">//</span>
-<span class="c1">// Note that this may lead to infinite loops if the receiver holds a circular</span>
-<span class="c1">// reference to another MTLModel and both use the default behavior.</span>
-<span class="c1">// It is recommended to override -description in this scenario.</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">description</span><span class="p">;</span>
+<span class="c1">// A string that describes the contents of the receiver.
+//
+// The default implementation is based on the receiver's class and its
+// -dictionaryValue.
+//
+// Note that this may lead to infinite loops if the receiver holds a circular
+// reference to another MTLModel and both use the default behavior.
+// It is recommended to override -description in this scenario.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">description</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -5301,16 +5301,16 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLValueTransformer</span> <span class="p">:</span> <span class="nc">NSValueTransformer</span>
 
-<span class="c1">// Returns a transformer which transforms values using the given block. Reverse</span>
-<span class="c1">// transformations will not be allowed.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">transformerWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">transformationBlock</span><span class="p">;</span>
+<span class="c1">// Returns a transformer which transforms values using the given block. Reverse
+// transformations will not be allowed.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">transformerWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">transformationBlock</span><span class="p">;</span>
 
-<span class="c1">// Returns a transformer which transforms values using the given block, for</span>
-<span class="c1">// forward or reverse transformations.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">reversibleTransformerWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">transformationBlock</span><span class="p">;</span>
+<span class="c1">// Returns a transformer which transforms values using the given block, for
+// forward or reverse transformations.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">reversibleTransformerWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">transformationBlock</span><span class="p">;</span>
 
-<span class="c1">// Returns a transformer which transforms values using the given blocks.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">reversibleTransformerWithForwardBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">forwardBlock</span> <span class="nf">reverseBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">reverseBlock</span><span class="p">;</span>
+<span class="c1">// Returns a transformer which transforms values using the given blocks.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">reversibleTransformerWithForwardBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">forwardBlock</span> <span class="nf">reverseBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSMTLValueTransformer.h@T@AWSMTLValueTransformerBlock">AWSMTLValueTransformerBlock</a></span><span class="p">)</span><span class="nv">reverseBlock</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -6800,8 +6800,8 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSJSONRequestSerializer</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/AWSURLRequestSerializer.html">AWSURLRequestSerializer</a></span><span class="o">&gt;</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithJSONDefinition</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDefinition</span>
-                            <span class="nf">actionName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">actionName</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithJSONDefinition</span><span class="o">:</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDefinition</span>
+                            <span class="n">actionName</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">actionName</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -6838,8 +6838,8 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSXMLRequestSerializer</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/AWSURLRequestSerializer.html">AWSURLRequestSerializer</a></span><span class="o">&gt;</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithJSONDefinition</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDefinition</span>
-                      <span class="nf">actionName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">actionName</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithJSONDefinition</span><span class="o">:</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDefinition</span>
+                      <span class="n">actionName</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">actionName</span><span class="p">;</span>
 
 <span class="k">+</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">constructURIandHeadersAndBody</span><span class="p">:(</span><span class="n">NSMutableURLRequest</span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
                                 <span class="nf">rules</span><span class="p">:(</span><span class="n"><a href="Classes/AWSJSONDictionary.html">AWSJSONDictionary</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">rules</span>
@@ -6881,8 +6881,8 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSQueryStringRequestSerializer</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="Protocols/AWSURLRequestSerializer.html">AWSURLRequestSerializer</a></span><span class="o">&gt;</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithJSONDefinition</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDefinition</span>
-                            <span class="nf">actionName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">actionName</span><span class="p">;</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">initWithJSONDefinition</span><span class="o">:</span><span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONDefinition</span>
+                            <span class="n">actionName</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">actionName</span><span class="p">;</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDictionary</span> <span class="o">*</span><span class="n">additionalParameters</span><span class="p">;</span>
 
@@ -7368,8 +7368,8 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTMCache</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Core</span>
-
+</span><span class="c1">/// @name Core
+</span>
 <span class="cm">/**
  The name of this cache, used to create the &lt;diskCache&gt; and also appearing in stack traces.
  */</span>
@@ -7396,8 +7396,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a></span> <span class="o">*</span><span class="n">memoryCache</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Initialization</span>
-
+</span><span class="c1">/// @name Initialization
+</span>
 <span class="cm">/**
  A shared cache.
  
@@ -7427,8 +7427,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">rootPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">rootPath</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Asynchronous Methods</span>
-
+</span><span class="c1">/// @name Asynchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method returns immediately and executes the passed
  block after the object is available, potentially in parallel with other blocks on the &lt;queue&gt;.
@@ -7475,8 +7475,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">removeAllObjects</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Synchronous Methods</span>
-
+</span><span class="c1">/// @name Synchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method blocks the calling thread until the object is available.
  
@@ -7552,8 +7552,8 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTMDiskCache</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Core</span>
-
+</span><span class="c1">/// @name Core
+</span>
 <span class="cm">/**
  The name of this cache, used to create a directory under Library/Caches and also appearing in stack traces.
  */</span>
@@ -7601,8 +7601,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Event Blocks</span>
-
+</span><span class="c1">/// @name Event Blocks
+</span>
 <span class="cm">/**
  A block to be executed just before an object is added to the cache. The queue waits during execution.
  */</span>
@@ -7636,8 +7636,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Initialization</span>
-
+</span><span class="c1">/// @name Initialization
+</span>
 <span class="cm">/**
  A shared cache.
  
@@ -7681,8 +7681,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">rootPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">rootPath</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Asynchronous Methods</span>
-
+</span><span class="c1">/// @name Asynchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method returns immediately and executes the passed
  block as soon as the object is available on the serial &lt;sharedQueue&gt;.
@@ -7773,8 +7773,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span> <span class="nf">completionBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Synchronous Methods</span>
-
+</span><span class="c1">/// @name Synchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method blocks the calling thread until the
  object is available.
@@ -7856,8 +7856,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Background Tasks</span>
-
+</span><span class="c1">/// @name Background Tasks
+</span>
 <span class="cm">/**
  Set a global manager to be used for setting up/tearing down any background tasks needed by TMCache.
  
@@ -7901,8 +7901,8 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTMMemoryCache</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Core</span>
-
+</span><span class="c1">/// @name Core
+</span>
 <span class="cm">/**
  A concurrent queue on which all work is done. It is exposed here so that it can be set to target some
  other queue, such as a global concurrent queue with a priority other than the default.
@@ -7939,8 +7939,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">removeAllObjectsOnEnteringBackground</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Event Blocks</span>
-
+</span><span class="c1">/// @name Event Blocks
+</span>
 <span class="cm">/**
  A block to be executed just before an object is added to the cache. This block will be excuted within
  a barrier, i.e. all reads and writes are suspended for the duration of the block.
@@ -7990,8 +7990,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didEnterBackgroundBlock</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Shared Cache</span>
-
+</span><span class="c1">/// @name Shared Cache
+</span>
 <span class="cm">/**
  A shared cache.
  
@@ -8000,8 +8000,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">sharedCache</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Asynchronous Methods</span>
-
+</span><span class="c1">/// @name Asynchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method returns immediately and executes the passed
  block after the object is available, potentially in parallel with other blocks on the &lt;queue&gt;.
@@ -8091,8 +8091,8 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span> <span class="nf">completionBlock</span><span class="p">:(</span><span class="n"><a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Synchronous Methods</span>
-
+</span><span class="c1">/// @name Synchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method blocks the calling thread until the
  object is available.
@@ -8176,12 +8176,12 @@ For most of the users, this class is hidden behind the logging functions like <c
 <span class="cm">/**
  Handle a memory warning.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">handleMemoryWarning</span> <span class="nf">__deprecated_msg</span><span class="p">(</span><span class="s">"This happens automatically in TMCache 2.1. There’s no longer a need to call it directly."</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">handleMemoryWarning</span> <span class="n">__deprecated_msg</span><span class="p">(</span><span class="s">"This happens automatically in TMCache 2.1. There’s no longer a need to call it directly."</span><span class="p">);</span>
 
 <span class="cm">/**
  Handle the application having been backgrounded.
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">handleApplicationBackgrounding</span> <span class="nf">__deprecated_msg</span><span class="p">(</span><span class="s">"This happens automatically in TMCache 2.1. There’s no longer a need to call it directly."</span><span class="p">);</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">handleApplicationBackgrounding</span> <span class="n">__deprecated_msg</span><span class="p">(</span><span class="s">"This happens automatically in TMCache 2.1. There’s no longer a need to call it directly."</span><span class="p">);</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -8229,12 +8229,12 @@ For most of the users, this class is hidden behind the logging functions like <c
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="Enums/AWSUICKeyChainStoreAccessibility.html">AWSUICKeyChainStoreAccessibility</a></span> <span class="n">accessibility</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="Enums/AWSUICKeyChainStoreAuthenticationPolicy.html">AWSUICKeyChainStoreAuthenticationPolicy</a></span> <span class="n">authenticationPolicy</span>
-<span class="nf">__OSX_AVAILABLE_STARTING</span><span class="p">(</span><span class="n">__MAC_10_10</span><span class="p">,</span> <span class="n">__IPHONE_8_0</span><span class="p">);</span>
+<span class="n">__OSX_AVAILABLE_STARTING</span><span class="p">(</span><span class="n">__MAC_10_10</span><span class="p">,</span> <span class="n">__IPHONE_8_0</span><span class="p">);</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">synchronizable</span><span class="p">;</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">authenticationPrompt</span>
-<span class="nf">__OSX_AVAILABLE_STARTING</span><span class="p">(</span><span class="n">__MAC_NA</span><span class="p">,</span> <span class="n">__IPHONE_8_0</span><span class="p">);</span>
+<span class="n">__OSX_AVAILABLE_STARTING</span><span class="p">(</span><span class="n">__MAC_NA</span><span class="p">,</span> <span class="n">__IPHONE_8_0</span><span class="p">);</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSArray</span> <span class="n">UIC_KEY_TYPE</span> <span class="o">*</span><span class="n">allKeys</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">nullable</span><span class="p">)</span> <span class="n">NSArray</span> <span class="o">*</span><span class="n">allItems</span><span class="p">;</span>
@@ -8546,15 +8546,15 @@ For most of the users, this class is hidden behind the logging functions like <c
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSXMLDictionaryParser</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n">NSCopying</span><span class="o">&gt;</span>
 
-<span class="k">+</span> <span class="p">(</span><span class="n">AWSXMLDictionaryParser</span> <span class="o">*</span><span class="p">)</span><span class="n">sharedInstance</span><span class="p">;</span>
+<span class="o">+</span> <span class="p">(</span><span class="n">AWSXMLDictionaryParser</span> <span class="o">*</span><span class="p">)</span><span class="n">sharedInstance</span><span class="p">;</span>
 
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">collapseTextNodes</span><span class="p">;</span> <span class="c1">// defaults to YES</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">stripEmptyNodes</span><span class="p">;</span>   <span class="c1">// defaults to YES</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">trimWhiteSpace</span><span class="p">;</span>    <span class="c1">// defaults to YES</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">alwaysUseArrays</span><span class="p">;</span>   <span class="c1">// defaults to NO</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">preserveComments</span><span class="p">;</span>  <span class="c1">// defaults to NO</span>
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">wrapRootNode</span><span class="p">;</span>      <span class="c1">// defaults to NO</span>
-
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">collapseTextNodes</span><span class="p">;</span> <span class="c1">// defaults to YES
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">stripEmptyNodes</span><span class="p">;</span>   <span class="c1">// defaults to YES
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">trimWhiteSpace</span><span class="p">;</span>    <span class="c1">// defaults to YES
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">alwaysUseArrays</span><span class="p">;</span>   <span class="c1">// defaults to NO
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">preserveComments</span><span class="p">;</span>  <span class="c1">// defaults to NO
+</span><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">wrapRootNode</span><span class="p">;</span>      <span class="c1">// defaults to NO
+</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="Enums/AWSXMLDictionaryAttributesMode.html">AWSXMLDictionaryAttributesMode</a></span> <span class="n">attributesMode</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n"><a href="Enums/AWSXMLDictionaryNodeNameMode.html">AWSXMLDictionaryNodeNameMode</a></span> <span class="n">nodeNameMode</span><span class="p">;</span>
 
@@ -8580,7 +8580,7 @@ For most of the users, this class is hidden behind the logging functions like <c
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

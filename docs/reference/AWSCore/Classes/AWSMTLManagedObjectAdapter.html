@@ -14,7 +14,7 @@
     <a title="AWSMTLManagedObjectAdapter Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -977,27 +977,27 @@
                 <div class="language">
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSMTLManagedObjectAdapter</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
-<span class="c1">// Attempts to deserialize an NSManagedObject into a MTLModel object.</span>
-<span class="c1">//</span>
-<span class="c1">// modelClass    - The MTLModel subclass to return. This class must conform to</span>
-<span class="c1">//                 &lt;MTLManagedObjectSerializing&gt;. This argument must not be nil.</span>
-<span class="c1">// managedObject - The managed object to deserialize. If this argument is nil,</span>
-<span class="c1">//                 the method returns nil.</span>
-<span class="c1">// error         - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//                 deserialization or initializing an instance of `modelClass`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns an instance of `modelClass` upon success, or nil if an error</span>
-<span class="c1">// occurred.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Attempts to deserialize an NSManagedObject into a MTLModel object.
+//
+// modelClass    - The MTLModel subclass to return. This class must conform to
+//                 &lt;MTLManagedObjectSerializing&gt;. This argument must not be nil.
+// managedObject - The managed object to deserialize. If this argument is nil,
+//                 the method returns nil.
+// error         - If not NULL, this may be set to an error that occurs during
+//                 deserialization or initializing an instance of `modelClass`.
+//
+// Returns an instance of `modelClass` upon success, or nil if an error
+// occurred.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modelOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">modelClass</span> <span class="nf">fromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
-<span class="c1">// Serializes a MTLModel into an NSManagedObject.</span>
-<span class="c1">//</span>
-<span class="c1">// model   - The model object to serialize. This argument must not be nil.</span>
-<span class="c1">// context - The context into which to insert the created managed object. This</span>
-<span class="c1">//           argument must not be nil.</span>
-<span class="c1">// error   - If not NULL, this may be set to an error that occurs during</span>
-<span class="c1">//           serialization or insertion.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">managedObjectFromModel</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span> <span class="nf">insertingIntoContext</span><span class="p">:(</span><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+<span class="c1">// Serializes a MTLModel into an NSManagedObject.
+//
+// model   - The model object to serialize. This argument must not be nil.
+// context - The context into which to insert the created managed object. This
+//           argument must not be nil.
+// error   - If not NULL, this may be set to an error that occurs during
+//           serialization or insertion.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">managedObjectFromModel</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSMTLModel.html">AWSMTLModel</a></span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSMTLManagedObjectSerializing.html">AWSMTLManagedObjectSerializing</a></span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">model</span> <span class="nf">insertingIntoContext</span><span class="p">:(</span><span class="n">NSManagedObjectContext</span> <span class="o">*</span><span class="p">)</span><span class="nv">context</span> <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1078,7 +1078,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

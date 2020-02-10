@@ -14,7 +14,7 @@
     <a title="AWSMTLJSONSerializing Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -978,43 +978,43 @@
                   <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">AWSMTLJSONSerializing</span>
 <span class="err">@required</span>
 
-<span class="c1">// Specifies how to map property keys to different key paths in JSON.</span>
-<span class="c1">//</span>
-<span class="c1">// Subclasses overriding this method should combine their values with those of</span>
-<span class="c1">// `super`.</span>
-<span class="c1">//</span>
-<span class="c1">// Any property keys not present in the dictionary are assumed to match the JSON</span>
-<span class="c1">// key that should be used. Any keys associated with NSNull will not participate</span>
-<span class="c1">// in JSON serialization.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a dictionary mapping property keys to JSON key paths (as strings) or</span>
-<span class="c1">// NSNull values.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONKeyPathsByPropertyKey</span><span class="p">;</span>
+<span class="c1">// Specifies how to map property keys to different key paths in JSON.
+//
+// Subclasses overriding this method should combine their values with those of
+// `super`.
+//
+// Any property keys not present in the dictionary are assumed to match the JSON
+// key that should be used. Any keys associated with NSNull will not participate
+// in JSON serialization.
+//
+// Returns a dictionary mapping property keys to JSON key paths (as strings) or
+// NSNull values.
+</span><span class="o">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONKeyPathsByPropertyKey</span><span class="p">;</span>
 
 <span class="k">@optional</span>
 
-<span class="c1">// Specifies how to convert a JSON value to the given property key. If</span>
-<span class="c1">// reversible, the transformer will also be used to convert the property value</span>
-<span class="c1">// back to JSON.</span>
-<span class="c1">//</span>
-<span class="c1">// If the receiver implements a `+&lt;key&gt;JSONTransformer` method, MTLJSONAdapter</span>
-<span class="c1">// will use the result of that method instead.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a value transformer, or nil if no transformation should be performed.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">JSONTransformerForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+<span class="c1">// Specifies how to convert a JSON value to the given property key. If
+// reversible, the transformer will also be used to convert the property value
+// back to JSON.
+//
+// If the receiver implements a `+&lt;key&gt;JSONTransformer` method, MTLJSONAdapter
+// will use the result of that method instead.
+//
+// Returns a value transformer, or nil if no transformation should be performed.
+</span><span class="o">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="n">JSONTransformerForKey</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">key</span><span class="p">;</span>
 
-<span class="c1">// Overridden to parse the receiver as a different class, based on information</span>
-<span class="c1">// in the provided dictionary.</span>
-<span class="c1">//</span>
-<span class="c1">// This is mostly useful for class clusters, where the abstract base class would</span>
-<span class="c1">// be passed into -[MTLJSONAdapter initWithJSONDictionary:modelClass:], but</span>
-<span class="c1">// a subclass should be instantiated instead.</span>
-<span class="c1">//</span>
-<span class="c1">// JSONDictionary - The JSON dictionary that will be parsed.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns the class that should be parsed (which may be the receiver), or nil</span>
-<span class="c1">// to abort parsing (e.g., if the data is invalid).</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">Class</span><span class="p">)</span><span class="nf">classForParsingJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span><span class="p">;</span>
+<span class="c1">// Overridden to parse the receiver as a different class, based on information
+// in the provided dictionary.
+//
+// This is mostly useful for class clusters, where the abstract base class would
+// be passed into -[MTLJSONAdapter initWithJSONDictionary:modelClass:], but
+// a subclass should be instantiated instead.
+//
+// JSONDictionary - The JSON dictionary that will be parsed.
+//
+// Returns the class that should be parsed (which may be the receiver), or nil
+// to abort parsing (e.g., if the data is invalid).
+</span><span class="k">+</span> <span class="p">(</span><span class="n">Class</span><span class="p">)</span><span class="nf">classForParsingJSONDictionary</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">JSONDictionary</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1115,7 +1115,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">static</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">class</span><span class="p">`(</span><span class="n">forParsingJSONDictionary</span> <span class="kt">JSONDictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">static</span> <span class="kd">func</span> <span class="err">`</span><span class="kd">class</span><span class="err">`</span><span class="p">(</span><span class="n">forParsingJSONDictionary</span> <span class="kt">JSONDictionary</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1127,7 +1127,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

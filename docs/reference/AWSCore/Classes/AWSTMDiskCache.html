@@ -14,7 +14,7 @@
     <a title="AWSTMDiskCache Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -978,8 +978,8 @@
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTMDiskCache</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Core</span>
-
+</span><span class="c1">/// @name Core
+</span>
 <span class="cm">/**
  The name of this cache, used to create a directory under Library/Caches and also appearing in stack traces.
  */</span>
@@ -1027,8 +1027,8 @@
 <span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Event Blocks</span>
-
+</span><span class="c1">/// @name Event Blocks
+</span>
 <span class="cm">/**
  A block to be executed just before an object is added to the cache. The queue waits during execution.
  */</span>
@@ -1062,8 +1062,8 @@
 <span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Initialization</span>
-
+</span><span class="c1">/// @name Initialization
+</span>
 <span class="cm">/**
  A shared cache.
  
@@ -1107,8 +1107,8 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span> <span class="nf">rootPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">rootPath</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Asynchronous Methods</span>
-
+</span><span class="c1">/// @name Asynchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method returns immediately and executes the passed
  block as soon as the object is available on the serial &lt;sharedQueue&gt;.
@@ -1199,8 +1199,8 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span> <span class="nf">completionBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span><span class="p">)</span><span class="nv">completionBlock</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Synchronous Methods</span>
-
+</span><span class="c1">/// @name Synchronous Methods
+</span>
 <span class="cm">/**
  Retrieves the object for the specified key. This method blocks the calling thread until the
  object is available.
@@ -1282,8 +1282,8 @@
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">enumerateObjectsWithBlock</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span><span class="p">)</span><span class="nv">block</span><span class="p">;</span>
 
 <span class="cp">#pragma mark -
-</span><span class="c1">/// @name Background Tasks</span>
-
+</span><span class="c1">/// @name Background Tasks
+</span>
 <span class="cm">/**
  Set a global manager to be used for setting up/tearing down any background tasks needed by TMCache.
  
@@ -3125,7 +3125,7 @@ Instead use the asynchronous version, <a href="enumerateObjectsWithBlock:complet
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

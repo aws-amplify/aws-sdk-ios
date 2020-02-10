@@ -14,7 +14,7 @@
     <a title="AWSMTLManagedObjectSerializing Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.12.6 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -978,140 +978,140 @@
                   <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">AWSMTLManagedObjectSerializing</span>
 <span class="err">@required</span>
 
-<span class="c1">// The name of the Core Data entity that the receiver serializes to and</span>
-<span class="c1">// deserializes from.</span>
-<span class="c1">//</span>
-<span class="c1">// This method must not return nil.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">managedObjectEntityName</span><span class="p">;</span>
+<span class="c1">// The name of the Core Data entity that the receiver serializes to and
+// deserializes from.
+//
+// This method must not return nil.
+</span><span class="o">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">managedObjectEntityName</span><span class="p">;</span>
 
-<span class="c1">// Specifies how to map property keys to different keys on the receiver's</span>
-<span class="c1">// +managedObjectEntity.</span>
-<span class="c1">//</span>
-<span class="c1">// Entity attributes will be mapped to and from the receiver's properties using</span>
-<span class="c1">// +entityAttributeTransformerForKey:. Entity relationships will be mapped to</span>
-<span class="c1">// and from MTLModel objects using +relationshipModelClassesByPropertyKey.</span>
-<span class="c1">// Fetched properties are not supported.</span>
-<span class="c1">//</span>
-<span class="c1">// Subclasses overriding this method should combine their values with those of</span>
-<span class="c1">// `super`.</span>
-<span class="c1">//</span>
-<span class="c1">// Any property keys not present in the dictionary are assumed to match the</span>
-<span class="c1">// entity key that should be used. Any keys associated with NSNull will not</span>
-<span class="c1">// participate in managed object serialization.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a dictionary mapping property keys to entity keys (as strings) or</span>
-<span class="c1">// NSNull values.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">managedObjectKeysByPropertyKey</span><span class="p">;</span>
+<span class="c1">// Specifies how to map property keys to different keys on the receiver's
+// +managedObjectEntity.
+//
+// Entity attributes will be mapped to and from the receiver's properties using
+// +entityAttributeTransformerForKey:. Entity relationships will be mapped to
+// and from MTLModel objects using +relationshipModelClassesByPropertyKey.
+// Fetched properties are not supported.
+//
+// Subclasses overriding this method should combine their values with those of
+// `super`.
+//
+// Any property keys not present in the dictionary are assumed to match the
+// entity key that should be used. Any keys associated with NSNull will not
+// participate in managed object serialization.
+//
+// Returns a dictionary mapping property keys to entity keys (as strings) or
+// NSNull values.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">managedObjectKeysByPropertyKey</span><span class="p">;</span>
 
 <span class="k">@optional</span>
 
-<span class="c1">// Specifies a set of property keys used by the adapter to check for an already</span>
-<span class="c1">// existing managed object when converting the MTLModel to its related</span>
-<span class="c1">// NSManagedObject.</span>
-<span class="c1">//</span>
-<span class="c1">// The adapter will first map any keys provided by this method to the correct</span>
-<span class="c1">// keys in managedObjectKeysByPropertyKey.</span>
-<span class="c1">//</span>
-<span class="c1">// The adapter will then perform a fetch request in the provided context for a</span>
-<span class="c1">// managed object that matches the MTLModel's managedObjectEntityName and has</span>
-<span class="c1">// equal values set for the property keys on the MTLModel.</span>
-<span class="c1">//</span>
-<span class="c1">// The managed object returned by the fetch request will then be set with all</span>
-<span class="c1">// values from the MTLModel that the managed object is being converted from.</span>
-<span class="c1">//</span>
-<span class="c1">// If a property value of our MTLModel is yet another MTLModel which needs to be</span>
-<span class="c1">// converted to a managed object, the class for that MTLModel can also implement</span>
-<span class="c1">// this method to perform its own uniqing.</span>
-<span class="c1">//</span>
-<span class="c1">// For example:</span>
-<span class="c1">// 1. An MTLModel subclass has id_number = 10.</span>
-<span class="c1">// 2. An NSManagedObject accessible to the adapter's context has idnumber = 10.</span>
-<span class="c1">// 3. managedObjectKeysByPropertyKey returns @{@"id_number" : @"idnumber"}</span>
-<span class="c1">// 4. propertyKeysForManagedObjectUniquing returns</span>
-<span class="c1">//    [NSSet setWithObject:@"id_number"];</span>
-<span class="c1">// 5. Then our fetch request may return this managed object (or another managed</span>
-<span class="c1">//    object with idnumber = 10).</span>
-<span class="c1">//</span>
-<span class="c1">// NOTE: If multiple managed objects follow the same uniquing criteria only one</span>
-<span class="c1">// of them will be set with our MTLModel's values.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">propertyKeysForManagedObjectUniquing</span><span class="p">;</span>
+<span class="c1">// Specifies a set of property keys used by the adapter to check for an already
+// existing managed object when converting the MTLModel to its related
+// NSManagedObject.
+//
+// The adapter will first map any keys provided by this method to the correct
+// keys in managedObjectKeysByPropertyKey.
+//
+// The adapter will then perform a fetch request in the provided context for a
+// managed object that matches the MTLModel's managedObjectEntityName and has
+// equal values set for the property keys on the MTLModel.
+//
+// The managed object returned by the fetch request will then be set with all
+// values from the MTLModel that the managed object is being converted from.
+//
+// If a property value of our MTLModel is yet another MTLModel which needs to be
+// converted to a managed object, the class for that MTLModel can also implement
+// this method to perform its own uniqing.
+//
+// For example:
+// 1. An MTLModel subclass has id_number = 10.
+// 2. An NSManagedObject accessible to the adapter's context has idnumber = 10.
+// 3. managedObjectKeysByPropertyKey returns @{@"id_number" : @"idnumber"}
+// 4. propertyKeysForManagedObjectUniquing returns
+//    [NSSet setWithObject:@"id_number"];
+// 5. Then our fetch request may return this managed object (or another managed
+//    object with idnumber = 10).
+//
+// NOTE: If multiple managed objects follow the same uniquing criteria only one
+// of them will be set with our MTLModel's values.
+</span><span class="o">+</span> <span class="p">(</span><span class="n">NSSet</span> <span class="o">*</span><span class="p">)</span><span class="n">propertyKeysForManagedObjectUniquing</span><span class="p">;</span>
 
-<span class="c1">// Specifies how to convert the given property key to a managed object</span>
-<span class="c1">// attribute. If reversible, the transformer will also be used to convert the</span>
-<span class="c1">// managed object attribute back to the property.</span>
-<span class="c1">//</span>
-<span class="c1">// If the receiver implements a `+&lt;key&gt;EntityAttributeTransformer` method,</span>
-<span class="c1">// MTLManagedObjectAdapter will use the result of that method instead.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a value transformer, or nil if no transformation should be performed.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">entityAttributeTransformerForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
+<span class="c1">// Specifies how to convert the given property key to a managed object
+// attribute. If reversible, the transformer will also be used to convert the
+// managed object attribute back to the property.
+//
+// If the receiver implements a `+&lt;key&gt;EntityAttributeTransformer` method,
+// MTLManagedObjectAdapter will use the result of that method instead.
+//
+// Returns a value transformer, or nil if no transformation should be performed.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSValueTransformer</span> <span class="o">*</span><span class="p">)</span><span class="nf">entityAttributeTransformerForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
 
-<span class="c1">// Specifies the MTLModel subclasses that should be deserialized to the</span>
-<span class="c1">// receiver's property keys when a property key corresponds to an entity</span>
-<span class="c1">// relationship.</span>
-<span class="c1">//</span>
-<span class="c1">// In other words, the dictionary returned by this method is used to decode</span>
-<span class="c1">// managed object relationships into MTLModels (or NSArrays or NSSets thereof)</span>
-<span class="c1">// set on the receiver.</span>
-<span class="c1">//</span>
-<span class="c1">// If a property key is omitted from the returned dictionary, but present in</span>
-<span class="c1">// +managedObjectKeysByPropertyKey, and the receiver's +managedObjectEntity has</span>
-<span class="c1">// a relationship at the corresponding key, an exception will be thrown during</span>
-<span class="c1">// deserialization.</span>
-<span class="c1">//</span>
-<span class="c1">// Subclasses overriding this method should combine their values with those of</span>
-<span class="c1">// `super`.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns a dictionary mapping property keys to the Class objects that should</span>
-<span class="c1">// be used.</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">relationshipModelClassesByPropertyKey</span><span class="p">;</span>
+<span class="c1">// Specifies the MTLModel subclasses that should be deserialized to the
+// receiver's property keys when a property key corresponds to an entity
+// relationship.
+//
+// In other words, the dictionary returned by this method is used to decode
+// managed object relationships into MTLModels (or NSArrays or NSSets thereof)
+// set on the receiver.
+//
+// If a property key is omitted from the returned dictionary, but present in
+// +managedObjectKeysByPropertyKey, and the receiver's +managedObjectEntity has
+// a relationship at the corresponding key, an exception will be thrown during
+// deserialization.
+//
+// Subclasses overriding this method should combine their values with those of
+// `super`.
+//
+// Returns a dictionary mapping property keys to the Class objects that should
+// be used.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="n">relationshipModelClassesByPropertyKey</span><span class="p">;</span>
 
-<span class="c1">// Overridden to deserialize a different class instead of the receiver, based on</span>
-<span class="c1">// information in the provided object.</span>
-<span class="c1">//</span>
-<span class="c1">// This is mostly useful for class clusters, where the abstract base class would</span>
-<span class="c1">// be passed into +[MTLManagedObjectAdapter</span>
-<span class="c1">// modelOfClass:fromManagedObject:error:], but a subclass should be instantiated</span>
-<span class="c1">// instead.</span>
-<span class="c1">//</span>
-<span class="c1">// managedObject - The object that will be deserialized.</span>
-<span class="c1">//</span>
-<span class="c1">// Returns the class that should be instantiated (which may be the receiver), or</span>
-<span class="c1">// nil to abort parsing (e.g., if the data is invalid).</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">Class</span><span class="p">)</span><span class="nf">classForDeserializingManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span><span class="p">;</span>
+<span class="c1">// Overridden to deserialize a different class instead of the receiver, based on
+// information in the provided object.
+//
+// This is mostly useful for class clusters, where the abstract base class would
+// be passed into +[MTLManagedObjectAdapter
+// modelOfClass:fromManagedObject:error:], but a subclass should be instantiated
+// instead.
+//
+// managedObject - The object that will be deserialized.
+//
+// Returns the class that should be instantiated (which may be the receiver), or
+// nil to abort parsing (e.g., if the data is invalid).
+</span><span class="k">+</span> <span class="p">(</span><span class="n">Class</span><span class="p">)</span><span class="nf">classForDeserializingManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span><span class="p">;</span>
 
-<span class="c1">// Overriden when merging the value of the given key on the receiver with the</span>
-<span class="c1">// value of the same key from the given `NSManagedObject` requires custom</span>
-<span class="c1">// handling.</span>
-<span class="c1">//</span>
-<span class="c1">// By default, this method is not implemented, and precedence will be given to</span>
-<span class="c1">// the value of the receiving model implicitly.</span>
-<span class="c1">//</span>
-<span class="c1">// When implemented, this method is called when an existing `NSManagedObject`</span>
-<span class="c1">// is found for the receiving model, before updating the `NSManagedObject`'s</span>
-<span class="c1">// properties.</span>
-<span class="c1">//</span>
-<span class="c1">// When implementing, you should use `+managedObjectKeysByPropertyKey` to map</span>
-<span class="c1">// the given `key` to the appropriate `NSManagedObject` property.</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">fromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span><span class="p">;</span>
+<span class="c1">// Overriden when merging the value of the given key on the receiver with the
+// value of the same key from the given `NSManagedObject` requires custom
+// handling.
+//
+// By default, this method is not implemented, and precedence will be given to
+// the value of the receiving model implicitly.
+//
+// When implemented, this method is called when an existing `NSManagedObject`
+// is found for the receiving model, before updating the `NSManagedObject`'s
+// properties.
+//
+// When implementing, you should use `+managedObjectKeysByPropertyKey` to map
+// the given `key` to the appropriate `NSManagedObject` property.
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValueForKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span> <span class="nf">fromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span><span class="p">;</span>
 
-<span class="c1">// Overriden when merging values on the receiver with the given</span>
-<span class="c1">// `NSManagedObject` requires custom handling.</span>
-<span class="c1">//</span>
-<span class="c1">// By default, this method is not implemented, and precedence will be given to</span>
-<span class="c1">// the values of the receiving model implicitly.</span>
-<span class="c1">//</span>
-<span class="c1">// When implemented, this method is called when an existing `NSManagedObject`</span>
-<span class="c1">// is found for the receiving model, before updating the `NSManagedObject`'s</span>
-<span class="c1">// properties.</span>
-<span class="c1">//</span>
-<span class="c1">// When implementing, you should use `+managedObjectKeysByPropertyKey` to map</span>
-<span class="c1">// the given `key` to the appropriate `NSManagedObject` property.</span>
-<span class="c1">//</span>
-<span class="c1">// If you have also implemented `mergeValueForKey:fromManagedObject:` you have</span>
-<span class="c1">// to make sure to call `mergeValueForKey:fromManagedObject:` from this method</span>
-<span class="c1">// when appropriate.</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValuesForKeysFromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span><span class="p">;</span>
+<span class="c1">// Overriden when merging values on the receiver with the given
+// `NSManagedObject` requires custom handling.
+//
+// By default, this method is not implemented, and precedence will be given to
+// the values of the receiving model implicitly.
+//
+// When implemented, this method is called when an existing `NSManagedObject`
+// is found for the receiving model, before updating the `NSManagedObject`'s
+// properties.
+//
+// When implementing, you should use `+managedObjectKeysByPropertyKey` to map
+// the given `key` to the appropriate `NSManagedObject` property.
+//
+// If you have also implemented `mergeValueForKey:fromManagedObject:` you have
+// to make sure to call `mergeValueForKey:fromManagedObject:` from this method
+// when appropriate.
+</span><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">mergeValuesForKeysFromManagedObject</span><span class="p">:(</span><span class="n">NSManagedObject</span> <span class="o">*</span><span class="p">)</span><span class="nv">managedObject</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1308,7 +1308,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">static</span> <span class="kd">func</span> <span class="p">`</span><span class="nv">class</span><span class="p">`(</span><span class="n">forDeserializingManagedObject</span> <span class="nv">managedObject</span><span class="p">:</span> <span class="kt">NSManagedObject</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">static</span> <span class="kd">func</span> <span class="err">`</span><span class="kd">class</span><span class="err">`</span><span class="p">(</span><span class="n">forDeserializingManagedObject</span> <span class="nv">managedObject</span><span class="p">:</span> <span class="kt">NSManagedObject</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyClass</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1384,7 +1384,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-01-20)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
