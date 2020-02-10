@@ -4997,6 +4997,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"logDestinationType" : @"LogDestinationType",
              @"logFormat" : @"LogFormat",
              @"logGroupName" : @"LogGroupName",
+             @"maxAggregationInterval" : @"MaxAggregationInterval",
              @"resourceIds" : @"ResourceIds",
              @"resourceType" : @"ResourceType",
              @"trafficType" : @"TrafficType",
@@ -6457,9 +6458,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"securityGroupIds" : @"SecurityGroupIds",
              @"serviceName" : @"ServiceName",
              @"subnetIds" : @"SubnetIds",
+             @"tagSpecifications" : @"TagSpecifications",
              @"vpcEndpointType" : @"VpcEndpointType",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 + (NSValueTransformer *)vpcEndpointTypeJSONTransformer {
@@ -6509,7 +6515,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dryRun" : @"DryRun",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"privateDnsName" : @"PrivateDnsName",
+             @"tagSpecifications" : @"TagSpecifications",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -19825,6 +19836,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"logDestinationType" : @"LogDestinationType",
              @"logFormat" : @"LogFormat",
              @"logGroupName" : @"LogGroupName",
+             @"maxAggregationInterval" : @"MaxAggregationInterval",
              @"resourceId" : @"ResourceId",
              @"trafficType" : @"TrafficType",
              };
@@ -21304,6 +21316,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"name" : @"Name",
              @"ownerId" : @"OwnerId",
              @"platform" : @"Platform",
+             @"platformDetails" : @"PlatformDetails",
              @"productCodes" : @"ProductCodes",
              @"public" : @"Public",
              @"ramdiskId" : @"RamdiskId",
@@ -21313,6 +21326,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"state" : @"State",
              @"stateReason" : @"StateReason",
              @"tags" : @"Tags",
+             @"usageOperation" : @"UsageOperation",
              @"virtualizationType" : @"VirtualizationType",
              };
 }
