@@ -1,13 +1,29 @@
+import os
 from subprocess import Popen, PIPE
 from framework_list import frameworks
 from utils import log
 
 
-log("Creating Carthage archive")
+EXCLUDE_FROM_CARTHAGE = [
+    # This isn't a real framework
+    'AWSiOSSDKv2',
+    # Legacy frameworks not built or packaged
+    'AWSCognitoSync',
+    'AWSAuth'
+]
+
+def is_framework_included(framework):
+    return (framework not in EXCLUDE_FROM_CARTHAGE)
+
+
+project_dir = os.getcwd()
+log(f"Creating Carthage archive in {project_dir}")
 
 frameworkfilename = "aws-sdk-ios-carthage.framework.zip"
 
-cmd = ["carthage", "archive", "--output", frameworkfilename] + frameworks
+filtered_frameworks = list(filter(is_framework_included, frameworks))
+
+cmd = ["carthage", "archive", "--project-directory", project_dir, "--output", frameworkfilename] + filtered_frameworks
 process = Popen(cmd, stdout= PIPE, stderr= PIPE)
 
 elapsed_time = 0
