@@ -149,9 +149,8 @@ Pod::Spec.new do |s|
     sub.dependency 'AWSTranscribe', '2.12.7'
   end
 
-  s.subspec 'AWSTranscribeStreaming' do |sub|
-    sub.dependency 'AWSTranscribeStreaming', '2.12.7'
-  end
+  # note that AWSTranscribeStreaming requires iOS 9.0 or higher, and is
+  # therefore not included as a subspec
 
   s.subspec 'AWSTranslate' do |sub|
     sub.dependency 'AWSTranslate', '2.12.7'
