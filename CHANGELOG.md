@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Cognito Identity Provider
+ - Amazon EC2
+ - AWS KMS
+
+---
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.12.7
