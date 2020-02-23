@@ -2872,7 +2872,7 @@
         },\
         \"Limit\":{\
           \"shape\":\"PositiveIntegerObject\",\
-          \"documentation\":\"<p>The maximum number of table names to return.</p>\"\
+          \"documentation\":\"<p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p> <p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>\"\
         },\
         \"RegionName\":{\
           \"shape\":\"RegionName\",\
@@ -3881,6 +3881,10 @@
         \"ProvisionedThroughputOverride\":{\
           \"shape\":\"ProvisionedThroughput\",\
           \"documentation\":\"<p>Provisioned throughput settings for the restored table.</p>\"\
+        },\
+        \"SSESpecificationOverride\":{\
+          \"shape\":\"SSESpecification\",\
+          \"documentation\":\"<p>The new server-side encryption settings for the restored table.</p>\"\
         }\
       }\
     },\
@@ -3895,11 +3899,12 @@
     },\
     \"RestoreTableToPointInTimeInput\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"SourceTableName\",\
-        \"TargetTableName\"\
-      ],\
+      \"required\":[\"TargetTableName\"],\
       \"members\":{\
+        \"SourceTableArn\":{\
+          \"shape\":\"TableArn\",\
+          \"documentation\":\"<p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>\"\
+        },\
         \"SourceTableName\":{\
           \"shape\":\"TableName\",\
           \"documentation\":\"<p>Name of the source table that is being restored.</p>\"\
@@ -3931,6 +3936,10 @@
         \"ProvisionedThroughputOverride\":{\
           \"shape\":\"ProvisionedThroughput\",\
           \"documentation\":\"<p>Provisioned throughput settings for the restored table.</p>\"\
+        },\
+        \"SSESpecificationOverride\":{\
+          \"shape\":\"SSESpecification\",\
+          \"documentation\":\"<p>The new server-side encryption settings for the restored table.</p>\"\
         }\
       }\
     },\
