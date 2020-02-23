@@ -901,12 +901,36 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionDetectTextFilters
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionsOfInterest" : @"RegionsOfInterest",
+             @"wordFilter" : @"WordFilter",
+             };
+}
+
++ (NSValueTransformer *)regionsOfInterestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionRegionOfInterest class]];
+}
+
++ (NSValueTransformer *)wordFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionDetectionFilter class]];
+}
+
+@end
+
 @implementation AWSRekognitionDetectTextRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"filters" : @"Filters",
              @"image" : @"Image",
              };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionDetectTextFilters class]];
 }
 
 + (NSValueTransformer *)imageJSONTransformer {
@@ -920,11 +944,24 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"textDetections" : @"TextDetections",
+             @"textModelVersion" : @"TextModelVersion",
              };
 }
 
 + (NSValueTransformer *)textDetectionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionTextDetection class]];
+}
+
+@end
+
+@implementation AWSRekognitionDetectionFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"minBoundingBoxHeight" : @"MinBoundingBoxHeight",
+             @"minBoundingBoxWidth" : @"MinBoundingBoxWidth",
+             @"minConfidence" : @"MinConfidence",
+             };
 }
 
 @end
@@ -1727,6 +1764,67 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)personsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionPersonDetection class]];
+}
+
++ (NSValueTransformer *)videoMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
+@end
+
+@implementation AWSRekognitionGetTextDetectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionGetTextDetectionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobStatus" : @"JobStatus",
+             @"nextToken" : @"NextToken",
+             @"statusMessage" : @"StatusMessage",
+             @"textDetections" : @"TextDetections",
+             @"textModelVersion" : @"TextModelVersion",
+             @"videoMetadata" : @"VideoMetadata",
+             };
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"SUCCEEDED"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoJobStatusSucceeded);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoJobStatusFailed);
+        }
+        return @(AWSRekognitionVideoJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionVideoJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSRekognitionVideoJobStatusSucceeded:
+                return @"SUCCEEDED";
+            case AWSRekognitionVideoJobStatusFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)textDetectionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionTextDetectionResult class]];
 }
 
 + (NSValueTransformer *)videoMetadataJSONTransformer {
@@ -2604,6 +2702,20 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionRegionOfInterest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"boundingBox" : @"BoundingBox",
+             };
+}
+
++ (NSValueTransformer *)boundingBoxJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBoundingBox class]];
+}
+
+@end
+
 @implementation AWSRekognitionS3Object
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3034,6 +3146,61 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionStartTextDetectionFilters
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionsOfInterest" : @"RegionsOfInterest",
+             @"wordFilter" : @"WordFilter",
+             };
+}
+
++ (NSValueTransformer *)regionsOfInterestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionRegionOfInterest class]];
+}
+
++ (NSValueTransformer *)wordFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionDetectionFilter class]];
+}
+
+@end
+
+@implementation AWSRekognitionStartTextDetectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"filters" : @"Filters",
+             @"jobTag" : @"JobTag",
+             @"notificationChannel" : @"NotificationChannel",
+             @"video" : @"Video",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStartTextDetectionFilters class]];
+}
+
++ (NSValueTransformer *)notificationChannelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionNotificationChannel class]];
+}
+
++ (NSValueTransformer *)videoJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideo class]];
+}
+
+@end
+
+@implementation AWSRekognitionStartTextDetectionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionStopProjectVersionRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3308,6 +3475,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSRekognitionTextDetectionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"textDetection" : @"TextDetection",
+             @"timestamp" : @"Timestamp",
+             };
+}
+
++ (NSValueTransformer *)textDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTextDetection class]];
 }
 
 @end
