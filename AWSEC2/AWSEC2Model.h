@@ -2932,6 +2932,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2VolumeDetail;
 @class AWSEC2VolumeModification;
 @class AWSEC2VolumeStatusAction;
+@class AWSEC2VolumeStatusAttachmentStatus;
 @class AWSEC2VolumeStatusDetails;
 @class AWSEC2VolumeStatusEvent;
 @class AWSEC2VolumeStatusInfo;
@@ -6727,7 +6728,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</p><p>For network interfaces attached to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>, the aggregation interval is always 60 seconds, regardless of the value that you specify.</p><p>Default: 600</p>
+ <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</p><p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instance</a>, the aggregation interval is always 60 seconds or less, regardless of the value that you specify.</p><p>Default: 600</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxAggregationInterval;
 
@@ -8425,17 +8426,22 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
+ <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a> in the same Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable multiAttachEnabled;
+
+/**
  <p>The Amazon Resource Name (ARN) of the Outpost.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
 /**
- <p>The size of the volume, in GiBs.</p><p>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.</p><p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p><note><p>At least one of Size or SnapshotId is required.</p></note>
+ <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.</p><p>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.</p><p>Default: If you're creating the volume from a snapshot and don't specify a volume size, the default is the snapshot size.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable size;
 
 /**
- <p>The snapshot from which to create the volume.</p><note><p>At least one of Size or SnapshotId are required.</p></note>
+ <p>The snapshot from which to create the volume. You must specify either a snapshot ID or a volume size.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
@@ -13645,6 +13651,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>One or more filters.</p><ul><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
  <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
@@ -15341,7 +15352,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters. Supported filters: <code>volume-id</code>, <code>modification-state</code>, <code>target-size</code>, <code>target-iops</code>, <code>target-volume-type</code>, <code>original-size</code>, <code>original-iops</code>, <code>original-volume-type</code>, <code>start-time</code>. </p>
+ <p>The filters. Supported filters: <code>volume-id</code> | <code>modification-state</code> | <code>target-size</code> | <code>target-iops</code> | <code>target-volume-type</code> | <code>original-size</code> | <code>original-iops</code> | <code>original-volume-type</code> | <code>start-time</code> | <code>originalMultiAttachEnabled</code> | <code>targetMultiAttachEnabled</code>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -15392,7 +15403,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</p></li><li><p><code>attachment.delete-on-termination</code> - Whether the volume is deleted on instance termination.</p></li><li><p><code>attachment.device</code> - The device name specified in the block device mapping (for example, <code>/dev/sda1</code>).</p></li><li><p><code>attachment.instance-id</code> - The ID of the instance the volume is attached to.</p></li><li><p><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code> | <code>detaching</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone in which the volume was created.</p></li><li><p><code>create-time</code> - The time stamp when the volume was created.</p></li><li><p><code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code> | <code>false</code>)</p></li><li><p><code>size</code> - The size of the volume, in GiB.</p></li><li><p><code>snapshot-id</code> - The snapshot from which the volume was created.</p></li><li><p><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>volume-id</code> - The volume ID.</p></li><li><p><code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</p></li><li><p><code>attachment.delete-on-termination</code> - Whether the volume is deleted on instance termination.</p></li><li><p><code>attachment.device</code> - The device name specified in the block device mapping (for example, <code>/dev/sda1</code>).</p></li><li><p><code>attachment.instance-id</code> - The ID of the instance the volume is attached to.</p></li><li><p><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code> | <code>detaching</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone in which the volume was created.</p></li><li><p><code>create-time</code> - The time stamp when the volume was created.</p></li><li><p><code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code> | <code>false</code>)</p></li><li><p><code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code> | <code>false</code>)</p></li><li><p><code>fast-restored</code> - Indicates whether the volume was created from a snapshot that is enabled for fast snapshot restore (<code>true</code> | <code>false</code>).</p></li><li><p><code>size</code> - The size of the volume, in GiB.</p></li><li><p><code>snapshot-id</code> - The snapshot from which the volume was created.</p></li><li><p><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code> | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>volume-id</code> - The volume ID.</p></li><li><p><code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -16139,7 +16150,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable force;
 
 /**
- <p>The ID of the instance.</p>
+ <p>The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must specify an instance ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
@@ -16472,6 +16483,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2DisableVgwRoutePropagationRequest : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
  <p>The ID of the virtual private gateway.</p>
@@ -16958,7 +16974,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable deleteOnTermination;
 
 /**
- <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p>
+ <p>Indicates whether the encryption state of an EBS volume is changed while being restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>In no case can you remove encryption from an encrypted volume.</p><p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported Instance Types</a>.</p><p>This parameter is not returned by .</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
@@ -17460,6 +17476,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2EnableVgwRoutePropagationRequest : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
  <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with. </p>
@@ -18209,7 +18230,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable priority;
 
 /**
- <p>The ID of the subnet in which to launch the instances.</p>
+ <p>The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, <code>subnet-1234abcdeexample1, subnet-0987cdef6example2</code>). A request of type <code>instant</code> can have only one subnet ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
 
@@ -18323,7 +18344,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p><p>For network interfaces attached to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>, the aggregation interval is always 60 seconds (1 minute), regardless of the specified value.</p>
+ <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p><p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instance</a>, the aggregation interval is always 60 seconds (1 minute) or less, regardless of the specified value.</p><p>Valid Values: <code>60</code> | <code>600</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxAggregationInterval;
 
@@ -19906,7 +19927,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2PlatformValues platform;
 
 /**
- <p>The platform details associated with the billing code of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info.html">AMI Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The platform details associated with the billing code of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformDetails;
 
@@ -19956,7 +19977,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
- <p>The operation of the Amazon EC2 instance and the billing code associated with the AMI. <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your AWS Cost and Usage Report. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info.html">AMI Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI. <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your AWS Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">AWS Price List API</a>. For the list of <code>UsageOperation</code> codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html#billing-info">Platform Details and Usage Operation Billing Codes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable usageOperation;
 
@@ -21573,7 +21594,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceIpv6Address *> * _Nullable ipv6Addresses;
 
 /**
- <p>The ID of the network interface.</p>
+ <p>The ID of the network interface.</p><p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
@@ -26552,12 +26573,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <a>ImportInstance</a> command.</p>
+ <p>The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <a>ImportInstance</a> command.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, strong) NSString * _Nullable affinity;
 
 /**
- <p>The Availability Zone of the instance.</p><p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p>
+ <p>The Availability Zone of the instance.</p><p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
@@ -26567,27 +26588,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <a>ImportInstance</a> command.</p>
+ <p>The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <a>ImportInstance</a> command.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostId;
 
 /**
- <p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p>
+ <p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostResourceGroupArn;
 
 /**
- <p>The number of the partition the instance is in. Valid only if the placement group strategy is set to <code>partition</code>.</p>
+ <p>The number of the partition the instance is in. Valid only if the placement group strategy is set to <code>partition</code>.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable partitionNumber;
 
 /**
- <p>Reserved for future use.</p>
+ <p>Reserved for future use.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, strong) NSString * _Nullable spreadDomain;
 
 /**
- <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not supported for the <a>ImportInstance</a> command.</p>
+ <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not supported for the <a>ImportInstance</a> command.</p><p>This parameter is not supported by .</p>
  */
 @property (nonatomic, assign) AWSEC2Tenancy tenancy;
 
@@ -27010,6 +27031,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the address pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable poolId;
+
+/**
+ <p>Any tags for the address pool.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 /**
  <p>The total number of addresses.</p>
@@ -31179,6 +31205,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, assign) AWSEC2BatchState spotFleetRequestState;
 
+/**
+ <p>The tags for a Spot Fleet resource.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
 @end
 
 /**
@@ -31274,6 +31305,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable spotPrice;
 
 /**
+ <p>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
  <p>The number of units to request for the Spot Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable targetCapacity;
@@ -31307,7 +31343,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The type of resource. Currently, the only resource type that is supported is <code>instance</code>.</p>
+ <p>The type of resource. Currently, the only resource types that are supported are <code>spot-fleet-request</code> and <code>instance</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 
@@ -33427,7 +33463,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2DnsSupportValue dnsSupport;
 
 /**
- <p>Indicates whether IPv6 support is enabled.</p>
+ <p>Indicates whether IPv6 support is disabled.</p>
  */
 @property (nonatomic, assign) AWSEC2Ipv6SupportValue ipv6Support;
 
@@ -33966,6 +34002,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
+ <p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable multiAttachEnabled;
+
+/**
  <p>The Amazon Resource Name (ARN) of the Outpost.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
@@ -34151,6 +34192,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Information about the instances to which the volume is attached.</p>
+ */
+@interface AWSEC2VolumeStatusAttachmentStatus : AWSModel
+
+
+/**
+ <p>The ID of the attached instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum IOPS supported by the attached instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ioPerformance;
+
+@end
+
+/**
  <p>Describes a volume status.</p>
  */
 @interface AWSEC2VolumeStatusDetails : AWSModel
@@ -34188,6 +34247,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The type of this event.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventType;
+
+/**
+ <p>The ID of the instance associated with the event.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
  <p>The latest end time of the event.</p>
@@ -34229,6 +34293,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The details of the operation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2VolumeStatusAction *> * _Nullable actions;
+
+/**
+ <p>Information about the instances to which the volume is attached.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2VolumeStatusAttachmentStatus *> * _Nullable attachmentStatuses;
 
 /**
  <p>The Availability Zone of the volume.</p>
@@ -34869,7 +34938,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The tunnel options for a VPN connection.</p>
+ <p>The tunnel options for a single VPN tunnel.</p>
  */
 @interface AWSEC2VpnTunnelOptionsSpecification : AWSModel
 
