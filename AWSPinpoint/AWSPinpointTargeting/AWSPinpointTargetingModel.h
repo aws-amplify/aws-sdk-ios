@@ -1971,7 +1971,6 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 /**
  <p>Specifies the content and "From" address for an email message that's sent to recipients of a campaign.</p>
- Required parameters: [Title]
  */
 @interface AWSPinpointTargetingCampaignEmailMessage : AWSModel
 
