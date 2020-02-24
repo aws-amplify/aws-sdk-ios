@@ -842,7 +842,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable loadBalancerNames;
 
 /**
- <p>The maximum amount of time, in seconds, that an instance can be in service.</p><p>Valid Range: Minimum value of 604800.</p>
+ <p>The maximum amount of time, in seconds, that an instance can be in service.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Valid Range: Minimum value of 604800.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxInstanceLifetime;
 
@@ -1161,12 +1161,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- <p>The maximum number of groups allowed for your AWS account. The default limit is 200 per AWS Region.</p>
+ <p>The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxNumberOfAutoScalingGroups;
 
 /**
- <p>The maximum number of launch configurations allowed for your AWS account. The default limit is 200 per AWS Region.</p>
+ <p>The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxNumberOfLaunchConfigurations;
 
@@ -2171,7 +2171,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable instanceType;
 
 /**
- <p>The number of capacity units, which gives the instance type a proportional weight to other instance types. For example, larger instance types are generally weighted more than smaller instance types. These are the same units that you chose to set the desired capacity in terms of instances, or a performance attribute such as vCPUs, memory, or I/O.</p><p>Valid Range: Minimum value of 1. Maximum value of 999.</p>
+ <p>The number of capacity units, which gives the instance type a proportional weight to other instance types. For example, larger instance types are generally weighted more than smaller instance types. These are the same units that you chose to set the desired capacity in terms of instances, or a performance attribute such as vCPUs, memory, or I/O.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">Instance Weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Valid Range: Minimum value of 1. Maximum value of 999.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable weightedCapacity;
 
@@ -2602,6 +2602,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable cooldown;
 
 /**
+ <p>Indicates whether the scaling policy is enabled or disabled. The default is enabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disabling a Scaling Policy for an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
  <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. The default is to use the value specified for the default cooldown period for the group.</p><p>Valid only if the policy type is <code>StepScaling</code> or <code>TargetTrackingScaling</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable estimatedInstanceWarmup;
@@ -2762,6 +2767,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable cooldown;
+
+/**
+ <p>Indicates whether the policy is enabled (<code>true</code>) or disabled (<code>false</code>).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
  <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.</p>
@@ -3251,7 +3261,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification * _Nullable launchTemplate;
 
 /**
- <p>The maximum amount of time, in seconds, that an instance can be in service.</p><p>Valid Range: Minimum value of 604800.</p>
+ <p>The maximum amount of time, in seconds, that an instance can be in service.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Valid Range: Minimum value of 604800.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxInstanceLifetime;
 
