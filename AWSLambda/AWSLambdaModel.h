@@ -122,6 +122,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs43Edge,
     AWSLambdaRuntimeGo1X,
     AWSLambdaRuntimeRuby25,
+    AWSLambdaRuntimeRuby27,
     AWSLambdaRuntimeProvided,
 };
 
@@ -1942,7 +1943,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable masterRegion;
 
 /**
- <p>Specify a value between 1 and 50 to limit the number of functions in the response.</p>
+ <p>The maximum number of functions to return.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
@@ -2137,7 +2138,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
- <p>Limit the number of versions that are returned.</p>
+ <p>The maximum number of versions to return.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxItems;
 

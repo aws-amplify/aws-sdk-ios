@@ -305,6 +305,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -347,6 +350,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -737,6 +742,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -779,6 +787,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -1533,6 +1543,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -1575,6 +1588,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -1666,6 +1681,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -1708,6 +1726,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -2257,6 +2277,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -2299,6 +2322,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
