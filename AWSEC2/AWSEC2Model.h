@@ -16485,6 +16485,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
  <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable gatewayId;
@@ -17471,6 +17476,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2EnableVgwRoutePropagationRequest : AWSRequest
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
  <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with. </p>

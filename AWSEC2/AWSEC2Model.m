@@ -15373,6 +15373,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"gatewayId" : @"GatewayId",
              @"routeTableId" : @"RouteTableId",
              };
@@ -16313,6 +16314,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"gatewayId" : @"GatewayId",
              @"routeTableId" : @"RouteTableId",
              };
