@@ -267,7 +267,7 @@
       },\
       \"input\":{\"shape\":\"AssociateVpcCidrBlockRequest\"},\
       \"output\":{\"shape\":\"AssociateVpcCidrBlockResult\"},\
-      \"documentation\":\"<p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\\\">BYOIP</a>). The IPv6 CIDR block size is fixed at /56.</p> <p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing\\\">VPC and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block, an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool that you provisioned through bring your own IP addresses (<a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\\\">BYOIP</a>). The IPv6 CIDR block size is fixed at /56.</p> <p>You must specify one of the following in the request: an IPv4 CIDR block, an IPv6 pool, or an Amazon-provided IPv6 CIDR block.</p> <p>For more information about associating CIDR blocks with your VPC and applicable restrictions, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing\\\">VPC and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
     },\
     \"AttachClassicLinkVpc\":{\
       \"name\":\"AttachClassicLinkVpc\",\
@@ -4038,7 +4038,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the transit gateway attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -4062,7 +4062,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -4093,11 +4093,11 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"ServiceId\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the VPC endpoint service.</p>\"\
         },\
         \"VpcEndpointIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointIdList\",\
           \"documentation\":\"<p>The IDs of one or more interface VPC endpoints.</p>\",\
           \"locationName\":\"VpcEndpointId\"\
         }\
@@ -4832,17 +4832,17 @@
           \"locationName\":\"dryRun\"\
         },\
         \"RouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RouteTableId\",\
           \"documentation\":\"<p>The ID of the route table.</p>\",\
           \"locationName\":\"routeTableId\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet.</p>\",\
           \"locationName\":\"subnetId\"\
         },\
         \"GatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RouteGatewayId\",\
           \"documentation\":\"<p>The ID of the internet gateway or virtual private gateway.</p>\"\
         }\
       }\
@@ -4900,11 +4900,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the transit gateway attachment to associate with the transit gateway multicast domain.</p>\"\
         },\
         \"SubnetIds\":{\
@@ -4935,11 +4935,11 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -4976,17 +4976,17 @@
           \"documentation\":\"<p>The ID of the VPC.</p>\",\
           \"locationName\":\"vpcId\"\
         },\
-        \"Ipv6Pool\":{\
+        \"Ipv6CidrBlockNetworkBorderGroup\":{\
           \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CiDR block to this location.</p> <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> <p> You can have one IPv6 CIDR block association per network border group.</p>\"\
+        },\
+        \"Ipv6Pool\":{\
+          \"shape\":\"Ipv6PoolEc2Id\",\
           \"documentation\":\"<p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>\"\
         },\
         \"Ipv6CidrBlock\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>\"\
-        },\
-        \"Ipv6CidrBlockNetworkBorderGroup\":{\
-          \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CiDR block to this location.</p> <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> <p> You can have one IPv6 CIDR block association per network border group.</p>\"\
         }\
       }\
     },\
@@ -5040,7 +5040,7 @@
     \"AssociationIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"IamInstanceProfileAssociationId\",\
         \"locationName\":\"AssociationId\"\
       }\
     },\
@@ -5369,7 +5369,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group.</p>\",\
           \"locationName\":\"groupId\"\
         },\
@@ -5422,11 +5422,11 @@
           \"documentation\":\"<p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use <code>-1</code> to specify all types. If you specify all ICMP types, you must specify all codes.</p> <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>\"\
         },\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupName\",\
           \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
         },\
         \"IpPermissions\":{\
@@ -5664,7 +5664,7 @@
     \"BundleIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"BundleId\",\
         \"locationName\":\"BundleId\"\
       }\
     },\
@@ -6034,7 +6034,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"SpotFleetRequestIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"SpotFleetRequestIdList\",\
           \"documentation\":\"<p>The IDs of the Spot Fleet requests.</p>\",\
           \"locationName\":\"spotFleetRequestId\"\
         },\
@@ -6350,7 +6350,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"CapacityReservationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CapacityReservationId\",\
           \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\"\
         }\
       },\
@@ -6842,6 +6842,13 @@
       \"documentation\":\"<p>Describes a Client VPN endpoint.</p>\"\
     },\
     \"ClientVpnEndpointId\":{\"type\":\"string\"},\
+    \"ClientVpnEndpointIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"ClientVpnEndpointId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"ClientVpnEndpointStatus\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6984,7 +6991,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"PoolId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CoipPoolId\",\
           \"documentation\":\"<p>The ID of the address pool.</p>\",\
           \"locationName\":\"poolId\"\
         },\
@@ -6994,7 +7001,7 @@
           \"locationName\":\"poolCidrSet\"\
         },\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRoutetableId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\",\
           \"locationName\":\"localGatewayRouteTableId\"\
         },\
@@ -7006,6 +7013,7 @@
       },\
       \"documentation\":\"<p>Describes a customer-owned address pool.</p>\"\
     },\
+    \"CoipPoolId\":{\"type\":\"string\"},\
     \"CoipPoolIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -7165,7 +7173,7 @@
     \"ConversionIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ConversionTaskId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -7232,7 +7240,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"SourceFpgaImageId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"FpgaImageId\",\
           \"documentation\":\"<p>The ID of the source AFI.</p>\"\
         },\
         \"Description\":{\
@@ -7342,7 +7350,7 @@
           \"locationName\":\"encrypted\"\
         },\
         \"KmsKeyId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>The identifier of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed CMK for EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must be <code>true</code>.</p> <p>You can specify the CMK using any of the following:</p> <ul> <li> <p>Key ID. For example, key/1234abcd-12ab-34cd-56ef-1234567890ab.</p> </li> <li> <p>Key alias. For example, alias/ExampleAlias.</p> </li> <li> <p>Key ARN. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p> </li> <li> <p>Alias ARN. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p> </li> </ul> <p>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually fails.</p>\",\
           \"locationName\":\"kmsKeyId\"\
         },\
@@ -7958,7 +7966,7 @@
           \"documentation\":\"<p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p> <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>\"\
         },\
         \"ResourceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"FlowLogResourceIds\",\
           \"documentation\":\"<p>The ID of the subnet, network interface, or VPC for which you want to create a flow log.</p> <p>Constraints: Maximum of 1000 resources</p>\",\
           \"locationName\":\"ResourceId\"\
         },\
@@ -8168,7 +8176,7 @@
       \"required\":[\"KeyName\"],\
       \"members\":{\
         \"KeyName\":{\
-          \"shape\":\"KeyPairName\",\
+          \"shape\":\"String\",\
           \"documentation\":\"<p>A unique name for the key pair.</p> <p>Constraints: Up to 255 ASCII characters</p>\"\
         },\
         \"DryRun\":{\
@@ -8279,11 +8287,11 @@
           \"documentation\":\"<p>The CIDR range used for destination matches. Routing decisions are based on the most specific match.</p>\"\
         },\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRoutetableId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
         },\
         \"LocalGatewayVirtualInterfaceGroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
           \"documentation\":\"<p>The ID of the virtual interface group.</p>\"\
         },\
         \"DryRun\":{\
@@ -8310,11 +8318,11 @@
       ],\
       \"members\":{\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRoutetableId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
         },\
         \"VpcId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\"\
         },\
         \"DryRun\":{\
@@ -8614,7 +8622,7 @@
           \"locationName\":\"priceSchedules\"\
         },\
         \"ReservedInstancesId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ReservationId\",\
           \"documentation\":\"<p>The ID of the active Standard Reserved Instance.</p>\",\
           \"locationName\":\"reservedInstancesId\"\
         }\
@@ -8657,7 +8665,7 @@
           \"locationName\":\"egressOnlyInternetGatewayId\"\
         },\
         \"GatewayId\":{\
-          \"shape\":\"RouteTableGatewayId\",\
+          \"shape\":\"RouteGatewayId\",\
           \"documentation\":\"<p>The ID of an internet gateway or virtual private gateway attached to your VPC.</p>\",\
           \"locationName\":\"gatewayId\"\
         },\
@@ -8676,7 +8684,7 @@
           \"documentation\":\"<p>The ID of a transit gateway.</p>\"\
         },\
         \"LocalGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\"\
         },\
         \"NetworkInterfaceId\":{\
@@ -9169,7 +9177,7 @@
       \"required\":[\"TransitGatewayId\"],\
       \"members\":{\
         \"TransitGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayId\",\
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
         \"TagSpecifications\":{\
@@ -9203,7 +9211,7 @@
       ],\
       \"members\":{\
         \"TransitGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayId\",\
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
         \"PeerTransitGatewayId\":{\
@@ -9283,11 +9291,11 @@
           \"documentation\":\"<p>The CIDR range used for destination matches. Routing decisions are based on the most specific match.</p>\"\
         },\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"Blackhole\":{\
@@ -9315,7 +9323,7 @@
       \"required\":[\"TransitGatewayId\"],\
       \"members\":{\
         \"TransitGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayId\",\
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
         \"TagSpecifications\":{\
@@ -9347,15 +9355,15 @@
       ],\
       \"members\":{\
         \"TransitGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayId\",\
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
         \"VpcId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\"\
         },\
         \"SubnetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewaySubnetIdList\",\
           \"documentation\":\"<p>The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.</p>\"\
         },\
         \"Options\":{\
@@ -9498,7 +9506,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"ServiceId\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the endpoint service.</p>\"\
         },\
         \"VpcEndpointId\":{\
@@ -9562,17 +9570,17 @@
           \"documentation\":\"<p>A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.</p>\"\
         },\
         \"RouteTableIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointRouteTableIdList\",\
           \"documentation\":\"<p>(Gateway endpoint) One or more route table IDs.</p>\",\
           \"locationName\":\"RouteTableId\"\
         },\
         \"SubnetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointSubnetIdList\",\
           \"documentation\":\"<p>(Interface endpoint) The ID of one or more subnets in which to create an endpoint network interface.</p>\",\
           \"locationName\":\"SubnetId\"\
         },\
         \"SecurityGroupIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointSecurityGroupIdList\",\
           \"documentation\":\"<p>(Interface endpoint) The ID of one or more security groups to associate with the endpoint network interface.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
@@ -9708,7 +9716,7 @@
           \"locationName\":\"amazonProvidedIpv6CidrBlock\"\
         },\
         \"Ipv6Pool\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"Ipv6PoolEc2Id\",\
           \"documentation\":\"<p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</p>\"\
         },\
         \"Ipv6CidrBlock\":{\
@@ -9918,7 +9926,7 @@
     \"CustomerGatewayIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"CustomerGatewayId\",\
         \"locationName\":\"CustomerGatewayId\"\
       }\
     },\
@@ -10207,7 +10215,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"FlowLogIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"FlowLogIdList\",\
           \"documentation\":\"<p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log IDs.</p>\",\
           \"locationName\":\"FlowLogId\"\
         }\
@@ -10416,7 +10424,7 @@
           \"documentation\":\"<p>The CIDR range for the route. This must match the CIDR for the route exactly.</p>\"\
         },\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRoutetableId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
         },\
         \"DryRun\":{\
@@ -10440,7 +10448,7 @@
       \"required\":[\"LocalGatewayRouteTableVpcAssociationId\"],\
       \"members\":{\
         \"LocalGatewayRouteTableVpcAssociationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRouteTableVpcAssociationId\",\
           \"documentation\":\"<p>The ID of the association.</p>\"\
         },\
         \"DryRun\":{\
@@ -10530,7 +10538,7 @@
       \"required\":[\"NetworkInterfacePermissionId\"],\
       \"members\":{\
         \"NetworkInterfacePermissionId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"NetworkInterfacePermissionId\",\
           \"documentation\":\"<p>The ID of the network interface permission.</p>\"\
         },\
         \"Force\":{\
@@ -10582,7 +10590,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"PlacementGroupName\",\
           \"documentation\":\"<p>The name of the placement group.</p>\",\
           \"locationName\":\"groupName\"\
         }\
@@ -10615,7 +10623,7 @@
     \"DeleteQueuedReservedInstancesIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ReservationId\",\
         \"locationName\":\"item\"\
       },\
       \"max\":100,\
@@ -10687,7 +10695,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"RouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RouteTableId\",\
           \"documentation\":\"<p>The ID of the route table.</p>\",\
           \"locationName\":\"routeTableId\"\
         }\
@@ -10697,11 +10705,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group. Required for a nondefault VPC.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupName\",\
           \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.</p>\"\
         },\
         \"DryRun\":{\
@@ -10874,7 +10882,7 @@
       \"required\":[\"TransitGatewayMulticastDomainId\"],\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"DryRun\":{\
@@ -10898,7 +10906,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the transit gateway peering attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -10922,7 +10930,7 @@
       \"required\":[\"TransitGatewayId\"],\
       \"members\":{\
         \"TransitGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayId\",\
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
         \"DryRun\":{\
@@ -10949,7 +10957,7 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"DestinationCidrBlock\":{\
@@ -10977,7 +10985,7 @@
       \"required\":[\"TransitGatewayRouteTableId\"],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"DryRun\":{\
@@ -11001,7 +11009,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -11069,7 +11077,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointServiceIdList\",\
           \"documentation\":\"<p>The IDs of one or more services.</p>\",\
           \"locationName\":\"ServiceId\"\
         }\
@@ -11094,7 +11102,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"VpcEndpointIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointIdList\",\
           \"documentation\":\"<p>One or more VPC endpoint IDs.</p>\",\
           \"locationName\":\"VpcEndpointId\"\
         }\
@@ -11247,7 +11255,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"GroupIpAddress\":{\
@@ -11255,7 +11263,7 @@
           \"documentation\":\"<p>The IP address assigned to the transit gateway multicast group.</p>\"\
         },\
         \"NetworkInterfaceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewayNetworkInterfaceIdList\",\
           \"documentation\":\"<p>The IDs of the group members' network interfaces.</p>\"\
         },\
         \"DryRun\":{\
@@ -11278,7 +11286,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"GroupIpAddress\":{\
@@ -11286,7 +11294,7 @@
           \"documentation\":\"<p>The IP address assigned to the transit gateway multicast group.</p>\"\
         },\
         \"NetworkInterfaceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewayNetworkInterfaceIdList\",\
           \"documentation\":\"<p>The IDs of the group sources' network interfaces.</p>\"\
         },\
         \"DryRun\":{\
@@ -11603,7 +11611,7 @@
       \"required\":[\"ClientVpnEndpointId\"],\
       \"members\":{\
         \"ClientVpnEndpointId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientVpnEndpointId\",\
           \"documentation\":\"<p>The ID of the Client VPN endpoint.</p>\"\
         },\
         \"DryRun\":{\
@@ -11650,7 +11658,7 @@
       \"required\":[\"ClientVpnEndpointId\"],\
       \"members\":{\
         \"ClientVpnEndpointId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientVpnEndpointId\",\
           \"documentation\":\"<p>The ID of the Client VPN endpoint.</p>\"\
         },\
         \"Filters\":{\
@@ -11696,7 +11704,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"ClientVpnEndpointIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"ClientVpnEndpointIdList\",\
           \"documentation\":\"<p>The ID of the Client VPN endpoint.</p>\",\
           \"locationName\":\"ClientVpnEndpointId\"\
         },\
@@ -11744,7 +11752,7 @@
       \"required\":[\"ClientVpnEndpointId\"],\
       \"members\":{\
         \"ClientVpnEndpointId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientVpnEndpointId\",\
           \"documentation\":\"<p>The ID of the Client VPN endpoint.</p>\"\
         },\
         \"Filters\":{\
@@ -11791,7 +11799,7 @@
       \"required\":[\"ClientVpnEndpointId\"],\
       \"members\":{\
         \"ClientVpnEndpointId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientVpnEndpointId\",\
           \"documentation\":\"<p>The ID of the Client VPN endpoint.</p>\"\
         },\
         \"AssociationIds\":{\
@@ -12502,7 +12510,7 @@
           \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p> </li> <li> <p> <code>log-destination-type</code> - The type of destination to which the flow log publishes data. Possible destination types include <code>cloud-watch-logs</code> and <code>S3</code>.</p> </li> <li> <p> <code>flow-log-id</code> - The ID of the flow log.</p> </li> <li> <p> <code>log-group-name</code> - The name of the log group.</p> </li> <li> <p> <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p> </li> <li> <p> <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code> | <code>ALL</code>).</p> </li> </ul>\"\
         },\
         \"FlowLogIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"FlowLogIdList\",\
           \"documentation\":\"<p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log IDs.</p>\",\
           \"locationName\":\"FlowLogId\"\
         },\
@@ -12543,7 +12551,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"FpgaImageId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"FpgaImageId\",\
           \"documentation\":\"<p>The ID of the AFI.</p>\"\
         },\
         \"Attribute\":{\
@@ -12638,7 +12646,7 @@
           \"documentation\":\"<p>The token to use to retrieve the next page of results.</p>\"\
         },\
         \"OfferingId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"OfferingId\",\
           \"documentation\":\"<p>The ID of the reservation offering.</p>\"\
         }\
       }\
@@ -12839,7 +12847,7 @@
           \"documentation\":\"<p>The AMI attribute.</p> <p> <b>Note</b>: Depending on your account privileges, the <code>blockDeviceMapping</code> attribute may return a <code>Client.AuthFailure</code> error. If this happens, use <a>DescribeImages</a> to get information about the block device mapping for the AMI.</p>\"\
         },\
         \"ImageId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ImageId\",\
           \"documentation\":\"<p>The ID of the AMI.</p>\"\
         },\
         \"DryRun\":{\
@@ -12943,7 +12951,7 @@
           \"documentation\":\"<p>The filters.</p>\"\
         },\
         \"ImportTaskIds\":{\
-          \"shape\":\"ImportTaskIdList\",\
+          \"shape\":\"ImportSnapshotTaskIdList\",\
           \"documentation\":\"<p>A list of import snapshot task IDs.</p>\",\
           \"locationName\":\"ImportTaskId\"\
         },\
@@ -12990,7 +12998,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"InstanceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"InstanceId\",\
           \"documentation\":\"<p>The ID of the instance.</p>\",\
           \"locationName\":\"instanceId\"\
         }\
@@ -13238,7 +13246,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"InternetGatewayIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"InternetGatewayIdList\",\
           \"documentation\":\"<p>One or more internet gateway IDs.</p> <p>Default: Describes all your internet gateways.</p>\",\
           \"locationName\":\"internetGatewayId\"\
         },\
@@ -13271,7 +13279,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"PoolIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"Ipv6PoolIdList\",\
           \"documentation\":\"<p>The IDs of the IPv6 address pools.</p>\",\
           \"locationName\":\"PoolId\"\
         },\
@@ -13352,7 +13360,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"LaunchTemplateId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LaunchTemplateId\",\
           \"documentation\":\"<p>The ID of the launch template. You must specify either the launch template ID or launch template name in the request.</p>\"\
         },\
         \"LaunchTemplateName\":{\
@@ -13415,7 +13423,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"LaunchTemplateIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"LaunchTemplateIdStringList\",\
           \"documentation\":\"<p>One or more launch template IDs.</p>\",\
           \"locationName\":\"LaunchTemplateId\"\
         },\
@@ -13773,7 +13781,7 @@
           \"documentation\":\"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\"\
         },\
         \"NatGatewayIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"NatGatewayIdStringList\",\
           \"documentation\":\"<p>One or more NAT gateway IDs.</p>\",\
           \"locationName\":\"NatGatewayId\"\
         },\
@@ -13817,7 +13825,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"NetworkAclIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"NetworkAclIdStringList\",\
           \"documentation\":\"<p>One or more network ACL IDs.</p> <p>Default: Describes all your network ACLs.</p>\",\
           \"locationName\":\"NetworkAclId\"\
         },\
@@ -13861,7 +13869,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"NetworkInterfaceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"NetworkInterfaceId\",\
           \"documentation\":\"<p>The ID of the network interface.</p>\",\
           \"locationName\":\"networkInterfaceId\"\
         }\
@@ -14050,7 +14058,7 @@
           \"documentation\":\"<p>The token for the next page of results.</p>\"\
         },\
         \"PrefixListIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"PrefixListResourceIdStringList\",\
           \"documentation\":\"<p>One or more prefix list IDs.</p>\",\
           \"locationName\":\"PrefixListId\"\
         }\
@@ -14117,7 +14125,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"PoolIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"PublicIpv4PoolIdStringList\",\
           \"documentation\":\"<p>The IDs of the address pools.</p>\",\
           \"locationName\":\"PoolId\"\
         },\
@@ -14194,12 +14202,12 @@
           \"locationName\":\"Filter\"\
         },\
         \"ReservedInstancesId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ReservationId\",\
           \"documentation\":\"<p>One or more Reserved Instance IDs.</p>\",\
           \"locationName\":\"reservedInstancesId\"\
         },\
         \"ReservedInstancesListingId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ReservedInstancesListingId\",\
           \"documentation\":\"<p>One or more Reserved Instance listing IDs.</p>\",\
           \"locationName\":\"reservedInstancesListingId\"\
         }\
@@ -14403,7 +14411,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"RouteTableIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"RouteTableIdStringList\",\
           \"documentation\":\"<p>One or more route table IDs.</p> <p>Default: Describes all your route tables.</p>\",\
           \"locationName\":\"RouteTableId\"\
         },\
@@ -14634,7 +14642,7 @@
           \"documentation\":\"<p>The snapshot attribute you would like to view.</p>\"\
         },\
         \"SnapshotId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SnapshotId\",\
           \"documentation\":\"<p>The ID of the EBS snapshot.</p>\"\
         },\
         \"DryRun\":{\
@@ -14764,7 +14772,7 @@
           \"locationName\":\"nextToken\"\
         },\
         \"SpotFleetRequestId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SpotFleetRequestId\",\
           \"documentation\":\"<p>The ID of the Spot Fleet request.</p>\",\
           \"locationName\":\"spotFleetRequestId\"\
         }\
@@ -14825,7 +14833,7 @@
           \"locationName\":\"nextToken\"\
         },\
         \"SpotFleetRequestId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SpotFleetRequestId\",\
           \"documentation\":\"<p>The ID of the Spot Fleet request.</p>\",\
           \"locationName\":\"spotFleetRequestId\"\
         },\
@@ -14887,7 +14895,7 @@
           \"locationName\":\"nextToken\"\
         },\
         \"SpotFleetRequestIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"SpotFleetRequestIdList\",\
           \"documentation\":\"<p>The IDs of the Spot Fleet requests.</p>\",\
           \"locationName\":\"spotFleetRequestId\"\
         }\
@@ -15161,7 +15169,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TrafficMirrorFilterIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TrafficMirrorFilterIdList\",\
           \"documentation\":\"<p>The ID of the Traffic Mirror filter.</p>\",\
           \"locationName\":\"TrafficMirrorFilterId\"\
         },\
@@ -15203,7 +15211,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TrafficMirrorSessionIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TrafficMirrorSessionIdList\",\
           \"documentation\":\"<p>The ID of the Traffic Mirror session.</p>\",\
           \"locationName\":\"TrafficMirrorSessionId\"\
         },\
@@ -15245,7 +15253,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TrafficMirrorTargetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TrafficMirrorTargetIdList\",\
           \"documentation\":\"<p>The ID of the Traffic Mirror targets.</p>\",\
           \"locationName\":\"TrafficMirrorTargetId\"\
         },\
@@ -15825,7 +15833,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ConnectionNotificationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ConnectionNotificationId\",\
           \"documentation\":\"<p>The ID of the notification.</p>\"\
         },\
         \"Filters\":{\
@@ -15903,7 +15911,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointServiceIdList\",\
           \"documentation\":\"<p>The IDs of one or more services.</p>\",\
           \"locationName\":\"ServiceId\"\
         },\
@@ -15946,7 +15954,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the service.</p>\"\
         },\
         \"Filters\":{\
@@ -16036,7 +16044,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"VpcEndpointIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointIdList\",\
           \"documentation\":\"<p>One or more endpoint IDs.</p>\",\
           \"locationName\":\"VpcEndpointId\"\
         },\
@@ -16091,7 +16099,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"VpcPeeringConnectionIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcPeeringConnectionIdList\",\
           \"documentation\":\"<p>One or more VPC peering connection IDs.</p> <p>Default: Describes all your VPC peering connections.</p>\",\
           \"locationName\":\"VpcPeeringConnectionId\"\
         },\
@@ -16429,7 +16437,7 @@
     \"DhcpOptionsIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"DhcpOptionsId\",\
         \"locationName\":\"DhcpOptionsId\"\
       }\
     },\
@@ -16656,11 +16664,11 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the propagation route table.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -16693,7 +16701,8 @@
         \"RouteTableId\":{\
           \"shape\":\"RouteTableId\",\
           \"documentation\":\"<p>The ID of the route table.</p>\"\
-        }\
+        },\
+        \"DryRun\":{\"shape\":\"Boolean\"}\
       },\
       \"documentation\":\"<p>Contains the parameters for DisableVgwRoutePropagation.</p>\"\
     },\
@@ -16801,7 +16810,7 @@
       \"required\":[\"AssociationId\"],\
       \"members\":{\
         \"AssociationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"IamInstanceProfileAssociationId\",\
           \"documentation\":\"<p>The ID of the IAM instance profile association.</p>\"\
         }\
       }\
@@ -16862,11 +16871,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"SubnetIds\":{\
@@ -16897,11 +16906,11 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -17339,10 +17348,11 @@
       },\
       \"documentation\":\"<p>Describes the status of an Elastic Graphics accelerator.</p>\"\
     },\
+    \"ElasticGpuId\":{\"type\":\"string\"},\
     \"ElasticGpuIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ElasticGpuId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -17711,11 +17721,11 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the propagation route table.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -17748,7 +17758,8 @@
         \"RouteTableId\":{\
           \"shape\":\"RouteTableId\",\
           \"documentation\":\"<p>The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to. </p>\"\
-        }\
+        },\
+        \"DryRun\":{\"shape\":\"Boolean\"}\
       },\
       \"documentation\":\"<p>Contains the parameters for EnableVgwRoutePropagation.</p>\"\
     },\
@@ -18072,10 +18083,11 @@
       },\
       \"documentation\":\"<p>Describes an export image task.</p>\"\
     },\
+    \"ExportImageTaskId\":{\"type\":\"string\"},\
     \"ExportImageTaskIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ExportImageTaskId\",\
         \"locationName\":\"ExportImageTaskId\"\
       }\
     },\
@@ -18242,7 +18254,7 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the route table.</p>\"\
         },\
         \"Filters\":{\
@@ -18577,7 +18589,7 @@
           \"documentation\":\"<p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The IDs of the subnets in which to launch the instances. Separate multiple subnet IDs using commas (for example, <code>subnet-1234abcdeexample1, subnet-0987cdef6example2</code>). A request of type <code>instant</code> can have only one subnet ID.</p>\"\
         },\
         \"AvailabilityZone\":{\
@@ -18624,7 +18636,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LaunchTemplateId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LaunchTemplateId\",\
           \"documentation\":\"<p>The ID of the launch template.</p>\"\
         },\
         \"LaunchTemplateName\":{\
@@ -18743,6 +18755,21 @@
         }\
       },\
       \"documentation\":\"<p>Describes a flow log.</p>\"\
+    },\
+    \"FlowLogIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"VpcFlowLogId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"FlowLogResourceId\":{\"type\":\"string\"},\
+    \"FlowLogResourceIds\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"FlowLogResourceId\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"FlowLogSet\":{\
       \"type\":\"list\",\
@@ -18932,7 +18959,7 @@
     \"FpgaImageIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"FpgaImageId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -18994,7 +19021,7 @@
       \"required\":[\"PoolId\"],\
       \"members\":{\
         \"PoolId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"Ipv6PoolEc2Id\",\
           \"documentation\":\"<p>The ID of the IPv6 address pool.</p>\"\
         },\
         \"NextToken\":{\
@@ -19098,7 +19125,7 @@
       \"required\":[\"PoolId\"],\
       \"members\":{\
         \"PoolId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CoipPoolId\",\
           \"documentation\":\"<p>The ID of the address pool.</p>\"\
         },\
         \"Filters\":{\
@@ -19452,7 +19479,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"Filters\":{\
@@ -19493,7 +19520,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"Filters\":{\
@@ -19535,7 +19562,7 @@
       \"required\":[\"TransitGatewayRouteTableId\"],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"Filters\":{\
@@ -19577,7 +19604,7 @@
       \"required\":[\"TransitGatewayRouteTableId\"],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"Filters\":{\
@@ -19718,14 +19745,14 @@
     \"GroupIds\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SecurityGroupId\",\
         \"locationName\":\"item\"\
       }\
     },\
     \"GroupNameStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SecurityGroupName\",\
         \"locationName\":\"GroupName\"\
       }\
     },\
@@ -20095,10 +20122,11 @@
       },\
       \"documentation\":\"<p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>\"\
     },\
+    \"HostReservationId\":{\"type\":\"string\"},\
     \"HostReservationIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"HostReservationId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -20212,6 +20240,7 @@
       },\
       \"documentation\":\"<p>Describes an association between an IAM instance profile and an instance.</p>\"\
     },\
+    \"IamInstanceProfileAssociationId\":{\"type\":\"string\"},\
     \"IamInstanceProfileAssociationSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -20498,7 +20527,7 @@
           \"documentation\":\"<p>The format of the disk image being imported.</p> <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>OVA</code> </p>\"\
         },\
         \"SnapshotId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SnapshotId\",\
           \"documentation\":\"<p>The ID of the EBS snapshot to be used for importing the snapshot.</p>\"\
         },\
         \"Url\":{\
@@ -20523,7 +20552,7 @@
     \"ImageIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ImageId\",\
         \"locationName\":\"ImageId\"\
       }\
     },\
@@ -20834,6 +20863,7 @@
       },\
       \"documentation\":\"<p>Describes an import image task.</p>\"\
     },\
+    \"ImportImageTaskId\":{\"type\":\"string\"},\
     \"ImportImageTaskList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -21030,7 +21060,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"KeyName\":{\
-          \"shape\":\"KeyPairName\",\
+          \"shape\":\"String\",\
           \"documentation\":\"<p>A unique name for the key pair.</p>\",\
           \"locationName\":\"keyName\"\
         },\
@@ -21139,6 +21169,14 @@
       },\
       \"documentation\":\"<p>Describes an import snapshot task.</p>\"\
     },\
+    \"ImportSnapshotTaskId\":{\"type\":\"string\"},\
+    \"ImportSnapshotTaskIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"ImportSnapshotTaskId\",\
+        \"locationName\":\"ImportTaskId\"\
+      }\
+    },\
     \"ImportSnapshotTaskList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -21150,7 +21188,7 @@
     \"ImportTaskIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ImportImageTaskId\",\
         \"locationName\":\"ImportTaskId\"\
       }\
     },\
@@ -21745,7 +21783,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"InstanceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"InstanceId\",\
           \"documentation\":\"<p>The ID of the instance.</p>\"\
         },\
         \"CpuCredits\":{\
@@ -21806,7 +21844,7 @@
     \"InstanceIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"InstanceId\",\
         \"locationName\":\"InstanceId\"\
       }\
     },\
@@ -22244,7 +22282,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"InstanceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"InstanceId\",\
           \"documentation\":\"<p>The instance to specify which volumes should be snapshotted.</p>\"\
         },\
         \"ExcludeBootVolume\":{\
@@ -22980,6 +23018,13 @@
       }\
     },\
     \"InternetGatewayId\":{\"type\":\"string\"},\
+    \"InternetGatewayIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"InternetGatewayId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"InternetGatewayList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -23065,6 +23110,7 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"Ipv4PoolEc2Id\":{\"type\":\"string\"},\
     \"Ipv6Address\":{\"type\":\"string\"},\
     \"Ipv6AddressList\":{\
       \"type\":\"list\",\
@@ -23141,6 +23187,14 @@
       },\
       \"documentation\":\"<p>Describes an IPv6 address pool.</p>\"\
     },\
+    \"Ipv6PoolEc2Id\":{\"type\":\"string\"},\
+    \"Ipv6PoolIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Ipv6PoolEc2Id\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"Ipv6PoolMaxResults\":{\
       \"type\":\"integer\",\
       \"max\":1000,\
@@ -23187,7 +23241,7 @@
     \"KeyNameStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"KeyPairName\",\
         \"locationName\":\"KeyName\"\
       }\
     },\
@@ -23217,10 +23271,11 @@
       },\
       \"documentation\":\"<p>Describes a key pair.</p>\"\
     },\
+    \"KeyPairId\":{\"type\":\"string\"},\
     \"KeyPairIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"KeyPairId\",\
         \"locationName\":\"KeyPairId\"\
       }\
     },\
@@ -23620,12 +23675,12 @@
           \"locationName\":\"iops\"\
         },\
         \"KmsKeyId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>The ARN of the AWS Key Management Service (AWS KMS) CMK used for encryption.</p>\",\
           \"locationName\":\"kmsKeyId\"\
         },\
         \"SnapshotId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SnapshotId\",\
           \"documentation\":\"<p>The ID of the snapshot.</p>\",\
           \"locationName\":\"snapshotId\"\
         },\
@@ -23662,7 +23717,7 @@
           \"documentation\":\"<p>The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.</p>\"\
         },\
         \"SnapshotId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SnapshotId\",\
           \"documentation\":\"<p>The ID of the snapshot.</p>\"\
         },\
         \"VolumeSize\":{\
@@ -23795,6 +23850,13 @@
       \"documentation\":\"<p>An IAM instance profile.</p>\"\
     },\
     \"LaunchTemplateId\":{\"type\":\"string\"},\
+    \"LaunchTemplateIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"LaunchTemplateId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"LaunchTemplateInstanceMarketOptions\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -23927,7 +23989,7 @@
           \"locationName\":\"ipv6AddressesSet\"\
         },\
         \"NetworkInterfaceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"NetworkInterfaceId\",\
           \"documentation\":\"<p>The ID of the network interface.</p>\",\
           \"locationName\":\"networkInterfaceId\"\
         },\
@@ -23947,7 +24009,7 @@
           \"locationName\":\"secondaryPrivateIpAddressCount\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet for the network interface.</p>\",\
           \"locationName\":\"subnetId\"\
         }\
@@ -23998,7 +24060,7 @@
           \"documentation\":\"<p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.</p>\"\
         },\
         \"NetworkInterfaceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"NetworkInterfaceId\",\
           \"documentation\":\"<p>The ID of the network interface.</p>\"\
         },\
         \"PrivateIpAddress\":{\
@@ -24014,7 +24076,7 @@
           \"documentation\":\"<p>The number of secondary private IPv4 addresses to assign to a network interface.</p>\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet for the network interface.</p>\"\
         }\
       },\
@@ -24176,11 +24238,11 @@
           \"documentation\":\"<p>The affinity setting for an instance on a Dedicated Host.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"PlacementGroupName\",\
           \"documentation\":\"<p>The name of the placement group for the instance.</p>\"\
         },\
         \"HostId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"DedicatedHostId\",\
           \"documentation\":\"<p>The ID of the Dedicated Host for the instance.</p>\"\
         },\
         \"Tenancy\":{\
@@ -24213,7 +24275,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LaunchTemplateId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LaunchTemplateId\",\
           \"documentation\":\"<p>The ID of the launch template.</p>\"\
         },\
         \"LaunchTemplateName\":{\
@@ -24534,7 +24596,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LocalGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\",\
           \"locationName\":\"localGatewayId\"\
         },\
@@ -24561,10 +24623,11 @@
       },\
       \"documentation\":\"<p>Describes a local gateway.</p>\"\
     },\
+    \"LocalGatewayId\":{\"type\":\"string\"},\
     \"LocalGatewayIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"LocalGatewayId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -24582,7 +24645,7 @@
           \"locationName\":\"destinationCidrBlock\"\
         },\
         \"LocalGatewayVirtualInterfaceGroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
           \"documentation\":\"<p>The ID of the virtual interface group.</p>\",\
           \"locationName\":\"localGatewayVirtualInterfaceGroupId\"\
         },\
@@ -24597,7 +24660,7 @@
           \"locationName\":\"state\"\
         },\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRoutetableId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\",\
           \"locationName\":\"localGatewayRouteTableId\"\
         }\
@@ -24630,7 +24693,7 @@
           \"locationName\":\"localGatewayRouteTableId\"\
         },\
         \"LocalGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\",\
           \"locationName\":\"localGatewayId\"\
         },\
@@ -24655,7 +24718,7 @@
     \"LocalGatewayRouteTableIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"LocalGatewayRoutetableId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -24670,12 +24733,12 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\",\
           \"documentation\":\"<p>The ID of the association.</p>\",\
           \"locationName\":\"localGatewayRouteTableVirtualInterfaceGroupAssociationId\"\
         },\
         \"LocalGatewayVirtualInterfaceGroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
           \"documentation\":\"<p>The ID of the virtual interface group.</p>\",\
           \"locationName\":\"localGatewayVirtualInterfaceGroupId\"\
         },\
@@ -24685,7 +24748,7 @@
           \"locationName\":\"localGatewayId\"\
         },\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\",\
           \"locationName\":\"localGatewayRouteTableId\"\
         },\
@@ -24702,10 +24765,11 @@
       },\
       \"documentation\":\"<p>Describes an association between a local gateway route table and a virtual interface group.</p>\"\
     },\
+    \"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\":{\"type\":\"string\"},\
     \"LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"LocalGatewayRouteTableVirtualInterfaceGroupAssociationId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -24720,7 +24784,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LocalGatewayRouteTableVpcAssociationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRouteTableVpcAssociationId\",\
           \"documentation\":\"<p>The ID of the association.</p>\",\
           \"locationName\":\"localGatewayRouteTableVpcAssociationId\"\
         },\
@@ -24752,10 +24816,11 @@
       },\
       \"documentation\":\"<p>Describes an association between a local gateway route table and a VPC.</p>\"\
     },\
+    \"LocalGatewayRouteTableVpcAssociationId\":{\"type\":\"string\"},\
     \"LocalGatewayRouteTableVpcAssociationIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"LocalGatewayRouteTableVpcAssociationId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -24773,6 +24838,7 @@
         \"propagated\"\
       ]\
     },\
+    \"LocalGatewayRoutetableId\":{\"type\":\"string\"},\
     \"LocalGatewaySet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -24784,7 +24850,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LocalGatewayVirtualInterfaceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayVirtualInterfaceId\",\
           \"documentation\":\"<p>The ID of the virtual interface.</p>\",\
           \"locationName\":\"localGatewayVirtualInterfaceId\"\
         },\
@@ -24830,7 +24896,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"LocalGatewayVirtualInterfaceGroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
           \"documentation\":\"<p>The ID of the virtual interface group.</p>\",\
           \"locationName\":\"localGatewayVirtualInterfaceGroupId\"\
         },\
@@ -24852,10 +24918,11 @@
       },\
       \"documentation\":\"<p>Describes a local gateway virtual interface group.</p>\"\
     },\
+    \"LocalGatewayVirtualInterfaceGroupId\":{\"type\":\"string\"},\
     \"LocalGatewayVirtualInterfaceGroupIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"LocalGatewayVirtualInterfaceGroupId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -24866,10 +24933,11 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"LocalGatewayVirtualInterfaceId\":{\"type\":\"string\"},\
     \"LocalGatewayVirtualInterfaceIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"LocalGatewayVirtualInterfaceId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -25484,7 +25552,7 @@
       \"required\":[\"InstanceId\"],\
       \"members\":{\
         \"InstanceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"InstanceId\",\
           \"documentation\":\"<p>The ID of the instance.</p>\"\
         },\
         \"HttpTokens\":{\
@@ -25927,15 +25995,15 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"AddSubnetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewaySubnetIdList\",\
           \"documentation\":\"<p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>\"\
         },\
         \"RemoveSubnetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewaySubnetIdList\",\
           \"documentation\":\"<p>The IDs of one or more subnets to remove.</p>\"\
         },\
         \"Options\":{\
@@ -26099,32 +26167,32 @@
           \"documentation\":\"<p>A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.</p>\"\
         },\
         \"AddRouteTableIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointRouteTableIdList\",\
           \"documentation\":\"<p>(Gateway endpoint) One or more route tables IDs to associate with the endpoint.</p>\",\
           \"locationName\":\"AddRouteTableId\"\
         },\
         \"RemoveRouteTableIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointRouteTableIdList\",\
           \"documentation\":\"<p>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</p>\",\
           \"locationName\":\"RemoveRouteTableId\"\
         },\
         \"AddSubnetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointSubnetIdList\",\
           \"documentation\":\"<p>(Interface endpoint) One or more subnet IDs in which to serve the endpoint.</p>\",\
           \"locationName\":\"AddSubnetId\"\
         },\
         \"RemoveSubnetIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointSubnetIdList\",\
           \"documentation\":\"<p>(Interface endpoint) One or more subnets IDs in which to remove the endpoint.</p>\",\
           \"locationName\":\"RemoveSubnetId\"\
         },\
         \"AddSecurityGroupIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointSecurityGroupIdList\",\
           \"documentation\":\"<p>(Interface endpoint) One or more security group IDs to associate with the network interface.</p>\",\
           \"locationName\":\"AddSecurityGroupId\"\
         },\
         \"RemoveSecurityGroupIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointSecurityGroupIdList\",\
           \"documentation\":\"<p>(Interface endpoint) One or more security group IDs to disassociate from the network interface.</p>\",\
           \"locationName\":\"RemoveSecurityGroupId\"\
         },\
@@ -26154,7 +26222,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"ServiceId\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the service.</p>\"\
         },\
         \"PrivateDnsName\":{\
@@ -26200,7 +26268,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the service.</p>\"\
         },\
         \"AddAllowedPrincipals\":{\
@@ -26673,6 +26741,13 @@
       }\
     },\
     \"NatGatewayId\":{\"type\":\"string\"},\
+    \"NatGatewayIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"NatGatewayId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"NatGatewayList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -26814,6 +26889,13 @@
       }\
     },\
     \"NetworkAclId\":{\"type\":\"string\"},\
+    \"NetworkAclIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"NetworkAclId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"NetworkAclList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -27044,7 +27126,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"NetworkInterfaceAttachmentId\",\
           \"documentation\":\"<p>The ID of the network interface attachment.</p>\",\
           \"locationName\":\"attachmentId\"\
         },\
@@ -27074,7 +27156,7 @@
     \"NetworkInterfaceIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"NetworkInterfaceId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -27139,9 +27221,10 @@
       },\
       \"documentation\":\"<p>Describes a permission for a network interface.</p>\"\
     },\
+    \"NetworkInterfacePermissionId\":{\"type\":\"string\"},\
     \"NetworkInterfacePermissionIdList\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
+      \"member\":{\"shape\":\"NetworkInterfacePermissionId\"}\
     },\
     \"NetworkInterfacePermissionList\":{\
       \"type\":\"list\",\
@@ -27770,10 +27853,11 @@
       },\
       \"documentation\":\"<p>Describes a placement group.</p>\"\
     },\
+    \"PlacementGroupId\":{\"type\":\"string\"},\
     \"PlacementGroupIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"PlacementGroupId\",\
         \"locationName\":\"GroupId\"\
       }\
     },\
@@ -27822,7 +27906,7 @@
     },\
     \"PlacementGroupStringList\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
+      \"member\":{\"shape\":\"PlacementGroupName\"}\
     },\
     \"PlacementResponse\":{\
       \"type\":\"structure\",\
@@ -27934,6 +28018,14 @@
       \"type\":\"list\",\
       \"member\":{\
         \"shape\":\"String\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"PrefixListResourceId\":{\"type\":\"string\"},\
+    \"PrefixListResourceIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"PrefixListResourceId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -28311,6 +28403,13 @@
       },\
       \"documentation\":\"<p>Describes an IPv4 address pool.</p>\"\
     },\
+    \"PublicIpv4PoolIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"Ipv4PoolEc2Id\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"PublicIpv4PoolRange\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -28494,7 +28593,7 @@
           \"documentation\":\"<p>The number of Reserved Instances to purchase.</p>\"\
         },\
         \"ReservedInstancesOfferingId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ReservedInstancesOfferingId\",\
           \"documentation\":\"<p>The ID of the Reserved Instance offering to purchase.</p>\"\
         },\
         \"DryRun\":{\
@@ -28752,7 +28851,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"GroupIpAddress\":{\
@@ -28760,7 +28859,7 @@
           \"documentation\":\"<p>The IP address assigned to the transit gateway multicast group.</p>\"\
         },\
         \"NetworkInterfaceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewayNetworkInterfaceIdList\",\
           \"documentation\":\"<p>The group members' network interface IDs to register with the transit gateway multicast group.</p>\"\
         },\
         \"DryRun\":{\
@@ -28783,7 +28882,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"GroupIpAddress\":{\
@@ -28791,7 +28890,7 @@
           \"documentation\":\"<p>The IP address assigned to the transit gateway multicast group.</p>\"\
         },\
         \"NetworkInterfaceIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"TransitGatewayNetworkInterfaceIdList\",\
           \"documentation\":\"<p>The group sources' network interface IDs to register with the transit gateway multicast group.</p>\"\
         },\
         \"DryRun\":{\
@@ -28815,7 +28914,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the transit gateway peering attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -28839,7 +28938,7 @@
       \"required\":[\"TransitGatewayAttachmentId\"],\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"DryRun\":{\
@@ -28870,11 +28969,11 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"ServiceId\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the service.</p>\"\
         },\
         \"VpcEndpointIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"VpcEndpointIdList\",\
           \"documentation\":\"<p>The IDs of one or more VPC endpoints.</p>\",\
           \"locationName\":\"VpcEndpointId\"\
         }\
@@ -28976,7 +29075,7 @@
           \"documentation\":\"<p>The IAM instance profile.</p>\"\
         },\
         \"AssociationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"IamInstanceProfileAssociationId\",\
           \"documentation\":\"<p>The ID of the existing IAM instance profile association.</p>\"\
         }\
       }\
@@ -29112,7 +29211,7 @@
           \"locationName\":\"egressOnlyInternetGatewayId\"\
         },\
         \"GatewayId\":{\
-          \"shape\":\"RouteTableGatewayId\",\
+          \"shape\":\"RouteGatewayId\",\
           \"documentation\":\"<p>The ID of an internet gateway or virtual private gateway.</p>\",\
           \"locationName\":\"gatewayId\"\
         },\
@@ -29135,7 +29234,7 @@
           \"documentation\":\"<p>The ID of a transit gateway.</p>\"\
         },\
         \"LocalGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\"\
         },\
         \"NetworkInterfaceId\":{\
@@ -29206,11 +29305,11 @@
           \"documentation\":\"<p>The CIDR range used for the destination match. Routing decisions are based on the most specific match.</p>\"\
         },\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the route table.</p>\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\"\
         },\
         \"Blackhole\":{\
@@ -29302,7 +29401,7 @@
     \"RequestHostIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"DedicatedHostId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -29323,7 +29422,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"KernelId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KernelId\",\
           \"documentation\":\"<p>The ID of the kernel.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\">User Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"EbsOptimized\":{\
@@ -29345,7 +29444,7 @@
           \"locationName\":\"NetworkInterface\"\
         },\
         \"ImageId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ImageId\",\
           \"documentation\":\"<p>The ID of the AMI.</p>\"\
         },\
         \"InstanceType\":{\
@@ -29353,7 +29452,7 @@
           \"documentation\":\"<p>The instance type. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
         },\
         \"KeyName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KeyPairName\",\
           \"documentation\":\"<p>The name of the key pair. You can create a key pair using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html\\\">CreateKeyPair</a> or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html\\\">ImportKeyPair</a>.</p> <important> <p>If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.</p> </important>\"\
         },\
         \"Monitoring\":{\
@@ -29365,7 +29464,7 @@
           \"documentation\":\"<p>The placement for the instance.</p>\"\
         },\
         \"RamDiskId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RamdiskId\",\
           \"documentation\":\"<p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\">User Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"DisableApiTermination\":{\
@@ -29544,12 +29643,12 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"SecurityGroupIds\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"RequestSpotLaunchSpecificationSecurityGroupIdList\",\
           \"documentation\":\"<p>One or more security group IDs.</p>\",\
           \"locationName\":\"SecurityGroupId\"\
         },\
         \"SecurityGroups\":{\
-          \"shape\":\"ValueStringList\",\
+          \"shape\":\"RequestSpotLaunchSpecificationSecurityGroupList\",\
           \"documentation\":\"<p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>\",\
           \"locationName\":\"SecurityGroup\"\
         },\
@@ -29574,7 +29673,7 @@
           \"locationName\":\"iamInstanceProfile\"\
         },\
         \"ImageId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ImageId\",\
           \"documentation\":\"<p>The ID of the AMI.</p>\",\
           \"locationName\":\"imageId\"\
         },\
@@ -29584,12 +29683,12 @@
           \"locationName\":\"instanceType\"\
         },\
         \"KernelId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KernelId\",\
           \"documentation\":\"<p>The ID of the kernel.</p>\",\
           \"locationName\":\"kernelId\"\
         },\
         \"KeyName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KeyPairName\",\
           \"documentation\":\"<p>The name of the key pair.</p>\",\
           \"locationName\":\"keyName\"\
         },\
@@ -29609,12 +29708,12 @@
           \"locationName\":\"placement\"\
         },\
         \"RamdiskId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RamdiskId\",\
           \"documentation\":\"<p>The ID of the RAM disk.</p>\",\
           \"locationName\":\"ramdiskId\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The IDs of the subnets in which to launch the instance. To specify multiple subnets, separate them using commas; for example, \\\"subnet-1234abcdeexample1, subnet-0987cdef6example2\\\".</p>\",\
           \"locationName\":\"subnetId\"\
         },\
@@ -29625,6 +29724,20 @@
         }\
       },\
       \"documentation\":\"<p>Describes the launch specification for an instance.</p>\"\
+    },\
+    \"RequestSpotLaunchSpecificationSecurityGroupIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SecurityGroupId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"RequestSpotLaunchSpecificationSecurityGroupList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SecurityGroupName\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"Reservation\":{\
       \"type\":\"structure\",\
@@ -29657,6 +29770,7 @@
       },\
       \"documentation\":\"<p>Describes a reservation.</p>\"\
     },\
+    \"ReservationId\":{\"type\":\"string\"},\
     \"ReservationList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -29697,7 +29811,7 @@
     \"ReservedInstanceIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ReservationId\",\
         \"locationName\":\"ReservedInstanceId\"\
       }\
     },\
@@ -29899,7 +30013,7 @@
     \"ReservedInstancesIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ReservationId\",\
         \"locationName\":\"ReservedInstancesId\"\
       }\
     },\
@@ -30025,10 +30139,11 @@
       },\
       \"documentation\":\"<p>Describes a Reserved Instance modification.</p>\"\
     },\
+    \"ReservedInstancesModificationId\":{\"type\":\"string\"},\
     \"ReservedInstancesModificationIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ReservedInstancesModificationId\",\
         \"locationName\":\"ReservedInstancesModificationId\"\
       }\
     },\
@@ -30143,9 +30258,10 @@
       },\
       \"documentation\":\"<p>Describes a Reserved Instance offering.</p>\"\
     },\
+    \"ReservedInstancesOfferingId\":{\"type\":\"string\"},\
     \"ReservedInstancesOfferingIdStringList\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
+      \"member\":{\"shape\":\"ReservedInstancesOfferingId\"}\
     },\
     \"ReservedInstancesOfferingList\":{\
       \"type\":\"list\",\
@@ -30309,7 +30425,7 @@
     },\
     \"ResourceIdList\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
+      \"member\":{\"shape\":\"TaggableResourceId\"}\
     },\
     \"ResourceList\":{\
       \"type\":\"list\",\
@@ -30609,7 +30725,7 @@
           \"locationName\":\"dryRun\"\
         },\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group.</p>\",\
           \"locationName\":\"groupId\"\
         },\
@@ -30662,11 +30778,11 @@
           \"documentation\":\"<p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use <code>-1</code> to specify all ICMP types.</p>\"\
         },\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupName\",\
           \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
         },\
         \"IpPermissions\":{\
@@ -30786,6 +30902,7 @@
       },\
       \"documentation\":\"<p>Describes a route in a route table.</p>\"\
     },\
+    \"RouteGatewayId\":{\"type\":\"string\"},\
     \"RouteList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -30919,8 +31036,14 @@
         \"failed\"\
       ]\
     },\
-    \"RouteTableGatewayId\":{\"type\":\"string\"},\
     \"RouteTableId\":{\"type\":\"string\"},\
+    \"RouteTableIdStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"RouteTableId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"RouteTableList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -30981,7 +31104,7 @@
           \"documentation\":\"<p>The ID of the kernel.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"KeyName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KeyPairName\",\
           \"documentation\":\"<p>The name of the key pair. You can create a key pair using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html\\\">CreateKeyPair</a> or <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html\\\">ImportKeyPair</a>.</p> <important> <p>If you do not specify a key pair, you can't connect to the instance unless you choose an AMI that is configured to allow users another way to log in.</p> </important>\"\
         },\
         \"MaxCount\":{\
@@ -31351,7 +31474,7 @@
     \"ScheduledInstanceIdRequestSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ScheduledInstanceId\",\
         \"locationName\":\"ScheduledInstanceId\"\
       }\
     },\
@@ -31465,7 +31588,7 @@
           \"documentation\":\"<p>The number of I/O operations per second (IOPS) that the volume supports. For io1 volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about <code>gp2</code> baseline performance, I/O credits, and bursting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\\\">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Constraint: Range is 100-20000 IOPS for <code>io1</code> volumes and 100-10000 IOPS for <code>gp2</code> volumes.</p> <p>Condition: This parameter is required for requests to create <code>io1</code>volumes; it is not used in requests to create <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>\"\
         },\
         \"SnapshotId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SnapshotId\",\
           \"documentation\":\"<p>The ID of the snapshot.</p>\"\
         },\
         \"VolumeSize\":{\
@@ -31528,7 +31651,7 @@
           \"documentation\":\"<p>The IAM instance profile.</p>\"\
         },\
         \"ImageId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ImageId\",\
           \"documentation\":\"<p>The ID of the Amazon Machine Image (AMI).</p>\"\
         },\
         \"InstanceType\":{\
@@ -31536,11 +31659,11 @@
           \"documentation\":\"<p>The instance type.</p>\"\
         },\
         \"KernelId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KernelId\",\
           \"documentation\":\"<p>The ID of the kernel.</p>\"\
         },\
         \"KeyName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KeyPairName\",\
           \"documentation\":\"<p>The name of the key pair.</p>\"\
         },\
         \"Monitoring\":{\
@@ -31557,7 +31680,7 @@
           \"documentation\":\"<p>The placement information.</p>\"\
         },\
         \"RamdiskId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RamdiskId\",\
           \"documentation\":\"<p>The ID of the RAM disk.</p>\"\
         },\
         \"SecurityGroupIds\":{\
@@ -31566,7 +31689,7 @@
           \"locationName\":\"SecurityGroupId\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet in which to launch the instances.</p>\"\
         },\
         \"UserData\":{\
@@ -31620,7 +31743,7 @@
           \"locationName\":\"Ipv6Address\"\
         },\
         \"NetworkInterfaceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"NetworkInterfaceId\",\
           \"documentation\":\"<p>The ID of the network interface.</p>\"\
         },\
         \"PrivateIpAddress\":{\
@@ -31637,7 +31760,7 @@
           \"documentation\":\"<p>The number of secondary private IPv4 addresses.</p>\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet.</p>\"\
         }\
       },\
@@ -31658,7 +31781,7 @@
           \"documentation\":\"<p>The Availability Zone.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"PlacementGroupName\",\
           \"documentation\":\"<p>The name of the placement group.</p>\"\
         }\
       },\
@@ -31681,7 +31804,7 @@
     \"ScheduledInstancesSecurityGroupIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SecurityGroupId\",\
         \"locationName\":\"SecurityGroupId\"\
       }\
     },\
@@ -31693,7 +31816,7 @@
       ],\
       \"members\":{\
         \"LocalGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"LocalGatewayRoutetableId\",\
           \"documentation\":\"<p>The ID of the local gateway route table.</p>\"\
         },\
         \"Filters\":{\
@@ -31734,7 +31857,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayMulticastDomainId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayMulticastDomainId\",\
           \"documentation\":\"<p>The ID of the transit gateway multicast domain.</p>\"\
         },\
         \"Filters\":{\
@@ -31779,7 +31902,7 @@
       ],\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\"\
         },\
         \"Filters\":{\
@@ -31858,10 +31981,11 @@
       },\
       \"documentation\":\"<p>Describes a security group</p>\"\
     },\
+    \"SecurityGroupId\":{\"type\":\"string\"},\
     \"SecurityGroupIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SecurityGroupId\",\
         \"locationName\":\"SecurityGroupId\"\
       }\
     },\
@@ -31888,6 +32012,7 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"SecurityGroupName\":{\"type\":\"string\"},\
     \"SecurityGroupReference\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -31919,7 +32044,7 @@
     \"SecurityGroupStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SecurityGroupName\",\
         \"locationName\":\"SecurityGroup\"\
       }\
     },\
@@ -32087,7 +32212,6 @@
         \"locationName\":\"item\"\
       }\
     },\
-    \"ServiceId\":{\"type\":\"string\"},\
     \"ServiceState\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -32334,7 +32458,7 @@
     \"SnapshotIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SnapshotId\",\
         \"locationName\":\"SnapshotId\"\
       }\
     },\
@@ -32792,6 +32916,13 @@
       }\
     },\
     \"SpotFleetRequestId\":{\"type\":\"string\"},\
+    \"SpotFleetRequestIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SpotFleetRequestId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"SpotFleetTagSpecification\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -32852,7 +32983,7 @@
           \"locationName\":\"fault\"\
         },\
         \"InstanceId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"InstanceId\",\
           \"documentation\":\"<p>The instance ID, if an instance has been launched to fulfill the Spot Instance request.</p>\",\
           \"locationName\":\"instanceId\"\
         },\
@@ -32924,10 +33055,11 @@
       },\
       \"documentation\":\"<p>Describes a Spot Instance request.</p>\"\
     },\
+    \"SpotInstanceRequestId\":{\"type\":\"string\"},\
     \"SpotInstanceRequestIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SpotInstanceRequestId\",\
         \"locationName\":\"SpotInstanceRequestId\"\
       }\
     },\
@@ -33278,7 +33410,7 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"ServiceId\":{\
-          \"shape\":\"ServiceId\",\
+          \"shape\":\"VpcEndpointServiceId\",\
           \"documentation\":\"<p>The ID of the endpoint service.</p>\"\
         }\
       }\
@@ -33539,7 +33671,7 @@
     \"SubnetIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SubnetId\",\
         \"locationName\":\"SubnetId\"\
       }\
     },\
@@ -33710,6 +33842,7 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"TaggableResourceId\":{\"type\":\"string\"},\
     \"TargetCapacitySpecification\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -33784,7 +33917,7 @@
           \"documentation\":\"<p>The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request</p>\"\
         },\
         \"OfferingId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ReservedInstancesOfferingId\",\
           \"documentation\":\"<p>The Convertible Reserved Instance offering ID.</p>\"\
         }\
       },\
@@ -34057,6 +34190,13 @@
       \"documentation\":\"<p>Describes the Traffic Mirror filter.</p>\"\
     },\
     \"TrafficMirrorFilterId\":{\"type\":\"string\"},\
+    \"TrafficMirrorFilterIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TrafficMirrorFilterId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"TrafficMirrorFilterRule\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -34263,6 +34403,13 @@
       \"member\":{\"shape\":\"TrafficMirrorSessionField\"}\
     },\
     \"TrafficMirrorSessionId\":{\"type\":\"string\"},\
+    \"TrafficMirrorSessionIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TrafficMirrorSessionId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"TrafficMirrorSessionSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -34312,6 +34459,13 @@
       \"documentation\":\"<p>Describes a Traffic Mirror target.</p>\"\
     },\
     \"TrafficMirrorTargetId\":{\"type\":\"string\"},\
+    \"TrafficMirrorTargetIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"TrafficMirrorTargetId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"TrafficMirrorTargetSet\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -34389,12 +34543,12 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayRouteTableId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayRouteTableId\",\
           \"documentation\":\"<p>The ID of the transit gateway route table.</p>\",\
           \"locationName\":\"transitGatewayRouteTableId\"\
         },\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\",\
           \"locationName\":\"transitGatewayAttachmentId\"\
         },\
@@ -34497,9 +34651,10 @@
       },\
       \"documentation\":\"<p>Describes an association.</p>\"\
     },\
+    \"TransitGatewayAttachmentId\":{\"type\":\"string\"},\
     \"TransitGatewayAttachmentIdStringList\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
+      \"member\":{\"shape\":\"TransitGatewayAttachmentId\"}\
     },\
     \"TransitGatewayAttachmentList\":{\
       \"type\":\"list\",\
@@ -34561,7 +34716,7 @@
     \"TransitGatewayIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"TransitGatewayId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -34723,6 +34878,7 @@
       },\
       \"documentation\":\"<p>Describes the multicast domain associations.</p>\"\
     },\
+    \"TransitGatewayMulticastDomainId\":{\"type\":\"string\"},\
     \"TransitGatewayMulticastDomainIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -34851,6 +35007,13 @@
       },\
       \"documentation\":\"<p>Describes the members registered with the transit gateway multicast group.</p>\"\
     },\
+    \"TransitGatewayNetworkInterfaceIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"NetworkInterfaceId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"TransitGatewayOptions\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -34954,7 +35117,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"TransitGatewayAttachmentId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitGatewayAttachmentId\",\
           \"documentation\":\"<p>The ID of the attachment.</p>\",\
           \"locationName\":\"transitGatewayAttachmentId\"\
         },\
@@ -35169,6 +35332,7 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"TransitGatewayRouteTableId\":{\"type\":\"string\"},\
     \"TransitGatewayRouteTableIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -35241,6 +35405,13 @@
         \"deleting\",\
         \"deleted\"\
       ]\
+    },\
+    \"TransitGatewaySubnetIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SubnetId\",\
+        \"locationName\":\"item\"\
+      }\
     },\
     \"TransitGatewayVpcAttachment\":{\
       \"type\":\"structure\",\
@@ -35607,11 +35778,11 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupName\",\
           \"documentation\":\"<p>[Default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
         },\
         \"IpPermissions\":{\
@@ -35639,11 +35810,11 @@
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"GroupId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupId\",\
           \"documentation\":\"<p>The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.</p>\"\
         },\
         \"GroupName\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SecurityGroupName\",\
           \"documentation\":\"<p>[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</p>\"\
         },\
         \"IpPermissions\":{\
@@ -36525,7 +36696,7 @@
     \"VpcClassicLinkIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"VpcId\",\
         \"locationName\":\"VpcId\"\
       }\
     },\
@@ -36676,10 +36847,46 @@
       }\
     },\
     \"VpcEndpointId\":{\"type\":\"string\"},\
+    \"VpcEndpointIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"VpcEndpointId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"VpcEndpointRouteTableIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"RouteTableId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"VpcEndpointSecurityGroupIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SecurityGroupId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"VpcEndpointServiceId\":{\"type\":\"string\"},\
+    \"VpcEndpointServiceIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"VpcEndpointServiceId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"VpcEndpointSet\":{\
       \"type\":\"list\",\
       \"member\":{\
         \"shape\":\"VpcEndpoint\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"VpcEndpointSubnetIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"SubnetId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -36690,11 +36897,12 @@
         \"Gateway\"\
       ]\
     },\
+    \"VpcFlowLogId\":{\"type\":\"string\"},\
     \"VpcId\":{\"type\":\"string\"},\
     \"VpcIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"VpcId\",\
         \"locationName\":\"VpcId\"\
       }\
     },\
@@ -36716,15 +36924,15 @@
           \"documentation\":\"<p>Information about the state of the CIDR block.</p>\",\
           \"locationName\":\"ipv6CidrBlockState\"\
         },\
-        \"Ipv6Pool\":{\
-          \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>\",\
-          \"locationName\":\"ipv6Pool\"\
-        },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The name of the location from which we advertise the IPV6 CIDR block.</p>\",\
           \"locationName\":\"networkBorderGroup\"\
+        },\
+        \"Ipv6Pool\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>\",\
+          \"locationName\":\"ipv6Pool\"\
         }\
       },\
       \"documentation\":\"<p>Describes an IPv6 CIDR block associated with a VPC.</p>\"\
@@ -36780,6 +36988,13 @@
       \"documentation\":\"<p>Describes a VPC peering connection.</p>\"\
     },\
     \"VpcPeeringConnectionId\":{\"type\":\"string\"},\
+    \"VpcPeeringConnectionIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"VpcPeeringConnectionId\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"VpcPeeringConnectionList\":{\
       \"type\":\"list\",\
       \"member\":{\
@@ -36960,7 +37175,7 @@
     \"VpnConnectionIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"VpnConnectionId\",\
         \"locationName\":\"VpnConnectionId\"\
       }\
     },\
@@ -37063,7 +37278,7 @@
     \"VpnGatewayIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"VpnGatewayId\",\
         \"locationName\":\"VpnGatewayId\"\
       }\
     },\
