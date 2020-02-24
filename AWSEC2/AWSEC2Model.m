@@ -6366,6 +6366,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
              @"kmsKeyId" : @"KmsKeyId",
+             @"multiAttachEnabled" : @"MultiAttachEnabled",
              @"outpostArn" : @"OutpostArn",
              @"size" : @"Size",
              @"snapshotId" : @"SnapshotId",
@@ -11791,10 +11792,15 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"filters" : @"Filters",
              @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
              @"poolIds" : @"PoolIds",
              };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
 }
 
 @end
@@ -36662,6 +36668,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"poolAddressRanges" : @"PoolAddressRanges",
              @"poolId" : @"PoolId",
+             @"tags" : @"Tags",
              @"totalAddressCount" : @"TotalAddressCount",
              @"totalAvailableAddressCount" : @"TotalAvailableAddressCount",
              };
@@ -36669,6 +36676,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)poolAddressRangesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PublicIpv4PoolRange class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -51151,6 +51162,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"spotFleetRequestConfig" : @"SpotFleetRequestConfig",
              @"spotFleetRequestId" : @"SpotFleetRequestId",
              @"spotFleetRequestState" : @"SpotFleetRequestState",
+             @"tags" : @"Tags",
              };
 }
 
@@ -51243,6 +51255,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
 @end
 
 @implementation AWSEC2SpotFleetRequestConfigData
@@ -51266,6 +51282,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"replaceUnhealthyInstances" : @"ReplaceUnhealthyInstances",
              @"spotMaxTotalPrice" : @"SpotMaxTotalPrice",
              @"spotPrice" : @"SpotPrice",
+             @"tagSpecifications" : @"TagSpecifications",
              @"targetCapacity" : @"TargetCapacity",
              @"terminateInstancesWithExpiration" : @"TerminateInstancesWithExpiration",
              @"types" : @"Type",
@@ -51378,6 +51395,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -56652,6 +56673,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"fastRestored" : @"FastRestored",
              @"iops" : @"Iops",
              @"kmsKeyId" : @"KmsKeyId",
+             @"multiAttachEnabled" : @"MultiAttachEnabled",
              @"outpostArn" : @"OutpostArn",
              @"size" : @"Size",
              @"snapshotId" : @"SnapshotId",
@@ -56979,6 +57001,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2VolumeStatusAttachmentStatus
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"ioPerformance" : @"IoPerformance",
+             };
+}
+
+@end
+
 @implementation AWSEC2VolumeStatusDetails
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -57018,6 +57051,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"eventId" : @"EventId",
              @"eventType" : @"EventType",
+             @"instanceId" : @"InstanceId",
              @"notAfter" : @"NotAfter",
              @"notBefore" : @"NotBefore",
              };
@@ -57087,6 +57121,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"actions" : @"Actions",
+             @"attachmentStatuses" : @"AttachmentStatuses",
              @"availabilityZone" : @"AvailabilityZone",
              @"events" : @"Events",
              @"outpostArn" : @"OutpostArn",
@@ -57097,6 +57132,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)actionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2VolumeStatusAction class]];
+}
+
++ (NSValueTransformer *)attachmentStatusesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2VolumeStatusAttachmentStatus class]];
 }
 
 + (NSValueTransformer *)eventsJSONTransformer {
