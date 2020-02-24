@@ -302,6 +302,9 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"USER_LOGGED_IN"] == NSOrderedSame) {
             return @(AWSKMSConnectionErrorCodeTypeUserLoggedIn);
         }
+        if ([value caseInsensitiveCompare:@"SUBNET_NOT_FOUND"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeSubnetNotFound);
+        }
         return @(AWSKMSConnectionErrorCodeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -321,6 +324,8 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"USER_NOT_FOUND";
             case AWSKMSConnectionErrorCodeTypeUserLoggedIn:
                 return @"USER_LOGGED_IN";
+            case AWSKMSConnectionErrorCodeTypeSubnetNotFound:
+                return @"SUBNET_NOT_FOUND";
             default:
                 return nil;
         }
