@@ -256,8 +256,10 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDetectLabelsResponse;
 @class AWSRekognitionDetectModerationLabelsRequest;
 @class AWSRekognitionDetectModerationLabelsResponse;
+@class AWSRekognitionDetectTextFilters;
 @class AWSRekognitionDetectTextRequest;
 @class AWSRekognitionDetectTextResponse;
+@class AWSRekognitionDetectionFilter;
 @class AWSRekognitionEmotion;
 @class AWSRekognitionEvaluationResult;
 @class AWSRekognitionEyeOpen;
@@ -284,6 +286,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetLabelDetectionResponse;
 @class AWSRekognitionGetPersonTrackingRequest;
 @class AWSRekognitionGetPersonTrackingResponse;
+@class AWSRekognitionGetTextDetectionRequest;
+@class AWSRekognitionGetTextDetectionResponse;
 @class AWSRekognitionGroundTruthManifest;
 @class AWSRekognitionHumanLoopActivationOutput;
 @class AWSRekognitionHumanLoopConfig;
@@ -319,6 +323,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionProjectVersionDescription;
 @class AWSRekognitionRecognizeCelebritiesRequest;
 @class AWSRekognitionRecognizeCelebritiesResponse;
+@class AWSRekognitionRegionOfInterest;
 @class AWSRekognitionS3Object;
 @class AWSRekognitionSearchFacesByImageRequest;
 @class AWSRekognitionSearchFacesByImageResponse;
@@ -341,6 +346,9 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStartProjectVersionResponse;
 @class AWSRekognitionStartStreamProcessorRequest;
 @class AWSRekognitionStartStreamProcessorResponse;
+@class AWSRekognitionStartTextDetectionFilters;
+@class AWSRekognitionStartTextDetectionRequest;
+@class AWSRekognitionStartTextDetectionResponse;
 @class AWSRekognitionStopProjectVersionRequest;
 @class AWSRekognitionStopProjectVersionResponse;
 @class AWSRekognitionStopStreamProcessorRequest;
@@ -354,6 +362,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionTestingData;
 @class AWSRekognitionTestingDataResult;
 @class AWSRekognitionTextDetection;
+@class AWSRekognitionTextDetectionResult;
 @class AWSRekognitionTrainingData;
 @class AWSRekognitionTrainingDataResult;
 @class AWSRekognitionUnindexedFace;
@@ -1293,10 +1302,33 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>A set of optional parameters that you can use to set the criteria that the text must meet to be included in your response. <code>WordFilter</code> looks at a word’s height, width, and minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the image to look for text in. </p>
+ */
+@interface AWSRekognitionDetectTextFilters : AWSModel
+
+
+/**
+ <p> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code> object to set the region of the image.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionRegionOfInterest *> * _Nullable regionsOfInterest;
+
+/**
+ <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionDetectionFilter * _Nullable wordFilter;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionDetectTextRequest : AWSRequest
 
+
+/**
+ <p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionDetectTextFilters * _Nullable filters;
 
 /**
  <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Rekognition operations, you can't pass image bytes. </p><p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see Images in the Amazon Rekognition developer guide.</p>
@@ -1315,6 +1347,34 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>An array of text that was detected in the input image.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionTextDetection *> * _Nullable textDetections;
+
+/**
+ <p>The model version used to detect text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable textModelVersion;
+
+@end
+
+/**
+ <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
+ */
+@interface AWSRekognitionDetectionFilter : AWSModel
+
+
+/**
+ <p>Sets the minimum height of the word bounding box. Words with bounding box heights lesser than this value will be excluded from the result. Value is relative to the video frame height.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minBoundingBoxHeight;
+
+/**
+ <p>Sets the minimum width of the word bounding box. Words with bounding boxes widths lesser than this value will be excluded from the result. Value is relative to the video frame width.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minBoundingBoxWidth;
+
+/**
+ <p>Sets confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 0.5 and 1 as Text in Video will not return any result below 0.5.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 @end
 
@@ -1572,7 +1632,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
 /**
- <p>Minimum face match confidence score that must be met to return a result for a recognized face. Default is 70. 0 is the lowest confidence. 100 is the highest confidence.</p>
+ <p>Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable faceMatchThreshold;
 
@@ -2011,6 +2071,67 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 /**
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetTextDetectionRequest : AWSRequest
+
+
+/**
+ <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetTextDetectionResponse : AWSModel
+
+
+/**
+ <p>Current status of the text detection job.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>An array of text detected in the video. Each element contains the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionTextDetectionResult *> * _Nullable textDetections;
+
+/**
+ <p>Version number of the text detection model that was used to detect text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable textModelVersion;
+
+/**
+ <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
@@ -2764,6 +2885,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Specifies a location within the frame that Rekognition checks for text. Uses a <code>BoundingBox</code> object to set a region of the screen.</p><p>A word is included in the region if the word is more than half in that region. If there is more than one region, the word will be compared with all regions of the screen. Any word more than half in a region is kept in the results.</p>
+ */
+@interface AWSRekognitionRegionOfInterest : AWSModel
+
+
+/**
+ <p>The box representing a region of interest on screen.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
+
+@end
+
+/**
  <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionS3Object : AWSModel
@@ -3240,6 +3374,70 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Set of optional parameters that let you set the criteria text must meet to be included in your response. <code>WordFilter</code> looks at a word's height, width and minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the screen to look for text in.</p>
+ */
+@interface AWSRekognitionStartTextDetectionFilters : AWSModel
+
+
+/**
+ <p>Filter focusing on a certain area of the frame. Uses a <code>BoundingBox</code> object to set the region of the screen.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionRegionOfInterest *> * _Nullable regionsOfInterest;
+
+/**
+ <p>Filters focusing on qualities of the text, such as confidence or size.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionDetectionFilter * _Nullable wordFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartTextDetectionRequest : AWSRequest
+
+
+/**
+ <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentaly started more than once.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionStartTextDetectionFilters * _Nullable filters;
+
+/**
+ <p>An identifier returned in the completion status published by your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
+
+/**
+ <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartTextDetectionResponse : AWSModel
+
+
+/**
+ <p>Identifier for the text detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetTextDetection</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionStopProjectVersionRequest : AWSRequest
@@ -3445,6 +3643,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The type of text that was detected.</p>
  */
 @property (nonatomic, assign) AWSRekognitionTextTypes types;
+
+@end
+
+/**
+ <p>Information about text detected in a video. Incudes the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
+ */
+@interface AWSRekognitionTextDetectionResult : AWSModel
+
+
+/**
+ <p>Details about text detected in a video.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTextDetection * _Nullable textDetection;
+
+/**
+ <p>The time, in milliseconds from the start of the video, that the text was detected.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
 @end
 
