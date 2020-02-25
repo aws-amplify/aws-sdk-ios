@@ -161,6 +161,50 @@ class AWSMobileClientTestBase: XCTestCase {
         wait(for: [signUpExpectation], timeout: 5)
     }
     
+    func signUpWithClientMetaData(username: String,
+                                  clientMetaData: [String: String]? = nil,
+                                  signupState: SignUpConfirmationState = .unconfirmed) {
+        let signUpExpectation = expectation(description: "successful sign up with clientMetaData expectation.")
+        AWSMobileClient.default().signUp(
+            username: username,
+            password: sharedPassword,
+            userAttributes: userAttributes,
+            clientMetaData: clientMetaData
+            ) { (signUpResult, error) in
+                if let error = error {
+                    var errorMessage: String
+                    if let mobileClientError = error as? AWSMobileClientError {
+                        errorMessage = mobileClientError.message
+                    } else {
+                        errorMessage = error.localizedDescription
+                    }
+                    XCTFail("Unexpected failure: \(errorMessage)")
+                    return
+                }
+                
+                guard let signUpResult = signUpResult else {
+                    XCTFail("signUpWithClientMetaDataResult unexpectedly nil")
+                    return
+                }
+                
+                switch(signUpResult.signUpConfirmationState) {
+                case .confirmed:
+                    print("User is signed up and confirmed.")
+                case .unconfirmed:
+                    print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                case .unknown:
+                    print("Unexpected case")
+                }
+                
+                XCTAssertTrue(signUpResult.signUpConfirmationState == signupState, "User is expected to be marked as \(signupState).")
+                
+                signUpExpectation.fulfill()
+        }
+        
+        wait(for: [signUpExpectation], timeout: 5)
+        
+    }
+    
     func adminVerifyUser(username: String) {
         guard let adminConfirmSignUpRequest = AWSCognitoIdentityProviderAdminConfirmSignUpRequest() else {
             XCTFail("Unable to create adminConfirmSignUpRequest")
@@ -208,4 +252,45 @@ class AWSMobileClientTestBase: XCTestCase {
         let key = "\(namespace).tokenExpiration"
         keychain.removeItem(forKey: key)
     }
+    
+    func forgotPasswordWithClientMetaData(username: String,
+                                          clientMetaData: [String: String]? = nil,
+                                          forgotPasswordState: ForgotPasswordState = .confirmationCodeSent) {
+        let forgotPasswordExpectation = expectation(description: "successful forgot password with clientMetaData expectation.")
+        AWSMobileClient.default().forgotPassword(username: username,
+                                                 clientMetaData: clientMetaData
+                                                ) { (forgotPasswordResult, error) in
+                if let error = error {
+                    var errorMessage: String
+                    if let mobileClientError = error as? AWSMobileClientError {
+                        errorMessage = mobileClientError.message
+                    } else {
+                        errorMessage = error.localizedDescription
+                    }
+                    XCTFail("Unexpected failure: \(errorMessage)")
+                    return
+                }
+                
+                guard let forgotPasswordResult = forgotPasswordResult else {
+                    XCTFail("Forgot Password with ClientMetaData unexpectedly nil")
+                    return
+                }
+                                                    
+                switch(forgotPasswordResult.forgotPasswordState) {
+                case .confirmationCodeSent:
+                    print("Confirmation code sent via \(forgotPasswordResult.codeDeliveryDetails!.deliveryMedium) to: \(forgotPasswordResult.codeDeliveryDetails!.destination!)")
+                default:
+                    print("Error: Invalid case.")
+                }
+                
+                XCTAssertTrue(forgotPasswordResult.forgotPasswordState == forgotPasswordState,
+                              "User is expected to be marked as \(forgotPasswordState).")
+                
+                forgotPasswordExpectation.fulfill()
+        }
+        
+        wait(for: [forgotPasswordExpectation], timeout: 5)
+        
+    }
+    
 }

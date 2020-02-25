@@ -86,6 +86,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode forceAliasCreation:(BOOL)forceAliasCreation;
 
+-(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
+                                                            clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
+-(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
+                                                            forceAliasCreation:(BOOL)forceAliasCreation
+                                                            clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
 /**
  Resend the confirmation code sent during sign up
  */
@@ -116,13 +122,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Send a code to this user to initiate the forgot password flow
  */
+- (AWSTask<AWSCognitoIdentityUserForgotPasswordResponse *> *)forgotPassword:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
 - (AWSTask<AWSCognitoIdentityUserForgotPasswordResponse *> *)forgotPassword;
+
 
 /**
  Conclude the forgot password flow by providing the forgot password code and new password.
  */
 - (AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *)confirmForgotPassword:(NSString *)confirmationCode
+                                                                    password:(NSString *)password
+                                                                    clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
+
+- (AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *)confirmForgotPassword:(NSString *)confirmationCode
                                                                                  password:(NSString *)password;
+
 
 /**
  Change this user's password
