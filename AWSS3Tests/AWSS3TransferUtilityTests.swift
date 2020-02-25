@@ -1600,6 +1600,60 @@ class AWSS3TransferUtilityTests: XCTestCase {
         XCTAssertEqual(refUploadTask?.status, AWSS3TransferUtilityTransferStatusType.cancelled)
 
     }
+
+    func testRemovingTransferUtilityInvalidatesSession() {
+        // setup a custom transfer utility that will be registered then removed
+        let serviceConfiguration = AWSServiceManager.default().defaultServiceConfiguration
+        let transferUtilityConfiguration = AWSS3TransferUtilityConfiguration()
+        transferUtilityConfiguration.isAccelerateModeEnabled = false
+        transferUtilityConfiguration.retryLimit = 10
+        transferUtilityConfiguration.multiPartConcurrencyLimit = 6
+        transferUtilityConfiguration.timeoutIntervalForResource = 15*60 //15 minutes
+
+        AWSS3TransferUtility.register(
+            with: serviceConfiguration!,
+            transferUtilityConfiguration: transferUtilityConfiguration,
+            forKey: "to-remove"
+        )
+
+        //Create a large temp file;
+        let filePath = NSTemporaryDirectory() + "testCancelMultipartUpload.tmp"
+        var testData = "CancelT"
+        for _ in 1...24 {
+            testData = testData + testData;
+        }
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
+
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "to-remove")
+        XCTAssertNotNil(transferUtility)
+
+        transferUtility?.uploadUsingMultiPart(fileURL:  fileURL, bucket: generalTestBucket,
+                                   key: "testCancelMultipartUpload.txt",
+                                   contentType: "text/plain",
+                                   expression: expression,
+                                   completionHandler: nil)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }
+
+        sleep(2)
+
+        let sessionInvalidationExpectation = XCTNSNotificationExpectation(name: .AWSS3TransferUtilityURLSessionDidBecomeInvalid, object: nil, notificationCenter: NotificationCenter.default)
+
+        // remove the utility and wait for the session invalidation notification
+        AWSS3TransferUtility.remove(forKey: "to-remove")
+
+        wait(for: [sessionInvalidationExpectation], timeout: 10)
+    }
+
     
     func testSuspendResumeMultipartUpload() {
         //Create a large temp file;
