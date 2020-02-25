@@ -25,11 +25,11 @@ FOUNDATION_EXPORT NSString * _Nonnull const AWSSignatureV4Terminator;
 
 @interface AWSSignatureSignerUtility : NSObject
 
-+ (NSData * _Nonnull)sha256HMacWithData:(NSData * _Nullable)data withKey:(NSData * _Nullable)key;
++ (NSData * _Nonnull)sha256HMacWithData:(NSData * _Nullable)data withKey:(NSData * _Nonnull)key;
 + (NSString * _Nonnull)hashString:(NSString * _Nullable)stringToHash;
-+ (NSData * _Nullable)hash:(NSData * _Nullable)dataToHash;
-+ (NSString * _Nullable)hexEncode:(NSString * _Nullable)string;
-+ (NSString * _Nullable)HMACSign:(NSData * _Nullable)data withKey:(NSString * _Nullable)key usingAlgorithm:(uint32_t)algorithm;
++ (NSData * _Nonnull)hash:(NSData * _Nullable)dataToHash;
++ (NSString * _Nonnull)hexEncode:(NSString * _Nullable)string;
++ (NSString * _Nullable)HMACSign:(NSData * _Nullable)data withKey:(NSString * _Nonnull)key usingAlgorithm:(uint32_t)algorithm;
 
 @end
 
