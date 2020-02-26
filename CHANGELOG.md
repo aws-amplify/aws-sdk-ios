@@ -1,22 +1,24 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
+
+### Bug Fixes
+
+- **Amazon S3**
+  - TransferUtility now properly cancels waiting parts when canceling a multipart upload. See [Issue #2280](https://github.com/aws-amplify/aws-sdk-ios/issues/2280), [PR #2288](https://github.com/aws-amplify/aws-sdk-ios/pull/2288/). Thanks, [@colinhumber](https://github.com/colinhumber)!
 
 ### Misc. Updates
 
 - Model updates for the following services
 
-- Amazon Autoscaling
- - Amazon Cognito Identity Provider
- - Amazon DynamoDB
- - Amazon EC2
- - AWS KMS
- - AWS Lambda
- - Amazon Pinpoint
- - Amazon Rekognition
-
----
-# AWS Mobile SDK for iOS CHANGELOG
+  - Amazon Autoscaling
+  - Amazon Cognito Identity Provider
+  - Amazon DynamoDB
+  - Amazon EC2
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Rekognition
 
 ## 2.12.7
 
