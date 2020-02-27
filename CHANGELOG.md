@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## 2.12.8
 
 ### Bug Fixes
 
