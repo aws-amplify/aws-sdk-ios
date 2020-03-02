@@ -4,7 +4,7 @@
 
 ### Misc. Updates
 
-- **Breaking Change** Updated nullability flag for the `AWSSignatureSignerUtility`, `AWSSignatureV4Signer`, `AWSSignatureV2Signer` and `AWSS3ChunkedEncodingInputStream` classes. If you are using any of these classes in `swift` code base you might want to add the right specifier for the return values. 
+- **Breaking Change** Updated nullability flags for the `AWSSignatureSignerUtility`, `AWSSignatureV4Signer`, `AWSSignatureV2Signer` and `AWSS3ChunkedEncodingInputStream` classes. Methods in these classes will have new signatures in Swift code, and may require code changes in your app to consume. 
 
 ## 2.12.8
 
