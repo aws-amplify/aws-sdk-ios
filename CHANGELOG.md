@@ -1,5 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.13.0
+
+### Misc. Updates
+
+- **Breaking Change** Updated nullability flags for the `AWSSignatureSignerUtility`, `AWSSignatureV4Signer`, `AWSSignatureV2Signer` and `AWSS3ChunkedEncodingInputStream` classes. Methods in these classes will have new signatures in Swift code, and may require code changes in your app to consume. 
+
 ## 2.12.8
 
 ### Bug Fixes
