@@ -679,6 +679,7 @@ jobs:
           command: |
             aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
             aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+          no_output_timeout: 30m
       - run:
           name: Invalidate cloudfront
           command: |
