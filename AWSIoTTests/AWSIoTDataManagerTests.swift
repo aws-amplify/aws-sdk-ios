@@ -670,7 +670,6 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
 
     func publishSubscribeWithCert(useALPN:Bool) {
-        var messageCount = 0
         var connected = false
         let hasConnected = self.expectation(description: "MQTT connection has been established")
         let hasDisconnected = self.expectation(description: "Disconnected")
@@ -741,21 +740,18 @@ class AWSIoTDataManagerTests: XCTestCase {
 
         let testMessage = "Test Message"
         let testTopic = "TestTopic"
-
+        gotMessage.expectedFulfillmentCount = 5
         //Subscribe to TestTopic
         iotDataManager.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
             (payload) ->Void in
             let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
             print("received: \(stringValue)")
             XCTAssertEqual(testMessage, stringValue)
-            messageCount = messageCount+1
-            if (messageCount >= 5 ) {
-                gotMessage.fulfill()
-            }
+            gotMessage.fulfill()
         })
 
         //Publish to TestTopic 5 times
-        for _ in 1...5 {
+        for _ in 1...gotMessage.expectedFulfillmentCount {
             iotDataManager.publishString(testMessage, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
         }
 
@@ -1028,8 +1024,6 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
 
     func testPublishSubscribeWithCallback() {
-        var messageCount = 0
-        var pubAckCount = 0
         var connected = false
         let hasConnected = self.expectation(description: "MQTT connection has been established")
         let hasDisconnected = self.expectation(description: "Disconnected")
@@ -1101,12 +1095,7 @@ class AWSIoTDataManagerTests: XCTestCase {
             let stringValue = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
             print("received: \(stringValue)")
             XCTAssertEqual(testMessage, stringValue)
-
-            messageCount += 1
-
-            if (messageCount >= 5 ) {
-                gotMessage.fulfill()
-            }
+            gotMessage.fulfill()
         }
 
         let ackCallback: AWSIoTMQTTAckBlock = {
@@ -1123,13 +1112,12 @@ class AWSIoTDataManagerTests: XCTestCase {
 
         // Publish to TestTopic 5 times
         let pubAckCallback: AWSIoTMQTTAckBlock = {
-            pubAckCount += 1
-            if pubAckCount >= 5 {
-                publishesAcknowledged.fulfill()
-            }
+            publishesAcknowledged.fulfill()
         }
 
-        for _ in 1...5 {
+        publishesAcknowledged.expectedFulfillmentCount = 5
+        gotMessage.expectedFulfillmentCount = 5
+        for _ in 1...publishesAcknowledged.expectedFulfillmentCount {
             iotDataManager.publishString(testMessage,
                                          onTopic: testTopic,
                                          qoS: .messageDeliveryAttemptedAtLeastOnce,
@@ -1305,9 +1293,8 @@ class AWSIoTDataManagerTests: XCTestCase {
         var disconnectIssued = false
         let hasDisconnected = self.expectation(description: "Disconnected")
 
-        var messageCount = 0
         let gotMessage = self.expectation(description: "Got message on subscription")
-
+        gotMessage.expectedFulfillmentCount = 5
         func mqttEventCallback( _ status: AWSIoTMQTTStatus )
         {
             print("connection status = \(status.rawValue)")
@@ -1373,14 +1360,11 @@ class AWSIoTDataManagerTests: XCTestCase {
             let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
             print("received: \(stringValue)")
             XCTAssertEqual(testMessage, stringValue)
-            messageCount = messageCount + 1
-            if (messageCount >= 5 ) {
-                gotMessage.fulfill()
-            }
+            gotMessage.fulfill()
         })
 
         //Publish to TestTopic 5 times
-        for _ in 1...5 {
+        for _ in 1...gotMessage.expectedFulfillmentCount {
             iotDataManager.publishString(testMessage, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
         }
 
