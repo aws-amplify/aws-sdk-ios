@@ -448,6 +448,7 @@
 		9AD5842820F63E6700042041 /* singleface.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5842620F63E6700042041 /* singleface.jpg */; };
 		9AD5842A20F63E9B00042041 /* city_thumb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5842920F63E9B00042041 /* city_thumb.jpg */; };
 		B434294122F0FA0E00567E83 /* AWSTextract.h in Headers */ = {isa = PBXBuildFile; fileRef = B434294022F0FA0D00567E83 /* AWSTextract.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B44FBC4823F4B27D008EA8D2 /* AWSSignatureNullabilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B44FBC4723F4B27D008EA8D2 /* AWSSignatureNullabilityTests.m */; };
 		B47FAF4322C577CE00014548 /* AWSS3TransferUtilityUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */; };
 		B482E84722EEA9F20075A0A3 /* AWSS3TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B482E84622EEA9F20075A0A3 /* AWSS3TestHelper.m */; };
 		B4A4DFFE22B4201400379396 /* AWSSageMakerRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A4DFF522B4201300379396 /* AWSSageMakerRuntime.framework */; };
@@ -3823,6 +3824,7 @@
 		9AD5842620F63E6700042041 /* singleface.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singleface.jpg; sourceTree = "<group>"; };
 		9AD5842920F63E9B00042041 /* city_thumb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city_thumb.jpg; sourceTree = "<group>"; };
 		B434294022F0FA0D00567E83 /* AWSTextract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTextract.h; sourceTree = "<group>"; };
+		B44FBC4723F4B27D008EA8D2 /* AWSSignatureNullabilityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSignatureNullabilityTests.m; sourceTree = "<group>"; };
 		B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityUnitTests.m; sourceTree = "<group>"; };
 		B482E84522EEA9F10075A0A3 /* AWSS3TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TestHelper.h; sourceTree = "<group>"; };
 		B482E84622EEA9F20075A0A3 /* AWSS3TestHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TestHelper.m; sourceTree = "<group>"; };
@@ -6711,6 +6713,7 @@
 				CEB8EF281C6A69A00098B15B /* AWSNetworkingTests.m */,
 				CEB8EF291C6A69A00098B15B /* AWSSerializationTests.m */,
 				CEB8EF2B1C6A69A00098B15B /* AWSSignatureTests.m */,
+				B44FBC4723F4B27D008EA8D2 /* AWSSignatureNullabilityTests.m */,
 				CEB8EF2C1C6A69A00098B15B /* AWSSTSTests.m */,
 				CEB8EF2D1C6A69A00098B15B /* AWSTestUtility.h */,
 				CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */,
@@ -13363,6 +13366,7 @@
 				CEB8EF301C6A69A00098B15B /* AWSClockSkewTests.m in Sources */,
 				CEB8EF3C1C6A69A00098B15B /* AWSUtilityTests.m in Sources */,
 				CEB8EF321C6A69A00098B15B /* AWSCognitoIdentityServiceTests.m in Sources */,
+				B44FBC4823F4B27D008EA8D2 /* AWSSignatureNullabilityTests.m in Sources */,
 				CEB8EF361C6A69A00098B15B /* AWSNetworkingTests.m in Sources */,
 				CEB8EF391C6A69A00098B15B /* AWSSignatureTests.m in Sources */,
 				CEB8EF3B1C6A69A00098B15B /* AWSTestUtility.m in Sources */,

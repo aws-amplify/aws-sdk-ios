@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.12.8";
+NSString *const AWSiOSSDKVersion = @"2.13.0";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
