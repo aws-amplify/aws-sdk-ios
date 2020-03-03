@@ -642,6 +642,8 @@ jobs:
   release_ios_s3:
     macos:
       xcode: "11.2.1"
+    environment: 
+      TERM: xterm-256color
     steps:
       - skip_job_unless_required
       - checkout
