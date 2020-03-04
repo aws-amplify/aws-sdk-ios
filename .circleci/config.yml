@@ -622,13 +622,13 @@ jobs:
       - run:
           name: set_bumpversion_environment
           command: |
-            bumpversion_repo_account=aws-amplify
+            bumpversion_repo_user=aws-amplify
             bumpversion_repo_name=docs
             minorversion=$(echo $release_version | sed "s/\([0-9]*.[0-9]*\).[0-9]*/\1/")
             echo ${minorversion}
             bump_version_message="Update iOS docs to ${release_version}"
             bump_version_pr_title="Update iOS docs to ${release_version}"
-            echo "export bumpversion_repo_account=$bumpversion_repo_account" >> $BASH_ENV
+            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
             echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
             echo "export minorversion=$minorversion" >> $BASH_ENV
             echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
@@ -1659,20 +1659,10 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - bump_ios_sampleapp_version:
-          requires:
-            - release_tag
-            - release_ios_s3
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
             - add_doc_tag
             - bump_ios_amplifydocs_version
-            - bump_ios_sampleapp_version
           filters:
             branches:
               ignore: /.*/
@@ -1682,7 +1672,16 @@ workflows:
           requires:
             - add_doc_tag
             - bump_ios_amplifydocs_version
-            - bump_ios_sampleapp_version
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - bump_ios_sampleapp_version:
+          requires:
+            - release_tag
+            - release_ios_s3
+            - release_cocoapods
           filters:
             branches:
               ignore: /.*/
