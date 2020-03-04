@@ -117,7 +117,10 @@ class AWSMobileClientTestBase: XCTestCase {
         wait(for: [signInConfirmWasSuccessful], timeout: 5)
     }
     
-    func signUpUser(username: String, customUserAttributes: [String: String]? = nil, signupState: SignUpConfirmationState = .unconfirmed) {
+    func signUpUser(username: String,
+                    customUserAttributes: [String: String]? = nil,
+                    clientMetaData: [String: String]? = nil,
+                    signupState: SignUpConfirmationState = .unconfirmed) {
         var userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
         if let customUserAttributes = customUserAttributes {
             userAttributes.merge(customUserAttributes) { current, _ in current }
@@ -127,7 +130,8 @@ class AWSMobileClientTestBase: XCTestCase {
         AWSMobileClient.default().signUp(
             username: username,
             password: sharedPassword,
-            userAttributes: userAttributes) { (signUpResult, error) in
+            userAttributes: userAttributes,
+            clientMetaData: clientMetaData) { (signUpResult, error) in
                 if let error = error {
                     var errorMessage: String
                     if let mobileClientError = error as? AWSMobileClientError {
@@ -159,50 +163,6 @@ class AWSMobileClientTestBase: XCTestCase {
         }
         
         wait(for: [signUpExpectation], timeout: 5)
-    }
-    
-    func signUpWithClientMetaData(username: String,
-                                  clientMetaData: [String: String]? = nil,
-                                  signupState: SignUpConfirmationState = .unconfirmed) {
-        let signUpExpectation = expectation(description: "successful sign up with clientMetaData expectation.")
-        AWSMobileClient.default().signUp(
-            username: username,
-            password: sharedPassword,
-            userAttributes: userAttributes,
-            clientMetaData: clientMetaData
-            ) { (signUpResult, error) in
-                if let error = error {
-                    var errorMessage: String
-                    if let mobileClientError = error as? AWSMobileClientError {
-                        errorMessage = mobileClientError.message
-                    } else {
-                        errorMessage = error.localizedDescription
-                    }
-                    XCTFail("Unexpected failure: \(errorMessage)")
-                    return
-                }
-                
-                guard let signUpResult = signUpResult else {
-                    XCTFail("signUpWithClientMetaDataResult unexpectedly nil")
-                    return
-                }
-                
-                switch(signUpResult.signUpConfirmationState) {
-                case .confirmed:
-                    print("User is signed up and confirmed.")
-                case .unconfirmed:
-                    print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
-                case .unknown:
-                    print("Unexpected case")
-                }
-                
-                XCTAssertTrue(signUpResult.signUpConfirmationState == signupState, "User is expected to be marked as \(signupState).")
-                
-                signUpExpectation.fulfill()
-        }
-        
-        wait(for: [signUpExpectation], timeout: 5)
-        
     }
     
     func adminVerifyUser(username: String) {

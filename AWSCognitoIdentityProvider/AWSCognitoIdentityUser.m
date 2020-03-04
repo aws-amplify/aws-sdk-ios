@@ -45,8 +45,8 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 
 
 -(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
-                                                            forceAliasCreation:(BOOL)forceAliasCreation
-                                                            clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
+                                                       forceAliasCreation:(BOOL)forceAliasCreation
+                                                           clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
     AWSCognitoIdentityProviderConfirmSignUpRequest *request = [AWSCognitoIdentityProviderConfirmSignUpRequest new];
     request.clientId = self.pool.userPoolConfiguration.clientId;
     request.username = self.username;
@@ -72,13 +72,13 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 
 
 -(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
-                                                            forceAliasCreation:(BOOL)forceAliasCreation {
+                                                       forceAliasCreation:(BOOL)forceAliasCreation {
     return [self confirmSignUp:confirmationCode forceAliasCreation:forceAliasCreation clientMetaData:nil];
 }
 
 
 -(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
-                                                            clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
+                                                           clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
     return [self confirmSignUp:confirmationCode forceAliasCreation:NO clientMetaData:clientMetaData];
 }
 
@@ -110,7 +110,9 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 }
 
 
--(AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *) confirmForgotPassword: (NSString *)confirmationCode password:(NSString *) password clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
+-(AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *) confirmForgotPassword: (NSString *)confirmationCode
+                                                                                 password:(NSString *) password
+                                                                           clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
     AWSCognitoIdentityProviderConfirmForgotPasswordRequest *request = [AWSCognitoIdentityProviderConfirmForgotPasswordRequest new];
     request.clientId = self.pool.userPoolConfiguration.clientId;
     request.username = self.username;
@@ -128,7 +130,8 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }];
 }
 
--(AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *) confirmForgotPassword: (NSString *)confirmationCode password:(NSString *) password {
+-(AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *) confirmForgotPassword: (NSString *)confirmationCode
+                                                                                 password:(NSString *) password {
     return [self confirmForgotPassword:confirmationCode
                               password:password
                               clientMetaData:nil];

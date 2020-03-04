@@ -368,16 +368,28 @@ extension AWSMobileClient {
     ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
     ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func confirmSignUp(username: String, confirmationCode: String, clientMetaData: [String:String] = [:], completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+    public func confirmSignUp(username: String,
+                              confirmationCode: String,
+                              clientMetaData: [String:String] = [:],
+                              completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         if let uname = self.userpoolOpsHelper.signUpUser?.username, uname == username {
-            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!, confirmationCode: confirmationCode, clientMetaData: clientMetaData, completionHandler: completionHandler)
+            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!,
+                          confirmationCode: confirmationCode,
+                          clientMetaData: clientMetaData,
+                          completionHandler: completionHandler)
         } else {
             let user = self.userPoolClient?.getUser(username)
-            confirmSignUp(user: user!, confirmationCode: confirmationCode,clientMetaData: clientMetaData, completionHandler: completionHandler)
+            confirmSignUp(user: user!,
+                          confirmationCode: confirmationCode,
+                          clientMetaData: clientMetaData,
+                          completionHandler: completionHandler)
         }
     }
     
-    internal func confirmSignUp(user: AWSCognitoIdentityUser, confirmationCode: String, clientMetaData: [String:String] = [:], completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+    internal func confirmSignUp(user: AWSCognitoIdentityUser,
+                                confirmationCode: String,
+                                clientMetaData: [String:String] = [:],
+                                completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         user.confirmSignUp(confirmationCode, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
@@ -426,7 +438,9 @@ extension AWSMobileClient {
     ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
     ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
-    public func forgotPassword(username: String, clientMetaData: [String:String] = [:], completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
+    public func forgotPassword(username: String,
+                               clientMetaData: [String:String] = [:],
+                               completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
         let user = self.userPoolClient?.getUser(username)
         user!.forgotPassword(clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
@@ -451,7 +465,11 @@ extension AWSMobileClient {
     ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
     ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func confirmForgotPassword(username: String, newPassword: String, confirmationCode: String, clientMetaData: [String:String] = [:], completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
+    public func confirmForgotPassword(username: String,
+                                      newPassword: String,
+                                      confirmationCode: String,
+                                      clientMetaData: [String:String] = [:],
+                                      completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
         let user = self.userPoolClient?.getUser(username)
         user!.confirmForgotPassword(confirmationCode, password: newPassword, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
