@@ -14,7 +14,7 @@
     <a title="AWSCognitoIdentityProviderUserPoolClientType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.12.7 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.13.0 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -792,6 +792,9 @@
                 <a href="../Classes/AWSCognitoIdentityProviderUserType.html">AWSCognitoIdentityProviderUserType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderUsernameConfigurationType.html">AWSCognitoIdentityProviderUsernameConfigurationType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderVerificationMessageTemplateType.html">AWSCognitoIdentityProviderVerificationMessageTemplateType</a>
               </li>
               <li class="nav-group-task">
@@ -1097,7 +1100,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>token</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p>
+                        <p>The allowed OAuth flows.</p><p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p><p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
 
                       </div>
                       <div class="declaration">
@@ -1130,7 +1133,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
+                        <p>Set to true if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.</p>
 
                       </div>
                       <div class="declaration">
@@ -1163,7 +1166,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>, <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>. In addition to these values, custom scopes created in Resource Servers are also supported.</p>
+                        <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created in Resource Servers are also supported.</p>
 
                       </div>
                       <div class="declaration">
@@ -1521,7 +1524,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><p>This setting affects the behavior of following APIs:</p><ul><li><p><a>AdminInitiateAuth</a></p></li><li><p><a>AdminRespondToAuthChallenge</a></p></li><li><p><a>InitiateAuth</a></p></li><li><p><a>RespondToAuthChallenge</a></p></li><li><p><a>ForgotPassword</a></p></li><li><p><a>ConfirmForgotPassword</a></p></li><li><p><a>ConfirmSignUp</a></p></li><li><p><a>ResendConfirmationCode</a></p></li></ul><note><p>After January 1st 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note></p>
+                        <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><p>This setting affects the behavior of following APIs:</p><ul><li><p><a>AdminInitiateAuth</a></p></li><li><p><a>AdminRespondToAuthChallenge</a></p></li><li><p><a>InitiateAuth</a></p></li><li><p><a>RespondToAuthChallenge</a></p></li><li><p><a>ForgotPassword</a></p></li><li><p><a>ConfirmForgotPassword</a></p></li><li><p><a>ConfirmSignUp</a></p></li><li><p><a>ResendConfirmationCode</a></p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -1711,7 +1714,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
