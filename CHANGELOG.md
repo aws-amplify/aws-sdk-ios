@@ -1,5 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.13.1
+
+### Misc. Updates
+
+- Added an optional parameter `clientMetaData` to `signUp`, `confirmSignUp`, `forgotPassword` and `confirmForgotPassword`. Should not break existing calls to these functions.
+
 ## 2.13.0
 
 ### Bug Fixes
