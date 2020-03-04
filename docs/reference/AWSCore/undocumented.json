@@ -311,62 +311,55 @@
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
       "line": 95,
-      "symbol": "AWSSignatureV4Signer.+getCanonicalizedQueryStringForDate:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 97,
       "symbol": "AWSSignatureV4Signer.+getCanonicalizedRequest:path:query:headers:contentSha256:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 103,
+      "line": 101,
       "symbol": "AWSSignatureV4Signer.+getV4DerivedKey:date:region:service:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 108,
+      "line": 106,
       "symbol": "AWSSignatureV4Signer.+getSignedHeadersString:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 112,
+      "line": 110,
       "symbol": "AWSSignatureV2Signer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 114,
+      "line": 112,
       "symbol": "AWSSignatureV2Signer.credentialsProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 116,
+      "line": 114,
       "symbol": "AWSSignatureV2Signer.+signerWithCredentialsProvider:endpoint:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 119,
+      "line": 117,
       "symbol": "AWSSignatureV2Signer.-initWithCredentialsProvider:endpoint:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSSignature.h",
-      "line": 130,
+      "line": 128,
       "symbol": "AWSS3ChunkedEncodingInputStream.totalLengthOfChunkSignatureSent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"

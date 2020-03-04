@@ -14,7 +14,7 @@
     <a title="AWSSignatureV4Signer Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.12.7 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.13.0 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -977,10 +977,10 @@
                 <div class="language">
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSSignatureV4Signer</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSNetworkingRequestInterceptor.html">AWSNetworkingRequestInterceptor</a></span><span class="o">&gt;</span>
 
-<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">credentialsProvider</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span> <span class="n">credentialsProvider</span><span class="p">;</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithCredentialsProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">credentialsProvider</span>
-                                   <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">endpoint</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">initWithCredentialsProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
+                                   <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">endpoint</span><span class="p">;</span>
 
 <span class="cm">/**
  Returns a URL signed using the SigV4 algorithm, using the current date, and including the session token (if any) as
@@ -996,14 +996,14 @@
  @param signBody if true and the httpMethod is GET, sign an empty string as part of the signature content
  @return a task containing the signed URL
  */</span>
-<span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">generateQueryStringForSignatureV4WithCredentialProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">credentialsProvider</span>
-                                                                   <span class="nf">httpMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a></span><span class="p">)</span><span class="nv">httpMethod</span>
-                                                               <span class="nf">expireDuration</span><span class="p">:(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
-                                                                     <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">endpoint</span>
-                                                                      <span class="nf">keyPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyPath</span>
-                                                               <span class="nf">requestHeaders</span><span class="p">:(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">requestHeaders</span>
-                                                            <span class="nf">requestParameters</span><span class="p">:(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">requestParameters</span>
-                                                                     <span class="nf">signBody</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signBody</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">generateQueryStringForSignatureV4WithCredentialProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
+                                                                            <span class="nf">httpMethod</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a></span><span class="p">)</span><span class="nv">httpMethod</span>
+                                                                        <span class="nf">expireDuration</span><span class="p">:(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
+                                                                              <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">endpoint</span>
+                                                                               <span class="nf">keyPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">keyPath</span>
+                                                                        <span class="nf">requestHeaders</span><span class="p">:(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">requestHeaders</span>
+                                                                     <span class="nf">requestParameters</span><span class="p">:(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">requestParameters</span>
+                                                                              <span class="nf">signBody</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signBody</span><span class="p">;</span>
 
 <span class="cm">/**
  Returns a URL signed using the SigV4 algorithm.
@@ -1025,29 +1025,27 @@
         If false, appends the X-AMZ-Security-Token to the end of the signed URL request parameters
  @return a task containing the signed URL
  */</span>
-<span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">sigV4SignedURLWithRequest</span><span class="p">:(</span><span class="n">NSURLRequest</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">request</span>
-                             <span class="nf">credentialProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
-                                     <span class="nf">regionName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">regionName</span>
-                                    <span class="nf">serviceName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">serviceName</span>
-                                           <span class="nf">date</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">date</span>
-                                 <span class="nf">expireDuration</span><span class="p">:(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
-                                       <span class="nf">signBody</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signBody</span>
-                               <span class="nf">signSessionToken</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signSessionToken</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">sigV4SignedURLWithRequest</span><span class="p">:(</span><span class="n">NSURLRequest</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">request</span>
+                                      <span class="nf">credentialProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
+                                              <span class="nf">regionName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">regionName</span>
+                                             <span class="nf">serviceName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">serviceName</span>
+                                                    <span class="nf">date</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">date</span>
+                                          <span class="nf">expireDuration</span><span class="p">:(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
+                                                <span class="nf">signBody</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signBody</span>
+                                        <span class="nf">signSessionToken</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signSessionToken</span><span class="p">;</span>
 
-<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getCanonicalizedQueryStringForDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">currentDate</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">getCanonicalizedRequest</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">method</span>
+                                 <span class="nf">path</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">path</span>
+                                <span class="nf">query</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">query</span>
+                              <span class="nf">headers</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">headers</span>
+                        <span class="nf">contentSha256</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">contentSha256</span><span class="p">;</span>
 
-<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getCanonicalizedRequest</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">method</span>
-                                 <span class="nf">path</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">path</span>
-                                <span class="nf">query</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">query</span>
-                              <span class="nf">headers</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">headers</span>
-                        <span class="nf">contentSha256</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">contentSha256</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">getV4DerivedKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">secret</span>
+                       <span class="nf">date</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">dateStamp</span>
+                     <span class="nf">region</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">regionName</span>
+                    <span class="nf">service</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">serviceName</span><span class="p">;</span>
 
-<span class="k">+</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">getV4DerivedKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">secret</span>
-                       <span class="nf">date</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">dateStamp</span>
-                     <span class="nf">region</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">regionName</span>
-                    <span class="nf">service</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">serviceName</span><span class="p">;</span>
-
-<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSignedHeadersString</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">headers</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">getSignedHeadersString</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">headers</span><span class="p">;</span>
 
 <span class="k">@end</span></code></pre>
 
@@ -1079,7 +1077,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">credentialsProvider</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span> <span class="n">credentialsProvider</span></code></pre>
 
                         </div>
                       </div>
@@ -1106,8 +1104,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithCredentialsProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">credentialsProvider</span>
-                                   <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">endpoint</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">initWithCredentialsProvider</span><span class="p">:(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
+                                   <span class="nf">endpoint</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">endpoint</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -1135,23 +1133,26 @@ part of the signed query paramters.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span>
     <span class="nf">generateQueryStringForSignatureV4WithCredentialProvider</span><span class="p">:</span>
-        <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span><span class="p">)</span><span class="nv">credentialsProvider</span>
+        <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
                                                  <span class="nf">httpMethod</span><span class="p">:</span>
                                                      <span class="p">(</span><span class="n"><a href="../Enums/AWSHTTPMethod.html">AWSHTTPMethod</a></span><span class="p">)</span><span class="nv">httpMethod</span>
                                              <span class="nf">expireDuration</span><span class="p">:</span>
                                                  <span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
                                                    <span class="nf">endpoint</span><span class="p">:</span>
-                                                       <span class="p">(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">endpoint</span>
-                                                    <span class="nf">keyPath</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">keyPath</span>
-                                             <span class="nf">requestHeaders</span><span class="p">:</span>
+                                                       <span class="p">(</span><span class="n"><a href="../Classes/AWSEndpoint.html">AWSEndpoint</a></span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span>
+                                                           <span class="n">endpoint</span>
+                                                    <span class="n">keyPath</span><span class="o">:</span>
+                                                        <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span>
+                                                            <span class="n">keyPath</span>
+                                             <span class="n">requestHeaders</span><span class="o">:</span>
                                                  <span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span>
-                                                               <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span>
-                                                     <span class="n">requestHeaders</span>
+                                                               <span class="n">NSString</span> <span class="o">*&gt;</span>
+                                                      <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="n">requestHeaders</span>
                                           <span class="n">requestParameters</span><span class="o">:</span>
-                                              <span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">id</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span>
-                                                  <span class="n">requestParameters</span>
+                                              <span class="p">(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">id</span><span class="o">&gt;</span>
+                                                   <span class="o">*</span><span class="n">_Nullable</span><span class="p">)</span><span class="n">requestParameters</span>
                                                    <span class="n">signBody</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">signBody</span><span class="p">;</span></code></pre>
 
                         </div>
@@ -1292,16 +1293,16 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">sigV4SignedURLWithRequest</span><span class="p">:(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">request</span>
-                             <span class="nf">credentialProvider</span><span class="p">:</span>
-                                 <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span>
-                                     <span class="n"><a href="../Classes/AWSSignatureV4Signer.html#/c:objc(cs)AWSSignatureV4Signer(py)credentialsProvider">credentialsProvider</a></span>
-                                     <span class="n">regionName</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="n">regionName</span>
-                                    <span class="n">serviceName</span><span class="o">:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="n">serviceName</span>
-                                           <span class="n">date</span><span class="o">:</span><span class="p">(</span><span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="n">date</span>
-                                 <span class="n">expireDuration</span><span class="o">:</span><span class="p">(</span><span class="kt">int32_t</span><span class="p">)</span><span class="n">expireDuration</span>
-                                       <span class="n">signBody</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">signBody</span>
-                               <span class="n">signSessionToken</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">signSessionToken</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSTask.html">AWSTask</a></span><span class="o">&lt;</span><span class="n">NSURL</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span>
+    <span class="nf">sigV4SignedURLWithRequest</span><span class="p">:(</span><span class="n">NSURLRequest</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">request</span>
+           <span class="nf">credentialProvider</span><span class="p">:</span>
+               <span class="p">(</span><span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCredentialsProvider.html">AWSCredentialsProvider</a></span><span class="o">&gt;</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">credentialsProvider</span>
+                   <span class="nf">regionName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">regionName</span>
+                  <span class="nf">serviceName</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">serviceName</span>
+                         <span class="nf">date</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nonnull</span><span class="p">)</span><span class="nv">date</span>
+               <span class="nf">expireDuration</span><span class="p">:(</span><span class="kt">int32_t</span><span class="p">)</span><span class="nv">expireDuration</span>
+                     <span class="nf">signBody</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signBody</span>
+             <span class="nf">signSessionToken</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">signSessionToken</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -1419,38 +1420,6 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSSignatureV4Signer(cm)getCanonicalizedQueryStringForDate:"></a>
-                    <a name="//apple_ref/objc/Method/+getCanonicalizedQueryStringForDate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSSignatureV4Signer(cm)getCanonicalizedQueryStringForDate:">+getCanonicalizedQueryStringForDate:</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getCanonicalizedQueryStringForDate</span><span class="p">:(</span><span class="n">NSDate</span> <span class="o">*</span><span class="p">)</span><span class="nv">currentDate</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getCanonicalizedQueryString</span><span class="p">(</span><span class="k">for</span> <span class="nv">currentDate</span><span class="p">:</span> <span class="kt">Date</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/c:objc(cs)AWSSignatureV4Signer(cm)getCanonicalizedRequest:path:query:headers:contentSha256:"></a>
                     <a name="//apple_ref/objc/Method/+getCanonicalizedRequest:path:query:headers:contentSha256:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSSignatureV4Signer(cm)getCanonicalizedRequest:path:query:headers:contentSha256:">+getCanonicalizedRequest:path:query:headers:contentSha256:</a>
@@ -1468,16 +1437,16 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getCanonicalizedRequest</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">method</span>
-                                 <span class="nf">path</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">path</span>
-                                <span class="nf">query</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">query</span>
-                              <span class="nf">headers</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">headers</span>
-                        <span class="nf">contentSha256</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">contentSha256</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">getCanonicalizedRequest</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">method</span>
+                                 <span class="nf">path</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nv">path</span>
+                                <span class="nf">query</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">query</span>
+                              <span class="nf">headers</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">headers</span>
+                        <span class="nf">contentSha256</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">contentSha256</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getCanonicalizedRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">,</span> <span class="nv">contentSha256</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getCanonicalizedRequest</span><span class="p">(</span><span class="n">_</span> <span class="nv">method</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">query</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="nv">contentSha256</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1504,15 +1473,15 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">getV4DerivedKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">secret</span>
-                       <span class="nf">date</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">dateStamp</span>
-                     <span class="nf">region</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">regionName</span>
-                    <span class="nf">service</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">serviceName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSData</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">getV4DerivedKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">secret</span>
+                       <span class="nf">date</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">dateStamp</span>
+                     <span class="nf">region</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">regionName</span>
+                    <span class="nf">service</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">serviceName</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getV4DerivedKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">secret</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">date</span> <span class="nv">dateStamp</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">region</span> <span class="nv">regionName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">,</span> <span class="n">service</span> <span class="nv">serviceName</span><span class="p">:</span> <span class="kt">String</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Data</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getV4DerivedKey</span><span class="p">(</span><span class="n">_</span> <span class="nv">secret</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">date</span> <span class="nv">dateStamp</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">region</span> <span class="nv">regionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="n">service</span> <span class="nv">serviceName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Data</span></code></pre>
 
                         </div>
                       </div>
@@ -1539,12 +1508,12 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSignedHeadersString</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">headers</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nonnull</span><span class="p">)</span><span class="nf">getSignedHeadersString</span><span class="p">:(</span><span class="n">NSDictionary</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">headers</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getSignedHeadersString</span><span class="p">(</span><span class="n">_</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span><span class="o">!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getSignedHeadersString</span><span class="p">(</span><span class="n">_</span> <span class="nv">headers</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -1556,7 +1525,7 @@ but in practice, callers should use <code>-[NSDate aws_clockSkewFixedDate]</code
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
