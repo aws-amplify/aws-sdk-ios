@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSRekognition 2.12.7 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSRekognition 2.13.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -168,10 +168,16 @@
                 <a href="Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionDetectTextFilters.html">AWSRekognitionDetectTextFilters</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionDetectTextRequest.html">AWSRekognitionDetectTextRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionDetectTextResponse.html">AWSRekognitionDetectTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionDetectionFilter.html">AWSRekognitionDetectionFilter</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a>
@@ -250,6 +256,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGetPersonTrackingResponse.html">AWSRekognitionGetPersonTrackingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetTextDetectionRequest.html">AWSRekognitionGetTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionGetTextDetectionResponse.html">AWSRekognitionGetTextDetectionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionGroundTruthManifest.html">AWSRekognitionGroundTruthManifest</a>
@@ -357,6 +369,9 @@
                 <a href="Classes/AWSRekognitionRecognizeCelebritiesResponse.html">AWSRekognitionRecognizeCelebritiesResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionRegionOfInterest.html">AWSRekognitionRegionOfInterest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionResources.html">AWSRekognitionResources</a>
               </li>
               <li class="nav-group-task">
@@ -426,6 +441,15 @@
                 <a href="Classes.html#/c:objc(cs)AWSRekognitionStartStreamProcessorResponse">AWSRekognitionStartStreamProcessorResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionStartTextDetectionFilters.html">AWSRekognitionStartTextDetectionFilters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionStartTextDetectionRequest.html">AWSRekognitionStartTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionStartTextDetectionResponse.html">AWSRekognitionStartTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionStopProjectVersionRequest.html">AWSRekognitionStopProjectVersionRequest</a>
               </li>
               <li class="nav-group-task">
@@ -463,6 +487,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionTextDetection.html">AWSRekognitionTextDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionTextDetectionResult.html">AWSRekognitionTextDetectionResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionTrainingData.html">AWSRekognitionTrainingData</a>
@@ -1997,6 +2024,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionDetectTextFilters"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionDetectTextFilters" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionDetectTextFilters">AWSRekognitionDetectTextFilters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A set of optional parameters that you can use to set the criteria that the text must meet to be included in your response. <code>WordFilter</code> looks at a word’s height, width, and minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the image to look for text in. </p>
+
+                        <a href="Classes/AWSRekognitionDetectTextFilters.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionDetectTextFilters</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionDetectTextFilters</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionDetectTextRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSRekognitionDetectTextRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionDetectTextRequest">AWSRekognitionDetectTextRequest</a>
@@ -2052,6 +2112,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionDetectTextResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionDetectionFilter"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionDetectionFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionDetectionFilter">AWSRekognitionDetectionFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
+
+                        <a href="Classes/AWSRekognitionDetectionFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionDetectionFilter</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionDetectionFilter</span></code></pre>
 
                         </div>
                       </div>
@@ -2896,6 +2989,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionGetPersonTrackingResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetTextDetectionRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionGetTextDetectionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetTextDetectionRequest">AWSRekognitionGetTextDetectionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionGetTextDetectionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionGetTextDetectionRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionGetTextDetectionRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionGetTextDetectionResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionGetTextDetectionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionGetTextDetectionResponse">AWSRekognitionGetTextDetectionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionGetTextDetectionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionGetTextDetectionResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionGetTextDetectionResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -4054,6 +4211,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionRegionOfInterest"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionRegionOfInterest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionRegionOfInterest">AWSRekognitionRegionOfInterest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies a location within the frame that Rekognition checks for text. Uses a <code>BoundingBox</code> object to set a region of the screen.</p><p>A word is included in the region if the word is more than half in that region. If there is more than one region, the word will be compared with all regions of the screen. Any word more than half in a region is kept in the results.</p>
+
+                        <a href="Classes/AWSRekognitionRegionOfInterest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionRegionOfInterest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionRegionOfInterest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionS3Object"></a>
                     <a name="//apple_ref/objc/Class/AWSRekognitionS3Object" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionS3Object">AWSRekognitionS3Object</a>
@@ -4759,6 +4949,103 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionStartTextDetectionFilters"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionStartTextDetectionFilters" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionStartTextDetectionFilters">AWSRekognitionStartTextDetectionFilters</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set of optional parameters that let you set the criteria text must meet to be included in your response. <code>WordFilter</code> looks at a word&rsquo;s height, width and minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the screen to look for text in.</p>
+
+                        <a href="Classes/AWSRekognitionStartTextDetectionFilters.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionStartTextDetectionFilters</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionStartTextDetectionFilters</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionStartTextDetectionRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionStartTextDetectionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionStartTextDetectionRequest">AWSRekognitionStartTextDetectionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionStartTextDetectionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionStartTextDetectionRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionStartTextDetectionRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionStartTextDetectionResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionStartTextDetectionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionStartTextDetectionResponse">AWSRekognitionStartTextDetectionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionStartTextDetectionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionStartTextDetectionResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionStartTextDetectionResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionStopProjectVersionRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSRekognitionStopProjectVersionRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionStopProjectVersionRequest">AWSRekognitionStopProjectVersionRequest</a>
@@ -5183,6 +5470,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionTextDetectionResult"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionTextDetectionResult" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionTextDetectionResult">AWSRekognitionTextDetectionResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about text detected in a video. Incudes the detected text, the time in milliseconds from the start of the video that the text was detected, and where it was detected on the screen.</p>
+
+                        <a href="Classes/AWSRekognitionTextDetectionResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionTextDetectionResult</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionTextDetectionResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionTrainingData"></a>
                     <a name="//apple_ref/objc/Class/AWSRekognitionTrainingData" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionTrainingData">AWSRekognitionTrainingData</a>
@@ -5422,7 +5742,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-02-10)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
