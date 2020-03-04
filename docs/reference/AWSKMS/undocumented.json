@@ -394,749 +394,756 @@
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 80,
+      "line": 78,
+      "symbol": "AWSKMSConnectionErrorCodeType.AWSKMSConnectionErrorCodeTypeSubnetNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
+      "line": 81,
       "symbol": "AWSKMSConnectionStateType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 80,
+      "line": 81,
       "symbol": "AWSKMSConnectionStateType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 81,
+      "line": 82,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 82,
+      "line": 83,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeConnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 83,
+      "line": 84,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeConnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 84,
+      "line": 85,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 85,
+      "line": 86,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeDisconnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 86,
+      "line": 87,
       "symbol": "AWSKMSConnectionStateType.AWSKMSConnectionStateTypeDisconnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 89,
+      "line": 90,
       "symbol": "AWSKMSCustomerMasterKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 89,
+      "line": 90,
       "symbol": "AWSKMSCustomerMasterKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 90,
+      "line": 91,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 91,
+      "line": 92,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 92,
+      "line": 93,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecRsa3072",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 93,
+      "line": 94,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecRsa4096",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 94,
+      "line": 95,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccNistP256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 95,
+      "line": 96,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccNistP384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 96,
+      "line": 97,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccNistP521",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 97,
+      "line": 98,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecEccSecgP256k1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 98,
+      "line": 99,
       "symbol": "AWSKMSCustomerMasterKeySpec.AWSKMSCustomerMasterKeySpecSymmetricDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 101,
+      "line": 102,
       "symbol": "AWSKMSDataKeyPairSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 101,
+      "line": 102,
       "symbol": "AWSKMSDataKeyPairSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 102,
+      "line": 103,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 103,
+      "line": 104,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 104,
+      "line": 105,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecRsa3072",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 105,
+      "line": 106,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecRsa4096",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 106,
+      "line": 107,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccNistP256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 107,
+      "line": 108,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccNistP384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 108,
+      "line": 109,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccNistP521",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 109,
+      "line": 110,
       "symbol": "AWSKMSDataKeyPairSpec.AWSKMSDataKeyPairSpecEccSecgP256k1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 112,
+      "line": 113,
       "symbol": "AWSKMSDataKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 112,
+      "line": 113,
       "symbol": "AWSKMSDataKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 113,
+      "line": 114,
       "symbol": "AWSKMSDataKeySpec.AWSKMSDataKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 114,
+      "line": 115,
       "symbol": "AWSKMSDataKeySpec.AWSKMSDataKeySpecAes256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 115,
+      "line": 116,
       "symbol": "AWSKMSDataKeySpec.AWSKMSDataKeySpecAes128",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 118,
+      "line": 119,
       "symbol": "AWSKMSEncryptionAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 118,
+      "line": 119,
       "symbol": "AWSKMSEncryptionAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 119,
+      "line": 120,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 120,
+      "line": 121,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecSymmetricDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 121,
+      "line": 122,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecRsaesOaepSha1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 122,
+      "line": 123,
       "symbol": "AWSKMSEncryptionAlgorithmSpec.AWSKMSEncryptionAlgorithmSpecRsaesOaepSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 125,
+      "line": 126,
       "symbol": "AWSKMSExpirationModelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 125,
+      "line": 126,
       "symbol": "AWSKMSExpirationModelType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 126,
+      "line": 127,
       "symbol": "AWSKMSExpirationModelType.AWSKMSExpirationModelTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 127,
+      "line": 128,
       "symbol": "AWSKMSExpirationModelType.AWSKMSExpirationModelTypeKeyMaterialExpires",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 128,
+      "line": 129,
       "symbol": "AWSKMSExpirationModelType.AWSKMSExpirationModelTypeKeyMaterialDoesNotExpire",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 131,
+      "line": 132,
       "symbol": "AWSKMSGrantOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 131,
+      "line": 132,
       "symbol": "AWSKMSGrantOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 132,
+      "line": 133,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 133,
+      "line": 134,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationDecrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 134,
+      "line": 135,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationEncrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 135,
+      "line": 136,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 136,
+      "line": 137,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKeyWithoutPlaintext",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 137,
+      "line": 138,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationReEncryptFrom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 138,
+      "line": 139,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationReEncryptTo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 139,
+      "line": 140,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationSign",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 140,
+      "line": 141,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationVerify",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 141,
+      "line": 142,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGetPublicKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 142,
+      "line": 143,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationCreateGrant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 143,
+      "line": 144,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationRetireGrant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 144,
+      "line": 145,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationDescribeKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 145,
+      "line": 146,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKeyPair",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 146,
+      "line": 147,
       "symbol": "AWSKMSGrantOperation.AWSKMSGrantOperationGenerateDataKeyPairWithoutPlaintext",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 149,
+      "line": 150,
       "symbol": "AWSKMSKeyManagerType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 149,
+      "line": 150,
       "symbol": "AWSKMSKeyManagerType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 150,
+      "line": 151,
       "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 151,
+      "line": 152,
       "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeAws",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 152,
+      "line": 153,
       "symbol": "AWSKMSKeyManagerType.AWSKMSKeyManagerTypeCustomer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 155,
+      "line": 156,
       "symbol": "AWSKMSKeyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 155,
+      "line": 156,
       "symbol": "AWSKMSKeyState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 156,
+      "line": 157,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 157,
+      "line": 158,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 158,
+      "line": 159,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 159,
+      "line": 160,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingDeletion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 160,
+      "line": 161,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStatePendingImport",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 161,
+      "line": 162,
       "symbol": "AWSKMSKeyState.AWSKMSKeyStateUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 164,
+      "line": 165,
       "symbol": "AWSKMSKeyUsageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 164,
+      "line": 165,
       "symbol": "AWSKMSKeyUsageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 165,
+      "line": 166,
       "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 166,
+      "line": 167,
       "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeSignVerify",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 167,
+      "line": 168,
       "symbol": "AWSKMSKeyUsageType.AWSKMSKeyUsageTypeEncryptDecrypt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 170,
+      "line": 171,
       "symbol": "AWSKMSMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 170,
+      "line": 171,
       "symbol": "AWSKMSMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 171,
+      "line": 172,
       "symbol": "AWSKMSMessageType.AWSKMSMessageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 172,
+      "line": 173,
       "symbol": "AWSKMSMessageType.AWSKMSMessageTypeRAW",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 173,
+      "line": 174,
       "symbol": "AWSKMSMessageType.AWSKMSMessageTypeDigest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 176,
+      "line": 177,
       "symbol": "AWSKMSOriginType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 176,
+      "line": 177,
       "symbol": "AWSKMSOriginType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 177,
+      "line": 178,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 178,
+      "line": 179,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 179,
+      "line": 180,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeExternal",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 180,
+      "line": 181,
       "symbol": "AWSKMSOriginType.AWSKMSOriginTypeAwsCloudhsm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 183,
+      "line": 184,
       "symbol": "AWSKMSSigningAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 183,
+      "line": 184,
       "symbol": "AWSKMSSigningAlgorithmSpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 184,
+      "line": 185,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 185,
+      "line": 186,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 186,
+      "line": 187,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 187,
+      "line": 188,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPssSha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 188,
+      "line": 189,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 189,
+      "line": 190,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 190,
+      "line": 191,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecRsassaPkcs1V15Sha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 191,
+      "line": 192,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 192,
+      "line": 193,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha384",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 193,
+      "line": 194,
       "symbol": "AWSKMSSigningAlgorithmSpec.AWSKMSSigningAlgorithmSpecEcdsaSha512",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 196,
+      "line": 197,
       "symbol": "AWSKMSWrappingKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 196,
+      "line": 197,
       "symbol": "AWSKMSWrappingKeySpec",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 197,
+      "line": 198,
       "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKMS/AWSKMSModel.h",
-      "line": 198,
+      "line": 199,
       "symbol": "AWSKMSWrappingKeySpec.AWSKMSWrappingKeySpecRsa2048",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
