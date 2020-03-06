@@ -13,12 +13,17 @@ Thank you for your interest in contributing to our project! <3 Whether it's a bu
   - [Pull Request Checklist](#pull-request-checklist)
   - [Step 1: Open Issue](#step-1-open-issue)
   - [Step 2: Design (optional)](#step-2-design-optional)
-  - [Step 3: Work your Magic](#step-3-work-your-magic)
-  - [Step 4: Commit](#step-4-commit)
-  - [Step 5: Pull Request](#step-5-pull-request)
-  - [Step 6: Merge](#step-6-merge)
+  - [Step 3: Fork The Repo](#step-3-fork-the-repo)
+  - [Step 4: Work your Magic](#step-3-work-your-magic)
+  - [Step 5: Commit](#step-4-commit)
+  - [Step 6: Pull Request](#step-5-pull-request)
+  - [Step 7: Merge](#step-6-merge)
 - [Troubleshooting](#troubleshooting)
 - [Related Repositories](#related-repositories)
+- [Finding Contributions](#finding-contributions-to-work-on)
+- [Code of Conduct](#code-of-conduct)
+- [Security Issue Notifications](#security-issue-notifications)
+- [Licensing](#licensing)
 
 ## Getting Started
 
@@ -389,3 +394,111 @@ end
 Then you want to run `pod install --repo-update` at the root of your sample app to make sure it is using the local version of the pods. When you open the workspace, under the Pods project, the you'll see a section call Development Pods. This where those local pods were installed and if you want to change code here to debug, it will change in the other repo, just make sure you clean and re-build before testing your code again.
 
 ## Pull Requests
+
+### Pull Request Checklist
+- Testing
+    - Unit test added or updated
+    - Integration test added or updated
+- Changelog
+    - Update Changelog with your updates in accordance with our pattern under the new version. Example below:
+
+    ```markdown
+    ## 2.xx.x
+
+    ### Bug Fixes
+
+    - **Breaking Change** List out any breaking changes here
+
+    - **Amazon S3 or name of service you changed**
+      - for example, if you made a change to S3, add the heading like above and list the bug fix here with the issue number.
+
+    ### Misc. Updates
+
+    -  Misc updates go here. Usually model changes
+    ```
+
+### Step 1: Open Issue
+
+If there isn't one already, open an issue describing what you intend to contribute. It's useful to communicate in advance, because sometimes, someone is already working in this space, so maybe it's worth collaborating with them instead of duplicating the efforts.
+
+### Step 2: Design (optional)
+
+In some cases, it is useful to seek for feedback on the design of your planned implementation. This is useful when you plan a big change or feature, or you want advice on what would be the best path forward.
+
+The GitHub issue is sufficient for such discussions, and can be sufficient to get clarity on what you plan to do. Make sure you tag any members of the AWS SDK team so we can help guide you: @kneekey23, @lawmicha, @wooj2, @palpatim, @royjit, @drochetti, @phani-srikar.
+
+### Step 3: Fork the Repo
+
+First, create a fork of aws-sdk-ios. Clone it, and make changes to this fork.
+
+```
+git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git 
+# change your GITHUBUSERNAME to your github username before running this command.
+```
+
+### Step 4: Work your magic
+
+Work your magic. Here are some guidelines:
+
+- Coding style (abbreviated):
+    - In general, follow the style of the code around you
+    - 2 space indentation
+    - 120 characters wide
+    - Every change requires a new or updated unit test/integ test
+    - If you change customer facing APIs, make sure to update the documentation above the interface and include a reason for the breaking change in your PR comments
+    - Try to maintain a single feature/bugfix per pull request. It's okay to introduce a little bit of housekeeping changes along the way, but try to avoid conflating multiple features. Eventually all these are going to go into a single commit, so you can use that to frame your scope.
+
+### Step 5: Commit
+
+Create a commit with the proposed change changes:
+
+- Commit title and message (and PR title and description).
+- The title must be descriptive to the specific change.
+- No period at the end of the title.
+- Commit message should describe motivation. Think about your code reviewers and what information they need in order to understand what you did. If it's a big commit (hopefully not), try to provide some good entry points so it will be easier to follow.
+- Commit message should indicate which issues are fixed: `fixes #<issue>` or `closes #<issue>`.
+- Shout out to collaborators.
+- If not obvious (i.e. from unit tests), describe how you verified that your change works.
+- If this commit includes breaking changes, they must be listed at the top of the changelog as described above in the Pull Request Checklist.
+
+### Step 6: Pull Request
+
+- Push your changes to your GitHub fork
+- Submit a Pull Requests on the aws-sdk-ios repo to the `develop` branch and add one of the aws-sdk-ios team members on it (kneekey23, @lawmicha, @wooj2, @palpatim, @royjit, @drochetti, @phani-srikar).
+- Please follow the PR checklist written below. We trust our contributors to self-check, and this helps that process!
+- Discuss review comments and iterate until you get at least one “Approve”. When iterating, push new commits to the same branch. 
+- Usually all these are going to be squashed when you merge to master. - The commit messages should be hints for you when you finalize your merge commit message.
+- Make sure to update the PR title/description if things change. 
+- Rebase with master if the master branch has commits ahead of your fork.
+
+### Step 7: Merge
+Once your PR has been approved and tested, go ahead and merge it into `develop`! It will be released in the next SDK release which we try to do biweekly on Thursday's. Yay!! 
+
+## Troubleshooting
+
+Most build issues can be solved by [removing your derived data](https://iosdevcenters.blogspot.com/2015/12/how-to-delete-derived-data-and-clean.html) and doing a clean and build. For any other serious build issues, open a new issue or see if there is one existing that may have a fix on it.
+
+## Related Repositories
+
+Make sure you check out [Amplify](https://github.com/aws-amplify/amplify-ios), our higher-level libaries currently in developer preview built on top of our SDK to make your life as a developer easier!
+
+
+## Finding contributions to work on
+Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any ['help wanted'](https://github.com/awslabs/amplify-ios/labels/help%20wanted) issues is a great place to start.
+
+
+## Code of Conduct
+This project has adopted the [Amazon Open Source Code of Conduct](https://aws.github.io/code-of-conduct).
+For more information see the [Code of Conduct FAQ](https://aws.github.io/code-of-conduct-faq) or contact
+opensource-codeofconduct@amazon.com with any additional questions or comments.
+
+
+## Security issue notifications
+If you discover a potential security issue in this project we ask that you notify AWS/Amazon Security via our [vulnerability reporting page](http://aws.amazon.com/security/vulnerability-reporting/). Please do **not** create a public github issue.
+
+
+## Licensing
+
+See the [LICENSE](https://github.com/awslabs/amplify-ios/blob/master/LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
+
+We may ask you to sign a [Contributor License Agreement (CLA)](http://en.wikipedia.org/wiki/Contributor_License_Agreement) for larger changes.
