@@ -66,7 +66,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> *)signUp:(NSString *)username
                                                        password:(NSString *)password
                                                  userAttributes:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)userAttributes
+                                                 validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
+                                                 clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
+
+- (AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> *)signUp:(NSString *)username
+                                                       password:(NSString *)password
+                                                 userAttributes:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)userAttributes
                                                  validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData;
+
 
 /**
  Return the user who last authenticated.  Username may be nil if current user is unknown.

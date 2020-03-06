@@ -313,11 +313,14 @@ extension AWSMobileClient {
     ///   - password: password of the user
     ///   - userAttributes: user attributes which contain attributes like phone_number, email, etc.
     ///   - validationData: validation data for the user.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a sign up result is available.
     public func signUp(username: String,
                        password: String,
                        userAttributes: [String: String] = [:],
                        validationData: [String: String] = [:],
+                       clientMetaData: [String:String] = [:],
                        completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         
         if (self.userPoolClient == nil) { completionHandler(nil, AWSMobileClientError.userPoolNotConfigured(message: "Cognito User Pools is not configured in `awsconfiguration.json`. Please add Cognito User Pools before using this API."))}
@@ -327,7 +330,8 @@ extension AWSMobileClient {
         
         self.userPoolClient?.signUp(username, password: password,
                                    userAttributes: userAttributesTransformed.count == 0 ? nil : userAttributesTransformed,
-                                   validationData: validationDataTransformed.count == 0 ? nil : validationDataTransformed).continueWith { (task) -> Any? in
+                                   validationData: validationDataTransformed.count == 0 ? nil : validationDataTransformed,
+                                   clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -361,18 +365,32 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - username: username of the user.
     ///   - confirmationCode: confirmation code sent to the user.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func confirmSignUp(username: String, confirmationCode: String, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+    public func confirmSignUp(username: String,
+                              confirmationCode: String,
+                              clientMetaData: [String:String] = [:],
+                              completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
         if let uname = self.userpoolOpsHelper.signUpUser?.username, uname == username {
-            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!, confirmationCode: confirmationCode, completionHandler: completionHandler)
+            confirmSignUp(user: self.userpoolOpsHelper.signUpUser!,
+                          confirmationCode: confirmationCode,
+                          clientMetaData: clientMetaData,
+                          completionHandler: completionHandler)
         } else {
             let user = self.userPoolClient?.getUser(username)
-            confirmSignUp(user: user!, confirmationCode: confirmationCode, completionHandler: completionHandler)
+            confirmSignUp(user: user!,
+                          confirmationCode: confirmationCode,
+                          clientMetaData: clientMetaData,
+                          completionHandler: completionHandler)
         }
     }
     
-    internal func confirmSignUp(user: AWSCognitoIdentityUser, confirmationCode: String, completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
-        user.confirmSignUp(confirmationCode).continueWith { (task) -> Any? in
+    internal func confirmSignUp(user: AWSCognitoIdentityUser,
+                                confirmationCode: String,
+                                clientMetaData: [String:String] = [:],
+                                completionHandler: @escaping ((SignUpResult?, Error?) -> Void)) {
+        user.confirmSignUp(confirmationCode, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
@@ -417,10 +435,14 @@ extension AWSMobileClient {
     ///
     /// - Parameters:
     ///   - username: username of the user who forgot the password.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
-    public func forgotPassword(username: String, completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
+    public func forgotPassword(username: String,
+                               clientMetaData: [String:String] = [:],
+                               completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
         let user = self.userPoolClient?.getUser(username)
-        user!.forgotPassword().continueWith { (task) -> Any? in
+        user!.forgotPassword(clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -440,10 +462,16 @@ extension AWSMobileClient {
     ///   - username: username of the user who forgot the password
     ///   - newPassword: the new password which the user wants to set
     ///   - confirmationCode: the confirmation code sent to the user
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when a result is available.
-    public func confirmForgotPassword(username: String, newPassword: String, confirmationCode: String, completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
+    public func confirmForgotPassword(username: String,
+                                      newPassword: String,
+                                      confirmationCode: String,
+                                      clientMetaData: [String:String] = [:],
+                                      completionHandler: @escaping ((ForgotPasswordResult?, Error?) -> Void)) {
         let user = self.userPoolClient?.getUser(username)
-        user!.confirmForgotPassword(confirmationCode, password: newPassword).continueWith { (task) -> Any? in
+        user!.confirmForgotPassword(confirmationCode, password: newPassword, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {

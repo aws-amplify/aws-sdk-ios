@@ -23,6 +23,21 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
         wait(for: [forgotPasswordExpection], timeout: 5)
     }
     
+    func testForgotPasswordWithNilClientMetaData() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        forgotPasswordWithClientMetaData(username: username, clientMetaData: nil)
+    }
+    
+    func testForgotPasswordWithValidClientMetaData() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        forgotPasswordWithClientMetaData(username: username, clientMetaData: ["customKey":"customValue"])
+    }
+    
+    
     func testChangePassword() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
