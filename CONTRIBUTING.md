@@ -27,7 +27,7 @@ Thank you for your interest in contributing to our project! <3 Whether it's a bu
 
 ## Getting Started
 
-To get started with contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed as well as [cocoapods](https://guides.cocoapods.org/using/getting-started.html). You can install cocoapods by simply running:
+To get started with contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed as well as [Cocoapods](https://guides.cocoapods.org/using/getting-started.html). You can install cocoapods by simply running:
 
 ```bash
 sudo gem install cocoapods
@@ -58,7 +58,7 @@ xed .
 
 ## Tools
 
-[Xcode](https://developer.apple.com/xcode/) and [cocoapods](https://guides.cocoapods.org/using/getting-started.html) are used for all build and dependency management.
+[Xcode](https://developer.apple.com/xcode/) and [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) are used for all build and dependency management.
 
 Some other widely used dependencies are:
 
@@ -391,7 +391,7 @@ target 'MySampleApp' do
   
 end
 ```
-Then you want to run `pod install --repo-update` at the root of your sample app to make sure it is using the local version of the pods. When you open the workspace, under the Pods project, the you'll see a section call Development Pods. This where those local pods were installed and if you want to change code here to debug, it will change in the other repo, just make sure you clean and re-build before testing your code again.
+Then you want to run `pod update` at the root of your sample app to make sure it is using the local version of the pods. When you open the workspace, under the Pods project, the you'll see a section call Development Pods. This where those local pods were installed and if you want to change code here to debug, it will change in the other repo, just make sure you clean and re-build before testing your code again.
 
 ## Pull Requests
 
