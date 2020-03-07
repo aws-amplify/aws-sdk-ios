@@ -1,10 +1,11 @@
 # AWS iOS SDK Contributing Guide
 
-Thank you for your interest in contributing to our project! <3 Whether it's a bug report, new feature, correction, or additional documentation, we greatly value feedback and contributions from our community. Please read through it carefully before submitting a PR or issue and let us know if it's not up-to-date (or even better, submit a PR with your corrections ;)).
+Thank you for your interest in contributing to our project! <3 Whether it's a bug report, new feature, correction, or additional documentation, we greatly value feedback and contributions from our community. The following is our contribution guide, which we hope you will read through carefully prior to submitting a pull-request (PR) or issue. In the event that our guide is not up to date, feel free to let us know by opening an issue (or even better, submit a PR with your proposed corrections ;)).
 
 - [Getting Started](#getting-started)
 - [Tools](#tools)
   - [Integration Testing Set Up](#integration-testing-setup)
+- [Integrated Frameworks](#integrated-frameworks)
 - [Workflows](#workflows)
   - [New Features or Bug Fixes](#New-Features-or-Bug-Fixes)
 - [Debugging](#debugging)
@@ -27,7 +28,7 @@ Thank you for your interest in contributing to our project! <3 Whether it's a bu
 
 ## Getting Started
 
-To get started with contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed as well as [Cocoapods](https://guides.cocoapods.org/using/getting-started.html). You can install cocoapods by simply running:
+To get started with contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed. There are many different ways to build frameworks for iOS developers but we love to use [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) and these instructions will include how to get started with Cocoapods so make sure that is installed as well if you'd like to follow along. You can install cocoapods by simply running:
 
 ```bash
 sudo gem install cocoapods
@@ -38,12 +39,15 @@ Then make sure you fork the project and then clone your fork by running:
 ```bash
 git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git
 ```
+The project is broken into two major Xcode Projects:
 
-The project itself is broken up into 2 Xcode projects so it's important to understand what you want to change and open the correct project. If you open the project at the root of the repo, that contains most of the individual SDK's, but if you are looking to make a change to our Auth SDK's (including `AWSMobileClient`), head to the folder called `/AWSAuthSDK` and there is another Xcode project in there you can open. Wherever you start, whether its at the root project or in the AWSAuthSDK's project, make sure you run `pod install` and open the workspace. Example of commands to open the main SDK project that lives at the root of the repo  below:
+- Individual SDKs that target AWS services- AWSiOSSDKv2.xcodeproj located under / (root)
+- AuthSDKs (including AWSMobileClient) - AWSAuthSDK.xcodeproj located under /AWSAuthSDK
+
+ Example of commands to open the main SDK project that lives at the root of the repo  below:
 
 ```bash
 cd aws-sdk-ios
-pod install
 xed .
 ```
 
@@ -52,7 +56,6 @@ Conversely if you wanted to make a change to our Auth SDK's the initial workflow
 ```bash
 cd aws-sdk-ios
 cd AWSAuthSDK
-pod install
 xed .
 ```
 
@@ -60,15 +63,19 @@ xed .
 
 [Xcode](https://developer.apple.com/xcode/) and [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) are used for all build and dependency management.
 
-Some other widely used dependencies are:
+## Integrated Frameworks
+
+Some widely used dependencies that have been copied into our project are:
 
 [Mantle](https://github.com/Mantle/Mantle) is what we use for deserialization and serialization and any modeling with JSON in our AWS iOS SDK.
 
 [SocketRocket](https://github.com/facebook/SocketRocket) is used for web socket connections.
 
+[Bolts-ObjC](https://github.com/facebookarchive/Bolts-ObjC)
+
 ### Integration Testing Setup
 
-For our integration tests, which run on your development machine we use XCTest and an aws configuration file to set up to set up credentials. To set it up to build those integration tests on your machine, you will need to create a `credentials.json` file in inside AWSCoreTests> Resources>credentials.json and it should have the following format:
+Our integration tests are designed to execute on your development machine and talk to live AWS services. You may want to create these resources in a separate AWS account or at least tag them to not affect any resources you are using in production or confuse them. These tests are based on XCTest and require a json file with your credentials. You will need to create a file named `credentials.json` located in AWSCoreTests> Resources>credentials.json and it should have the following format:
 
 ```
 {
@@ -354,7 +361,7 @@ The unauth role has two policies as well and the first is used for integration t
 
 ### New Features or Bug Fixes
 
-The AWS SDK for iOS is mostly code generated off of models written in JSON and each time a new feature or new service at AWS launches, these models get updated and thus our SDK also gets updated. Beyond these low-level generated SDK's, we have built some higher level clients that predate the creation of [Amplify](https://github.com/aws-amplify/amplify-ios) (our high-level libraries built on top of the AWS SDK). These higher level clients include:
+A significant portion of the AWS SDK for iOS is Objective-C code which has been generated from an internal/proprietary interface definition language (IDL). This generated code exposes AWS Service APIs. Given that these low-level service APIs can be difficult/complex to work with, we built a couple of high-level clients which remove some of the complexities of managing these service API calls. These higher level clients include:
 
 - `AWSMobileClient`
 - `AWSCognitoAuth`
@@ -367,7 +374,7 @@ The AWS SDK for iOS is mostly code generated off of models written in JSON and e
 - `AWSTranscribeStreamingService`
 - `AWSMobileAnalyticsEventClient`
 
-You could go into any of these files and start adding new endpoints you see in the generated files to these higher level clients or fixing bugs as this is mostly likely where they would occur since it is not code generated code based off of models given to us by the service teams themselves.
+You could go into any of these files and start adding new interfaces you see in the generated files to these higher level clients or fixing bugs as this is mostly likely where they would occur since it is not code generated code based off of models given to us by the service teams themselves.
 
 Once you have made your code change, make sure you can build and run both the Tests Folder and the UnitTests folder usually listed below the service folder. The Tests folder will be where the integration tests are and setting up your evironment to run the integration tests is detailed [above](#integration-testing-setup). Unit tests and/or integration tests are required for all features being added to the code-base. Updating existing tests is also required as well. Running tests in this project is the same as any other project in Xcode -> Set the scheme to be the service folder of the service you are editing. Then head to the tests tab on the left hand side of Xcode and run the tests you need to. If I was running Transcribe tests, Xcode would look like this:
 
@@ -383,7 +390,7 @@ Framework development is quite different from typical app development when it co
 ```ruby
 
 target 'MySampleApp' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  
   use_frameworks!
   # with :path I can direct my project to use a local path for the pod
   pod 'AWSCore', :path => '~/Projects/aws-sdk-ios'      # 
@@ -391,7 +398,7 @@ target 'MySampleApp' do
   
 end
 ```
-Then you want to run `pod update` at the root of your sample app to make sure it is using the local version of the pods. When you open the workspace, under the Pods project, the you'll see a section call Development Pods. This where those local pods were installed and if you want to change code here to debug, it will change in the other repo, just make sure you clean and re-build before testing your code again.
+Then you want to run `pod update` at the root of your sample app to make sure it is using the local version of the pods. When you open the workspace, under the Pods project, then you'll see a folder called Development Pods. This where our pods under local development were installed and if you want to change code here to debug, it will change in the other repo, just make sure you clean and re-build before testing your code again.
 
 ## Pull Requests
 
@@ -442,7 +449,7 @@ Work your magic. Here are some guidelines:
 
 - Coding style (abbreviated):
     - In general, follow the style of the code around you
-    - 2 space indentation
+    - 4 space indentation
     - 120 characters wide
     - Every change requires a new or updated unit test/integ test
     - If you change customer facing APIs, make sure to update the documentation above the interface and include a reason for the breaking change in your PR comments
@@ -476,11 +483,11 @@ Once your PR has been approved and tested, go ahead and merge it into `develop`!
 
 ## Troubleshooting
 
-Most build issues can be solved by [removing your derived data](https://iosdevcenters.blogspot.com/2015/12/how-to-delete-derived-data-and-clean.html) and doing a clean and build. For any other serious build issues, open a new issue or see if there is one existing that may have a fix on it.
+Most build issues can be solved by [removing your derived data](https://iosdevcenters.blogspot.com/2015/12/how-to-delete-derived-data-and-clean.html) and doing a clean and build. 
 
 ## Related Repositories
 
-Make sure you check out [Amplify](https://github.com/aws-amplify/amplify-ios), our higher-level libaries currently in developer preview built on top of our SDK to make your life as a developer easier!
+Make sure you take a look at [Amplify](https://github.com/aws-amplify/amplify-ios), our higher-level libaries currently in developer preview built on top of our SDK to make your life as a developer easier!
 
 
 ## Finding contributions to work on
