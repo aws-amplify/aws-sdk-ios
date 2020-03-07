@@ -33,10 +33,10 @@ To get started with contributing to the AWS iOS SDK, first make sure you have th
 sudo gem install cocoapods
 ```
 
-Then make sure you clone the project by running:
+Then make sure you fork the project and then clone your fork by running:
 
 ```bash
-git clone https://github.com/aws-amplify/aws-sdk-ios
+git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git
 ```
 
 The project itself is broken up into 2 Xcode projects so it's important to understand what you want to change and open the correct project. If you open the project at the root of the repo, that contains most of the individual SDK's, but if you are looking to make a change to our Auth SDK's (including `AWSMobileClient`), head to the folder called `/AWSAuthSDK` and there is another Xcode project in there you can open. Wherever you start, whether its at the root project or in the AWSAuthSDK's project, make sure you run `pod install` and open the workspace. Example of commands to open the main SDK project that lives at the root of the repo  below:
