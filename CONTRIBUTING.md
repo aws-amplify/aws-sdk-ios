@@ -136,7 +136,7 @@ For the auth role we have two polices:
 }
 ```
 
-**Policy 2 **
+**Policy 2**
 
 ```
 {
