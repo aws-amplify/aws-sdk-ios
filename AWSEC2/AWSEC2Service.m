@@ -7339,6 +7339,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2ModifyAvailabilityZoneGroupResult *> *)modifyAvailabilityZoneGroup:(AWSEC2ModifyAvailabilityZoneGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyAvailabilityZoneGroup"
+                   outputClass:[AWSEC2ModifyAvailabilityZoneGroupResult class]];
+}
+
+- (void)modifyAvailabilityZoneGroup:(AWSEC2ModifyAvailabilityZoneGroupRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyAvailabilityZoneGroupResult *response, NSError *error))completionHandler {
+    [[self modifyAvailabilityZoneGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyAvailabilityZoneGroupResult *> * _Nonnull task) {
+        AWSEC2ModifyAvailabilityZoneGroupResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2ModifyCapacityReservationResult *> *)modifyCapacityReservation:(AWSEC2ModifyCapacityReservationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
