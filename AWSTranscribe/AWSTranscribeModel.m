@@ -18,6 +18,54 @@
 
 NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDomain";
 
+@implementation AWSTranscribeContentRedaction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"redactionOutput" : @"RedactionOutput",
+             @"redactionType" : @"RedactionType",
+             };
+}
+
++ (NSValueTransformer *)redactionOutputJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"redacted"] == NSOrderedSame) {
+            return @(AWSTranscribeRedactionOutputRedacted);
+        }
+        if ([value caseInsensitiveCompare:@"redacted_and_unredacted"] == NSOrderedSame) {
+            return @(AWSTranscribeRedactionOutputRedactedAndUnredacted);
+        }
+        return @(AWSTranscribeRedactionOutputUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeRedactionOutputRedacted:
+                return @"redacted";
+            case AWSTranscribeRedactionOutputRedactedAndUnredacted:
+                return @"redacted_and_unredacted";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)redactionTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PII"] == NSOrderedSame) {
+            return @(AWSTranscribeRedactionTypePii);
+        }
+        return @(AWSTranscribeRedactionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeRedactionTypePii:
+                return @"PII";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSTranscribeCreateVocabularyFilterRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1519,6 +1567,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"contentRedaction" : @"ContentRedaction",
              @"jobExecutionSettings" : @"JobExecutionSettings",
              @"languageCode" : @"LanguageCode",
              @"media" : @"Media",
@@ -1529,6 +1578,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"settings" : @"Settings",
              @"transcriptionJobName" : @"TranscriptionJobName",
              };
+}
+
++ (NSValueTransformer *)contentRedactionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeContentRedaction class]];
 }
 
 + (NSValueTransformer *)jobExecutionSettingsJSONTransformer {
@@ -1760,6 +1813,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"redactedTranscriptFileUri" : @"RedactedTranscriptFileUri",
              @"transcriptFileUri" : @"TranscriptFileUri",
              };
 }
@@ -1771,6 +1825,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"completionTime" : @"CompletionTime",
+             @"contentRedaction" : @"ContentRedaction",
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
              @"jobExecutionSettings" : @"JobExecutionSettings",
@@ -1792,6 +1847,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)contentRedactionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeContentRedaction class]];
 }
 
 + (NSValueTransformer *)creationTimeJSONTransformer {
@@ -2061,6 +2120,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"completionTime" : @"CompletionTime",
+             @"contentRedaction" : @"ContentRedaction",
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
              @"languageCode" : @"LanguageCode",
@@ -2077,6 +2137,10 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)contentRedactionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeContentRedaction class]];
 }
 
 + (NSValueTransformer *)creationTimeJSONTransformer {
