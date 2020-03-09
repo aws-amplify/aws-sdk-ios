@@ -75,7 +75,7 @@ Some widely used dependencies that have been copied into our project are:
 
 ### Integration Testing Setup
 
-Our integration tests are designed to execute on your development machine and talk to live AWS services. You may want to create these resources in a separate AWS account or at least tag them to not affect any resources you are using in production or confuse them. These tests are based on XCTest and require a json file with your credentials. You will need to create a file named `credentials.json` located in AWSCoreTests> Resources>credentials.json and it should have the following format:
+Our integration tests are designed to execute on your development machine and talk to live AWS services. You may want to create these resources in a separate AWS account or at least tag them to not affect any resources you are using in production or confuse them. These tests are based on XCTest and require a json file with your credentials. If you are looking to run any of the integration tests in the main Xcode project, you will need to create a file named `credentials.json` located in AWSCoreTests> Resources>credentials.json and it should have the following format:
 
 ```
 {
@@ -355,6 +355,99 @@ The unauth role has two policies as well and the first is used for integration t
         }
     ]
 }
+```
+
+If you are looking to run integration tests inside the Auth project, you will need to create a `awsconfiguration.json` file in AWSAuthSDK/AWSMobileClientTests that looks like this:
+
+```
+{
+    "UserAgent": "aws-amplify/cli",
+    "Version": "0.1.0",
+    "Auth0FederationProviderName": "xxxxxxxx.auth0.com",
+    "IdentityManager": {
+        "Default": {}
+    },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "REGION:XXXXXXXXXXXXXXXXXXXXXX",
+                "Region": "REGION"
+            }
+        }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "REGION_XXXXXX",
+            "AppClientId": "XXXXXXXXXXXXXXXXXXXX",
+            "AppClientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "HostedUI": {
+                "WebDomain": "https://XXXXXXXXXXXX.com",
+                "AppClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "AppClientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "SignInRedirectURI": "myapp://",
+                "SignOutRedirectURI": "myapp://",
+                "Scopes": ["openid", "email"]
+            },
+            "Region": "REGION"
+        }
+    },
+    "S3TransferUtility": {
+        "Default": {
+            "Bucket": "BUCKETNAME",
+            "Region": "REGION"
+        }
+    },
+    "Auth": {
+        "Default": {
+            "OAuth": {
+                "WebDomain": "XXXXXXXXXXXXXXXXXXXXX",
+                "AppClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "AppClientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "SignInRedirectURI": "myapp://",
+                "SignOutRedirectURI": "myapp://",
+                "Scopes": ["openid", "email"]
+            }
+        },
+        "Default1": {
+            "OAuth": {
+                "AppClientId": "XXXXXXXXXXXXXXXXXXXXXXXXXX"",
+                "AppClientSecret": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "WebDomain": "XXXXXXXXXX.auth0.com",
+                "TokenURI": "https://XXXXXXXXXX.auth0.com/oauth/token",
+                "SignInURI": "https://XXXXXXXXXX.auth0.com/authorize",
+                "SignInRedirectURI": "com.amazonaws.AWSAuthSDKTestApp://XXXXXXXXX.auth0.com/ios/com.amazonaws.AWSAuthSDKTestApp/callback",
+                "SignOutURI": "https://XXXXXXXXXX.auth0.com/v2/logout",
+                "SignOutRedirectURI": "com.amazonaws.AWSAuthSDKTestApp://XXXXXXXXXXXX.auth0.com/ios/com.amazonaws.AWSAuthSDKTestApp/callback",
+                "SignOutQueryParameters": {
+                    "client_id" : "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                    "returnTo" : "com.amazonaws.AWSAuthSDKTestApp://XXXXXXXXXXX.auth0.com/ios/com.amazonaws.AWSAuthSDKTestApp/callback"
+                },
+                "Scopes": ["openid", "email"]
+            }
+        }
+    }
+}
+
+```
+
+You will also need another file called `credentials-mc.json` that looks like this:
+
+```
+{
+    "accessKey":"XXXXXXXXXXXXXXXXXX",
+    "secretKey":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "mc-email":"aws-mobile-sdk-dev+mc-integ-tests@amazon.com",
+    "mc-userpool_id":"REGION_XXXXXXXX",
+    "mc-pool_id_dev_auth": "us-west-2:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "mc-region": "REGION",
+    "GoogleUsername": "XXXXXXXXXX",
+    "GooglePassword": "XXXXXXXXXXXXX",
+    "FacebookUsername": "XXXXXXXXXXXXXXXXXXXXXXX",
+    "FacebookPassword": "XXXXXXXXXX",
+    "UserpoolUsername": "XXXXXXXXXX",
+    "UserpoolPassword": "XXXXXXXXXX"
+}
+
 ```
 
 ## Workflows
