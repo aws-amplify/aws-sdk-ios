@@ -27,7 +27,8 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         let forgotPasswordExpection = expectation(description: "Expecting code to be sent for forgot password.")
-        AWSMobileClient.default().forgotPassword(username: username) { (forgotPasswordResult, error) in
+        AWSMobileClient.default().forgotPassword(username: username,
+                                                 clientMetaData: ["customKey":"cutomValue"]) { (forgotPasswordResult, error) in
             XCTAssertNotNil(error, "should get error which mentions there is no verified email or phone.")
             forgotPasswordExpection.fulfill()
         }
