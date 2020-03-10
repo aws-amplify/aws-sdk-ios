@@ -131,7 +131,7 @@ class AWSMobileClientTestBase: XCTestCase {
             username: username,
             password: sharedPassword,
             userAttributes: userAttributes,
-            clientMetaData: clientMetaData) { (signUpResult, error) in
+            clientMetaData: clientMetaData ?? [:]) { (signUpResult, error) in
                 if let error = error {
                     var errorMessage: String
                     if let mobileClientError = error as? AWSMobileClientError {
@@ -211,46 +211,6 @@ class AWSMobileClientTestBase: XCTestCase {
         let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
         let key = "\(namespace).tokenExpiration"
         keychain.removeItem(forKey: key)
-    }
-    
-    func forgotPasswordWithClientMetaData(username: String,
-                                          clientMetaData: [String: String]? = nil,
-                                          forgotPasswordState: ForgotPasswordState = .confirmationCodeSent) {
-        let forgotPasswordExpectation = expectation(description: "successful forgot password with clientMetaData expectation.")
-        AWSMobileClient.default().forgotPassword(username: username,
-                                                 clientMetaData: clientMetaData
-                                                ) { (forgotPasswordResult, error) in
-                if let error = error {
-                    var errorMessage: String
-                    if let mobileClientError = error as? AWSMobileClientError {
-                        errorMessage = mobileClientError.message
-                    } else {
-                        errorMessage = error.localizedDescription
-                    }
-                    XCTFail("Unexpected failure: \(errorMessage)")
-                    return
-                }
-                
-                guard let forgotPasswordResult = forgotPasswordResult else {
-                    XCTFail("Forgot Password with ClientMetaData unexpectedly nil")
-                    return
-                }
-                                                    
-                switch(forgotPasswordResult.forgotPasswordState) {
-                case .confirmationCodeSent:
-                    print("Confirmation code sent via \(forgotPasswordResult.codeDeliveryDetails!.deliveryMedium) to: \(forgotPasswordResult.codeDeliveryDetails!.destination!)")
-                default:
-                    print("Error: Invalid case.")
-                }
-                
-                XCTAssertTrue(forgotPasswordResult.forgotPasswordState == forgotPasswordState,
-                              "User is expected to be marked as \(forgotPasswordState).")
-                
-                forgotPasswordExpectation.fulfill()
-        }
-        
-        wait(for: [forgotPasswordExpectation], timeout: 5)
-        
     }
     
 }
