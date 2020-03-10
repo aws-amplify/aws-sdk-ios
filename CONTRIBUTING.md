@@ -71,7 +71,7 @@ Some widely used dependencies that have been copied into our project are:
 
 [SocketRocket](https://github.com/facebook/SocketRocket) is used for web socket connections.
 
-[Bolts-ObjC](https://github.com/facebookarchive/Bolts-ObjC)
+[Bolts-ObjC](https://github.com/facebookarchive/Bolts-ObjC) is used for "Tasks", which make organization of complex asynchronous code more manageable. A task is kind of like a JavaScript Promise but available for Objective C.
 
 ### Integration Testing Setup
 
@@ -552,20 +552,23 @@ Work your magic. Here are some guidelines:
 
 Create a commit with the proposed change changes:
 
-- Commit title and message (and PR title and description).
-- The title must be descriptive to the specific change.
-- No period at the end of the title.
+- Commit message.
+- The message must be descriptive to the specific change.
 - Commit message should describe motivation. Think about your code reviewers and what information they need in order to understand what you did. If it's a big commit (hopefully not), try to provide some good entry points so it will be easier to follow.
-- Commit message should indicate which issues are fixed: `fixes #<issue>` or `closes #<issue>`.
-- Shout out to collaborators.
-- If not obvious (i.e. from unit tests), describe how you verified that your change works.
-- If this commit includes breaking changes, they must be listed at the top of the changelog as described above in the Pull Request Checklist.
+
 
 ### Step 6: Pull Request
 
 - Push your changes to your GitHub fork
 - Submit a Pull Requests on the aws-sdk-ios repo to the `develop` branch and add one of the aws-sdk-ios team members on it (kneekey23, @lawmicha, @wooj2, @palpatim, @royjit, @drochetti, @phani-srikar).
 - Please follow the PR checklist written below. We trust our contributors to self-check, and this helps that process!
+- The title of your PR should be descriptive to the specific change.
+- No period at the end of the PR title.
+- PR message should indicate which issues are fixed: `fixes #<issue>` or `closes #<issue>`.
+- Shout out to collaborators.
+- If not obvious (i.e. from unit tests), describe how you verified that your change works.
+- If this PR includes breaking changes, they must be listed at the top of the changelog as described above in the Pull Request Checklist.
+- Reminder: Don't check in those files you created for integration tests that contain your AWS credentials and other sensitive information.
 - Discuss review comments and iterate until you get at least one “Approve”. When iterating, push new commits to the same branch. 
 - Usually all these are going to be squashed when you merge to master. - The commit messages should be hints for you when you finalize your merge commit message.
 - Make sure to update the PR title/description if things change. 
