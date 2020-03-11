@@ -37,6 +37,7 @@ sudo gem install cocoapods
 Then make sure you fork the project and then clone your fork by running:
 
 ```bash
+# change your GITHUBUSERNAME to your github username before running this command.
 git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git
 ```
 The project is broken into two major Xcode Projects:
@@ -486,7 +487,7 @@ target 'MySampleApp' do
   
   use_frameworks!
   # with :path I can direct my project to use a local path for the pod
-  pod 'AWSCore', :path => '~/Projects/aws-sdk-ios'      # 
+  pod 'AWSCore', :path => '~/Projects/aws-sdk-ios'       
   pod 'AWSS3TransferUtility', :path => '~/Projects/aws-sdk-ios'           
   
 end
@@ -532,8 +533,9 @@ The GitHub issue is sufficient for such discussions, and can be sufficient to ge
 First, create a fork of aws-sdk-ios. Clone it, and make changes to this fork.
 
 ```
-git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git 
 # change your GITHUBUSERNAME to your github username before running this command.
+git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git 
+
 ```
 
 ### Step 4: Work your magic
