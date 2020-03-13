@@ -28,7 +28,7 @@ Thank you for your interest in contributing to our project! <3 Whether it's a bu
 
 ## Getting Started
 
-To get started with contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed. There are many different ways to build frameworks for iOS developers but we love to use [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) and these instructions will include how to get started with Cocoapods so make sure that is installed as well if you'd like to follow along. You can install cocoapods by simply running:
+To start contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed. There are many different ways to build frameworks for iOS developers but we love to use [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) and these instructions will include how to get started with Cocoapods so make sure that is installed as well if you'd like to follow along. You can install cocoapods by simply running:
 
 ```bash
 sudo gem install cocoapods
@@ -43,7 +43,7 @@ git clone git@github.com:GITHUBUSERNAME/aws-sdk-ios.git
 The project is broken into two major Xcode Projects:
 
 - Individual SDKs that target AWS services- AWSiOSSDKv2.xcodeproj located under / (root)
-- AuthSDKs (including AWSMobileClient) - AWSAuthSDK.xcodeproj located under /AWSAuthSDK
+- Higher-level SDKs that deal with Authorization (including AWSMobileClient) - AWSAuthSDK.xcodeproj located under /AWSAuthSDK
 
  Example of commands to open the main SDK project that lives at the root of the repo  below:
 
@@ -526,7 +526,7 @@ If there isn't one already, open an issue describing what you intend to contribu
 
 In some cases, it is useful to seek for feedback on the design of your planned implementation. This is useful when you plan a big change or feature, or you want advice on what would be the best path forward.
 
-The GitHub issue is sufficient for such discussions, and can be sufficient to get clarity on what you plan to do. Make sure you tag any members of the AWS SDK team so we can help guide you: @kneekey23, @lawmicha, @wooj2, @palpatim, @royjit, @drochetti, @phani-srikar.
+The GitHub issue is sufficient for such discussions, and can be sufficient to get clarity on what you plan to do. Make sure you tag the AWS Mobile SDK Team with @aws-amplify/amplify-native handle so we can help guide you.
 
 ### Step 3: Fork the Repo
 
@@ -585,7 +585,26 @@ Most build issues can be solved by [removing your derived data](https://iosdevce
 
 ## Related Repositories
 
-Make sure you take a look at [Amplify](https://github.com/aws-amplify/amplify-ios), our higher-level libaries currently in developer preview built on top of our SDK to make your life as a developer easier!
+This project is part of the AWS Mobile SDKs. AWS SDKs are a
+toolkit for interacting with AWS backend resources. Other AWS Mobile SDKs include:
+
+1. [AWS SDK for Android](https://github.com/aws-amplify/aws-sdk-android)
+2. [AWS SDK for JavaScript](https://github.com/aws/aws-sdk-js)
+
+We are building a higher level framework that is built on top of the AWS SDKs to make real use cases easier for mobile developers, make sure you check them out!
+
+1. [AWS Amplify for iOS](https://github.com/aws-amplify/amplify-ios)
+2. [AWS Amplify for Android](https://github.com/aws-amplify/amplify-android)
+3. [AWS Amplify for JS](https://github.com/aws-amplify/amplify-js)
+
+
+Not officially part of the AWS SDKs, [AppSync](https://aws.amazon.com/appsync/) is an opinionated,
+mobile-oriented GraphQL management service. It is used by Amplify's
+DataStore and API plugins.
+
+1. [Android AppSync Client](https://github.com/awslabs/aws-mobile-appsync-sdk-android)
+2. [iOS AppSync Client](https://github.com/awslabs/aws-mobile-appsync-sdk-ios)
+3. [JavaScript AppSync Client](https://github.com/awslabs/aws-mobile-appsync-sdk-js)
 
 
 ## Finding contributions to work on
@@ -604,6 +623,6 @@ If you discover a potential security issue in this project we ask that you notif
 
 ## Licensing
 
-See the [LICENSE](https://github.com/awslabs/amplify-ios/blob/master/LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
+See the [LICENSE](https://github.com/aws-amplify/aws-sdk-ios/blob/master/LICENSE) file for our project's licensing. We will ask you to confirm the licensing of your contribution.
 
 We may ask you to sign a [Contributor License Agreement (CLA)](http://en.wikipedia.org/wiki/Contributor_License_Agreement) for larger changes.
