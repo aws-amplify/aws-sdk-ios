@@ -108,7 +108,7 @@ Our integration tests are designed to execute on your development machine and ta
 }
 ```
 
-This is the full file ( in case you would like to make future contributions later on ;) ) which would be quite a bit of AWS resource creation. However, for the purpose of running majority of our tests (as you can see some of the keys are very specific to the tests they are affecting aka. textract-s3-bucket-name is affecting textract integration tests) you probably just need to fill out the below keys and you should be able to run the integration tests just fine:
+This is the full JSON object of keys and values ( in case you would like to make future contributions later on ;) ) which would be quite a bit of AWS resource creation. However, for the purpose of running majority of our tests (as you can see some of the keys are very specific to the tests they are affecting aka. textract-s3-bucket-name is affecting textract integration tests) you probably just need to fill out the below keys and you should be able to run the integration tests just fine:
 ```
     "accessKey": "XXXXXXXXXXXXXX",
     "secretKey": "XXXXXXXXXXXXXXXXXXXXXXXXX",
