@@ -108,6 +108,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"cloudwatchAlarm" : @"cloudwatchAlarm",
+             @"cloudwatchLogs" : @"cloudwatchLogs",
              @"cloudwatchMetric" : @"cloudwatchMetric",
              @"dynamoDB" : @"dynamoDB",
              @"dynamoDBv2" : @"dynamoDBv2",
@@ -130,6 +131,10 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSValueTransformer *)cloudwatchAlarmJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCloudwatchAlarmAction class]];
+}
+
++ (NSValueTransformer *)cloudwatchLogsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSIoTCloudwatchLogsAction class]];
 }
 
 + (NSValueTransformer *)cloudwatchMetricJSONTransformer {
@@ -1500,6 +1505,17 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"roleArn" : @"roleArn",
              @"stateReason" : @"stateReason",
              @"stateValue" : @"stateValue",
+             };
+}
+
+@end
+
+@implementation AWSIoTCloudwatchLogsAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupName" : @"logGroupName",
+             @"roleArn" : @"roleArn",
              };
 }
 
