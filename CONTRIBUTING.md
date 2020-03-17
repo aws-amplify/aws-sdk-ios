@@ -577,7 +577,7 @@ Create a commit with the proposed change changes:
 - Rebase with master if the master branch has commits ahead of your fork.
 
 ### Step 7: Merge
-Once your PR has been approved and tested, go ahead and merge it into `develop`! It will be released in the next SDK release which we try to do biweekly on Thursday's. Yay!! 
+Once your PR has been approved and tested, we will merge it into `develop` and it will be released in the next SDK release which we try to do biweekly on Thursday's. Yay!! 
 
 ## Troubleshooting
 
