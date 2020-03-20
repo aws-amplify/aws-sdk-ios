@@ -558,7 +558,7 @@ Create a commit with the proposed change changes:
 ### Step 6: Pull Request
 
 - Push your changes to your GitHub fork
-- Submit a Pull Requests on the aws-sdk-ios repo to the `master` branch and add the Amplify Native team using @aws-amplify/amplify-native so we can approve/provide feedback.
+- Submit a Pull Requests on the aws-sdk-ios repo to the `develop` branch and add the Amplify Native team using @aws-amplify/amplify-native so we can approve/provide feedback.
 - The title of your PR must be descriptive to the specific change.
 - No period at the end of the title.
 - Pull Request message should indicate which issues are fixed: `fixes #<issue>` or `closes #<issue>`.
@@ -569,9 +569,7 @@ Create a commit with the proposed change changes:
 - Usually all these are going to be squashed when you merge to master.
 - Make sure to update the PR title/description if things change. 
 - Rebase with master if the master branch has commits ahead of your fork.
-- Please use the [seven rules of good commit messages](https://chris.beams.io/posts/git-commit/
-
-) to create your commit messages.
+- Please use the [seven rules of good commit messages](https://chris.beams.io/posts/git-commit/) to create your commit messages.
 
 ### Step 7: Merge
 Once your PR has been approved and tested, we will merge it into `develop` and it will be released in the next SDK release which we try to do biweekly on Thursday's. Yay!! 
