@@ -28,7 +28,7 @@ Thank you for your interest in contributing to our project! <3 Whether it's a bu
 
 ## Getting Started
 
-To start contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed. There are many different ways to build frameworks for iOS developers but we love to use [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) and these instructions will include how to get started with Cocoapods so make sure that is installed as well if you'd like to follow along. You can install cocoapods by simply running:
+To start contributing to the AWS iOS SDK, first make sure you have the latest version of [Xcode](https://developer.apple.com/xcode/) installed. There are many different ways to build frameworks for iOS developers but we love to use [Cocoapods](https://guides.cocoapods.org/using/getting-started.html) and these instructions will include how to get started with Cocoapods so make sure that is installed as well if you'd like to follow along. You can install Cocoapods by simply running:
 
 ```bash
 sudo gem install cocoapods
@@ -504,18 +504,14 @@ Then you want to run `pod update` at the root of your sample app to make sure it
     - Update Changelog with your updates in accordance with our pattern under the new version. Example below:
 
     ```markdown
+    ## Unreleased
+      - Please place a note with your updates HERE. :)
     ## 2.xx.x
 
     ### Bug Fixes
 
-    - **Breaking Change** List out any breaking changes here
-
-    - **Amazon S3 or name of service you changed**
-      - for example, if you made a change to S3, add the heading like above and list the bug fix here with the issue number.
-
     ### Misc. Updates
 
-    -  Misc updates go here. Usually model changes
     ```
 
 ### Step 1: Open Issue
@@ -562,19 +558,20 @@ Create a commit with the proposed change changes:
 ### Step 6: Pull Request
 
 - Push your changes to your GitHub fork
-- Submit a Pull Requests on the aws-sdk-ios repo to the `develop` branch and add one of the aws-sdk-ios team members on it (kneekey23, @lawmicha, @wooj2, @palpatim, @royjit, @drochetti, @phani-srikar).
-- Please follow the PR checklist written below. We trust our contributors to self-check, and this helps that process!
-- The title of your PR should be descriptive to the specific change.
-- No period at the end of the PR title.
-- PR message should indicate which issues are fixed: `fixes #<issue>` or `closes #<issue>`.
-- Shout out to collaborators.
+- Submit a Pull Requests on the aws-sdk-ios repo to the `master` branch and add the Amplify Native team using @aws-amplify/amplify-native so we can approve/provide feedback.
+- The title of your PR must be descriptive to the specific change.
+- No period at the end of the title.
+- Pull Request message should indicate which issues are fixed: `fixes #<issue>` or `closes #<issue>`.
+- PR messaged should include shout out to collaborators.
 - If not obvious (i.e. from unit tests), describe how you verified that your change works.
 - If this PR includes breaking changes, they must be listed at the top of the changelog as described above in the Pull Request Checklist.
-- Reminder: Don't check in those files you created for integration tests that contain your AWS credentials and other sensitive information.
 - Discuss review comments and iterate until you get at least one “Approve”. When iterating, push new commits to the same branch. 
-- Usually all these are going to be squashed when you merge to master. - The commit messages should be hints for you when you finalize your merge commit message.
+- Usually all these are going to be squashed when you merge to master.
 - Make sure to update the PR title/description if things change. 
 - Rebase with master if the master branch has commits ahead of your fork.
+- Please use the [seven rules of good commit messages](https://chris.beams.io/posts/git-commit/
+
+) to create your commit messages.
 
 ### Step 7: Merge
 Once your PR has been approved and tested, we will merge it into `develop` and it will be released in the next SDK release which we try to do biweekly on Thursday's. Yay!! 
