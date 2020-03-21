@@ -410,6 +410,10 @@ AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
 [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
 ```
 
+## Open Source Contributions
+
+We welcome any and all contributions from the community! Make sure you read through our contribution guide [here](./CONTRIBUTING.md) before submitting any PR's. Thanks! <3
+
 ## Talk to Us
 
 Visit our GitHub [Issues](https://github.com/aws-amplify/aws-sdk-ios/issues) to leave feedback and to connect with other users of the SDK.
