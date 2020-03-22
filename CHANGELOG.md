@@ -6,6 +6,17 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 
+- Amazon Cognito Identity Provider
+
+---
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
 - Amazon EC2
  - Amazon IoT
 
