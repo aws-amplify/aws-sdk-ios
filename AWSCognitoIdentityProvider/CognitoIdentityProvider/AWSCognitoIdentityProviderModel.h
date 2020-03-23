@@ -1688,7 +1688,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p>
+ <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
  Required parameters: [ApplicationId, RoleArn, ExternalId]
  */
 @interface AWSCognitoIdentityProviderAnalyticsConfigurationType : AWSModel
@@ -1717,7 +1717,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p>
+ <p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
  */
 @interface AWSCognitoIdentityProviderAnalyticsMetadataType : AWSModel
 
@@ -2229,7 +2229,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable idpIdentifiers;
 
 /**
- <p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p><ul><li><p>For Google, Facebook and Login with Amazon:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For Sign in with Apple:</p><ul><li><p>client_id</p></li><li><p>team_id</p></li><li><p>key_id</p></li><li><p>private_key</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For OIDC providers:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>attributes_request_method</p></li><li><p>oidc_issuer</p></li><li><p>authorize_scopes</p></li><li><p>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For SAML providers:</p><ul><li><p>MetadataFile OR MetadataURL</p></li><li><p>IDPSignOut <i>optional</i></p></li></ul></li></ul>
+ <p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p><ul><li><p>For Google, Facebook and Login with Amazon:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For Sign in with Apple:</p><ul><li><p>client_id</p></li><li><p>team_id</p></li><li><p>key_id</p></li><li><p>private_key</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For OIDC providers:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>attributes_request_method</p></li><li><p>oidc_issuer</p></li><li><p>authorize_scopes</p></li><li><p>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For SAML providers:</p><ul><li><p>MetadataFile OR MetadataURL</p></li><li><p>IDPSignout <i>optional</i></p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable providerDetails;
 
@@ -2364,7 +2364,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
 /**
- <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p>
+ <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
@@ -3196,6 +3196,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  */
 @interface AWSCognitoIdentityProviderEventRiskType : AWSModel
 
+
+/**
+ <p>Indicates whether compromised credentials were detected during an authentication event.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable compromisedCredentialsDetected;
 
 /**
  <p>The risk decision.</p>
@@ -5573,7 +5578,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
 /**
- <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p>
+ <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
@@ -5936,7 +5941,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
 /**
- <p>The Amazon Pinpoint analytics configuration for the user pool client.</p>
+ <p>The Amazon Pinpoint analytics configuration for the user pool client.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
