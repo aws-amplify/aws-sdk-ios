@@ -1377,6 +1377,52 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingCreateRecommenderConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"detail" : @"Description",
+             @"name" : @"Name",
+             @"recommendationProviderIdType" : @"RecommendationProviderIdType",
+             @"recommendationProviderRoleArn" : @"RecommendationProviderRoleArn",
+             @"recommendationProviderUri" : @"RecommendationProviderUri",
+             @"recommendationTransformerUri" : @"RecommendationTransformerUri",
+             @"recommendationsDisplayName" : @"RecommendationsDisplayName",
+             @"recommendationsPerMessage" : @"RecommendationsPerMessage",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateRecommenderConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createRecommenderConfiguration" : @"CreateRecommenderConfiguration",
+             };
+}
+
++ (NSValueTransformer *)createRecommenderConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCreateRecommenderConfiguration class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateRecommenderConfigurationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingCreateSegmentRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1934,6 +1980,30 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingDeleteRecommenderConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderId" : @"RecommenderId",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteRecommenderConfigurationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDeleteSegmentRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2221,6 +2291,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"defaultSubstitutions" : @"DefaultSubstitutions",
              @"htmlPart" : @"HtmlPart",
+             @"recommenderId" : @"RecommenderId",
              @"subject" : @"Subject",
              @"templateDescription" : @"TemplateDescription",
              @"textPart" : @"TextPart",
@@ -2239,6 +2310,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"defaultSubstitutions" : @"DefaultSubstitutions",
              @"htmlPart" : @"HtmlPart",
              @"lastModifiedDate" : @"LastModifiedDate",
+             @"recommenderId" : @"RecommenderId",
              @"subject" : @"Subject",
              @"templateDescription" : @"TemplateDescription",
              @"templateName" : @"TemplateName",
@@ -3963,6 +4035,55 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetRecommenderConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderId" : @"RecommenderId",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"pageSize" : @"PageSize",
+             @"token" : @"Token",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"listRecommenderConfigurationsResponse" : @"ListRecommenderConfigurationsResponse",
+             };
+}
+
++ (NSValueTransformer *)listRecommenderConfigurationsResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingListRecommenderConfigurationsResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetSegmentExportJobsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4736,6 +4857,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingListRecommenderConfigurationsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"item" : @"Item",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)itemJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingListTagsForResourceRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -5260,6 +5396,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"defaultValue" : @"Default",
              @"defaultSubstitutions" : @"DefaultSubstitutions",
              @"GCM" : @"GCM",
+             @"recommenderId" : @"RecommenderId",
              @"templateDescription" : @"TemplateDescription",
              @"tags" : @"tags",
              };
@@ -5300,6 +5437,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"defaultSubstitutions" : @"DefaultSubstitutions",
              @"GCM" : @"GCM",
              @"lastModifiedDate" : @"LastModifiedDate",
+             @"recommenderId" : @"RecommenderId",
              @"templateDescription" : @"TemplateDescription",
              @"templateName" : @"TemplateName",
              @"templateType" : @"TemplateType",
@@ -5528,6 +5666,27 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingRecommenderConfigurationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"creationDate" : @"CreationDate",
+             @"detail" : @"Description",
+             @"identifier" : @"Id",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"name" : @"Name",
+             @"recommendationProviderIdType" : @"RecommendationProviderIdType",
+             @"recommendationProviderRoleArn" : @"RecommendationProviderRoleArn",
+             @"recommendationProviderUri" : @"RecommendationProviderUri",
+             @"recommendationTransformerUri" : @"RecommendationTransformerUri",
+             @"recommendationsDisplayName" : @"RecommendationsDisplayName",
+             @"recommendationsPerMessage" : @"RecommendationsPerMessage",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingRemoveAttributesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -5666,6 +5825,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"body" : @"Body",
              @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"recommenderId" : @"RecommenderId",
              @"templateDescription" : @"TemplateDescription",
              @"tags" : @"tags",
              };
@@ -5682,6 +5842,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"creationDate" : @"CreationDate",
              @"defaultSubstitutions" : @"DefaultSubstitutions",
              @"lastModifiedDate" : @"LastModifiedDate",
+             @"recommenderId" : @"RecommenderId",
              @"templateDescription" : @"TemplateDescription",
              @"templateName" : @"TemplateName",
              @"templateType" : @"TemplateType",
@@ -7064,6 +7225,53 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)messageBodyJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateRecommenderConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"detail" : @"Description",
+             @"name" : @"Name",
+             @"recommendationProviderIdType" : @"RecommendationProviderIdType",
+             @"recommendationProviderRoleArn" : @"RecommendationProviderRoleArn",
+             @"recommendationProviderUri" : @"RecommendationProviderUri",
+             @"recommendationTransformerUri" : @"RecommendationTransformerUri",
+             @"recommendationsDisplayName" : @"RecommendationsDisplayName",
+             @"recommendationsPerMessage" : @"RecommendationsPerMessage",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateRecommenderConfigurationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderId" : @"RecommenderId",
+             @"updateRecommenderConfiguration" : @"UpdateRecommenderConfiguration",
+             };
+}
+
++ (NSValueTransformer *)updateRecommenderConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingUpdateRecommenderConfiguration class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateRecommenderConfigurationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
 }
 
 @end

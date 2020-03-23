@@ -84,8 +84,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Confirm a users' sign up with the confirmation code.  If forceAliasCreation is set, if another user is aliased to the same email/phone this code was sent to, reassign alias to this user.
  */
--(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode forceAliasCreation:(BOOL)forceAliasCreation;
+-(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
+                                                       forceAliasCreation:(BOOL)forceAliasCreation;
 
+-(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
+                                                           clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
+-(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> *) confirmSignUp:(NSString *) confirmationCode
+                                                       forceAliasCreation:(BOOL)forceAliasCreation
+                                                           clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
 /**
  Resend the confirmation code sent during sign up
  */
@@ -116,13 +123,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Send a code to this user to initiate the forgot password flow
  */
+- (AWSTask<AWSCognitoIdentityUserForgotPasswordResponse *> *)forgotPassword:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
 - (AWSTask<AWSCognitoIdentityUserForgotPasswordResponse *> *)forgotPassword;
+
 
 /**
  Conclude the forgot password flow by providing the forgot password code and new password.
  */
 - (AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *)confirmForgotPassword:(NSString *)confirmationCode
+                                                                                 password:(NSString *)password
+                                                                           clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
+
+- (AWSTask<AWSCognitoIdentityUserConfirmForgotPasswordResponse *> *)confirmForgotPassword:(NSString *)confirmationCode
                                                                                  password:(NSString *)password;
+
 
 /**
  Change this user's password

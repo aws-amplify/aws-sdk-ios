@@ -2341,6 +2341,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compromisedCredentialsDetected" : @"CompromisedCredentialsDetected",
              @"riskDecision" : @"RiskDecision",
              @"riskLevel" : @"RiskLevel",
              };

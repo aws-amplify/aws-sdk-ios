@@ -117,7 +117,10 @@ class AWSMobileClientTestBase: XCTestCase {
         wait(for: [signInConfirmWasSuccessful], timeout: 5)
     }
     
-    func signUpUser(username: String, customUserAttributes: [String: String]? = nil, signupState: SignUpConfirmationState = .unconfirmed) {
+    func signUpUser(username: String,
+                    customUserAttributes: [String: String]? = nil,
+                    clientMetaData: [String: String]? = nil,
+                    signupState: SignUpConfirmationState = .unconfirmed) {
         var userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
         if let customUserAttributes = customUserAttributes {
             userAttributes.merge(customUserAttributes) { current, _ in current }
@@ -127,7 +130,8 @@ class AWSMobileClientTestBase: XCTestCase {
         AWSMobileClient.default().signUp(
             username: username,
             password: sharedPassword,
-            userAttributes: userAttributes) { (signUpResult, error) in
+            userAttributes: userAttributes,
+            clientMetaData: clientMetaData ?? [:]) { (signUpResult, error) in
                 if let error = error {
                     var errorMessage: String
                     if let mobileClientError = error as? AWSMobileClientError {
@@ -208,4 +212,5 @@ class AWSMobileClientTestBase: XCTestCase {
         let key = "\(namespace).tokenExpiration"
         keychain.removeItem(forKey: key)
     }
+    
 }

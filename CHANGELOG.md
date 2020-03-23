@@ -1,4 +1,41 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon Cognito Identity Provider
+
+---
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- Amazon EC2
+ - Amazon IoT
+
+---
+---
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.13.1
+
+### New features
+
+- **AWSMobileClient** Added an optional parameter `clientMetaData` to `signUp`, `confirmSignUp`, `forgotPassword` and `confirmForgotPassword`. Should not break existing calls to these functions. See [PR #2328](https://github.com/aws-amplify/aws-sdk-ios/pull/2328) [Issue #2299](https://github.com/aws-amplify/aws-sdk-ios/issues/2299) for more details
+
+### Misc. Updates
+
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Pinpoint
+  - Amazon Transcribe
 
 ## 2.13.0
 

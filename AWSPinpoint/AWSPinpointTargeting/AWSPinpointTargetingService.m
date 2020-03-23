@@ -44,6 +44,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InternalServerErrorException" : @(AWSPinpointTargetingErrorInternalServerError),
                             @"MethodNotAllowedException" : @(AWSPinpointTargetingErrorMethodNotAllowed),
                             @"NotFoundException" : @(AWSPinpointTargetingErrorNotFound),
+                            @"PayloadTooLargeException" : @(AWSPinpointTargetingErrorPayloadTooLarge),
                             @"TooManyRequestsException" : @(AWSPinpointTargetingErrorTooManyRequests),
                             };
 }
@@ -477,6 +478,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSPinpointTargetingCreateRecommenderConfigurationResponse *> *)createRecommenderConfiguration:(AWSPinpointTargetingCreateRecommenderConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/v1/recommenders"
+                  targetPrefix:@""
+                 operationName:@"CreateRecommenderConfiguration"
+                   outputClass:[AWSPinpointTargetingCreateRecommenderConfigurationResponse class]];
+}
+
+- (void)createRecommenderConfiguration:(AWSPinpointTargetingCreateRecommenderConfigurationRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingCreateRecommenderConfigurationResponse *response, NSError *error))completionHandler {
+    [[self createRecommenderConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingCreateRecommenderConfigurationResponse *> * _Nonnull task) {
+        AWSPinpointTargetingCreateRecommenderConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSPinpointTargetingCreateSegmentResponse *> *)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -881,6 +905,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingDeletePushTemplateResponse *response, NSError *error))completionHandler {
     [[self deletePushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeletePushTemplateResponse *> * _Nonnull task) {
         AWSPinpointTargetingDeletePushTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingDeleteRecommenderConfigurationResponse *> *)deleteRecommenderConfiguration:(AWSPinpointTargetingDeleteRecommenderConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/v1/recommenders/{recommender-id}"
+                  targetPrefix:@""
+                 operationName:@"DeleteRecommenderConfiguration"
+                   outputClass:[AWSPinpointTargetingDeleteRecommenderConfigurationResponse class]];
+}
+
+- (void)deleteRecommenderConfiguration:(AWSPinpointTargetingDeleteRecommenderConfigurationRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingDeleteRecommenderConfigurationResponse *response, NSError *error))completionHandler {
+    [[self deleteRecommenderConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingDeleteRecommenderConfigurationResponse *> * _Nonnull task) {
+        AWSPinpointTargetingDeleteRecommenderConfigurationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1732,6 +1779,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingGetPushTemplateResponse *response, NSError *error))completionHandler {
     [[self getPushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetPushTemplateResponse *> * _Nonnull task) {
         AWSPinpointTargetingGetPushTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetRecommenderConfigurationResponse *> *)getRecommenderConfiguration:(AWSPinpointTargetingGetRecommenderConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/recommenders/{recommender-id}"
+                  targetPrefix:@""
+                 operationName:@"GetRecommenderConfiguration"
+                   outputClass:[AWSPinpointTargetingGetRecommenderConfigurationResponse class]];
+}
+
+- (void)getRecommenderConfiguration:(AWSPinpointTargetingGetRecommenderConfigurationRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetRecommenderConfigurationResponse *response, NSError *error))completionHandler {
+    [[self getRecommenderConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetRecommenderConfigurationResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetRecommenderConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingGetRecommenderConfigurationsResponse *> *)getRecommenderConfigurations:(AWSPinpointTargetingGetRecommenderConfigurationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/v1/recommenders"
+                  targetPrefix:@""
+                 operationName:@"GetRecommenderConfigurations"
+                   outputClass:[AWSPinpointTargetingGetRecommenderConfigurationsResponse class]];
+}
+
+- (void)getRecommenderConfigurations:(AWSPinpointTargetingGetRecommenderConfigurationsRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingGetRecommenderConfigurationsResponse *response, NSError *error))completionHandler {
+    [[self getRecommenderConfigurations:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingGetRecommenderConfigurationsResponse *> * _Nonnull task) {
+        AWSPinpointTargetingGetRecommenderConfigurationsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2627,6 +2720,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingUpdatePushTemplateResponse *response, NSError *error))completionHandler {
     [[self updatePushTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdatePushTemplateResponse *> * _Nonnull task) {
         AWSPinpointTargetingUpdatePushTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingUpdateRecommenderConfigurationResponse *> *)updateRecommenderConfiguration:(AWSPinpointTargetingUpdateRecommenderConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/v1/recommenders/{recommender-id}"
+                  targetPrefix:@""
+                 operationName:@"UpdateRecommenderConfiguration"
+                   outputClass:[AWSPinpointTargetingUpdateRecommenderConfigurationResponse class]];
+}
+
+- (void)updateRecommenderConfiguration:(AWSPinpointTargetingUpdateRecommenderConfigurationRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingUpdateRecommenderConfigurationResponse *response, NSError *error))completionHandler {
+    [[self updateRecommenderConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingUpdateRecommenderConfigurationResponse *> * _Nonnull task) {
+        AWSPinpointTargetingUpdateRecommenderConfigurationResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
