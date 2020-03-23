@@ -26,20 +26,22 @@
 static NSString *const AWSCampaignDeepLinkKey = @"deeplink";
 static NSString *const AWSAttributeApplicationStateKey = @"applicationState";
 static NSString *const AWSAttributeActionIdentifierKey = @"actionIdentifier";
-static NSString *const AWSEventTypeOpened = @"_campaign.opened_notification";
-static NSString *const AWSEventTypeReceivedForeground = @"_campaign.received_foreground";
-static NSString *const AWSEventTypeReceivedBackground = @"_campaign.received_background";
+static NSString *const AWSEventTypeOpened = @"opened_notification";
+static NSString *const AWSEventTypeReceivedForeground = @"received_foreground";
+static NSString *const AWSEventTypeReceivedBackground = @"received_background";
 NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
 NSString *const AWSDataKey = @"data";
 NSString *const AWSPinpointKey = @"pinpoint";
 NSString *const AWSPinpointCampaignKey = @"campaign";
+NSString *const AWSPinpointJourneyKey = @"journey";
+NSString *const AWSPinpointUnknownKey = @"unknown";
 
 @interface AWSPinpointNotificationManager()
 @property (nonatomic, strong) AWSPinpointContext *context;
 @end
 
 @interface AWSPinpointAnalyticsClient()
-- (void) setCampaignAttributes:(NSDictionary*) campaign;
+- (void) setFeatureAttributes:(NSDictionary*) attributes;
 @end
 
 @interface AWSPinpointConfiguration()
@@ -78,7 +80,7 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
     }
 }
 
-+ (BOOL)validCampaignPushForNotification:(NSDictionary*) notification {
++ (BOOL)validPinpointPushForNotification:(NSDictionary*) notification {
     if (![notification[AWSDataKey] isKindOfClass:[NSDictionary class]] || ![notification[AWSDataKey][AWSPinpointKey] isKindOfClass:[NSDictionary class]]) {
         return NO;
     } else {
@@ -91,11 +93,11 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
     NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     if(notificationPayload)
     {
-        if (![AWSPinpointNotificationManager validCampaignPushForNotification:notificationPayload]) {
+        if (![AWSPinpointNotificationManager validPinpointPushForNotification:notificationPayload]) {
             return YES;
         }
         
-        [self addGlobalCampaignMetadataForNotification:notificationPayload];
+        [self addGlobalPinpointMetadataForNotification:notificationPayload];
         
         // Application launch because of notification
         [self recordMessageOpenedEventForNotification:notificationPayload
@@ -133,7 +135,7 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 
 #pragma mark - Handlers
 - (void)handleNotificationDeepLinkForNotification:(NSDictionary*) userInfo {
-    if (![AWSPinpointNotificationManager validCampaignPushForNotification:userInfo]) {
+    if (![AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
         return;
     }
     NSDictionary *amaDict = userInfo[AWSDataKey][AWSPinpointKey];
@@ -153,9 +155,9 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
   shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
     
+    [self addGlobalPinpointMetadataForNotification:userInfo];
     if (state == UIApplicationStateInactive) {
         AWSDDLogVerbose(@"App launched from received notification.");
-        [self addGlobalCampaignMetadataForNotification:userInfo];
         [self recordMessageOpenedEventForNotification:userInfo
                                        withIdentifier:nil
                                  withApplicationState:state];
@@ -164,14 +166,17 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
         }
     } else if (state == UIApplicationStateBackground) {
         AWSDDLogVerbose(@"Received notification with app on background.");
-        [self addGlobalCampaignMetadataForNotification:userInfo];
+        NSString *eventType = [self buildEventTypeFromUserInfo:userInfo
+                                            withPushActionType:AWSPinpointPushActionTypeReceivedBackground];
         [self recordMessageReceivedEventForNotification:userInfo
-                                              eventType:AWSEventTypeReceivedBackground
+                                              eventType:eventType
                                    withApplicationState:state];
     } else {
         AWSDDLogVerbose(@"Received notification with app on foreground.");
+        NSString *eventType = [self buildEventTypeFromUserInfo:userInfo
+                                            withPushActionType:AWSPinpointPushActionTypeReceivedForeground];
         [self recordMessageReceivedEventForNotification:userInfo
-                                              eventType:AWSEventTypeReceivedForeground
+                                              eventType:eventType
                                    withApplicationState:state];
     }
 }
@@ -185,7 +190,7 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
     
     [self addApplicationStateAttributeToEvent:pushNotificationEvent
                          withApplicationState:state];
-    [self addCampaignMetadataForEvent:pushNotificationEvent
+    [self addPinpointMetadataForEvent:pushNotificationEvent
                      withNotification:userInfo];
     
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
@@ -195,7 +200,9 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
                                  withIdentifier:(NSString *) identifier
                            withApplicationState:(UIApplicationState) state {
     //User tapped on notification
-    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:AWSEventTypeOpened];
+    NSString *eventType = [self buildEventTypeFromUserInfo:userInfo
+                                        withPushActionType:AWSPinpointPushActionTypeOpened];
+    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:eventType];
     
     if (identifier) {
         [pushNotificationEvent addAttribute:identifier forKey:AWSAttributeActionIdentifierKey];
@@ -207,30 +214,54 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 #pragma mark - Helpers
-- (void)addCampaignMetadataForEvent:(AWSPinpointEvent *) event
+- (void)addPinpointMetadataForEvent:(AWSPinpointEvent *) event
                    withNotification:(NSDictionary *) userInfo {
-    if (![AWSPinpointNotificationManager validCampaignPushForNotification:userInfo]) {
+    if (![AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
         return;
     }
-    NSDictionary *campaign = userInfo[AWSDataKey][AWSPinpointKey][AWSPinpointCampaignKey];
-    AWSDDLogVerbose(@"Adding campaign attributes to event[%@]: %@",event.eventType, campaign);
     
-    for (NSString *key in [campaign allKeys]) {
-        [event addAttribute:campaign[key] forKey:key];
+    NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
+    if (pinpointData[AWSPinpointCampaignKey]) {
+        NSDictionary *campaign = pinpointData[AWSPinpointCampaignKey];
+        AWSDDLogVerbose(@"Adding campaign attributes to event[%@]: %@", event.eventType, campaign);
+
+        for (NSString *key in [campaign allKeys]) {
+            [event addAttribute:campaign[key] forKey:key];
+        }
+    } else if (pinpointData[AWSPinpointJourneyKey]) {
+        NSDictionary *journey = pinpointData[AWSPinpointJourneyKey];
+        AWSDDLogVerbose(@"Adding journey attributes to event[%@]: %@", event.eventType, journey);
+
+        for (NSString *key in [journey allKeys]) {
+            [event addAttribute:journey[key] forKey:key];
+        }
+    } else {
+        AWSDDLogVerbose(@"No valid Pinpoint Push payload found");
     }
 }
 
-- (void)addGlobalCampaignMetadataForNotification:(NSDictionary *) userInfo {
-    if (![AWSPinpointNotificationManager validCampaignPushForNotification:userInfo]) {
+- (void)addGlobalPinpointMetadataForNotification:(NSDictionary *) userInfo {
+    if (![AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
         return;
     }
-    
-    NSDictionary *campaign = userInfo[AWSDataKey][AWSPinpointKey][AWSPinpointCampaignKey];
-    AWSDDLogVerbose(@"Adding campaign global attributes: %@", campaign);
-    [self.context.analyticsClient setCampaignAttributes:campaign];
-    
-    for (NSString *key in [campaign allKeys]) {
-        [self.context.analyticsClient addGlobalAttribute:campaign[key] forKey:key];
+
+    NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
+    if (pinpointData[AWSPinpointCampaignKey]) {
+        NSDictionary *campaign = pinpointData[AWSPinpointCampaignKey];
+        AWSDDLogVerbose(@"Adding campaign global attributes: %@", campaign);
+        [self.context.analyticsClient setFeatureAttributes:campaign];
+
+        for (NSString *key in [campaign allKeys]) {
+            [self.context.analyticsClient addGlobalAttribute:campaign[key] forKey:key];
+        }
+    } else if (pinpointData[AWSPinpointJourneyKey]) {
+        NSDictionary *journey = pinpointData[AWSPinpointJourneyKey];
+        AWSDDLogVerbose(@"Adding journey global attributes: %@", journey);
+        [self.context.analyticsClient setFeatureAttributes:journey];
+
+        for (NSString *key in [journey allKeys]) {
+            [self.context.analyticsClient addGlobalAttribute:journey[key] forKey:key];
+        }
     }
 }
 
@@ -254,6 +285,28 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
             break;
         default:
             break;
+    }
+}
+
+- (NSString*)buildEventTypeFromUserInfo:(NSDictionary *) userInfo
+                     withPushActionType:(AWSPinpointPushActionType) pushActionType {
+    NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
+    NSString *eventTypePrefix;
+    if (pinpointData[AWSPinpointCampaignKey]) {
+        eventTypePrefix = AWSPinpointCampaignKey;
+    } else if (pinpointData[AWSPinpointJourneyKey]) {
+        eventTypePrefix = AWSPinpointJourneyKey;
+    } else {
+        eventTypePrefix = AWSPinpointUnknownKey;
+    }
+
+    switch (pushActionType) {
+        case AWSPinpointPushActionTypeOpened:
+            return [NSString stringWithFormat: @"_%@.%@", eventTypePrefix, AWSEventTypeOpened];
+        case AWSPinpointPushActionTypeReceivedForeground:
+            return [NSString stringWithFormat: @"_%@.%@", eventTypePrefix, AWSEventTypeReceivedForeground];
+        case AWSPinpointPushActionTypeReceivedBackground:
+            return [NSString stringWithFormat: @"_%@.%@", eventTypePrefix, AWSEventTypeReceivedBackground];
     }
 }
 

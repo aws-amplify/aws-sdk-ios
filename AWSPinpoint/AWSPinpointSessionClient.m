@@ -72,9 +72,7 @@ typedef void(^voidBlock)(void);
 @end
 
 @interface AWSPinpointAnalyticsClient()
-
-- (void)removeAllGlobalCampaignAttributes;
-- (void)setCampaignAttributes:(NSDictionary*) campaign;
+- (void)removeAllGlobalFeatureAttributes;
 
 @end
 
@@ -291,9 +289,9 @@ NSObject *sessionLock;
 
     return [self.context.analyticsClient recordEvent:stopEvent];
 
-    //Remove campaign global attributes
-    AWSDDLogVerbose(@"Removed global campaign attributes");
-    [self.context.analyticsClient removeAllGlobalCampaignAttributes];
+    //Remove campaign/journey global attributes
+    AWSDDLogVerbose(@"Removed global campaign/journey attributes");
+    [self.context.analyticsClient removeAllGlobalFeatureAttributes];
 }
 
 - (void) endCurrentSessionWithBlock:(AWSPinpointTimeoutBlock) block {

@@ -44,13 +44,13 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 @property (nonatomic, strong) NSMutableDictionary* eventTypeMetrics;
 @property (nonatomic, strong) NSMutableDictionary* globalAttributes;
 @property (nonatomic, strong) NSMutableDictionary* globalMetrics;
-@property (nonatomic, strong) NSDictionary* globalCampaignAttributes;
+@property (nonatomic, strong) NSDictionary* globalFeatureAttributes;
 
 @end
 
 @interface AWSPinpointEventRecorder ()
 - (instancetype)initWithContext:(AWSPinpointContext *) context;
-- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
+- (AWSTask*) updateSessionStartWithFeatureAttributes:(NSDictionary*) attributes;
 @end
 
 @implementation AWSPinpointAnalyticsClient
@@ -202,9 +202,9 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
             [theEvent addMetric:[self.globalMetrics objectForKey:key] forKey:key];
         }
         
-        // Apply Campaign Attributes
-        for (NSString *key in [self.globalCampaignAttributes allKeys]) {
-            [theEvent addAttribute:[self.globalCampaignAttributes objectForKey:key] forKey:key];
+        // Apply Global Feature attributes (Campaign/Journey)
+        for (NSString *key in [self.globalFeatureAttributes allKeys]) {
+            [theEvent addAttribute:[self.globalFeatureAttributes objectForKey:key] forKey:key];
         }
     }
     
@@ -393,16 +393,20 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     }
 }
 
-- (void) setCampaignAttributes:(NSDictionary*) campaign {
-    _globalCampaignAttributes = campaign;
-    [self.eventRecorder updateSessionStartWithCampaignAttributes:campaign];
+- (void) setFeatureAttributes:(NSDictionary*) attributes {
+    // Remove previous global feature attributes from _globalAttributes
+    // This is to prevent _globalAttributes containing attributes from multiple features (campaign/journey)
+    [self removeAllGlobalFeatureAttributes];
+
+    _globalFeatureAttributes = attributes;
+    [self.eventRecorder updateSessionStartWithFeatureAttributes:attributes];
 }
 
-- (void) removeAllGlobalCampaignAttributes {
-    for (NSString *key in self.globalCampaignAttributes) {
+- (void) removeAllGlobalFeatureAttributes {
+    for (NSString *key in self.globalFeatureAttributes) {
         [self removeGlobalAttributeForKey:key];
     }
-    _globalCampaignAttributes = nil;
+    _globalFeatureAttributes = nil;
 }
 
 @end

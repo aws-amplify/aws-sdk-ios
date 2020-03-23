@@ -522,6 +522,7 @@
 		B5DD455F22CA6B38003871AE /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		B5DD456222CA6E01003871AE /* AWSConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DD456122CA6E01003871AE /* AWSConnectTests.swift */; };
 		B5DD458622CAD272003871AE /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		C453B543242A67C000D69E57 /* AWSPinpointNotificationManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C453B542242A67C000D69E57 /* AWSPinpointNotificationManagerTests.m */; };
 		CE0D41701C6A66E5006B91B5 /* AWSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D416F1C6A66E5006B91B5 /* AWSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D42231C6A673E006B91B5 /* AWSCredentialsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D41851C6A673E006B91B5 /* AWSCredentialsProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0D42241C6A673E006B91B5 /* AWSCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D41861C6A673E006B91B5 /* AWSCredentialsProvider.m */; };
@@ -3895,6 +3896,7 @@
 		B5DD455D22CA6AC9003871AE /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = "../../aws-sdk-ios/AWSCoreTests/OCMock/libOCMock.a"; sourceTree = "<group>"; };
 		B5DD456022CA6E00003871AE /* AWSConnectTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSConnectTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5DD456122CA6E01003871AE /* AWSConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConnectTests.swift; sourceTree = "<group>"; };
+		C453B542242A67C000D69E57 /* AWSPinpointNotificationManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointNotificationManagerTests.m; sourceTree = "<group>"; };
 		CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0D416F1C6A66E5006B91B5 /* AWSCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCore.h; sourceTree = "<group>"; };
 		CE0D41711C6A66E5006B91B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -6058,6 +6060,7 @@
 				FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */,
 				18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */,
 				FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */,
+				C453B542242A67C000D69E57 /* AWSPinpointNotificationManagerTests.m */,
 				FA64FA9F23AAB17100B29182 /* AWSPinpointEventRecorderTestBase.h */,
 				FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */,
 				187990001DEFCB8800BC419B /* AWSPinpointEventRecorderTests.m */,
@@ -12994,6 +12997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C453B543242A67C000D69E57 /* AWSPinpointNotificationManagerTests.m in Sources */,
 				18798FFC1DEFCB4000BC419B /* AWSTestUtility.m in Sources */,
 				187990051DEFCB8800BC419B /* AWSPinpointContextTests.m in Sources */,
 				18798F8D1DEF9EAA00BC419B /* AWSPinpointTests.m in Sources */,
