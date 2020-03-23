@@ -5394,8 +5394,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"allocationId" : @"AllocationId",
              @"clientToken" : @"ClientToken",
+             @"dryRun" : @"DryRun",
              @"subnetId" : @"SubnetId",
+             @"tagSpecifications" : @"TagSpecifications",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -7259,6 +7265,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"natGatewayId" : @"NatGatewayId",
              };
 }
@@ -11506,6 +11513,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"dryRun" : @"DryRun",
              @"filter" : @"Filter",
              @"maxResults" : @"MaxResults",
              @"natGatewayIds" : @"NatGatewayIds",

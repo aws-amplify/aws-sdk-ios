@@ -2899,7 +2899,7 @@
       },\
       \"input\":{\"shape\":\"ExportTransitGatewayRoutesRequest\"},\
       \"output\":{\"shape\":\"ExportTransitGatewayRoutesResult\"},\
-      \"documentation\":\"<p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>\"\
+      \"documentation\":\"<p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p> <p>The routes are saved to the specified bucket in a JSON file. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables\\\">Export Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.</p>\"\
     },\
     \"GetAssociatedIpv6PoolCidrs\":{\
       \"name\":\"GetAssociatedIpv6PoolCidrs\",\
@@ -3129,7 +3129,7 @@
       },\
       \"input\":{\"shape\":\"ModifyAvailabilityZoneGroupRequest\"},\
       \"output\":{\"shape\":\"ModifyAvailabilityZoneGroupResult\"},\
-      \"documentation\":\"<p>Enables or disables a Zone Group for your account. To use Local Zones, you must first enable the Zone Group.</p>\"\
+      \"documentation\":\"<p>Enables or disables an Availability Zone group for your account.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2ApiDocReef/build/server-root/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html\\\">describe-availability-zones</a> to view the value for <code>GroupName</code>.</p>\"\
     },\
     \"ModifyCapacityReservation\":{\
       \"name\":\"ModifyCapacityReservation\",\
@@ -3928,7 +3928,7 @@
       },\
       \"input\":{\"shape\":\"StopInstancesRequest\"},\
       \"output\":{\"shape\":\"StopInstancesResult\"},\
-      \"documentation\":\"<p>Stops an Amazon EBS-backed instance.</p> <p>You can use the Stop action to hibernate an instance if the instance is <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation\\\">enabled for hibernation</a> and it meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\\\">hibernation prerequisites</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\\\">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p> <p>You can't hibernate Spot Instances, and you can't stop or hibernate instance store-backed instances. For information about using hibernation for Spot Instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances\\\">Hibernating Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p> <p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\\\">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\\\">Troubleshooting Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Stops an Amazon EBS-backed instance.</p> <p>You can use the Stop action to hibernate an instance if the instance is <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation\\\">enabled for hibernation</a> and it meets the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites\\\">hibernation prerequisites</a>. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html\\\">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>We don't charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p> <p>You can't stop or hibernate instance store-backed instances. You can't use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances\\\">Hibernating Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p> <p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html\\\">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html\\\">Troubleshooting Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"TerminateClientVpnConnections\":{\
       \"name\":\"TerminateClientVpnConnections\",\
@@ -4371,7 +4371,7 @@
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The location from which the IP address is advertised. Use this parameter to limit the address to this location.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html\\\">DescribeVpcs</a> to view the network border groups.</p> <note> <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> </note>\"\
+          \"documentation\":\"<p>The location from which the IP address is advertised. Use this parameter to limit the address to this location.</p> <p>A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises IP addresses and limits the addresses to the group. IP addresses cannot move between network border groups.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html\\\">DescribeAvailabilityZones</a> to view the network border groups.</p> <note> <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> </note>\"\
         },\
         \"CustomerOwnedIpv4Pool\":{\
           \"shape\":\"String\",\
@@ -4486,7 +4486,7 @@
     \"AllocationIdList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"AllocationId\",\
         \"locationName\":\"AllocationId\"\
       }\
     },\
@@ -5926,7 +5926,7 @@
       \"required\":[\"ExportTaskId\"],\
       \"members\":{\
         \"ExportTaskId\":{\
-          \"shape\":\"ExportTaskId\",\
+          \"shape\":\"ExportVmTaskId\",\
           \"documentation\":\"<p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>\",\
           \"locationName\":\"exportTaskId\"\
         }\
@@ -6261,7 +6261,7 @@
     \"CapacityReservationIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"CapacityReservationId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -6573,6 +6573,7 @@
       },\
       \"documentation\":\"<p>Describes the client-specific data.</p>\"\
     },\
+    \"ClientVpnAssociationId\":{\"type\":\"string\"},\
     \"ClientVpnAuthentication\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6970,7 +6971,7 @@
     \"ClientVpnSecurityGroupIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"SecurityGroupId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -7037,7 +7038,7 @@
     \"CoipPoolIdSet\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"CoipPoolId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -7954,7 +7955,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\",\
           \"locationName\":\"fleetId\"\
         },\
@@ -8388,11 +8389,21 @@
         },\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to Ensure Idempotency</a>.</p> <p>Constraint: Maximum 64 ASCII characters.</p>\"\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to Ensure Idempotency</a>.</p> <p>Constraint: Maximum 64 ASCII characters.</p>\",\
+          \"idempotencyToken\":true\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
         \"SubnetId\":{\
           \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The subnet in which to create the NAT gateway.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to assign to the NAT gateway.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       }\
     },\
@@ -9249,7 +9260,7 @@
           \"documentation\":\"<p>The ID of the transit gateway.</p>\"\
         },\
         \"PeerTransitGatewayId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"TransitAssociationGatewayId\",\
           \"documentation\":\"<p>The ID of the peer transit gateway with which to create the peering attachment.</p>\"\
         },\
         \"PeerAccountId\":{\
@@ -10161,7 +10172,7 @@
           \"locationName\":\"error\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\",\
           \"locationName\":\"fleetId\"\
         }\
@@ -10189,7 +10200,7 @@
           \"locationName\":\"previousFleetState\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\",\
           \"locationName\":\"fleetId\"\
         }\
@@ -10505,6 +10516,10 @@
       \"type\":\"structure\",\
       \"required\":[\"NatGatewayId\"],\
       \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
         \"NatGatewayId\":{\
           \"shape\":\"NatGatewayId\",\
           \"documentation\":\"<p>The ID of the NAT gateway.</p>\"\
@@ -11561,7 +11576,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>instance-type</code> - The type of instance for which the Capacity Reservation reserves capacity.</p> </li> <li> <p> <code>owner-id</code> - The ID of the AWS account that owns the Capacity Reservation.</p> </li> <li> <p> <code>availability-zone-id</code> - The Availability Zone ID of the Capacity Reservation.</p> </li> <li> <p> <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p> </li> <li> <p> <code>availability-zone</code> - The Availability Zone ID of the Capacity Reservation.</p> </li> <li> <p> <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p> <ul> <li> <p> <code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p> </li> <li> <p> <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p> </li> </ul> </li> <li> <p> <code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p> <ul> <li> <p> <code>active</code>- The Capacity Reservation is active and the capacity is available for your use.</p> </li> <li> <p> <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>cancelled</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.</p> </li> <li> <p> <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p> </li> <li> <p> <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p> </li> </ul> </li> <li> <p> <code>end-date</code> - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to expired when it reaches its end date and time.</p> </li> <li> <p> <code>end-date-type</code> - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p> <ul> <li> <p> <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p> </li> <li> <p> <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p> </li> </ul> </li> <li> <p> <code>instance-match-criteria</code> - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p> <ul> <li> <p> <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.</p> </li> <li> <p> <code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.</p> </li> </ul> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"DryRun\":{\
@@ -12359,7 +12374,7 @@
           \"documentation\":\"<p>The token for the next set of results.</p>\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\"\
         },\
         \"StartTime\":{\
@@ -12387,7 +12402,7 @@
           \"locationName\":\"nextToken\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC Fleet.</p>\",\
           \"locationName\":\"fleetId\"\
         },\
@@ -12415,7 +12430,7 @@
           \"documentation\":\"<p>The token for the next set of results.</p>\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\"\
         },\
         \"Filters\":{\
@@ -12439,7 +12454,7 @@
           \"locationName\":\"nextToken\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\",\
           \"locationName\":\"fleetId\"\
         }\
@@ -13188,7 +13203,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance type. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type of an instance family. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is EBS-optimized. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free tier. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p> </li> <li> <p> <code>instance-storage-info.disk.count</code> - The number of local disks.</p> </li> <li> <p> <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in GB.</p> </li> <li> <p> <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks. (<code>hdd</code> | <code>ssd</code>)</p> </li> <li> <p> <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local instance storage, in GB.</p> </li> <li> <p> <code>instance-storage-supported</code> - Indicates whether the instance type has local instance storage. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>memory-info.size-in-mib</code> - The memory size.</p> </li> <li> <p> <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p> </li> <li> <p> <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per network interface.</p> </li> <li> <p> <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per network interface.</p> </li> <li> <p> <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p> </li> <li> <p> <code>network-info.network-performance</code> - Describes the network performance.</p> </li> <li> <p> <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p> </li> <li> <p> <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p> </li> <li> <p> <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance type.</p> </li> <li> <p> <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>auto-recovery-supported</code> - Indicates whether auto recovery is supported. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>burstable-performance-supported</code> - Indicates whether it is a burstable performance instance type. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>current-generation</code> - Indicates whether this instance type is the latest generation instance type of an instance family. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type is EBS-optimized. (<code>supported</code> | <code>unsupported</code> | <code>default</code>)</p> </li> <li> <p> <code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported. (<code>supported</code> | <code>unsupported</code>)</p> </li> <li> <p> <code>free-tier-eligible</code> - Indicates whether the instance type is eligible to use in the free tier. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>hypervisor</code> - The hypervisor used. (<code>nitro</code> | <code>xen</code>)</p> </li> <li> <p> <code>instance-storage-info.disk.count</code> - The number of local disks.</p> </li> <li> <p> <code>instance-storage-info.disk.size-in-gb</code> - The storage size of each instance storage disk, in GB.</p> </li> <li> <p> <code>instance-storage-info.disk.type</code> - The storage technology for the local instance storage disks. (<code>hdd</code> | <code>ssd</code>)</p> </li> <li> <p> <code>instance-storage-info.total-size-in-gb</code> - The total amount of storage available from all local instance storage, in GB.</p> </li> <li> <p> <code>instance-storage-supported</code> - Indicates whether the instance type has local instance storage. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>memory-info.size-in-mib</code> - The memory size.</p> </li> <li> <p> <code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter (ENA) is supported or required. (<code>required</code> | <code>supported</code> | <code>unsupported</code>)</p> </li> <li> <p> <code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private IPv4 addresses per network interface.</p> </li> <li> <p> <code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private IPv6 addresses per network interface.</p> </li> <li> <p> <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6. (<code>true</code> | <code>false</code>)</p> </li> <li> <p> <code>network-info.maximum-network-interfaces</code> - The maximum number of network interfaces per instance.</p> </li> <li> <p> <code>network-info.network-performance</code> - Describes the network performance.</p> </li> <li> <p> <code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in GHz.</p> </li> <li> <p> <code>vcpu-info.default-cores</code> - The default number of cores for the instance type.</p> </li> <li> <p> <code>vcpu-info.default-threads-per-core</code> - The default number of threads per core for the instance type.</p> </li> <li> <p> <code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance type.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -13806,6 +13821,10 @@
     \"DescribeNatGatewaysRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
         \"Filter\":{\
           \"shape\":\"FilterList\",\
           \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>nat-gateway-id</code> - The ID of the NAT gateway.</p> </li> <li> <p> <code>state</code> - The state of the NAT gateway (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in which the NAT gateway resides.</p> </li> </ul>\"\
@@ -15416,7 +15435,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p>\",\
+          \"documentation\":\"<p>One or more filters. The possible values are:</p> <ul> <li> <p> <code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p> </li> <li> <p> <code>local-owner-id</code> - The ID of your AWS account.</p> </li> <li> <p> <code>remote-owner-id</code> - The ID of the AWS account in the remote Region that owns the transit gateway.</p> </li> <li> <p> <code>state</code> - The state of the peering attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p> </li> <li> <p> <code>transit-gateway-id</code> - The ID of the transit gateway.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -15755,7 +15774,7 @@
           \"documentation\":\"<p>The VPC attribute.</p>\"\
         },\
         \"VpcId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\"\
         },\
         \"DryRun\":{\
@@ -16818,7 +16837,7 @@
           \"documentation\":\"<p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>\"\
         },\
         \"AssociationId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"ClientVpnAssociationId\",\
           \"documentation\":\"<p>The ID of the target network association.</p>\"\
         },\
         \"DryRun\":{\
@@ -18183,7 +18202,7 @@
     \"ExportTaskIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"ExportTaskId\",\
         \"locationName\":\"ExportTaskId\"\
       }\
     },\
@@ -18322,6 +18341,7 @@
         }\
       }\
     },\
+    \"ExportVmTaskId\":{\"type\":\"string\"},\
     \"FailedQueuedPurchaseDeletion\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -18404,7 +18424,7 @@
           \"locationName\":\"createTime\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\",\
           \"locationName\":\"fleetId\"\
         },\
@@ -18511,11 +18531,11 @@
         \"termination\"\
       ]\
     },\
+    \"FleetId\":{\"type\":\"string\"},\
     \"FleetIdSet\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"FleetIdentifier\"}\
+      \"member\":{\"shape\":\"FleetId\"}\
     },\
-    \"FleetIdentifier\":{\"type\":\"string\"},\
     \"FleetLaunchTemplateConfig\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -20965,7 +20985,7 @@
           \"locationName\":\"privateIpAddress\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>\",\
           \"locationName\":\"subnetId\"\
         },\
@@ -23758,7 +23778,7 @@
           \"documentation\":\"<p>The number of I/O operations per second (IOPS) that the volume supports. For io1, this represents the number of IOPS that are provisioned for the volume. For gp2, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information about General Purpose SSD baseline performance, I/O credits, and bursting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\\\">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Condition: This parameter is required for requests to create io1 volumes; it is not used in requests to create gp2, st1, sc1, or standard volumes.</p>\"\
         },\
         \"KmsKeyId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KmsKeyId\",\
           \"documentation\":\"<p>The ARN of the symmetric AWS Key Management Service (AWS KMS) CMK used for encryption.</p>\"\
         },\
         \"SnapshotId\":{\
@@ -25047,11 +25067,11 @@
       \"members\":{\
         \"GroupName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The names of the Zone Group.</p>\"\
+          \"documentation\":\"<p>The name of the Availability Zone Group.</p>\"\
         },\
         \"OptInStatus\":{\
           \"shape\":\"ModifyAvailabilityZoneOptInStatus\",\
-          \"documentation\":\"<p>Indicates whether to enable or disable Zone Group membership. The valid values are <code>opted-in</code>.</p>\"\
+          \"documentation\":\"<p>Indicates whether to enable or disable membership. The valid values are <code>opted-in</code>. You must contact <a href=\\\"https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services\\\">AWS Support</a> to disable an Availability Zone group.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -25240,7 +25260,7 @@
           \"documentation\":\"<p>Indicates whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>\"\
         },\
         \"FleetId\":{\
-          \"shape\":\"FleetIdentifier\",\
+          \"shape\":\"FleetId\",\
           \"documentation\":\"<p>The ID of the EC2 Fleet.</p>\"\
         },\
         \"TargetCapacitySpecification\":{\
@@ -31193,7 +31213,7 @@
           \"locationName\":\"Ipv6Address\"\
         },\
         \"KernelId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"KernelId\",\
           \"documentation\":\"<p>The ID of the kernel.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"KeyName\":{\
@@ -31217,7 +31237,7 @@
           \"documentation\":\"<p>The placement for the instance.</p>\"\
         },\
         \"RamdiskId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"RamdiskId\",\
           \"documentation\":\"<p>The ID of the RAM disk to select. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, go to the AWS Resource Center and search for the kernel ID.</p> <important> <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html\\\"> PV-GRUB</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>\"\
         },\
         \"SecurityGroupIds\":{\
@@ -31231,7 +31251,7 @@
           \"locationName\":\"SecurityGroup\"\
         },\
         \"SubnetId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>[EC2-VPC] The ID of the subnet to launch the instance into.</p> <p>If you specify a network interface, you must specify any subnets as part of the network interface.</p>\"\
         },\
         \"UserData\":{\
@@ -31246,7 +31266,6 @@
         \"ClientToken\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>\",\
-          \"idempotencyToken\":true,\
           \"locationName\":\"clientToken\"\
         },\
         \"DisableApiTermination\":{\
@@ -33918,7 +33937,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>fleet</code> | <code>fpga-image</code> | <code>instance</code> | <code>key-pair</code> | <code>launch-template</code> | <code>spot-fleet-request</code> | <code>placement-group</code> | <code>snapshot</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>vpc-endpoint</code> (for interface VPC endpoints)| <code>vpc-endpoint-service</code> (for gateway VPC endpoints) | <code>volume</code> | <code>vpc-flow-log</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
+          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>fleet</code> | <code>fpga-image</code> | <code>instance</code> | <code>key-pair</code> | <code>launch-template</code> | | <code>natgateway</code> | <code>spot-fleet-request</code> | <code>placement-group</code> | <code>snapshot</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>vpc-endpoint</code> (for interface VPC endpoints)| <code>vpc-endpoint-service</code> (for gateway VPC endpoints) | <code>volume</code> | <code>vpc-flow-log</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"Tags\":{\
@@ -34145,7 +34164,7 @@
           \"documentation\":\"<p>The ID of the Client VPN endpoint to which the client is connected.</p>\"\
         },\
         \"ConnectionId\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"VpnConnectionId\",\
           \"documentation\":\"<p>The ID of the client connection to be terminated.</p>\"\
         },\
         \"Username\":{\
@@ -34587,6 +34606,7 @@
         \"ALL\"\
       ]\
     },\
+    \"TransitAssociationGatewayId\":{\"type\":\"string\"},\
     \"TransitGateway\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -34976,7 +34996,7 @@
     \"TransitGatewayMulticastDomainIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"TransitGatewayMulticastDomainId\",\
         \"locationName\":\"item\"\
       }\
     },\
@@ -35430,7 +35450,7 @@
     \"TransitGatewayRouteTableIdStringList\":{\
       \"type\":\"list\",\
       \"member\":{\
-        \"shape\":\"String\",\
+        \"shape\":\"TransitGatewayRouteTableId\",\
         \"locationName\":\"item\"\
       }\
     },\
