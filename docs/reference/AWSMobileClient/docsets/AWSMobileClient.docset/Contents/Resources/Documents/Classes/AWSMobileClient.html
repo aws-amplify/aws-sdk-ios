@@ -14,7 +14,7 @@
     <a title="AWSMobileClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.13.0 Docs</a> (51% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.13.1 Docs</a> (51% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -993,9 +993,9 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC6signUp8username8password14userAttributes14validationData17completionHandlerySS_SSSDyS2SGAIyAA04SignD6ResultVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/signUp(username:password:userAttributes:validationData:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC6signUp8username8password14userAttributes14validationData17completionHandlerySS_SSSDyS2SGAIyAA04SignD6ResultVSg_s5Error_pSgtctF">signUp(username:password:userAttributes:validationData:completionHandler:)</a>
+                    <a name="/s:15AWSMobileClientAAC6signUp8username8password14userAttributes14validationData010clientMetaJ017completionHandlerySS_SSSDyS2SGA2JyAA04SignD6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/signUp(username:password:userAttributes:validationData:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC6signUp8username8password14userAttributes14validationData010clientMetaJ017completionHandlerySS_SSSDyS2SGA2JyAA04SignD6ResultVSg_s5Error_pSgtctF">signUp(username:password:userAttributes:validationData:clientMetaData:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1014,6 +1014,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                    <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                    <span class="nv">userAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
                    <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                   <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
                    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
@@ -1073,6 +1074,19 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                             <tr>
                               <td>
                                 <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>completionHandler</em>
                                 </code>
                               </td>
@@ -1091,9 +1105,9 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC13confirmSignUp8username16confirmationCode17completionHandlerySS_SSyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/confirmSignUp(username:confirmationCode:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC13confirmSignUp8username16confirmationCode17completionHandlerySS_SSyAA0dE6ResultVSg_s5Error_pSgtctF">confirmSignUp(username:confirmationCode:completionHandler:)</a>
+                    <a name="/s:15AWSMobileClientAAC13confirmSignUp8username16confirmationCode14clientMetaData17completionHandlerySS_SSSDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmSignUp(username:confirmationCode:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC13confirmSignUp8username16confirmationCode14clientMetaData17completionHandlerySS_SSSDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF">confirmSignUp(username:confirmationCode:clientMetaData:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1108,7 +1122,10 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                          <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                          <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1137,6 +1154,19 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                               <td>
                                 <div>
                                   <p>confirmation code sent to the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1219,9 +1249,9 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC14forgotPassword8username17completionHandlerySS_yAA06ForgotD6ResultVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/forgotPassword(username:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC14forgotPassword8username17completionHandlerySS_yAA06ForgotD6ResultVSg_s5Error_pSgtctF">forgotPassword(username:completionHandler:)</a>
+                    <a name="/s:15AWSMobileClientAAC14forgotPassword8username14clientMetaData17completionHandlerySS_SDyS2SGyAA06ForgotD6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/forgotPassword(username:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC14forgotPassword8username14clientMetaData17completionHandlerySS_SDyS2SGyAA06ForgotD6ResultVSg_s5Error_pSgtctF">forgotPassword(username:clientMetaData:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1236,7 +1266,9 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                           <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                           <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1253,6 +1285,19 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                               <td>
                                 <div>
                                   <p>username of the user who forgot the password.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1277,9 +1322,9 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC21confirmForgotPassword8username03newE016confirmationCode17completionHandlerySS_S2SyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/confirmForgotPassword(username:newPassword:confirmationCode:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC21confirmForgotPassword8username03newE016confirmationCode17completionHandlerySS_S2SyAA0dE6ResultVSg_s5Error_pSgtctF">confirmForgotPassword(username:newPassword:confirmationCode:completionHandler:)</a>
+                    <a name="/s:15AWSMobileClientAAC21confirmForgotPassword8username03newE016confirmationCode14clientMetaData17completionHandlerySS_S2SSDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/confirmForgotPassword(username:newPassword:confirmationCode:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC21confirmForgotPassword8username03newE016confirmationCode14clientMetaData17completionHandlerySS_S2SSDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF">confirmForgotPassword(username:newPassword:confirmationCode:clientMetaData:completionHandler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1294,7 +1339,11 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmForgotPassword</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">newPassword</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">confirmForgotPassword</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                  <span class="nv">newPassword</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                  <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                  <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                                  <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/ForgotPasswordResult.html">ForgotPasswordResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1335,6 +1384,19 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                               <td>
                                 <div>
                                   <p>the confirmation code sent to the user</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2110,7 +2172,7 @@ The call to wait will be synchronized so that if multiple threads call this meth
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
