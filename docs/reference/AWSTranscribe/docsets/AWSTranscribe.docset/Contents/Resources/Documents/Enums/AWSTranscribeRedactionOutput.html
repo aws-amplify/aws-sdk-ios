@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTranscribeCreateVocabularyRequest Class Reference</title>
+    <title>AWSTranscribeRedactionOutput Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTranscribeCreateVocabularyRequest" class="dashAnchor"></a>
-    <a title="AWSTranscribeCreateVocabularyRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSTranscribeRedactionOutput" class="dashAnchor"></a>
+    <a title="AWSTranscribeRedactionOutput Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTranscribe 2.13.1 Docs</a> (68% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTranscribe Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSTranscribeCreateVocabularyRequest Class Reference
+        AWSTranscribeRedactionOutput Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -196,14 +196,19 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTranscribeCreateVocabularyRequest</h1>
+            <h1>AWSTranscribeRedactionOutput</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeCreateVocabularyRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribeRedactionOutput</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranscribeRedactionOutputUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranscribeRedactionOutputRedacted</span><span class="p">,</span>
+    <span class="n">AWSTranscribeRedactionOutputRedactedAndUnredacted</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -211,9 +216,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)languageCode"></a>
-                    <a name="//apple_ref/objc/Property/languageCode" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)languageCode">languageCode</a>
+                    <a name="/c:@E@AWSTranscribeRedactionOutput@AWSTranscribeRedactionOutputUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeRedactionOutputUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeRedactionOutput@AWSTranscribeRedactionOutputUnknown">AWSTranscribeRedactionOutputUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -221,19 +226,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The language code of the vocabulary entries.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="n">languageCode</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeRedactionOutputUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">languageCode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -243,9 +248,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)phrases"></a>
-                    <a name="//apple_ref/objc/Property/phrases" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)phrases">phrases</a>
+                    <a name="/c:@E@AWSTranscribeRedactionOutput@AWSTranscribeRedactionOutputRedacted"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeRedactionOutputRedacted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeRedactionOutput@AWSTranscribeRedactionOutputRedacted">AWSTranscribeRedactionOutputRedacted</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -253,19 +258,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An array of strings that contains the vocabulary entries. </p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">phrases</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeRedactionOutputRedacted</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">phrases</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">redacted</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -275,9 +280,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)vocabularyFileUri"></a>
-                    <a name="//apple_ref/objc/Property/vocabularyFileUri" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)vocabularyFileUri">vocabularyFileUri</a>
+                    <a name="/c:@E@AWSTranscribeRedactionOutput@AWSTranscribeRedactionOutputRedactedAndUnredacted"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeRedactionOutputRedactedAndUnredacted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeRedactionOutput@AWSTranscribeRedactionOutputRedactedAndUnredacted">AWSTranscribeRedactionOutputRedactedAndUnredacted</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -285,51 +290,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p><p><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p><p>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom Vocabularies</a>.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">vocabularyFileUri</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeRedactionOutputRedactedAndUnredacted</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">vocabularyFileUri</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)vocabularyName"></a>
-                    <a name="//apple_ref/objc/Property/vocabularyName" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeCreateVocabularyRequest(py)vocabularyName">vocabularyName</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">vocabularyName</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">vocabularyName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">redactedAndUnredacted</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>

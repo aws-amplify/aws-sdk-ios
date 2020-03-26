@@ -14,7 +14,7 @@
     <a title="AWSTranscribeTranscript Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.13.0 Docs</a> (69% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.13.1 Docs</a> (68% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -34,6 +34,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribe.html">AWSTranscribe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeContentRedaction.html">AWSTranscribeContentRedaction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeCreateVocabularyFilterRequest.html">AWSTranscribeCreateVocabularyFilterRequest</a>
@@ -172,6 +175,12 @@
                 <a href="../Enums/AWSTranscribeOutputLocationType.html">AWSTranscribeOutputLocationType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeRedactionOutput.html">AWSTranscribeRedactionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeRedactionType.html">AWSTranscribeRedactionType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a>
               </li>
               <li class="nav-group-task">
@@ -203,6 +212,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeTranscript(py)redactedTranscriptFileUri"></a>
+                    <a name="//apple_ref/objc/Property/redactedTranscriptFileUri" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeTranscript(py)redactedTranscriptFileUri">redactedTranscriptFileUri</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The S3 object location of the redacted transcript.</p><p>Use this URI to access the redacated transcript. If you specified an S3 bucket in the <code>OutputBucketName</code> field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">redactedTranscriptFileUri</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">redactedTranscriptFileUri</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeTranscript(py)transcriptFileUri"></a>
                     <a name="//apple_ref/objc/Property/transcriptFileUri" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeTranscript(py)transcriptFileUri">transcriptFileUri</a>
@@ -213,7 +255,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The location where the transcription is stored.</p><p>Use this URI to access the transcription. If you specified an S3 bucket in the <code>OutputBucketName</code> field when you created the job, this is the URI of that bucket. If you chose to store the transcription in Amazon Transcribe, this is a shareable URL that provides secure access to that location.</p>
+                        <p>The S3 object location of the the transcript.</p><p>Use this URI to access the transcript. If you specified an S3 bucket in the <code>OutputBucketName</code> field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.</p>
 
                       </div>
                       <div class="declaration">
@@ -237,7 +279,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
