@@ -14,7 +14,7 @@
     <a title="AWSEC2ModifyClientVpnEndpointRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.13.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.13.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -2508,6 +2508,12 @@
                 <a href="../Classes/AWSEC2MemoryInfo.html">AWSEC2MemoryInfo</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupResult.html">AWSEC2ModifyAvailabilityZoneGroupResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2ModifyCapacityReservationRequest.html">AWSEC2ModifyCapacityReservationRequest</a>
               </li>
               <li class="nav-group-task">
@@ -3976,6 +3982,9 @@
                 <a href="../Enums/AWSEC2MembershipType.html">AWSEC2MembershipType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSEC2ModifyAvailabilityZoneOptInStatus.html">AWSEC2ModifyAvailabilityZoneOptInStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSEC2MonitoringState.html">AWSEC2MonitoringState</a>
               </li>
               <li class="nav-group-task">
@@ -4441,6 +4450,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)securityGroupIds"></a>
+                    <a name="//apple_ref/objc/Property/securityGroupIds" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)securityGroupIds">securityGroupIds</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The IDs of one or more security groups to apply to the target network.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
+    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">securityGroupIds</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">securityGroupIds</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)serverCertificateArn"></a>
                     <a name="//apple_ref/objc/Property/serverCertificateArn" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)serverCertificateArn">serverCertificateArn</a>
@@ -4506,6 +4548,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)vpcId"></a>
+                    <a name="//apple_ref/objc/Property/vpcId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)vpcId">vpcId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ID of the VPC to associate with the Client VPN endpoint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">vpcId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">vpcId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)vpnPort"></a>
                     <a name="//apple_ref/objc/Property/vpnPort" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2ModifyClientVpnEndpointRequest(py)vpnPort">vpnPort</a>
@@ -4540,7 +4614,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

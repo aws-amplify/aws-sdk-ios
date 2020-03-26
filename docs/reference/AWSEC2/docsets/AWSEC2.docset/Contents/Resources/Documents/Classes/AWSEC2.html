@@ -14,7 +14,7 @@
     <a title="AWSEC2 Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.13.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.13.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -2508,6 +2508,12 @@
                 <a href="../Classes/AWSEC2MemoryInfo.html">AWSEC2MemoryInfo</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupResult.html">AWSEC2ModifyAvailabilityZoneGroupResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2ModifyCapacityReservationRequest.html">AWSEC2ModifyCapacityReservationRequest</a>
               </li>
               <li class="nav-group-task">
@@ -3974,6 +3980,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2MembershipType.html">AWSEC2MembershipType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2ModifyAvailabilityZoneOptInStatus.html">AWSEC2ModifyAvailabilityZoneOptInStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2MonitoringState.html">AWSEC2MonitoringState</a>
@@ -6370,7 +6379,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
+                        <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p><p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that&rsquo;s in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that&rsquo;s associated with it.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2AssociateClientVpnTargetNetworkRequest</p>
@@ -6435,7 +6444,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p>
+                        <p>Associates a target network with a Client VPN endpoint. A target network is a subnet in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint. You can associate only one subnet in each Availability Zone. We recommend that you associate at least two subnets to provide Availability Zone redundancy.</p><p>If you specified a VPC when you created the Client VPN endpoint or if you have previous subnet associations, the specified subnet must be in the same VPC. To specify a subnet that&rsquo;s in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>) and change the VPC that&rsquo;s associated with it.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2AssociateClientVpnTargetNetworkRequest</p>
@@ -24346,7 +24355,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes the specified virtual private gateway. We recommend that before you delete a virtual private gateway, you detach it from the VPC and delete the VPN connection. Note that you don&rsquo;t need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
+                        <p>Deletes the specified virtual private gateway. You must first detach the virtual private gateway from the VPC. Note that you don&rsquo;t need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2DeleteVpnGatewayRequest</p>
@@ -24406,7 +24415,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes the specified virtual private gateway. We recommend that before you delete a virtual private gateway, you detach it from the VPC and delete the VPN connection. Note that you don&rsquo;t need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
+                        <p>Deletes the specified virtual private gateway. You must first detach the virtual private gateway from the VPC. Note that you don&rsquo;t need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2DeleteVpnGatewayRequest</p>
@@ -45224,7 +45233,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
+                        <p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p><p>The routes are saved to the specified bucket in a JSON file. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2ExportTransitGatewayRoutesRequest</p>
@@ -45289,7 +45298,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
+                        <p>Exports routes from the specified transit gateway route table to the specified S3 bucket. By default, all routes are exported. Alternatively, you can filter by CIDR range.</p><p>The routes are saved to the specified bucket in a JSON file. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2ExportTransitGatewayRoutesRequest</p>
@@ -48510,6 +48519,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2(im)modifyAvailabilityZoneGroup:"></a>
+                    <a name="//apple_ref/objc/Method/-modifyAvailabilityZoneGroup:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2(im)modifyAvailabilityZoneGroup:">-modifyAvailabilityZoneGroup:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables or disables an Availability Zone group for your account.</p><p>Use <a href="https://docs.aws.amazon.com/AWSEC2ApiDocReef/build/server-root/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">describe-availability-zones</a> to view the value for <code>GroupName</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSEC2ModifyAvailabilityZoneGroupRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSEC2ModifyAvailabilityZoneGroupResult</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">modifyAvailabilityZoneGroup</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">modifyAvailabilityZoneGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ModifyAvailabilityZoneGroup service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupResult.html">AWSEC2ModifyAvailabilityZoneGroupResult</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2(im)modifyAvailabilityZoneGroup:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-modifyAvailabilityZoneGroup:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2(im)modifyAvailabilityZoneGroup:completionHandler:">-modifyAvailabilityZoneGroup:completionHandler:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables or disables an Availability Zone group for your account.</p><p>Use <a href="https://docs.aws.amazon.com/AWSEC2ApiDocReef/build/server-root/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">describe-availability-zones</a> to view the value for <code>GroupName</code>.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSEC2ModifyAvailabilityZoneGroupRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSEC2ModifyAvailabilityZoneGroupResult</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">modifyAvailabilityZoneGroup</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                  <span class="nf">completionHandler</span><span class="p">:</span>
+                      <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                          <span class="n"><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupResult.html">AWSEC2ModifyAvailabilityZoneGroupResult</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                          <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">modifyAvailabilityZoneGroup</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupResult.html">AWSEC2ModifyAvailabilityZoneGroupResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ModifyAvailabilityZoneGroup service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2(im)modifyCapacityReservation:"></a>
                     <a name="//apple_ref/objc/Method/-modifyCapacityReservation:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2(im)modifyCapacityReservation:">-modifyCapacityReservation:</a>
@@ -48664,7 +48817,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies the specified Client VPN endpoint. You can only modify an endpoint&rsquo;s server certificate information, client connection logging information, DNS server, and description. Modifying the DNS server resets existing client connections.</p>
+                        <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2ModifyClientVpnEndpointRequest</p>
@@ -48729,7 +48882,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies the specified Client VPN endpoint. You can only modify an endpoint&rsquo;s server certificate information, client connection logging information, DNS server, and description. Modifying the DNS server resets existing client connections.</p>
+                        <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2ModifyClientVpnEndpointRequest</p>
@@ -53452,7 +53605,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration options are available:</p><ul><li><p>An existing virtual private gateway to a new virtual private gateway</p></li><li><p>An existing virtual private gateway to a transit gateway</p></li><li><p>An existing transit gateway to a new transit gateway</p></li><li><p>An existing transit gateway to a virtual private gateway</p></li></ul><p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p><p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p><p>You must delete the static routes before you migrate to the new gateway.</p><p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p><p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p><p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p><p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p><p>After you perform this operation, the AWS VPN endpoint&rsquo;s IP addresses on the AWS side and the tunnel options remain intact. Your s2slong; connection will be temporarily unavailable for approximately 10 minutes while we provision the new endpoints </p>
+                        <p>Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration options are available:</p><ul><li><p>An existing virtual private gateway to a new virtual private gateway</p></li><li><p>An existing virtual private gateway to a transit gateway</p></li><li><p>An existing transit gateway to a new transit gateway</p></li><li><p>An existing transit gateway to a virtual private gateway</p></li></ul><p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p><p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p><p>You must delete the static routes before you migrate to the new gateway.</p><p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p><p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p><p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p><p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p><p>After you perform this operation, the AWS VPN endpoint&rsquo;s IP addresses on the AWS side and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be temporarily unavailable for a brief period while we provision the new endpoints.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2ModifyVpnConnectionRequest</p>
@@ -53516,7 +53669,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration options are available:</p><ul><li><p>An existing virtual private gateway to a new virtual private gateway</p></li><li><p>An existing virtual private gateway to a transit gateway</p></li><li><p>An existing transit gateway to a new transit gateway</p></li><li><p>An existing transit gateway to a virtual private gateway</p></li></ul><p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p><p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p><p>You must delete the static routes before you migrate to the new gateway.</p><p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p><p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p><p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p><p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p><p>After you perform this operation, the AWS VPN endpoint&rsquo;s IP addresses on the AWS side and the tunnel options remain intact. Your s2slong; connection will be temporarily unavailable for approximately 10 minutes while we provision the new endpoints </p>
+                        <p>Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration options are available:</p><ul><li><p>An existing virtual private gateway to a new virtual private gateway</p></li><li><p>An existing virtual private gateway to a transit gateway</p></li><li><p>An existing transit gateway to a new transit gateway</p></li><li><p>An existing transit gateway to a virtual private gateway</p></li></ul><p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p><p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p><p>You must delete the static routes before you migrate to the new gateway.</p><p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p><p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p><p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p><p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p><p>After you perform this operation, the AWS VPN endpoint&rsquo;s IP addresses on the AWS side and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be temporarily unavailable for a brief period while we provision the new endpoints.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2ModifyVpnConnectionRequest</p>
@@ -57124,7 +57277,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a Spot Fleet request.</p><p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p><p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p><p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p><p>You can specify tags for the Spot Fleet and Spot Instances. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+                        <p>Creates a Spot Fleet request.</p><p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p><p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p><p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p><p>You can specify tags for the Spot Fleet request and instances launched by the fleet. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2RequestSpotFleetRequest</p>
@@ -57188,7 +57341,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a Spot Fleet request.</p><p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p><p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p><p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p><p>You can specify tags for the Spot Fleet and Spot Instances. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+                        <p>Creates a Spot Fleet request.</p><p>The Spot Fleet request specifies the total target capacity and the On-Demand target capacity. Amazon EC2 calculates the difference between the total capacity and On-Demand capacity, and launches the difference as Spot capacity.</p><p>You can submit a single request that includes multiple launch specifications that vary by instance type, AMI, Availability Zone, or subnet.</p><p>By default, the Spot Fleet requests Spot Instances in the Spot Instance pool where the price per unit is the lowest. Each launch specification can include its own instance weighting that reflects the value of the instance type to your application workload.</p><p>Alternatively, you can specify that the Spot Fleet distribute the target capacity across the Spot pools included in its launch specifications. By ensuring that the Spot Instances in your Spot Fleet are in different Spot pools, you can improve the availability of your fleet.</p><p>You can specify tags for the Spot Fleet request and instances launched by the fleet. You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code> and <code>instance</code> resource types are supported.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2RequestSpotFleetRequest</p>
@@ -59917,7 +60070,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>We don&rsquo;t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can&rsquo;t hibernate Spot Instances, and you can&rsquo;t stop or hibernate instance store-backed instances. For information about using hibernation for Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+                        <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>We don&rsquo;t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can&rsquo;t stop or hibernate instance store-backed instances. You can&rsquo;t use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2StopInstancesRequest</p>
@@ -59981,7 +60134,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>We don&rsquo;t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can&rsquo;t hibernate Spot Instances, and you can&rsquo;t stop or hibernate instance store-backed instances. For information about using hibernation for Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+                        <p>Stops an Amazon EBS-backed instance.</p><p>You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>We don&rsquo;t charge usage for a stopped instance, or data transfer fees; however, your root partition Amazon EBS volume remains and continues to persist your data, and you are charged for Amazon EBS volume usage. Every time you start your Windows instance, Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows instance, a new instance hour begins and Amazon EC2 charges you for another full instance hour even if you are still within the same 60-minute period when it was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance usage, and thereafter charges per second for instance usage.</p><p>You can&rsquo;t stop or hibernate instance store-backed instances. You can&rsquo;t use the Stop action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop or hibernate an instance, we shut it down. You can restart your instance at any time. Before stopping or hibernating an instance, make sure it is in a state from which it can be restarted. Stopping an instance does not preserve data stored in RAM, but hibernating an instance does preserve data stored in RAM. If an instance cannot hibernate successfully, a normal shutdown occurs.</p><p>Stopping and hibernating an instance is different to rebooting or terminating it. For example, when you stop or hibernate an instance, the root device and any other devices attached to the instance persist. When you terminate an instance, the root device and any other devices attached during the instance launch are automatically deleted. For more information about the differences between rebooting, stopping, hibernating, and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When you stop an instance, we attempt to shut it down forcibly after a short while. If your instance appears stuck in the stopping state after a period of time, there may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSEC2StopInstancesRequest</p>
@@ -61187,7 +61340,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
