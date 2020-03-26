@@ -14,7 +14,7 @@
     <a title="AWSCognitoIdentityUser Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.13.0 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.13.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1109,8 +1109,15 @@
 <span class="cm">/**
  Confirm a users' sign up with the confirmation code.  If forceAliasCreation is set, if another user is aliased to the same email/phone this code was sent to, reassign alias to this user.
  */</span>
-<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span> <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">forceAliasCreation</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                       <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">forceAliasCreation</span><span class="p">;</span>
 
+<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                           <span class="n">clientMetaData</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                       <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">forceAliasCreation</span>
+                                                           <span class="n">clientMetaData</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
 <span class="cm">/**
  Resend the confirmation code sent during sign up
  */</span>
@@ -1141,13 +1148,22 @@
 <span class="cm">/**
  Send a code to this user to initiate the forgot password flow
  */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserForgotPasswordResponse">AWSCognitoIdentityUserForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">forgotPassword</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserForgotPasswordResponse">AWSCognitoIdentityUserForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">forgotPassword</span><span class="p">;</span>
+
 
 <span class="cm">/**
  Conclude the forgot password flow by providing the forgot password code and new password.
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmForgotPasswordResponse">AWSCognitoIdentityUserConfirmForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
+                                                                                 <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
+                                                                           <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
+
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmForgotPasswordResponse">AWSCognitoIdentityUserConfirmForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
                                                                                  <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span>
+
 
 <span class="cm">/**
  Change this user's password
@@ -1471,6 +1487,73 @@ the user will be prompted to authenticate when you call getSession.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)confirmSignUp:clientMetaData:"></a>
+                    <a name="//apple_ref/objc/Method/-confirmSignUp:clientMetaData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)confirmSignUp:clientMetaData:">-confirmSignUp:clientMetaData:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                           <span class="n">clientMetaData</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)confirmSignUp:forceAliasCreation:clientMetaData:"></a>
+                    <a name="//apple_ref/objc/Method/-confirmSignUp:forceAliasCreation:clientMetaData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)confirmSignUp:forceAliasCreation:clientMetaData:">-confirmSignUp:forceAliasCreation:clientMetaData:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                       <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">forceAliasCreation</span>
+                                                           <span class="n">clientMetaData</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmSignUp</span><span class="p">(</span><span class="n">_</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">forceAliasCreation</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityUser(im)resendConfirmationCode"></a>
                     <a name="//apple_ref/objc/Method/-resendConfirmationCode" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)resendConfirmationCode">-resendConfirmationCode</a>
@@ -1637,9 +1720,9 @@ the user will be prompted to authenticate when you call getSession.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)forgotPassword"></a>
-                    <a name="//apple_ref/objc/Method/-forgotPassword" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)forgotPassword">-forgotPassword</a>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)forgotPassword:"></a>
+                    <a name="//apple_ref/objc/Method/-forgotPassword:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)forgotPassword:">-forgotPassword:</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1654,12 +1737,80 @@ the user will be prompted to authenticate when you call getSession.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">forgotPassword</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">forgotPassword</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">clientMetaData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)forgotPassword"></a>
+                    <a name="//apple_ref/objc/Method/-forgotPassword" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)forgotPassword">-forgotPassword</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserForgotPasswordResponse">AWSCognitoIdentityUserForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">forgotPassword</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">forgotPassword</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)confirmForgotPassword:password:clientMetaData:"></a>
+                    <a name="//apple_ref/objc/Method/-confirmForgotPassword:password:clientMetaData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)confirmForgotPassword:password:clientMetaData:">-confirmForgotPassword:password:clientMetaData:</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Conclude the forgot password flow by providing the forgot password code and new password.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
+                   <span class="nf">password</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
+             <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span>
+                                <span class="n">clientMetaData</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">confirmForgotPassword</span><span class="p">(</span><span class="n">_</span> <span class="nv">confirmationCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -1679,15 +1830,15 @@ the user will be prompted to authenticate when you call getSession.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Conclude the forgot password flow by providing the forgot password code and new password.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
-                   <span class="nf">password</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmForgotPasswordResponse">AWSCognitoIdentityUserConfirmForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
+                                                                                 <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -2384,7 +2535,7 @@ Use this when you have updated user attributes and want to refresh the id and ac
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.13.0 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.13.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1134,8 +1134,15 @@
 <span class="cm">/**
  Confirm a users' sign up with the confirmation code.  If forceAliasCreation is set, if another user is aliased to the same email/phone this code was sent to, reassign alias to this user.
  */</span>
-<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span> <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">forceAliasCreation</span><span class="p">;</span>
+<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                       <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">forceAliasCreation</span><span class="p">;</span>
 
+<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                           <span class="n">clientMetaData</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
+<span class="k">-</span><span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmSignUpResponse">AWSCognitoIdentityUserConfirmSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="nf">confirmSignUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">confirmationCode</span>
+                                                       <span class="n">forceAliasCreation</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">forceAliasCreation</span>
+                                                           <span class="n">clientMetaData</span><span class="o">:</span><span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
 <span class="cm">/**
  Resend the confirmation code sent during sign up
  */</span>
@@ -1166,13 +1173,22 @@
 <span class="cm">/**
  Send a code to this user to initiate the forgot password flow
  */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserForgotPasswordResponse">AWSCognitoIdentityUserForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">forgotPassword</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserForgotPasswordResponse">AWSCognitoIdentityUserForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">forgotPassword</span><span class="p">;</span>
+
 
 <span class="cm">/**
  Conclude the forgot password flow by providing the forgot password code and new password.
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmForgotPasswordResponse">AWSCognitoIdentityUserConfirmForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
+                                                                                 <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
+                                                                           <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
+
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserConfirmForgotPasswordResponse">AWSCognitoIdentityUserConfirmForgotPasswordResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">confirmForgotPassword</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">confirmationCode</span>
                                                                                  <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span><span class="p">;</span>
+
 
 <span class="cm">/**
  Change this user's password
@@ -2188,7 +2204,15 @@
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserPoolSignUpResponse.html">AWSCognitoIdentityUserPoolSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">signUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
                                                        <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
                                                  <span class="nf">userAttributes</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">userAttributes</span>
+                                                 <span class="nf">validationData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">validationData</span>
+                                                 <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
+
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserPoolSignUpResponse.html">AWSCognitoIdentityUserPoolSignUpResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">signUp</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
+                                                       <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
+                                                 <span class="nf">userAttributes</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">userAttributes</span>
                                                  <span class="nf">validationData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">validationData</span><span class="p">;</span>
+
 
 <span class="cm">/**
  Return the user who last authenticated.  Username may be nil if current user is unknown.
@@ -4531,9 +4555,8 @@ destination and delivery medium</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p>
-
-<p>Required parameters: [ApplicationId, RoleArn, ExternalId]</p>
+                        <p><p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
+Required parameters: [ApplicationId, RoleArn, ExternalId]</p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsConfigurationType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4566,7 +4589,7 @@ destination and delivery medium</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p>
+                        <p><p>An Amazon Pinpoint analytics endpoint.</p><p>An endpoint uniquely identifies a mobile device, email address, or phone number that can receive messages from Amazon Pinpoint analytics.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note></p>
 
                         <a href="Classes/AWSCognitoIdentityProviderAnalyticsMetadataType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -11067,7 +11090,7 @@ destination and delivery medium</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-04)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
