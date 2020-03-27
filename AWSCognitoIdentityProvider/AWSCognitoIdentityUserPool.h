@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Set this delegate to interactively prompt users for authentication challenges when necessary
  */
-@property (nonatomic, strong) id <AWSCognitoIdentityInteractiveAuthenticationDelegate> delegate;
+@property (nonatomic, strong, nullable) id <AWSCognitoIdentityInteractiveAuthenticationDelegate> delegate;
 
 /**
  *  Fetches the Cognito User Pool instance configured in the `info.plist` under `CognitoUserPool`
