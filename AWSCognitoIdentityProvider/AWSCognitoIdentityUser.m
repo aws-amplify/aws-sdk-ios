@@ -369,7 +369,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                     
                     return [[self performRespondCustomAuthChallenge:task.result session:authenticateResult.session] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
                         
-                        [authenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
+                        [weakAuthenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
                         return [self getSessionInternal: task];
                     }];
                     
@@ -749,13 +749,13 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         }else {
             return [[self performInitiateCustomAuthChallenge:task.result]
                     continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse *> * _Nonnull task) {
-                        [authenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
+                        [weakAuthenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
                         if(task.isCancelled){
                             return task;
                         }
                         if(task.error){
                             //retry auth on error
-                            return [self customAuthInternal:authenticationDelegate];
+                            return [self customAuthInternal:weakAuthenticationDelegate];
                         }else {
                             //morph this initiate auth response into a respond to auth challenge response so it works as input to getSessionInternal
                             AWSCognitoIdentityProviderRespondToAuthChallengeResponse * response = [AWSCognitoIdentityProviderRespondToAuthChallengeResponse new];
@@ -767,7 +767,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
         if(task.error){
             //retry auth on error
-            return [self customAuthInternal:authenticationDelegate];
+            return [self customAuthInternal:weakAuthenticationDelegate];
         }else {
             return task;
         }
