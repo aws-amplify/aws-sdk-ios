@@ -1,6 +1,5 @@
 #!/bin/sh
-set -u
-
+set -u -v
 # Helper function to exit on nonzero code
 function exitOnFailureCode() {
     if [ $1 -ne 0 ]
@@ -72,8 +71,8 @@ FRAMEWORK_DIR=$FRAMEWORK_BUILD_PATH/$FRAMEWORK_NAME.framework
 mkdir -p $FRAMEWORK_DIR
 # rm -rf $FRAMEWORK_DIR
 echo "copy framework"
-echo "builtFramework/Release-iphoneos/${project_name}.framework $FRAMEWORK_DIR"
 cp -aR "builtFramework/Release-iphoneos/${project_name}.framework/" "$FRAMEWORK_DIR"
+cp -aR "builtFramework/Debug-iphonesimulator/${project_name}.framework/" "$FRAMEWORK_DIR"
 # The trick for creating a fully usable library is
 # to use lipo to glue the different library
 # versions together into one file. When an

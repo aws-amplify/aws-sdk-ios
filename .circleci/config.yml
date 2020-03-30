@@ -284,6 +284,8 @@ jobs:
   pre_integrationtest:
     macos:
       xcode: "11.2.1"
+    environment: 
+      TERM: xterm-256color
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -505,6 +507,7 @@ jobs:
       - run:
           name: Create Carthage Archive
           command: python3 ./CircleciScripts/create_carthage_archive.py
+          no_output_timeout: 20m
       - run:
           name: upload file to git release
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
@@ -518,6 +521,7 @@ jobs:
       - run:
           name: Release cocoapods
           command: python3 ./CircleciScripts/cocoapods_release.py
+          no_output_timeout: 20m
 
   release_docs:
     macos:
@@ -640,6 +644,8 @@ jobs:
   release_ios_s3:
     macos:
       xcode: "11.2.1"
+    environment:
+      TERM: xterm-256color
     steps:
       - skip_job_unless_required
       - checkout
@@ -1627,27 +1633,10 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_carthage:
+      - release_docs:
           requires:
             - release_tag
             - release_ios_s3
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_cocoapods:
-          requires:
-            - release_ios_s3
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_docs:
-          requires:
-            - release_carthage
-            - release_cocoapods
           filters:
             branches:
               ignore: /.*/
@@ -1663,8 +1652,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - bump_ios_amplifydocs_version:
           requires:
-            - release_carthage
-            - release_cocoapods
+            - release_tag
+            - release_ios_s3
           filters:
             branches:
               ignore: /.*/
@@ -1672,12 +1661,30 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - bump_ios_sampleapp_version:
           requires:
-            - release_carthage
-            - release_cocoapods
+            - release_tag
+            - release_ios_s3
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-
-
+      - release_cocoapods:
+          requires:
+            - add_doc_tag
+            - bump_ios_amplifydocs_version
+            - bump_ios_sampleapp_version
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_carthage:
+          requires:
+            - add_doc_tag
+            - bump_ios_amplifydocs_version
+            - bump_ios_sampleapp_version
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/

@@ -296,6 +296,15 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
         if ([value caseInsensitiveCompare:@"USER_LOCKED_OUT"] == NSOrderedSame) {
             return @(AWSKMSConnectionErrorCodeTypeUserLockedOut);
         }
+        if ([value caseInsensitiveCompare:@"USER_NOT_FOUND"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeUserNotFound);
+        }
+        if ([value caseInsensitiveCompare:@"USER_LOGGED_IN"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeUserLoggedIn);
+        }
+        if ([value caseInsensitiveCompare:@"SUBNET_NOT_FOUND"] == NSOrderedSame) {
+            return @(AWSKMSConnectionErrorCodeTypeSubnetNotFound);
+        }
         return @(AWSKMSConnectionErrorCodeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -311,6 +320,12 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"INSUFFICIENT_CLOUDHSM_HSMS";
             case AWSKMSConnectionErrorCodeTypeUserLockedOut:
                 return @"USER_LOCKED_OUT";
+            case AWSKMSConnectionErrorCodeTypeUserNotFound:
+                return @"USER_NOT_FOUND";
+            case AWSKMSConnectionErrorCodeTypeUserLoggedIn:
+                return @"USER_LOGGED_IN";
+            case AWSKMSConnectionErrorCodeTypeSubnetNotFound:
+                return @"SUBNET_NOT_FOUND";
             default:
                 return nil;
         }

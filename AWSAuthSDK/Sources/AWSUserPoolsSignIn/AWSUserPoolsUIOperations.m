@@ -119,9 +119,12 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
 
     AWSUserPoolNewPasswordRequiredViewController *viewController = (AWSUserPoolNewPasswordRequiredViewController *)[self getUserPoolsViewControllerWithIdentifier:@"NewPasswordRequired"];
     viewController.config = self.config;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController pushViewController:viewController
-                                             animated:YES];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        if ([self.navigationController.topViewController isKindOfClass:[AWSUserPoolNewPasswordRequiredViewController class]]) {
+            [self.navigationController pushViewController:viewController animated:NO];
+        } else{
+            [self.navigationController pushViewController:viewController animated:YES];
+        }
     });
     
     return viewController;

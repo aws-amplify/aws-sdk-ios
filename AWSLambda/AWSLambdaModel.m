@@ -305,6 +305,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -347,6 +350,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -645,6 +650,15 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"InternalError"] == NSOrderedSame) {
             return @(AWSLambdaLastUpdateStatusReasonCodeInternalError);
         }
+        if ([value caseInsensitiveCompare:@"SubnetOutOfIPAddresses"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSubnet"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSecurityGroup"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup);
+        }
         return @(AWSLambdaLastUpdateStatusReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -656,6 +670,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"InvalidConfiguration";
             case AWSLambdaLastUpdateStatusReasonCodeInternalError:
                 return @"InternalError";
+            case AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses:
+                return @"SubnetOutOfIPAddresses";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet:
+                return @"InvalidSubnet";
+            case AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup:
+                return @"InvalidSecurityGroup";
             default:
                 return nil;
         }
@@ -722,6 +742,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -764,6 +787,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -829,6 +854,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"SubnetOutOfIPAddresses"] == NSOrderedSame) {
             return @(AWSLambdaStateReasonCodeSubnetOutOfIPAddresses);
         }
+        if ([value caseInsensitiveCompare:@"InvalidSubnet"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidSubnet);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSecurityGroup"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeInvalidSecurityGroup);
+        }
         return @(AWSLambdaStateReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -848,6 +879,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"InternalError";
             case AWSLambdaStateReasonCodeSubnetOutOfIPAddresses:
                 return @"SubnetOutOfIPAddresses";
+            case AWSLambdaStateReasonCodeInvalidSubnet:
+                return @"InvalidSubnet";
+            case AWSLambdaStateReasonCodeInvalidSecurityGroup:
+                return @"InvalidSecurityGroup";
             default:
                 return nil;
         }
@@ -1508,6 +1543,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -1550,6 +1588,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -1641,6 +1681,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -1683,6 +1726,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:
@@ -2232,6 +2277,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeRuby25);
         }
+        if ([value caseInsensitiveCompare:@"ruby2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby27);
+        }
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
@@ -2274,6 +2322,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"go1.x";
             case AWSLambdaRuntimeRuby25:
                 return @"ruby2.5";
+            case AWSLambdaRuntimeRuby27:
+                return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
             default:

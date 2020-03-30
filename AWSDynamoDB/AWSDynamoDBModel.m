@@ -3570,6 +3570,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"globalSecondaryIndexOverride" : @"GlobalSecondaryIndexOverride",
              @"localSecondaryIndexOverride" : @"LocalSecondaryIndexOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
+             @"SSESpecificationOverride" : @"SSESpecificationOverride",
              @"targetTableName" : @"TargetTableName",
              };
 }
@@ -3607,6 +3608,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
++ (NSValueTransformer *)SSESpecificationOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSESpecification class]];
+}
+
 @end
 
 @implementation AWSDynamoDBRestoreTableFromBackupOutput
@@ -3632,6 +3637,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"localSecondaryIndexOverride" : @"LocalSecondaryIndexOverride",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"restoreDateTime" : @"RestoreDateTime",
+             @"SSESpecificationOverride" : @"SSESpecificationOverride",
+             @"sourceTableArn" : @"SourceTableArn",
              @"sourceTableName" : @"SourceTableName",
              @"targetTableName" : @"TargetTableName",
              @"useLatestRestorableTime" : @"UseLatestRestorableTime",
@@ -3677,6 +3684,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)SSESpecificationOverrideJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSESpecification class]];
 }
 
 @end

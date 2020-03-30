@@ -103,7 +103,7 @@
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
     
     AWSEC2DescribeImagesRequest *describeImagesRequest = [AWSEC2DescribeImagesRequest new];
-    describeImagesRequest.imageIds = @[@"ami-ca94f1a3"]; // .NET Beanstalk Cfn Container v1.0.0.0 on Windows 2008 Image ID
+    describeImagesRequest.imageIds = @[@"ami-04b2418be76894465"]; // aws-elasticbeanstalk-amzn-2018.03.20.x86_64-python36-hvm-202001170814 Image Name
     [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
@@ -117,9 +117,9 @@
             BOOL imageExist = NO;
             
             for (AWSEC2Image *image in describeImagesResult.images) {
-                if ([image.imageId isEqualToString:@"ami-ca94f1a3"]) {
+                if ([image.imageId isEqualToString:@"ami-04b2418be76894465"]) {
                     imageExist = YES;
-                    XCTAssertEqual(AWSEC2PlatformValuesWindows, image.platform);
+                    XCTAssertEqual(AWSEC2PlatformValuesUnknown, image.platform);
                 }
             }
             XCTAssertTrue(imageExist);

@@ -2198,7 +2198,12 @@ didCompleteWithError:(NSError *)error {
                     AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:key];
                     [subTask.sessionTask cancel];
                 }
-                
+
+                for (NSNumber *key in [transferUtilityMultiPartUploadTask.waitingPartsDictionary allKeys]) {
+                    AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.waitingPartsDictionary objectForKey:key];
+                    [subTask.sessionTask cancel];
+                }
+
                 //Abort the request, so the server can clean up any partials.
                 [self callAbortMultiPartForUploadTask:transferUtilityMultiPartUploadTask];
                 

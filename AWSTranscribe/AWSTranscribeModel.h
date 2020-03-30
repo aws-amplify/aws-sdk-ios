@@ -79,6 +79,17 @@ typedef NS_ENUM(NSInteger, AWSTranscribeOutputLocationType) {
     AWSTranscribeOutputLocationTypeServiceBucket,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribeRedactionOutput) {
+    AWSTranscribeRedactionOutputUnknown,
+    AWSTranscribeRedactionOutputRedacted,
+    AWSTranscribeRedactionOutputRedactedAndUnredacted,
+};
+
+typedef NS_ENUM(NSInteger, AWSTranscribeRedactionType) {
+    AWSTranscribeRedactionTypeUnknown,
+    AWSTranscribeRedactionTypePii,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeTranscriptionJobStatus) {
     AWSTranscribeTranscriptionJobStatusUnknown,
     AWSTranscribeTranscriptionJobStatusQueued,
@@ -100,6 +111,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
     AWSTranscribeVocabularyStateFailed,
 };
 
+@class AWSTranscribeContentRedaction;
 @class AWSTranscribeCreateVocabularyFilterRequest;
 @class AWSTranscribeCreateVocabularyFilterResponse;
 @class AWSTranscribeCreateVocabularyRequest;
@@ -133,6 +145,25 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeUpdateVocabularyResponse;
 @class AWSTranscribeVocabularyFilterInfo;
 @class AWSTranscribeVocabularyInfo;
+
+/**
+ <p>Settings for content redaction within a transcription job.</p><p>You can redact transcripts in US English (en-us). For more information see: <a href="https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html">Automatic Content Redaction</a></p>
+ Required parameters: [RedactionType, RedactionOutput]
+ */
+@interface AWSTranscribeContentRedaction : AWSModel
+
+
+/**
+ <p>Request parameter where you choose whether to output only the redacted transcript or generate an additional unredacted transcript.</p><p>When you choose <code>redacted</code> Amazon Transcribe outputs a JSON file with only the redacted transcript and related information.</p><p>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs a JSON file with the unredacted transcript and related information in addition to the JSON file with the redacted transcript.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeRedactionOutput redactionOutput;
+
+/**
+ <p>Request parameter that defines the entities to be redacted. The only accepted value is <code>PII</code>.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeRedactionType redactionType;
+
+@end
 
 /**
  
@@ -571,7 +602,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p><p><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>https://s3.us-east-1.amazonaws.com/examplebucket/example.mp4</code></p><p><code>https://s3.us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+ <p>The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p><p><code> s3://&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>s3://examplebucket/example.mp4</code></p><p><code>s3://examplebucket/mediadocs/example.mp4</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaFileUri;
 
@@ -632,6 +663,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
+ <p>An object that contains the request parameters for content redaction.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
+
+/**
  <p>Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.</p>
  */
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
@@ -657,7 +693,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable mediaSampleRateHertz;
 
 /**
- <p>The location where the transcription is stored.</p><p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation, the operation returns this location in the <code>TranscriptFileUri</code> field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</p><p>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download the transcription.</p>
+ <p>The location where the transcription is stored.</p><p>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcript in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation, the operation returns this location in the <code>TranscriptFileUri</code> field. If you enable content redaction, the redacted transcript appears in <code>RedactedTranscriptFileUri</code>. If you enable content redaction and choose to output an unredacted transcript, that transcript's location still appears in the <code>TranscriptFileUri</code>. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</p><p>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download the transcription.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputBucketName;
 
@@ -698,7 +734,12 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The location where the transcription is stored.</p><p>Use this URI to access the transcription. If you specified an S3 bucket in the <code>OutputBucketName</code> field when you created the job, this is the URI of that bucket. If you chose to store the transcription in Amazon Transcribe, this is a shareable URL that provides secure access to that location.</p>
+ <p>The S3 object location of the redacted transcript.</p><p>Use this URI to access the redacated transcript. If you specified an S3 bucket in the <code>OutputBucketName</code> field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable redactedTranscriptFileUri;
+
+/**
+ <p>The S3 object location of the the transcript.</p><p>Use this URI to access the transcript. If you specified an S3 bucket in the <code>OutputBucketName</code> field when you created the job, this is the URI of that bucket. If you chose to store the transcript in Amazon Transcribe, this is a shareable URL that provides secure access to that location.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transcriptFileUri;
 
@@ -714,6 +755,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>A timestamp that shows when the job was completed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable completionTime;
+
+/**
+ <p>An object that describes content redaction settings for the transcription job.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
 
 /**
  <p>A timestamp that shows when the job was created.</p>
@@ -787,6 +833,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>A timestamp that shows when the job was completed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable completionTime;
+
+/**
+ <p>The content redaction settings of the transcription job.</p>
+ */
+@property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
 
 /**
  <p>A timestamp that shows when the job was created.</p>

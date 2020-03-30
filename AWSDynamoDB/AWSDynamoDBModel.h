@@ -2438,7 +2438,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable exclusiveStartGlobalTableName;
 
 /**
- <p>The maximum number of table names to return.</p>
+ <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p><p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
@@ -3445,6 +3445,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughputOverride;
 
 /**
+ <p>The new server-side encryption settings for the restored table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecificationOverride;
+
+/**
  <p>The name of the new table to which the backup must be restored.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetTableName;
@@ -3494,6 +3499,16 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Time in the past to restore the table to.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable restoreDateTime;
+
+/**
+ <p>The new server-side encryption settings for the restored table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecificationOverride;
+
+/**
+ <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceTableArn;
 
 /**
  <p>Name of the source table that is being restored.</p>

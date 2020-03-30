@@ -1,7 +1,7 @@
 # AWS SDK for iOS
 
 [![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)](../../releases)
-[![CocoaPods](https://img.shields.io/cocoapods/v/AWSiOSSDKv2.svg)](https://cocoapods.org/pods/AWSiOSSDKv2)
+[![CocoaPods](https://img.shields.io/cocoapods/v/AWSCore.svg)](https://cocoapods.org/pods/AWSCore)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CircleCI](https://circleci.com/gh/aws-amplify/aws-sdk-ios.svg?style=svg)](https://circleci.com/gh/aws-amplify/aws-sdk-ios)
 
@@ -30,7 +30,7 @@ To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS]
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
 * Xcode 11.0 or later
-* Most SDKs require iOS 8 or later. AWSCognitoAuth and AWSMobileClient require iOS 9.
+* Most SDKs require iOS 8 or later. AWSCognitoAuth, AWSMobileClient, and AWSTranscribeStreaming require iOS 9.
 
 ## Include the SDK for iOS in an Existing Application
 
@@ -56,8 +56,6 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 2. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below. Replace `YourTarget` with your actual target name.
 
-        source 'https://github.com/CocoaPods/Specs.git'
-        
         platform :ios, '8.0'
         use_frameworks!
         
@@ -143,11 +141,11 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         Input Files: Empty
         Output Files: Empty
 
-> Note: Currently, the AWS SDK for iOS builds the Carthage binaries using Xcode 11.0.0. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
+> Note: Currently, the AWS SDK for iOS builds the Carthage binaries using Xcode 11.2.1. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
 
 ### Frameworks
 
-1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.7.0, the filename is `aws-ios-sdk-2.7.0`).
+1. Download the [latest SDK](https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip). Older SDK versions can be downloaded from `https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.10.2, the download link is [https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip](https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip).
 
 2. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
@@ -410,25 +408,9 @@ AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
 [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
 ```
 
-## Install the Reference Documentation in Xcode
+## Open Source Contributions
 
-The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format that you can view within Xcode. The easiest way to install the documentation is to use the Mac OS X terminal.
-
-1. Open the Mac OS X terminal and go to the directory containing the expanded archive. For example:
-
-        $ cd ~/Downloads/aws-ios-sdk-2.7.0
-
-    **Note**: Remember to replace 2.7.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
-
-2. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
-
-        $ mkdir -p ~/Library/Developer/Shared/Documentation/DocSets
-
-3. Copy (or move) `Documentation/com.amazon.aws.ios.docset` from the SDK installation files to the directory you created in the previous step:
-
-        $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
-
-4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.7.0 Documentation** (where '2.7.0' is the appropriate version number).
+We welcome any and all contributions from the community! Make sure you read through our contribution guide [here](./CONTRIBUTING.md) before submitting any PR's. Thanks! <3
 
 ## Talk to Us
 

@@ -17,6 +17,13 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
         adminVerifyUser(username: username)
     }
     
+    func testSignUpWithValidClientMetaData() {
+        let username = "testUser" + UUID().uuidString
+        signUpUser(username: username,
+                   clientMetaData: ["customKey":"cutomValue"])
+        adminVerifyUser(username: username)
+    }
+    
     func testResendSignUpCode() {
         let username = "testUser" + UUID().uuidString
         signUpUser(username: username)

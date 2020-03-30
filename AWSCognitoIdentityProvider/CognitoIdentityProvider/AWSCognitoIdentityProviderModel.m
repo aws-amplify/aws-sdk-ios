@@ -1758,6 +1758,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"userPoolAddOns" : @"UserPoolAddOns",
              @"userPoolTags" : @"UserPoolTags",
              @"usernameAttributes" : @"UsernameAttributes",
+             @"usernameConfiguration" : @"UsernameConfiguration",
              @"verificationMessageTemplate" : @"VerificationMessageTemplate",
              };
 }
@@ -1822,6 +1823,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)userPoolAddOnsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolAddOnsType class]];
+}
+
++ (NSValueTransformer *)usernameConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUsernameConfigurationType class]];
 }
 
 + (NSValueTransformer *)verificationMessageTemplateJSONTransformer {
@@ -2336,6 +2341,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"compromisedCredentialsDetected" : @"CompromisedCredentialsDetected",
              @"riskDecision" : @"RiskDecision",
              @"riskLevel" : @"RiskLevel",
              };
@@ -4964,6 +4970,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"userPoolAddOns" : @"UserPoolAddOns",
              @"userPoolTags" : @"UserPoolTags",
              @"usernameAttributes" : @"UsernameAttributes",
+             @"usernameConfiguration" : @"UsernameConfiguration",
              @"verificationMessageTemplate" : @"VerificationMessageTemplate",
              };
 }
@@ -5067,6 +5074,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolAddOnsType class]];
 }
 
++ (NSValueTransformer *)usernameConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUsernameConfigurationType class]];
+}
+
 + (NSValueTransformer *)verificationMessageTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderVerificationMessageTemplateType class]];
 }
@@ -5155,6 +5166,16 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUsernameConfigurationType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"caseSensitive" : @"CaseSensitive",
+             };
 }
 
 @end
