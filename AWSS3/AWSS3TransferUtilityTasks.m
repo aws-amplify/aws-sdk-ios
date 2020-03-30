@@ -70,6 +70,7 @@
 @property (atomic) BOOL cancelled;
 @property BOOL temporaryFileCreated;
 @property (strong, nonatomic, readonly) NSString *etag;
+
 @end
 
 @interface AWSS3TransferUtilityMultiPartUploadTask()
@@ -246,6 +247,14 @@
     return [etag isKindOfClass:[NSString class]] ? etag : nil;
 }
 
+- (BOOL)allowsCellularAccess {
+    if (self.sessionTask != nil) {
+        return self.sessionTask.originalRequest.allowsCellularAccess;
+    }
+
+    return self.expression.allowsCellularAccess;
+}
+
 @end
 
 @implementation AWSS3TransferUtilityMultiPartUploadTask
@@ -265,6 +274,10 @@
         _expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
     }
     return _expression;
+}
+
+- (BOOL)allowsCellularAccess {
+    return self.expression.allowsCellularAccess;
 }
 
 - (void)cancel {
@@ -440,6 +453,16 @@
 @end
 
 @implementation AWSS3TransferUtilityUploadExpression
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _allowsCellularAccess = YES;
+    }
+    return self;
+}
+
 - (NSString *)contentMD5 {
     return [self.internalRequestHeaders valueForKey:@"Content-MD5"];
 }
@@ -455,6 +478,7 @@
     if (self = [super init]) {
         _internalRequestHeaders = [NSMutableDictionary new];
         _internalRequestParameters = [NSMutableDictionary new];
+        _allowsCellularAccess = YES;
     }
     return self;
 }

@@ -165,6 +165,8 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 @interface AWSS3TransferUtilityUploadTask : AWSS3TransferUtilityTask
 
+@property (readonly) BOOL allowsCellularAccess;
+
 /**
  set completion handler for task
  **/
@@ -208,6 +210,7 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 @property (readonly) AWSS3TransferUtilityTransferStatusType status;
 
+@property (readonly) BOOL allowsCellularAccess;
 
 /**
  Cancels the task.
@@ -307,6 +310,11 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 @property (nonatomic, nullable) NSString *contentMD5;
 
+/**
+ Whether the underlying requests allow cellular access
+ */
+@property (nonatomic) BOOL allowsCellularAccess;
+
 @end
 
 
@@ -329,6 +337,11 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  The progress feedback block.
  */
 @property (copy, nonatomic, nullable) AWSS3TransferUtilityMultiPartProgressBlock progressBlock;
+
+/**
+ Whether the underlying requests allow cellular access
+ */
+@property (nonatomic) BOOL allowsCellularAccess;
 
 /**
  Set an additional request header to be included in the pre-signed URL.

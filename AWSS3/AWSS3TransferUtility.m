@@ -98,6 +98,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) AWSS3TransferUtilityUploadExpression *expression;
 @property NSString *responseData;
 @property (atomic) BOOL cancelled;
+@property (atomic) BOOL allowsCellularAccess;
 @property BOOL temporaryFileCreated;
 @end
 
@@ -1088,6 +1089,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+        request.allowsCellularAccess = transferUtilityUploadTask.allowsCellularAccess;
         request.HTTPMethod = @"PUT";
         
         [request setValue:self.configuration.userAgent forHTTPHeaderField:@"User-Agent"];
@@ -1531,6 +1533,7 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:presignedURL];
          urlRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
          urlRequest.HTTPMethod = @"PUT";
+         urlRequest.allowsCellularAccess = transferUtilityMultiPartUploadTask.expression.allowsCellularAccess;
         [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders
               getPresignedURLRequest:nil URLRequest: urlRequest];
         [ urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
