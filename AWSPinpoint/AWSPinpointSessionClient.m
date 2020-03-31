@@ -77,7 +77,7 @@ typedef void(^voidBlock)(void);
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 #pragma mark - AWSPinpointSessionClient -

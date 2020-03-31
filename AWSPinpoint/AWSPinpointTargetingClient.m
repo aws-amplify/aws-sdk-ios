@@ -40,7 +40,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @interface AWSPinpointEndpointProfile()
