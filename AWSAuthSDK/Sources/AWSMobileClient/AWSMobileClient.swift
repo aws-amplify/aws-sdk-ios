@@ -271,8 +271,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                 
                 let cognitoAuthConfig: AWSCognitoAuthConfiguration = AWSCognitoAuthConfiguration.init(appClientId: clientId!,
                                                                                                       appClientSecret: secret,
-                                                                                                
-                                                                       scopes: Set<String>(self.scopes!.map { $0 }),
+                                                                                                      scopes: Set<String>(self.scopes!.map { $0 }),
                                                                                                       signInRedirectUri: signInRedirectURI!,
                                                                                                       signOutRedirectUri: signOutRedirectURI!,
                                                                                                       webDomain: hostURL,
@@ -422,9 +421,10 @@ final public class AWSMobileClient: _AWSMobileClient {
             
             let federationProviderIdentifier = hostedUIOptions.federationProviderName
             
+            var scopesSpecifiedInHostedUIOptionsFlag = false
             if hostedUIOptions.scopes != nil {
                 self.scopes = hostedUIOptions.scopes
-                saveHostedUIOptionsScopesInKeychain()
+                scopesSpecifiedInHostedUIOptionsFlag = true
             }
             else {
                 self.scopes = infoDictionary?["Scopes"] as? [String]
@@ -500,6 +500,11 @@ final public class AWSMobileClient: _AWSMobileClient {
                     }
                     signInInfo[self.TokenKey] = session.accessToken!.tokenString
                     signInInfo[self.ProviderKey] = "OAuth"
+                    
+                    // Upon successful sign in, store scopes specified using HostedUIOptions in Keychain
+                    if scopesSpecifiedInHostedUIOptionsFlag {
+                        self.saveHostedUIOptionsScopesInKeychain()
+                    }
                     
                     self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
                     self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)

@@ -17,6 +17,10 @@ class AWSMobileClientHostedUITests: AWSMobileClientTestBase {
         // signs out the user
         super.setUp()
         XCTAssertNil(AWSMobileClient.default().scopes)
+        
+        // assuming successful signin using custom scopes with HostedUIOptions
+        // set custom scopes in keychain
+        AWSMobileClientHostedUITests.setHostedUIScopesInKeychain()
     }
     
     static func setHostedUIScopesInKeychain() {
@@ -47,20 +51,22 @@ class AWSMobileClientHostedUITests: AWSMobileClientTestBase {
         testCase.wait(for: [mobileClientIsInitialized], timeout: 5)
     }
     
+    /// Test to check if MobileClient instance is initialized from custom scopes if they exist
+    ///  And also that a sign out clears the custom scopes from keychain
+    /// - Given:
+    ///     - The user accepts the custom scopes set using HostedUIOptions
+    ///     - These custom scopes are set in the keychain
+    /// - When:
+    ///    - The user successfully signs in
+    /// - Then:
+    ///    - Re-Intializing the MobileClient Instance(possibly during app restart), uses these custom scopes
+    ///    - Signing Out clears the custom scopes stored in the keychain
+    ///
     func testHostedUIScopesFlow() {
-        // assuming successful signin using custom scopes with HostedUIOptions
-        // set custom scopes in keychain
-        AWSMobileClientHostedUITests.setHostedUIScopesInKeychain()
         
-        // Given: the custom scopes are set using HostedUIOptions
-        // When: AWSMobileClient is initialized
-        // Then: use the custom scopes
         reInitializeMobileClient()
         XCTAssertEqual(AWSMobileClientHostedUITests.scopes, AWSMobileClient.default().scopes)
         
-        // Given: the AWSMobileClient uses custom scopes
-        // When: the user is signed out
-        // Then: clear the custom scopes from keychain
         AWSMobileClient.default().signOut()
         AWSMobileClient.default().loadHostedUIScopesFromKeychain()
         XCTAssertNil(AWSMobileClient.default().scopes)
