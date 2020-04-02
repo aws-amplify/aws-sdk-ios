@@ -58,7 +58,7 @@ static NSString *const EventTypeSessionStart = @"_session.start";
                            context:(AWSPinpointContext *) context
                    targetingClient:(AWSPinpointTargetingClient *) targetingClient;
 - (AWSTask*) getCurrentSession: (AWSPinpointSession*) session;
-- (AWSTask*) updateSessionStartWithFeatureAttributes:(NSDictionary*) attributes;
+- (AWSTask*) updateSessionStartWithEventSourceAttributes:(NSDictionary*) attributes;
 @end
 
 @interface AWSPinpointSession()
@@ -68,7 +68,7 @@ static NSString *const EventTypeSessionStart = @"_session.start";
 @end
 
 @interface AWSPinpointAnalyticsClient()
-- (void) removeAllGlobalFeatureAttributes;
+- (void) removeAllGlobalEventSourceAttributes;
 @end
 
 @interface AWSPinpointConfiguration()
@@ -229,7 +229,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     
     [[self.pinpointIAD.sessionClient stopSession] waitUntilFinished];
 
-    [[self.pinpointIAD.analyticsClient.eventRecorder updateSessionStartWithFeatureAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[self.pinpointIAD.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         [[self.pinpointIAD.analyticsClient.eventRecorder getCurrentSession:self.pinpointIAD.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             XCTAssertNotNil(task.result);
             XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
@@ -266,7 +266,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [pinpoint.sessionClient stopSession];
-    [pinpoint.analyticsClient removeAllGlobalFeatureAttributes];
+    [pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
@@ -286,7 +286,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
             XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
             
-            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithFeatureAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     XCTAssertNotNil(task.result);
                     XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
@@ -325,7 +325,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
 
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [pinpoint.sessionClient stopSession];
-    [pinpoint.analyticsClient removeAllGlobalFeatureAttributes];
+    [pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
 
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
@@ -345,7 +345,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
             XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
 
-            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithFeatureAttributes:@{JourneyAttributeKey:JourneyAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{JourneyAttributeKey:JourneyAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     XCTAssertNotNil(task.result);
                     XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
@@ -385,7 +385,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [pinpoint.sessionClient stopSession];
-    [pinpoint.analyticsClient removeAllGlobalFeatureAttributes];
+    [pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
@@ -405,7 +405,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
             XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
             
-            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithFeatureAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     XCTAssertNotNil(task.result);
                     XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
@@ -417,7 +417,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
                     XCTAssertTrue([sessionStartResult.allAttributes[CampaignAttributeKey] isEqualToString:CampaignAttributeValue]);
                     
                     // Overwrite with journey attributes
-                    [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithFeatureAttributes:@{JourneyAttributeKey:JourneyAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{JourneyAttributeKey:JourneyAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                         [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                             XCTAssertNotNil(task.result);
                             XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);

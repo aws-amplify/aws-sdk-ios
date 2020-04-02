@@ -40,7 +40,8 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 @end
 
 @interface AWSPinpointAnalyticsClient()
-- (void) setFeatureAttributes:(NSDictionary*) attributes;
+- (void) setEventSourceAttributes:(NSDictionary*) attributes;
+- (void) removeAllGlobalEventSourceAttributes;
 @end
 
 @interface AWSPinpointConfiguration()
@@ -152,14 +153,14 @@ NSString *const AWSPinpointJourneyKey = @"journey";
                   withNotification:(NSDictionary *) userInfo
   shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
-    
     NSDictionary *metadata = [self getMetadataFromUserInfo:userInfo];
-    [self addGlobalPinpointMetadata:metadata];
 
     AWSPinpointPushActionType pushActionType = [self pushActionTypeOfApplicationState:state];
     switch (pushActionType) {
         case AWSPinpointPushActionTypeOpened: {
             AWSDDLogVerbose(@"App launched from received notification.");
+
+            [self addGlobalPinpointMetadata:metadata];
             [self recordMessageOpenedEventForNotification:userInfo
                                            withIdentifier:nil];
             if (shouldHandleNotificationDeepLink) {
@@ -169,16 +170,15 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         }
         case AWSPinpointPushActionTypeReceivedBackground: {
             AWSDDLogVerbose(@"Received notification with app on background.");
-            //NSString *eventType = [self buildEventTypeFromUserInfo:userInfo
-            //                                    withPushActionType:AWSPinpointPushActionTypeReceivedBackground];
+
+            [self addGlobalPinpointMetadata:metadata];
             [self recordMessageReceivedEventForNotification:userInfo
                                          withPushActionType:pushActionType];
             break;
         }
         case AWSPinpointPushActionTypeReceivedForeground: {
             AWSDDLogVerbose(@"Received notification with app on foreground.");
-            //NSString *eventType = [self buildEventTypeFromUserInfo:userInfo
-            //                                    withPushActionType:AWSPinpointPushActionTypeReceivedForeground];
+
             [self recordMessageReceivedEventForNotification:userInfo
                                          withPushActionType:pushActionType];
             break;
@@ -230,10 +230,17 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 }
 
 - (void)addGlobalPinpointMetadata:(NSDictionary *) metadata {
-    [self.context.analyticsClient setFeatureAttributes:metadata];
+    if (metadata.count) {
+        // Remove previous global event source attributes from _globalAttributes
+        // This is to prevent _globalAttributes containing attributes from multiple event sources (campaign/journey)
+        [self.context.analyticsClient removeAllGlobalEventSourceAttributes];
+        [self.context.analyticsClient setEventSourceAttributes:metadata];
 
-    for (NSString *key in [metadata allKeys]) {
-        [self.context.analyticsClient addGlobalAttribute:metadata[key] forKey:key];
+        for (NSString *key in [metadata allKeys]) {
+            [self.context.analyticsClient addGlobalAttribute:metadata[key] forKey:key];
+        }
+    } else {
+        AWSDDLogVerbose(@"No global pinpoint metadata to add");
     }
 }
 
@@ -288,28 +295,35 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 }
 
 - (NSString*)getEventTypeSuffixFromPushActionType:(AWSPinpointPushActionType) pushActionType {
+    NSString *eventType;
     switch (pushActionType) {
         case AWSPinpointPushActionTypeOpened:
-            return AWSEventTypeOpened;
+            eventType = AWSEventTypeOpened;
+            break;
         case AWSPinpointPushActionTypeReceivedForeground:
-            return AWSEventTypeReceivedForeground;
+            eventType = AWSEventTypeReceivedForeground;
+            break;
         case AWSPinpointPushActionTypeReceivedBackground:
-            return AWSEventTypeReceivedBackground;
+            eventType = AWSEventTypeReceivedBackground;
+            break;
     }
+    return eventType;
 }
 
 - (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state {
+    AWSPinpointPushActionType pushActionType;
     switch (state) {
         case UIApplicationStateActive:
-            return AWSPinpointPushActionTypeReceivedForeground;
+            pushActionType = AWSPinpointPushActionTypeReceivedForeground;
             break;
         case UIApplicationStateBackground:
-            return AWSPinpointPushActionTypeReceivedBackground;
+            pushActionType = AWSPinpointPushActionTypeReceivedBackground;
             break;
         case UIApplicationStateInactive:
-            return AWSPinpointPushActionTypeOpened;
+            pushActionType = AWSPinpointPushActionTypeOpened;
             break;
     }
+    return pushActionType;
 }
 
 - (NSDictionary*)getMetadataFromUserInfo:(NSDictionary*) userInfo {

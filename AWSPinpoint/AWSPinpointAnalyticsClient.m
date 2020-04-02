@@ -44,13 +44,13 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 @property (nonatomic, strong) NSMutableDictionary* eventTypeMetrics;
 @property (nonatomic, strong) NSMutableDictionary* globalAttributes;
 @property (nonatomic, strong) NSMutableDictionary* globalMetrics;
-@property (nonatomic, strong) NSDictionary* globalFeatureAttributes;
+@property (nonatomic, strong) NSDictionary* globalEventSourceAttributes;
 
 @end
 
 @interface AWSPinpointEventRecorder ()
 - (instancetype)initWithContext:(AWSPinpointContext *) context;
-- (AWSTask*) updateSessionStartWithFeatureAttributes:(NSDictionary*) attributes;
+- (AWSTask*) updateSessionStartWithEventSourceAttributes:(NSDictionary*) attributes;
 @end
 
 @implementation AWSPinpointAnalyticsClient
@@ -203,8 +203,8 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
         }
         
         // Apply Global Feature attributes (Campaign/Journey)
-        for (NSString *key in [self.globalFeatureAttributes allKeys]) {
-            [theEvent addAttribute:[self.globalFeatureAttributes objectForKey:key] forKey:key];
+        for (NSString *key in [self.globalEventSourceAttributes allKeys]) {
+            [theEvent addAttribute:[self.globalEventSourceAttributes objectForKey:key] forKey:key];
         }
     }
     
@@ -393,20 +393,16 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     }
 }
 
-- (void) setFeatureAttributes:(NSDictionary*) attributes {
-    // Remove previous global feature attributes from _globalAttributes
-    // This is to prevent _globalAttributes containing attributes from multiple features (campaign/journey)
-    [self removeAllGlobalFeatureAttributes];
-
-    _globalFeatureAttributes = attributes;
-    [self.eventRecorder updateSessionStartWithFeatureAttributes:attributes];
+- (void) setEventSourceAttributes:(NSDictionary*) attributes {
+    _globalEventSourceAttributes = attributes;
+    [self.eventRecorder updateSessionStartWithEventSourceAttributes:attributes];
 }
 
-- (void) removeAllGlobalFeatureAttributes {
-    for (NSString *key in self.globalFeatureAttributes) {
+- (void) removeAllGlobalEventSourceAttributes {
+    for (NSString *key in self.globalEventSourceAttributes) {
         [self removeGlobalAttributeForKey:key];
     }
-    _globalFeatureAttributes = nil;
+    _globalEventSourceAttributes = nil;
 }
 
 @end

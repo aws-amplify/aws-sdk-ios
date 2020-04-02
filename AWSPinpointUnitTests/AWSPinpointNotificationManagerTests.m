@@ -33,9 +33,9 @@ static NSDictionary *JourneyPushPayload;
 static NSDictionary *InvalidPushPayload;
 
 @interface AWSPinpointAnalyticsClient()
-@property (nonatomic, strong) NSDictionary* globalFeatureAttributes;
-- (void) setFeatureAttributes:(NSDictionary*) attributes;
-- (void) removeAllGlobalFeatureAttributes;
+@property (nonatomic, strong) NSDictionary* globalEventSourceAttributes;
+- (void) setEventSourceAttributes:(NSDictionary*) attributes;
+- (void) removeAllGlobalEventSourceAttributes;
 @end
 
 @interface AWSPinpointNotificationManager()
@@ -117,7 +117,7 @@ static NSDictionary *InvalidPushPayload;
 
 - (void)tearDown {
     [self.pinpoint.analyticsClient.eventRecorder removeAllEvents];
-    [self.pinpoint.analyticsClient removeAllGlobalFeatureAttributes];
+    [self.pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
     [super tearDown];
 }
 
@@ -137,14 +137,14 @@ static NSDictionary *InvalidPushPayload;
 
 - (void)testAddGlobalPinpointMetadataCampaign {
     [self.pinpoint.notificationManager addGlobalPinpointMetadata:CampaignMetadata];
-    XCTAssertEqual([self.pinpoint.analyticsClient.globalFeatureAttributes count], 1);
-    XCTAssertEqual(self.pinpoint.analyticsClient.globalFeatureAttributes[CampaignAttributeKey], CampaignAttributeValue);
+    XCTAssertEqual([self.pinpoint.analyticsClient.globalEventSourceAttributes count], 1);
+    XCTAssertEqual(self.pinpoint.analyticsClient.globalEventSourceAttributes[CampaignAttributeKey], CampaignAttributeValue);
 }
 
 - (void)testAddGlobalPinpointMetadataJourney {
     [self.pinpoint.notificationManager addGlobalPinpointMetadata:JourneyMetadata];
-    XCTAssertEqual([self.pinpoint.analyticsClient.globalFeatureAttributes count], 1);
-    XCTAssertEqual(self.pinpoint.analyticsClient.globalFeatureAttributes[JourneyAttributeKey], JourneyAttributeValue);
+    XCTAssertEqual([self.pinpoint.analyticsClient.globalEventSourceAttributes count], 1);
+    XCTAssertEqual(self.pinpoint.analyticsClient.globalEventSourceAttributes[JourneyAttributeKey], JourneyAttributeValue);
 }
 
 - (void)testBuildEventCampaignNotificationOpened {

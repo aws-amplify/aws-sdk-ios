@@ -326,7 +326,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     }];
 }
 
-- (AWSTask*) updateSessionStartWithFeatureAttributes:(NSDictionary*) attributes {
+- (AWSTask*) updateSessionStartWithEventSourceAttributes:(NSDictionary*) attributes {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSString *sessionId = [self validateOrRetrieveSessionId:self.context.sessionClient.session.sessionId];
     
