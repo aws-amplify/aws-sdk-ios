@@ -187,23 +187,25 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 - (void)recordMessageReceivedEventForNotification:(NSDictionary *) userInfo
                                     withEventType:(NSString *) eventType {
     //Silent notification
-    AWSPinpointEvent *pushNotificationEvent = [self buildEventFromEventType:eventType];
+    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:eventType];
     
     [self addEventSourceMetadataForEvent:pushNotificationEvent
                      withNotification:userInfo];
-    
+    [self addApplicationStateAttributeToEvent:pushNotificationEvent
+                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
 }
 
 - (void)recordMessageOpenedEventForNotification:(NSDictionary *) userInfo
                                  withIdentifier:(NSString *) identifier {
     //User tapped on notification
-    AWSPinpointEvent *pushNotificationEvent = [self buildEventFromEventType:AWSEventTypeOpened];
+    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:AWSEventTypeOpened];
     
     if (identifier) {
         [pushNotificationEvent addAttribute:identifier forKey:AWSAttributeActionIdentifierKey];
     }
-    
+    [self addApplicationStateAttributeToEvent:pushNotificationEvent
+                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
 }
 
@@ -256,13 +258,6 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
         default:
             break;
     }
-}
-
-- (AWSPinpointEvent*)buildEventFromEventType:(NSString *) eventType {
-    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:eventType];
-    [self addApplicationStateAttributeToEvent:pushNotificationEvent
-                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
-    return pushNotificationEvent;
 }
 
 - (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state {
