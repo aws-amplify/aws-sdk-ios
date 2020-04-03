@@ -41,7 +41,7 @@ static NSDictionary *InvalidPushPayload;
 @interface AWSPinpointNotificationManager()
 - (void)addPinpointMetadataForEvent:(AWSPinpointEvent *) event
                        withMetadata:(NSDictionary *) metadata;
-- (void)addGlobalPinpointMetadata:(NSDictionary *) metadata;
+- (void)addGlobalEventSourceMetadata:(NSDictionary *) metadata;
 - (AWSPinpointEvent*)buildEventFromUserInfo:(NSDictionary *) userInfo
                          withPushActionType:(AWSPinpointPushActionType) pushActionType;
 - (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state;
@@ -135,14 +135,14 @@ static NSDictionary *InvalidPushPayload;
     XCTAssertTrue([event.allAttributes[JourneyAttributeKey] isEqualToString:JourneyAttributeValue]);
 }
 
-- (void)testAddGlobalPinpointMetadataCampaign {
-    [self.pinpoint.notificationManager addGlobalPinpointMetadata:CampaignMetadata];
+- (void)testAddGlobalEventSourceMetadataCampaign {
+    [self.pinpoint.notificationManager addGlobalEventSourceMetadata:CampaignMetadata];
     XCTAssertEqual([self.pinpoint.analyticsClient.globalEventSourceAttributes count], 1);
     XCTAssertEqual(self.pinpoint.analyticsClient.globalEventSourceAttributes[CampaignAttributeKey], CampaignAttributeValue);
 }
 
-- (void)testAddGlobalPinpointMetadataJourney {
-    [self.pinpoint.notificationManager addGlobalPinpointMetadata:JourneyMetadata];
+- (void)testAddGlobalEventSourceMetadataJourney {
+    [self.pinpoint.notificationManager addGlobalEventSourceMetadata:JourneyMetadata];
     XCTAssertEqual([self.pinpoint.analyticsClient.globalEventSourceAttributes count], 1);
     XCTAssertEqual(self.pinpoint.analyticsClient.globalEventSourceAttributes[JourneyAttributeKey], JourneyAttributeValue);
 }

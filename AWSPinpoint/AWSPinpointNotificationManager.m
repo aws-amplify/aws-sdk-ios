@@ -97,7 +97,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
             return YES;
         }
         NSDictionary *metadata = [self getMetadataFromUserInfo:notificationPayload];
-        [self addGlobalPinpointMetadata:metadata];
+        [self addGlobalEventSourceMetadata:metadata];
 
         // Application launch because of notification
         [self recordMessageOpenedEventForNotification:notificationPayload
@@ -160,7 +160,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         case AWSPinpointPushActionTypeOpened: {
             AWSDDLogVerbose(@"App launched from received notification.");
 
-            [self addGlobalPinpointMetadata:metadata];
+            [self addGlobalEventSourceMetadata:metadata];
             [self recordMessageOpenedEventForNotification:userInfo
                                            withIdentifier:nil];
             if (shouldHandleNotificationDeepLink) {
@@ -171,7 +171,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         case AWSPinpointPushActionTypeReceivedBackground: {
             AWSDDLogVerbose(@"Received notification with app on background.");
 
-            [self addGlobalPinpointMetadata:metadata];
+            [self addGlobalEventSourceMetadata:metadata];
             [self recordMessageReceivedEventForNotification:userInfo
                                          withPushActionType:pushActionType];
             break;
@@ -179,6 +179,8 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         case AWSPinpointPushActionTypeReceivedForeground: {
             AWSDDLogVerbose(@"Received notification with app on foreground.");
 
+            // Not adding global event source metadata because if the app session is already running, 
+            // the session should not contribute to the new push notification that is being received
             [self recordMessageReceivedEventForNotification:userInfo
                                          withPushActionType:pushActionType];
             break;
@@ -199,7 +201,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
     NSDictionary *metadata = [self getMetadataFromUserInfo:userInfo];
     [self addPinpointMetadataForEvent:pushNotificationEvent
-                     withMetadata:metadata];
+                         withMetadata:metadata];
     
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
 }
@@ -223,13 +225,13 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
 #pragma mark - Helpers
 - (void)addPinpointMetadataForEvent:(AWSPinpointEvent *) event
-                   withMetadata:(NSDictionary *) metadata {
+                       withMetadata:(NSDictionary *) metadata {
     for (NSString *key in [metadata allKeys]) {
         [event addAttribute:metadata[key] forKey:key];
     }
 }
 
-- (void)addGlobalPinpointMetadata:(NSDictionary *) metadata {
+- (void)addGlobalEventSourceMetadata:(NSDictionary *) metadata {
     if (metadata.count) {
         // Remove previous global event source attributes from _globalAttributes
         // This is to prevent _globalAttributes containing attributes from multiple event sources (campaign/journey)
