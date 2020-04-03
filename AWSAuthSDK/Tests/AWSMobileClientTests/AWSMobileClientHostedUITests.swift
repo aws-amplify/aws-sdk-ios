@@ -32,24 +32,6 @@ class AWSMobileClientHostedUITests: AWSMobileClientTestBase {
         XCTAssertEqual(AWSMobileClient.default().scopes, scopes)
     }
     
-    func reInitializeMobileClient() {
-        let testCase = XCTestCase()
-        let mobileClientIsInitialized = testCase.expectation(description: "AWSMobileClient is initialized")
-        AWSMobileClient.default().initialize { (userState, error) in
-            if let error = error {
-                XCTFail("Encountered unexpected error in initialize: \(error.localizedDescription)")
-                return
-            }
-            
-            guard userState != nil else {
-                XCTFail("userState is unexpectedly empty initializing AWSMobileClient")
-                return
-            }
-            
-            mobileClientIsInitialized.fulfill()
-        }
-        testCase.wait(for: [mobileClientIsInitialized], timeout: 5)
-    }
     
     /// Test to check if MobileClient instance is initialized from custom scopes if they exist
     ///  And also that a sign out clears the custom scopes from keychain
@@ -57,15 +39,11 @@ class AWSMobileClientHostedUITests: AWSMobileClientTestBase {
     ///     - The user accepts the custom scopes set using HostedUIOptions
     ///     - These custom scopes are set in the keychain
     /// - When:
-    ///    - The user successfully signs in
+    ///    - The user successfully signs out
     /// - Then:
-    ///    - Re-Intializing the MobileClient Instance(possibly during app restart), uses these custom scopes
     ///    - Signing Out clears the custom scopes stored in the keychain
     ///
     func testHostedUIScopesFlow() {
-        
-        reInitializeMobileClient()
-        XCTAssertEqual(AWSMobileClientHostedUITests.scopes, AWSMobileClient.default().scopes)
         
         AWSMobileClient.default().signOut()
         AWSMobileClient.default().loadHostedUIScopesFromKeychain()
