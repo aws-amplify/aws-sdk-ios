@@ -99,8 +99,7 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
         
         // Application launch because of notification
         [self recordMessageOpenedEventForNotification:notificationPayload
-                                       withIdentifier:nil
-                                 withApplicationState:[[UIApplication sharedApplication] applicationState]];
+                                       withIdentifier:nil];
     }
     
     return YES;
@@ -153,38 +152,43 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
   shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
     
-    if (state == UIApplicationStateInactive) {
-        AWSDDLogVerbose(@"App launched from received notification.");
-        [self addGlobalEventSourceMetadataForNotification:userInfo];
-        [self recordMessageOpenedEventForNotification:userInfo
-                                       withIdentifier:nil
-                                 withApplicationState:state];
-        if (shouldHandleNotificationDeepLink) {
-            [self handleNotificationDeepLinkForNotification:userInfo];
+    AWSPinpointPushActionType pushActionType = [self pushActionTypeOfApplicationState:state];
+    switch (pushActionType) {
+        case AWSPinpointPushActionTypeOpened: {
+            AWSDDLogVerbose(@"App launched from received notification.");
+            [self addGlobalEventSourceMetadataForNotification:userInfo];
+            [self recordMessageOpenedEventForNotification:userInfo
+                                           withIdentifier:nil];
+            if (shouldHandleNotificationDeepLink) {
+                [self handleNotificationDeepLinkForNotification:userInfo];
+            }
+            break;
         }
-    } else if (state == UIApplicationStateBackground) {
-        AWSDDLogVerbose(@"Received notification with app on background.");
-        [self addGlobalEventSourceMetadataForNotification:userInfo];
-        [self recordMessageReceivedEventForNotification:userInfo
-                                              eventType:AWSEventTypeReceivedBackground
-                                   withApplicationState:state];
-    } else {
-        AWSDDLogVerbose(@"Received notification with app on foreground.");
-        [self recordMessageReceivedEventForNotification:userInfo
-                                              eventType:AWSEventTypeReceivedForeground
-                                   withApplicationState:state];
+        case AWSPinpointPushActionTypeReceivedBackground: {
+            AWSDDLogVerbose(@"Received notification with app on background.");
+            [self addGlobalEventSourceMetadataForNotification:userInfo];
+            [self recordMessageReceivedEventForNotification:userInfo
+                                          withEventType:AWSEventTypeReceivedBackground];
+            break;
+        }
+        case AWSPinpointPushActionTypeReceivedForeground: {
+            AWSDDLogVerbose(@"Received notification with app on foreground.");
+
+            // Not adding global event source metadata because if the app session is already running,
+            // the session should not contribute to the new push notification that is being received
+            [self recordMessageReceivedEventForNotification:userInfo
+                                              withEventType:AWSEventTypeReceivedForeground];
+            break;
+        }
     }
 }
 
 #pragma mark - Event recorders
 - (void)recordMessageReceivedEventForNotification:(NSDictionary *) userInfo
-                                        eventType:(NSString*) eventType
-                             withApplicationState:(UIApplicationState) state {
+                                    withEventType:(NSString *) eventType {
     //Silent notification
-    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:eventType];
+    AWSPinpointEvent *pushNotificationEvent = [self buildEventFromEventType:eventType];
     
-    [self addApplicationStateAttributeToEvent:pushNotificationEvent
-                         withApplicationState:state];
     [self addEventSourceMetadataForEvent:pushNotificationEvent
                      withNotification:userInfo];
     
@@ -192,17 +196,14 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 - (void)recordMessageOpenedEventForNotification:(NSDictionary *) userInfo
-                                 withIdentifier:(NSString *) identifier
-                           withApplicationState:(UIApplicationState) state {
+                                 withIdentifier:(NSString *) identifier {
     //User tapped on notification
-    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:AWSEventTypeOpened];
+    AWSPinpointEvent *pushNotificationEvent = [self buildEventFromEventType:AWSEventTypeOpened];
     
     if (identifier) {
         [pushNotificationEvent addAttribute:identifier forKey:AWSAttributeActionIdentifierKey];
     }
     
-    [self addApplicationStateAttributeToEvent:pushNotificationEvent
-                         withApplicationState:state];
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
 }
 
@@ -255,6 +256,29 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
         default:
             break;
     }
+}
+
+- (AWSPinpointEvent*)buildEventFromEventType:(NSString *) eventType {
+    AWSPinpointEvent *pushNotificationEvent = [self.context.analyticsClient createEventWithEventType:eventType];
+    [self addApplicationStateAttributeToEvent:pushNotificationEvent
+                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
+    return pushNotificationEvent;
+}
+
+- (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state {
+    AWSPinpointPushActionType pushActionType;
+    switch (state) {
+        case UIApplicationStateActive:
+            pushActionType = AWSPinpointPushActionTypeReceivedForeground;
+            break;
+        case UIApplicationStateBackground:
+            pushActionType = AWSPinpointPushActionTypeReceivedBackground;
+            break;
+        case UIApplicationStateInactive:
+            pushActionType = AWSPinpointPushActionTypeOpened;
+            break;
+    }
+    return pushActionType;
 }
 
 @end
