@@ -421,10 +421,8 @@ final public class AWSMobileClient: _AWSMobileClient {
             
             let federationProviderIdentifier = hostedUIOptions.federationProviderName
             
-            var scopesSpecifiedInHostedUIOptionsFlag = false
             if hostedUIOptions.scopes != nil {
                 self.scopes = hostedUIOptions.scopes
-                scopesSpecifiedInHostedUIOptionsFlag = true
             }
             else {
                 self.scopes = infoDictionary?["Scopes"] as? [String]
@@ -502,7 +500,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                     signInInfo[self.ProviderKey] = "OAuth"
                     
                     // Upon successful sign in, store scopes specified using HostedUIOptions in Keychain
-                    if scopesSpecifiedInHostedUIOptionsFlag {
+                    if hostedUIOptions.scopes != nil {
                         self.saveHostedUIOptionsScopesInKeychain()
                     }
                     
