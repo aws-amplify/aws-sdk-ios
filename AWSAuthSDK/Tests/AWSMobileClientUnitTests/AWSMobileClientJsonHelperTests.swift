@@ -1,11 +1,7 @@
 //
 //  AWSMobileClientJsonHelperTests.swift
-//  AWSMobileClient
+//  AWSMobileClientJsonHelperTests
 //
-//  Created by Edupuganti, Phani Srikar on 4/1/20.
-//  Copyright © 2020 Amazon Web Services. All rights reserved.
-//
-
 import Foundation
 import XCTest
 import AWSCore
