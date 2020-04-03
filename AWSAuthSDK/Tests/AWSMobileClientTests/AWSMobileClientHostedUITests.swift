@@ -1,6 +1,6 @@
 //
 //  AWSMobileClientHostedUITests.swift
-//  AWSMobileClientHostedUITests
+//  AWSMobileClientTests
 //
 
 import XCTest
@@ -9,6 +9,7 @@ import XCTest
 import AWSAuthCore
 import AWSCognitoIdentityProvider
 
+/// AWSMobileClient tests related to HostedUIOptions
 class AWSMobileClientHostedUITests: AWSMobileClientTestBase {
     
     static var scopes = ["openid", "email"]
