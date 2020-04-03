@@ -50,7 +50,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
                            context:(AWSPinpointContext *) context
                    targetingClient:(AWSPinpointTargetingClient *) targetingClient;
 - (AWSTask*) getCurrentSession: (AWSPinpointSession*) session;
-- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
+- (AWSTask*) updateSessionStartWithEventSourceAttributes:(NSDictionary*) attributes;
 @end
 
 @interface AWSPinpointSession()
@@ -60,7 +60,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 @end
 
 @interface AWSPinpointAnalyticsClient()
-- (void) removeAllGlobalCampaignAttributes;
+- (void) removeAllGlobalEventSourceAttributes;
 @end
 
 @interface AWSPinpointConfiguration()
@@ -216,12 +216,12 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     }];
 }
 
-- (void) testUpdateSessionCampaignAttributesNoSession {
+- (void) testUpdateSessionEventSourceAttributesNoSession {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
     [[self.pinpointIAD.sessionClient stopSession] waitUntilFinished];
 
-    [[self.pinpointIAD.analyticsClient.eventRecorder updateSessionStartWithCampaignAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[self.pinpointIAD.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         [[self.pinpointIAD.analyticsClient.eventRecorder getCurrentSession:self.pinpointIAD.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             XCTAssertNotNil(task.result);
             XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
@@ -243,7 +243,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     }];
 }
 
-- (void) testUpdateSessionCampaignAttributes {
+- (void) testUpdateSessionEventSourceAttributesWithCampaign {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testUpdateSessionCampaignAttributes" launchOptions:@{}];
@@ -258,7 +258,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [pinpoint.sessionClient stopSession];
-    [pinpoint.analyticsClient removeAllGlobalCampaignAttributes];
+    [pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
@@ -278,7 +278,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
             XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
             
-            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithCampaignAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     XCTAssertNotNil(task.result);
                     XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
