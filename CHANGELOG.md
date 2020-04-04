@@ -1,6 +1,11 @@
 --
 # AWS Mobile SDK for iOS CHANGELOG
 
+## Unreleased
+
+### Misc. Updates
+- Update CI/CD system to build with Xcode 11.4 See [issue #2365](https://github.com/aws-amplify/aws-sdk-ios/issues/2365).
+
 ## 2.13.1
 
 ### New features
