@@ -12,39 +12,32 @@ import AWSCognitoIdentityProvider
 /// AWSMobileClient tests related to HostedUIOptions
 class AWSMobileClientHostedUITests: AWSMobileClientTestBase {
     
-    static var scopes = ["openid", "email"]
-    
+    static let scopes = ["openid", "email"]
     override class func setUp() {
         // signs out the user
         super.setUp()
         XCTAssertNil(AWSMobileClient.default().scopes)
         
-        // assuming successful signin using custom scopes with HostedUIOptions
-        // set custom scopes in keychain
-        AWSMobileClientHostedUITests.setHostedUIScopesInKeychain()
-    }
-    
-    static func setHostedUIScopesInKeychain() {
+        // Assuming successful Sign-in, Set HostedUIScopes In Keychain
         AWSMobileClient.default().scopes = scopes
         AWSMobileClient.default().saveHostedUIOptionsScopesInKeychain()
-        
-        // assert if custom scopes are correctly stored in the keychain
-        AWSMobileClient.default().loadHostedUIScopesFromKeychain()
-        XCTAssertEqual(AWSMobileClient.default().scopes, scopes)
     }
     
-    
-    /// Test to check if MobileClient instance is initialized from custom scopes if they exist
-    ///  And also that a sign out clears the custom scopes from keychain
+    /// Test the flow where custom scopes are retrieved from keychain
+    ///  And they are cleared in keychain after signout
     /// - Given:
     ///     - The user accepts the custom scopes set using HostedUIOptions
     ///     - These custom scopes are set in the keychain
     /// - When:
-    ///    - The user successfully signs out
+    ///     - The custom scopes are fetched from keychain and the user successfully signs out
     /// - Then:
+    ///    - loadHostedUIScopesFromKeychain correctly fetched the custom scopes from keychain
     ///    - Signing Out clears the custom scopes stored in the keychain
     ///
-    func testHostedUIScopesFlow() {
+    func testSignOutClearsHostedUIScopesFromKeychain() {
+        AWSMobileClient.default().loadHostedUIScopesFromKeychain()
+        XCTAssertEqual(AWSMobileClient.default().scopes,
+                       AWSMobileClientHostedUITests.scopes)
         
         AWSMobileClient.default().signOut()
         AWSMobileClient.default().loadHostedUIScopesFromKeychain()
