@@ -540,6 +540,7 @@ extension AWSMobileClient {
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
         self.federationProvider = .none
         self.credentialsFetchCancellationSource = AWSCancellationTokenSource()
+        self.clearHostedUIOptionsScopesFromKeychain()
     }
     
     internal func performUserPoolSignOut() {
@@ -981,6 +982,18 @@ extension AWSMobileClient {
         self.signInURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: SignInURIQueryParametersKey))
         self.tokenURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: TokenURIQueryParametersKey))
         self.signOutURIQueryParameters = JSONHelper.dictionaryFromData(self.keychain.data(forKey: SignOutURIQueryParametersKey))
+    }
+    
+    internal func loadHostedUIScopesFromKeychain() {
+        self.scopes = JSONHelper.arrayFromData(self.keychain.data(forKey: HostedUIOptionsScopesKey))
+    }
+    
+    internal func saveHostedUIOptionsScopesInKeychain() {
+        self.keychain.setData(JSONHelper.dataFromArray(self.scopes), forKey: HostedUIOptionsScopesKey)
+    }
+    
+    internal func clearHostedUIOptionsScopesFromKeychain() {
+        self.keychain.removeItem(forKey: HostedUIOptionsScopesKey)
     }
     
     internal func saveLoginsMapInKeychain() {
