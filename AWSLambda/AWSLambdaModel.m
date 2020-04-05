@@ -296,6 +296,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore21);
         }
+        if ([value caseInsensitiveCompare:@"dotnetcore3.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore31);
+        }
         if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43Edge);
         }
@@ -344,6 +347,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"dotnetcore2.0";
             case AWSLambdaRuntimeDotnetcore21:
                 return @"dotnetcore2.1";
+            case AWSLambdaRuntimeDotnetcore31:
+                return @"dotnetcore3.1";
             case AWSLambdaRuntimeNodejs43Edge:
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
@@ -733,6 +738,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore21);
         }
+        if ([value caseInsensitiveCompare:@"dotnetcore3.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore31);
+        }
         if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43Edge);
         }
@@ -781,6 +789,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"dotnetcore2.0";
             case AWSLambdaRuntimeDotnetcore21:
                 return @"dotnetcore2.1";
+            case AWSLambdaRuntimeDotnetcore31:
+                return @"dotnetcore3.1";
             case AWSLambdaRuntimeNodejs43Edge:
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
@@ -1534,6 +1544,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore21);
         }
+        if ([value caseInsensitiveCompare:@"dotnetcore3.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore31);
+        }
         if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43Edge);
         }
@@ -1582,6 +1595,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"dotnetcore2.0";
             case AWSLambdaRuntimeDotnetcore21:
                 return @"dotnetcore2.1";
+            case AWSLambdaRuntimeDotnetcore31:
+                return @"dotnetcore3.1";
             case AWSLambdaRuntimeNodejs43Edge:
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
@@ -1672,6 +1687,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore21);
         }
+        if ([value caseInsensitiveCompare:@"dotnetcore3.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore31);
+        }
         if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43Edge);
         }
@@ -1720,6 +1738,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"dotnetcore2.0";
             case AWSLambdaRuntimeDotnetcore21:
                 return @"dotnetcore2.1";
+            case AWSLambdaRuntimeDotnetcore31:
+                return @"dotnetcore3.1";
             case AWSLambdaRuntimeNodejs43Edge:
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
@@ -2268,6 +2288,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore21);
         }
+        if ([value caseInsensitiveCompare:@"dotnetcore3.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore31);
+        }
         if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeNodejs43Edge);
         }
@@ -2316,6 +2339,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"dotnetcore2.0";
             case AWSLambdaRuntimeDotnetcore21:
                 return @"dotnetcore2.1";
+            case AWSLambdaRuntimeDotnetcore31:
+                return @"dotnetcore3.1";
             case AWSLambdaRuntimeNodejs43Edge:
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
