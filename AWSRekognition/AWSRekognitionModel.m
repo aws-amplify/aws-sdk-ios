@@ -514,6 +514,128 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionDeleteProjectRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectArn" : @"ProjectArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionDeleteProjectResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectStatusCreated);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectStatusDeleting);
+        }
+        return @(AWSRekognitionProjectStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProjectStatusCreating:
+                return @"CREATING";
+            case AWSRekognitionProjectStatusCreated:
+                return @"CREATED";
+            case AWSRekognitionProjectStatusDeleting:
+                return @"DELETING";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSRekognitionDeleteProjectVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"projectVersionArn" : @"ProjectVersionArn",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionDeleteProjectVersionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TRAINING_IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_COMPLETED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"TRAINING_FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusTrainingFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STARTING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStarting);
+        }
+        if ([value caseInsensitiveCompare:@"RUNNING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusRunning);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopping);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusStopped);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSRekognitionProjectVersionStatusDeleting);
+        }
+        return @(AWSRekognitionProjectVersionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProjectVersionStatusTrainingInProgress:
+                return @"TRAINING_IN_PROGRESS";
+            case AWSRekognitionProjectVersionStatusTrainingCompleted:
+                return @"TRAINING_COMPLETED";
+            case AWSRekognitionProjectVersionStatusTrainingFailed:
+                return @"TRAINING_FAILED";
+            case AWSRekognitionProjectVersionStatusStarting:
+                return @"STARTING";
+            case AWSRekognitionProjectVersionStatusRunning:
+                return @"RUNNING";
+            case AWSRekognitionProjectVersionStatusFailed:
+                return @"FAILED";
+            case AWSRekognitionProjectVersionStatusStopping:
+                return @"STOPPING";
+            case AWSRekognitionProjectVersionStatusStopped:
+                return @"STOPPED";
+            case AWSRekognitionProjectVersionStatusDeleting:
+                return @"DELETING";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSRekognitionDeleteStreamProcessorRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {

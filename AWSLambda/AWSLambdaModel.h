@@ -119,6 +119,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeDotnetcore10,
     AWSLambdaRuntimeDotnetcore20,
     AWSLambdaRuntimeDotnetcore21,
+    AWSLambdaRuntimeDotnetcore31,
     AWSLambdaRuntimeNodejs43Edge,
     AWSLambdaRuntimeGo1X,
     AWSLambdaRuntimeRuby25,
@@ -411,7 +412,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
 /**
- <p>For AWS services, the ID of the account that owns the resource. Use this instead of <code>SourceArn</code> to grant permission to resources that are owned by another account (for example, all of an account's Amazon S3 buckets). Or use it together with <code>SourceArn</code> to ensure that the resource is owned by the specified account. For example, an Amazon S3 bucket could be deleted by its owner and recreated by another account.</p>
+ <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceAccount;
 
@@ -574,7 +575,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -931,7 +932,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
 /**
- <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -2640,7 +2641,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
