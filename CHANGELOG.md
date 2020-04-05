@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+
+- AWS Lambda
+ - Amazon Pinpoint
+ - Amazon Rekognition
+
+---
 --
 # AWS Mobile SDK for iOS CHANGELOG
 
