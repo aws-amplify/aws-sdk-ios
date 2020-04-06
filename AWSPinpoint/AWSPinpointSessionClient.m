@@ -291,7 +291,7 @@ NSObject *sessionLock;
 
     return [self.context.analyticsClient recordEvent:stopEvent];
 
-    //Remove global vent source attributes
+    //Remove global event source attributes
     AWSDDLogVerbose(@"Removed global event source attributes");
     [self.context.analyticsClient removeAllGlobalEventSourceAttributes];
 }

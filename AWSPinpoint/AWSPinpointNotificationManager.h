@@ -27,6 +27,12 @@ FOUNDATION_EXPORT NSString * const AWSPinpointCampaignKey;
 
 @interface AWSPinpointNotificationManager : NSObject
 
+typedef NS_ENUM(NSInteger, AWSPinpointPushActionType) {
+    AWSPinpointPushActionTypeOpened,
+    AWSPinpointPushActionTypeReceivedForeground,
+    AWSPinpointPushActionTypeReceivedBackground
+};
+
 #pragma mark - Notification Helpers
 /**
  Returns a Boolean indicating whether the app is currently registered for remote notifications.
