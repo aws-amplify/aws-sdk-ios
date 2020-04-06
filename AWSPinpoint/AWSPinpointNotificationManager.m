@@ -198,6 +198,8 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         return;
     }
 
+    [self addApplicationStateAttributeToEvent:pushNotificationEvent
+                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
     [self addEventSourceMetadataForEvent:pushNotificationEvent
                         withNotification:userInfo];
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
@@ -215,6 +217,8 @@ NSString *const AWSPinpointJourneyKey = @"journey";
     if (identifier) {
         [pushNotificationEvent addAttribute:identifier forKey:AWSAttributeActionIdentifierKey];
     }
+    [self addApplicationStateAttributeToEvent:pushNotificationEvent
+                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
     [self.context.analyticsClient recordEvent:pushNotificationEvent];
 }
 
@@ -280,22 +284,23 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
     AWSPinpointEvent *pushNotificationEvent  = [self.context.analyticsClient createEventWithEventType:eventType];
 
-    [self addApplicationStateAttributeToEvent:pushNotificationEvent
-                         withApplicationState:[[UIApplication sharedApplication] applicationState]];
     return pushNotificationEvent;
 }
 
 - (NSString*)getEventTypePrefixFromUserInfo:(NSDictionary *) userInfo {
+    NSString *eventType;
     if ([AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
         NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
         if (pinpointData[AWSPinpointCampaignKey]) {
-            return AWSPinpointCampaignKey;
+            eventType = AWSPinpointCampaignKey;
         } else if (pinpointData[AWSPinpointJourneyKey]) {
-            return AWSPinpointJourneyKey;
+            eventType = AWSPinpointJourneyKey;
         }
     }
-    AWSDDLogError(@"Cannot determine event type from Push payload");
-    return nil;
+    if (!eventType) {
+        AWSDDLogError(@"Cannot determine event type from Push payload");
+    }
+    return eventType;
 }
 
 - (NSString*)getEventTypeSuffixFromPushActionType:(AWSPinpointPushActionType) pushActionType {
@@ -311,14 +316,13 @@ NSString *const AWSPinpointJourneyKey = @"journey";
             eventType = AWSEventTypeReceivedBackground;
             break;
         case AWSPinpointPushActionTypeUnknown:
-            eventType = nil;
             break;
     }
     return eventType;
 }
 
 - (AWSPinpointPushActionType) pushActionTypeOfApplicationState:(UIApplicationState) state {
-    AWSPinpointPushActionType pushActionType;
+    AWSPinpointPushActionType pushActionType = AWSPinpointPushActionTypeUnknown;
     switch (state) {
         case UIApplicationStateActive:
             pushActionType = AWSPinpointPushActionTypeReceivedForeground;
@@ -330,7 +334,6 @@ NSString *const AWSPinpointJourneyKey = @"journey";
             pushActionType = AWSPinpointPushActionTypeOpened;
             break;
         default:
-            pushActionType = AWSPinpointPushActionTypeUnknown;
             break;
     }
     return pushActionType;
