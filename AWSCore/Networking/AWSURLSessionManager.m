@@ -105,8 +105,30 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     if (self = [super init]) {
         _configuration = configuration;
 
+        NSURLSessionConfiguration * sessionConfiguration;
+        
+        if (configuration.proxyHost && configuration.proxyPort) {
 
-        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+            sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+
+            NSDictionary *proxyDict = @{
+                @"HTTPEnable"  : [NSNumber numberWithInt:1],
+                (NSString *)kCFStreamPropertyHTTPProxyHost  : configuration.proxyHost,
+                (NSString *)kCFStreamPropertyHTTPProxyPort  : configuration.proxyPort,
+
+                @"HTTPSEnable" : [NSNumber numberWithInt:1],
+                (NSString *)kCFStreamPropertyHTTPSProxyHost : configuration.proxyHost,
+                (NSString *)kCFStreamPropertyHTTPSProxyPort : configuration.proxyPort,
+            };
+            
+            sessionConfiguration.connectionProxyDictionary = proxyDict;
+
+            
+        } else {
+            sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        }
+
+        
         sessionConfiguration.URLCache = nil;
         if (configuration.timeoutIntervalForRequest > 0) {
             sessionConfiguration.timeoutIntervalForRequest = configuration.timeoutIntervalForRequest;
@@ -116,6 +138,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         }
         sessionConfiguration.allowsCellularAccess = configuration.allowsCellularAccess;
         sessionConfiguration.sharedContainerIdentifier = configuration.sharedContainerIdentifier;
+        
         
         _session = [NSURLSession sessionWithConfiguration:sessionConfiguration
                                                  delegate:self

@@ -151,6 +151,9 @@ typedef NS_ENUM(NSInteger, AWSHTTPMethod) {
 @property (nonatomic, assign) BOOL allowsCellularAccess;
 @property (nonatomic, strong) NSString *sharedContainerIdentifier;
 
+@property (nonatomic, assign) NSString * proxyHost;
+@property (nonatomic, assign) NSString * proxyPort;
+
 @property (nonatomic, strong) id<AWSURLRequestSerializer> requestSerializer;
 @property (nonatomic, strong) NSArray<id<AWSNetworkingRequestInterceptor>> *requestInterceptors;
 @property (nonatomic, strong) id<AWSHTTPURLResponseSerializer> responseSerializer;
