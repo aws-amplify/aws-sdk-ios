@@ -94,8 +94,6 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
 @property (nonatomic, strong, readonly) AWSEndpoint *endpoint;
 @property (nonatomic, readonly) NSString *userAgent;
 @property (nonatomic, readonly) BOOL localTestingEnabled;
-@property (nonatomic, readonly) NSString * serviceProxyHost;
-@property (nonatomic, readonly) NSString * serviceProxyPort;
 
 + (NSString *)baseUserAgent;
 
