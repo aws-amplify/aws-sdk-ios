@@ -108,8 +108,6 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 @property (nonatomic, strong) AWSEndpoint *endpoint;
 @property (nonatomic, strong) NSArray *userAgentProductTokens;
 @property (nonatomic, assign) BOOL localTestingEnabled;
-@property (nonatomic, strong) NSString * serviceProxyHost;
-@property (nonatomic, strong) NSString * serviceProxyPort;
 @end
 
 @implementation AWSServiceConfiguration
@@ -229,8 +227,6 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
     configuration.userAgentProductTokens = self.userAgentProductTokens;
     configuration.endpoint = self.endpoint;
     configuration.localTestingEnabled = self.localTestingEnabled;
-    configuration.serviceProxyHost = self.serviceProxyHost;
-    configuration.serviceProxyPort = self.serviceProxyPort;
     configuration.proxyHost = self.serviceProxyHost;
     configuration.proxyPort = self.serviceProxyPort;
     return configuration;
