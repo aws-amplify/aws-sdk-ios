@@ -29,7 +29,7 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointAnalyticsClientTests
