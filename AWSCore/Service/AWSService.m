@@ -227,8 +227,10 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
     configuration.userAgentProductTokens = self.userAgentProductTokens;
     configuration.endpoint = self.endpoint;
     configuration.localTestingEnabled = self.localTestingEnabled;
-    configuration.proxyHost = configuration.proxyHost;
-    configuration.proxyPort = configuration.proxyPort;
+    configuration.serviceProxyHost = configuration.serviceProxyHost
+    configuration.serviceProxyPort = configuration.serviceProxyPort
+    configuration.proxyHost = configuration.serviceProxyHost;
+    configuration.proxyPort = configuration.serviceProxyPort;
     return configuration;
 }
 
