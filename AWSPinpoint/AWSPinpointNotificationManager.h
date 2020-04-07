@@ -35,6 +35,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushActionType) {
     AWSPinpointPushActionTypeUnknown
 };
 
+typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
+    AWSPinpointPushEventSourceTypeCampaign,
+    AWSPinpointPushEventSourceTypeJourney,
+    AWSPinpointPushEventSourceTypeUnknown
+};
+
 #pragma mark - Notification Helpers
 /**
  Returns a Boolean indicating whether the app is currently registered for remote notifications.

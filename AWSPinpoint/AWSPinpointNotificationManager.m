@@ -37,6 +37,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
 @interface AWSPinpointNotificationManager()
 @property (nonatomic, strong) AWSPinpointContext *context;
+@property (nonatomic) AWSPinpointPushEventSourceType previousEventSourceType;
 @end
 
 @interface AWSPinpointAnalyticsClient()
@@ -59,6 +60,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 - (instancetype) initWithContext:(AWSPinpointContext*) context {
     if (self = [super init]) {
         _context = context;
+        _previousEventSourceType = AWSPinpointPushEventSourceTypeUnknown;
     }
     return self;
 }
@@ -98,7 +100,8 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         }
         
         NSDictionary *metadata = [self getMetadataFromUserInfo:notificationPayload];
-        [self addGlobalEventSourceMetadata:metadata];
+        AWSPinpointPushEventSourceType eventSourceType = [self getEventSourceTypeFromUserInfo:notificationPayload];
+        [self addGlobalEventSourceMetadata:metadata withEventSourceType:eventSourceType];
         
         // Application launch because of notification
         [self recordMessageOpenedEventForNotification:notificationPayload
@@ -155,12 +158,13 @@ NSString *const AWSPinpointJourneyKey = @"journey";
   shouldHandleNotificationDeepLink:(BOOL) shouldHandleNotificationDeepLink {
     UIApplicationState state = [app applicationState];
     NSDictionary *metadata = [self getMetadataFromUserInfo:userInfo];
+    AWSPinpointPushEventSourceType eventSourceType = [self getEventSourceTypeFromUserInfo:userInfo];
     
     AWSPinpointPushActionType pushActionType = [self pushActionTypeOfApplicationState:state];
     switch (pushActionType) {
         case AWSPinpointPushActionTypeOpened: {
             AWSDDLogVerbose(@"App launched from received notification.");
-            [self addGlobalEventSourceMetadata:metadata];
+            [self addGlobalEventSourceMetadata:metadata withEventSourceType:eventSourceType];
             [self recordMessageOpenedEventForNotification:userInfo
                                            withIdentifier:nil];
             if (shouldHandleNotificationDeepLink) {
@@ -170,7 +174,7 @@ NSString *const AWSPinpointJourneyKey = @"journey";
         }
         case AWSPinpointPushActionTypeReceivedBackground: {
             AWSDDLogVerbose(@"Received notification with app on background.");
-            [self addGlobalEventSourceMetadata:metadata];
+            [self addGlobalEventSourceMetadata:metadata withEventSourceType:eventSourceType];
             [self recordMessageReceivedEventForNotification:userInfo
                                          withPushActionType:pushActionType];
             break;
@@ -234,11 +238,16 @@ NSString *const AWSPinpointJourneyKey = @"journey";
     }
 }
 
-- (void)addGlobalEventSourceMetadata:(NSDictionary *) metadata {
+- (void)addGlobalEventSourceMetadata:(NSDictionary *) metadata
+                 withEventSourceType:(AWSPinpointPushEventSourceType) eventSourceType {
     if (metadata.count) {
         // Remove previous global event source attributes from _globalAttributes
+        // only if event source type changes
         // This is to prevent _globalAttributes containing attributes from multiple event sources (campaign/journey)
-        [self.context.analyticsClient removeAllGlobalEventSourceAttributes];
+        if (eventSourceType != AWSPinpointPushEventSourceTypeUnknown && eventSourceType != self.previousEventSourceType ) {
+            [self.context.analyticsClient removeAllGlobalEventSourceAttributes];
+            self.previousEventSourceType = eventSourceType;
+        }
         [self.context.analyticsClient setEventSourceAttributes:metadata];
 
         for (NSString *key in [metadata allKeys]) {
@@ -286,16 +295,17 @@ NSString *const AWSPinpointJourneyKey = @"journey";
 
 - (NSString*)getEventTypePrefixFromUserInfo:(NSDictionary *) userInfo {
     NSString *eventType;
-    if ([AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
-        NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
-        if (pinpointData[AWSPinpointCampaignKey]) {
+    AWSPinpointPushEventSourceType pushEventSourceType = [self getEventSourceTypeFromUserInfo:userInfo];
+    switch (pushEventSourceType) {
+        case AWSPinpointPushEventSourceTypeCampaign:
             eventType = AWSPinpointCampaignKey;
-        } else if (pinpointData[AWSPinpointJourneyKey]) {
+            break;
+        case AWSPinpointPushEventSourceTypeJourney:
             eventType = AWSPinpointJourneyKey;
-        }
-    }
-    if (!eventType) {
-        AWSDDLogError(@"Cannot determine event type from Push payload");
+            break;
+        case AWSPinpointPushEventSourceTypeUnknown:
+            AWSDDLogError(@"Cannot determine event type from Push payload");
+            break;
     }
     return eventType;
 }
@@ -336,21 +346,35 @@ NSString *const AWSPinpointJourneyKey = @"journey";
     return pushActionType;
 }
 
-- (NSDictionary*)getMetadataFromUserInfo:(NSDictionary*) userInfo {
+- (AWSPinpointPushEventSourceType)getEventSourceTypeFromUserInfo:(NSDictionary*) userInfo {
+    AWSPinpointPushEventSourceType eventType = AWSPinpointPushEventSourceTypeUnknown;
     if ([AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
         NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
         if (pinpointData[AWSPinpointCampaignKey]) {
-            NSDictionary *campaign = pinpointData[AWSPinpointCampaignKey];
-            AWSDDLogVerbose(@"Found campaign attributes: %@", campaign);
-            return campaign;
+            eventType = AWSPinpointPushEventSourceTypeCampaign;
         } else if (pinpointData[AWSPinpointJourneyKey]) {
-            NSDictionary *journey = pinpointData[AWSPinpointJourneyKey];
-            AWSDDLogVerbose(@"Found journey attributes: %@", journey);
-            return journey;
+            eventType = AWSPinpointPushEventSourceTypeJourney;
         }
     }
-    AWSDDLogError(@"No valid Pinpoint Push payload found");
-    return nil;
+    return eventType;
+}
+
+- (NSDictionary*)getMetadataFromUserInfo:(NSDictionary*) userInfo {
+    NSDictionary *metadata = nil;
+    if ([AWSPinpointNotificationManager validPinpointPushForNotification:userInfo]) {
+        NSDictionary *pinpointData = userInfo[AWSDataKey][AWSPinpointKey];
+        if (pinpointData[AWSPinpointCampaignKey]) {
+            metadata = pinpointData[AWSPinpointCampaignKey];
+            AWSDDLogVerbose(@"Found campaign attributes: %@", metadata);
+        } else if (pinpointData[AWSPinpointJourneyKey]) {
+            metadata = pinpointData[AWSPinpointJourneyKey];
+            AWSDDLogVerbose(@"Found journey attributes: %@", metadata);
+        }
+    }
+    if (!metadata) {
+        AWSDDLogError(@"No valid Pinpoint Push payload found");
+    }
+    return metadata;
 }
 
 @end
