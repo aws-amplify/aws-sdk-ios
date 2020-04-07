@@ -7,6 +7,7 @@
 
 ### Misc. Updates
 - Update CI/CD system to build with Xcode 11.4 See [issue #2365](https://github.com/aws-amplify/aws-sdk-ios/issues/2365).
+- Added support for Pinpoint Journey Push Notifications
 - Model updates for the following services:
   - AWS Lambda
   - Amazon Pinpoint
