@@ -21,10 +21,18 @@
 
 #import "AWSPinpointEventRecorderTestBase.h"
 
-NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
-NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
-NSUInteger const AWSPinpointClientValidEvent = 0;
-NSUInteger const AWSPinpointClientInvalidEvent = 1;
+static NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
+static NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
+static NSUInteger const AWSPinpointClientValidEvent = 0;
+static NSUInteger const AWSPinpointClientInvalidEvent = 1;
+static NSString *const TestUpdateSessionJourneyAttributes = @"testUpdateSessionJourneyAttributes";
+static NSString *const TestUpdateSessionCampaignAttributes = @"testUpdateSessionCampaignAttributes";
+static NSString *const TestUpdateSessionOverwriteCampaignAttributesWithJourney = @"testUpdateSessionOverwriteCampaignAttributesWithJourney";
+static NSString *const CampaignAttributeKey = @"campaignAttrKey";
+static NSString *const CampaignAttributeValue = @"campaignAttrVal";
+static NSString *const JourneyAttributeKey = @"journeyAttrKey";
+static NSString *const JourneyAttributeValue = @"journeyAttrVal";
+static NSString *const EventTypeSessionStart = @"_session.start";
 
 @interface AWSPinpoint()
 @property (nonatomic, strong) AWSPinpointContext *pinpointContext;
@@ -32,7 +40,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @interface AWSPinpointEvent()
@@ -115,7 +123,7 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     __block AWSPinpointEvent *stopEvent;
     [[[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         startEvent = task.result;
-        XCTAssertTrue([startEvent.eventType isEqualToString:@"_session.start"]);
+        XCTAssertTrue([startEvent.eventType isEqualToString:EventTypeSessionStart]);
         XCTAssertTrue(startEvent.eventTimestamp > 0);
         XCTAssertNotNil(startEvent.allAttributes);
         XCTAssertEqual([startEvent.allAttributes count], 0);
@@ -216,21 +224,21 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     }];
 }
 
-- (void) testUpdateSessionEventSourceAttributesNoSession {
+- (void) testUpdateSessionCampaignAttributesNoSession {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
     [[self.pinpointIAD.sessionClient stopSession] waitUntilFinished];
 
-    [[self.pinpointIAD.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[self.pinpointIAD.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         [[self.pinpointIAD.analyticsClient.eventRecorder getCurrentSession:self.pinpointIAD.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             XCTAssertNotNil(task.result);
             XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
             AWSPinpointEvent *sessionStartResult = task.result;
-            XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
             XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:self.pinpointIAD.sessionClient.session.sessionId]);
             XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:self.pinpointIAD.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
-            XCTAssertTrue([sessionStartResult.allAttributes[@"campaignAttrKey"] isEqualToString:@"campaignAttrVal"]);
+            XCTAssertTrue([sessionStartResult.allAttributes[CampaignAttributeKey] isEqualToString:CampaignAttributeValue]);
             [expectation fulfill];
             
             return nil;
@@ -243,14 +251,14 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     }];
 }
 
-- (void) testUpdateSessionEventSourceAttributesWithCampaign {
+- (void) testUpdateSessionCampaignAttributes {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testUpdateSessionCampaignAttributes" launchOptions:@{}];
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:TestUpdateSessionCampaignAttributes launchOptions:@{}];
     
-    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testUpdateSessionCampaignAttributes"];
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:TestUpdateSessionCampaignAttributes];
     config.enableAutoSessionRecording = NO;
-    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testUpdateSessionCampaignAttributes"];
+    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:TestUpdateSessionCampaignAttributes];
     [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
     [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
     [config.userDefaults synchronize];
@@ -273,28 +281,162 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
             XCTAssertNotNil(task.result);
             XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
             AWSPinpointEvent *sessionStartResult = task.result;
-            XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
             XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
             XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
             XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
             
-            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{@"campaignAttrKey":@"campaignAttrVal"}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                     XCTAssertNotNil(task.result);
                     XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
                     AWSPinpointEvent *sessionStartResult = task.result;
-                    XCTAssertTrue([sessionStartResult.eventType isEqualToString:@"_session.start"]);
+                    XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
                     XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
                     XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
                     XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
-                    XCTAssertTrue([sessionStartResult.allAttributes[@"campaignAttrKey"] isEqualToString:@"campaignAttrVal"]);
+                    XCTAssertTrue([sessionStartResult.allAttributes[CampaignAttributeKey] isEqualToString:CampaignAttributeValue]);
                     [expectation fulfill];
-                    
                     return nil;
                 }];
                 return nil;
             }];
+            return nil;
+        }];
+        return nil;
+    }];
+
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) testUpdateSessionJourneyAttributes {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:TestUpdateSessionJourneyAttributes launchOptions:@{}];
+
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:TestUpdateSessionJourneyAttributes];
+    config.enableAutoSessionRecording = NO;
+    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:TestUpdateSessionJourneyAttributes];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [pinpoint.sessionClient stopSession];
+    [pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+
+    NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
+    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+
+    AWSDDLogError(@"Session Object Should be Empty: %@",session.description);
+
+    XCTAssertNil([pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey]);
+
+    [[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNotNil(task.result);
+            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+            AWSPinpointEvent *sessionStartResult = task.result;
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
+            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+            XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+            XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
+
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{JourneyAttributeKey:JourneyAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    XCTAssertNotNil(task.result);
+                    XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+                    AWSPinpointEvent *sessionStartResult = task.result;
+                    XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
+                    XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+                    XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+                    XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
+                    XCTAssertTrue([sessionStartResult.allAttributes[JourneyAttributeKey] isEqualToString:JourneyAttributeValue]);
+                    [expectation fulfill];
+                    return nil;
+                }];
+                return nil;
+            }];
+            return nil;
+        }];
+        return nil;
+    }];
+
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) testUpdateSessionOverwriteCampaignAttributesWithJourney {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+    
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:TestUpdateSessionOverwriteCampaignAttributesWithJourney launchOptions:@{}];
+    
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:TestUpdateSessionOverwriteCampaignAttributesWithJourney];
+    config.enableAutoSessionRecording = NO;
+    config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:TestUpdateSessionOverwriteCampaignAttributesWithJourney];
+    [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
+    [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
+    [config.userDefaults synchronize];
+    
+    
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
+    [pinpoint.sessionClient stopSession];
+    [pinpoint.analyticsClient removeAllGlobalEventSourceAttributes];
+    [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
+    
+    NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
+    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    AWSDDLogError(@"Session Object Should be Empty: %@",session.description);
+    
+    XCTAssertNil([pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey]);
+    
+    [[pinpoint.sessionClient startSession] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            XCTAssertNotNil(task.result);
+            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+            AWSPinpointEvent *sessionStartResult = task.result;
+            XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
+            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+            XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+            XCTAssertEqual(sessionStartResult.allAttributes.count, 0);
             
+            [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{CampaignAttributeKey:CampaignAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                    XCTAssertNotNil(task.result);
+                    XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+                    AWSPinpointEvent *sessionStartResult = task.result;
+                    XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
+                    XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+                    XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+                    XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
+                    XCTAssertTrue([sessionStartResult.allAttributes[CampaignAttributeKey] isEqualToString:CampaignAttributeValue]);
+                    
+                    // Overwrite with journey attributes
+                    [[pinpoint.analyticsClient.eventRecorder updateSessionStartWithEventSourceAttributes:@{JourneyAttributeKey:JourneyAttributeValue}] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                        [[pinpoint.analyticsClient.eventRecorder getCurrentSession:pinpoint.sessionClient.session] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                            XCTAssertNotNil(task.result);
+                            XCTAssertTrue([task.result isKindOfClass:[AWSPinpointEvent class]]);
+                            AWSPinpointEvent *sessionStartResult = task.result;
+                            XCTAssertTrue([sessionStartResult.eventType isEqualToString:EventTypeSessionStart]);
+                            XCTAssertTrue([sessionStartResult.session.sessionId isEqualToString:pinpoint.sessionClient.session.sessionId]);
+                            XCTAssertTrue([sessionStartResult.session.startTime.description isEqualToString:pinpoint.sessionClient.session.startTime.description]);
+                            XCTAssertEqual(sessionStartResult.allAttributes.count, 1);
+                            XCTAssertTrue([sessionStartResult.allAttributes[JourneyAttributeKey] isEqualToString:JourneyAttributeValue]);
+                            [expectation fulfill];
+                            
+                            return nil;
+                        }];
+                        return nil;
+                    }];
+                    return nil;
+                }];
+                return nil;
+            }];
             return nil;
         }];
         return nil;

@@ -30,7 +30,7 @@ int const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointEventRecorderTestBase

@@ -77,7 +77,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointEventRecorder
