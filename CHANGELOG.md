@@ -1,12 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## 2.13.2
 
 ### Bug Fixes
 - **AWSMobileClient** Persist scopes defined using `HostedUIOptions` across cognito auth sessions. Should not break existing calls to these functions. If the developer wishes to change the scopes, it is recommended that the users are forced to sign in to accept the permissions for new scopes. See [PR #2397](https://github.com/aws-amplify/aws-sdk-ios/pull/2397) [Issue #2357](https://github.com/aws-amplify/aws-sdk-ios/issues/2357) for more details
 
 ### Misc. Updates
 - Update CI/CD system to build with Xcode 11.4 See [issue #2365](https://github.com/aws-amplify/aws-sdk-ios/issues/2365).
+- Added support for Pinpoint Journey Push Notifications
 - Model updates for the following services:
   - AWS Lambda
   - Amazon Pinpoint
