@@ -741,18 +741,35 @@ class AWSIoTDataManagerTests: XCTestCase {
         let testMessage = "Test Message"
         let testTopic = "TestTopic"
         gotMessage.expectedFulfillmentCount = 5
+
+        let subAckExpectation = self.expectation(description: "Subscription should be acknowledged")
+        let subAckCallback: AWSIoTMQTTAckBlock = {
+            subAckExpectation.fulfill()
+        }
+
         //Subscribe to TestTopic
-        iotDataManager.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
-            (payload) ->Void in
-            let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
-            print("received: \(stringValue)")
-            XCTAssertEqual(testMessage, stringValue)
-            gotMessage.fulfill()
-        })
+        let subStatus = iotDataManager.subscribe(toTopic: testTopic,
+                                                 qoS: .messageDeliveryAttemptedAtLeastOnce,
+                                                 messageCallback: {
+                                                    (payload) ->Void in
+                                                    let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
+                                                    print("received: \(stringValue)")
+                                                    XCTAssertEqual(testMessage, stringValue)
+                                                    gotMessage.fulfill()
+        },
+                                                 ackCallback: subAckCallback)
+        XCTAssertTrue(subStatus, "Subscription should be susccessful. Connection Status - \(iotDataManager.getConnectionStatus().rawValue)")
+        wait(for:[subAckExpectation], timeout:10)
 
         //Publish to TestTopic 5 times
         for _ in 1...gotMessage.expectedFulfillmentCount {
-            iotDataManager.publishString(testMessage, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
+            let publishStatus = iotDataManager.publishString(testMessage,
+                                                             onTopic:testTopic,
+                                                             qoS:.messageDeliveryAttemptedAtLeastOnce,
+                                                             ackCallback: {
+                                                                print("Message publised in topic \(testTopic))")
+            })
+            XCTAssertTrue(publishStatus, "Publish should be successful. Connection Status - \(iotDataManager.getConnectionStatus().rawValue)")
         }
 
         wait(for:[gotMessage], timeout:30)
