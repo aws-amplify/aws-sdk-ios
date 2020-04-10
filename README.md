@@ -34,13 +34,17 @@ To use the AWS SDK for iOS, you will need the following installed on your develo
 
 ## Include the SDK for iOS in an Existing Application
 
-The [samples](https://github.com/awslabs/aws-sdk-ios-samples) included with the SDK for iOS are standalone projects that are already set up for you. You can also integrate the SDK for iOS with your own existing project. There are three ways to import the AWS Mobile SDK for iOS into your project:
+Prior to the introduction of [Amplify](https://aws-amplify.github.io/), we offered the AWS SDK for iOS which provides programatic access to AWS Services.  If you are starting a new application, we highly recommend you use Amplify instead of directly building the AWS SDK for iOS into your app.  Please see the link above for more information.
+
+If deciding that Amplify libary does not fit your use case and you still want to use the AWS SDK for iOS in your application, we have a couple [samples](https://github.com/awslabs/aws-sdk-ios-samples) which showcase how to use the SDK.
+
+There are three ways to integrate the AWS Mobile SDK for iOS into your own project:
 
 * [CocoaPods](https://cocoapods.org/)
 * [Carthage](https://github.com/Carthage/Carthage)
 * [Dynamic Frameworks](https://aws.amazon.com/mobile/sdk/)
 
-You should use one of these three ways to import the AWS Mobile SDK but not multiple. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler errors.
+You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.
 
 ### CocoaPods
 
@@ -54,42 +58,26 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         $ sudo gem install cocoapods
         $ pod setup
 
-2. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below. Replace `YourTarget` with your actual target name.
+2. In your project directory (the directory where your `*.xcodeproj` file is), run the following to create a `Podfile` in your.
 
-        platform :ios, '8.0'
-        use_frameworks!
-        
-        target :'YourTarget' do
-            pod 'AWSAutoScaling'
-            pod 'AWSCloudWatch'
-            pod 'AWSCognito'
-            pod 'AWSCognitoIdentityProvider'
-            pod 'AWSDynamoDB'
-            pod 'AWSEC2'
-            pod 'AWSElasticLoadBalancing'
-            pod 'AWSIoT'
-            pod 'AWSKinesis'
-            pod 'AWSLambda'
-            pod 'AWSMachineLearning'
-            pod 'AWSMobileAnalytics'
-            pod 'AWSS3'
-            pod 'AWSSES'
-            pod 'AWSSimpleDB'
-            pod 'AWSSNS'
-            pod 'AWSSQS'
-        end
-        
-    ![image](readme-images/cocoapods-setup-01.png?raw=true)
+        $ pod init
+
+3. Edit the podfile to include the pods you want to integrate into your project.  For example, if you need auth, you can use AWSMobileClient, and if you need analytics, you add AWSPinpoint.  As a result, your podfile might look something like this:
+
+target 'YourTarget' do
+    pod 'AWSMobileClient'
+    pod 'AWSPinpoint'
+end
         
 3. Then run the following command:
     
-        $ pod install
+        $ pod install --repo-update
 
-4. Open up `*.xcworkspace` with Xcode and start using the SDK.
+4. To open your project, open the newly generated `*.xcworkspace` file in your project's directory with XCode.  You can do this by issuing the following command in your project folder:
 
-    ![image](readme-images/cocoapods-setup-02.png?raw=true)
+        $ xed .
 
-    **Note**: Do **NOT** use `*.xcodeproj`. If you open up a project file instead of a workspace, you receive an error:
+    **Note**: Do **NOT** use `*.xcodeproj`. If you open up a project file instead of a workspace, you may receive the following error:
 
         ld: library not found for -lPods-AWSCore
         clang: error: linker command failed with exit code 1 (use -v to see invocation)
