@@ -1,4 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
+## Unreleased Changes
+- Added support for adding custom demographic to pinpoint [PR: #2410](https://github.com/aws-amplify/aws-sdk-ios/pull/2410)
 
 ## 2.13.2
 
