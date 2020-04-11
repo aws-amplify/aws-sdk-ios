@@ -94,28 +94,16 @@ end
     
         $ carthage update
 
-4. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
+4. With your project open in Xcode, select your **Target**. Under **General** tab, find **Frameworks, Libraries, and Embedded Content** and then click the **+** button.
 
-5. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files under `Carthage` > `Build` > `iOS` and select them. Do not check the **Destination: Copy items if needed** checkbox when prompted.
+5. Click the **Add Other...** button, then "Add Files..." in the popup menu, then navigate to the `AWS<#ServiceName#>.framework` files under `Carthage` > `Build` > `iOS` and select them. Do not check the **Destination: Copy items if needed** checkbox if prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:
 
-    * `AWSCore.framework`
-    * `AWSAutoScaling.framework`
-    * `AWSCloudWatch.framework`
-    * `AWSCognito.framework`
+    * `AWSAuthCore.framework`
     * `AWSCognitoIdentityProvider.framework`
-    * `AWSDynamoDB.framework`
-    * `AWSEC2.framework`
-    * `AWSElasticLoadBalancing.framework`
-    * `AWSIoT.framework`
-    * `AWSKinesis.framework`
-    * `AWSLambda.framework`
-    * `AWSMachineLearning.framework`
-    * `AWSMobileAnalytics.framework`
-    * `AWSS3.framework`
-    * `AWSSES.framework`
-    * `AWSSimpleDB.framework`
-    * `AWSSNS.framework`
-    * `AWSSQS.framework`
+    * `AWSCognitoIdentityProviderASF.framework`
+    * `AWSCore.framework`
+    * `AWSMobileClient.framework`
+    * `AWSPinpoint.framework`
 
 6. Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
 
@@ -137,26 +125,14 @@ end
 
 2. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
-3. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files and select them. Check the **Destination: Copy items if needed** checkbox when prompted.
+3. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files and select them. Check the **Destination: Copy items if needed** checkbox when prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:
 
-    * `AWSCore.framework`
-    * `AWSAutoScaling.framework`
-    * `AWSCloudWatch.framework`
-    * `AWSCognito.framework`
+    * `AWSAuthCore.framework`
     * `AWSCognitoIdentityProvider.framework`
-    * `AWSDynamoDB.framework`
-    * `AWSEC2.framework`
-    * `AWSElasticLoadBalancing.framework`
-    * `AWSIoT.framework`
-    * `AWSKinesis.framework`
-    * `AWSLambda.framework`
-    * `AWSMachineLearning.framework`
-    * `AWSMobileAnalytics.framework`
-    * `AWSS3.framework`
-    * `AWSSES.framework`
-    * `AWSSimpleDB.framework`
-    * `AWSSNS.framework`
-    * `AWSSQS.framework`
+    * `AWSCognitoIdentityProviderASF.framework`
+    * `AWSCore.framework`
+    * `AWSMobileClient.framework`
+    * `AWSPinpoint.framework`
 
 4. Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
 
@@ -192,26 +168,14 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
 ### Frameworks
 
-1. In Xcode select the following frameworks in **Project Navigator** and hit **delete** on your keyboard. Then select **Move to Trash**:
+1. In Xcode's **Project Navigator**, type "AWS" to find the AWS frameworks that were manually added to your project.  Manually select all of the AWS frameworks and hit **delete** on your keyboard. Then select **Move to Trash**.  If you were following the example from above which uses AWSMobileClient and AWSPinpoint, you would remove:
 
-    * `AWSCore.framework`
-    * `AWSAutoScaling.framework`
-    * `AWSCloudWatch.framework`
-    * `AWSCognito.framework`
+    * `AWSAuthCore.framework`
     * `AWSCognitoIdentityProvider.framework`
-    * `AWSDynamoDB.framework`
-    * `AWSEC2.framework`
-    * `AWSElasticLoadBalancing.framework`
-    * `AWSIoT.framework`
-    * `AWSKinesis.framework`
-    * `AWSLambda.framework`
-    * `AWSMachineLearning.framework`
-    * `AWSMobileAnalytics.framework`
-    * `AWSS3.framework`
-    * `AWSSES.framework`
-    * `AWSSimpleDB.framework`
-    * `AWSSNS.framework`
-    * `AWSSQS.framework`
+    * `AWSCognitoIdentityProviderASF.framework`
+    * `AWSCore.framework`
+    * `AWSMobileClient.framework`
+    * `AWSPinpoint.framework`
 
 2. Follow the installation process above to include the new version of the SDK.
 
