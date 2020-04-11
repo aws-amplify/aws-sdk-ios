@@ -743,7 +743,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         gotMessage.expectedFulfillmentCount = 5
 
         let subAckExpectation = self.expectation(description: "Subscription should be acknowledged")
-        let subAckCallback: AWSIoTMQTTAckBlock = {
+        let ackCallback: AWSIoTMQTTAckBlock = {
             subAckExpectation.fulfill()
         }
 
@@ -757,8 +757,8 @@ class AWSIoTDataManagerTests: XCTestCase {
                                                     XCTAssertEqual(testMessage, stringValue)
                                                     gotMessage.fulfill()
         },
-                                                 ackCallback: subAckCallback)
-        XCTAssertTrue(subStatus, "Subscription should be susccessful. Connection Status - \(iotDataManager.getConnectionStatus().rawValue)")
+                                                 ackCallback: ackCallback)
+        XCTAssertTrue(subStatus, "Subscription should be successful. Connection Status - \(iotDataManager.getConnectionStatus().rawValue)")
         wait(for:[subAckExpectation], timeout:10)
 
         //Publish to TestTopic 5 times
@@ -767,7 +767,7 @@ class AWSIoTDataManagerTests: XCTestCase {
                                                              onTopic:testTopic,
                                                              qoS:.messageDeliveryAttemptedAtLeastOnce,
                                                              ackCallback: {
-                                                                print("Message publised in topic \(testTopic))")
+                                                                print("Message published in topic \(testTopic))")
             })
             XCTAssertTrue(publishStatus, "Publish should be successful. Connection Status - \(iotDataManager.getConnectionStatus().rawValue)")
         }
