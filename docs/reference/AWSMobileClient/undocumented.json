@@ -44,28 +44,28 @@
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 143,
+      "line": 145,
       "symbol": "AWSMobileClient.deviceOperations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 194,
+      "line": 196,
       "symbol": "AWSMobileClient.handleAuthResponse(_:open:sourceApplication:annotation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1030,
+      "line": 1043,
       "symbol": "AWSMobileClient.getViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1038,
+      "line": 1051,
       "symbol": "AWSMobileClient.shouldLaunchSignInVCIfRefreshTokenIsExpired()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -102,6 +102,13 @@
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
       "line": 147,
       "symbol": "IdentityProvider.developer",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 148,
+      "symbol": "IdentityProvider.apple",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
