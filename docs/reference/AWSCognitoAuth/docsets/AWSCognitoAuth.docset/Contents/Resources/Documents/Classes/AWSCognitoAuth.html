@@ -14,7 +14,7 @@
     <a title="AWSCognitoAuth Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoAuth 2.13.1 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSCognitoAuth 2.13.2 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoAuth%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -122,7 +122,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCognitoAuthDelegate.html">AWSCognitoAuthDelegate</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span> <span class="n">delegate</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">id</span><span class="o">&lt;</span><span class="n"><a href="../Protocols/AWSCognitoAuthDelegate.html">AWSCognitoAuthDelegate</a></span><span class="o">&gt;</span> <span class="n">_Nullable</span> <span class="n">delegate</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -154,8 +154,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSCognitoAuthConfiguration.html">AWSCognitoAuthConfiguration</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">authConfiguration</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSCognitoAuthConfiguration.html">AWSCognitoAuthConfiguration</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">authConfiguration</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -188,7 +187,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isSignedIn</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">signedIn</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isSignedIn</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">signedIn</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -241,7 +240,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(cm)registerCognitoAuthWithAuthConfiguration:forKey:"></a>
                     <a name="//apple_ref/objc/Method/+registerCognitoAuthWithAuthConfiguration:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(cm)registerCognitoAuthWithAuthConfiguration:forKey:">+registerCognitoAuthWithAuthConfiguration:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(cm)registerCognitoAuthWithAuthConfiguration:forKey:">+registerCognitoAuthWithAuthConfiguration:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -306,7 +305,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(cm)CognitoAuthForKey:"></a>
                     <a name="//apple_ref/objc/Method/+CognitoAuthForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(cm)CognitoAuthForKey:">+CognitoAuthForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(cm)CognitoAuthForKey:">+CognitoAuthForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -361,7 +360,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(cm)removeCognitoAuthForKey:"></a>
                     <a name="//apple_ref/objc/Method/+removeCognitoAuthForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(cm)removeCognitoAuthForKey:">+removeCognitoAuthForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(cm)removeCognitoAuthForKey:">+removeCognitoAuthForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -412,7 +411,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(im)getSession:completion:"></a>
                     <a name="//apple_ref/objc/Method/-getSession:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)getSession:completion:">-getSession:completion:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)getSession:completion:">-getSession:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -476,7 +475,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(im)getSession:"></a>
                     <a name="//apple_ref/objc/Method/-getSession:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)getSession:">-getSession:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)getSession:">-getSession:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -527,7 +526,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(im)signOut:completion:"></a>
                     <a name="//apple_ref/objc/Method/-signOut:completion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)signOut:completion:">-signOut:completion:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)signOut:completion:">-signOut:<wbr>completion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -591,7 +590,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(im)signOut:"></a>
                     <a name="//apple_ref/objc/Method/-signOut:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)signOut:">-signOut:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)signOut:">-signOut:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -706,7 +705,7 @@ the end user will be prompted to authenticate when you call getSession.</p>
                     <code>
                     <a name="/c:objc(cs)AWSCognitoAuth(im)application:openURL:options:"></a>
                     <a name="//apple_ref/objc/Method/-application:openURL:options:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)application:openURL:options:">-application:openURL:options:</a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoAuth(im)application:openURL:options:">-application:<wbr>openURL:<wbr>options:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -741,8 +740,8 @@ the end user will be prompted to authenticate when you call getSession.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
