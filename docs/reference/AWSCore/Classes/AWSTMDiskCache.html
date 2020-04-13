@@ -14,7 +14,7 @@
     <a title="AWSTMDiskCache Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.13.1 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.13.2 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1330,7 +1330,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1367,7 +1367,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">cacheURL</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">cacheURL</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1414,7 +1414,7 @@ not taking into account any pending operations. In most cases this value should 
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteCount</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteCount</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1452,7 +1452,7 @@ size exceeds the limit a trim call is queued. Defaults to <code>0.0</code>, mean
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">byteLimit</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="n">NSUInteger</span> <span class="n">byteLimit</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1491,7 +1491,7 @@ Setting it back to <code>0.0</code> will stop the timer. Defaults to <code>0.0</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1536,7 +1536,7 @@ Setting it back to <code>0.0</code> will stop the timer. Defaults to <code>0.0</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willAddObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willAddObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1568,8 +1568,7 @@ Setting it back to <code>0.0</code> will stop the timer. Defaults to <code>0.0</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willRemoveObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">willRemoveObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1602,8 +1601,7 @@ The queue waits during execution.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">willRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">willRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1635,7 +1633,7 @@ The queue waits during execution.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didAddObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didAddObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1667,8 +1665,7 @@ The queue waits during execution.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didRemoveObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a></span> <span class="n">didRemoveObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1701,7 +1698,7 @@ The queue waits during execution.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1832,7 +1829,7 @@ this queue with an exisiting serial I/O queue.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)initWithName:"></a>
                     <a name="//apple_ref/objc/Method/-initWithName:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)initWithName:">-initWithName:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)initWithName:">-initWithName:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1890,7 +1887,7 @@ the same data on disk thanks to the magic of seriality.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)initWithName:rootPath:"></a>
                     <a name="//apple_ref/objc/Method/-initWithName:rootPath:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)initWithName:rootPath:">-initWithName:rootPath:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)initWithName:rootPath:">-initWithName:<wbr>rootPath:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1973,7 +1970,7 @@ the same data on disk thanks to the magic of seriality.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)objectForKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-objectForKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)objectForKey:block:">-objectForKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)objectForKey:block:">-objectForKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2042,7 +2039,7 @@ block as soon as the object is available on the serial <sharedQueue>.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-fileURLForKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:block:">-fileURLForKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:block:">-fileURLForKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2113,7 +2110,7 @@ access this fileURL after the block has ended. Do all work on the <sharedQueue>.
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-setObject:forKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:block:">-setObject:forKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:block:">-setObject:<wbr>forKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2191,7 +2188,7 @@ passed block as soon as the object has been stored.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-removeObjectForKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:block:">-removeObjectForKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:block:">-removeObjectForKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2256,7 +2253,7 @@ as soon as the object has been removed.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)trimToDate:block:"></a>
                     <a name="//apple_ref/objc/Method/-trimToDate:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToDate:block:">-trimToDate:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToDate:block:">-trimToDate:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2320,7 +2317,7 @@ This method returns immediately and executes the passed block as soon as the cac
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSize:block:"></a>
                     <a name="//apple_ref/objc/Method/-trimToSize:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSize:block:">-trimToSize:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSize:block:">-trimToSize:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2384,7 +2381,7 @@ This method returns immediately and executes the passed block as soon as the cac
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:block:"></a>
                     <a name="//apple_ref/objc/Method/-trimToSizeByDate:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:block:">-trimToSizeByDate:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:block:">-trimToSizeByDate:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2449,7 +2446,7 @@ been trimmed.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)removeAllObjects:"></a>
                     <a name="//apple_ref/objc/Method/-removeAllObjects:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeAllObjects:">-removeAllObjects:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeAllObjects:">-removeAllObjects:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2501,7 +2498,7 @@ cache has been cleared.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:completionBlock:"></a>
                     <a name="//apple_ref/objc/Method/-enumerateObjectsWithBlock:completionBlock:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:completionBlock:">-enumerateObjectsWithBlock:completionBlock:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:completionBlock:">-enumerateObjectsWithBlock:<wbr>completionBlock:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2580,7 +2577,7 @@ This method returns immediately.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)objectForKey:"></a>
                     <a name="//apple_ref/objc/Method/-objectForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)objectForKey:">-objectForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)objectForKey:">-objectForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2638,7 +2635,7 @@ object is available.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:"></a>
                     <a name="//apple_ref/objc/Method/-fileURLForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:">-fileURLForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)fileURLForKey:">-fileURLForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2697,7 +2694,7 @@ shouldn&rsquo;t even exist, just use the asynchronous one.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:"></a>
                     <a name="//apple_ref/objc/Method/-setObject:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:">-setObject:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)setObject:forKey:">-setObject:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2766,7 +2763,7 @@ the object has been stored.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:"></a>
                     <a name="//apple_ref/objc/Method/-removeObjectForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:">-removeObjectForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)removeObjectForKey:">-removeObjectForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2818,7 +2815,7 @@ has been removed.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)trimToDate:"></a>
                     <a name="//apple_ref/objc/Method/-trimToDate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToDate:">-trimToDate:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToDate:">-trimToDate:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2870,7 +2867,7 @@ This method blocks the calling thread until the cache has been trimmed.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSize:"></a>
                     <a name="//apple_ref/objc/Method/-trimToSize:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSize:">-trimToSize:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSize:">-trimToSize:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2922,7 +2919,7 @@ specified byteCount. This method blocks the calling thread until the cache has b
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:"></a>
                     <a name="//apple_ref/objc/Method/-trimToSizeByDate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:">-trimToSizeByDate:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)trimToSizeByDate:">-trimToSizeByDate:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3006,7 +3003,7 @@ smaller than the specified byteCount. This method blocks the calling thread unti
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:"></a>
                     <a name="//apple_ref/objc/Method/-enumerateObjectsWithBlock:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:">-enumerateObjectsWithBlock:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(im)enumerateObjectsWithBlock:">-enumerateObjectsWithBlock:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3078,7 +3075,7 @@ Instead use the asynchronous version, <a href="enumerateObjectsWithBlock:complet
                     <code>
                     <a name="/c:objc(cs)AWSTMDiskCache(cm)setBackgroundTaskManager:"></a>
                     <a name="//apple_ref/objc/Method/+setBackgroundTaskManager:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(cm)setBackgroundTaskManager:">+setBackgroundTaskManager:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMDiskCache(cm)setBackgroundTaskManager:">+setBackgroundTaskManager:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3125,8 +3122,8 @@ Instead use the asynchronous version, <a href="enumerateObjectsWithBlock:complet
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

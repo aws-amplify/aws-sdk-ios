@@ -14,7 +14,7 @@
     <a title="AWSTMMemoryCache Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.13.1 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.13.2 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSCore%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1300,7 +1300,7 @@ other queue, such as a global concurrent queue with a priority other than the de
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">dispatch_queue_t</span> <span class="n">queue</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">dispatch_queue_t</span> <span class="n">queue</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1332,7 +1332,7 @@ other queue, such as a global concurrent queue with a priority other than the de
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">totalCost</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">totalCost</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1364,7 +1364,7 @@ other queue, such as a global concurrent queue with a priority other than the de
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSUInteger</span> <span class="n">costLimit</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="n">NSUInteger</span> <span class="n">costLimit</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1398,7 +1398,7 @@ Setting it back to <code>0.0</code> will stop the timer. Defaults to <code>0.0</
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="n">NSTimeInterval</span> <span class="n">ageLimit</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1431,7 +1431,7 @@ Defaults to <code>YES</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">removeAllObjectsOnMemoryWarning</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="n">BOOL</span> <span class="n">removeAllObjectsOnMemoryWarning</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1464,7 +1464,7 @@ Defaults to <code>YES</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">removeAllObjectsOnEnteringBackground</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="n">BOOL</span> <span class="n">removeAllObjectsOnEnteringBackground</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1510,8 +1510,7 @@ a barrier, i.e. all reads and writes are suspended for the duration of the block
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">willAddObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">willAddObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1544,8 +1543,7 @@ within a barrier, i.e. all reads and writes are suspended for the duration of th
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">willRemoveObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">willRemoveObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1578,8 +1576,7 @@ This block will be excuted within a barrier, i.e. all reads and writes are suspe
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">willRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">willRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1612,8 +1609,7 @@ a barrier, i.e. all reads and writes are suspended for the duration of the block
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">didAddObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">didAddObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1646,8 +1642,7 @@ within a barrier, i.e. all reads and writes are suspended for the duration of th
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">didRemoveObjectBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a></span> <span class="n">didRemoveObjectBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1680,8 +1675,7 @@ This block will be excuted within a barrier, i.e. all reads and writes are suspe
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didRemoveAllObjectsBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1714,8 +1708,7 @@ This block will be executed regardless of the value of <removeAllObjectsOnMemory
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didReceiveMemoryWarningBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didReceiveMemoryWarningBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1748,8 +1741,7 @@ This block will be executed regardless of the value of <removeAllObjectsOnEnteri
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">atomic</span><span class="p">)</span>
-    <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didEnterBackgroundBlock</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a></span> <span class="n">didEnterBackgroundBlock</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1826,7 +1818,7 @@ This block will be executed regardless of the value of <removeAllObjectsOnEnteri
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)objectForKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-objectForKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)objectForKey:block:">-objectForKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)objectForKey:block:">-objectForKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1890,7 +1882,7 @@ block after the object is available, potentially in parallel with other blocks o
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-setObject:forKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:block:">-setObject:forKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:block:">-setObject:<wbr>forKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1968,7 +1960,7 @@ passed block after the object has been stored, potentially in parallel with othe
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:withCost:block:"></a>
                     <a name="//apple_ref/objc/Method/-setObject:forKey:withCost:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:withCost:block:">-setObject:forKey:withCost:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:withCost:block:">-setObject:<wbr>forKey:<wbr>withCost:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2061,7 +2053,7 @@ on the <queue>.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)removeObjectForKey:block:"></a>
                     <a name="//apple_ref/objc/Method/-removeObjectForKey:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)removeObjectForKey:block:">-removeObjectForKey:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)removeObjectForKey:block:">-removeObjectForKey:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2126,7 +2118,7 @@ block after the object has been removed, potentially in parallel with other bloc
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)trimToDate:block:"></a>
                     <a name="//apple_ref/objc/Method/-trimToDate:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToDate:block:">-trimToDate:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToDate:block:">-trimToDate:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2191,7 +2183,7 @@ potentially in parallel with other blocks on the <queue>.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)trimToCost:block:"></a>
                     <a name="//apple_ref/objc/Method/-trimToCost:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCost:block:">-trimToCost:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCost:block:">-trimToCost:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2256,7 +2248,7 @@ potentially in parallel with other blocks on the <queue>.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)trimToCostByDate:block:"></a>
                     <a name="//apple_ref/objc/Method/-trimToCostByDate:block:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCostByDate:block:">-trimToCostByDate:block:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCostByDate:block:">-trimToCostByDate:<wbr>block:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2321,7 +2313,7 @@ trimmed, potentially in parallel with other blocks on the <queue>.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)removeAllObjects:"></a>
                     <a name="//apple_ref/objc/Method/-removeAllObjects:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)removeAllObjects:">-removeAllObjects:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)removeAllObjects:">-removeAllObjects:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2373,7 +2365,7 @@ the cache has been cleared, potentially in parallel with other blocks on the <qu
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)enumerateObjectsWithBlock:completionBlock:"></a>
                     <a name="//apple_ref/objc/Method/-enumerateObjectsWithBlock:completionBlock:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)enumerateObjectsWithBlock:completionBlock:">-enumerateObjectsWithBlock:completionBlock:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)enumerateObjectsWithBlock:completionBlock:">-enumerateObjectsWithBlock:<wbr>completionBlock:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2451,7 +2443,7 @@ This method returns immediately.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)objectForKey:"></a>
                     <a name="//apple_ref/objc/Method/-objectForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)objectForKey:">-objectForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)objectForKey:">-objectForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2509,7 +2501,7 @@ object is available.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:"></a>
                     <a name="//apple_ref/objc/Method/-setObject:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:">-setObject:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:">-setObject:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2578,7 +2570,7 @@ has been set.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:withCost:"></a>
                     <a name="//apple_ref/objc/Method/-setObject:forKey:withCost:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:withCost:">-setObject:forKey:withCost:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)setObject:forKey:withCost:">-setObject:<wbr>forKey:<wbr>withCost:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2655,7 +2647,7 @@ until the object has been stored.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)removeObjectForKey:"></a>
                     <a name="//apple_ref/objc/Method/-removeObjectForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)removeObjectForKey:">-removeObjectForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)removeObjectForKey:">-removeObjectForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2707,7 +2699,7 @@ has been removed.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)trimToDate:"></a>
                     <a name="//apple_ref/objc/Method/-trimToDate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToDate:">-trimToDate:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToDate:">-trimToDate:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2759,7 +2751,7 @@ This method blocks the calling thread until the cache has been trimmed.</p>
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)trimToCost:"></a>
                     <a name="//apple_ref/objc/Method/-trimToCost:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCost:">-trimToCost:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCost:">-trimToCost:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2811,7 +2803,7 @@ value. This method blocks the calling thread until the cache has been trimmed.</
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)trimToCostByDate:"></a>
                     <a name="//apple_ref/objc/Method/-trimToCostByDate:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCostByDate:">-trimToCostByDate:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)trimToCostByDate:">-trimToCostByDate:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2895,7 +2887,7 @@ the specified value. This method blocks the calling thread until the cache has b
                     <code>
                     <a name="/c:objc(cs)AWSTMMemoryCache(im)enumerateObjectsWithBlock:"></a>
                     <a name="//apple_ref/objc/Method/-enumerateObjectsWithBlock:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)enumerateObjectsWithBlock:">-enumerateObjectsWithBlock:</a>
+                    <a class="token" href="#/c:objc(cs)AWSTMMemoryCache(im)enumerateObjectsWithBlock:">-enumerateObjectsWithBlock:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3027,8 +3019,8 @@ Instead use the asynchronous version, <a href="enumerateObjectsWithBlock:complet
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
