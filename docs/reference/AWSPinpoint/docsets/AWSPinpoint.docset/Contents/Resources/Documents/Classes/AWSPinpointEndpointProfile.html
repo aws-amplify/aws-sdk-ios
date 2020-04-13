@@ -14,7 +14,7 @@
     <a title="AWSPinpointEndpointProfile Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.13.1 Docs</a> (92% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.13.2 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1277,6 +1277,9 @@
                 <a href="../Constants.html#/c:@AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey">AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPinpointJourneyKey">AWSPinpointJourneyKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Constants.html#/c:@AWSPinpointKey">AWSPinpointKey</a>
               </li>
               <li class="nav-group-task">
@@ -1304,6 +1307,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointAnalyticsErrorType.html">AWSPinpointAnalyticsErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointPushActionType.html">AWSPinpointPushActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointPushEventSourceType.html">AWSPinpointPushEventSourceType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointTargetingAction.html">AWSPinpointTargetingAction</a>
@@ -1429,7 +1438,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">applicationId</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">applicationId</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1462,7 +1471,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">endpointId</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">endpointId</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1495,7 +1504,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">channelType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">channelType</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1528,7 +1537,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">address</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">address</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1562,7 +1571,7 @@ It defaults to ALL or NONE depending on if the user has allowed remote push noti
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">optOut</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">optOut</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1596,7 +1605,7 @@ Defaults to current time
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSPinpointEvent.h@T@UTCTimeMillis">UTCTimeMillis</a></span> <span class="n">effectiveDate</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSPinpointEvent.h@T@UTCTimeMillis">UTCTimeMillis</a></span> <span class="n">effectiveDate</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1629,8 +1638,7 @@ Defaults to current time
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSPinpointEndpointProfileLocation.html">AWSPinpointEndpointProfileLocation</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">location</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointEndpointProfileLocation.html">AWSPinpointEndpointProfileLocation</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">location</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1663,13 +1671,46 @@ Defaults to current time
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSPinpointEndpointProfileDemographic.html">AWSPinpointEndpointProfileDemographic</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">demographic</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointEndpointProfileDemographic.html">AWSPinpointEndpointProfileDemographic</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">demographic</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">demographic</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointEndpointProfileDemographic.html">AWSPinpointEndpointProfileDemographic</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointEndpointProfile(py)customDemographic"></a>
+                    <a name="//apple_ref/objc/Property/customDemographic" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(py)customDemographic">customDemographic</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The AWSPinpointEndpointProfileDemographic facet that, if it is set, will overwrite the default demographic
+for subsequent requests to Pinpoint
+@returns demographic</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointEndpointProfileDemographic.html">AWSPinpointEndpointProfileDemographic</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">customDemographic</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">customDemographic</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSPinpointEndpointProfileDemographic.html">AWSPinpointEndpointProfileDemographic</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -1697,8 +1738,7 @@ Defaults to current time
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSPinpointEndpointProfileUser.html">AWSPinpointEndpointProfileUser</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">user</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointEndpointProfileUser.html">AWSPinpointEndpointProfileUser</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">user</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1715,7 +1755,7 @@ Defaults to current time
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)initWithApplicationId:endpointId:"></a>
                     <a name="//apple_ref/objc/Method/-initWithApplicationId:endpointId:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)initWithApplicationId:endpointId:">-initWithApplicationId:endpointId:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)initWithApplicationId:endpointId:">-initWithApplicationId:<wbr>endpointId:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1749,7 +1789,7 @@ Defaults to current time
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)initWithContext:"></a>
                     <a name="//apple_ref/objc/Method/-initWithContext:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)initWithContext:">-initWithContext:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)initWithContext:">-initWithContext:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1782,7 +1822,7 @@ Defaults to current time
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)addAttribute:forKey:"></a>
                     <a name="//apple_ref/objc/Method/-addAttribute:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)addAttribute:forKey:">-addAttribute:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)addAttribute:forKey:">-addAttribute:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1847,7 +1887,7 @@ are allowed to be added to an AWSPinpointEndpointProfile. If 40 attributes/metri
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)attributeForKey:"></a>
                     <a name="//apple_ref/objc/Method/-attributeForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)attributeForKey:">-attributeForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)attributeForKey:">-attributeForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1899,7 +1939,7 @@ are allowed to be added to an AWSPinpointEndpointProfile. If 40 attributes/metri
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)hasAttributeForKey:"></a>
                     <a name="//apple_ref/objc/Method/-hasAttributeForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)hasAttributeForKey:">-hasAttributeForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)hasAttributeForKey:">-hasAttributeForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1984,7 +2024,7 @@ are allowed to be added to an AWSPinpointEndpointProfile. If 40 attributes/metri
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)addMetric:forKey:"></a>
                     <a name="//apple_ref/objc/Method/-addMetric:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)addMetric:forKey:">-addMetric:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)addMetric:forKey:">-addMetric:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2049,7 +2089,7 @@ are allowed to be added to an AWSPinpointEndpointProfile. If 40 attribute/metric
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)metricForKey:"></a>
                     <a name="//apple_ref/objc/Method/-metricForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)metricForKey:">-metricForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)metricForKey:">-metricForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2101,7 +2141,7 @@ are allowed to be added to an AWSPinpointEndpointProfile. If 40 attribute/metric
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEndpointProfile(im)hasMetricForKey:"></a>
                     <a name="//apple_ref/objc/Method/-hasMetricForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)hasMetricForKey:">-hasMetricForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEndpointProfile(im)hasMetricForKey:">-hasMetricForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2219,8 +2259,8 @@ are allowed to be added to an AWSPinpointEndpointProfile. If 40 attribute/metric
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

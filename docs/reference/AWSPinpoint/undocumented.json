@@ -107,9 +107,93 @@
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
-      "line": 28,
+      "line": 27,
+      "symbol": "AWSPinpointJourneyKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 29,
       "symbol": "AWSPinpointNotificationManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 31,
+      "symbol": "AWSPinpointPushActionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 31,
+      "symbol": "AWSPinpointPushActionType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 32,
+      "symbol": "AWSPinpointPushActionType.AWSPinpointPushActionTypeOpened",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 33,
+      "symbol": "AWSPinpointPushActionType.AWSPinpointPushActionTypeReceivedForeground",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 34,
+      "symbol": "AWSPinpointPushActionType.AWSPinpointPushActionTypeReceivedBackground",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 35,
+      "symbol": "AWSPinpointPushActionType.AWSPinpointPushActionTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 38,
+      "symbol": "AWSPinpointPushEventSourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 38,
+      "symbol": "AWSPinpointPushEventSourceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 39,
+      "symbol": "AWSPinpointPushEventSourceType.AWSPinpointPushEventSourceTypeCampaign",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 40,
+      "symbol": "AWSPinpointPushEventSourceType.AWSPinpointPushEventSourceTypeJourney",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointNotificationManager.h",
+      "line": 41,
+      "symbol": "AWSPinpointPushEventSourceType.AWSPinpointPushEventSourceTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {

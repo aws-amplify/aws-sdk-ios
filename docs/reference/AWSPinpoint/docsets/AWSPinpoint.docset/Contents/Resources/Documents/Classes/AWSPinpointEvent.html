@@ -14,7 +14,7 @@
     <a title="AWSPinpointEvent Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.13.1 Docs</a> (92% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.13.2 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1277,6 +1277,9 @@
                 <a href="../Constants.html#/c:@AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey">AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSPinpointJourneyKey">AWSPinpointJourneyKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Constants.html#/c:@AWSPinpointKey">AWSPinpointKey</a>
               </li>
               <li class="nav-group-task">
@@ -1304,6 +1307,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointAnalyticsErrorType.html">AWSPinpointAnalyticsErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointPushActionType.html">AWSPinpointPushActionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSPinpointPushEventSourceType.html">AWSPinpointPushEventSourceType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSPinpointTargetingAction.html">AWSPinpointTargetingAction</a>
@@ -1430,7 +1439,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">eventType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">eventType</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1464,7 +1473,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSPinpointEvent.h@T@UTCTimeMillis">UTCTimeMillis</a></span> <span class="n">eventTimestamp</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSPinpointEvent.h@T@UTCTimeMillis">UTCTimeMillis</a></span> <span class="n">eventTimestamp</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1499,7 +1508,7 @@ The session should be populated with the current session in AWSPinpointSessionCl
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointSession.html">AWSPinpointSession</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">session</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSPinpointSession.html">AWSPinpointSession</a></span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">session</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1516,7 +1525,7 @@ The session should be populated with the current session in AWSPinpointSessionCl
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)initWithEventType:session:"></a>
                     <a name="//apple_ref/objc/Method/-initWithEventType:session:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)initWithEventType:session:">-initWithEventType:session:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)initWithEventType:session:">-initWithEventType:<wbr>session:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1580,7 +1589,7 @@ The session should be populated with the current session in AWSPinpointSessionCl
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)initWithEventType:eventTimestamp:session:"></a>
                     <a name="//apple_ref/objc/Method/-initWithEventType:eventTimestamp:session:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)initWithEventType:eventTimestamp:session:">-initWithEventType:eventTimestamp:session:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)initWithEventType:eventTimestamp:session:">-initWithEventType:<wbr>eventTimestamp:<wbr>session:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1657,7 +1666,7 @@ The session should be populated with the current session in AWSPinpointSessionCl
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)addAttribute:forKey:"></a>
                     <a name="//apple_ref/objc/Method/-addAttribute:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)addAttribute:forKey:">-addAttribute:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)addAttribute:forKey:">-addAttribute:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1722,7 +1731,7 @@ are allowed to be added to an AWSPinpointEvent. If 50 attributes/metrics already
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)addMetric:forKey:"></a>
                     <a name="//apple_ref/objc/Method/-addMetric:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)addMetric:forKey:">-addMetric:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)addMetric:forKey:">-addMetric:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1787,7 +1796,7 @@ are allowed to be added to an AWSPinpointEvent. If 50 attribute/metrics already 
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)attributeForKey:"></a>
                     <a name="//apple_ref/objc/Method/-attributeForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)attributeForKey:">-attributeForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)attributeForKey:">-attributeForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1839,7 +1848,7 @@ are allowed to be added to an AWSPinpointEvent. If 50 attribute/metrics already 
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)metricForKey:"></a>
                     <a name="//apple_ref/objc/Method/-metricForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)metricForKey:">-metricForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)metricForKey:">-metricForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1891,7 +1900,7 @@ are allowed to be added to an AWSPinpointEvent. If 50 attribute/metrics already 
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)hasAttributeForKey:"></a>
                     <a name="//apple_ref/objc/Method/-hasAttributeForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)hasAttributeForKey:">-hasAttributeForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)hasAttributeForKey:">-hasAttributeForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1943,7 +1952,7 @@ are allowed to be added to an AWSPinpointEvent. If 50 attribute/metrics already 
                     <code>
                     <a name="/c:objc(cs)AWSPinpointEvent(im)hasMetricForKey:"></a>
                     <a name="//apple_ref/objc/Method/-hasMetricForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)hasMetricForKey:">-hasMetricForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointEvent(im)hasMetricForKey:">-hasMetricForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2097,8 +2106,8 @@ are allowed to be added to an AWSPinpointEvent. If 50 attribute/metrics already 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
