@@ -14,7 +14,7 @@
     <a title="AWSLambda Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.13.1 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.13.2 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -553,7 +553,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(cm)registerLambdaWithConfiguration:forKey:"></a>
                     <a name="//apple_ref/objc/Method/+registerLambdaWithConfiguration:forKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(cm)registerLambdaWithConfiguration:forKey:">+registerLambdaWithConfiguration:forKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(cm)registerLambdaWithConfiguration:forKey:">+registerLambdaWithConfiguration:<wbr>forKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -658,7 +658,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(cm)LambdaForKey:"></a>
                     <a name="//apple_ref/objc/Method/+LambdaForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(cm)LambdaForKey:">+LambdaForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(cm)LambdaForKey:">+LambdaForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -749,7 +749,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(cm)removeLambdaForKey:"></a>
                     <a name="//apple_ref/objc/Method/+removeLambdaForKey:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(cm)removeLambdaForKey:">+removeLambdaForKey:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(cm)removeLambdaForKey:">+removeLambdaForKey:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -805,7 +805,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)addLayerVersionPermission:"></a>
                     <a name="//apple_ref/objc/Method/-addLayerVersionPermission:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addLayerVersionPermission:">-addLayerVersionPermission:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addLayerVersionPermission:">-addLayerVersionPermission:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -870,7 +870,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)addLayerVersionPermission:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-addLayerVersionPermission:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addLayerVersionPermission:completionHandler:">-addLayerVersionPermission:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addLayerVersionPermission:completionHandler:">-addLayerVersionPermission:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -949,7 +949,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)addPermission:"></a>
                     <a name="//apple_ref/objc/Method/-addPermission:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addPermission:">-addPermission:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addPermission:">-addPermission:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -957,7 +957,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN or owning account of the associated resource as the <code>SourceArn</code> or <code>SourceAccount</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
+                        <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLambdaAddPermissionRequest</p>
@@ -1013,7 +1013,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)addPermission:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-addPermission:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addPermission:completionHandler:">-addPermission:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)addPermission:completionHandler:">-addPermission:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1021,7 +1021,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN or owning account of the associated resource as the <code>SourceArn</code> or <code>SourceAccount</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
+                        <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLambdaAddPermissionRequest</p>
@@ -1090,7 +1090,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)createAlias:"></a>
                     <a name="//apple_ref/objc/Method/-createAlias:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createAlias:">-createAlias:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createAlias:">-createAlias:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1154,7 +1154,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)createAlias:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-createAlias:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createAlias:completionHandler:">-createAlias:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createAlias:completionHandler:">-createAlias:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1230,7 +1230,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)createEventSourceMapping:"></a>
                     <a name="//apple_ref/objc/Method/-createEventSourceMapping:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createEventSourceMapping:">-createEventSourceMapping:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createEventSourceMapping:">-createEventSourceMapping:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1295,7 +1295,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)createEventSourceMapping:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-createEventSourceMapping:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createEventSourceMapping:completionHandler:">-createEventSourceMapping:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createEventSourceMapping:completionHandler:">-createEventSourceMapping:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1374,7 +1374,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)createFunction:"></a>
                     <a name="//apple_ref/objc/Method/-createFunction:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createFunction:">-createFunction:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createFunction:">-createFunction:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1438,7 +1438,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)createFunction:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-createFunction:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createFunction:completionHandler:">-createFunction:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)createFunction:completionHandler:">-createFunction:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1515,7 +1515,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteAlias:"></a>
                     <a name="//apple_ref/objc/Method/-deleteAlias:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteAlias:">-deleteAlias:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteAlias:">-deleteAlias:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1575,7 +1575,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteAlias:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteAlias:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteAlias:completionHandler:">-deleteAlias:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteAlias:completionHandler:">-deleteAlias:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1645,7 +1645,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteEventSourceMapping:"></a>
                     <a name="//apple_ref/objc/Method/-deleteEventSourceMapping:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteEventSourceMapping:">-deleteEventSourceMapping:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteEventSourceMapping:">-deleteEventSourceMapping:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1710,7 +1710,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteEventSourceMapping:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteEventSourceMapping:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteEventSourceMapping:completionHandler:">-deleteEventSourceMapping:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteEventSourceMapping:completionHandler:">-deleteEventSourceMapping:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1789,7 +1789,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteFunction:"></a>
                     <a name="//apple_ref/objc/Method/-deleteFunction:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunction:">-deleteFunction:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunction:">-deleteFunction:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1849,7 +1849,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteFunction:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteFunction:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunction:completionHandler:">-deleteFunction:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunction:completionHandler:">-deleteFunction:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1919,7 +1919,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteFunctionConcurrency:"></a>
                     <a name="//apple_ref/objc/Method/-deleteFunctionConcurrency:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionConcurrency:">-deleteFunctionConcurrency:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionConcurrency:">-deleteFunctionConcurrency:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1980,7 +1980,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteFunctionConcurrency:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteFunctionConcurrency:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionConcurrency:completionHandler:">-deleteFunctionConcurrency:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionConcurrency:completionHandler:">-deleteFunctionConcurrency:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2052,7 +2052,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteFunctionEventInvokeConfig:"></a>
                     <a name="//apple_ref/objc/Method/-deleteFunctionEventInvokeConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionEventInvokeConfig:">-deleteFunctionEventInvokeConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionEventInvokeConfig:">-deleteFunctionEventInvokeConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2113,7 +2113,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteFunctionEventInvokeConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteFunctionEventInvokeConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionEventInvokeConfig:completionHandler:">-deleteFunctionEventInvokeConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteFunctionEventInvokeConfig:completionHandler:">-deleteFunctionEventInvokeConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2185,7 +2185,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteLayerVersion:"></a>
                     <a name="//apple_ref/objc/Method/-deleteLayerVersion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteLayerVersion:">-deleteLayerVersion:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteLayerVersion:">-deleteLayerVersion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2245,7 +2245,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteLayerVersion:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteLayerVersion:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteLayerVersion:completionHandler:">-deleteLayerVersion:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteLayerVersion:completionHandler:">-deleteLayerVersion:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2316,7 +2316,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteProvisionedConcurrencyConfig:"></a>
                     <a name="//apple_ref/objc/Method/-deleteProvisionedConcurrencyConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteProvisionedConcurrencyConfig:">-deleteProvisionedConcurrencyConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteProvisionedConcurrencyConfig:">-deleteProvisionedConcurrencyConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2377,7 +2377,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)deleteProvisionedConcurrencyConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-deleteProvisionedConcurrencyConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteProvisionedConcurrencyConfig:completionHandler:">-deleteProvisionedConcurrencyConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)deleteProvisionedConcurrencyConfig:completionHandler:">-deleteProvisionedConcurrencyConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2450,7 +2450,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getAccountSettings:"></a>
                     <a name="//apple_ref/objc/Method/-getAccountSettings:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAccountSettings:">-getAccountSettings:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAccountSettings:">-getAccountSettings:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2514,7 +2514,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getAccountSettings:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getAccountSettings:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAccountSettings:completionHandler:">-getAccountSettings:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAccountSettings:completionHandler:">-getAccountSettings:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2591,7 +2591,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getAlias:"></a>
                     <a name="//apple_ref/objc/Method/-getAlias:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAlias:">-getAlias:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAlias:">-getAlias:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2655,7 +2655,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getAlias:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getAlias:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAlias:completionHandler:">-getAlias:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getAlias:completionHandler:">-getAlias:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2731,7 +2731,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getEventSourceMapping:"></a>
                     <a name="//apple_ref/objc/Method/-getEventSourceMapping:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getEventSourceMapping:">-getEventSourceMapping:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getEventSourceMapping:">-getEventSourceMapping:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2796,7 +2796,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getEventSourceMapping:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getEventSourceMapping:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getEventSourceMapping:completionHandler:">-getEventSourceMapping:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getEventSourceMapping:completionHandler:">-getEventSourceMapping:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2875,7 +2875,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunction:"></a>
                     <a name="//apple_ref/objc/Method/-getFunction:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunction:">-getFunction:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunction:">-getFunction:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2939,7 +2939,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunction:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getFunction:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunction:completionHandler:">-getFunction:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunction:completionHandler:">-getFunction:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3016,7 +3016,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunctionConcurrency:"></a>
                     <a name="//apple_ref/objc/Method/-getFunctionConcurrency:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConcurrency:">-getFunctionConcurrency:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConcurrency:">-getFunctionConcurrency:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3081,7 +3081,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunctionConcurrency:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getFunctionConcurrency:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConcurrency:completionHandler:">-getFunctionConcurrency:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConcurrency:completionHandler:">-getFunctionConcurrency:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3160,7 +3160,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunctionConfiguration:"></a>
                     <a name="//apple_ref/objc/Method/-getFunctionConfiguration:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConfiguration:">-getFunctionConfiguration:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConfiguration:">-getFunctionConfiguration:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3225,7 +3225,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunctionConfiguration:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getFunctionConfiguration:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConfiguration:completionHandler:">-getFunctionConfiguration:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionConfiguration:completionHandler:">-getFunctionConfiguration:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3303,7 +3303,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunctionEventInvokeConfig:"></a>
                     <a name="//apple_ref/objc/Method/-getFunctionEventInvokeConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionEventInvokeConfig:">-getFunctionEventInvokeConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionEventInvokeConfig:">-getFunctionEventInvokeConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3368,7 +3368,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getFunctionEventInvokeConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getFunctionEventInvokeConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionEventInvokeConfig:completionHandler:">-getFunctionEventInvokeConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getFunctionEventInvokeConfig:completionHandler:">-getFunctionEventInvokeConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3447,7 +3447,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getLayerVersion:"></a>
                     <a name="//apple_ref/objc/Method/-getLayerVersion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersion:">-getLayerVersion:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersion:">-getLayerVersion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3511,7 +3511,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getLayerVersion:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getLayerVersion:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersion:completionHandler:">-getLayerVersion:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersion:completionHandler:">-getLayerVersion:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3588,7 +3588,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getLayerVersionByArn:"></a>
                     <a name="//apple_ref/objc/Method/-getLayerVersionByArn:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionByArn:">-getLayerVersionByArn:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionByArn:">-getLayerVersionByArn:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3653,7 +3653,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getLayerVersionByArn:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getLayerVersionByArn:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionByArn:completionHandler:">-getLayerVersionByArn:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionByArn:completionHandler:">-getLayerVersionByArn:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3731,7 +3731,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getLayerVersionPolicy:"></a>
                     <a name="//apple_ref/objc/Method/-getLayerVersionPolicy:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionPolicy:">-getLayerVersionPolicy:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionPolicy:">-getLayerVersionPolicy:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3796,7 +3796,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getLayerVersionPolicy:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getLayerVersionPolicy:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionPolicy:completionHandler:">-getLayerVersionPolicy:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getLayerVersionPolicy:completionHandler:">-getLayerVersionPolicy:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3875,7 +3875,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getPolicy:"></a>
                     <a name="//apple_ref/objc/Method/-getPolicy:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getPolicy:">-getPolicy:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getPolicy:">-getPolicy:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3939,7 +3939,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getPolicy:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getPolicy:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getPolicy:completionHandler:">-getPolicy:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getPolicy:completionHandler:">-getPolicy:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4015,7 +4015,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getProvisionedConcurrencyConfig:"></a>
                     <a name="//apple_ref/objc/Method/-getProvisionedConcurrencyConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getProvisionedConcurrencyConfig:">-getProvisionedConcurrencyConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getProvisionedConcurrencyConfig:">-getProvisionedConcurrencyConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4080,7 +4080,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)getProvisionedConcurrencyConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-getProvisionedConcurrencyConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getProvisionedConcurrencyConfig:completionHandler:">-getProvisionedConcurrencyConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)getProvisionedConcurrencyConfig:completionHandler:">-getProvisionedConcurrencyConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4160,7 +4160,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)invoke:"></a>
                     <a name="//apple_ref/objc/Method/-invoke:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invoke:">-invoke:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invoke:">-invoke:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4224,7 +4224,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)invoke:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-invoke:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invoke:completionHandler:">-invoke:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invoke:completionHandler:">-invoke:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4300,7 +4300,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)invokeAsync:"></a>
                     <a name="//apple_ref/objc/Method/-invokeAsync:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invokeAsync:">-invokeAsync:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invokeAsync:">-invokeAsync:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4364,7 +4364,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)invokeAsync:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-invokeAsync:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invokeAsync:completionHandler:">-invokeAsync:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)invokeAsync:completionHandler:">-invokeAsync:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4441,7 +4441,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listAliases:"></a>
                     <a name="//apple_ref/objc/Method/-listAliases:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listAliases:">-listAliases:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listAliases:">-listAliases:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4505,7 +4505,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listAliases:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listAliases:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listAliases:completionHandler:">-listAliases:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listAliases:completionHandler:">-listAliases:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4582,7 +4582,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listEventSourceMappings:"></a>
                     <a name="//apple_ref/objc/Method/-listEventSourceMappings:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listEventSourceMappings:">-listEventSourceMappings:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listEventSourceMappings:">-listEventSourceMappings:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4647,7 +4647,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listEventSourceMappings:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listEventSourceMappings:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listEventSourceMappings:completionHandler:">-listEventSourceMappings:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listEventSourceMappings:completionHandler:">-listEventSourceMappings:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4726,7 +4726,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listFunctionEventInvokeConfigs:"></a>
                     <a name="//apple_ref/objc/Method/-listFunctionEventInvokeConfigs:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctionEventInvokeConfigs:">-listFunctionEventInvokeConfigs:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctionEventInvokeConfigs:">-listFunctionEventInvokeConfigs:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4791,7 +4791,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listFunctionEventInvokeConfigs:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listFunctionEventInvokeConfigs:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctionEventInvokeConfigs:completionHandler:">-listFunctionEventInvokeConfigs:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctionEventInvokeConfigs:completionHandler:">-listFunctionEventInvokeConfigs:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4871,7 +4871,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listFunctions:"></a>
                     <a name="//apple_ref/objc/Method/-listFunctions:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctions:">-listFunctions:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctions:">-listFunctions:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4935,7 +4935,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listFunctions:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listFunctions:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctions:completionHandler:">-listFunctions:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listFunctions:completionHandler:">-listFunctions:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5012,7 +5012,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listLayerVersions:"></a>
                     <a name="//apple_ref/objc/Method/-listLayerVersions:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayerVersions:">-listLayerVersions:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayerVersions:">-listLayerVersions:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5076,7 +5076,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listLayerVersions:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listLayerVersions:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayerVersions:completionHandler:">-listLayerVersions:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayerVersions:completionHandler:">-listLayerVersions:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5153,7 +5153,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listLayers:"></a>
                     <a name="//apple_ref/objc/Method/-listLayers:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayers:">-listLayers:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayers:">-listLayers:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5217,7 +5217,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listLayers:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listLayers:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayers:completionHandler:">-listLayers:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listLayers:completionHandler:">-listLayers:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5293,7 +5293,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listProvisionedConcurrencyConfigs:"></a>
                     <a name="//apple_ref/objc/Method/-listProvisionedConcurrencyConfigs:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listProvisionedConcurrencyConfigs:">-listProvisionedConcurrencyConfigs:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listProvisionedConcurrencyConfigs:">-listProvisionedConcurrencyConfigs:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5358,7 +5358,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listProvisionedConcurrencyConfigs:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listProvisionedConcurrencyConfigs:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listProvisionedConcurrencyConfigs:completionHandler:">-listProvisionedConcurrencyConfigs:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listProvisionedConcurrencyConfigs:completionHandler:">-listProvisionedConcurrencyConfigs:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5439,7 +5439,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listTags:"></a>
                     <a name="//apple_ref/objc/Method/-listTags:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listTags:">-listTags:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listTags:">-listTags:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5503,7 +5503,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listTags:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listTags:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listTags:completionHandler:">-listTags:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listTags:completionHandler:">-listTags:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5579,7 +5579,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listVersionsByFunction:"></a>
                     <a name="//apple_ref/objc/Method/-listVersionsByFunction:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listVersionsByFunction:">-listVersionsByFunction:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listVersionsByFunction:">-listVersionsByFunction:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5644,7 +5644,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)listVersionsByFunction:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-listVersionsByFunction:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listVersionsByFunction:completionHandler:">-listVersionsByFunction:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)listVersionsByFunction:completionHandler:">-listVersionsByFunction:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5723,7 +5723,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)publishLayerVersion:"></a>
                     <a name="//apple_ref/objc/Method/-publishLayerVersion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishLayerVersion:">-publishLayerVersion:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishLayerVersion:">-publishLayerVersion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5788,7 +5788,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)publishLayerVersion:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-publishLayerVersion:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishLayerVersion:completionHandler:">-publishLayerVersion:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishLayerVersion:completionHandler:">-publishLayerVersion:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5866,7 +5866,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)publishVersion:"></a>
                     <a name="//apple_ref/objc/Method/-publishVersion:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishVersion:">-publishVersion:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishVersion:">-publishVersion:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5930,7 +5930,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)publishVersion:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-publishVersion:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishVersion:completionHandler:">-publishVersion:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)publishVersion:completionHandler:">-publishVersion:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6007,7 +6007,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)putFunctionConcurrency:"></a>
                     <a name="//apple_ref/objc/Method/-putFunctionConcurrency:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionConcurrency:">-putFunctionConcurrency:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionConcurrency:">-putFunctionConcurrency:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6072,7 +6072,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)putFunctionConcurrency:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-putFunctionConcurrency:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionConcurrency:completionHandler:">-putFunctionConcurrency:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionConcurrency:completionHandler:">-putFunctionConcurrency:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6150,7 +6150,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)putFunctionEventInvokeConfig:"></a>
                     <a name="//apple_ref/objc/Method/-putFunctionEventInvokeConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionEventInvokeConfig:">-putFunctionEventInvokeConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionEventInvokeConfig:">-putFunctionEventInvokeConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6215,7 +6215,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)putFunctionEventInvokeConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-putFunctionEventInvokeConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionEventInvokeConfig:completionHandler:">-putFunctionEventInvokeConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putFunctionEventInvokeConfig:completionHandler:">-putFunctionEventInvokeConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6294,7 +6294,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)putProvisionedConcurrencyConfig:"></a>
                     <a name="//apple_ref/objc/Method/-putProvisionedConcurrencyConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putProvisionedConcurrencyConfig:">-putProvisionedConcurrencyConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putProvisionedConcurrencyConfig:">-putProvisionedConcurrencyConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6359,7 +6359,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)putProvisionedConcurrencyConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-putProvisionedConcurrencyConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putProvisionedConcurrencyConfig:completionHandler:">-putProvisionedConcurrencyConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)putProvisionedConcurrencyConfig:completionHandler:">-putProvisionedConcurrencyConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6439,7 +6439,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)removeLayerVersionPermission:"></a>
                     <a name="//apple_ref/objc/Method/-removeLayerVersionPermission:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removeLayerVersionPermission:">-removeLayerVersionPermission:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removeLayerVersionPermission:">-removeLayerVersionPermission:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6500,7 +6500,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)removeLayerVersionPermission:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-removeLayerVersionPermission:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removeLayerVersionPermission:completionHandler:">-removeLayerVersionPermission:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removeLayerVersionPermission:completionHandler:">-removeLayerVersionPermission:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6572,7 +6572,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)removePermission:"></a>
                     <a name="//apple_ref/objc/Method/-removePermission:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removePermission:">-removePermission:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removePermission:">-removePermission:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6632,7 +6632,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)removePermission:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-removePermission:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removePermission:completionHandler:">-removePermission:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)removePermission:completionHandler:">-removePermission:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6703,7 +6703,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)tagResource:"></a>
                     <a name="//apple_ref/objc/Method/-tagResource:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)tagResource:">-tagResource:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)tagResource:">-tagResource:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6763,7 +6763,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)tagResource:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-tagResource:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)tagResource:completionHandler:">-tagResource:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)tagResource:completionHandler:">-tagResource:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6833,7 +6833,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)untagResource:"></a>
                     <a name="//apple_ref/objc/Method/-untagResource:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)untagResource:">-untagResource:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)untagResource:">-untagResource:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6893,7 +6893,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)untagResource:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-untagResource:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)untagResource:completionHandler:">-untagResource:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)untagResource:completionHandler:">-untagResource:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6963,7 +6963,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateAlias:"></a>
                     <a name="//apple_ref/objc/Method/-updateAlias:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateAlias:">-updateAlias:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateAlias:">-updateAlias:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7027,7 +7027,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateAlias:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-updateAlias:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateAlias:completionHandler:">-updateAlias:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateAlias:completionHandler:">-updateAlias:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7103,7 +7103,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateEventSourceMapping:"></a>
                     <a name="//apple_ref/objc/Method/-updateEventSourceMapping:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateEventSourceMapping:">-updateEventSourceMapping:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateEventSourceMapping:">-updateEventSourceMapping:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7168,7 +7168,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateEventSourceMapping:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-updateEventSourceMapping:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateEventSourceMapping:completionHandler:">-updateEventSourceMapping:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateEventSourceMapping:completionHandler:">-updateEventSourceMapping:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7247,7 +7247,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateFunctionCode:"></a>
                     <a name="//apple_ref/objc/Method/-updateFunctionCode:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionCode:">-updateFunctionCode:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionCode:">-updateFunctionCode:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7311,7 +7311,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateFunctionCode:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-updateFunctionCode:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionCode:completionHandler:">-updateFunctionCode:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionCode:completionHandler:">-updateFunctionCode:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7388,7 +7388,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateFunctionConfiguration:"></a>
                     <a name="//apple_ref/objc/Method/-updateFunctionConfiguration:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionConfiguration:">-updateFunctionConfiguration:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionConfiguration:">-updateFunctionConfiguration:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7453,7 +7453,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateFunctionConfiguration:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-updateFunctionConfiguration:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionConfiguration:completionHandler:">-updateFunctionConfiguration:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionConfiguration:completionHandler:">-updateFunctionConfiguration:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7532,7 +7532,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateFunctionEventInvokeConfig:"></a>
                     <a name="//apple_ref/objc/Method/-updateFunctionEventInvokeConfig:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionEventInvokeConfig:">-updateFunctionEventInvokeConfig:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionEventInvokeConfig:">-updateFunctionEventInvokeConfig:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7597,7 +7597,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSLambda(im)updateFunctionEventInvokeConfig:completionHandler:"></a>
                     <a name="//apple_ref/objc/Method/-updateFunctionEventInvokeConfig:completionHandler:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionEventInvokeConfig:completionHandler:">-updateFunctionEventInvokeConfig:completionHandler:</a>
+                    <a class="token" href="#/c:objc(cs)AWSLambda(im)updateFunctionEventInvokeConfig:completionHandler:">-updateFunctionEventInvokeConfig:<wbr>completionHandler:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -7676,8 +7676,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
