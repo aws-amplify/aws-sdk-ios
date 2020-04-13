@@ -1,20 +1,19 @@
 # AWS Mobile SDK for iOS CHANGELOG
-## Unreleased Changes
-- Added support for adding custom demographic to pinpoint [PR: #2410](https://github.com/aws-amplify/aws-sdk-ios/pull/2410)
-
-## Unreleased
-
-### New features
-- **AWSMobileClient** Added IdentityProvider strings for Sign in with Apple: `IdentityProvider.apple`. See [Issue #1809](https://github.com/aws-amplify/aws-sdk-ios/issues/1809)) and [PR #2425](https://github.com/aws-amplify/aws-sdk-ios/pull/2425).
 
 ## 2.13.2
+
+### New features
+- **AWSMobileClient** 
+  - Added IdentityProvider strings for Sign in with Apple: `IdentityProvider.apple`. See [Issue #1809](https://github.com/aws-amplify/aws-sdk-ios/issues/1809) and [PR #2425](https://github.com/aws-amplify/aws-sdk-ios/pull/2425).
+- **Amazon Pinpoint**
+  - Added support for adding custom demographic to pinpoint [PR: #2410](https://github.com/aws-amplify/aws-sdk-ios/pull/2410)
+  - Added support for Pinpoint Journey Push Notifications [PR: #2407](https://github.com/aws-amplify/aws-sdk-ios/pull/2407)
 
 ### Bug Fixes
 - **AWSMobileClient** Persist scopes defined using `HostedUIOptions` across cognito auth sessions. Should not break existing calls to these functions. If the developer wishes to change the scopes, it is recommended that the users are forced to sign in to accept the permissions for new scopes. See [PR #2397](https://github.com/aws-amplify/aws-sdk-ios/pull/2397) [Issue #2357](https://github.com/aws-amplify/aws-sdk-ios/issues/2357) for more details
 
 ### Misc. Updates
 - Update CI/CD system to build with Xcode 11.4 See [issue #2365](https://github.com/aws-amplify/aws-sdk-ios/issues/2365).
-- Added support for Pinpoint Journey Push Notifications
 - Model updates for the following services:
   - AWS Lambda
   - Amazon Pinpoint
