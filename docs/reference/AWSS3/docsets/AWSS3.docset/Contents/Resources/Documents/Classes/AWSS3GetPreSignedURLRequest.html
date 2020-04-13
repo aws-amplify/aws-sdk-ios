@@ -14,7 +14,7 @@
     <a title="AWSS3GetPreSignedURLRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSS3 2.13.1 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSS3 2.13.2 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSS3%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -1155,8 +1155,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">getter</span><span class="o">=</span><span class="n">isAccelerateModeEnabled</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">BOOL</span> <span class="n">accelerateModeEnabled</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">,</span> <span class="n">unsafe_unretained</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span>
+          <span class="n">getter</span><span class="o">=</span><span class="n">isAccelerateModeEnabled</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">accelerateModeEnabled</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1188,7 +1188,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">bucket</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">bucket</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1220,7 +1220,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">key</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">key</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1252,7 +1252,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">int</span> <span class="n">HTTPMethod</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="kt">int</span> <span class="n">HTTPMethod</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1284,7 +1284,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">expires</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">expires</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1316,8 +1316,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">NSTimeInterval</span> <span class="n">minimumCredentialsExpirationInterval</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSTimeInterval</span> <span class="n">minimumCredentialsExpirationInterval</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1349,7 +1348,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1381,7 +1380,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentMD5</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentMD5</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1413,8 +1412,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">requestHeaders</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">requestHeaders</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -1441,8 +1439,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readonly</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">requestParameters</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nonnull</span> <span class="n">requestParameters</span><span class="p">;</span></code></pre>
 
                         </div>
                       </div>
@@ -1454,7 +1451,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSS3GetPreSignedURLRequest(im)setValue:forRequestHeader:"></a>
                     <a name="//apple_ref/objc/Method/-setValue:forRequestHeader:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSS3GetPreSignedURLRequest(im)setValue:forRequestHeader:">-setValue:forRequestHeader:</a>
+                    <a class="token" href="#/c:objc(cs)AWSS3GetPreSignedURLRequest(im)setValue:forRequestHeader:">-setValue:<wbr>forRequestHeader:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1518,7 +1515,7 @@
                     <code>
                     <a name="/c:objc(cs)AWSS3GetPreSignedURLRequest(im)setValue:forRequestParameter:"></a>
                     <a name="//apple_ref/objc/Method/-setValue:forRequestParameter:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSS3GetPreSignedURLRequest(im)setValue:forRequestParameter:">-setValue:forRequestParameter:</a>
+                    <a class="token" href="#/c:objc(cs)AWSS3GetPreSignedURLRequest(im)setValue:forRequestParameter:">-setValue:<wbr>forRequestParameter:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1582,8 +1579,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
