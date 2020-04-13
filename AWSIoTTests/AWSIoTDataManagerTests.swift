@@ -741,7 +741,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         let testMessage = "Test Message"
         let testTopic = "TestTopic"
         gotMessage.expectedFulfillmentCount = 5
-
+        gotMessage.assertForOverFulfill = false
         let subAckExpectation = self.expectation(description: "Subscription should be acknowledged")
         let ackCallback: AWSIoTMQTTAckBlock = {
             subAckExpectation.fulfill()
@@ -803,7 +803,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         for i in 1...numberOfAttempts  {
             hasConnected.add(self.expectation(description: "MQTT connection\(i) has been established"))
             hasDisconnected.add(self.expectation(description: "Disconnected\(i)"))
-            gotMessages.add(self.expectation(description: "Got message on subscription \(i)"))
+            let expectation = self.expectation(description: "Got message on subscription \(i)")
+            expectation.assertForOverFulfill = false
+            gotMessages.add(expectation)
             subConfirmed.add(self.expectation(description: "Subscription \(i) confirmed"))
         }
 
@@ -928,7 +930,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         for i in 1...numberOfAttempts  {
             hasConnected.add(self.expectation(description: "MQTT connection\(i) has been established"))
             hasDisconnected.add(self.expectation(description: "Disconnected\(i)"))
-            gotMessages.add(self.expectation(description: "Got message on subscription \(i)"))
+            let expectation = self.expectation(description: "Got message on subscription \(i)")
+            expectation.assertForOverFulfill = false
+            gotMessages.add(expectation)
             subConfirmed.add(self.expectation(description: "Subscription \(i) confirmed"))
         }
 
@@ -1312,6 +1316,8 @@ class AWSIoTDataManagerTests: XCTestCase {
 
         let gotMessage = self.expectation(description: "Got message on subscription")
         gotMessage.expectedFulfillmentCount = 5
+        gotMessage.assertForOverFulfill = false
+
         func mqttEventCallback( _ status: AWSIoTMQTTStatus )
         {
             print("connection status = \(status.rawValue)")
@@ -1410,7 +1416,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         for i in 1...numberOfAttempts  {
             hasConnected.add(self.expectation(description: "MQTT connection\(i) has been established"))
             hasDisconnected.add(self.expectation(description: "Disconnected\(i)"))
-            gotMessages.add(self.expectation(description: "Got message on subscription \(i)"))
+            let expectation = self.expectation(description: "Got message on subscription \(i)")
+            expectation.assertForOverFulfill = false
+            gotMessages.add(expectation)
             subConfirmed.add(self.expectation(description: "Subscription \(i) confirmed"))
         }
 
