@@ -14,7 +14,7 @@
     <a title="AWSRekognitionFaceDetail Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.13.1 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.13.2 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -112,6 +112,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionDeleteFacesResponse.html">AWSRekognitionDeleteFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectRequest.html">AWSRekognitionDeleteProjectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectResponse.html">AWSRekognitionDeleteProjectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectVersionRequest.html">AWSRekognitionDeleteProjectVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectVersionResponse.html">AWSRekognitionDeleteProjectVersionResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionDeleteStreamProcessorRequest.html">AWSRekognitionDeleteStreamProcessorRequest</a>
@@ -628,8 +640,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionAgeRange.html">AWSRekognitionAgeRange</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">ageRange</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionAgeRange.html">AWSRekognitionAgeRange</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">ageRange</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -661,7 +672,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionBeard.html">AWSRekognitionBeard</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">beard</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionBeard.html">AWSRekognitionBeard</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">beard</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -693,8 +704,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionBoundingBox.html">AWSRekognitionBoundingBox</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">boundingBox</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionBoundingBox.html">AWSRekognitionBoundingBox</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">boundingBox</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -726,7 +736,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">confidence</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">confidence</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -758,8 +768,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">emotions</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">emotions</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -791,8 +800,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionEyeglasses.html">AWSRekognitionEyeglasses</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">eyeglasses</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionEyeglasses.html">AWSRekognitionEyeglasses</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">eyeglasses</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -824,8 +832,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionEyeOpen.html">AWSRekognitionEyeOpen</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">eyesOpen</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionEyeOpen.html">AWSRekognitionEyeOpen</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">eyesOpen</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -857,7 +864,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionGender.html">AWSRekognitionGender</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">gender</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionGender.html">AWSRekognitionGender</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">gender</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -889,8 +896,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSRekognitionLandmark.html">AWSRekognitionLandmark</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">landmarks</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSRekognitionLandmark.html">AWSRekognitionLandmark</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">landmarks</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -922,8 +928,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionMouthOpen.html">AWSRekognitionMouthOpen</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">mouthOpen</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionMouthOpen.html">AWSRekognitionMouthOpen</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">mouthOpen</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -955,8 +960,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionMustache.html">AWSRekognitionMustache</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">mustache</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionMustache.html">AWSRekognitionMustache</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">mustache</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -988,7 +992,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionPose.html">AWSRekognitionPose</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">pose</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionPose.html">AWSRekognitionPose</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">pose</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1020,8 +1024,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionImageQuality.html">AWSRekognitionImageQuality</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">quality</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionImageQuality.html">AWSRekognitionImageQuality</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">quality</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1053,7 +1056,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionSmile.html">AWSRekognitionSmile</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">smile</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionSmile.html">AWSRekognitionSmile</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">smile</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1085,8 +1088,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">readwrite</span><span class="p">,</span> <span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span>
-    <span class="n"><a href="../Classes/AWSRekognitionSunglasses.html">AWSRekognitionSunglasses</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sunglasses</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionSunglasses.html">AWSRekognitionSunglasses</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sunglasses</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -1103,8 +1105,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-03-26)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
