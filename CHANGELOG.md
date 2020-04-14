@@ -4,8 +4,8 @@
 
 ### Misc. Updates
 - Model updates for the following services
- - Amazon EC2
- - Amazon Transcribe
+  - Amazon EC2
+  - Amazon Transcribe
 
 ### New features
 - **AWSMobileClient** Added IdentityProvider strings for Sign in with Apple: `IdentityProvider.apple`. See [Issue #1809](https://github.com/aws-amplify/aws-sdk-ios/issues/1809)) and [PR #2425](https://github.com/aws-amplify/aws-sdk-ios/pull/2425).
