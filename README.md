@@ -34,9 +34,7 @@ To use the AWS SDK for iOS, you will need the following installed on your develo
 
 ## Include the SDK for iOS in an Existing Application
 
-Prior to the introduction of [Amplify](https://aws-amplify.github.io/), we offered the AWS SDK for iOS which provides programatic access to AWS Services.  If you are starting a new application, we highly recommend you use Amplify instead of directly building the AWS SDK for iOS into your app.  Please see the link above for more information.
-
-If deciding that Amplify libary does not fit your use case and you still want to use the AWS SDK for iOS in your application, we have a couple [samples](https://github.com/awslabs/aws-sdk-ios-samples) which showcase how to use the SDK.
+We have a couple [samples](https://github.com/awslabs/aws-sdk-ios-samples) applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we called them: samples.
 
 There are three ways to integrate the AWS Mobile SDK for iOS into your own project:
 
