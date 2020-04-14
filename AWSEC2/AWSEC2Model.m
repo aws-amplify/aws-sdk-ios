@@ -7923,6 +7923,46 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DeregisterInstanceEventNotificationAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"instanceTagAttribute" : @"InstanceTagAttribute",
+             };
+}
+
++ (NSValueTransformer *)instanceTagAttributeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2DeregisterInstanceTagAttributeRequest class]];
+}
+
+@end
+
+@implementation AWSEC2DeregisterInstanceEventNotificationAttributesResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceTagAttribute" : @"InstanceTagAttribute",
+             };
+}
+
++ (NSValueTransformer *)instanceTagAttributeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceTagNotificationAttribute class]];
+}
+
+@end
+
+@implementation AWSEC2DeregisterInstanceTagAttributeRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"includeAllTagsOfInstance" : @"IncludeAllTagsOfInstance",
+             @"instanceTagKeys" : @"InstanceTagKeys",
+             };
+}
+
+@end
+
 @implementation AWSEC2DeregisterTransitGatewayMulticastGroupMembersRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -10947,6 +10987,30 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)instanceCreditSpecificationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceCreditSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeInstanceEventNotificationAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2DescribeInstanceEventNotificationAttributesResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceTagAttribute" : @"InstanceTagAttribute",
+             };
+}
+
++ (NSValueTransformer *)instanceTagAttributeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceTagNotificationAttribute class]];
 }
 
 @end
@@ -26080,6 +26144,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2InstanceTagNotificationAttribute
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"includeAllTagsOfInstance" : @"IncludeAllTagsOfInstance",
+             @"instanceTagKeys" : @"InstanceTagKeys",
+             };
+}
+
+@end
+
 @implementation AWSEC2InstanceTypeInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -37083,6 +37158,46 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"imageId" : @"ImageId",
+             };
+}
+
+@end
+
+@implementation AWSEC2RegisterInstanceEventNotificationAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"instanceTagAttribute" : @"InstanceTagAttribute",
+             };
+}
+
++ (NSValueTransformer *)instanceTagAttributeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2RegisterInstanceTagAttributeRequest class]];
+}
+
+@end
+
+@implementation AWSEC2RegisterInstanceEventNotificationAttributesResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceTagAttribute" : @"InstanceTagAttribute",
+             };
+}
+
++ (NSValueTransformer *)instanceTagAttributeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceTagNotificationAttribute class]];
+}
+
+@end
+
+@implementation AWSEC2RegisterInstanceTagAttributeRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"includeAllTagsOfInstance" : @"IncludeAllTagsOfInstance",
+             @"instanceTagKeys" : @"InstanceTagKeys",
              };
 }
 

@@ -2085,6 +2085,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeprovisionByoipCidrRequest;
 @class AWSEC2DeprovisionByoipCidrResult;
 @class AWSEC2DeregisterImageRequest;
+@class AWSEC2DeregisterInstanceEventNotificationAttributesRequest;
+@class AWSEC2DeregisterInstanceEventNotificationAttributesResult;
+@class AWSEC2DeregisterInstanceTagAttributeRequest;
 @class AWSEC2DeregisterTransitGatewayMulticastGroupMembersRequest;
 @class AWSEC2DeregisterTransitGatewayMulticastGroupMembersResult;
 @class AWSEC2DeregisterTransitGatewayMulticastGroupSourcesRequest;
@@ -2170,6 +2173,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeInstanceAttributeRequest;
 @class AWSEC2DescribeInstanceCreditSpecificationsRequest;
 @class AWSEC2DescribeInstanceCreditSpecificationsResult;
+@class AWSEC2DescribeInstanceEventNotificationAttributesRequest;
+@class AWSEC2DescribeInstanceEventNotificationAttributesResult;
 @class AWSEC2DescribeInstanceStatusRequest;
 @class AWSEC2DescribeInstanceStatusResult;
 @class AWSEC2DescribeInstanceTypeOfferingsRequest;
@@ -2525,6 +2530,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2InstanceStatusEvent;
 @class AWSEC2InstanceStatusSummary;
 @class AWSEC2InstanceStorageInfo;
+@class AWSEC2InstanceTagNotificationAttribute;
 @class AWSEC2InstanceTypeInfo;
 @class AWSEC2InstanceTypeOffering;
 @class AWSEC2InstanceUsage;
@@ -2738,6 +2744,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2Region;
 @class AWSEC2RegisterImageRequest;
 @class AWSEC2RegisterImageResult;
+@class AWSEC2RegisterInstanceEventNotificationAttributesRequest;
+@class AWSEC2RegisterInstanceEventNotificationAttributesResult;
+@class AWSEC2RegisterInstanceTagAttributeRequest;
 @class AWSEC2RegisterTransitGatewayMulticastGroupMembersRequest;
 @class AWSEC2RegisterTransitGatewayMulticastGroupMembersResult;
 @class AWSEC2RegisterTransitGatewayMulticastGroupSourcesRequest;
@@ -10455,6 +10464,55 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeregisterInstanceEventNotificationAttributesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Information about the tag keys to deregister.</p>
+ */
+@property (nonatomic, strong) AWSEC2DeregisterInstanceTagAttributeRequest * _Nullable instanceTagAttribute;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeregisterInstanceEventNotificationAttributesResult : AWSModel
+
+
+/**
+ <p>The resulting set of tag keys.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceTagNotificationAttribute * _Nullable instanceTagAttribute;
+
+@end
+
+/**
+ <p>Information about the tag keys to deregister for the current Region. You can either specify individual tag keys or deregister all tag keys in the current Region. You must specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ */
+@interface AWSEC2DeregisterInstanceTagAttributeRequest : AWSModel
+
+
+/**
+ <p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code> to deregister all tag keys.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeAllTagsOfInstance;
+
+/**
+ <p>Information about the tag keys to deregister.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceTagKeys;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeregisterTransitGatewayMulticastGroupMembersRequest : AWSRequest
 
 
@@ -12465,6 +12523,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeInstanceEventNotificationAttributesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeInstanceEventNotificationAttributesResult : AWSModel
+
+
+/**
+ <p>Information about the registered tag keys.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceTagNotificationAttribute * _Nullable instanceTagAttribute;
 
 @end
 
@@ -21907,6 +21991,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes the registered tag keys for the current Region.</p>
+ */
+@interface AWSEC2InstanceTagNotificationAttribute : AWSModel
+
+
+/**
+ <p>Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications. <code>true</code> indicates that all tag keys in the current Region are registered.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeAllTagsOfInstance;
+
+/**
+ <p>The registered tag keys.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceTagKeys;
+
+@end
+
+/**
  <p>Describes the instance type.</p>
  */
 @interface AWSEC2InstanceTypeInfo : AWSModel
@@ -26678,12 +26780,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <a>ImportInstance</a> command.</p><p>This parameter is not supported by .</p>
+ <p>The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable affinity;
 
 /**
- <p>The Availability Zone of the instance.</p><p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p><p>This parameter is not supported by .</p>
+ <p>The Availability Zone of the instance.</p><p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
@@ -26693,27 +26795,27 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <a>ImportInstance</a> command.</p><p>This parameter is not supported by .</p>
+ <p>The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostId;
 
 /**
- <p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p><p>This parameter is not supported by .</p>
+ <p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable hostResourceGroupArn;
 
 /**
- <p>The number of the partition the instance is in. Valid only if the placement group strategy is set to <code>partition</code>.</p><p>This parameter is not supported by .</p>
+ <p>The number of the partition the instance is in. Valid only if the placement group strategy is set to <code>partition</code>.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable partitionNumber;
 
 /**
- <p>Reserved for future use.</p><p>This parameter is not supported by .</p>
+ <p>Reserved for future use.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable spreadDomain;
 
 /**
- <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not supported for the <a>ImportInstance</a> command.</p><p>This parameter is not supported by .</p>
+ <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> command.</p><p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2Tenancy tenancy;
 
@@ -27542,6 +27644,55 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the newly registered AMI.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2RegisterInstanceEventNotificationAttributesRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Information about the tag keys to register.</p>
+ */
+@property (nonatomic, strong) AWSEC2RegisterInstanceTagAttributeRequest * _Nullable instanceTagAttribute;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2RegisterInstanceEventNotificationAttributesResult : AWSModel
+
+
+/**
+ <p>The resulting set of tag keys.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceTagNotificationAttribute * _Nullable instanceTagAttribute;
+
+@end
+
+/**
+ <p>Information about the tag keys to register for the current Region. You can either specify individual tag keys or register all tag keys in the current Region. You must specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ */
+@interface AWSEC2RegisterInstanceTagAttributeRequest : AWSModel
+
+
+/**
+ <p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code> to register all tag keys.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeAllTagsOfInstance;
+
+/**
+ <p>The tag keys to register.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceTagKeys;
 
 @end
 
@@ -31345,7 +31496,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable fulfilledCapacity;
 
 /**
- <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot Fleet Prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <a>CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</p>
+ <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot Fleet Prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable iamFleetRole;
 
@@ -31625,7 +31776,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable maxPrice;
 
 /**
- <p>The Spot Instance request type. For <a>RunInstances</a>, persistent Spot Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or <code>stop</code>.</p>
+ <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or <code>stop</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2SpotInstanceType spotInstanceType;
 
@@ -32244,7 +32395,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p><p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are located in and </p>
+ <p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p><p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a></p>
  */
 @interface AWSEC2TargetCapacitySpecification : AWSModel
 
@@ -32272,7 +32423,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p><p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are located in and .</p>
+ <p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p><p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  Required parameters: [TotalTargetCapacity]
  */
 @interface AWSEC2TargetCapacitySpecificationRequest : AWSModel
