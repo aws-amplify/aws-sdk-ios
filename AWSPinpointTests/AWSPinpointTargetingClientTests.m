@@ -55,10 +55,11 @@ static NSString *userId;
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointTargetingClientTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointTargetingClientTests"];
 
-    [self initializeMockApplicationWithOptOut:YES];
+    [self initializeMockApplicationWithRemoteNotifications:NO];
     [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointAttributesKey"];
     [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointMetricsKey"];
+    [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
     [self.userDefaults synchronize];
 }
 
@@ -79,19 +80,21 @@ static NSString *userId;
 - (AWSPinpointConfiguration *)getAWSPinpointConfigurationWithOptOut:(BOOL)optOut {
     AWSPinpointConfiguration *configuration = [self getDefaultAWSPinpointConfiguration];
 
-    [self setApplicationLevelOptOut:configuration withOptOut:optOut];
+    configuration.isApplicationLevelOptOut = ^BOOL{
+        return optOut;
+    };
 
     return configuration;
 }
 
-- (void)setApplicationLevelOptOut:(AWSPinpointConfiguration *)configuration withOptOut:(BOOL)optOut {
-    configuration.isApplicationLevelOptOut = ^BOOL{
-        return optOut;
+- (void)setDeviceTokenInUserDefaults {
+    const unsigned char currentTokenBytes[] = {
+        0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+        0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f
     };
-}
-
-- (void)setApplicationLevelOptOut:(BOOL)optOut {
-    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:optOut]];
+    NSData *currentTokenData = [[NSData alloc] initWithBytes:currentTokenBytes length:16];
+    [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
+    [self.userDefaults setObject:currentTokenData forKey:AWSDeviceTokenKey];
 }
 
 - (void)initializePinpointWithConfiguration:(AWSPinpointConfiguration *)configuration forceCreate:(BOOL)forceCreate {
@@ -107,27 +110,15 @@ static NSString *userId;
     self.pinpoint = [AWSPinpoint pinpointWithConfiguration:configuration];
 }
 
-- (void)initializePinpointWithConfiguration:(AWSPinpointConfiguration *)configuration {
-    [self initializePinpointWithConfiguration:configuration forceCreate:YES];
-}
-
-- (void)initializeMockApplicationWithOptOut:(BOOL)optOut {
+- (void)initializeMockApplicationWithRemoteNotifications:(BOOL)withRemoteNotifications {
     id mockApplication = OCMClassMock([UIApplication class]);
 
     OCMStub([mockApplication sharedApplication]).andReturn(mockApplication);
 
-    [self setSystemLevelOptOut:mockApplication withOptOut:optOut];
-}
-
-- (void)setSystemLevelOptOut:(UIApplication *)application withOptOut:(BOOL)optOut {
-    UIUserNotificationType notificationType = optOut ? UIUserNotificationTypeNone : UIUserNotificationTypeAlert;
+    UIUserNotificationType notificationType = withRemoteNotifications ? UIUserNotificationTypeNone : UIUserNotificationTypeAlert;
     UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:notificationType categories:nil];
-    OCMStub([application currentUserNotificationSettings]).andReturn(notificationSettings);
-    OCMStub([application isRegisteredForRemoteNotifications]).andReturn(optOut == NO);
-}
-
-- (void)setSystemLevelOptOut:(BOOL)optOut {
-    [self initializeMockApplicationWithOptOut:optOut];
+    OCMStub([mockApplication currentUserNotificationSettings]).andReturn(notificationSettings);
+    OCMStub([mockApplication isRegisteredForRemoteNotifications]).andReturn(withRemoteNotifications);
 }
 
 - (void)testConstructors {
@@ -249,49 +240,56 @@ static NSString *userId;
     [userDefaults synchronize];
 }
 
-- (void)testCurrentProfileWithSystemOptOutAndApplicationOptOut {
-    [self setSystemLevelOptOut:YES];
-    [self setApplicationLevelOptOut:YES];
+- (void)testCurrentProfileReturnsOptOutAll {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
+- (void)testCurrentProfileReturnsOptOutAllWhenNotificationsEnabledAndDeviceTokenNotSet {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:YES];
 
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
 }
 
-- (void)testCurrentProfileWithSystemOptOutAndApplicationOptIn {
-    [self setSystemLevelOptOut:YES];
-    [self setApplicationLevelOptOut:NO];
+- (void)testCurrentProfileReturnsOptOutAllWhenNotificationsDisabledAndDeviceTokenSet {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self setDeviceTokenInUserDefaults];
 
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
-
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
 }
 
-- (void)testCurrentProfileWithSystemOptOutAndApplicationOptOutUnset {
-    [self setSystemLevelOptOut:YES];
+- (void)testCurrentProfileReturnsOptOutNoneWhenNotificationsEnabledAndDeviceTokenSet {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:YES];
+    [self setDeviceTokenInUserDefaults];
 
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
+}
 
+- (void)testCurrentProfileReturnsOptOutAllForApplicationLevelOptOut {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:YES] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:YES];
+    [self setDeviceTokenInUserDefaults];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
 }
 
-- (void)testCurrentProfileWithSystemOptInAndApplicationOptOut {
-    [self setSystemLevelOptOut:NO];
-    [self setApplicationLevelOptOut:YES];
-
-    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
-
-    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
-}
-
-- (void) testCurrentProfileWithSystemOptInAndApplicationOptOutBackgroundThread {
+- (void) testCurrentProfileWithNotificationsEnabledBackgroundThread {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , ^{
-        [self setSystemLevelOptOut:NO];
-        [self setApplicationLevelOptOut:YES];
+        [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+        [self initializeMockApplicationWithRemoteNotifications:YES];
+        [self setDeviceTokenInUserDefaults];
 
         AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
-        XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+        XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
         [expectation fulfill];
         expectation = nil;
     });
@@ -301,22 +299,6 @@ static NSString *userId;
     }];
 }
 
-- (void)testCurrentProfileWithSystemOptInAndApplicationOptIn {
-    [self setSystemLevelOptOut:NO];
-    [self setApplicationLevelOptOut:NO];
-
-    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
-
-    XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
-}
-
-- (void)testCurrentProfileWithSystemOptInAndApplicationOptOutUnset {
-    [self setSystemLevelOptOut:NO];
-
-    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
-
-    XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
-}
 - (void)testCurrentProfile {
     [self validateCurrentProfile:NO forAppId:@"testCurrentProfileForAPNS"];
     [self validateCurrentProfile:YES forAppId:@"testCurrentProfileForAPNSSandbox"];

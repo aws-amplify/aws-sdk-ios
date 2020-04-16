@@ -122,7 +122,9 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 }
 
 - (void) setEndpointOptOut:(BOOL) applicationLevelOptOut {
-    BOOL isOptedOutForRemoteNotifications = ![AWSPinpointNotificationManager isNotificationEnabled];
+    BOOL isNotificationEnabled = [AWSPinpointNotificationManager isNotificationEnabled];
+    BOOL isOptedOutForRemoteNotifications = !(isNotificationEnabled && [_address length]);
+
     @synchronized (self) {
         self->_optOut = (applicationLevelOptOut || isOptedOutForRemoteNotifications)? @"ALL": @"NONE";
     }
