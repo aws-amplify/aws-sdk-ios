@@ -1,3 +1,23 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---amazonrelationaldatabaseservice
+---awsmediatailor
+---awssecurityhub
+---amazonsagemakerservice
+---awsmigrationhub
+---awselementalmediaconvert
+---ec2imagebuilder
+---awsiotevents
+---amazonelasticcomputecloud
+---amazonimportexportsnowball
+---awslambda
+---amazonaugmentedairuntime
+---awsglue
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.13.2
