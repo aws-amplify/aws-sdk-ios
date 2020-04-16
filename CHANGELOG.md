@@ -1,3 +1,11 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---amazonsimplesystemsmanagerssm
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## 2.13.2
