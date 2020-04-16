@@ -77,7 +77,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointEventRecorder
@@ -326,7 +326,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     }];
 }
 
-- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes {
+- (AWSTask*) updateSessionStartWithEventSourceAttributes:(NSDictionary*) attributes {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSString *sessionId = [self validateOrRetrieveSessionId:self.context.sessionClient.session.sessionId];
     

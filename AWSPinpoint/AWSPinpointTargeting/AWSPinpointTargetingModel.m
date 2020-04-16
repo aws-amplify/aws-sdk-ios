@@ -5789,6 +5789,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"body" : @"Body",
              @"keyword" : @"Keyword",
+             @"mediaUrl" : @"MediaUrl",
              @"messageType" : @"MessageType",
              @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",

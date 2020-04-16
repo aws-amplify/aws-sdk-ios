@@ -350,6 +350,56 @@ FOUNDATION_EXPORT NSString *const AWSRekognitionSDKVersion;
 - (void)deleteFaces:(AWSRekognitionDeleteFacesRequest *)request completionHandler:(void (^ _Nullable)(AWSRekognitionDeleteFacesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes an Amazon Rekognition Custom Labels project. To delete a project you must first delete all versions of the model associated with the project. To delete a version of a model, see <a>DeleteProjectVersion</a>.</p><p>This operation requires permissions to perform the <code>rekognition:DeleteProject</code> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteProject service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSRekognitionDeleteProjectResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSRekognitionErrorDomain` domain and the following error code: `AWSRekognitionErrorResourceInUse`, `AWSRekognitionErrorResourceNotFound`, `AWSRekognitionErrorInvalidParameter`, `AWSRekognitionErrorAccessDenied`, `AWSRekognitionErrorInternalServer`, `AWSRekognitionErrorThrottling`, `AWSRekognitionErrorProvisionedThroughputExceeded`.
+ 
+ @see AWSRekognitionDeleteProjectRequest
+ @see AWSRekognitionDeleteProjectResponse
+ */
+- (AWSTask<AWSRekognitionDeleteProjectResponse *> *)deleteProject:(AWSRekognitionDeleteProjectRequest *)request;
+
+/**
+ <p>Deletes an Amazon Rekognition Custom Labels project. To delete a project you must first delete all versions of the model associated with the project. To delete a version of a model, see <a>DeleteProjectVersion</a>.</p><p>This operation requires permissions to perform the <code>rekognition:DeleteProject</code> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteProject service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSRekognitionErrorDomain` domain and the following error code: `AWSRekognitionErrorResourceInUse`, `AWSRekognitionErrorResourceNotFound`, `AWSRekognitionErrorInvalidParameter`, `AWSRekognitionErrorAccessDenied`, `AWSRekognitionErrorInternalServer`, `AWSRekognitionErrorThrottling`, `AWSRekognitionErrorProvisionedThroughputExceeded`.
+ 
+ @see AWSRekognitionDeleteProjectRequest
+ @see AWSRekognitionDeleteProjectResponse
+ */
+- (void)deleteProject:(AWSRekognitionDeleteProjectRequest *)request completionHandler:(void (^ _Nullable)(AWSRekognitionDeleteProjectResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a version of a model. </p><p>You must first stop the model before you can delete it. To check if a model is running, use the <code>Status</code> field returned from <a>DescribeProjectVersions</a>. To stop a running model call <a>StopProjectVersion</a>. </p><p>This operation requires permissions to perform the <code>rekognition:DeleteProjectVersion</code> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteProjectVersion service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSRekognitionDeleteProjectVersionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSRekognitionErrorDomain` domain and the following error code: `AWSRekognitionErrorResourceNotFound`, `AWSRekognitionErrorResourceInUse`, `AWSRekognitionErrorInvalidParameter`, `AWSRekognitionErrorAccessDenied`, `AWSRekognitionErrorInternalServer`, `AWSRekognitionErrorThrottling`, `AWSRekognitionErrorProvisionedThroughputExceeded`.
+ 
+ @see AWSRekognitionDeleteProjectVersionRequest
+ @see AWSRekognitionDeleteProjectVersionResponse
+ */
+- (AWSTask<AWSRekognitionDeleteProjectVersionResponse *> *)deleteProjectVersion:(AWSRekognitionDeleteProjectVersionRequest *)request;
+
+/**
+ <p>Deletes a version of a model. </p><p>You must first stop the model before you can delete it. To check if a model is running, use the <code>Status</code> field returned from <a>DescribeProjectVersions</a>. To stop a running model call <a>StopProjectVersion</a>. </p><p>This operation requires permissions to perform the <code>rekognition:DeleteProjectVersion</code> action. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteProjectVersion service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSRekognitionErrorDomain` domain and the following error code: `AWSRekognitionErrorResourceNotFound`, `AWSRekognitionErrorResourceInUse`, `AWSRekognitionErrorInvalidParameter`, `AWSRekognitionErrorAccessDenied`, `AWSRekognitionErrorInternalServer`, `AWSRekognitionErrorThrottling`, `AWSRekognitionErrorProvisionedThroughputExceeded`.
+ 
+ @see AWSRekognitionDeleteProjectVersionRequest
+ @see AWSRekognitionDeleteProjectVersionResponse
+ */
+- (void)deleteProjectVersion:(AWSRekognitionDeleteProjectVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSRekognitionDeleteProjectVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with <a>CreateStreamProcessor</a>. You might not be able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteStreamProcessor service method.
