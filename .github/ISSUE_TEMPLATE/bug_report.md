@@ -23,13 +23,13 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Stack Trace**
-Please provide a stack trace if applicable i.e. a crash is occurring.
+Please provide a stack trace if applicable e.g. a crash is occurring.
 
 **Code Snippet**
 Please provide a snippet of the code causing the issue or how you are using the service that has the bug.
 
-**Unique Config**
-If you are reporting an issue with a unique configuration or where configuration can make a difference in code execution (i.e. Cognito) please provide your configuration.
+**Unique Configuration**
+If you are reporting an issue with a unique configuration or where configuration can make a difference in code execution (i.e. Cognito) please provide your configuration. Please make sure to obfuscate sensitive information from the configuration before posting.
 
 **Areas of the SDK you are using (AWSMobileClient, Cognito, Pinpoint, IoT, etc)?**
 
