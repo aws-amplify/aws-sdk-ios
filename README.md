@@ -56,17 +56,18 @@ You should use ONE and only one of these ways to import the AWS Mobile SDK. Impo
         $ sudo gem install cocoapods
         $ pod setup
 
-2. In your project directory (the directory where your `*.xcodeproj` file is), run the following to create a `Podfile` in your.
+2. In your project directory (the directory where your `*.xcodeproj` file is), run the following to create a `Podfile` in your project.
 
         $ pod init
 
 3. Edit the podfile to include the pods you want to integrate into your project.  For example, if you need auth, you can use AWSMobileClient, and if you need analytics, you add AWSPinpoint.  As a result, your podfile might look something like this:
-
+```
 target 'YourTarget' do
     pod 'AWSMobileClient'
     pod 'AWSPinpoint'
 end
-        
+```
+
 3. Then run the following command:
     
         $ pod install --repo-update
