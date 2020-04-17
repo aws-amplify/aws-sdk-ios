@@ -1,11 +1,13 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.13.2
+## Unreleased
 
 ### Misc. Updates
 - Model updates for the following services
   - Amazon EC2
   - Amazon Transcribe
+  
+## 2.13.2
 
 ### New features
 - **AWSMobileClient** 
