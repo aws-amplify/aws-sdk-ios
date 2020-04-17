@@ -68,6 +68,8 @@ target 'YourTarget' do
 end
 ```
 
+For a complete list of our pods, check out the .podspec files in the root directory of this project.
+
 3. Then run the following command:
     
         $ pod install --repo-update
