@@ -55,6 +55,7 @@ grouped_frameworks = [
         'AWSTranscribe',
         'AWSTranscribeStreaming',
         'AWSTranslate',
+        'AWSSSM',
     ],
 
     # Depends only on AWSCognito service-api package
