@@ -296,6 +296,7 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
 static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
 static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
+static NSString *const AWSServiceNameSSM = @"ssm";
 
 @interface AWSEndpoint()
 
@@ -558,6 +559,8 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSServiceNameTranscribeStreaming;
         case AWSServiceTranslate:
             return AWSServiceNameTranslate;
+        case AWSServiceSSM:
+            return AWSServiceNameSSM;
         default:
             return nil;
     }

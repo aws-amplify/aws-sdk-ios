@@ -847,7 +847,7 @@ NSString *const AWSSSMErrorDomain = @"com.amazonaws.AWSSSMErrorDomain";
 
 + (NSValueTransformer *)targetMapsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
-        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[java.util.List<NSString> class]];
+        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[NSMutableArray<NSString *> class]]; //mapMTLArrayFromJSONArray:JSONArray withModelClass:[java.util.List<NSString> class]];
     } reverseBlock:^id(id mapMTLArray) {
         return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
     }];
@@ -1070,7 +1070,7 @@ NSString *const AWSSSMErrorDomain = @"com.amazonaws.AWSSSMErrorDomain";
 
 + (NSValueTransformer *)targetMapsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
-        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[java.util.List<NSString> class]];
+        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[NSMutableArray<NSString *> class]];
     } reverseBlock:^id(id mapMTLArray) {
         return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
     }];
@@ -10149,7 +10149,7 @@ NSString *const AWSSSMErrorDomain = @"com.amazonaws.AWSSSMErrorDomain";
 
 + (NSValueTransformer *)targetMapsJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONArray) {
-        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[java.util.List<NSString> class]];
+        return [AWSModelUtility mapMTLArrayFromJSONArray:JSONArray withModelClass:[NSMutableArray<NSString *> class]];
     } reverseBlock:^id(id mapMTLArray) {
         return [AWSModelUtility JSONArrayFromMapMTLArray:mapMTLArray];
     }];

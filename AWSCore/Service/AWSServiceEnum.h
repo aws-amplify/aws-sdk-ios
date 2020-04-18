@@ -284,6 +284,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Translate
      */
     AWSServiceTranslate NS_SWIFT_NAME(Translate),
+    /**
+     *  Amazon Systems Manager
+     */
+    AWSServiceSSM NS_SWIFT_NAME(SSM),
     
 };
 
