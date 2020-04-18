@@ -398,6 +398,8 @@ jobs:
           key: test_result-{{ .Revision }}-TranscribeStreaming
       - restore_cache:
           key: test_result-{{ .Revision }}-Translate
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SSM
       - store_artifacts:
           path: integration_test_result
       - run:
@@ -1144,7 +1146,18 @@ workflows:
               only:
                 - master
                 - develop
-
+               
+      - integrationtest:
+          name: SSM
+          groupname: SSM
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      
       - integrationtest:
           name: Transcribe
           groupname: Transcribe
@@ -1217,6 +1230,7 @@ workflows:
             - SNS
             - SQS
             - SageMakerRuntime
+            - SSM
             - Textract
             - Transcribe
             - TranscribeStreaming
@@ -1577,6 +1591,16 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - integrationtest:
+          name: SSM
+          groupname: SSM
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
             - AWSMobileClient
@@ -1610,6 +1634,7 @@ workflows:
             - SageMakerRuntime
             - Connect
             - ConnectParticipant
+            - SSM
           filters:
             branches:
               ignore: /.*/
