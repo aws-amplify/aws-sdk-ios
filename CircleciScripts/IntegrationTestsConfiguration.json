@@ -283,5 +283,10 @@
     "test_list": {
       "AWSTranslateTests": {}
     }
+  },
+  "SSM": {
+    "test_list": {
+      "AWSSSMTests": {}
+    }
   }
 }
