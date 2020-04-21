@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---amazonelasticmapreduce
+---amazonroute53domains
+---awscostexplorerservice
+---amazonguardduty
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
