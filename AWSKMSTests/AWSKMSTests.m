@@ -31,7 +31,8 @@
     
     _sharedKeyMetadata = nil;
     
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    // Setup session based credentials to use for tests.
+    [AWSTestUtility setupSTSBasedSessionCredentialsProvider];
     self.kms = [AWSKMS defaultKMS];
 
     _sharedKeyMetadata = [self createKey];

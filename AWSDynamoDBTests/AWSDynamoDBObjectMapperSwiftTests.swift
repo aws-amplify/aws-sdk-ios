@@ -67,7 +67,8 @@ class TestObjectV2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
 class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        // Setup session based credentials to use for tests.
+        AWSTestUtility.setupSTSBasedSessionCredentialsProvider()
 
         let timeIntervalSinceReferenceDate = Int(Date().timeIntervalSinceReferenceDate)
         tableName = "DynamoDBOMTestSwift-\(timeIntervalSinceReferenceDate)"
