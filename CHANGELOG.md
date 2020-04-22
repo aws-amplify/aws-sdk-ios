@@ -1,6 +1,9 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
+### New features
+- **Integration Tests Refactor** 
+  - Change the integration test suites to use temporary session credentials
 
 ### Bug Fixes
 - **Amazon Pinpoint**
