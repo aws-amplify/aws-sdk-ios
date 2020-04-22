@@ -30,7 +30,8 @@
 - (void)setUp
 {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    // Setup session based credentials to use for tests.
+    [AWSTestUtility setupSTSBasedSessionCredentialsProvider];
 }
 
 - (void)tearDown
