@@ -8041,6 +8041,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSString * _Nullable keyword;
 
 /**
+ <p>The URL of an image or video to display in the SMS message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mediaUrl;
+
+/**
  <p>The SMS message type. Valid values are: TRANSACTIONAL, the message is critical or time-sensitive, such as a one-time password that supports a customer transaction; and, PROMOTIONAL, the message is not critical or time-sensitive, such as a marketing message.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingMessageType messageType;

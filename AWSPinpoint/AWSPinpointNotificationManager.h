@@ -24,8 +24,22 @@ FOUNDATION_EXPORT NSString * const AWSDeviceTokenKey;
 FOUNDATION_EXPORT NSString * const AWSDataKey;
 FOUNDATION_EXPORT NSString * const AWSPinpointKey;
 FOUNDATION_EXPORT NSString * const AWSPinpointCampaignKey;
+FOUNDATION_EXPORT NSString * const AWSPinpointJourneyKey;
 
 @interface AWSPinpointNotificationManager : NSObject
+
+typedef NS_ENUM(NSInteger, AWSPinpointPushActionType) {
+    AWSPinpointPushActionTypeOpened,
+    AWSPinpointPushActionTypeReceivedForeground,
+    AWSPinpointPushActionTypeReceivedBackground,
+    AWSPinpointPushActionTypeUnknown
+};
+
+typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
+    AWSPinpointPushEventSourceTypeCampaign,
+    AWSPinpointPushEventSourceTypeJourney,
+    AWSPinpointPushEventSourceTypeUnknown
+};
 
 #pragma mark - Notification Helpers
 /**

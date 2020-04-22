@@ -25,7 +25,7 @@ static id _mockNSBundle;
 #pragma mark - Expose initializers & properties for testing
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 #pragma mark - Test class

@@ -109,7 +109,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         
         //this updates demograhpic information.
         _location = [AWSPinpointEndpointProfileLocation new];
-        _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
+        _demographic = self.customDemographic ?: [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
     }
 }

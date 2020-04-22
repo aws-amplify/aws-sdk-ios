@@ -20,7 +20,7 @@
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @interface AWSPinpointEventRecorderBatchTests : AWSPinpointEventRecorderTestBase
