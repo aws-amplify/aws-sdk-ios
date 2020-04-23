@@ -155,16 +155,6 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
     return self;
 }
 
-- (instancetype)initWithRegionName:(NSString *)regionName
-               credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
-    
-    AWSRegionType regionType = [AWSEndpoint regionTypeFromName: regionName];
-    self = [self initWithRegion:regionType credentialsProvider:credentialsProvider];
-    
-    return self;
-}
-
-
 + (NSString *)baseUserAgent {
     static NSString *_userAgent = nil;
     static dispatch_once_t onceToken;
@@ -487,55 +477,6 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return nil;
     }
 }
-
-+ (AWSRegionType)regionTypeFromName:(NSString *)regionName {
-    if ([regionName isEqualToString:(AWSRegionNameUSEast1)])
-        return AWSRegionUSEast1;
-    else if ([regionName isEqualToString:(AWSRegionNameUSEast2)])
-        return AWSRegionUSEast2;
-    else if ([regionName isEqualToString:(AWSRegionNameUSWest1)])
-         return AWSRegionUSWest1;
-    else if ([regionName isEqualToString:(AWSRegionNameUSWest2)])
-         return AWSRegionUSWest2;
-    else if ([regionName isEqualToString:(AWSRegionNameEUWest1)])
-         return AWSRegionEUWest1;
-    else if ([regionName isEqualToString:(AWSRegionNameEUWest2)])
-         return AWSRegionEUWest2;
-    else if ([regionName isEqualToString:(AWSRegionNameEUCentral1)])
-         return AWSRegionEUCentral1;
-    else if ([regionName isEqualToString:(AWSRegionNameAPSoutheast1)])
-         return AWSRegionAPSoutheast1;
-    else if ([regionName isEqualToString:(AWSRegionNameAPSoutheast2)])
-         return AWSRegionAPSoutheast2;
-    else if ([regionName isEqualToString:(AWSRegionNameAPNortheast1)])
-         return AWSRegionAPNortheast1;
-    else if ([regionName isEqualToString:(AWSRegionNameAPNortheast2)])
-         return AWSRegionAPNortheast2;
-    else if ([regionName isEqualToString:(AWSRegionNameAPSouth1)])
-         return AWSRegionAPSouth1;
-    else if ([regionName isEqualToString:(AWSRegionNameSAEast1)])
-         return AWSRegionSAEast1;
-    else if ([regionName isEqualToString:(AWSRegionNameCNNorth1)])
-         return AWSRegionCNNorth1;
-    else if ([regionName isEqualToString:(AWSRegionNameCACentral1)])
-         return AWSRegionCACentral1;
-    else if ([regionName isEqualToString:(AWSRegionNameUSGovWest1)])
-         return AWSRegionUSGovWest1;
-    else if ([regionName isEqualToString:(AWSRegionNameCNNorthWest1)])
-         return AWSRegionCNNorthWest1;
-    else if ([regionName isEqualToString:(AWSRegionNameEUWest3)])
-         return AWSRegionEUWest3;
-    else if ([regionName isEqualToString:(AWSRegionNameUSGovEast1)])
-         return AWSRegionUSGovEast1;
-    else if ([regionName isEqualToString:(AWSRegionNameEUNorth1)])
-         return AWSRegionEUNorth1;
-    else if ([regionName isEqualToString:(AWSRegionNameAPEast1)])
-         return AWSRegionAPEast1;
-    else if ([regionName isEqualToString:(AWSRegionNameMESouth1)])
-         return AWSRegionMESouth1;
-    else return AWSRegionUnknown;
-}
-
 
 - (NSString *)serviceNameFromType:(AWSServiceType)serviceType {
     switch (serviceType) {
