@@ -31,8 +31,7 @@
     
     _sharedKeyMetadata = nil;
     
-    // Setup session based credentials to use for tests.
-    [AWSTestUtility setupSTSBasedSessionCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
     self.kms = [AWSKMS defaultKMS];
 
     _sharedKeyMetadata = [self createKey];
