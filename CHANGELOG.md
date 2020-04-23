@@ -2,8 +2,8 @@
 
 ## Unreleased
 ### New features
-- **Integration Tests Refactor** 
-  - Change the integration test suites to use temporary session credentials
+- **Integration Tests** 
+   - AWS Mobile SDK for iOS integration tests are now provisioned from a CloudFormation stack created by [the new amplify-ci-support package](LINK TBD). See [the README](LINK TBD) for details on how to provision your account to run integration tests.
 
 ### Bug Fixes
 - **Amazon Pinpoint**

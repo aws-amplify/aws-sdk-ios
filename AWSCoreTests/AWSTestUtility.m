@@ -65,7 +65,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     [super initialize];
 }
 
-+ (void) setupSTSBasedSessionCredentialsProvider {
++ (void) setupSessionCredentialsProvider {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
                                                                           ofType:@"json"];
     NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
@@ -75,8 +75,8 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                initWithAccessKey:credentialsJson[@"accessKey"]
                                                                        secretKey:credentialsJson[@"secretKey"]
                                                                     sessionToken:credentialsJson[@"sessionToken"]];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                         credentialsProvider:credentialsProvider];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegionName: credentialsJson[@"region"]
+                                                                             credentialsProvider:credentialsProvider];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
