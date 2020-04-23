@@ -318,8 +318,7 @@ static NSString *tableNameKeyOnly = nil;
 
 + (void)setUp {
     [super setUp];
-    // Setup session based credentials to use for tests.
-    [AWSTestUtility setupSTSBasedSessionCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     tableName = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBObjectMapperTestTable, timeIntervalSinceReferenceDate];

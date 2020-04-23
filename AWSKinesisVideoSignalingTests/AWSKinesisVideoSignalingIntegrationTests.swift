@@ -21,8 +21,7 @@ class AWSKinesisVideoSignalingIntegrationTests: XCTestCase {
 
     override class func setUp() {
         super.setUp()
-        // Setup session based credentials to use for tests.
-        AWSTestUtility.setupSTSBasedSessionCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
     }
 
     override func tearDown() {

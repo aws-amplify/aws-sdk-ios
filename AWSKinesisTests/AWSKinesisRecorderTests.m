@@ -32,8 +32,7 @@ static NSString *testStreamName = nil;
 
 + (void)setUp {
     [super setUp];
-    // Setup session based credentials to use for tests.
-    [AWSTestUtility setupSTSBasedSessionCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testStreamName = [NSString stringWithFormat:@"%@-%f", AWSKinesisRecorderTestStream, timeIntervalSinceReferenceDate];
