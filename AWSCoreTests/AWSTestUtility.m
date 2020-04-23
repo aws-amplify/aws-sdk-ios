@@ -75,8 +75,8 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                initWithAccessKey:credentialsJson[@"accessKey"]
                                                                        secretKey:credentialsJson[@"secretKey"]
                                                                     sessionToken:credentialsJson[@"sessionToken"]];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegionName: credentialsJson[@"region"]
-                                                                             credentialsProvider:credentialsProvider];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion: [credentialsJson[@"region"] aws_regionTypeValue]
+                                                                         credentialsProvider:credentialsProvider];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
