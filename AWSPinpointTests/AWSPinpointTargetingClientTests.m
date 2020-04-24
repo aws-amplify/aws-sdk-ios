@@ -22,7 +22,7 @@
 #import "AWSPinpointNotificationManager.h"
 
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
-
+NSString *const AWSDeviceToken = @"com.amazonaws.AWSDeviceTokenKey";
 static NSString *userId;
 
 @interface AWSPinpointTargetingClientTests : XCTestCase
@@ -55,8 +55,7 @@ static NSString *userId;
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointTargetingClientTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointTargetingClientTests"];
 
-    [self initializeMockApplicationWithRemoteNotifications:NO];
-    [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
+    //[self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointAttributesKey"];
     [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointMetricsKey"];
     [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
@@ -133,6 +132,7 @@ static NSString *userId;
 }
 
 - (void)testEndpointProfileInformationPersistence {
+    [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     NSString *dummyAppId = @"dummyAppId";
     [self.pinpoint.configuration.userDefaults removeObjectForKey:@"AWSPinpointEndpointProfileKey"];
     [self.pinpoint.configuration.userDefaults synchronize];
@@ -257,6 +257,7 @@ static NSString *userId;
 
 - (void)testCurrentProfileReturnsOptOutAllWhenNotificationsDisabledAndDeviceTokenSet {
     [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:NO];
     [self setDeviceTokenInUserDefaults];
 
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
@@ -281,7 +282,7 @@ static NSString *userId;
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
 }
 
-- (void) testCurrentProfileWithNotificationsEnabledBackgroundThread {
+- (void) testCurrentProfileReturnsOptOutNoneWithNotificationsEnabledAndDeviceTokenSetOnBackgroundThread {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , ^{
@@ -295,6 +296,24 @@ static NSString *userId;
         expectation = nil;
     });
     
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
+        XCTAssertNil(error);
+    }];
+}
+
+- (void) testCurrentProfileReturnsOptOutAllWithNotificationsEnabledAndDeviceTokenNotSetOnBackgroundThread {
+    __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , ^{
+        [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+        [self initializeMockApplicationWithRemoteNotifications:YES];
+
+        AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+        XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+        [expectation fulfill];
+        expectation = nil;
+    });
+
     [self waitForExpectationsWithTimeout:5 handler:^(NSError * _Nullable error) {
         XCTAssertNil(error);
     }];
@@ -361,6 +380,7 @@ static NSString *userId;
 }
 
 - (void)testUpdateEndpointProfileWithProfile {
+    [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     AWSPinpointEndpointProfile *endpointProfile = [self.pinpoint.targetingClient currentEndpointProfile];
     endpointProfile.user.userId = userId;
     [[[self.pinpoint.targetingClient updateEndpointProfile:endpointProfile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -430,6 +450,7 @@ static NSString *userId;
 }
 
 - (void) testGlobalAttributeValidation {
+    [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     @try {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
@@ -530,6 +551,7 @@ static NSString *userId;
 }
 
 - (void) testGlobalMetricValidation {
+    [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     @try {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
