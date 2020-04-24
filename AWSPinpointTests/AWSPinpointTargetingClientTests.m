@@ -22,6 +22,10 @@
 #import "AWSPinpointNotificationManager.h"
 
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
+NSString *const AWSPinpointTargetingClientTestsName = @"AWSPinpointTargetingClientTests";
+NSString *const AWSPinpointEndpointAttributesKey = @"AWSPinpointEndpointAttributesKey";
+NSString *const AWSPinpointEndpointMetricsKey = @"AWSPinpointEndpointMetricsKey";
+NSString *const AWSPinpointEndpointProfileKey = @"AWSPinpointEndpointProfileKey";
 NSString *const AWSDeviceToken = @"com.amazonaws.AWSDeviceTokenKey";
 static NSString *userId;
 
@@ -52,12 +56,10 @@ static NSString *userId;
     [super setUp];
 
     [AWSTestUtility setupCognitoCredentialsProvider];
-    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointTargetingClientTests"];
-    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointTargetingClientTests"];
-
-    //[self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
-    [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointAttributesKey"];
-    [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointMetricsKey"];
+    [[NSUserDefaults standardUserDefaults] removeSuiteNamed:AWSPinpointTargetingClientTestsName];
+    self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:AWSPinpointTargetingClientTestsName];
+    [self.userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
+    [self.userDefaults removeObjectForKey:AWSPinpointEndpointMetricsKey];
     [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
     [self.userDefaults synchronize];
 }
@@ -134,7 +136,7 @@ static NSString *userId;
 - (void)testEndpointProfileInformationPersistence {
     [self initializePinpointWithConfiguration:[self getDefaultAWSPinpointConfiguration] forceCreate:NO];
     NSString *dummyAppId = @"dummyAppId";
-    [self.pinpoint.configuration.userDefaults removeObjectForKey:@"AWSPinpointEndpointProfileKey"];
+    [self.pinpoint.configuration.userDefaults removeObjectForKey:AWSPinpointEndpointProfileKey];
     [self.pinpoint.configuration.userDefaults synchronize];
     AWSPinpointEndpointProfile *endpointProfile = [self.pinpoint.targetingClient currentEndpointProfile];
     endpointProfile.user.userId = userId;
@@ -142,7 +144,7 @@ static NSString *userId;
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
-    XCTAssertNotNil([self.pinpoint.configuration.userDefaults objectForKey:@"AWSPinpointEndpointProfileKey"]);
+    XCTAssertNotNil([self.pinpoint.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey]);
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
     XCTAssertTrue([profile.user.userId isEqualToString:userId]);
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:self.configuration];
