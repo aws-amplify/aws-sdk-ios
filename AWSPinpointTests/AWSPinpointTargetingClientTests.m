@@ -95,6 +95,7 @@ static NSString *userId;
     NSData *currentTokenData = [[NSData alloc] initWithBytes:currentTokenBytes length:16];
     [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
     [self.userDefaults setObject:currentTokenData forKey:AWSDeviceTokenKey];
+    [self.userDefaults synchronize];
 }
 
 - (void)initializePinpointWithConfiguration:(AWSPinpointConfiguration *)configuration forceCreate:(BOOL)forceCreate {
@@ -115,7 +116,7 @@ static NSString *userId;
 
     OCMStub([mockApplication sharedApplication]).andReturn(mockApplication);
 
-    UIUserNotificationType notificationType = withRemoteNotifications ? UIUserNotificationTypeNone : UIUserNotificationTypeAlert;
+    UIUserNotificationType notificationType = withRemoteNotifications ? UIUserNotificationTypeAlert : UIUserNotificationTypeNone;
     UIUserNotificationSettings *notificationSettings = [UIUserNotificationSettings settingsForTypes:notificationType categories:nil];
     OCMStub([mockApplication currentUserNotificationSettings]).andReturn(notificationSettings);
     OCMStub([mockApplication isRegisteredForRemoteNotifications]).andReturn(withRemoteNotifications);
